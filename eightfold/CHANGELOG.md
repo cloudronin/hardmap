@@ -183,3 +183,17 @@
   multiplet is genuine; A4 leads with it.** Cai–Chen added to `ENTAILMENT_LAYER` as *informational* (R6,
   forbids nothing — "APX-complete ⟹ FPT" is false: Independent Set is APX-ish and W[1]-hard). **47 tests** (+3),
   0 folklore, validate exit 0. **Next: A4 closes the box.**
+- **A4 — Move One CLOSED** (`docs/findings/A4-charge-atlas-move-one.md`). The capstone synthesis: *is hardness
+  a vector?* — **yes, with earned internal structure.** Leads with the R25-audited multiplet; names the
+  **counting-folklore gap** as the headline finding (37/86 applicable counting cells cited = 43%; the field
+  assumes but has not published #P-completeness for ~⅔ of well-studied problems); frames the gap frontier as
+  **two facts, not 56 cells** — the thin 6-problem NP-intermediate bestiary, and the uninhabited rigorous
+  average-case × landscape cell (`hard-on-average-provable` {permanent,SIS,LWE} ∩ `clustering-proven`
+  {xor-sat,VC,clique,IS,number-partitioning,max-cut} = ∅), the sharpest "should an inhabitant exist" question
+  and one the Census instrument line can attack empirically. Honest deep-vs-definitional split: part of H1's
+  dimensionality is the R1 type-of-object partition (definitional), the multiplets + folklore gap + frontier
+  are the empirical yield; one approving line on family_separation reading low (families could fail to cluster,
+  and did — the multiplets were earned). **Move-Two prerequisites** ordered: object-existence predicate FIRST
+  (before any v2 roster), then the frontier attack, matrix-wide R25 bridge subtraction, counting backfill, and
+  a candidate v2 charge 9 (fine-grained). **Move One is closed: the atlas exists, is honest about its holes,
+  and its structure survives the checks brought against it.**
