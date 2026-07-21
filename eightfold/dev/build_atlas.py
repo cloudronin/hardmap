@@ -123,6 +123,18 @@ VEB81 = "van Emde Boas, Another NP-complete problem and the complexity of comput
 DKRS = "Dinur, Kindler, Raz & Safra, Approximating CVP to within almost-polynomial factors is NP-hard, Combinatorica 23 (2003)"
 MARX06 = "Marx, Parameterized graph separation problems, TCS 351 (2006) [multiway cut FPT]"
 KHOT02 = "Khot, On the power of unique 2-prover 1-round games, STOC 2002 [UGC]"
+# batch 3 citations
+REGEV = "Regev, On lattices, learning with errors, random linear codes, and cryptography, JACM 56 (2009)"
+KABANETS_CAI = "Kabanets & Cai, Circuit minimization problem, STOC 2000 [MCSP]"
+HOPTAR = "Hopcroft & Tarjan, Efficient planarity testing, JACM 21 (1974)"
+KASTELEYN = "Kasteleyn (1961) / FKT: perfect matchings of a PLANAR graph counted in poly time"
+UMANS = "Umans, The minimum equivalent DNF problem is Sigma_2^p-complete, FOCS 1998"
+PY86 = "Papadimitriou & Yannakakis, A note on the succinct representation of graphs, Inf. Control 71 (1986) [succinct => NEXP]"
+REED_OCT = "Reed, Smith & Vetta, Finding odd cycle transversals, Oper. Res. Lett. 32 (2004) [FPT]"
+GRAMM_CE = "Gramm, Guo, Huffner & Niedermeier, FPT algorithms for cluster editing, Theory Comput. Syst. 38 (2005)"
+GJS76 = "Garey, Johnson & Stockmeyer, Some simplified NP-complete graph problems, TCS 1 (1976) [planar 3-coloring]"
+AKR95 = "Agrawal, Klein & Ravi, When trees collide: 2-approximation for generalized Steiner problems, SIAM J. Comput. 24 (1995)"
+VARDI82 = "Vardi, The complexity of relational query languages, STOC 1982 [FO model checking]"
 
 # ── the Census C2 banked experiment artifact (R9) ─────────────────────────────────────────────────────────
 CENSUS_C2 = {
@@ -978,6 +990,175 @@ ROWS.append(entry("job-shop-scheduling", "Job-Shop Scheduling", "optimization",
     op("average_case", "not curated"),
     na("landscape", "not a random-ensemble solution-geometry object"),
     ]))
+
+
+# ========================= A2 batch 3 (populate the R22 decision rungs + more witnesses) =========================
+
+ROWS.append(entry("lwe", "Learning With Errors (LWE)", "lattice",
+    "random noisy linear system mod q (average-case-defined); recover the secret", [
+    op("decision", "LWE is average-case-defined; a worst-case decision version is not standard"),
+    na("counting", "not a solution-counting problem"),
+    na("approximation", "not an NP-optimization problem"),
+    na("parameterized", "no standard parameterization"),
+    op("parallelization", "not curated"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "hard-on-average-provable", "average-case LWE provably hard from worst-case lattice problems (Regev)", REGEV, note="worst-case GapSVP/SIVP => average-case LWE; INTER-problem reduction (not a self-reduction)", worst_to_average_self_reduction=False),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="With SIS, the second Ajtai/Regev worst-case-to-average lattice witness; the basis of modern lattice crypto."))
+ROWS.append(entry("mcsp", "Minimum Circuit Size Problem (MCSP)", "logic-proof",
+    "truth table + size s; decision: is there a circuit of size <= s computing it?", [
+    cell("decision", "NPI-candidate", "MCSP: in NP, famously not known NP-complete (nor in P)", KABANETS_CAI),
+    na("counting", "not a standard solution-counting problem"),
+    na("approximation", "not an NP-optimization problem in the standard sense"),
+    na("parameterized", "no standard parameterization curated"),
+    op("parallelization", "not curated"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="A rare natural NPI-candidate (with factoring/GI); central to meta-complexity."))
+ROWS.append(entry("planarity", "Planarity Testing", "graph",
+    "simple undirected graph, adjacency-list; decision: is it planar?", [
+    cell("decision", "P", "planarity testing in linear time (Hopcroft-Tarjan)", HOPTAR),
+    na("counting", "a decision property, not solution-counting"),
+    na("approximation", "decision problem, exactly solved"),
+    na("parameterized", "decision in P"),
+    cell("parallelization", "NC", "planarity testing is in NC (AC^1)", AB),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("planar-matching-count", "Counting Perfect Matchings (planar)", "graph",
+    "planar graph, adjacency-list; count perfect matchings", [
+    cell("decision", "P", "perfect matching existence in P (Edmonds)", EDM65),
+    cell("counting", "FP", "#perfect matchings of a PLANAR graph in poly time (FKT/Pfaffian)", KASTELEYN),
+    na("approximation", "exactly counted"),
+    na("parameterized", "in P for planar"),
+    op("parallelization", "FKT is poly-time; NC-membership not curated"),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Counting FP when PLANAR (FKT) -- the structured foil to the #P-complete general permanent/#matchings."))
+ROWS.append(entry("pi2-sat", "Pi_2-SAT (forall-exists QBF)", "logic-proof",
+    "QBF with one alternation (forall x exists y phi)", [
+    cell("decision", "PH-complete", "Pi_2^p-complete (second level of PH, co-side)", STOCK73, perspective="Pi_2^p"),
+    na("counting", "not an NP-solution-counting problem"),
+    na("approximation", "not an optimization problem"),
+    na("parameterized", "no standard parameterization curated"),
+    na("parallelization", "not a within-P decision problem"),
+    op("proof_size", "Pi_2-QBF proof systems studied; not curated"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Pi_2^p-complete: the co-sibling of Sigma_2-SAT at PH level 2."))
+ROWS.append(entry("dnf-minimization", "Minimum Equivalent DNF", "logic-proof",
+    "DNF formula + size k; decision: is there an equivalent DNF of size <= k?", [
+    cell("decision", "PH-complete", "minimum equivalent DNF is Sigma_2^p-complete", UMANS, perspective="Sigma_2^p"),
+    na("counting", "not a standard solution-counting problem"),
+    op("approximation", "hard to approximate; not curated"),
+    na("parameterized", "no standard parameterization curated"),
+    na("parallelization", "not a within-P decision problem"),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="A natural Sigma_2^p-complete problem (Umans) -- not artificial QBF."))
+ROWS.append(entry("succinct-3-coloring", "Succinct 3-Coloring", "logic-proof",
+    "graph given by a circuit (succinct representation); decision: 3-colorable?", [
+    cell("decision", "beyond-PSPACE", "succinct 3-coloring is NEXP-complete", PY86),
+    na("counting", "not curated at this level"),
+    na("approximation", "not curated"),
+    na("parameterized", "not curated"),
+    na("parallelization", "not a within-P decision problem"),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Populates beyond-PSPACE (NEXP-complete): succinctness lifts NPC to NEXP-complete."))
+ROWS.append(entry("odd-cycle-transversal", "Odd Cycle Transversal", "graph",
+    "simple undirected graph; delete <= k vertices to make bipartite", [
+    cell("decision", "NPC", "OCT decision", GJ),
+    cell("counting", "#P-complete", "#odd cycle transversals", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    op("approximation", "O(sqrt(log n)) approximation; no constant-factor / clean APX status"),
+    cell("parameterized", "FPT", "OCT is FPT via iterative compression (Reed-Smith-Vetta)", REED_OCT, perspective="solution size k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="FPT witness: iterative compression (Reed-Smith-Vetta)."))
+ROWS.append(entry("cluster-editing", "Cluster Editing", "graph",
+    "simple undirected graph; edit <= k edges to make a disjoint union of cliques", [
+    cell("decision", "NPC", "cluster editing decision", GJ),
+    cell("counting", "#P-complete", "#minimum cluster edit sets", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    cell("approximation", "APX-complete", "constant-factor approx + APX-hard", AK),
+    cell("parameterized", "FPT", "cluster editing is FPT in the edit budget", GRAMM_CE, perspective="edits k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("quadratic-assignment", "Quadratic Assignment (QAP)", "optimization",
+    "two n x n matrices (flow, distance); assign facilities to locations minimizing cost", [
+    cell("decision", "NPC", "QAP decision; strongly NP-hard", SG76),
+    cell("counting", "#P-complete", "#optimal assignments", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    cell("approximation", "inapprox", "no constant-factor approximation unless P=NP", SG76),
+    na("parameterized", "no standard parameterization curated"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("planar-3-coloring", "Planar 3-Coloring", "graph",
+    "planar graph, adjacency-list; decision: 3-colorable?", [
+    cell("decision", "NPC", "planar 3-coloring is NP-complete", GJS76),
+    cell("counting", "#P-complete", "#proper 3-colorings of a planar graph", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    op("approximation", "planar chromatic number is in {1..4} (4CT); 3-vs-4 NP-hardness gives a 4/3 barrier, clean value not curated"),
+    cell("parameterized", "FPT", "planar 3-coloring parameterized by treewidth", CYG, perspective="treewidth"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Planarity restriction keeps 3-coloring NPC (Garey-Johnson-Stockmeyer)."))
+ROWS.append(entry("steiner-forest", "Steiner Forest", "optimization",
+    "edge-weighted graph + terminal PAIRS; connect each pair minimizing total weight", [
+    cell("decision", "NPC", "Steiner forest decision (generalizes Steiner tree)", KARP),
+    cell("counting", "#P-complete", "#minimum Steiner forests", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    cell("approximation", "APX-complete", "2-approximation (Agrawal-Klein-Ravi) + APX-hard (from Steiner tree)", AKR95, note="2-approx AKR 1995; APX-hardness Bern-Plassmann"),
+    op("parameterized", "FPT status by #terminal-pairs is subtle; not curated"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("group-isomorphism", "Group Isomorphism (Cayley table)", "algebraic",
+    "two groups by multiplication table; decision: isomorphic?", [
+    cell("decision", "NPI-candidate", "group iso; n^(log n) time, not known NPC (easier than graph iso)", BABAI16, note="n^{O(log n)}; between P and GI"),
+    op("counting", "#automorphisms; polynomial-time-equivalent to the decision (like GI)"),
+    na("approximation", "a decision problem"),
+    na("parameterized", "no standard parameterization curated"),
+    op("parallelization", "not curated"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Another NPI-candidate; conjectured easier than graph isomorphism."))
+ROWS.append(entry("maximum-common-subgraph", "Maximum Common Subgraph", "graph",
+    "two graphs; find the largest graph isomorphic to a subgraph of both", [
+    cell("decision", "NPC", "MAX-COMMON-SUBGRAPH decision (contains CLIQUE / subgraph-iso)", GJ),
+    cell("counting", "#P-complete", "#maximum common subgraphs", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    cell("approximation", "inapprox", "as hard to approximate as MAX-CLIQUE (n^(1-eps))", HAST99),
+    cell("parameterized", "W[1]", "W[1]-hard (contains subgraph isomorphism by pattern size)", DF95, perspective="pattern size k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("first-order-model-checking", "First-Order Model Checking (combined)", "logic-proof",
+    "finite structure + first-order sentence; decision: does the structure satisfy it?", [
+    cell("decision", "PSPACE-complete", "FO model checking is PSPACE-complete in combined complexity", VARDI82),
+    na("counting", "not a standard solution-counting problem"),
+    na("approximation", "not an optimization problem"),
+    op("parameterized", "AW[*]-complete parameterized by formula; FPT on sparse classes (bounded expansion) -- nuanced, not curated"),
+    na("parallelization", "not a within-P decision problem"),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Populates PSPACE-complete (combined complexity), beyond TQBF."))
 
 
 def main():

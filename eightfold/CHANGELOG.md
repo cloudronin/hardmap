@@ -72,5 +72,15 @@
   `ORDINAL` so A3's ordinal-sensitivity check can't assert NP<coNP. Recoded tqbf→PSPACE-complete,
   tautology→coNP-complete, Σ₂-SAT→PH-complete/Σ₂ᵖ; edge-coloring/approx→`APX` (Vizing membership + Holyer 4/3
   barrier, R19). Network-reliability decision (PP-hard) held `open` — a candidate future `counting-hard` value.
-  35 tests; gate PASSES (decision 97 / counting 96 / approximation 89 / parameterized 85). Remaining: ~50 more
-  toward ~120, then A3.
+  35 tests; gate PASSES (decision 97 / counting 96 / approximation 89 / parameterized 85).
+- **A2 batch 3:** +15 problems populating the R22 decision rungs + witnesses — LWE (lattice, avg
+  `hard-on-average-provable` via Regev, beside SIS), MCSP + group-isomorphism (NPI-candidates), planarity
+  (P/NC), planar-matching-count (counting **FP** via FKT — the structured foil to #P-complete #matchings),
+  Π₂-SAT + dnf-minimization (PH-complete Π₂ᵖ/Σ₂ᵖ), succinct-3-coloring (**beyond-PSPACE**/NEXP-complete),
+  odd-cycle-transversal + cluster-editing (FPT), quadratic-assignment, planar-3-coloring, steiner-forest,
+  maximum-common-subgraph, first-order-model-checking (PSPACE-complete). Counting filled for all NPC rows.
+  **82 problems, 72.9% cited.** Per-charge gate: decision 96 / counting 95 / **approximation 84 / parameterized
+  82** — dipped just under 85% because batch 3 was PH/lattice-heavy with genuinely *open* approximability /
+  parameterized cells (not lazy gaps); a mid-A2 transient (the gate is an A2-COMPLETION target per prereg_v4),
+  **not** manufactured up. 35 tests. Remaining: ~38 toward ~120, expected to recover the gate as
+  NP-optimization batches (clean approx/param) are added.
