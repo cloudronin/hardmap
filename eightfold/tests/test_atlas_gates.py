@@ -63,10 +63,10 @@ def test_measured_rejected_on_decision_R9():
 
 def test_measured_allowed_on_landscape_with_experiment_R9():
     exp = {"prereg": "p", "manifest": "m", "seeds": "s", "code_commit": "c"}
-    ok = _entry({"landscape": _cell("landscape", "clustering-OGP-known", status="measured",
+    ok = _entry({"landscape": _cell("landscape", "freezing-measured", status="measured",
                                     prov={"experiment": exp})})
     assert atlas.validate(ok) == []
-    bad = _entry({"landscape": _cell("landscape", "clustering-OGP-known", status="measured", prov={})})
+    bad = _entry({"landscape": _cell("landscape", "freezing-measured", status="measured", prov={})})
     assert any("R9" in s for s in atlas.validate(bad))
 
 

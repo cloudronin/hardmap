@@ -70,9 +70,11 @@ CHARGE_REAL_VALUES: dict[str, frozenset[str]] = {
     # value (R18) — a value must be a difficulty status, not a relation.
     "average_case": frozenset({"easy-on-average", "hard-on-average-crypto",
                                "hard-on-average-provable", "hard-on-average-conjectured"}),
-    # R14 adds freezing-measured: self-measured backbone/freezing evidence, NOT a proven overlap-gap. Used for
-    # our own Census proof-space datum (no OGP theorem exists for proof space — an I3 novelty finding).
-    "landscape": frozenset({"clustering-OGP-known", "clustering-OGP-refuted", "freezing-measured"}),
+    # R24 splits landscape clustering by EVIDENCE GRADE: clustering-proven (a rigorous theorem for this
+    # problem's ensemble) vs clustering-physics (cavity/replica prediction only). The old
+    # `clustering-OGP-known` conflated the two (e.g. k=3 SAT clustering is physics; rigorous OGP is K>=8).
+    # R14 freezing-measured = self-measured backbone/freezing evidence, distinct from both (our Census datum).
+    "landscape": frozenset({"clustering-proven", "clustering-physics", "clustering-OGP-refuted", "freezing-measured"}),
 }
 
 

@@ -8,19 +8,19 @@
     "decision|parameterized": 0.37993449895538345,
     "decision|parallelization": 0.5945447863669933,
     "decision|proof_size": 0.4355100802253115,
-    "decision|landscape": 0.21758688972660253,
+    "decision|landscape": 0.13738989513122535,
     "counting|decision": 0.4595245615756888,
     "counting|parameterized": 0.4236312219821597,
     "counting|parallelization": 0.46108800795601407,
     "counting|proof_size": 0.17690211179262796,
-    "counting|landscape": 0.38789959654287814,
+    "counting|landscape": 0.3814117202821131,
     "approximation|decision": 0.158020675526925,
     "approximation|counting": 0.4087376885244182,
     "approximation|parameterized": 0.5182370808066253,
     "approximation|parallelization": 0.2825922379677398,
     "approximation|proof_size": 0.0,
     "approximation|average_case": 0.2655442499961242,
-    "approximation|landscape": 0.2866478528664683,
+    "approximation|landscape": 0.22947853544523178,
     "parameterized|proof_size": 0.0,
     "parallelization|parameterized": 0.39795317603690283,
     "parallelization|proof_size": 0.1626726459866233,
@@ -29,10 +29,10 @@
     "average_case|parameterized": 0.26584410129782327,
     "average_case|parallelization": 0.38160256752820043,
     "average_case|proof_size": 0.21881231491069358,
-    "average_case|landscape": 0.564718912188958,
-    "landscape|parameterized": 0.12757199970683836,
-    "landscape|parallelization": 0.03568781149922612,
-    "landscape|proof_size": 0.26842920017737176
+    "average_case|landscape": 0.48318826793508124,
+    "landscape|parameterized": 0.133012564909091,
+    "landscape|parallelization": 0.0,
+    "landscape|proof_size": 0.2872688987707996
   },
   "entailment_linked_pairs": [
     "counting|decision",
@@ -40,22 +40,22 @@
   ],
   "mca_full_table": {
     "eigenvalues": [
-      0.5955822525261243,
-      0.36048338668546365,
-      0.2939995511465224,
-      0.2824252523716339,
-      0.23749181004668493,
-      0.21919431031151612,
-      0.21525518053555368,
-      0.20859698847432728,
-      0.1782810446095951,
-      0.1596389100351898
+      0.5958107608293493,
+      0.3606106476863179,
+      0.2953517488699161,
+      0.28303822223334446,
+      0.23812511038449863,
+      0.22685736476085072,
+      0.2156090740037062,
+      0.20885013339241565,
+      0.18941130765293426,
+      0.15965896383686634
     ],
     "dims_above_threshold": 16,
     "threshold": 0.125,
-    "total_inertia": 4.625,
+    "total_inertia": 4.749999999999999,
     "n_problems": 118,
-    "n_categories": 45
+    "n_categories": 46
   },
   "mca_complete_case": {
     "eigenvalues": [
@@ -202,9 +202,9 @@
       "3sum": 5
     },
     "family_cohesion": {
-      "intra_family_mean_similarity": 0.5677627535341119,
-      "inter_family_mean_similarity": 0.4161533358605004,
-      "separation": 0.15160941767361147
+      "intra_family_mean_similarity": 0.5673017824216349,
+      "inter_family_mean_similarity": 0.41586902956785443,
+      "separation": 0.15143275285378044
     },
     "witness_checks": {
       "clique==independent-set (expect same cluster)": true,

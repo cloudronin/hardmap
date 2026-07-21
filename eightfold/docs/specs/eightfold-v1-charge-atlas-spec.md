@@ -230,6 +230,14 @@ body above is unedited. R1–R5 are review findings; R6–R9 are owner-added.
   — a measured *folklore gap* (the field defaults to "counting an NP-hard problem is #P-complete" but has not
   proven it for ~⅔ of well-studied problems), written up in `docs/findings/counting-folklore-gap.md`. Every
   decision-vs-counting witness sits in the 37 cited cells, so A3 loses nothing.
+- **R24 — split `landscape` clustering by evidence grade (owner promotion).** `clustering-OGP-known` conflated
+  a *rigorous theorem* with a *cavity/replica physics prediction* → split into `clustering-proven` and
+  `clustering-physics`. The owner promotion pass demoted sat-3/landscape: k=3 clustering is physics
+  (Mézard–Mora–Zecchina); rigorous OGP is K≥8. Recodes — physics: sat-3, graph-3-coloring, NAE-SAT; proven:
+  xor-sat, independent-set (Gamarnik–Sudan), clique (Gamarnik–Zadik), number-partitioning (Gamarnik–Kızıldağ),
+  max-cut (Chen–Gamarnik–Panchenko–Rahman), vertex-cover (via IS complementation). A coding change to a
+  frontier (ungated) column, logged in prereg_v5 like R17. Same pass **confirmed** planar-VC & planar-IS
+  counting (Vadhan 2001).
 - **R21 — Per-charge A2 gate (prereg_v4; committed before batch-2 curation).** As breadth grows, `open` is the
   truthful value in the frontier columns the literature is sparse on. So the A2 gate is fixed *prospectively*
   (before any number trips it — to avoid retroactive threshold-loosening, which the invariants forbid):

@@ -46,7 +46,7 @@ Each charge attaches to a **different formal object** (R1); the cell's `canonica
 | 5 | `parallelization` | the within-P question (needs decision ∈ P) | `NC` · `P-complete` |
 | 6 | `proof_size` | an unsatisfiable instance family, in a system (`perspective`) | `poly` · `exp` |
 | 7 | `average_case` | a random ensemble (density/model pinned in `canonical_task`) | **algorithmic difficulty only (R17):** `easy-on-average` · `hard-on-average-crypto` · `hard-on-average-provable` (R18) · `hard-on-average-conjectured`. The ensemble "a transition is known" fact and the worst-case→average self-reduction are separate sub-fields (`transition_known`, `worst_to_average_self_reduction`), not values. |
-| 8 | `landscape` | a random ensemble's solution-space geometry | `clustering-OGP-known` · `clustering-OGP-refuted` · `freezing-measured` (R14) |
+| 8 | `landscape` | a random ensemble's solution-space geometry | **by evidence grade (R24):** `clustering-proven` (rigorous theorem) · `clustering-physics` (cavity/replica only) · `clustering-OGP-refuted` · `freezing-measured` (R14, self-measured — outside both). |
 
 **Sentinels (R2), allowed for every charge:** `open` (applies, value unknown) · `unmeasured` (applies, nobody
 has measured) · `n.a.` (charge structurally does not apply). Unknown ≠ zero; sentinels are never imputed. A

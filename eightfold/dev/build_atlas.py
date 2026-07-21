@@ -145,7 +145,12 @@ GALE_SHAPLEY = "Gale & Shapley, College admissions and the stability of marriage
 IRVING_LEATHER = "Irving & Leather, The complexity of counting stable marriages, SIAM J. Comput. 15 (1986) [#P-complete]"
 BI15 = "Backurs & Indyk, Edit distance cannot be computed in strongly subquadratic time unless SETH is false, STOC 2015"
 GO95 = "Gajentaan & Overmars, On a class of O(n^2) problems in computational geometry, Comput. Geom. 5 (1995) [3SUM]"
-VADHAN01 = "Vadhan, The complexity of counting in sparse, regular, and planar graphs, SIAM J. Comput. 31 (2001) [#IS/#VC/#matchings #P-complete even planar]"
+VADHAN01 = "Vadhan, The complexity of counting in sparse, regular, and planar graphs, SIAM J. Comput. 31 (2001) [#IS/#VC/#matchings #P-complete even planar bipartite bounded-degree]"
+# R24 landscape evidence-grade citations
+GAMARNIK_ZADIK = "Gamarnik & Zadik, The landscape of the planted clique problem: dense subgraphs and the overlap gap property (2019)"
+GAMARNIK_KIZILDAG = "Gamarnik & Kizildag, Algorithmic obstructions in the random number partitioning problem, Ann. Appl. Probab. 33 (2023)"
+CGPR = "Chen, Gamarnik, Panchenko & Rahman, Suboptimality of local algorithms for a class of max-cut problems, Ann. Probab. 47 (2019) [spin-glass OGP]"
+MRT_ACO = "rigorous clustering for random k-SAT holds at K>=8 (Mezard-Ricci-Tersenghi; Achlioptas-Coja-Oghlan); k=3 is cavity-method physics"
 
 # ── the Census C2 banked experiment artifact (R9) ─────────────────────────────────────────────────────────
 CENSUS_C2 = {
@@ -157,7 +162,7 @@ CENSUS_C2 = {
 
 
 def cell(charge, value, task, cite=None, status="claimed", perspective=None, note=None, contested=None,
-         experiment=None, transition_known=None, worst_to_average_self_reduction=None):
+         experiment=None, transition_known=None, worst_to_average_self_reduction=None, primary_source=False):
     prov = {}
     if cite:
         prov["citation"] = cite
@@ -165,6 +170,8 @@ def cell(charge, value, task, cite=None, status="claimed", perspective=None, not
         prov["note"] = note
     if experiment:
         prov["experiment"] = experiment
+    if primary_source:                 # owner promotion (claimed -> confirmed): primary source read
+        prov["primary_source"] = True
     d = {"charge": charge, "value": value, "canonical_task": task, "status": status,
          "provenance": prov, "perspective": perspective, "contested_note": contested}
     if transition_known is not None:                       # R17: average_case-only ensemble sub-field
@@ -212,8 +219,7 @@ ROWS.append(entry("sat-3", "3-SAT", "sat-csp",
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     cell("proof_size", "exp", "random unsat 3-SAT Resolution refutation size", CS88, perspective="Resolution"),
     cell("average_case", "hard-on-average-conjectured", "random 3-SAT near threshold: conjectured hard in the clustered regime", ACO08, note="threshold ~4.267 (Friedgut; Ding-Sly-Sun 2015)", transition_known=True),
-    cell("landscape", "clustering-OGP-known", "random 3-SAT solution space: clustering/condensation near threshold", MMZ05, note="Achlioptas-Coja-Oghlan 2008",
-         contested="rigorous OGP/clustering proofs are large-k (Achlioptas-Coja-Oghlan); k=3 clustering is physics-grade (Mezard-Mora-Zecchina, non-rigorous). Owner to verify at promotion (R8/R14)."),
+    cell("landscape", "clustering-physics", "random 3-SAT solution space: clustering/condensation near threshold (cavity/replica prediction)", MMZ05, note="R24: physics-grade at k=3 (Mezard-Mora-Zecchina); rigorous clustering starts at K>=8 (Mezard-Ricci-Tersenghi; Achlioptas-Coja-Oghlan) -- demoted from clustering-OGP-known at owner promotion"),
     ]))
 
 # 3. 2-SAT
@@ -239,7 +245,7 @@ ROWS.append(entry("xor-sat", "XOR-SAT (linear equations over GF(2))", "sat-csp",
     cell("parallelization", "NC", "linear algebra over GF(2) in NC^2", BGH82),
     cell("proof_size", "exp", "Tseitin/XOR formulas on expanders: Resolution size 2^Omega(n)", URQ, perspective="Resolution"),
     cell("average_case", "easy-on-average", "random k-XORSAT: in P (Gaussian elimination), easy on average", DUBOIS, note="sharp SAT/clustering threshold (Dubois-Mandler 2002)", transition_known=True),
-    cell("landscape", "clustering-OGP-known", "random k-XORSAT solution space: frozen 1RSB clusters", IKKM),
+    cell("landscape", "clustering-proven", "random k-XORSAT solution space: frozen 1RSB clusters (rigorous)", IKKM),
     ], notes="Maximal decoupling: decision/counting trivial (P/FP) yet MAX-3LIN inapprox, Tseitin proof exp, solutions frozen. The R1 different-object witness."))
 
 # 5. Horn-SAT
@@ -265,7 +271,7 @@ ROWS.append(entry("vertex-cover", "Vertex Cover (decision)", "graph",
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
     cell("average_case", "hard-on-average-conjectured", "min-VC on random graphs: typical-case search-complexity peak near the transition", WEIGT_HARTMANN, transition_known=True),
-    cell("landscape", "clustering-OGP-known", "max-independent-set (VC complement) on sparse G(n,c/n): OGP", GS14),
+    cell("landscape", "clustering-proven", "max-independent-set (VC complement) on sparse G(n,c/n): OGP (rigorous, via IS complementation)", GS14),
     ]))
 
 # 7. Clique
@@ -278,7 +284,7 @@ ROWS.append(entry("clique", "Clique (decision)", "graph",
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
     cell("average_case", "hard-on-average-conjectured", "planted-clique detection at clique size o(sqrt n): conjectured hard on average", PLANTED, transition_known=True),
-    cell("landscape", "clustering-OGP-known", "densest-subgraph/independent-set on random graphs: OGP", GS14),
+    cell("landscape", "clustering-proven", "planted-clique landscape: dense-subgraph overlap-gap property (rigorous)", GAMARNIK_ZADIK),
     ], notes="VC/CLIQUE decoupling: same decision NPC, opposite approximation and parameterized."))
 
 # 8. Independent Set
@@ -291,7 +297,7 @@ ROWS.append(entry("independent-set", "Independent Set (decision)", "graph",
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
     cell("average_case", "hard-on-average-conjectured", "planted independent set (complement of planted clique): conjectured hard", PLANTED, transition_known=True),
-    cell("landscape", "clustering-OGP-known", "max-independent-set on sparse random graphs: OGP (local-algorithm barrier)", GS14),
+    cell("landscape", "clustering-proven", "max-independent-set on sparse random graphs: OGP (rigorous, Gamarnik-Sudan)", GS14),
     ], notes="Same charge signature as CLIQUE (complement) -- an H2 multiplet check."))
 
 # 9. Graph 3-Coloring
@@ -304,7 +310,7 @@ ROWS.append(entry("graph-3-coloring", "Graph 3-Coloring", "graph",
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
     cell("average_case", "hard-on-average-conjectured", "random graph coloring near threshold: conjectured hard (clustered)", AN05, note="k-colorability threshold (Achlioptas-Naor)", transition_known=True),
-    cell("landscape", "clustering-OGP-known", "random graph colorings: clustering/freezing of the solution set", KMRTZ, note="physics-grade (Krzakala et al.); rigor-audit vs Molloy / Achlioptas-Coja-Oghlan deferred to A2"),
+    cell("landscape", "clustering-physics", "random graph colorings: clustering/freezing (cavity/replica, Zdeborova-Krzakala)", KMRTZ, note="R24: cavity-method physics; rigorous coloring-clustering is a separate large-k line (Molloy / Achlioptas-Coja-Oghlan)"),
     ]))
 
 # 10. TSP
@@ -421,7 +427,7 @@ ROWS.append(entry("number-partitioning", "Number Partitioning (PARTITION)", "num
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
     cell("average_case", "hard-on-average-conjectured", "random number partitioning hard phase: no efficient algorithm known", MERTENS, note="sharp solvability transition (Mertens 1998)", transition_known=True),
-    cell("landscape", "clustering-OGP-known", "random number partitioning: REM-like (random-energy) shattered landscape", BCP01),
+    cell("landscape", "clustering-proven", "random number partitioning: OGP / algorithmic obstruction (rigorous)", GAMARNIK_KIZILDAG, note="REM-like shattering; Borgs-Chayes-Pittel for the transition"),
     ], notes="R13: the REM-like landscape makes number partitioning a witness in its own right; the cell previously mis-attributed to knapsack now lives here."))
 
 # 18. Set Cover
@@ -447,7 +453,7 @@ ROWS.append(entry("max-cut", "Maximum Cut", "graph",
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
     cell("average_case", "hard-on-average-conjectured", "max-cut of sparse random graphs: conjectured hard near the spin-glass value (OGP barrier)", DMS17, note="extremal-cut value known (Dembo-Montanari-Sen 2017)", transition_known=True),
-    cell("landscape", "clustering-OGP-known", "spin-glass / max-cut on random graphs: OGP", GS14, note="Dembo-Montanari-Sen; Gamarnik-Jagannath-Sen"),
+    cell("landscape", "clustering-proven", "max-cut on random graphs: OGP (rigorous, spin-glass line)", CGPR, note="Chen-Gamarnik-Panchenko-Rahman; Dembo-Montanari-Sen for the extremal-cut value"),
     ]))
 
 # 20. PHP (pigeonhole family)
@@ -617,7 +623,7 @@ ROWS.append(entry("nae-sat", "Not-All-Equal SAT", "sat-csp",
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     op("proof_size", "random NAE-SAT refutation size not curated"),
     cell("average_case", "hard-on-average-conjectured", "random NAE-SAT near threshold: conjectured hard (symmetric CSP, clustered)", AM06, note="clustering as in random k-SAT/coloring", transition_known=True),
-    cell("landscape", "clustering-OGP-known", "random NAE-SAT solution space: clustering / OGP (symmetric CSP)", AM06, note="symmetric-CSP clustering (Coja-Oghlan lineage)"),
+    cell("landscape", "clustering-physics", "random NAE-SAT solution space: clustering (cavity; symmetric CSP)", AM06, note="R24: coded physics-grade for the curated small-k regime; rigorous NAE-clustering is a large-k result"),
     ]))
 ROWS.append(entry("exact-cover-x3c", "Exact Cover by 3-Sets (X3C)", "sat-csp",
     "universe of 3n elements + triples; decision: exact cover?", [
@@ -1175,13 +1181,14 @@ ROWS.append(entry("first-order-model-checking", "First-Order Model Checking (com
 # ========================= A2 batch 4 (NP-optimization: clean approximation + parameterized) =========================
 
 def _npc_opt(pid, name, family, enc, approx_val, approx_task, approx_cite, param_val, param_task, param_persp,
-             param_cite, approx_note=None, notes=None, landscape=None, counting_cite=None):
+             param_cite, approx_note=None, notes=None, landscape=None, counting_cite=None, counting_confirmed=False):
     """Helper for an NP-complete optimization problem with clean core charges; frontier honest."""
     cells = [
         cell("decision", "NPC", f"{name} decision", KARP),
         # F-1/R20: NO generic 'counting solutions of NPC is #P-complete' stamp. A per-problem counting-hardness
         # result must be cited explicitly (pass counting_cite); otherwise the #-version is open.
-        (cell("counting", "#P-complete", f"#-version of {name}", counting_cite)
+        (cell("counting", "#P-complete", f"#-version of {name}", counting_cite,
+              status=("confirmed" if counting_confirmed else "claimed"), primary_source=counting_confirmed)
          if counting_cite else
          op("counting", f"#-version of {name}: no per-problem counting-hardness result curated (F-1/R20)")),
         cell("approximation", approx_val, approx_task, approx_cite, note=approx_note),
@@ -1378,8 +1385,8 @@ ROWS.append(entry("k-median", "k-Median", "optimization",
 ROWS.append(_npc_opt("planar-vertex-cover", "Vertex Cover (planar)", "graph",
     "planar graph; vertex cover of size <= k",
     "PTAS", "planar VC: PTAS (Baker's technique)", BAKER94, "FPT", "linear kernel / FPT in k", "solution size k", CYG,
-    counting_cite=VADHAN01,
-    notes="Planar restriction lifts VC from APX-complete to PTAS -- structure improves approximability. #VC #P-complete even planar (Vadhan)."))
+    counting_cite=VADHAN01, counting_confirmed=True,
+    notes="Planar restriction lifts VC from APX-complete to PTAS -- structure improves approximability. #VC #P-complete even planar (Vadhan) -- CONFIRMED at owner promotion (R8)."))
 ROWS.append(_npc_opt("planar-dominating-set", "Dominating Set (planar)", "graph",
     "planar graph; dominating set of size <= k",
     "PTAS", "planar dominating set: PTAS (Baker/bidimensionality)", BAKER94, "FPT", "FPT (linear kernel; bidimensionality)", "solution size k", CYG,
@@ -1387,8 +1394,8 @@ ROWS.append(_npc_opt("planar-dominating-set", "Dominating Set (planar)", "graph"
 ROWS.append(_npc_opt("planar-independent-set", "Independent Set (planar)", "graph",
     "planar graph; independent set of size >= k",
     "PTAS", "planar MAX-IS: PTAS (Lipton-Tarjan separators / Baker)", BAKER94, "FPT", "FPT (subexponential via separators)", "solution size k", CYG,
-    counting_cite=VADHAN01,
-    notes="Planar lifts IS from inapprox/W[1] to PTAS/FPT. #IS #P-complete even planar (Vadhan)."))
+    counting_cite=VADHAN01, counting_confirmed=True,
+    notes="Planar lifts IS from inapprox/W[1] to PTAS/FPT. #IS #P-complete even planar (Vadhan) -- CONFIRMED at owner promotion (R8)."))
 
 # witnesses
 ROWS.append(entry("stable-matching", "Stable Matching (Stable Marriage)", "optimization",

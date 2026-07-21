@@ -141,3 +141,12 @@
   assumes #P-completeness of counting NP-hard problems but has not published it for ~⅔ of well-studied ones);
   written up in `docs/findings/counting-folklore-gap.md`. **Next: owner promotion pass (R8, incl. two
   counting-survivor draws — checking-the-checker), then A3.** 35 tests, 0 folklore.
+- **Owner promotion pass (R8) + R24:** two checking-the-checker draws — (1) **confirmed** planar-VC & planar-IS
+  counting (Vadhan 2001 says exactly this — #VC/#IS #P-complete even for planar bipartite bounded-degree
+  graphs; the counting audit's kept set passes its draw, now 2 `confirmed` cells); (2) **demoted**
+  sat-3/landscape — k=3 clustering is cavity-method physics, rigorous OGP is K≥8. The demotion forced **R24**:
+  split `clustering-OGP-known` by **evidence grade** into `clustering-proven` (rigorous) and
+  `clustering-physics` (cavity/replica). Recodes — physics: sat-3, graph-3-coloring, NAE-SAT; proven: xor-sat,
+  IS (Gamarnik–Sudan), clique (Gamarnik–Zadik), number-partitioning (Gamarnik–Kızıldağ), max-cut
+  (Chen–Gamarnik–Panchenko–Rahman), VC (via IS complementation). A coding change to the frontier (ungated)
+  landscape column, logged in prereg_v5 (like R17). Gate still PASSES; 35 tests. **Next: A3.**
