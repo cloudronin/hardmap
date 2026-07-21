@@ -29,11 +29,14 @@ def test_na_does_not_lower_coverage():
     assert rep["coverage_ratio"] == 1.0
 
 
-def test_real_atlas_meets_A1_gate():
+def test_atlas_invariants():
+    # Zero uncited-folklore is a HARD invariant. The aggregate A1 gate (>=70%) is SUPERSEDED by the per-charge
+    # A2 gate (prereg_v4), so it is reported but no longer asserted here: an honest column re-open can drop the
+    # aggregate below 70% (e.g. the F-1 counting audit) and that must be allowed to READ as it is, not forced
+    # to pass. The A1 gate was met at the pilot (banked in docs/findings/A1-pilot.md).
     rep = atlas.coverage_report(atlas.load_atlas())
     assert rep["uncited_folklore"] == 0
-    assert rep["coverage_ratio"] >= 0.70
-    assert rep["a1_gate_pass"] is True
+    assert isinstance(rep["a1_gate_pass"], bool) and isinstance(rep["a2_core_gate_pass"], bool)
 
 
 def test_a2_per_charge_gate_fields_R21():

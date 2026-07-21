@@ -103,3 +103,22 @@
   now *agrees* (the H1-support condition, in preview; A3 is the verdict). Frontier open-rates (the map of
   unasked questions): average-case 65/89, landscape 18/28 mostly open. **Ready for full cell-level review,
   then A3 under prereg_v4.**
+- **118-row review corrections (F-1..F-4):**
+  - **F-1 (systematic, serious):** the counting column was ~58% pattern-matched — the `_npc_opt` helper
+    auto-stamped `counting=#P-complete` with a *generic* "Arora–Barak Ch.17" citation on every NPC
+    optimization problem (the mirror of lazy-open, more dangerous because it hides). Ran R20 Check-9 over all
+    counting cells: **reverted ~48** cells lacking a per-problem #P-hardness citation to `open`; **kept 30**
+    with specific citations (Valiant, Provan–Ball, Creignou–Hermann, Linial, Dyer, JVW, Irving–Leather,
+    Kasteleyn). **Counting drops 97% → 42%; the per-charge A2 gate now reads FAIL honestly** on counting —
+    the correct outcome (a fabricated column would have poisoned A3's occupancy/multiplet analysis invisibly).
+    Reverted cells are promotion-pass targets. `_npc_opt` no longer stamps counting; review-guide Check-9 now
+    explicitly forbids the generic pattern.
+  - **F-2:** pinned `inapprox` = no poly f(n)-approx for ANY poly f, *unconditionally* (SCHEMA). Recoded three
+    overclaimers: group-Steiner & directed-Steiner → `log-APX` (contested: true status polylog, a v2 vocab
+    candidate); densest-k-subgraph → `poly-APX` (conditional-hardness note).
+  - **F-3:** APSP/parallelization n.a.→`NC` (min-plus matrix squaring); fine-grained average_case n.a.→`open`
+    (R15 — random ensembles exist).
+  - **F-4:** planar-matching-count/parallel→`NC` (Pfaffian = determinant, Csanky); FO-model-checking/param→
+    `W[2]+` (AW[*]-complete); min-cost-flow/parallel→`P-complete`; one-in-3-SAT & MAX-2LIN param→`FPT`/treewidth.
+  - Aggregate 64.8% (superseded A1 gate, reported only); 35 tests; 0 folklore. **A2 gate FAILS on counting
+    (42%) — a per-problem counting-hardness citation pass is required before A3.**

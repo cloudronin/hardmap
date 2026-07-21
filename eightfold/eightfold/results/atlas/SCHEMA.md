@@ -41,7 +41,7 @@ Each charge attaches to a **different formal object** (R1); the cell's `canonica
 |---|---|---|---|
 | 1 | `decision` | the worst-case decision problem | `P` · `NPI-candidate` · `NPC` · `coNP-complete` · `PH-complete` (level in `perspective`) · `PSPACE-complete` · `beyond-PSPACE` (R22). **Partial order, not linear:** NPC and coNP-complete are *siblings* (NP vs coNP is open); `DECISION_PARTIAL_ORDER` records proven containments only. |
 | 2 | `counting` | the #-version (count the decision witnesses) | `FP` · `#P-complete` |
-| 3 | `approximation` | the optimization version (**absolute ratio**, R19) | `FPTAS` · `EPTAS` · `PTAS` · `APX` (constant-factor membership) · `APX-complete` (+ APX-hard) · `log-APX` · `poly-APX` · `inapprox` |
+| 3 | `approximation` | the optimization version (**absolute ratio**, R19) | `FPTAS` · `EPTAS` · `PTAS` · `APX` (constant-factor membership) · `APX-complete` (+ APX-hard) · `log-APX` · `poly-APX` · `inapprox`. **`inapprox` is pinned (F-2):** no poly-time f(n)-approx for ANY polynomial f, *unconditionally* (unless P=NP). A problem with an n^ε-approx, a polylog gap, or conditional-only hardness is **not** `inapprox`. (Polylog is a v2 vocab candidate.) |
 | 4 | `parameterized` | decision + a fixed parameter (`perspective`) | `FPT` · `W[1]` · `W[2]+` · `XP` · `para-NP-hard` |
 | 5 | `parallelization` | the within-P question (needs decision ∈ P) | `NC` · `P-complete` |
 | 6 | `proof_size` | an unsatisfiable instance family, in a system (`perspective`) | `poly` · `exp` |

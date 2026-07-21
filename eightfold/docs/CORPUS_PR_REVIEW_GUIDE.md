@@ -50,6 +50,11 @@ this encoding.**
   citation covers only one side, add the complementary reference in `note`; if the value is unsupported,
   downgrade to `open` + note. Run this as a pass over each batch before the next. (This gate caught the
   E-1 gcd/NC and E-2 treewidth/APX errors in batch-1 review.)
+  - **Counting specifically (F-1):** `counting = #P-complete` requires a **per-problem** #P-hardness result,
+    NOT a generic "counting the solutions of an NP-complete problem is #P-complete (Arora–Barak Ch.17)" stamp.
+    That pattern is seductive because it is *usually* true — which is exactly why it silently flipped the
+    counting column to ~58% pattern-matched before it was caught. No specific citation ⇒ `open`. A column
+    that is 96% real and 4% fabricated is worse than one honestly at 42%, because no one suspects it.
 
 ## Status & promotion discipline (R8)
 
