@@ -16,10 +16,12 @@ license = { text = "UNLICENSED — private" }
 # only inside relax/losses/run/hessian. `tests/test_light_oracle_import.py` enforces
 # that the oracle path (instance/verify/fixtures) imports without torch.
 dependencies = [
-  # Pin numpy<2 for a stable ABI against torch 2.2–2.4 across local (macOS wheels cap at torch 2.2.2, which
-  # predates numpy-2 support) and the container (torch 2.4.1). PCG64/default_rng streams are stable across
-  # numpy 1↔2, so fixture content-hashes are identical either way.
-  "numpy>=1.24,<2",
+  # Pin numpy<2 for a stable ABI against torch 2.2–2.4 on Pythons ≤3.12 (local macOS wheels cap at torch
+  # 2.2.2, which predates numpy-2 support; the container ships 2.4.1). Python 3.13 has NO numpy<2 wheel and
+  # its torch is ≥2.5 (numpy-2-ready), so allow numpy>=2.1 there. PCG64/default_rng streams are identical
+  # across numpy 1↔2 (verified: no removed-symbol usage), so fixture content-hashes are stable either way.
+  "numpy>=1.24,<2; python_version < '3.13'",
+  "numpy>=2.1; python_version >= '3.13'",
   "pyyaml>=6.0",
   "python-sat>=1.8",   # fixture SAT-check (Cadical/Minisat) + DRAT for planted refutations (I6)
 ]
@@ -31,8 +33,11 @@ desertmap = "desertmap.cli:main"
 # The differentiable relaxation engine (M2). CPU wheel locally (n=20 in seconds),
 # CUDA in the HF Jobs container. Lazy-imported inside desertmap/relax.py, losses.py,
 # run.py, hessian.py only — never at package import time.
-compute = ["torch>=2.2", "scipy>=1.11,<1.14"]   # torch: local macOS wheels cap at 2.2.2, container ships 2.4.1;
-                                                # scipy<1.14 supports both numpy 1.26 (local) and numpy 2 (container)
+compute = [
+  "torch>=2.2",                                  # local macOS wheels cap at 2.2.2; container ships 2.4.1; py3.13 → ≥2.5
+  "scipy>=1.11,<1.14; python_version < '3.13'",  # supports numpy 1.26 (local) + numpy 2 (container)
+  "scipy>=1.14; python_version >= '3.13'",       # first scipy with cp313 wheels (numpy-2 native)
+]
 # HF Jobs submission + parquet artifact push to the private dataset repo.
 hf = ["huggingface_hub>=0.23", "pyarrow>=15"]
 # Plotting (M3 figures). Kept out of core; only needed for the writeup.
