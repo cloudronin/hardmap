@@ -145,6 +145,7 @@ GALE_SHAPLEY = "Gale & Shapley, College admissions and the stability of marriage
 IRVING_LEATHER = "Irving & Leather, The complexity of counting stable marriages, SIAM J. Comput. 15 (1986) [#P-complete]"
 BI15 = "Backurs & Indyk, Edit distance cannot be computed in strongly subquadratic time unless SETH is false, STOC 2015"
 GO95 = "Gajentaan & Overmars, On a class of O(n^2) problems in computational geometry, Comput. Geom. 5 (1995) [3SUM]"
+VADHAN01 = "Vadhan, The complexity of counting in sparse, regular, and planar graphs, SIAM J. Comput. 31 (2001) [#IS/#VC/#matchings #P-complete even planar]"
 
 # ── the Census C2 banked experiment artifact (R9) ─────────────────────────────────────────────────────────
 CENSUS_C2 = {
@@ -427,7 +428,7 @@ ROWS.append(entry("number-partitioning", "Number Partitioning (PARTITION)", "num
 ROWS.append(entry("set-cover", "Set Cover (decision)", "optimization",
     "ground set + set system (incidence lists); decision: cover of size <= k?", [
     cell("decision", "NPC", "SET-COVER decision", KARP),
-    cell("counting", "#P-complete", "#set covers", PB83),
+    op("counting", "#set-covers is #P-complete, but PB83 (cuts/reliability) was MIS-cited here; specific citation to verify (F-1 audit of the kept set)"),
     cell("approximation", "log-APX", "MIN-SET-COVER: (1-o(1)) ln n tight", FEIGE, note="Dinur-Steurer 2014 tight"),
     cell("parameterized", "W[2]+", "k-SET-COVER: W[2]-complete", DF99, perspective="solution size k"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
@@ -1377,7 +1378,8 @@ ROWS.append(entry("k-median", "k-Median", "optimization",
 ROWS.append(_npc_opt("planar-vertex-cover", "Vertex Cover (planar)", "graph",
     "planar graph; vertex cover of size <= k",
     "PTAS", "planar VC: PTAS (Baker's technique)", BAKER94, "FPT", "linear kernel / FPT in k", "solution size k", CYG,
-    notes="Planar restriction lifts VC from APX-complete to PTAS -- structure improves approximability."))
+    counting_cite=VADHAN01,
+    notes="Planar restriction lifts VC from APX-complete to PTAS -- structure improves approximability. #VC #P-complete even planar (Vadhan)."))
 ROWS.append(_npc_opt("planar-dominating-set", "Dominating Set (planar)", "graph",
     "planar graph; dominating set of size <= k",
     "PTAS", "planar dominating set: PTAS (Baker/bidimensionality)", BAKER94, "FPT", "FPT (linear kernel; bidimensionality)", "solution size k", CYG,
@@ -1385,7 +1387,8 @@ ROWS.append(_npc_opt("planar-dominating-set", "Dominating Set (planar)", "graph"
 ROWS.append(_npc_opt("planar-independent-set", "Independent Set (planar)", "graph",
     "planar graph; independent set of size >= k",
     "PTAS", "planar MAX-IS: PTAS (Lipton-Tarjan separators / Baker)", BAKER94, "FPT", "FPT (subexponential via separators)", "solution size k", CYG,
-    notes="Planar lifts IS from inapprox/W[1] to PTAS/FPT."))
+    counting_cite=VADHAN01,
+    notes="Planar lifts IS from inapprox/W[1] to PTAS/FPT. #IS #P-complete even planar (Vadhan)."))
 
 # witnesses
 ROWS.append(entry("stable-matching", "Stable Matching (Stable Marriage)", "optimization",

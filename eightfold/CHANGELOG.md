@@ -122,3 +122,14 @@
     `W[2]+` (AW[*]-complete); min-cost-flow/parallel→`P-complete`; one-in-3-SAT & MAX-2LIN param→`FPT`/treewidth.
   - Aggregate 64.8% (superseded A1 gate, reported only); 35 tests; 0 folklore. **A2 gate FAILS on counting
     (42%) — a per-problem counting-hardness citation pass is required before A3.**
+- **Counting citation pass (choice A):** verified the kept canon is solid (Valiant 1979 covers
+  IS/VC/clique/Hamiltonian/matching/#SAT — web-checked); recovered 2 cells (planar-VC, planar-IS → Vadhan
+  2001, #P-complete even for planar graphs); reverted 1 mis-citation caught *in the kept set* (set-cover cited
+  Provan–Ball, which is cuts/reliability, not set cover). **Result: counting = 37/86 cited = 43%.**
+  Web-verification confirms the ~49 open counting cells **genuinely lack published per-problem #P-hardness
+  results** — the literature establishes NP-completeness and parameterized complexity for optimization
+  problems but rarely proves their *counting* versions. **Finding:** the counting charge is intrinsically
+  sparse (established for ~37 of 118 problems), so an 85% core gate on counting is unachievable *honestly* —
+  which argues counting belongs in **frontier** (reported, not gated), not core. That is a prereg decision
+  (prereg_v5) for the owner; the 37 cited cells still carry every decision-vs-counting decoupling witness
+  (permanent/determinant, 2-SAT, stable-matching, reachability, …).
