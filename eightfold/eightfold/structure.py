@@ -289,6 +289,90 @@ def run(entries, drop_measured=False):
     }
 
 
+# ── A3: the verdict run (full battery + H1–H3 under prereg_v5) ────────────────────────────────────────────
+def leave_one_charge_out(entries):
+    """H1 robustness (LOCO ablation): drop each charge in turn, recompute full-table MCA dims>threshold.
+    H1 must not hinge on any single charge — especially counting (frontier, sparse) or the measured cell."""
+    _, _, rows = _grid(entries)
+    out = {}
+    for drop in C.CHARGES:
+        keep = [c for c in C.CHARGES if c != drop]
+        out[drop] = mca([{c: r[c] for c in keep} for r in rows], keep)["dims_above_threshold"]
+    return out
+
+
+def gap_list(entries):
+    """H3 deliverable: over the locked triples' 2-D projections (real values only), classify each EMPTY cell as
+    theorem-forbidden (an entailment rule fires) or a GAP — a falsifiable 'a natural problem with (…) should
+    exist; none is known' claim."""
+    _, _, rows = _grid(entries)
+    gaps, forbidden, seen = [], [], set()
+    for triple in LOCKED_TRIPLES:
+        for a, b in itertools.combinations(triple, 2):
+            if (a, b) in seen:
+                continue
+            seen.add((a, b))
+            va = sorted({r[a] for r in rows if r[a] not in C.SENTINELS})
+            vb = sorted({r[b] for r in rows if r[b] not in C.SENTINELS})
+            occ = {(r[a], r[b]) for r in rows if r[a] not in C.SENTINELS and r[b] not in C.SENTINELS}
+            for x in va:
+                for y in vb:
+                    if (x, y) in occ:
+                        continue
+                    hits = C.theorem_forbidden_by({a: x, b: y})
+                    if hits:
+                        forbidden.append({"cell": f"{a}={x} & {b}={y}", "rules": hits})
+                    else:
+                        gaps.append({"pair": f"{a}|{b}",
+                                     "claim": f"a natural problem with {a}={x} and {b}={y} should exist; none is in the atlas"})
+    return {"gaps": gaps, "forbidden": forbidden, "n_gaps": len(gaps), "n_forbidden": len(forbidden)}
+
+
+def a3(entries):
+    """Full A3 battery + H1–H3 verdicts under prereg_v5. This is the VERDICT run, not a preview."""
+    base = run(entries, drop_measured=False)
+    dropm = run(entries, drop_measured=True)
+    loco = leave_one_charge_out(entries)
+    gl = gap_list(entries)
+
+    mca_full = base["mca_full_table"]["dims_above_threshold"]
+    mca_cc = base["mca_complete_case"]["dims_above_threshold"]
+    loco_min = min(loco.values()) if loco else 0
+    h1_both = mca_full >= 3 and mca_cc >= 3
+    h1 = "SUPPORTED" if (h1_both and loco_min >= 3) else ("PARTIAL" if h1_both else "NOT SUPPORTED")
+
+    amp = base["subspace_clustering_R11"]
+    wit = {k: v.get("amplified") for k, v in amp.items()}
+    h2 = "SUPPORTED" if (wit.get("permanent|determinant") and wit.get("vertex-cover|clique")) else "PARTIAL"
+
+    forbidden_ok = base["occupancy"]["forbidden_cells_all_empty"]
+    h3 = "SUPPORTED" if forbidden_ok else "VIOLATED (data breaks a theorem — investigate!)"
+
+    return {
+        "a3": True, "prereg": "prereg_v5", "n_problems": base["n_problems"],
+        "H1_dimensionality": {
+            "verdict": h1, "rule": "SUPPORTED iff >=3 dims in BOTH full-table and complete-case MCA (R4) AND >=3 under every leave-one-charge-out.",
+            "mca_full_dims": mca_full, "mca_complete_case_dims": mca_cc,
+            "complete_case_n_kept": base["mca_complete_case"]["n_kept"],
+            "loco_min_dims": loco_min, "loco_per_charge": loco,
+            "drop_measured_full_dims": dropm["mca_full_table"]["dims_above_threshold"],
+        },
+        "H2_multiplets": {
+            "verdict": h2, "witness_amplified": wit,
+            "approx_param_raw_cramers_v": base["cramers_v"].get("approximation|parameterized"),
+            "residual_note_R12": base["approx_param_bridge_R12"]["note"],
+            "family_separation": base["clustering"]["family_cohesion"]["separation"],
+        },
+        "H3_forbidden_and_gaps": {
+            "verdict": h3, "forbidden_cells_all_empty_in_data": forbidden_ok,
+            "n_theorem_forbidden_cells": gl["n_forbidden"], "n_gaps": gl["n_gaps"],
+            "gap_list": gl["gaps"], "theorem_forbidden": gl["forbidden"],
+        },
+        "cramers_v": base["cramers_v"], "mca_full_table": base["mca_full_table"],
+        "mca_complete_case": base["mca_complete_case"], "subspace_clustering": amp,
+    }
+
+
 # ── R7 synthetic self-test (debug the pipeline WITHOUT touching the pilot) ────────────────────────────────
 def _toy_entries():
     """A synthetic table with a deliberate 2-block structure, to exercise the pipeline (R7)."""
@@ -333,6 +417,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(prog="eightfold.structure")
     ap.add_argument("--pilot", action="store_true", help="run the preview on the atlas")
     ap.add_argument("--selftest", action="store_true", help="R7: exercise the pipeline on a synthetic toy table")
+    ap.add_argument("--a3", action="store_true", help="the A3 VERDICT run (full battery + H1-H3 + gap list)")
     ap.add_argument("--drop-measured", action="store_true", help="R9 ablation: exclude measured cells")
     ap.add_argument("--path", type=Path, default=None, help="atlas path (default: the bundled atlas)")
     ap.add_argument("--out", type=Path, default=None, help="write JSON here (default: results/atlas/pilot_structure.json)")
@@ -340,6 +425,22 @@ def main(argv=None):
 
     if args.selftest:
         return selftest()
+
+    if args.a3:
+        from eightfold.atlas import DEFAULT_PATH, load_atlas
+        out = a3(load_atlas(args.path))
+        out_path = args.out or (DEFAULT_PATH.parent / "a3_structure.json")
+        out_path.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+        h1, h2, h3 = out["H1_dimensionality"], out["H2_multiplets"], out["H3_forbidden_and_gaps"]
+        print(f"A3 verdict run (prereg_v5, n={out['n_problems']}) written to {out_path}")
+        print(f"  H1 dimensionality: {h1['verdict']}  (full {h1['mca_full_dims']} dims, complete-case "
+              f"{h1['mca_complete_case_dims']} dims on n={h1['complete_case_n_kept']}, LOCO min {h1['loco_min_dims']}, "
+              f"drop-measured {h1['drop_measured_full_dims']})")
+        print(f"  H2 multiplets:     {h2['verdict']}  (witness amplification {h2['witness_amplified']}; "
+              f"approx|param raw V={round(h2['approx_param_raw_cramers_v'], 2)})")
+        print(f"  H3 forbidden/gaps: {h3['verdict']}  ({h3['n_theorem_forbidden_cells']} theorem-forbidden cells "
+              f"empty in data, {h3['n_gaps']} falsifiable gaps)")
+        return 0
 
     if not args.pilot:
         ap.print_help()

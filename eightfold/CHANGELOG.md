@@ -150,3 +150,21 @@
   IS (Gamarnik–Sudan), clique (Gamarnik–Zadik), number-partitioning (Gamarnik–Kızıldağ), max-cut
   (Chen–Gamarnik–Panchenko–Rahman), VC (via IS complementation). A coding change to the frontier (ungated)
   landscape column, logged in prereg_v5 (like R17). Gate still PASSES; 35 tests. **Next: A3.**
+- **A3 — structure detection: H1 ✅ · H2 ✅ · H3 ✅** (`docs/findings/A3-structure.md`,
+  `results/atlas/a3_structure.json`; `structure.py --a3` — new `a3()`, `leave_one_charge_out()`, `gap_list()`).
+  Full battery under prereg_v5 (`committed_before_analysis: true`): Cramér's V, dual-missingness MCA (R4),
+  subspace clustering (R11), marginal occupancy + entailment triage (R3/R5), gap list, `--drop-measured` (R9)
+  and leave-one-charge-out ablations. **H1 — hardness is a vector:** ≥3 effective dims in full-table (16),
+  complete-case (5, n=19) *and* every leave-one-charge-out (min 13); the ≈1-dim kill-gate (§5.2) did **not**
+  fire (honest caveat: full-table dims are sentinel-inflated — the complete-case block, which drops sentinels,
+  is the anchor). **H2 — multiplets:** both canonical witnesses amplify in-subspace (permanent/determinant,
+  vertex-cover/clique); 2-SAT/XOR-SAT did **not** (reported, not gated). The surprising residual approx⟷param
+  survives netting out the EPTAS↔FPT bridge (raw 0.52 harness / 0.73 both-real / 0.69 bridge-free), driven by
+  the APX-complete×FPT cluster (22 problems); family_separation 0.15 (low → families emerge, not imposed).
+  **H3 — forbidden & gaps:** all **16** theorem-forbidden cells (E1×6, E2×10) empty in the data (entailment
+  invariant holds); **123** raw candidate gaps triaging honestly to 67 object-mismatch-suspect (exotic decision
+  × opt/ensemble, an R1 type effect) + 56 candidate genuine (dominated by the near-empty NPI-candidate row and
+  the rigorous average-case×landscape frontier). Ablations: `--drop-measured` leaves dimensionality unchanged
+  (16→16 — no measured cell load-bearing). Move-Two prerequisites recorded (object-existence predicate for gap
+  triage; matrix-wide bridge subtraction; counting-folklore backfill). **44 tests** (+9 `test_structure.py`,
+  locking the harness + verdict *rules*, not the outcomes), 0 folklore, validate exit 0.
