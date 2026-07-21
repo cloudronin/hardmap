@@ -48,7 +48,10 @@ SENTINELS: frozenset[str] = frozenset({"open", "unmeasured", "n.a."})
 
 # ── real-value vocabularies per charge (spec §3.2) ─────────────────────────────────────────────────────────
 CHARGE_REAL_VALUES: dict[str, frozenset[str]] = {
-    "decision": frozenset({"P", "NPI-candidate", "NPC", "harder"}),
+    # R22 — `harder` split into proven completeness levels. coNP-complete and NPC are SIBLINGS (NP vs coNP is
+    # open); PH-complete carries its level in `perspective` (e.g. Sigma_2^p). Order is PARTIAL (below).
+    "decision": frozenset({"P", "NPI-candidate", "NPC", "coNP-complete",
+                           "PH-complete", "PSPACE-complete", "beyond-PSPACE"}),
     "counting": frozenset({"FP", "#P-complete"}),
     # Charge 3 convention (R19): ABSOLUTE approximation ratio. `APX` = constant-factor approximable
     # (membership) with no completeness claim; `APX-complete` = APX-hard as well. Both distinct from the
@@ -80,13 +83,29 @@ def allowed_values(charge: str) -> frozenset[str]:
 
 # ── ordinal codings (I4): recorded only where a natural order exists; used for the human-readable narrative
 # and an ordinal-vs-categorical sensitivity check, NEVER forced onto the association/MCA analyses. ──────────
+# Ordinal codings — ONLY for charges with a genuine total order (I4). `decision` is deliberately ABSENT: it is
+# NOT totally ordered (P vs NP, NP vs coNP, … are open), so it gets a PARTIAL order below, never a linear code.
 ORDINAL: dict[str, list[str]] = {
-    # easiest → hardest
-    "decision": ["P", "NPI-candidate", "NPC", "harder"],
     "approximation": ["FPTAS", "EPTAS", "PTAS", "APX", "APX-complete", "log-APX", "poly-APX", "inapprox"],
     # partial hardness order (XP is a containment, kept last as "broad"); FPT easiest
     "parameterized": ["FPT", "W[1]", "W[2]+", "para-NP-hard", "XP"],
 }
+
+# R22 — the decision charge is a PARTIAL order (record PROVEN relative hardness only). NPC and coNP-complete
+# are SIBLINGS: NP vs coNP is open, so neither is below the other — linearizing them would inject a fake
+# theorem into A3's ordinal-sensitivity check (and an atlas asserting NP < coNP would be embarrassing in a way
+# no citation gate catches). Recorded as Hasse covers (lower, higher); the order is their transitive closure.
+# NPI-candidate is below NPC (it is in NP) but incomparable to P and to coNP-complete (its true position is
+# unknown). Only P ⊊ EXPTIME / PSPACE ⊊ EXPSPACE are proven strict; the rest are proven containments (≤).
+DECISION_PARTIAL_ORDER: list[tuple[str, str]] = [
+    ("P", "NPC"),
+    ("P", "coNP-complete"),
+    ("NPI-candidate", "NPC"),
+    ("NPC", "PH-complete"),
+    ("coNP-complete", "PH-complete"),
+    ("PH-complete", "PSPACE-complete"),
+    ("PSPACE-complete", "beyond-PSPACE"),
+]
 
 # ── evidential-status ladder ───────────────────────────────────────────────────────────────────────────────
 # Real-valued cells carry an evidential status; sentinel cells carry the structural marker.
@@ -149,7 +168,8 @@ ENTAILMENT_LAYER: list[EntailmentRule] = [
     EntailmentRule(
         name="counting_FP_implies_decision_P",
         antecedent={"counting": frozenset({"FP"})},
-        forbids={"decision": frozenset({"NPI-candidate", "NPC", "harder"})},
+        forbids={"decision": frozenset({"NPI-candidate", "NPC", "coNP-complete",
+                                        "PH-complete", "PSPACE-complete", "beyond-PSPACE"})},
         preconditions=(
             "The #-version counts exactly the witnesses whose existence is the decision question (canonical_task "
             "alignment, R1). If #solutions is computable in FP, existence follows from (count > 0) in poly time, "
@@ -161,7 +181,8 @@ ENTAILMENT_LAYER: list[EntailmentRule] = [
     ),
     EntailmentRule(
         name="parallel_defined_only_within_P",
-        antecedent={"decision": frozenset({"NPC", "harder"})},
+        antecedent={"decision": frozenset({"NPC", "coNP-complete", "PH-complete",
+                                           "PSPACE-complete", "beyond-PSPACE"})},
         forbids={"parallelization": frozenset({"NC", "P-complete"})},
         preconditions=(
             "NC ⊆ P. The parallelization charge (NC vs P-complete) is a *within-P* classification; an NP-"

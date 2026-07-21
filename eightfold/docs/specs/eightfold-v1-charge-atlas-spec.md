@@ -211,6 +211,15 @@ body above is unedited. R1–R5 are review findings; R6–R9 are owner-added.
   *establishes* the charge value, not merely discusses the topic (an upper bound is not APX-completeness; a
   sublinear parallel algorithm is not NC). Failures get `open` + note or a complementary citation. Standing
   gate in the review guide (Check 9); it caught gcd/NC (E-1) and treewidth/APX (E-2).
+- **R22 — Split `harder` into a decision *partial* order.** `harder` → `coNP-complete` · `PH-complete` (with
+  the level, e.g. Σ₂ᵖ, in `perspective`) · `PSPACE-complete` · `beyond-PSPACE`. The order structure is the
+  point: NPC and coNP-complete are **siblings**, not rungs (NP vs coNP is open), so `decision` is recorded as
+  a **partial order** (`DECISION_PARTIAL_ORDER`, proven containments only) and is deliberately absent from the
+  linear `ORDINAL` — linearizing it would inject a fake theorem (NP < coNP) into A3's ordinal-sensitivity
+  check. Tautology sits *beside* SAT, not above it: the sibling structure is the NP-vs-coNP question rendered
+  as schema. (Recoded tqbf → PSPACE-complete, tautology → coNP-complete, Σ₂-SAT → PH-complete/Σ₂ᵖ while only
+  two rows were affected. Network-reliability's decision — PP-hard / #P-hard-threshold — has no clean rung
+  yet; held `open`, a candidate future `counting-hard` value.)
 - **R21 — Per-charge A2 gate (prereg_v4; committed before batch-2 curation).** As breadth grows, `open` is the
   truthful value in the frontier columns the literature is sparse on. So the A2 gate is fixed *prospectively*
   (before any number trips it — to avoid retroactive threshold-loosening, which the invariants forbid):

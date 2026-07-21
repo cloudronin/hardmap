@@ -116,6 +116,7 @@ ACP87 = "Arnborg, Corneil & Proskurowski, Complexity of finding embeddings in a 
 AM06 = "Achlioptas & Moore, Random k-SAT: two moments suffice to cross a sharp threshold, SIAM J. Comput. 36 (2006) [NAE-SAT]"
 # batch 2 citations
 HOLYER = "Holyer, The NP-completeness of edge-coloring, SIAM J. Comput. 10 (1981)"
+VIZING = "Vizing, On an estimate of the chromatic class of a p-graph (1964) [Delta+1 edge-coloring]"
 DAHLHAUS = "Dahlhaus, Johnson, Papadimitriou, Seymour & Yannakakis, The complexity of multiterminal cuts, SIAM J. Comput. 23 (1994)"
 CLLOR = "Chen, Liu, Lu, O'Sullivan & Razgon, A fixed-parameter algorithm for directed feedback vertex set, JACM 55 (2008)"
 VEB81 = "van Emde Boas, Another NP-complete problem and the complexity of computing short vectors in a lattice (1981) [CVP NP-hard]"
@@ -442,7 +443,7 @@ ROWS.append(entry("php", "Pigeonhole Principle PHP^{n+1}_n (family)", "logic-pro
 # 21. TQBF
 ROWS.append(entry("tqbf", "True Quantified Boolean Formula (TQBF)", "logic-proof",
     "fully-quantified Boolean formula; decision: is it true?", [
-    cell("decision", "harder", "TQBF: PSPACE-complete", STOCK73),
+    cell("decision", "PSPACE-complete", "TQBF: PSPACE-complete", STOCK73),
     na("counting", "not a solution-counting problem in the NP sense"),
     na("approximation", "not an NP-optimization problem"),
     na("parameterized", "no standard W-hierarchy parameterization curated"),
@@ -450,7 +451,7 @@ ROWS.append(entry("tqbf", "True Quantified Boolean Formula (TQBF)", "logic-proof
     cell("proof_size", "exp", "false-QBF refutation in Q-resolution: exp lower bounds", BCJ15, perspective="Q-resolution"),
     op("average_case", "random QBF: algorithmic difficulty uncurated; QSAT phase transition known", cite=GENT_WALSH, transition_known=True),
     na("landscape", "not a random-ensemble solution-geometry object"),
-    ], notes="Populates the 'harder' (PSPACE) decision value and a non-Resolution proof system."))
+    ], notes="Populates PSPACE-complete on the decision partial order, plus a non-Resolution proof system."))
 
 # 22. Random unsat 3-SAT refutation set  (the Census measured cell, R9)
 ROWS.append(entry("random-3sat-refutation", "Random unsat 3-SAT: refutation set", "logic-proof",
@@ -722,7 +723,7 @@ ROWS.append(entry("gcd", "Greatest Common Divisor", "number-theoretic",
 # --- counting ---
 ROWS.append(entry("network-reliability", "Network Reliability", "graph",
     "graph with edge-failure probabilities; probability that s and t stay connected", [
-    cell("decision", "harder", "decide R(G,p) >= t: as hard as EVALUATING the (#P-hard) reliability via binary search -- no borrowed s-t connectivity (E-3/R13)", PB83, note="Turing-reduces to #P-hard reliability evaluation (Provan-Ball 1983)"),
+    op("decision", "deciding R(G,p) >= t is PP-hard / #P-hard-threshold (above PH by Toda, conjecturally below PSPACE); NO clean rung in the R22 decision vocab -- the counting charge carries the #P-completeness (E-3/R13/R22; candidate future 'counting-hard' value)"),
     cell("counting", "#P-complete", "two-terminal reliability / #operational subgraphs", PB83),
     na("approximation", "the counting object; FPRAS status is a different axis"),
     na("parameterized", "not a parameterized decision problem"),
@@ -797,7 +798,7 @@ ROWS.append(entry("edge-coloring", "Edge Coloring (Chromatic Index)", "graph",
     "simple undirected graph, adjacency-list; decision: edge-colorable with Delta colors?", [
     cell("decision", "NPC", "deciding chromatic index Delta vs Delta+1", HOLYER),
     cell("counting", "#P-complete", "#proper edge-colorings", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
-    op("approximation", "Vizing gives a +1 ADDITIVE guarantee (Delta or Delta+1); the multiplicative-ratio vocab does not fit"),
+    cell("approximation", "APX", "edge-coloring: constant-factor (Vizing's Delta+1 <= 4/3 Delta) but NP-hard to beat 4/3 on cubic graphs (Holyer)", VIZING, note="membership Vizing 1964 (Delta+1); 4/3 barrier from Holyer 1981; APX-completeness NOT established, and the additive +1 (ratio->1 as Delta grows) makes completeness the wrong description (R19/R20)"),
     cell("parameterized", "FPT", "edge-coloring parameterized by treewidth", CYG, perspective="treewidth"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
@@ -911,7 +912,7 @@ ROWS.append(entry("quadratic-residuosity", "Quadratic Residuosity", "number-theo
 # --- logic / proof / PH ---
 ROWS.append(entry("tautology", "Propositional Tautology (TAUT)", "logic-proof",
     "propositional formula; decision: is it a tautology?", [
-    cell("decision", "harder", "TAUT is coNP-complete (not in NP unless NP=coNP)", AB),
+    cell("decision", "coNP-complete", "TAUT is coNP-complete -- a SIBLING of NPC, not above it (NP vs coNP open)", AB),
     na("counting", "not an NP-solution-counting problem"),
     na("approximation", "not an optimization problem"),
     na("parameterized", "no standard parameterization curated"),
@@ -919,10 +920,10 @@ ROWS.append(entry("tautology", "Propositional Tautology (TAUT)", "logic-proof",
     cell("proof_size", "exp", "the canonical proof-complexity object; hard tautologies (PHP/Tseitin) are Resolution-exponential", HAKEN, perspective="Resolution"),
     na("average_case", "not a random-ensemble hardness object"),
     na("landscape", "not a random-ensemble solution-geometry object"),
-    ], notes="coNP-complete decision ('harder'); TAUT IS proof complexity -- the charge-6 home problem."))
+    ], notes="coNP-complete decision -- SIBLING of NPC (NP-vs-coNP as schema); TAUT IS proof complexity, the charge-6 home problem."))
 ROWS.append(entry("sigma2-sat", "Sigma_2-SAT (exists-forall QBF)", "logic-proof",
     "quantified Boolean formula with one alternation (exists x forall y phi)", [
-    cell("decision", "harder", "Sigma_2^p-complete (second level of PH)", STOCK73),
+    cell("decision", "PH-complete", "Sigma_2^p-complete (second level of PH)", STOCK73, perspective="Sigma_2^p"),
     na("counting", "not an NP-solution-counting problem"),
     na("approximation", "not an optimization problem"),
     na("parameterized", "no standard parameterization curated"),

@@ -39,7 +39,7 @@ Each charge attaches to a **different formal object** (R1); the cell's `canonica
 
 | # | Charge | Canonical object (R1) | Real values |
 |---|---|---|---|
-| 1 | `decision` | the worst-case decision problem | `P` · `NPI-candidate` · `NPC` · `harder` |
+| 1 | `decision` | the worst-case decision problem | `P` · `NPI-candidate` · `NPC` · `coNP-complete` · `PH-complete` (level in `perspective`) · `PSPACE-complete` · `beyond-PSPACE` (R22). **Partial order, not linear:** NPC and coNP-complete are *siblings* (NP vs coNP is open); `DECISION_PARTIAL_ORDER` records proven containments only. |
 | 2 | `counting` | the #-version (count the decision witnesses) | `FP` · `#P-complete` |
 | 3 | `approximation` | the optimization version (**absolute ratio**, R19) | `FPTAS` · `EPTAS` · `PTAS` · `APX` (constant-factor membership) · `APX-complete` (+ APX-hard) · `log-APX` · `poly-APX` · `inapprox` |
 | 4 | `parameterized` | decision + a fixed parameter (`perspective`) | `FPT` · `W[1]` · `W[2]+` · `XP` · `para-NP-hard` |

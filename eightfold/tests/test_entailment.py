@@ -15,7 +15,7 @@ def test_every_rule_states_preconditions_and_citation_R6():
 def test_E1_E2_forbid():
     assert "counting_FP_implies_decision_P" in C.theorem_forbidden_by({"counting": "FP", "decision": "NPC"})
     assert "parallel_defined_only_within_P" in C.theorem_forbidden_by({"decision": "NPC", "parallelization": "NC"})
-    assert "parallel_defined_only_within_P" in C.theorem_forbidden_by({"decision": "harder", "parallelization": "P-complete"})
+    assert "parallel_defined_only_within_P" in C.theorem_forbidden_by({"decision": "PSPACE-complete", "parallelization": "P-complete"})
 
 
 def test_counting_FP_with_decision_P_is_fine():
@@ -42,6 +42,36 @@ def test_layer_rejects_out_of_vocab_value():
     bad = [C.EntailmentRule(name="x", antecedent={"decision": frozenset({"NOT-A-VALUE"})},
                             preconditions="a" * 30, citation="cite here")]
     assert any("not in its vocab" in e for e in C.validate_entailment_layer(bad))
+
+
+def test_R22_decision_partial_order():
+    vals = set(C.CHARGE_REAL_VALUES["decision"])
+    edges = {(a, b) for a, b in C.DECISION_PARTIAL_ORDER}
+    for a, b in edges:
+        assert a in vals and b in vals, (a, b)
+
+    def below(a, b):
+        # is a strictly below b in the transitive closure?
+        frontier, seen = [a], set()
+        while frontier:
+            x = frontier.pop()
+            for u, v in edges:
+                if u == x:
+                    if v == b:
+                        return True
+                    if v not in seen:
+                        seen.add(v)
+                        frontier.append(v)
+        return False
+
+    # NPC and coNP-complete are SIBLINGS — neither below the other (NP vs coNP is open)
+    assert not below("NPC", "coNP-complete")
+    assert not below("coNP-complete", "NPC")
+    # but both are below PH-complete, and P is below NPC
+    assert below("NPC", "PH-complete") and below("coNP-complete", "PH-complete")
+    assert below("P", "NPC") and below("PSPACE-complete", "beyond-PSPACE")
+    # decision is deliberately NOT in the linear ORDINAL (it is only partially ordered)
+    assert "decision" not in C.ORDINAL
 
 
 def test_R12_bridges_present_and_informational():

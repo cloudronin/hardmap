@@ -166,6 +166,9 @@ def validate(entry: ProblemEntry) -> list[str]:
         if cell.charge in C.PERSPECTIVE_REQUIRED and not is_sentinel and not cell.perspective:
             errs.append(f"{tag}: real value on a perspective-dependent charge needs `perspective` "
                         f"(proof system / parameter) — R1/§3.2")
+        # Gate 5b (R22): a PH-complete decision cell must name its level in `perspective` (e.g. Sigma_2^p).
+        if cell.charge == "decision" and cell.value == "PH-complete" and not cell.perspective:
+            errs.append(f"{tag}: decision=PH-complete needs the PH level in `perspective` (e.g. Sigma_2^p) (R22)")
         # Gate 6: measured quarantine (R9)
         if cell.status == C.STATUS_MEASURED and cell.charge not in C.MEASURED_ALLOWED:
             errs.append(f"{tag}: status 'measured' is allowed only on charges {sorted(C.MEASURED_ALLOWED)} "

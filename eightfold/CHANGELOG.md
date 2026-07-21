@@ -66,4 +66,11 @@
   filled for every NPC row (per the gate). **67 problems, 74.9% cited; per-charge A2 gate PASSES**
   (decision 98 / counting 96 / approximation 86 / parameterized 85), 34 tests. Genuinely-open approximability
   cells (edge-coloring / min-bisection / directed-FVS / job-shop) left `open` per R20 — not manufactured.
-  Remaining: ~50 more toward ~120, then A3.
+- **R22 (decision partial order) + edge-coloring fill:** split `harder` → `coNP-complete` / `PH-complete`
+  (level in `perspective`) / `PSPACE-complete` / `beyond-PSPACE`. `decision` is now a **partial order**
+  (`DECISION_PARTIAL_ORDER`, proven containments only; **NPC ∥ coNP-complete**), removed from the linear
+  `ORDINAL` so A3's ordinal-sensitivity check can't assert NP<coNP. Recoded tqbf→PSPACE-complete,
+  tautology→coNP-complete, Σ₂-SAT→PH-complete/Σ₂ᵖ; edge-coloring/approx→`APX` (Vizing membership + Holyer 4/3
+  barrier, R19). Network-reliability decision (PP-hard) held `open` — a candidate future `counting-hard` value.
+  35 tests; gate PASSES (decision 97 / counting 96 / approximation 89 / parameterized 85). Remaining: ~50 more
+  toward ~120, then A3.
