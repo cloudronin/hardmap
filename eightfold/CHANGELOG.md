@@ -92,3 +92,14 @@
   (decision 97 / counting 96 / approximation 86 / parameterized 88) — recovered from the batch-3 dip as
   predicted (treedepth & planar-3-coloring approx recoded `APX` once the constant-factor bounds were
   confirmed; the rest stayed honestly `open`). 35 tests. Remaining: ~18–20 to ~120.
+- **A2 batch 5 (curation to ~120):** +18 — densest-k-subgraph, cluster-vertex-deletion, max-directed-cut,
+  d-hitting-set, bin-covering, survivable-network-design, shortest-common-superstring, directed-Steiner-tree,
+  k-median, the **planar-PTAS trio** (VC / dominating-set / IS — structure lifts approximability to PTAS+FPT),
+  **stable-matching** (decision-easy Gale–Shapley / counting-hard #P-complete Irving–Leather), min-cost-flow,
+  and four **fine-grained P** problems (edit-distance, LCS, APSP, 3SUM — in P with conjectured time lower
+  bounds, foreshadowing a v2 charge 9). **118 problems — A2 curation target (~120) reached; per-charge gate
+  PASSES** (decision 97 / counting 97 / approximation 89 / parameterized 88), 0 folklore, 35 tests. Structure
+  preview at N=118: full-table MCA 15 dims, complete-case (n=45) **6 dims** — both ≥3, so the R4 dual-analysis
+  now *agrees* (the H1-support condition, in preview; A3 is the verdict). Frontier open-rates (the map of
+  unasked questions): average-case 65/89, landscape 18/28 mostly open. **Ready for full cell-level review,
+  then A3 under prereg_v4.**

@@ -138,6 +138,13 @@ VARDI82 = "Vardi, The complexity of relational query languages, STOC 1982 [FO mo
 # batch 4 citations
 KENYON_MATHIEU = "Kenyon-Mathieu & Schudy, How to rank with few errors, STOC 2007 [feedback-arc / Kemeny PTAS]"
 RS95 = "Robertson & Seymour, Graph minors XIII: the disjoint paths problem, JCTB 63 (1995) [FPT]"
+# batch 5 citations
+BAKER94 = "Baker, Approximation algorithms for NP-complete problems on planar graphs, JACM 41 (1994) [planar PTAS]"
+JAIN01 = "Jain, A factor 2 approximation for the generalized Steiner network problem, Combinatorica 21 (2001)"
+GALE_SHAPLEY = "Gale & Shapley, College admissions and the stability of marriage, Amer. Math. Monthly 69 (1962)"
+IRVING_LEATHER = "Irving & Leather, The complexity of counting stable marriages, SIAM J. Comput. 15 (1986) [#P-complete]"
+BI15 = "Backurs & Indyk, Edit distance cannot be computed in strongly subquadratic time unless SETH is false, STOC 2015"
+GO95 = "Gajentaan & Overmars, On a class of O(n^2) problems in computational geometry, Comput. Geom. 5 (1995) [3SUM]"
 
 # ── the Census C2 banked experiment artifact (R9) ─────────────────────────────────────────────────────────
 CENSUS_C2 = {
@@ -1293,6 +1300,137 @@ ROWS.append(entry("weighted-interval-scheduling", "Weighted Interval Scheduling"
     na("average_case", "not a random-ensemble hardness object"),
     na("landscape", "not a random-ensemble solution-geometry object"),
     ], notes="Easy row (P/FP) -- the tractable interval-structured foil to NP-hard packing."))
+
+
+# ========================= A2 batch 5 (final push to ~120) =========================
+
+# clean NP-optimization (approx + param cited where clean, else n.a.)
+ROWS.append(_npc_opt("densest-k-subgraph", "Densest k-Subgraph", "graph",
+    "graph; choose k vertices maximizing induced edges",
+    "inapprox", "no constant-factor approximation under standard assumptions (n^eps hardness)", AK,
+    "W[1]", "W[1]-hard in k", "solution size k", DF95))
+ROWS.append(_npc_opt("cluster-vertex-deletion", "Cluster Vertex Deletion", "graph",
+    "graph; delete <= k vertices to make a disjoint union of cliques",
+    "APX-complete", "constant-factor + APX-hard", AK, "FPT", "FPT in solution size k", "solution size k", CYG))
+ROWS.append(_npc_opt("max-directed-cut", "Maximum Directed Cut", "graph",
+    "directed graph; partition maximizing arcs from left to right",
+    "APX-complete", "MAX-DICUT: constant-factor + APX-hard", AK, "FPT", "FPT above the m/4 guarantee", "above-guarantee k", CYG))
+ROWS.append(_npc_opt("d-hitting-set", "d-Hitting Set", "optimization",
+    "family of sets each of size <= d; hit all with <= k elements",
+    "APX-complete", "d-approximation + APX-hard (fixed d)", AK, "FPT", "FPT in k for fixed d (sunflower kernel)", "solution size k", CYG))
+ROWS.append(_npc_opt("bin-covering", "Bin Covering", "optimization",
+    "item sizes; maximize the number of bins filled to >= 1",
+    "APX", "asymptotic FPTAS (AFPTAS) but constant absolute ratio -- APX, not completeness (R19)", KK82, "FPT", "FPT in the number of distinct sizes", "#distinct sizes", CYG,
+    approx_note="absolute-ratio convention (R19)"))
+ROWS.append(entry("survivable-network-design", "Survivable Network Design", "optimization",
+    "edge-weighted graph + connectivity requirements r(u,v); min-cost subgraph meeting them", [
+    cell("decision", "NPC", "SNDP decision (generalizes Steiner tree)", KARP),
+    cell("counting", "#P-complete", "#min-cost survivable subgraphs", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    cell("approximation", "APX-complete", "2-approximation (Jain) + APX-hard (from Steiner tree)", JAIN01),
+    na("parameterized", "no standard single-parameter tractability curated"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("shortest-common-superstring", "Shortest Common Superstring", "string",
+    "set of strings; find the shortest string containing all as substrings", [
+    cell("decision", "NPC", "SCS decision", GJ),
+    cell("counting", "#P-complete", "#shortest common superstrings", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    cell("approximation", "APX-complete", "constant-factor + APX-hard", AK),
+    na("parameterized", "no standard parameterization curated"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("directed-steiner-tree", "Directed Steiner Tree", "optimization",
+    "directed edge-weighted graph + root + terminals; min-cost arborescence reaching terminals", [
+    cell("decision", "NPC", "directed Steiner tree decision", KARP),
+    cell("counting", "#P-complete", "#min-cost directed Steiner trees", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    cell("approximation", "inapprox", "no constant-factor; polylogarithmic-hardness (Halperin-Krauthgamer)", AK),
+    op("parameterized", "FPT/XP in #terminals is subtle; not curated"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("k-median", "k-Median", "optimization",
+    "metric on n points; open k centers minimizing total assignment distance", [
+    cell("decision", "NPC", "k-MEDIAN decision", GJ),
+    cell("counting", "#P-complete", "#optimal center sets", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    cell("approximation", "APX-complete", "constant-factor (~2.6) + APX-hard (1+2/e)", AK),
+    na("parameterized", "no standard single-parameter tractability curated"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+
+# planar-PTAS trio (structure improves approximability -- a clean structural finding)
+ROWS.append(_npc_opt("planar-vertex-cover", "Vertex Cover (planar)", "graph",
+    "planar graph; vertex cover of size <= k",
+    "PTAS", "planar VC: PTAS (Baker's technique)", BAKER94, "FPT", "linear kernel / FPT in k", "solution size k", CYG,
+    notes="Planar restriction lifts VC from APX-complete to PTAS -- structure improves approximability."))
+ROWS.append(_npc_opt("planar-dominating-set", "Dominating Set (planar)", "graph",
+    "planar graph; dominating set of size <= k",
+    "PTAS", "planar dominating set: PTAS (Baker/bidimensionality)", BAKER94, "FPT", "FPT (linear kernel; bidimensionality)", "solution size k", CYG,
+    notes="Planar lifts dominating set from log-APX/W[2] to PTAS/FPT."))
+ROWS.append(_npc_opt("planar-independent-set", "Independent Set (planar)", "graph",
+    "planar graph; independent set of size >= k",
+    "PTAS", "planar MAX-IS: PTAS (Lipton-Tarjan separators / Baker)", BAKER94, "FPT", "FPT (subexponential via separators)", "solution size k", CYG,
+    notes="Planar lifts IS from inapprox/W[1] to PTAS/FPT."))
+
+# witnesses
+ROWS.append(entry("stable-matching", "Stable Matching (Stable Marriage)", "optimization",
+    "two sides with preference lists; find a stable matching", [
+    cell("decision", "P", "a stable matching always exists and is found by Gale-Shapley (poly-time)", GALE_SHAPLEY),
+    cell("counting", "#P-complete", "#stable matchings is #P-complete (Irving-Leather)", IRVING_LEATHER),
+    na("approximation", "decision/search solved exactly (existence guaranteed)"),
+    na("parameterized", "decision in P"),
+    op("parallelization", "stable matching is CC-complete (comparator circuits); NC-membership open"),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Decision-easy (Gale-Shapley) / counting-hard (#P-complete, Irving-Leather) -- another such witness."))
+ROWS.append(entry("min-cost-flow", "Minimum-Cost Flow", "graph",
+    "directed graph with capacities + costs (binary); min-cost feasible flow", [
+    cell("decision", "P", "min-cost flow in poly-time (e.g. network simplex / scaling)", AB),
+    na("counting", "not a discrete solution-counting problem"),
+    na("approximation", "solved exactly in poly time"),
+    na("parameterized", "decision in P"),
+    op("parallelization", "not curated"),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+
+# fine-grained P problems (populate P; foreshadow the v2 fine-grained charge -- SETH/3SUM/APSP)
+def _finegrained_P(pid, name, family, enc, task, cite, note, parallel=None):
+    return entry(pid, name, family, enc, [
+        cell("decision", "P", task, cite, note=note),
+        na("counting", "not a discrete solution-counting problem"),
+        na("approximation", "solved exactly in poly time"),
+        na("parameterized", "decision in P"),
+        (parallel if parallel else op("parallelization", "not curated")),
+        na("proof_size", "not a propositional refutation problem"),
+        na("average_case", "not a random-ensemble hardness object"),
+        na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Fine-grained: in P, but a conjectured time lower bound (candidate v2 charge 9).")
+
+ROWS.append(_finegrained_P("edit-distance", "Edit Distance", "string",
+    "two strings; minimum insert/delete/substitute operations",
+    "O(n^2) dynamic programming", AB, "no strongly subquadratic algorithm unless SETH fails (Backurs-Indyk 2015)"))
+ROWS.append(_finegrained_P("longest-common-subsequence", "Longest Common Subsequence", "string",
+    "two strings; length of the longest common subsequence",
+    "O(n^2) dynamic programming", AB, "SETH-hard for strongly subquadratic (Abboud-Backurs-Williams 2015)"))
+ROWS.append(_finegrained_P("all-pairs-shortest-path", "All-Pairs Shortest Path (APSP)", "graph",
+    "weighted graph; shortest path between every pair",
+    "O(n^3) (Floyd-Warshall); truly-subcubic open", AB, "APSP conjecture: no truly subcubic algorithm",
+    parallel=na("parallelization", "the APSP conjecture is about sequential time; not curated here as within-P NC")))
+ROWS.append(_finegrained_P("3sum", "3SUM", "number-theoretic",
+    "n integers; are there three summing to zero?",
+    "O(n^2) (in P)", GO95, "3SUM conjecture: no truly subquadratic algorithm (Gajentaan-Overmars)"))
 
 
 def main():
