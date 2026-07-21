@@ -50,18 +50,23 @@ SENTINELS: frozenset[str] = frozenset({"open", "unmeasured", "n.a."})
 CHARGE_REAL_VALUES: dict[str, frozenset[str]] = {
     "decision": frozenset({"P", "NPI-candidate", "NPC", "harder"}),
     "counting": frozenset({"FP", "#P-complete"}),
-    "approximation": frozenset({"FPTAS", "EPTAS", "PTAS", "APX-complete", "log-APX", "poly-APX", "inapprox"}),
+    # Charge 3 convention (R19): ABSOLUTE approximation ratio. `APX` = constant-factor approximable
+    # (membership) with no completeness claim; `APX-complete` = APX-hard as well. Both distinct from the
+    # asymptotic-ratio world (e.g. bin-packing has an AFPTAS asymptotically yet only APX absolutely).
+    "approximation": frozenset({"FPTAS", "EPTAS", "PTAS", "APX", "APX-complete", "log-APX", "poly-APX", "inapprox"}),
     "parameterized": frozenset({"FPT", "W[1]", "W[2]+", "XP", "para-NP-hard"}),
     "parallelization": frozenset({"NC", "P-complete"}),
     "proof_size": frozenset({"poly", "exp"}),
     # average_case VALUE is an ALGORITHMIC-DIFFICULTY statement only (R17). The ensemble-structure fact
     # "a phase transition is known" is a SEPARATE boolean sub-field `transition_known` on the cell, not a
     # value — mixing the two statement types in one single-select vocab manufactures spurious associations.
-    # R16 adds worst-case-to-average-equiv (provable via random self-reducibility, e.g. permanent/Lipton) and
-    # hard-on-average-conjectured (planted-distribution assumptions, e.g. planted clique) — distinct from the
-    # crypto-standard hard-on-average-crypto (factoring).
+    # R16/R18: hard-on-average-provable = provably hard on average from an ESTABLISHED worst-case hardness
+    # (permanent: RSR + #P-hardness); hard-on-average-conjectured = planted-distribution assumptions (planted
+    # clique); hard-on-average-crypto = crypto-standard conjecture (factoring, discrete-log). The
+    # worst-case-to-average RELATION is a separate boolean sub-field (worst_to_average_self_reduction), not a
+    # value (R18) — a value must be a difficulty status, not a relation.
     "average_case": frozenset({"easy-on-average", "hard-on-average-crypto",
-                               "worst-case-to-average-equiv", "hard-on-average-conjectured"}),
+                               "hard-on-average-provable", "hard-on-average-conjectured"}),
     # R14 adds freezing-measured: self-measured backbone/freezing evidence, NOT a proven overlap-gap. Used for
     # our own Census proof-space datum (no OGP theorem exists for proof space — an I3 novelty finding).
     "landscape": frozenset({"clustering-OGP-known", "clustering-OGP-refuted", "freezing-measured"}),
@@ -78,7 +83,7 @@ def allowed_values(charge: str) -> frozenset[str]:
 ORDINAL: dict[str, list[str]] = {
     # easiest → hardest
     "decision": ["P", "NPI-candidate", "NPC", "harder"],
-    "approximation": ["FPTAS", "EPTAS", "PTAS", "APX-complete", "log-APX", "poly-APX", "inapprox"],
+    "approximation": ["FPTAS", "EPTAS", "PTAS", "APX", "APX-complete", "log-APX", "poly-APX", "inapprox"],
     # partial hardness order (XP is a containment, kept last as "broad"); FPT easiest
     "parameterized": ["FPT", "W[1]", "W[2]+", "para-NP-hard", "XP"],
 }

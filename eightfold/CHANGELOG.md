@@ -38,3 +38,12 @@
   tutte-polynomial, bin-packing, makespan (PTAS), metric-TSP (APX vs general-TSP inapprox), max-coverage, …
   **50 problems, 74.2% cited**, 0 uncited-folklore, 32 tests green. Structure preview complete-case MCA now
   4 dims (up from 2 at N=23). Remaining: ~70 more toward ~120, then A3.
+- **Batch-1 review corrections:** fixed 3 value errors — gcd/parallel NC→open (E-1: Kannan-Miller-Rudolph is
+  sublinear, not NC), treewidth/approx APX-complete→open (E-2: no O(1)-factor known; SSE-conjectural
+  hardness), network-reliability/decision P→harder (E-3: borrowed s-t connectivity; #P-hard via Turing
+  reduction). **R18** split the worst-case→average *relation* out of the value (new
+  `worst_to_average_self_reduction` boolean + `hard-on-average-provable` value; permanent/discrete-log
+  recoded; **SIS** added as its own row for Ajtai's reduction; SVP/avg→open). **R19** added `APX`
+  (absolute-ratio; bin-packing). **R20** added a citation-establishes-the-value audit gate (also caught
+  longest-path/approx + treewidth/decision citation mismatches). Fills: hamiltonian-cycle/avg→easy-on-average
+  (Bollobás–Fenner–Frieze), nae-sat/param→FPT. **51 problems, 73.0% cited**, 33 tests green.

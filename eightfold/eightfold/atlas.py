@@ -55,6 +55,7 @@ class ChargeCell:
     perspective: str | None = None           # proof system (charge 6) / parameter (charge 4)
     contested_note: str | None = None         # if sources disagree on this cell
     transition_known: bool | None = None      # R17: average_case-only ensemble sub-field (kept out of `value`)
+    worst_to_average_self_reduction: bool | None = None  # R18: average_case-only; a same-problem WC->AC self-reduction
 
 
 @dataclass
@@ -192,6 +193,12 @@ def validate(entry: ProblemEntry) -> list[str]:
                         f"(R17 — it is an average_case sub-field)")
         if cell.transition_known is True and not _has_citation(cell.provenance):
             errs.append(f"{tag}: transition_known=true needs a citation for the transition (R17)")
+        # Gate 9b (R18): worst_to_average_self_reduction is likewise an average_case-only sub-field (a relation,
+        # not a difficulty value); if asserted True it needs a citation for the self-reduction.
+        if cell.worst_to_average_self_reduction is not None and cell.charge != "average_case":
+            errs.append(f"{tag}: worst_to_average_self_reduction set on a non-average_case charge (R18)")
+        if cell.worst_to_average_self_reduction is True and not _has_citation(cell.provenance):
+            errs.append(f"{tag}: worst_to_average_self_reduction=true needs a citation (R18)")
         # Light gate: a contested cell documents both sides
         if cell.contested_note and not cell.provenance:
             errs.append(f"{tag}: contested_note set but provenance empty (record both sides, don't average)")

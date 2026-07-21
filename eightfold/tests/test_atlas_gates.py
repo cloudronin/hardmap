@@ -94,9 +94,22 @@ def test_missing_charge_rejected():
 
 
 def test_new_A2_vocab_values_valid():
-    assert "EPTAS" in C.allowed_values("approximation")
+    assert {"EPTAS", "APX"} <= C.allowed_values("approximation")   # R19 adds APX
     assert "freezing-measured" in C.allowed_values("landscape")
-    assert {"worst-case-to-average-equiv", "hard-on-average-conjectured"} <= C.allowed_values("average_case")
+    assert {"hard-on-average-provable", "hard-on-average-conjectured"} <= C.allowed_values("average_case")  # R18
+    # worst-case-to-average-equiv was a relation, not a difficulty value — removed (R18)
+    assert "worst-case-to-average-equiv" not in C.allowed_values("average_case")
+
+
+def test_self_reduction_gate_R18():
+    e = _entry()
+    avg = e.charges[[c.charge for c in e.charges].index("average_case")]
+    avg.worst_to_average_self_reduction = True
+    avg.provenance = {}
+    assert any("worst_to_average_self_reduction=true needs a citation" in s for s in atlas.validate(e))
+    bad = _entry({"decision": _cell("decision", "NPC", prov={"citation": "x"})})
+    bad.charges[[c.charge for c in bad.charges].index("decision")].worst_to_average_self_reduction = True
+    assert any("R18" in s for s in atlas.validate(bad))
 
 
 def test_transition_known_gate_R17():

@@ -104,6 +104,15 @@ KK82 = "Karmarkar & Karp, An efficient approximation scheme for one-dimensional 
 KMR_GCD = "Kannan, Miller & Rudolph, Sublinear parallel algorithm for computing the GCD, SIAM J. Comput. 16 (1987)"
 KIRCHHOFF = "Kirchhoff matrix-tree theorem: #spanning-trees is a determinant (FP)"
 LADNER = "Ladner, The circuit value problem is log-space complete for P, SIGACT News 7 (1975)"
+# batch-1 review (R18/R19/R20 + fills)
+LY94 = "Lund & Yannakakis, On the hardness of approximating minimization problems, JACM 41 (1994) [FVS APX-hard]"
+BERN_PLASSMANN = "Bern & Plassmann, The Steiner problem with edge lengths 1 and 2, IPL 32 (1989) [Steiner APX-hard]"
+PY93 = "Papadimitriou & Yannakakis, The TSP with distances one and two, Math. Oper. Res. 18 (1993) [metric-TSP APX-hard]"
+NWF78 = "Nemhauser, Wolsey & Fisher, An analysis of approximations for maximizing submodular set functions, Math. Prog. 14 (1978)"
+BFF = "Bollobas, Fenner & Frieze, An algorithm for finding Hamilton paths and cycles in random graphs, Combinatorica 7 (1987)"
+APW = "Austrin, Pitassi & Wu, Inapproximability of treewidth and related problems, JAIR 49 (2014) [SSE-conjectural]"
+KMR97 = "Karger, Motwani & Ramkumar, On approximating the longest path in a graph, Algorithmica 18 (1997)"
+ACP87 = "Arnborg, Corneil & Proskurowski, Complexity of finding embeddings in a k-tree, SIAM J. Alg. Disc. Meth. 8 (1987)"
 
 # ── the Census C2 banked experiment artifact (R9) ─────────────────────────────────────────────────────────
 CENSUS_C2 = {
@@ -115,7 +124,7 @@ CENSUS_C2 = {
 
 
 def cell(charge, value, task, cite=None, status="claimed", perspective=None, note=None, contested=None,
-         experiment=None, transition_known=None):
+         experiment=None, transition_known=None, worst_to_average_self_reduction=None):
     prov = {}
     if cite:
         prov["citation"] = cite
@@ -125,8 +134,10 @@ def cell(charge, value, task, cite=None, status="claimed", perspective=None, not
         prov["experiment"] = experiment
     d = {"charge": charge, "value": value, "canonical_task": task, "status": status,
          "provenance": prov, "perspective": perspective, "contested_note": contested}
-    if transition_known is not None:   # R17: average_case-only ensemble sub-field
+    if transition_known is not None:                       # R17: average_case-only ensemble sub-field
         d["transition_known"] = transition_known
+    if worst_to_average_self_reduction is not None:        # R18: average_case-only self-reduction sub-field
+        d["worst_to_average_self_reduction"] = worst_to_average_self_reduction
     return d
 
 
@@ -285,7 +296,7 @@ ROWS.append(entry("permanent", "Permanent (0/1 and integer matrices)", "algebrai
     na("parameterized", "not a standard parameterized decision problem"),
     op("parallelization", "the decision (matching) is in RNC; NC-membership open", note="MVV 1987; KUW 1986"),
     na("proof_size", "not a propositional refutation problem"),
-    cell("average_case", "worst-case-to-average-equiv", "permanent over a large field is random self-reducible: average-case = worst-case (#P-hard)", LIPTON91),
+    cell("average_case", "hard-on-average-provable", "permanent over a large field: provably hard on average (random self-reduction + #P-hardness)", LIPTON91, note="RSR (Lipton 1991) + #P-hardness (Valiant 1979)", worst_to_average_self_reduction=True),
     na("landscape", "not a random-ensemble solution-geometry object"),
     ], notes="Permanent vs determinant: same algebraic surface, counting #P-complete vs FP, parallel open vs NC."))
 
@@ -456,7 +467,7 @@ ROWS.append(entry("dominating-set", "Dominating Set (decision)", "graph",
     "simple undirected graph, adjacency-list; decision: dominating set of size <= k?", [
     cell("decision", "NPC", "DOMINATING-SET decision", GJ, note="GJ [GT2]"),
     cell("counting", "#P-complete", "#dominating sets", VAL_ENUM),
-    cell("approximation", "log-APX", "MIN-DOMINATING-SET: (1-o(1)) ln n tight (set-cover equivalent)", FEIGE),
+    cell("approximation", "log-APX", "MIN-DOMINATING-SET: ln n greedy + (1-o(1)) ln n hardness (set-cover equivalent)", FEIGE, note="greedy ln n; hardness Feige 1998 via approx-preserving set-cover equivalence (R20)"),
     cell("parameterized", "W[2]+", "k-DOMINATING-SET: W[2]-complete", DF99, perspective="solution size k"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
@@ -467,7 +478,7 @@ ROWS.append(entry("feedback-vertex-set", "Feedback Vertex Set (decision)", "grap
     "simple undirected graph, adjacency-list; delete <= k vertices to make acyclic", [
     cell("decision", "NPC", "FVS decision", KARP),
     cell("counting", "#P-complete", "#feedback vertex sets", VAL_ENUM),
-    cell("approximation", "APX-complete", "MIN-FVS: 2-approximation; APX-hard", BAFNA),
+    cell("approximation", "APX-complete", "MIN-FVS: 2-approximation (membership) + APX-hard", BAFNA, note="2-approx Bafna et al. 1999; APX-hardness Lund-Yannakakis 1994 (R20 both sides)"),
     cell("parameterized", "FPT", "k-FVS: FPT (iterative compression)", CYG, perspective="solution size k"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
@@ -478,7 +489,7 @@ ROWS.append(entry("steiner-tree", "Steiner Tree (decision)", "graph",
     "edge-weighted graph + terminal set; decision: Steiner tree of weight <= B?", [
     cell("decision", "NPC", "STEINER-TREE decision", KARP),
     op("counting", "#Steiner trees not curated"),
-    cell("approximation", "APX-complete", "MIN-STEINER-TREE: ~1.39 (ln 4); APX-hard", BYRKA),
+    cell("approximation", "APX-complete", "MIN-STEINER-TREE: ~1.39 membership + APX-hard", BYRKA, note="1.39 upper Byrka et al. 2013; APX-hardness Bern-Plassmann 1989 (R20 both sides)"),
     cell("parameterized", "FPT", "Steiner tree parameterized by number of terminals", DREYFUS, perspective="#terminals"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
@@ -493,14 +504,14 @@ ROWS.append(entry("hamiltonian-cycle", "Hamiltonian Cycle", "graph",
     cell("parameterized", "FPT", "Hamiltonicity parameterized by treewidth", CYG, perspective="treewidth"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
-    op("average_case", "Hamiltonicity of G(n,p) has a sharp threshold; algorithmic side easy above it", cite=None),
+    cell("average_case", "easy-on-average", "Hamilton cycles found a.a.s. at the Komlos-Szemeredi threshold", BFF, transition_known=True),
     op("landscape", "not curated"),
     ]))
 ROWS.append(entry("longest-path", "Longest Path", "graph",
     "simple undirected graph, adjacency-list; decision: simple path of length >= k?", [
     cell("decision", "NPC", "LONGEST-PATH decision", GJ),
     cell("counting", "#P-complete", "#long paths", VAL_ENUM),
-    cell("approximation", "poly-APX", "MAX-LONGEST-PATH: n^(1-eps) inapprox unless P=NP", KARP, note="Karger-Motwani-Ramkumar"),
+    cell("approximation", "poly-APX", "MAX-LONGEST-PATH: no constant-factor approx (n^(1-eps) hard); poly-factor approximable", KMR97),
     cell("parameterized", "FPT", "k-PATH: FPT via color-coding", AYZ, perspective="path length k"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
@@ -542,9 +553,9 @@ ROWS.append(entry("min-spanning-tree", "Minimum Spanning Tree", "graph",
     ], notes="Counting FP (Matrix-Tree) + NC parallel: a determinant-like easy row."))
 ROWS.append(entry("treewidth", "Treewidth (compute)", "graph",
     "simple undirected graph, adjacency-list; decision: treewidth <= k?", [
-    cell("decision", "NPC", "TREEWIDTH decision", GJ, note="Arnborg-Corneil-Proskurowski"),
+    cell("decision", "NPC", "TREEWIDTH <= k decision", ACP87),
     op("counting", "not curated"),
-    cell("approximation", "APX-complete", "constant-factor approximation known; exact APX-hard", FHL),
+    op("approximation", "no constant-factor approximation known: Feige-Hajiaghayi-Lee is O(sqrt(log tw))-factor (not O(1)); constant-factor hardness only under the Small Set Expansion conjecture (Austrin-Pitassi-Wu) -- APX membership unproven (E-2/R20)"),
     cell("parameterized", "FPT", "treewidth <= k is FPT (linear-time, Bodlaender)", BODL, perspective="treewidth k"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
@@ -555,7 +566,7 @@ ROWS.append(entry("k-center", "k-Center", "optimization",
     "metric on n points (distance matrix); decision: cover with k radius-r balls?", [
     cell("decision", "NPC", "k-CENTER decision", GJ),
     op("counting", "not curated"),
-    cell("approximation", "APX-complete", "2-approximation tight; APX-hard to do better", HOCH_SHM),
+    cell("approximation", "APX-complete", "k-CENTER: 2-approx and NP-hard to beat 2 (both established by Hochbaum-Shmoys)", HOCH_SHM),
     op("parameterized", "not curated"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
@@ -568,8 +579,8 @@ ROWS.append(entry("nae-sat", "Not-All-Equal SAT", "sat-csp",
     "CNF; a clause is satisfied iff its literals are not all equal", [
     cell("decision", "NPC", "NAE-3SAT decision", SCHAEFER),
     cell("counting", "#P-complete", "#NAE-SAT (not affine => #P-complete)", CREIG),
-    cell("approximation", "APX-complete", "MAX-NAE-SAT", AK),
-    na("parameterized", "no standard parameterization curated"),
+    cell("approximation", "APX-complete", "MAX-NAE-SAT (MAX-SNP-complete)", AK),
+    cell("parameterized", "FPT", "NAE-SAT parameterized by treewidth (same convention as sat-3)", CYG, perspective="treewidth"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     op("proof_size", "random NAE-SAT refutation size not curated"),
     op("average_case", "random NAE-SAT phase transition studied; not curated", transition_known=None),
@@ -662,7 +673,7 @@ ROWS.append(entry("discrete-log", "Discrete Logarithm", "number-theoretic",
     na("parameterized", "no standard parameterization"),
     op("parallelization", "not known in NC; in BQP (Shor)"),
     na("proof_size", "not a propositional refutation problem"),
-    cell("average_case", "hard-on-average-crypto", "random-self-reducible; the discrete-log crypto assumption", AB, note="random self-reducible => worst-case = average-case over the group"),
+    cell("average_case", "hard-on-average-crypto", "the discrete-log crypto assumption; random self-reducible (worst-case hardness itself conjectural)", AB, note="RSR over the group; the boolean records the self-reduction without overwriting the crypto-conjectural status (R18)", worst_to_average_self_reduction=True),
     na("landscape", "not a random-ensemble solution-geometry object"),
     ], notes="Crypto average-case hardness (like factoring); random self-reducible."))
 ROWS.append(entry("shortest-vector-svp", "Shortest Vector Problem (SVP)", "lattice",
@@ -673,16 +684,27 @@ ROWS.append(entry("shortest-vector-svp", "Shortest Vector Problem (SVP)", "latti
     na("parameterized", "no standard parameterization curated"),
     op("parallelization", "not curated"),
     na("proof_size", "not a propositional refutation problem"),
-    cell("average_case", "worst-case-to-average-equiv", "Ajtai's worst-case to average-case reduction for lattice problems", AJTAI),
+    op("average_case", "Ajtai maps worst-case approx-SVP to average-case SIS (a DIFFERENT problem); no SVP self-reduction -- see the sis row (R18)"),
     na("landscape", "not a random-ensemble solution-geometry object"),
-    ], notes="Lattice worst-case-to-average-equiv witness (basis of lattice crypto)."))
+    ], notes="Lattice problem; the celebrated worst-case-to-average reduction goes to SIS (a different problem), not SVP itself -- see the sis row (R18)."))
+ROWS.append(entry("sis", "Short Integer Solution (SIS)", "lattice",
+    "random A in Z_q^{n x m}; find a short nonzero integer x with Ax = 0 mod q (average-case-defined)", [
+    op("decision", "SIS is average-case-defined; a worst-case decision version is not standard"),
+    na("counting", "not a solution-counting problem"),
+    na("approximation", "not an NP-optimization problem"),
+    na("parameterized", "no standard parameterization"),
+    op("parallelization", "not curated"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "hard-on-average-provable", "average-case SIS is provably hard from worst-case approx lattice problems (Ajtai)", AJTAI, note="worst-case approx-SVP/SIVP => average-case SIS (Ajtai 1996); an INTER-problem reduction, so NOT a self-reduction", worst_to_average_self_reduction=False),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="R18: carries Ajtai's celebrated worst-case-to-average-case reduction (worst-case lattice => average-case SIS); foundation of lattice cryptography."))
 ROWS.append(entry("gcd", "Greatest Common Divisor", "number-theoretic",
     "two integers in binary", [
     cell("decision", "P", "GCD computable in poly-time (Euclid)", AB),
     na("counting", "not a solution-counting problem"),
     na("approximation", "exactly computed"),
     na("parameterized", "decision in P"),
-    cell("parallelization", "NC", "GCD in NC (sublinear parallel)", KMR_GCD),
+    op("parallelization", "integer GCD in NC is a FAMOUS OPEN problem; Kannan-Miller-Rudolph (1987) give a sublinear-depth parallel algorithm, not polylog depth -- so the cited work does not establish NC (E-1/R20)"),
     na("proof_size", "not a propositional refutation problem"),
     na("average_case", "not a random-ensemble hardness object"),
     na("landscape", "not a random-ensemble solution-geometry object"),
@@ -691,7 +713,7 @@ ROWS.append(entry("gcd", "Greatest Common Divisor", "number-theoretic",
 # --- counting ---
 ROWS.append(entry("network-reliability", "Network Reliability", "graph",
     "graph with edge-failure probabilities; probability that s and t stay connected", [
-    cell("decision", "P", "s-t connectivity (the underlying decision) is in P", AB),
+    cell("decision", "harder", "decide R(G,p) >= t: as hard as EVALUATING the (#P-hard) reliability via binary search -- no borrowed s-t connectivity (E-3/R13)", PB83, note="Turing-reduces to #P-hard reliability evaluation (Provan-Ball 1983)"),
     cell("counting", "#P-complete", "two-terminal reliability / #operational subgraphs", PB83),
     na("approximation", "the counting object; FPRAS status is a different axis"),
     na("parameterized", "not a parameterized decision problem"),
@@ -717,7 +739,7 @@ ROWS.append(entry("bin-packing", "Bin Packing", "optimization",
     "n item sizes in binary + bin capacity; decision: pack into <= k bins?", [
     cell("decision", "NPC", "BIN-PACKING decision", GJ, note="GJ [SR1]"),
     op("counting", "not curated"),
-    cell("approximation", "APX-complete", "3/2 multiplicative hardness (from PARTITION); asymptotic AFPTAS", KK82, note="AFPTAS asymptotically"),
+    cell("approximation", "APX", "bin-packing: 3/2 ABSOLUTE-ratio hardness (from PARTITION) but an asymptotic FPTAS (AFPTAS); APX membership, not completeness (R19)", KK82, note="absolute-ratio convention (R19): constant-factor absolutely, near-optimal asymptotically"),
     cell("parameterized", "FPT", "FPT in the number of distinct item sizes", CYG, perspective="#distinct sizes"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
@@ -739,7 +761,7 @@ ROWS.append(entry("metric-tsp", "Metric TSP (decision)", "optimization",
     "complete graph, edge weights obey the triangle inequality; tour <= B?", [
     cell("decision", "NPC", "metric-TSP decision", GJ),
     op("counting", "not curated"),
-    cell("approximation", "APX-complete", "metric TSP: 3/2 (Christofides); APX-hard", CHRIST, note="general TSP is inapprox -- same surface, different object (R1)"),
+    cell("approximation", "APX-complete", "metric TSP: 3/2 (Christofides) membership + APX-hard", CHRIST, note="3/2 Christofides 1976; APX-hardness Papadimitriou-Yannakakis 1993; general TSP is inapprox -- same surface, different object (R1)"),
     cell("parameterized", "FPT", "TSP parameterized by treewidth", CYG, perspective="treewidth"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
@@ -750,7 +772,7 @@ ROWS.append(entry("max-coverage", "Maximum Coverage", "optimization",
     "set system + budget k; decision: k sets covering >= t elements?", [
     cell("decision", "NPC", "MAX-COVERAGE decision", KARP),
     op("counting", "not curated"),
-    cell("approximation", "APX-complete", "(1-1/e) tight unless P=NP", FEIGE),
+    cell("approximation", "APX-complete", "MAX-COVERAGE: (1-1/e) greedy membership + (1-1/e) hardness", FEIGE, note="(1-1/e) greedy Nemhauser-Wolsey-Fisher 1978; (1-1/e) hardness Feige 1998 (R20 both sides)"),
     op("parameterized", "k-coverage parameterization not curated"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),

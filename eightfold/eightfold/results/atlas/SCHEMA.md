@@ -31,6 +31,7 @@ corpus-wide invariants.
 | `perspective` | string \| null | Required for `proof_size` (proof system) and `parameterized` (parameter) real values (gate 5). |
 | `contested_note` | string \| null | If sources disagree; both sides must be in `provenance` (never silently averaged). |
 | `transition_known` | bool \| null | **R17** — `average_case` only: is a phase transition known for the ensemble? Kept separate from `value` (which is algorithmic difficulty). If `true`, requires a citation. Absent/`null` elsewhere. |
+| `worst_to_average_self_reduction` | bool \| null | **R18** — `average_case` only: is there a *same-problem* worst-case→average self-reduction (permanent, discrete-log)? A relation, kept out of `value`. If `true`, requires a citation. Absent/`null` elsewhere. |
 
 ## The eight charges & their real-value vocabularies (§3.2)
 
@@ -40,11 +41,11 @@ Each charge attaches to a **different formal object** (R1); the cell's `canonica
 |---|---|---|---|
 | 1 | `decision` | the worst-case decision problem | `P` · `NPI-candidate` · `NPC` · `harder` |
 | 2 | `counting` | the #-version (count the decision witnesses) | `FP` · `#P-complete` |
-| 3 | `approximation` | the optimization version | `FPTAS` · `EPTAS` · `PTAS` · `APX-complete` · `log-APX` · `poly-APX` · `inapprox` |
+| 3 | `approximation` | the optimization version (**absolute ratio**, R19) | `FPTAS` · `EPTAS` · `PTAS` · `APX` (constant-factor membership) · `APX-complete` (+ APX-hard) · `log-APX` · `poly-APX` · `inapprox` |
 | 4 | `parameterized` | decision + a fixed parameter (`perspective`) | `FPT` · `W[1]` · `W[2]+` · `XP` · `para-NP-hard` |
 | 5 | `parallelization` | the within-P question (needs decision ∈ P) | `NC` · `P-complete` |
 | 6 | `proof_size` | an unsatisfiable instance family, in a system (`perspective`) | `poly` · `exp` |
-| 7 | `average_case` | a random ensemble (density/model pinned in `canonical_task`) | **algorithmic difficulty only (R17):** `easy-on-average` · `hard-on-average-crypto` · `hard-on-average-conjectured` · `worst-case-to-average-equiv`. The ensemble fact "a transition is known" is the separate `transition_known` sub-field, not a value. |
+| 7 | `average_case` | a random ensemble (density/model pinned in `canonical_task`) | **algorithmic difficulty only (R17):** `easy-on-average` · `hard-on-average-crypto` · `hard-on-average-provable` (R18) · `hard-on-average-conjectured`. The ensemble "a transition is known" fact and the worst-case→average self-reduction are separate sub-fields (`transition_known`, `worst_to_average_self_reduction`), not values. |
 | 8 | `landscape` | a random ensemble's solution-space geometry | `clustering-OGP-known` · `clustering-OGP-refuted` · `freezing-measured` (R14) |
 
 **Sentinels (R2), allowed for every charge:** `open` (applies, value unknown) · `unmeasured` (applies, nobody

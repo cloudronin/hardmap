@@ -197,3 +197,17 @@ body above is unedited. R1–R5 are review findings; R6–R9 are owner-added.
   single-select value mixing the two statement types manufactures spurious A3 associations — problems coded by
   whichever fact their literature emphasized (sociology again). Schema clarification, not a prediction change;
   recorded in `prereg_v3`'s coding scheme.
+- **R18 — Self-reduction semantics for average-case.** `worst-case-to-average-equiv` conflated a *relation*
+  with a difficulty status; removed. The value now expresses difficulty — adding `hard-on-average-provable`
+  (provably hard on average from an established worst-case hardness: permanent via random-self-reducibility +
+  #P-hardness) — and the worst-case→average **self-reduction** is a separate boolean
+  `worst_to_average_self_reduction` (true only for *same-problem* reductions; discrete-log stays
+  `hard-on-average-crypto` with the boolean true). SVP's Ajtai reduction targets a *different* problem (SIS),
+  so SVP/average_case is `open` and **SIS is its own row** carrying that celebrated reduction.
+- **R19 — `APX` (membership) added; charge 3 is absolute-ratio.** `APX-complete` overclaimed completeness for
+  bin-packing (asymptotic FPTAS / AFPTAS, yet 3/2 absolute-ratio hardness). `APX` = constant-factor
+  approximable without a completeness claim; bin-packing recodes to `APX`.
+- **R20 — Citation-establishes-the-value audit.** Before each new batch, one pass checks that every cited work
+  *establishes* the charge value, not merely discusses the topic (an upper bound is not APX-completeness; a
+  sublinear parallel algorithm is not NC). Failures get `open` + note or a complementary citation. Standing
+  gate in the review guide (Check 9); it caught gcd/NC (E-1) and treewidth/APX (E-2).

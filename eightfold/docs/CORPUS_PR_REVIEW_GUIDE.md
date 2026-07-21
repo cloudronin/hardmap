@@ -43,6 +43,14 @@ this encoding.**
   Prefer a persistent identifier (DOI, book + page) where one exists; snapshot the rot-risk web-only sources
   (the online Crescenzi–Kann compendium, the Complexity Zoo). The validator rejects a bare `url`.
 
+- **Check 9 — the citation establishes the VALUE, not just the topic (R20).** The cited work must *prove* the
+  charge value, not merely discuss the problem. An upper-bound paper does not establish `APX-complete` (needs
+  the hardness side too); a "sublinear parallel algorithm" does not establish `NC` (needs polylog depth); a
+  conjectural bound does not establish membership; a task line must not overstate its citation. If the
+  citation covers only one side, add the complementary reference in `note`; if the value is unsupported,
+  downgrade to `open` + note. Run this as a pass over each batch before the next. (This gate caught the
+  E-1 gcd/NC and E-2 treewidth/APX errors in batch-1 review.)
+
 ## Status & promotion discipline (R8)
 
 - **Default to `claimed`.** A single-source or handbook restatement is `claimed`. The agent fills `claimed`
