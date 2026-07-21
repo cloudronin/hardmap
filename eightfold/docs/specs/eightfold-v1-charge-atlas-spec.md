@@ -211,3 +211,10 @@ body above is unedited. R1–R5 are review findings; R6–R9 are owner-added.
   *establishes* the charge value, not merely discusses the topic (an upper bound is not APX-completeness; a
   sublinear parallel algorithm is not NC). Failures get `open` + note or a complementary citation. Standing
   gate in the review guide (Check 9); it caught gcd/NC (E-1) and treewidth/APX (E-2).
+- **R21 — Per-charge A2 gate (prereg_v4; committed before batch-2 curation).** As breadth grows, `open` is the
+  truthful value in the frontier columns the literature is sparse on. So the A2 gate is fixed *prospectively*
+  (before any number trips it — to avoid retroactive threshold-loosening, which the invariants forbid):
+  **core** charges (decision / counting / approximation / parameterized) must **each** clear **85%**
+  cited-of-applicable (the raised population-viability test); **frontier** charges (parallelization /
+  proof-size / average-case / landscape) are **reported, not gated** — their open-rate is the "map of unasked
+  questions" deliverable; aggregate coverage is reported for continuity, no longer load-bearing.

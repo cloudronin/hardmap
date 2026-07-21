@@ -25,6 +25,11 @@ from pathlib import Path
 
 from eightfold import charges as C
 
+# R21 / prereg_v4 — charge tiers for the per-charge A2 gate. Core = the population-viability test (gated,
+# >=85%); frontier = reported-not-gated (open-rate is the deliverable, the map of unasked questions).
+CORE_CHARGES = ("decision", "counting", "approximation", "parameterized")
+FRONTIER_CHARGES = ("parallelization", "proof_size", "average_case", "landscape")
+
 # ── storage resolution (single-tier v1; documented seam for a later seed/premium firewall) ────────────────
 EIGHTFOLD_ATLAS_ENV = "EIGHTFOLD_ATLAS"
 DEFAULT_PATH = Path(__file__).resolve().parent / "results" / "atlas" / "atlas.jsonl"
@@ -283,6 +288,22 @@ def coverage_report(entries: list[ProblemEntry]) -> dict:
     tot_cited = sum(pc["cited_filled"] for pc in per_charge.values())
     tot_folklore = sum(pc["folklore"] for pc in per_charge.values())
     ratio = (tot_cited / tot_appl) if tot_appl else 0.0
+    # R21 / prereg_v4 — per-charge A2 gate. Core charges are the population-viability test (raised to >=85%);
+    # frontier charges are reported, not gated (their open-rate IS a deliverable: the map of unasked
+    # questions). Aggregate coverage is reported for continuity, no longer load-bearing.
+    core_appl = sum(per_charge[c]["applicable"] for c in CORE_CHARGES)
+    core_cited = sum(per_charge[c]["cited_filled"] for c in CORE_CHARGES)
+    core_ratio = (core_cited / core_appl) if core_appl else 0.0
+    # The A2 gate is PER-CHARGE: EACH core charge must clear 85% (a high aggregate can't hide a weak charge).
+    core_charge_ratios = {
+        c: (per_charge[c]["cited_filled"] / per_charge[c]["applicable"]) if per_charge[c]["applicable"] else 1.0
+        for c in CORE_CHARGES
+    }
+    frontier_open_rates = {
+        c: {"open_unmeasured": per_charge[c]["open"] + per_charge[c]["unmeasured"],
+            "applicable": per_charge[c]["applicable"]}
+        for c in FRONTIER_CHARGES
+    }
     return {
         "n_problems": len(entries),
         "n_cells": len(entries) * len(C.CHARGES),
@@ -291,6 +312,10 @@ def coverage_report(entries: list[ProblemEntry]) -> dict:
         "uncited_folklore": tot_folklore,
         "coverage_ratio": ratio,
         "a1_gate_pass": ratio >= 0.70 and tot_folklore == 0,
+        "core_coverage": core_ratio,
+        "core_charge_ratios": core_charge_ratios,
+        "a2_core_gate_pass": all(v >= 0.85 for v in core_charge_ratios.values()) and tot_folklore == 0,
+        "frontier_open_rates": frontier_open_rates,
         "per_charge": per_charge,
         "status_counts": status_counts,
     }
@@ -354,8 +379,14 @@ def _print_coverage(rep: dict) -> None:
         print(f"    {ch:>16s}: {pc['cited_filled']:>2d}/{pc['applicable']:<2d}  "
               f"| {pc['open']}/{pc['unmeasured']}/{pc['na']}"
               + (f"  folklore={pc['folklore']}" if pc["folklore"] else ""))
+    print("  CORE per-charge (A2 gate: EACH >=85%): "
+          + ", ".join(f"{c}={rep['core_charge_ratios'][c]:.0%}" for c in CORE_CHARGES)
+          + f"  [{'PASS' if rep['a2_core_gate_pass'] else 'FAIL'}]")
+    fr = rep["frontier_open_rates"]
+    print("  FRONTIER open-rate (reported, not gated — map of unasked questions): "
+          + ", ".join(f"{c}={fr[c]['open_unmeasured']}/{fr[c]['applicable']}" for c in fr))
     gate = "PASS" if rep["a1_gate_pass"] else "not yet"
-    print(f"  A1 done-gate (>=70% cited & 0 folklore): {gate}")
+    print(f"  A1 aggregate gate (>=70% & 0 folklore, reported for continuity): {gate}")
 
 
 def main(argv: list[str] | None = None) -> int:

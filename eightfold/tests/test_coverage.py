@@ -34,3 +34,12 @@ def test_real_atlas_meets_A1_gate():
     assert rep["uncited_folklore"] == 0
     assert rep["coverage_ratio"] >= 0.70
     assert rep["a1_gate_pass"] is True
+
+
+def test_a2_per_charge_gate_fields_R21():
+    r = atlas.coverage_report(atlas.load_atlas())
+    assert set(r["core_charge_ratios"]) == set(atlas.CORE_CHARGES)
+    assert set(r["frontier_open_rates"]) == set(atlas.FRONTIER_CHARGES)
+    # the gate is per-charge: passes iff every core charge clears 85% (and zero folklore)
+    assert r["a2_core_gate_pass"] == (all(v >= 0.85 for v in r["core_charge_ratios"].values())
+                                      and r["uncited_folklore"] == 0)

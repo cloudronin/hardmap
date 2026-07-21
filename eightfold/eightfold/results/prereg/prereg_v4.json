@@ -1,0 +1,18 @@
+{
+  "prereg_version": "v4",
+  "supersedes": "v3 (targeted amendment to the coverage gate; all other v3 content stands unchanged)",
+  "committed_before_analysis": true,
+  "committed_before_batch2_curation": true,
+  "label": "gate-amendment (pre-emptive, anti-threshold-loosening)",
+  "reason": "Coverage drifts down as breadth grows because 'open' is the TRUTHFUL value in the frontier columns the literature is sparse on -- and reporting that sparseness per-charge IS a deliverable (reading the gate per-charge was always the point). Breadth wins: roster quality is the strategic asset, and grinding backfill on cells the literature genuinely does not cover would manufacture coverage, not knowledge. But we refuse to sleepwalk into the aggregate-70% breach and then decide the gate did not mean it -- that is threshold-loosening after the fact, exactly what the invariants forbid. So the gate is fixed NOW, prospectively, before the numbers that would make this self-serving exist.",
+  "a2_gate_per_charge": {
+    "core_charges": ["decision", "counting", "approximation", "parameterized"],
+    "core_rule": "EACH core charge must reach >= 85% cited-of-applicable (raised from A1's aggregate 70%). This is the population-viability test -- A1 asked whether the literature supports the standard and answered yes; the core charges are where it must show. The gate is per-charge (all four): a high aggregate may NOT hide a weak core charge.",
+    "frontier_charges": ["parallelization", "proof_size", "average_case", "landscape"],
+    "frontier_rule": "REPORTED, NOT GATED. Their open-rate is a first-class deliverable -- the 'map of unasked questions', the charge/problem combinations the literature has not resolved. An honest frontier 'open' is a FINDING, not a viability failure.",
+    "aggregate_rule": "Aggregate coverage is reported for continuity; NO LONGER load-bearing.",
+    "implemented_in": "atlas.coverage_report -> core_charge_ratios + a2_core_gate_pass (all four core >= 85% AND zero folklore); frontier_open_rates reported."
+  },
+  "note_at_commit_time": "At commit (51 problems, before batch 2): core = decision 98%, counting 76%, approximation 93%, parameterized 86%. Counting is below the bar because batch-1 optimization rows left #-counting 'open' where it is actually #P-complete by standard results -- a curation gap the per-charge gate correctly flags, to be closed by the rider-2 backfill. The gate is a target for A2 COMPLETION (~120 problems), not a per-batch checkpoint.",
+  "unchanged_from_v3": "Coding scheme (incl. R17 average_case split, R18 self-reduction sub-field, R19 APX), hypotheses H1-H3, missingness policy (R4), measured policy (R9), occupancy policy (R3 marginals + locked triples), method (R11 subspace clustering + R12 residual bridges), and the A3 degeneracy kill all stand as committed in prereg_v3."
+}

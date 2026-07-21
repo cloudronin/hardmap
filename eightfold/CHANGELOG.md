@@ -47,3 +47,10 @@
   (absolute-ratio; bin-packing). **R20** added a citation-establishes-the-value audit gate (also caught
   longest-path/approx + treewidth/decision citation mismatches). Fills: hamiltonian-cycle/avg→easy-on-average
   (Bollobás–Fenner–Frieze), nae-sat/param→FPT. **51 problems, 73.0% cited**, 33 tests green.
+- **Rider 1 (`prereg_v4`, committed before batch-2 curation):** the A2 gate is now **per-charge** — core
+  (decision/counting/approximation/parameterized) must **each** reach ≥85% cited; frontier
+  (parallelization/proof-size/average-case/landscape) is **reported, not gated** (open-rate = "map of unasked
+  questions"); aggregate is reported, no longer load-bearing. Fixed prospectively before any number trips it
+  (anti-threshold-loosening). `atlas.coverage_report` now emits `core_charge_ratios` + `a2_core_gate_pass`.
+  At commit: decision 98% / counting 76% / approximation 93% / parameterized 86% — counting flags the
+  batch-2 counting-cell backfill (rider 2).
