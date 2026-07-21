@@ -29,4 +29,12 @@
   APX-complete). Then **R17** split `average_case` into an algorithmic-difficulty `value` + a separate
   `transition_known` boolean sub-field (schema clarification; prevents sociology-driven A3 associations). The
   atlas builder is now committed at `dev/build_atlas.py` (authoritative source; `atlas.jsonl` is generated).
-  **23 problems, 86.4% cited**, 32 tests green. Next: expand to ~120 (A2), then A3.
+  **23 problems, 86.4% cited**, 32 tests green.
+- **A2 expansion (batch 1):** +27 well-studied problems (graph / logic / number / counting / optimization) —
+  dominating-set, feedback-vertex-set, steiner-tree, longest-path (color-coding FPT), reachability/STCON,
+  max-flow (P-complete), MST (counting-FP via Matrix-Tree), treewidth (Bodlaender FPT), circuit-value
+  (canonical P-complete), tseitin, subset-sum, integer-programming (Lenstra fixed-dim FPT), primality (AKS —
+  contrast factoring), discrete-log, SVP (Ajtai worst-case-to-average), gcd, network-reliability,
+  tutte-polynomial, bin-packing, makespan (PTAS), metric-TSP (APX vs general-TSP inapprox), max-coverage, …
+  **50 problems, 74.2% cited**, 0 uncited-folklore, 32 tests green. Structure preview complete-case MCA now
+  4 dims (up from 2 at N=23). Remaining: ~70 more toward ~120, then A3.

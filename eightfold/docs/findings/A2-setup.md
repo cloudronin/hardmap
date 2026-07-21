@@ -44,6 +44,13 @@ vertex-cover/average-case → `transition-known` (Weigt–Hartmann 2000); horn-s
 
 ## Remaining for A2
 
-Expand 23 → ~120 problems at the same standard, with a per-charge coverage report; then A3 (structure analysis
-under `prereg_v3`) is the H1–H3 verdict. The `n.a.`/`open` sweep rule (R15) and the no-borrowed-cells rule
-(R13) apply to every new row.
+**Batch 1 done (23 → 50 problems, 74.2% cited, 0 folklore).** Added graph / logic / number / counting /
+optimization specimens, including witnesses: metric-TSP (APX) vs general-TSP (inapprox); primality (P) vs
+factoring (NPI); SVP (lattice worst-case-to-average, like permanent); reachability/STCON and MST (more
+decision-easy/counting-hard and NC/P-complete parallel cells); longest-path and integer-programming and
+treewidth (FPT witnesses). Coverage dipped from 86.4% (new rows carry honest `open` cells in
+average_case/landscape/counting where only the core charges were curated).
+
+Expand 50 → ~120 problems at the same standard, with a per-charge coverage report; then A3 (structure analysis
+under `prereg_v3`) is the H1–H3 verdict. The `n.a.`/`open` sweep rule (R15), the no-borrowed-cells rule (R13),
+and the average_case difficulty/transition split (R17) apply to every new row.

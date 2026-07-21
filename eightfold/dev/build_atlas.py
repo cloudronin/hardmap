@@ -84,6 +84,26 @@ PLANTED = "planted-clique conjecture; Alon, Krivelevich & Sudakov, Finding a lar
 KSTW = "Khanna, Sudan, Trevisan & Williamson, The approximability of constraint satisfaction problems, SICOMP 30 (2001) [MAX-CSP dichotomy]; Guruswami & Zhou tight UGC bounds for almost-sat Horn SAT"
 DF_KSUM = "Downey & Fellows, Parameterized Complexity (1999) [k-subset-sum W[1]-hardness]"
 GENT_WALSH = "Gent & Walsh, Beyond NP: the QSAT phase transition, AAAI 1999"
+# A2 batch-1 citations
+SCHAEFER = "Schaefer, The complexity of satisfiability problems, STOC 1978"
+BAFNA = "Bafna, Berman & Fujito, A 2-approximation for undirected feedback vertex set, SIAM J. Discrete Math. 12 (1999)"
+DREYFUS = "Dreyfus & Wagner, The Steiner problem in graphs, Networks 1 (1971) [FPT by #terminals]"
+BYRKA = "Byrka, Grandoni, Rothvoss & Sanita, Steiner tree approximation via iterative randomized rounding, JACM 60 (2013)"
+AYZ = "Alon, Yuster & Zwick, Color-coding, JACM 42 (1995) [longest-path FPT]"
+LENSTRA = "H.W. Lenstra Jr., Integer programming with a fixed number of variables, Math. Oper. Res. 8 (1983)"
+AKS = "Agrawal, Kayal & Saxena, PRIMES is in P, Ann. of Math. 160 (2004)"
+AJTAI = "Ajtai, Generating hard instances of lattice problems, STOC 1996 [worst-case to average-case]"
+MICC = "Micciancio, The shortest vector problem is NP-hard to approximate to within some constant, SIAM J. Comput. 30 (2001)"
+GSS = "Goldschlager, Shaw & Staples, The maximum flow problem is log-space complete for P, TCS 21 (1982)"
+BODL = "Bodlaender, A linear-time algorithm for finding tree-decompositions of small treewidth, SIAM J. Comput. 25 (1996)"
+FHL = "Feige, Hajiaghayi & Lee, Improved approximation algorithms for minimum-weight vertex separators, SIAM J. Comput. 38 (2008) [treewidth approx]"
+HOCH_SHM = "Hochbaum & Shmoys, Using dual approximation algorithms for scheduling, JACM 34 (1987) [makespan PTAS; k-center 2-approx]"
+CHRIST = "Christofides, Worst-case analysis of a new heuristic for the TSP (1976) [metric 3/2]"
+JVW = "Jaeger, Vertigan & Welsh, Computational complexity of the Jones and Tutte polynomials, Math. Proc. Camb. Phil. Soc. 108 (1990)"
+KK82 = "Karmarkar & Karp, An efficient approximation scheme for one-dimensional bin-packing, FOCS 1982 [AFPTAS]"
+KMR_GCD = "Kannan, Miller & Rudolph, Sublinear parallel algorithm for computing the GCD, SIAM J. Comput. 16 (1987)"
+KIRCHHOFF = "Kirchhoff matrix-tree theorem: #spanning-trees is a determinant (FP)"
+LADNER = "Ladner, The circuit value problem is log-space complete for P, SIGACT News 7 (1975)"
 
 # ── the Census C2 banked experiment artifact (R9) ─────────────────────────────────────────────────────────
 CENSUS_C2 = {
@@ -427,6 +447,316 @@ ROWS.append(entry("random-3sat-refutation", "Random unsat 3-SAT: refutation set"
          status="measured", experiment=CENSUS_C2,
          note="R14: value is freezing-measured, NOT clustering-OGP-known. Census C2 measured backbone STRENGTHENING and overlap CONCENTRATION (freezing-style evidence), not a proven overlap gap; no OGP theorem exists for proof space -- that absence is our own I3 novelty. C2 banked (done-gate MET); C3 will refine. Distinct object from the sat-3 solution-space OGP cell."),
     ], notes="R9 measured cell: the Census backbone datum enters charge 8's ledger as a self-generated, reproducible measurement (R14: freezing-measured, strictest standard for our own datum)."))
+
+
+# ========================= A2 batch 1 (graph / logic / number / counting / optimization) =========================
+
+# --- graph ---
+ROWS.append(entry("dominating-set", "Dominating Set (decision)", "graph",
+    "simple undirected graph, adjacency-list; decision: dominating set of size <= k?", [
+    cell("decision", "NPC", "DOMINATING-SET decision", GJ, note="GJ [GT2]"),
+    cell("counting", "#P-complete", "#dominating sets", VAL_ENUM),
+    cell("approximation", "log-APX", "MIN-DOMINATING-SET: (1-o(1)) ln n tight (set-cover equivalent)", FEIGE),
+    cell("parameterized", "W[2]+", "k-DOMINATING-SET: W[2]-complete", DF99, perspective="solution size k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "random-graph domination not curated"),
+    op("landscape", "not curated"),
+    ]))
+ROWS.append(entry("feedback-vertex-set", "Feedback Vertex Set (decision)", "graph",
+    "simple undirected graph, adjacency-list; delete <= k vertices to make acyclic", [
+    cell("decision", "NPC", "FVS decision", KARP),
+    cell("counting", "#P-complete", "#feedback vertex sets", VAL_ENUM),
+    cell("approximation", "APX-complete", "MIN-FVS: 2-approximation; APX-hard", BAFNA),
+    cell("parameterized", "FPT", "k-FVS: FPT (iterative compression)", CYG, perspective="solution size k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    op("landscape", "not curated"),
+    ]))
+ROWS.append(entry("steiner-tree", "Steiner Tree (decision)", "graph",
+    "edge-weighted graph + terminal set; decision: Steiner tree of weight <= B?", [
+    cell("decision", "NPC", "STEINER-TREE decision", KARP),
+    op("counting", "#Steiner trees not curated"),
+    cell("approximation", "APX-complete", "MIN-STEINER-TREE: ~1.39 (ln 4); APX-hard", BYRKA),
+    cell("parameterized", "FPT", "Steiner tree parameterized by number of terminals", DREYFUS, perspective="#terminals"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    op("landscape", "not curated"),
+    ]))
+ROWS.append(entry("hamiltonian-cycle", "Hamiltonian Cycle", "graph",
+    "simple undirected graph, adjacency-list; decision: does a Hamiltonian cycle exist?", [
+    cell("decision", "NPC", "HAM-CYCLE decision", KARP),
+    cell("counting", "#P-complete", "#Hamiltonian cycles", VAL_ENUM),
+    na("approximation", "decision problem; the optimization version is TSP (separate row)"),
+    cell("parameterized", "FPT", "Hamiltonicity parameterized by treewidth", CYG, perspective="treewidth"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "Hamiltonicity of G(n,p) has a sharp threshold; algorithmic side easy above it", cite=None),
+    op("landscape", "not curated"),
+    ]))
+ROWS.append(entry("longest-path", "Longest Path", "graph",
+    "simple undirected graph, adjacency-list; decision: simple path of length >= k?", [
+    cell("decision", "NPC", "LONGEST-PATH decision", GJ),
+    cell("counting", "#P-complete", "#long paths", VAL_ENUM),
+    cell("approximation", "poly-APX", "MAX-LONGEST-PATH: n^(1-eps) inapprox unless P=NP", KARP, note="Karger-Motwani-Ramkumar"),
+    cell("parameterized", "FPT", "k-PATH: FPT via color-coding", AYZ, perspective="path length k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    op("landscape", "not curated"),
+    ], notes="FPT witness: 'hard' problem, but k-PATH is FPT by path length (color-coding)."))
+ROWS.append(entry("reachability-stcon", "s-t Reachability (STCON)", "graph",
+    "directed graph, adjacency-list; decision: is t reachable from s?", [
+    cell("decision", "P", "STCON: NL-complete, in P", AB),
+    cell("counting", "#P-complete", "#s-t paths in a DAG", VAL_ENUM),
+    na("approximation", "decision problem, exactly solved"),
+    na("parameterized", "decision in P"),
+    cell("parallelization", "NC", "STCON is NL-complete and NL subset of NC^2", AB),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Decision-easy/counting-hard (#paths #P-c); NC parallel."))
+ROWS.append(entry("max-flow", "Maximum Flow", "graph",
+    "directed graph with integer capacities in binary; s-t max flow", [
+    cell("decision", "P", "max-flow value >= v? poly-time (Edmonds-Karp)", AB),
+    na("counting", "not a solution-counting problem"),
+    na("approximation", "solved exactly in poly time"),
+    na("parameterized", "decision in P"),
+    cell("parallelization", "P-complete", "MAX-FLOW is P-complete", GSS),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="P-complete parallel (like LP), contrast matching (open) / MST (NC)."))
+ROWS.append(entry("min-spanning-tree", "Minimum Spanning Tree", "graph",
+    "edge-weighted undirected graph, adjacency-list", [
+    cell("decision", "P", "MST weight <= B? poly-time (Kruskal/Prim)", AB),
+    cell("counting", "FP", "#spanning trees = a determinant (Matrix-Tree theorem)", KIRCHHOFF),
+    na("approximation", "solved exactly in poly time"),
+    na("parameterized", "decision in P"),
+    cell("parallelization", "NC", "MST in NC (Boruvka-style parallel contraction)", AB),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Counting FP (Matrix-Tree) + NC parallel: a determinant-like easy row."))
+ROWS.append(entry("treewidth", "Treewidth (compute)", "graph",
+    "simple undirected graph, adjacency-list; decision: treewidth <= k?", [
+    cell("decision", "NPC", "TREEWIDTH decision", GJ, note="Arnborg-Corneil-Proskurowski"),
+    op("counting", "not curated"),
+    cell("approximation", "APX-complete", "constant-factor approximation known; exact APX-hard", FHL),
+    cell("parameterized", "FPT", "treewidth <= k is FPT (linear-time, Bodlaender)", BODL, perspective="treewidth k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="FPT witness (Bodlaender linear-time FPT)."))
+ROWS.append(entry("k-center", "k-Center", "optimization",
+    "metric on n points (distance matrix); decision: cover with k radius-r balls?", [
+    cell("decision", "NPC", "k-CENTER decision", GJ),
+    op("counting", "not curated"),
+    cell("approximation", "APX-complete", "2-approximation tight; APX-hard to do better", HOCH_SHM),
+    op("parameterized", "not curated"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+
+# --- logic / CSP ---
+ROWS.append(entry("nae-sat", "Not-All-Equal SAT", "sat-csp",
+    "CNF; a clause is satisfied iff its literals are not all equal", [
+    cell("decision", "NPC", "NAE-3SAT decision", SCHAEFER),
+    cell("counting", "#P-complete", "#NAE-SAT (not affine => #P-complete)", CREIG),
+    cell("approximation", "APX-complete", "MAX-NAE-SAT", AK),
+    na("parameterized", "no standard parameterization curated"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    op("proof_size", "random NAE-SAT refutation size not curated"),
+    op("average_case", "random NAE-SAT phase transition studied; not curated", transition_known=None),
+    op("landscape", "not curated"),
+    ]))
+ROWS.append(entry("exact-cover-x3c", "Exact Cover by 3-Sets (X3C)", "sat-csp",
+    "universe of 3n elements + triples; decision: exact cover?", [
+    cell("decision", "NPC", "X3C decision", KARP),
+    cell("counting", "#P-complete", "#exact covers", VAL_ENUM),
+    na("approximation", "decision problem (perfect cover)"),
+    op("parameterized", "not curated"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    op("landscape", "not curated"),
+    ]))
+ROWS.append(entry("circuit-sat", "Circuit SAT", "sat-csp",
+    "Boolean circuit; decision: is there a satisfying input?", [
+    cell("decision", "NPC", "CIRCUIT-SAT decision", AB),
+    cell("counting", "#P-complete", "#satisfying assignments of a circuit", VAL_ENUM),
+    op("approximation", "MAX-CIRCUIT-SAT approximability not curated"),
+    na("parameterized", "no standard parameterization curated"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    op("proof_size", "not curated"),
+    op("average_case", "not curated"),
+    op("landscape", "not curated"),
+    ]))
+ROWS.append(entry("circuit-value-problem", "Circuit Value Problem (CVP)", "logic-proof",
+    "Boolean circuit + input; decision: circuit output value", [
+    cell("decision", "P", "CVP: evaluate the circuit, poly-time", AB),
+    na("counting", "an evaluation problem, not solution-counting"),
+    na("approximation", "exactly computed"),
+    na("parameterized", "decision in P"),
+    cell("parallelization", "P-complete", "CVP is the canonical P-complete problem", LADNER),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="The canonical P-complete problem (parallelization witness)."))
+ROWS.append(entry("tseitin", "Tseitin Formulas (family)", "logic-proof",
+    "unsatisfiable CNF from a graph with odd total charge; parameterized by an expander family", [
+    na("decision", "a fixed unsatisfiable CNF family, not a decision problem with varying input (R1)"),
+    na("counting", "unsatisfiable"),
+    na("approximation", "not an optimization problem"),
+    na("parameterized", "not a parameterized decision problem"),
+    na("parallelization", "not a within-P decision problem"),
+    cell("proof_size", "exp", "Tseitin on bounded-degree expanders: Resolution size 2^Omega(n)", URQ, perspective="Resolution"),
+    na("average_case", "a deterministic family (given the graph), not a random-ensemble object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Charge-6 witness alongside PHP; the XOR/parity hard instances for Resolution."))
+
+# --- number / algebra ---
+ROWS.append(entry("subset-sum", "Subset Sum (decision)", "number-theoretic",
+    "n integers in binary + target; decision: subset summing to target?", [
+    cell("decision", "NPC", "SUBSET-SUM decision; weakly NP-complete", KARP, note="pseudo-poly DP"),
+    cell("counting", "#P-complete", "#subsets hitting the target", VAL_ENUM),
+    cell("approximation", "FPTAS", "MAX-SUBSET-SUM (closest sum <= target): FPTAS", IK75),
+    cell("parameterized", "W[1]", "k-subset-sum (exactly k items): W[1]-hard", DF_KSUM, perspective="solution size k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "random subset-sum (density regimes); not fully curated"),
+    op("landscape", "see number-partitioning for the REM-like landscape"),
+    ]))
+ROWS.append(entry("integer-programming", "Integer Linear Programming (feasibility)", "optimization",
+    "rational constraint matrix in binary; decision: integer point in the polytope?", [
+    cell("decision", "NPC", "ILP feasibility decision", KARP),
+    op("counting", "#integer points not curated"),
+    na("approximation", "feasibility problem"),
+    cell("parameterized", "FPT", "ILP is FPT in the number of variables (Lenstra)", LENSTRA, perspective="#variables (dimension)"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="FPT witness: fixed-dimension ILP is FPT (Lenstra)."))
+ROWS.append(entry("primality", "Primality Testing", "number-theoretic",
+    "integer N in binary; decision: is N prime?", [
+    cell("decision", "P", "PRIMES is in P (AKS 2002)", AKS),
+    na("counting", "not a solution-counting problem"),
+    na("approximation", "decision problem"),
+    na("parameterized", "decision in P"),
+    op("parallelization", "primality in P; NC-membership not curated"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "easy-on-average", "primality is in P, hence easy on average", AKS, note="in P"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Primality in P (contrast factoring NPI-candidate) -- same input, decision-vs-search decoupling."))
+ROWS.append(entry("discrete-log", "Discrete Logarithm", "number-theoretic",
+    "cyclic group (prime modulus) in binary; find/verify the exponent", [
+    cell("decision", "NPI-candidate", "DLOG decision; in NP, not known NPC", AB),
+    na("counting", "not a solution-counting problem"),
+    na("approximation", "not an optimization problem"),
+    na("parameterized", "no standard parameterization"),
+    op("parallelization", "not known in NC; in BQP (Shor)"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "hard-on-average-crypto", "random-self-reducible; the discrete-log crypto assumption", AB, note="random self-reducible => worst-case = average-case over the group"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Crypto average-case hardness (like factoring); random self-reducible."))
+ROWS.append(entry("shortest-vector-svp", "Shortest Vector Problem (SVP)", "lattice",
+    "lattice basis (integer matrix in binary); find/verify a shortest nonzero vector", [
+    cell("decision", "NPC", "SVP is NP-hard (under randomized reductions)", MICC, note="Ajtai; exact/near-exact"),
+    na("counting", "not a solution-counting problem"),
+    cell("approximation", "inapprox", "NP-hard to approximate within some constant factor", MICC),
+    na("parameterized", "no standard parameterization curated"),
+    op("parallelization", "not curated"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "worst-case-to-average-equiv", "Ajtai's worst-case to average-case reduction for lattice problems", AJTAI),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Lattice worst-case-to-average-equiv witness (basis of lattice crypto)."))
+ROWS.append(entry("gcd", "Greatest Common Divisor", "number-theoretic",
+    "two integers in binary", [
+    cell("decision", "P", "GCD computable in poly-time (Euclid)", AB),
+    na("counting", "not a solution-counting problem"),
+    na("approximation", "exactly computed"),
+    na("parameterized", "decision in P"),
+    cell("parallelization", "NC", "GCD in NC (sublinear parallel)", KMR_GCD),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+
+# --- counting ---
+ROWS.append(entry("network-reliability", "Network Reliability", "graph",
+    "graph with edge-failure probabilities; probability that s and t stay connected", [
+    cell("decision", "P", "s-t connectivity (the underlying decision) is in P", AB),
+    cell("counting", "#P-complete", "two-terminal reliability / #operational subgraphs", PB83),
+    na("approximation", "the counting object; FPRAS status is a different axis"),
+    na("parameterized", "not a parameterized decision problem"),
+    op("parallelization", "not curated"),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Decision-easy/counting-hard (#P-complete reliability)."))
+ROWS.append(entry("tutte-polynomial", "Tutte Polynomial (evaluation)", "algebraic",
+    "graph; evaluate the Tutte polynomial at a fixed point", [
+    na("decision", "an evaluation/counting object, not a decision problem (R1)"),
+    cell("counting", "#P-complete", "evaluating the Tutte polynomial (most points) is #P-hard", JVW),
+    na("approximation", "counting object; FPRAS only at special points"),
+    cell("parameterized", "FPT", "Tutte polynomial parameterized by treewidth", CYG, perspective="treewidth"),
+    na("parallelization", "not a within-P decision problem"),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Generalizes chromatic/reliability polynomials; #P-hard almost everywhere."))
+
+# --- optimization / scheduling ---
+ROWS.append(entry("bin-packing", "Bin Packing", "optimization",
+    "n item sizes in binary + bin capacity; decision: pack into <= k bins?", [
+    cell("decision", "NPC", "BIN-PACKING decision", GJ, note="GJ [SR1]"),
+    op("counting", "not curated"),
+    cell("approximation", "APX-complete", "3/2 multiplicative hardness (from PARTITION); asymptotic AFPTAS", KK82, note="AFPTAS asymptotically"),
+    cell("parameterized", "FPT", "FPT in the number of distinct item sizes", CYG, perspective="#distinct sizes"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("makespan-scheduling", "Makespan Scheduling (P||Cmax)", "optimization",
+    "n job lengths in binary + m machines; decision: makespan <= T?", [
+    cell("decision", "NPC", "P||Cmax decision", GJ),
+    op("counting", "not curated"),
+    cell("approximation", "PTAS", "makespan scheduling: PTAS (Hochbaum-Shmoys)", HOCH_SHM),
+    cell("parameterized", "FPT", "FPT in the number of machines / job types", CYG, perspective="#machines"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="PTAS witness (approximation strictly between FPTAS and APX-complete)."))
+ROWS.append(entry("metric-tsp", "Metric TSP (decision)", "optimization",
+    "complete graph, edge weights obey the triangle inequality; tour <= B?", [
+    cell("decision", "NPC", "metric-TSP decision", GJ),
+    op("counting", "not curated"),
+    cell("approximation", "APX-complete", "metric TSP: 3/2 (Christofides); APX-hard", CHRIST, note="general TSP is inapprox -- same surface, different object (R1)"),
+    cell("parameterized", "FPT", "TSP parameterized by treewidth", CYG, perspective="treewidth"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "random metric/Euclidean TSP concentrates; not fully curated"),
+    op("landscape", "not curated"),
+    ], notes="Metric-TSP APX-complete vs general-TSP inapprox: the R1 restricted-object witness."))
+ROWS.append(entry("max-coverage", "Maximum Coverage", "optimization",
+    "set system + budget k; decision: k sets covering >= t elements?", [
+    cell("decision", "NPC", "MAX-COVERAGE decision", KARP),
+    op("counting", "not curated"),
+    cell("approximation", "APX-complete", "(1-1/e) tight unless P=NP", FEIGE),
+    op("parameterized", "k-coverage parameterization not curated"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
 
 
 def main():
