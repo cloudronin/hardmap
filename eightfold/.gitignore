@@ -1,0 +1,17 @@
+# eightfold product-local ignores. Repo-wide caches live in the monorepo root .gitignore.
+
+# Generated analysis figures (regenerable from the committed atlas + prereg; the committable receipt is
+# results/atlas/pilot_structure.json + results/prereg/*.json).
+results/figures/
+*.png
+
+# Optional parquet export is a build artifact, not the source of truth (JSONL is).
+*.parquet
+
+# Python + pytest caches.
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local venv.
+.venv/

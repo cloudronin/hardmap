@@ -1,0 +1,190 @@
+{
+  "preview": true,
+  "harness_sanity_check_only": true,
+  "not_the_H1_H3_verdict": "A3 on the full ~120-problem atlas is the verdict; N here is a preview.",
+  "n_problems": 23,
+  "drop_measured": false,
+  "cramers_v": {
+    "decision|parameterized": 0.25973124082465976,
+    "decision|parallelization": 0.5597170785495564,
+    "decision|proof_size": 0.394606494769518,
+    "decision|landscape": 0.47723882095925146,
+    "counting|decision": 0.5743035446551839,
+    "counting|parameterized": 0.051704448955298625,
+    "counting|parallelization": 0.43246169002456486,
+    "counting|proof_size": 0.0,
+    "counting|landscape": 0.3302488871826522,
+    "approximation|decision": 0.06085806194501865,
+    "approximation|counting": 0.214969360284085,
+    "approximation|parameterized": 0.6638830776128736,
+    "approximation|parallelization": 0.0,
+    "approximation|proof_size": 0.05374838498865688,
+    "approximation|average_case": 0.2342903653773284,
+    "approximation|landscape": 0.496184270618645,
+    "parameterized|proof_size": 0.0,
+    "parallelization|parameterized": 0.0,
+    "parallelization|proof_size": 0.3358240279934981,
+    "average_case|decision": 0.5072881526719011,
+    "average_case|counting": 0.1447926527165719,
+    "average_case|parameterized": 0.15894826285477404,
+    "average_case|parallelization": 0.09025166706782345,
+    "average_case|proof_size": 0.21984843263788198,
+    "average_case|landscape": 0.45659558929510347,
+    "landscape|parameterized": 0.18318327571992193,
+    "landscape|parallelization": 0.20675046135878167,
+    "landscape|proof_size": 0.258736244937667
+  },
+  "entailment_linked_pairs": [
+    "counting|decision",
+    "decision|parallelization"
+  ],
+  "mca_full_table": {
+    "eigenvalues": [
+      0.6413445777122071,
+      0.43667202401719124,
+      0.41385149108086744,
+      0.33310721014941325,
+      0.2839678851289204,
+      0.24645790205620646,
+      0.21867407019561483,
+      0.19239906520131794,
+      0.1764870784472574,
+      0.17410012902764324
+    ],
+    "dims_above_threshold": 10,
+    "threshold": 0.125,
+    "total_inertia": 3.6249999999999982,
+    "n_problems": 23,
+    "n_categories": 37
+  },
+  "mca_complete_case": {
+    "eigenvalues": [
+      0.4999999999999998,
+      0.42677669529663675,
+      0.24999999999999994,
+      0.07322330470336309
+    ],
+    "dims_above_threshold": 3,
+    "threshold": 0.125,
+    "total_inertia": 1.2499999999999996,
+    "n_problems": 10,
+    "n_categories": 9,
+    "charges": [
+      "decision",
+      "counting",
+      "approximation",
+      "parameterized"
+    ],
+    "n_kept": 10
+  },
+  "clustering": {
+    "k": 6,
+    "assignments": {
+      "sat": 4,
+      "sat-3": 3,
+      "sat-2": 5,
+      "xor-sat": 6,
+      "horn-sat": 5,
+      "vertex-cover": 3,
+      "clique": 3,
+      "independent-set": 3,
+      "graph-3-coloring": 3,
+      "tsp": 4,
+      "permanent": 2,
+      "determinant": 2,
+      "factoring": 2,
+      "graph-isomorphism": 2,
+      "linear-programming": 2,
+      "matching": 2,
+      "knapsack": 4,
+      "number-partitioning": 3,
+      "set-cover": 4,
+      "max-cut": 3,
+      "php": 1,
+      "tqbf": 1,
+      "random-3sat-refutation": 1
+    },
+    "family_cohesion": {
+      "intra_family_mean_similarity": 0.4847560975609756,
+      "inter_family_mean_similarity": 0.30365566037735847,
+      "separation": 0.18110043718361712
+    },
+    "witness_checks": {
+      "clique==independent-set (expect same cluster)": true,
+      "vertex-cover vs clique (both NPC; decouple on approx/param)": true,
+      "permanent vs determinant (counting FP vs #P-c)": true,
+      "2-sat vs xor-sat (counting #P-c vs FP)": false
+    }
+  },
+  "subspace_clustering_R11": {
+    "permanent|determinant": {
+      "subspace": "decision+counting+parallelization",
+      "dist_full8": 0.375,
+      "dist_subspace": 0.667,
+      "amplified": true
+    },
+    "vertex-cover|clique": {
+      "subspace": "decision+approximation+parameterized",
+      "dist_full8": 0.375,
+      "dist_subspace": 0.667,
+      "amplified": true
+    },
+    "sat-2|xor-sat": {
+      "subspace": "decision+counting+parallelization",
+      "dist_full8": 0.5,
+      "dist_subspace": 0.333,
+      "amplified": false
+    }
+  },
+  "approx_param_bridge_R12": {
+    "raw_cramers_v": 0.6638830776128736,
+    "note": "Part of this association is theorem-forced: EPTAS<->FPT (Cesati-Trevisan) and W[1]-hardness rules out EPTAS (Marx). Report the RESIDUAL after these known bridges before calling it surprising (residual computation is an A3 deliverable)."
+  },
+  "occupancy": {
+    "data_violates_theorem": [],
+    "forbidden_cells_check": [
+      {
+        "cell": "counting=FP & decision=NPC",
+        "forbidding_rules": [
+          "counting_FP_implies_decision_P"
+        ],
+        "occupied_in_data": false
+      },
+      {
+        "cell": "counting=FP & decision=harder",
+        "forbidding_rules": [
+          "counting_FP_implies_decision_P"
+        ],
+        "occupied_in_data": false
+      },
+      {
+        "cell": "decision=NPC & parallelization=NC",
+        "forbidding_rules": [
+          "parallel_defined_only_within_P"
+        ],
+        "occupied_in_data": false
+      },
+      {
+        "cell": "decision=NPC & parallelization=P-complete",
+        "forbidding_rules": [
+          "parallel_defined_only_within_P"
+        ],
+        "occupied_in_data": false
+      }
+    ],
+    "forbidden_cells_all_empty": true,
+    "occupied_decision_counting_parallel_triples": [
+      "('NPC', '#P-complete', 'n.a.')",
+      "('NPI-candidate', 'n.a.', 'open')",
+      "('NPI-candidate', 'open', 'open')",
+      "('P', '#P-complete', 'NC')",
+      "('P', '#P-complete', 'P-complete')",
+      "('P', '#P-complete', 'open')",
+      "('P', 'FP', 'NC')",
+      "('P', 'n.a.', 'P-complete')",
+      "('harder', 'n.a.', 'n.a.')",
+      "('n.a.', 'n.a.', 'n.a.')"
+    ],
+    "note": "Full-grid occupancy/gap enumeration is an A3 deliverable over the ~120-problem atlas; at N=22 this is a harness check that the data respects E1/E2 and that occupancy runs over marginals (R3)."
+  }
+}

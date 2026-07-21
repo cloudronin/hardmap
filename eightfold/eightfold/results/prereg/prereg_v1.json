@@ -1,0 +1,75 @@
+{
+  "prereg_version": "v1",
+  "committed_before_analysis": true,
+  "note": "Coding, predicted signatures, missingness/measured policies, and kill thresholds are locked BEFORE any structure.py run on real atlas data (R7). Harness debugging uses a synthetic toy table, never the pilot. A changed prediction is a new prereg version (prereg_v2.json), never an edit — so the A3 verdict is matched-filtering, not post-hoc pattern reading (Desert Map A2 discipline carried forward). The pilot structure preview is a harness sanity-check only; the H1-H3 verdict is A3 on the full ~120-problem atlas.",
+
+  "coding_scheme": {
+    "principle": "Association (Cramer's V) and effective-dimensionality (MCA) treat every charge as CATEGORICAL. No charge is forced onto a numeric axis (I4).",
+    "ordinal_recorded_for": {
+      "decision": ["P", "NPI-candidate", "NPC", "harder"],
+      "approximation": ["FPTAS", "PTAS", "APX-complete", "log-APX", "poly-APX", "inapprox"],
+      "parameterized": ["FPT", "W[1]", "W[2]+", "para-NP-hard", "XP"]
+    },
+    "ordinal_use": "Ordinal codings are used ONLY for the human-readable occupancy/gap narrative and an ordinal-vs-categorical sensitivity check; clustering must be robust to swapping categorical for ordinal coding (spec I4 sensitivity).",
+    "sentinels": "open / unmeasured / n.a. are first-class categories in the full-table analysis and are NEVER imputed (R2). n.a. (structural) and open (unknown) are distinct categories; collapsing them is forbidden.",
+    "measured": "measured / measured-scaling cells are coded identically to their value in the main analysis and removed in the --drop-measured ablation (R9)."
+  },
+
+  "hypotheses": {
+    "H1_dimensionality": {
+      "prediction": "Hardness is a vector: at least 3 effective dimensions; the charges do not collapse onto the decision axis.",
+      "decision_rule": "H1 SUPPORTED iff, in BOTH the full-table and the complete-case MCA (R4), at least 3 dimensions each exceed the mean eigenvalue (Kaiser-style threshold 1/K over K indicator dimensions). H1 requires agreement across both analyses; disagreement is reported as a sociology-of-study confound, not a hardness finding.",
+      "anti_prediction_degeneracy": "Prior says degeneracy will NOT fire; the witnesses below already contradict it. The analysis must still be allowed to say it (kill-2)."
+    },
+    "H2_multiplets": {
+      "prediction": "Problems cluster into recurring charge signatures for structural reasons. Locked witness signatures (theory-driven, before curation):",
+      "witness_signatures": {
+        "permanent_vs_determinant": "Same algebraic surface, SAME decision (both P: determinant in P/NC, permanent's 0/1 decision = perfect-matching in P), OPPOSITE counting (determinant FP, permanent #P-complete). A counting-axis decoupling at fixed decision.",
+        "vc_vs_clique": "Both decision NPC; OPPOSITE approximation (VC APX-complete / 2-approx, CLIQUE inapprox / n^(1-eps)) AND OPPOSITE parameterized (VC FPT by k, CLIQUE W[1] by k). The canonical approximation+parameterized decoupling at fixed decision.",
+        "two_sat": "decision P, counting #P-complete: a decision-easy / counting-hard cell.",
+        "xor_sat": "decision P, counting FP, yet landscape clustering-OGP-known (random k-XORSAT freezing): max landscape charge at trivial decision/counting. The charge-8-vs-charge-1 decoupling.",
+        "php_family": "proof_size exp in Resolution (Haken 1985) while human-trivial; most other charges n.a. (a fixed unsat family, not a decision problem) — the charge-6 witness and an R1/R2 illustration."
+      }
+    },
+    "H3_forbidden_regions": {
+      "prediction": "Some charge combinations are empty and provably MUST be. Locked theorem-forbidden cells (from the entailment layer, R5), predicted empty:",
+      "forbidden_cells": [
+        "(counting=FP, decision in {NPI-candidate,NPC,harder}) -- E1 counting_FP_implies_decision_P",
+        "(decision in {NPI-candidate,NPC,harder}, parallelization in {NC,P-complete}) -- E2 parallel_defined_only_within_P (must be n.a. off P)",
+        "(decision=P, approximation in {APX-complete,log-APX,poly-APX,inapprox}) -- E7 approx_hardness_requires_NP_hardness",
+        "(approximation=inapprox, decision=P) -- E6 inapprox_implies_NP_hard"
+      ]
+    }
+  },
+
+  "missingness_policy": {
+    "rule": "R4 -- run every dimensionality/association analysis twice: (a) full table with sentinels as categories, (b) complete-case sub-block dropping any charge/problem carrying a sentinel. A structure claim (H1 especially) counts only if it holds in BOTH.",
+    "rationale": "MCA over many open/n.a. cells can surface an axis that separates well-studied worst-case problems from ensemble-only problems -- a sociology-of-study artifact, not hardness."
+  },
+
+  "measured_policy": {
+    "rule": "R9 -- structure.py runs with and without measured cells (--drop-measured). No H1/H2/H3 claim may rest on measured cells alone; any claim that appears only with measured cells present is reported as measurement-dependent, not established.",
+    "v1_scope": "Only already-banked experiments fill measured cells (the Census backbone datum). New measurements are separate mini-projects queued from blank cells, not atlas work."
+  },
+
+  "occupancy_policy": {
+    "rule": "R3 -- occupancy, forbidden-region, and gap analysis run over ALL 2-D charge pairs and a PRE-SPECIFIED set of 3-D triples (locked here to prevent post-hoc triple-fishing).",
+    "locked_triples": [
+      ["decision", "counting", "parallelization"],
+      ["decision", "approximation", "parameterized"],
+      ["decision", "average_case", "landscape"]
+    ],
+    "gap_definition": "An empty cell in an examined marginal that is NOT theorem-forbidden (no entailment rule fires) and has no known inhabitant. Each gap is stated as a falsifiable claim: 'a natural problem with charges (...) should exist; none is known.'"
+  },
+
+  "claim_standard": {
+    "forbidden": "A cell called forbidden cites the entailment rule (theorem) or a conjecture; unlabelled empty cells are gaps, not forbidden.",
+    "surprising_vs_entailed": "H1 associations are reported split into entailment-forced (a known theorem links the charges) vs surprising (no known theorem)."
+  },
+
+  "kill_thresholds": {
+    "population_failure_A1": "pilot applicable-cell cited coverage < 70% (or uncited-folklore cells remain) -> literature too sparse for a charge table at this standard -> rescope to fewer charges or kill; write the negative note (spec 5.1).",
+    "degeneracy_A3": "effective dimensionality ~= 1: first MCA dimension holds >= 90% of retained inertia AND median off-diagonal Cramer's V >= 0.8, in BOTH full-table and complete-case -> hardness is scalar at this resolution -> write the negative note (spec 5.2).",
+    "time_box": "A1 within two weekend blocks; total attention ceiling 25 h paired; $0 compute (literature + analysis only)."
+  }
+}

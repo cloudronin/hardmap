@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eightfold"
+version = "0.1.0"
+description = "Eightfold v1 — the first quantitative charge atlas of computational problems: rows are natural problems under fixed encodings, columns are eight literature-sourced hardness charges (decision, counting, approximation, parameterized, parallelization, proof-size, average-case, landscape/freezing), every cell cited or explicitly flagged. Structure detection looks for multiplets, forbidden regions, and gaps. Third project in the proof-space line (Desert Map → Proof Census → Eightfold)."
+requires-python = ">=3.10"
+authors = [{ name = "Vishnu Vettrivel" }]
+license = { text = "UNLICENSED — private" }
+
+# The core (atlas.py schema/validator/loader/CLI) is deliberately stdlib-only and torch-free, mirroring
+# physmap's calibration corpus: the data asset and its QC gates must import with no scientific stack, so the
+# citation discipline is enforceable anywhere. The categorical-statistics harness (structure.py: Cramér's V,
+# MCA, clustering) lives behind the [analysis] extra.
+dependencies = []
+
+[project.scripts]
+eightfold = "eightfold.cli:main"
+
+[project.optional-dependencies]
+# Structure-detection harness (C-phase): categorical association (Cramer's V) + effective dimensionality
+# (MCA, implemented in-house via numpy SVD of the indicator matrix — no `prince` dependency) + clustering
+# (scipy hierarchical). numpy + scipy only, to keep the harness light and CI-friendly.
+analysis = ["numpy>=1.24", "scipy>=1.10"]
+# Plots (A3/A4 figures).
+viz = ["matplotlib>=3.8"]
+dev = ["pytest>=7.4"]
+
+[tool.setuptools.packages.find]
+include = ["eightfold*"]
+
+[tool.setuptools.package-data]
+# Ship the atlas + its schema + the locked prereg as the committable deliverable (single-tier v1). A future
+# seed/premium firewall would exclude the premium atlas glob here, exactly as physmap excludes its corpus.
+eightfold = ["results/prereg/*.json", "results/atlas/*.jsonl", "results/atlas/*.md", "results/atlas/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

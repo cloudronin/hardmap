@@ -1,0 +1,440 @@
+"""Atlas builder — the authoritative source for results/atlas/atlas.jsonl.
+
+The atlas is curated HERE (Python is far less error-prone than hand-editing nested JSONL) and generated with
+`python dev/build_atlas.py`; atlas.jsonl is the loadable generated artifact (both committed). Every real cell
+is `claimed` with a stable citation (books / primary papers — no url, so no R10 snapshot burden); `confirmed`
+promotion is the owner's job (R8). The Census C2 backbone is the single `measured` cell (R9). Values are
+agent-drafted from standard references; correct-and-partial beats complete-and-unverified — genuinely
+unknown-to-me cells are `open`, inapplicable ones `n.a.` per the R15 boundary (n.a. only when the charge's
+object cannot be constructed).
+"""
+import json
+import pathlib
+
+# eightfold/dev/build_atlas.py -> parents[1] = the product dir (eightfold/); the JSONL is one level in.
+ATLAS = pathlib.Path(__file__).resolve().parents[1] / "eightfold" / "results" / "atlas" / "atlas.jsonl"
+
+REVIEWER = "Claude Code (agent draft; claimed — owner review/confirm pending)"
+DATE = "2026-07-21"
+
+# ── citation shorthands (stable anchors: books + primary papers, no url) ──────────────────────────────────
+GJ = "Garey & Johnson, Computers and Intractability (1979)"
+AB = "Arora & Barak, Computational Complexity: A Modern Approach (2009)"
+AK = "Ausiello, Crescenzi, Gambosi, Kann, Marchetti-Spaccamela & Protasi, Complexity and Approximation (1999)"
+DF99 = "Downey & Fellows, Parameterized Complexity (1999)"
+CYG = "Cygan et al., Parameterized Algorithms (2015)"
+GHR = "Greenlaw, Hoover & Ruzzo, Limits to Parallel Computation (1995)"
+KARP = "Karp, Reducibility among combinatorial problems (1972)"
+VAL_PERM = "Valiant, The complexity of computing the permanent, TCS 8 (1979) 189-201"
+VAL_ENUM = "Valiant, The complexity of enumeration and reliability problems, SIAM J. Comput. 8 (1979) 410-421"
+CREIG = "Creignou & Hermann, Complexity of generalized satisfiability counting problems, Inf. Comput. 125 (1996)"
+HAKEN = "Haken, The intractability of resolution, TCS 39 (1985) 297-308"
+URQ = "Urquhart, Hard examples for resolution, JACM 34 (1987) 209-219"
+CS88 = "Chvatal & Szemeredi, Many hard examples for resolution, JACM 35 (1988) 759-768"
+HAST99 = "Hastad, Clique is hard to approximate within n^(1-eps), Acta Math. 182 (1999) 105-142"
+ZUCK = "Zuckerman, Linear degree extractors and inapproximability of Max Clique and Chromatic Number, Theory of Computing 3 (2007)"
+DS05 = "Dinur & Safra, On the hardness of approximating minimum vertex cover, Ann. of Math. 162 (2005) 439-485"
+DF95 = "Downey & Fellows, Fixed-parameter tractability and completeness II (W[1]), TCS 141 (1995)"
+IK75 = "Ibarra & Kim, Fast approximation algorithms for the knapsack..., JACM 22 (1975) 463-468"
+FEIGE = "Feige, A threshold of ln n for approximating set cover, JACM 45 (1998) 634-652"
+DINUR_ST = "Dinur & Steurer, Analytical approach to parallel repetition, STOC 2014"
+GW95 = "Goemans & Williamson, Improved approximation algorithms for max cut and satisfiability, JACM 42 (1995)"
+PY91 = "Papadimitriou & Yannakakis, Optimization, approximation, and complexity classes, JCSS 43 (1991) 425-440"
+KHACH = "Khachiyan, A polynomial algorithm in linear programming, Soviet Math. Dokl. 20 (1979)"
+BABAI16 = "Babai, Graph isomorphism in quasipolynomial time, STOC 2016"
+CSANKY = "Csanky, Fast parallel matrix inversion algorithms, SIAM J. Comput. 5 (1976) 618-623"
+MVV = "Mulmuley, Vazirani & Vazirani, Matching is as easy as matrix inversion, Combinatorica 7 (1987)"
+KUW = "Karp, Upfal & Wigderson, Constructing a perfect matching is in Random NC, Combinatorica 6 (1986)"
+HAST01 = "Hastad, Some optimal inapproximability results, JACM 48 (2001) 798-859"
+DUBOIS = "Dubois & Mandler, The 3-XORSAT threshold, FOCS 2002"
+IKKM = "Ibrahimi, Kanoria, Kraning & Montanari, The set of solutions of random XORSAT formulae, Ann. Appl. Probab. 25 (2015)"
+MMZ05 = "Mezard, Mora & Zecchina, Clustering of solutions in the random satisfiability problem, PRL 94 (2005)"
+ACO08 = "Achlioptas & Coja-Oghlan, Algorithmic barriers from phase transitions, FOCS 2008"
+DSS15 = "Ding, Sly & Sun, Proof of the satisfiability conjecture for large k, STOC 2015"
+FRIED = "Friedgut, Sharp thresholds of graph properties, and the k-SAT problem, JAMS 12 (1999)"
+GS14 = "Gamarnik & Sudan, Limits of local algorithms over sparse random graphs, ITCS 2014"
+APT79 = "Aspvall, Plass & Tarjan, A linear-time algorithm for testing certain QBFs (2-SAT), IPL 8 (1979)"
+CR92 = "Chvatal & Reed, Mick gets some (the odds are on his side) [random 2-SAT], FOCS 1992"
+DG84 = "Dowling & Gallier, Linear-time algorithms for testing satisfiability of Horn formulae, J. Logic Prog. 1 (1984)"
+BGH82 = "Borodin, von zur Gathen & Hopcroft, Fast parallel matrix and GCD computations, Inf. Control 52 (1982)"
+EDM65 = "Edmonds, Paths, trees, and flowers, Canad. J. Math. 17 (1965) 449-467"
+ST04 = "Spielman & Teng, Smoothed analysis: why the simplex algorithm usually takes polynomial time, JACM 51 (2004)"
+BES80 = "Babai, Erdos & Selkow, Random graph isomorphism, SIAM J. Comput. 9 (1980)"
+LUKS82 = "Luks, Isomorphism of graphs of bounded valence can be tested in polynomial time, JCSS 25 (1982)"
+STOCK73 = "Stockmeyer & Meyer, Word problems requiring exponential time, STOC 1973 [PSPACE-completeness]"
+BCJ15 = "Beyersdorff, Chew & Janota, Proof complexity of resolution-based QBF calculi, STACS 2015"
+LINIAL = "Linial, Hard enumeration problems in geometry and combinatorics, SIAM J. Alg. Disc. Meth. 7 (1986)"
+AN05 = "Achlioptas & Naor, The two possible values of the chromatic number of a random graph, STOC 2004/Ann. Math. 2005"
+KMRTZ = "Krzakala, Montanari, Ricci-Tersenghi, Semerjian & Zdeborova, Gibbs states and the set of solutions of random CSPs, PNAS 104 (2007)"
+PB83 = "Provan & Ball, The complexity of counting cuts and of computing the probability that a graph is connected, SIAM J. Comput. 12 (1983)"
+MERTENS = "Mertens, Phase transition in the number partitioning problem, PRL 81 (1998)"
+BCP01 = "Borgs, Chayes & Pittel, Phase transition and finite-size scaling for the integer partitioning problem, RSA 19 (2001)"
+DMS17 = "Dembo, Montanari & Sen, Extremal cuts of sparse random graphs, Ann. Probab. 45 (2017)"
+SG76 = "Sahni & Gonzalez, P-complete approximation problems [general TSP inapprox], JACM 23 (1976)"
+BHH59 = "Beardwood, Halton & Hammersley, The shortest path through many points, Proc. Camb. Phil. Soc. 55 (1959)"
+RSA78 = "Rivest, Shamir & Adleman, A method for obtaining digital signatures..., CACM 21 (1978) [factoring assumption]"
+DYER03 = "Dyer, Approximate counting by dynamic programming [#knapsack FPRAS], STOC 2003"
+# R11-R16 additions
+LIPTON91 = "Lipton, New directions in testing, DIMACS Ser. Discrete Math. 2 (1991) [permanent random self-reducibility]"
+KARP_SIPSER = "Karp & Sipser, Maximum matchings in sparse random graphs, FOCS 1981"
+BEIER_VOCKING = "Beier & Vocking, Random knapsack in expected polynomial time, JCSS 69 (2004) 306-329"
+WEIGT_HARTMANN = "Weigt & Hartmann, Number of guards needed by a museum: phase transition in vertex covering of random graphs, PRL 84 (2000) 6118"
+ISTRATE = "Istrate, The phase transition in random Horn satisfiability, Random Struct. Alg. 20 (2002)"
+PLANTED = "planted-clique conjecture; Alon, Krivelevich & Sudakov, Finding a large hidden clique in a random graph, RSA 13 (1998); Barak et al., SOS lower bounds (2019)"
+KSTW = "Khanna, Sudan, Trevisan & Williamson, The approximability of constraint satisfaction problems, SICOMP 30 (2001) [MAX-CSP dichotomy]; Guruswami & Zhou tight UGC bounds for almost-sat Horn SAT"
+DF_KSUM = "Downey & Fellows, Parameterized Complexity (1999) [k-subset-sum W[1]-hardness]"
+GENT_WALSH = "Gent & Walsh, Beyond NP: the QSAT phase transition, AAAI 1999"
+
+# ── the Census C2 banked experiment artifact (R9) ─────────────────────────────────────────────────────────
+CENSUS_C2 = {
+    "prereg": "proof-census/proofcensus/results/prereg/prereg_v1.json",
+    "manifest": "proof-census/proofcensus/results/figures/c2_summary.json",
+    "seeds": "c2.py S1/S2 seed banks; n=20 alpha-mini-sweep (3 instances/cell, K=80)",
+    "code_commit": "uofa-lab@55c7df5 (proofcensus/c2.py, sweep.py, metrics.py)",
+}
+
+
+def cell(charge, value, task, cite=None, status="claimed", perspective=None, note=None, contested=None,
+         experiment=None, transition_known=None):
+    prov = {}
+    if cite:
+        prov["citation"] = cite
+    if note:
+        prov["note"] = note
+    if experiment:
+        prov["experiment"] = experiment
+    d = {"charge": charge, "value": value, "canonical_task": task, "status": status,
+         "provenance": prov, "perspective": perspective, "contested_note": contested}
+    if transition_known is not None:   # R17: average_case-only ensemble sub-field
+        d["transition_known"] = transition_known
+    return d
+
+
+def na(charge, why):
+    return cell(charge, "n.a.", why, status="structural")
+
+
+def op(charge, task, note=None, value="open", cite=None, transition_known=None):
+    return cell(charge, value, task, cite=cite, status="structural", note=note, transition_known=transition_known)
+
+
+def entry(pid, name, family, enc, cells, notes=None):
+    return {"problem_id": pid, "problem_name": name, "problem_family": family, "canonical_encoding": enc,
+            "charges": cells, "last_reviewed": DATE, "reviewer": REVIEWER, "notes": notes}
+
+
+ROWS = []
+
+# 1. SAT
+ROWS.append(entry("sat", "Boolean Satisfiability (CNF-SAT)", "sat-csp",
+    "CNF over n vars; clauses as literal-lists; unbounded width", [
+    cell("decision", "NPC", "SAT decision", AB, note="Cook-Levin"),
+    cell("counting", "#P-complete", "#SAT: count satisfying assignments", VAL_ENUM),
+    cell("approximation", "APX-complete", "MAX-SAT (max satisfied clauses)", AK),
+    cell("parameterized", "FPT", "SAT parameterized by treewidth of the primal graph", CYG, perspective="treewidth"),
+    na("parallelization", "NPC => not in P unless P=NP; within-P charge n.a. (E2)"),
+    cell("proof_size", "exp", "hardest unsat CNF families (PHP/Tseitin) refuted in Resolution", HAKEN, perspective="Resolution", note="also Urquhart 1987"),
+    op("average_case", "random CNF: ensemble depends on clause width; no single canonical threshold for unbounded-width SAT"),
+    op("landscape", "solution-space geometry is ensemble-dependent for general SAT"),
+    ]))
+
+# 2. 3-SAT
+ROWS.append(entry("sat-3", "3-SAT", "sat-csp",
+    "CNF with exactly-3-literal clauses; random ensemble at clause density alpha", [
+    cell("decision", "NPC", "3-SAT decision", GJ, note="GJ [LO1]"),
+    cell("counting", "#P-complete", "#3-SAT", CREIG),
+    cell("approximation", "APX-complete", "MAX-3SAT; 7/8 tight", HAST01, note="Hastad optimal inapprox; APX-complete"),
+    cell("parameterized", "FPT", "3-SAT parameterized by treewidth", CYG, perspective="treewidth"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    cell("proof_size", "exp", "random unsat 3-SAT Resolution refutation size", CS88, perspective="Resolution"),
+    cell("average_case", "hard-on-average-conjectured", "random 3-SAT near threshold: conjectured hard in the clustered regime", ACO08, note="threshold ~4.267 (Friedgut; Ding-Sly-Sun 2015)", transition_known=True),
+    cell("landscape", "clustering-OGP-known", "random 3-SAT solution space: clustering/condensation near threshold", MMZ05, note="Achlioptas-Coja-Oghlan 2008",
+         contested="rigorous OGP/clustering proofs are large-k (Achlioptas-Coja-Oghlan); k=3 clustering is physics-grade (Mezard-Mora-Zecchina, non-rigorous). Owner to verify at promotion (R8/R14)."),
+    ]))
+
+# 3. 2-SAT
+ROWS.append(entry("sat-2", "2-SAT", "sat-csp",
+    "CNF with exactly-2-literal clauses; implication-graph view", [
+    cell("decision", "P", "2-SAT decision (NL-complete, in P)", APT79),
+    cell("counting", "#P-complete", "#2-SAT", VAL_ENUM),
+    cell("approximation", "APX-complete", "MAX-2SAT", AK, note="GW 0.940; PY MAX-SNP-complete"),
+    na("parameterized", "decision in P; no standard W-hierarchy parameterization for 2-SAT itself"),
+    cell("parallelization", "NC", "2-SAT is NL-complete, and NL subset of NC^2", AB, note="NL-completeness Papadimitriou"),
+    cell("proof_size", "poly", "2-UNSAT: poly Resolution refutation via the implication graph", APT79, perspective="Resolution", note="folklore; implication-graph certificate"),
+    cell("average_case", "easy-on-average", "random 2-SAT: in P (linear-time), easy on average", APT79, note="sharp threshold at density 1 (Chvatal-Reed 1992)", transition_known=True),
+    op("landscape", "random 2-SAT solution-space geometry less studied than 3-SAT/XORSAT"),
+    ]))
+
+# 4. XOR-SAT  (star decoupling witness)
+ROWS.append(entry("xor-sat", "XOR-SAT (linear equations over GF(2))", "sat-csp",
+    "system of GF(2) linear equations (k-XOR clauses); random k-XORSAT ensemble", [
+    cell("decision", "P", "XOR-feasibility via Gaussian elimination over GF(2)", AB),
+    cell("counting", "FP", "#solutions = 2^(n-rank); Gaussian elimination (affine => FP)", CREIG),
+    cell("approximation", "inapprox", "MAX-3-LIN over GF(2): no (1/2+eps)-approx unless P=NP (a DIFFERENT object than XOR-feasibility, R1)", HAST01),
+    na("parameterized", "decision in P"),
+    cell("parallelization", "NC", "linear algebra over GF(2) in NC^2", BGH82),
+    cell("proof_size", "exp", "Tseitin/XOR formulas on expanders: Resolution size 2^Omega(n)", URQ, perspective="Resolution"),
+    cell("average_case", "easy-on-average", "random k-XORSAT: in P (Gaussian elimination), easy on average", DUBOIS, note="sharp SAT/clustering threshold (Dubois-Mandler 2002)", transition_known=True),
+    cell("landscape", "clustering-OGP-known", "random k-XORSAT solution space: frozen 1RSB clusters", IKKM),
+    ], notes="Maximal decoupling: decision/counting trivial (P/FP) yet MAX-3LIN inapprox, Tseitin proof exp, solutions frozen. The R1 different-object witness."))
+
+# 5. Horn-SAT
+ROWS.append(entry("horn-sat", "Horn-SAT", "sat-csp",
+    "CNF with <=1 positive literal per clause (Horn); unit-propagation view", [
+    cell("decision", "P", "Horn satisfiability; linear-time unit propagation", DG84),
+    cell("counting", "#P-complete", "#Horn-SAT (Horn is not affine => #P-complete)", CREIG),
+    cell("approximation", "APX-complete", "MAX-Horn-SAT (maximize satisfied Horn clauses)", KSTW, note="APX-complete via MAX-CSP dichotomy; UGC-tight"),
+    na("parameterized", "decision in P"),
+    cell("parallelization", "P-complete", "Horn-SAT is P-complete", GHR),
+    cell("proof_size", "poly", "Horn-UNSAT: poly unit-resolution refutation", DG84, perspective="Resolution", note="unit resolution complete for Horn"),
+    cell("average_case", "easy-on-average", "random Horn-SAT: in P (linear-time), easy on average", ISTRATE, note="satisfiability phase transition (Istrate 2002)", transition_known=True),
+    op("landscape", "random Horn solution-space geometry: ensemble exists (Istrate) but OGP not established (R15 open, not n.a.)"),
+    ], notes="Decision-easy/counting-hard like 2-SAT, but P-complete parallel (vs 2-SAT/XORSAT NC)."))
+
+# 6. Vertex Cover
+ROWS.append(entry("vertex-cover", "Vertex Cover (decision)", "graph",
+    "simple undirected graph, adjacency-list (sparse); size = (n vertices, m edges)", [
+    cell("decision", "NPC", "VC decision: cover of size <= k?", GJ, note="GJ [GT1]; Karp 1972"),
+    cell("counting", "#P-complete", "#vertex covers", VAL_ENUM, note="Provan-Ball 1983"),
+    cell("approximation", "APX-complete", "MIN-VC: 2-approx, no PTAS unless P=NP (1.36 hardness)", DS05, note="APX-complete; Ausiello et al."),
+    cell("parameterized", "FPT", "VC parameterized by solution size k", DF99, perspective="solution size k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "hard-on-average-conjectured", "min-VC on random graphs: typical-case search-complexity peak near the transition", WEIGT_HARTMANN, transition_known=True),
+    cell("landscape", "clustering-OGP-known", "max-independent-set (VC complement) on sparse G(n,c/n): OGP", GS14),
+    ]))
+
+# 7. Clique
+ROWS.append(entry("clique", "Clique (decision)", "graph",
+    "simple undirected graph, adjacency-list (sparse)", [
+    cell("decision", "NPC", "CLIQUE decision: clique of size >= k?", KARP),
+    cell("counting", "#P-complete", "#cliques", VAL_ENUM),
+    cell("approximation", "inapprox", "MAX-CLIQUE: n^(1-eps) inapprox unless P=NP", HAST99, note="Zuckerman 2007 derandomized"),
+    cell("parameterized", "W[1]", "k-CLIQUE: W[1]-complete", DF95, perspective="solution size k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "hard-on-average-conjectured", "planted-clique detection at clique size o(sqrt n): conjectured hard on average", PLANTED, transition_known=True),
+    cell("landscape", "clustering-OGP-known", "densest-subgraph/independent-set on random graphs: OGP", GS14),
+    ], notes="VC/CLIQUE decoupling: same decision NPC, opposite approximation and parameterized."))
+
+# 8. Independent Set
+ROWS.append(entry("independent-set", "Independent Set (decision)", "graph",
+    "simple undirected graph, adjacency-list (sparse)", [
+    cell("decision", "NPC", "IS decision: independent set of size >= k?", KARP),
+    cell("counting", "#P-complete", "#independent sets", VAL_ENUM),
+    cell("approximation", "inapprox", "MAX-IS: n^(1-eps) inapprox unless P=NP", HAST99, note="complement of clique"),
+    cell("parameterized", "W[1]", "k-IS: W[1]-complete", DF95, perspective="solution size k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "hard-on-average-conjectured", "planted independent set (complement of planted clique): conjectured hard", PLANTED, transition_known=True),
+    cell("landscape", "clustering-OGP-known", "max-independent-set on sparse random graphs: OGP (local-algorithm barrier)", GS14),
+    ], notes="Same charge signature as CLIQUE (complement) -- an H2 multiplet check."))
+
+# 9. Graph 3-Coloring
+ROWS.append(entry("graph-3-coloring", "Graph 3-Coloring", "graph",
+    "simple undirected graph, adjacency-list; random G(n,m) ensemble", [
+    cell("decision", "NPC", "3-COLORING decision", GJ, note="Karp/Stockmeyer"),
+    cell("counting", "#P-complete", "#proper 3-colorings (chromatic-polynomial eval)", LINIAL),
+    cell("approximation", "inapprox", "CHROMATIC NUMBER: n^(1-eps) inapprox", ZUCK, note="Feige-Kilian"),
+    cell("parameterized", "FPT", "coloring parameterized by treewidth", CYG, perspective="treewidth"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "hard-on-average-conjectured", "random graph coloring near threshold: conjectured hard (clustered)", AN05, note="k-colorability threshold (Achlioptas-Naor)", transition_known=True),
+    cell("landscape", "clustering-OGP-known", "random graph colorings: clustering/freezing of the solution set", KMRTZ, note="physics-grade (Krzakala et al.); rigor-audit vs Molloy / Achlioptas-Coja-Oghlan deferred to A2"),
+    ]))
+
+# 10. TSP
+ROWS.append(entry("tsp", "Traveling Salesman (general, decision)", "optimization",
+    "complete graph with arbitrary nonnegative edge weights; decision: tour <= B", [
+    cell("decision", "NPC", "TSP decision (Hamiltonicity special case)", GJ),
+    cell("counting", "#P-complete", "#Hamiltonian tours", VAL_ENUM),
+    cell("approximation", "inapprox", "general TSP: no poly alpha-approx unless P=NP", SG76, note="metric TSP is APX (Christofides 3/2) -- a different, restricted object"),
+    cell("parameterized", "FPT", "TSP parameterized by treewidth", CYG, perspective="treewidth"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "easy-on-average", "random Euclidean TSP: BHH concentration; PTAS (Arora)", BHH59, note="Arora 1998 PTAS for Euclidean"),
+    op("landscape", "TSP tour landscape not a standard OGP object"),
+    ]))
+
+# 11. Permanent
+ROWS.append(entry("permanent", "Permanent (0/1 and integer matrices)", "algebraic",
+    "n x n matrix, entries in binary; 0/1 case = bipartite adjacency", [
+    cell("decision", "P", "0/1-permanent nonzero <=> bipartite perfect matching exists", EDM65),
+    cell("counting", "#P-complete", "compute the permanent (= count perfect matchings)", VAL_PERM),
+    na("approximation", "not an NP-optimization problem; approximate-COUNTING (FPRAS, JSV 2004) is a different axis than charge 3"),
+    na("parameterized", "not a standard parameterized decision problem"),
+    op("parallelization", "the decision (matching) is in RNC; NC-membership open", note="MVV 1987; KUW 1986"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "worst-case-to-average-equiv", "permanent over a large field is random self-reducible: average-case = worst-case (#P-hard)", LIPTON91),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Permanent vs determinant: same algebraic surface, counting #P-complete vs FP, parallel open vs NC."))
+
+# 12. Determinant
+ROWS.append(entry("determinant", "Determinant", "algebraic",
+    "n x n integer matrix, entries in binary", [
+    cell("decision", "P", "singularity (det = 0?), poly-time / in NC", AB),
+    cell("counting", "FP", "evaluate the determinant (in FP / GapL)", AB),
+    na("approximation", "exactly-computable algebraic function; no optimization/approx axis"),
+    na("parameterized", "not a parameterized decision problem"),
+    cell("parallelization", "NC", "determinant in NC^2 (Csanky)", CSANKY),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "determinant of random matrices: ensemble definable, computed exactly (in P); not a studied hardness question (R15 open, not n.a.)"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Determinant half of the permanent/determinant witness: counting FP, parallel NC."))
+
+# 13. Factoring
+ROWS.append(entry("factoring", "Integer Factoring (decision)", "number-theoretic",
+    "integer N in binary; decision: does N have a factor in [2, k]?", [
+    cell("decision", "NPI-candidate", "FACTOR decision; in NP intersect coNP, not known NPC", AB),
+    na("counting", "not a solution-counting problem"),
+    na("approximation", "not an optimization problem"),
+    na("parameterized", "no standard parameterization"),
+    op("parallelization", "not known in NC; in BQP (Shor)"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "hard-on-average-crypto", "random RSA semiprimes: factoring assumption", RSA78),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+
+# 14. Graph Isomorphism
+ROWS.append(entry("graph-isomorphism", "Graph Isomorphism (decision)", "graph",
+    "two simple undirected graphs, adjacency-list", [
+    cell("decision", "NPI-candidate", "GI decision; NP, not known NPC; quasipolynomial", BABAI16),
+    op("counting", "#isomorphisms is poly-time equivalent to GI decision (Mathon 1979); not #P-hard unless GI is easy", note="Mathon 1979"),
+    na("approximation", "GI is a decision problem; robust/approximate GI is out of scope"),
+    cell("parameterized", "FPT", "GI FPT for bounded color-class size / bounded degree", LUKS82, perspective="bounded degree (Luks)"),
+    op("parallelization", "GI not known in NC"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "easy-on-average", "random graphs G(n,1/2) canonizable in linear expected time", BES80),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+
+# 15. Linear Programming
+ROWS.append(entry("linear-programming", "Linear Programming", "optimization",
+    "rational constraint matrix + objective, entries in binary; feasibility/optimization", [
+    cell("decision", "P", "LP feasibility/optimization; poly-time (ellipsoid)", KHACH),
+    na("counting", "continuous optimization; no discrete solution count"),
+    na("approximation", "solved exactly in poly time; no approx-hardness for its own objective"),
+    na("parameterized", "no standard parameterization"),
+    cell("parallelization", "P-complete", "Linear Programming is P-complete", GHR),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "easy-on-average", "simplex: polynomial smoothed complexity", ST04),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="LP (P-complete parallel) vs matching (open parallel): the charge-5 decoupling witness."))
+
+# 16. Matching
+ROWS.append(entry("matching", "Maximum Matching", "graph",
+    "simple undirected graph, adjacency-list; perfect/maximum matching", [
+    cell("decision", "P", "max/perfect matching; Edmonds' blossom algorithm", EDM65),
+    cell("counting", "#P-complete", "count perfect matchings (= permanent for bipartite)", VAL_PERM),
+    na("approximation", "solved exactly in poly time"),
+    na("parameterized", "decision in P"),
+    op("parallelization", "perfect matching in RNC (KUW/MVV); NC-membership famously open", note="MVV 1987"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "easy-on-average", "maximum matching on sparse random graphs: Karp-Sipser greedy near-optimal", KARP_SIPSER),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Decision-easy/counting-hard; parallel open (contrast LP P-complete, determinant NC)."))
+
+# 17. Knapsack
+ROWS.append(entry("knapsack", "0/1 Knapsack (decision)", "number-theoretic",
+    "n items with integer weights/values in binary; capacity W; decision: value >= V?", [
+    cell("decision", "NPC", "0/1-KNAPSACK decision; weakly NP-complete (binary encoding)", GJ, note="GJ [MP9]; pseudo-poly DP"),
+    cell("counting", "#P-complete", "#knapsack solutions", DYER03, note="#P-hard; FPRAS Dyer 2003"),
+    cell("approximation", "FPTAS", "MAX-KNAPSACK: FPTAS", IK75),
+    cell("parameterized", "W[1]", "k-subset-sum (exactly k items hitting the target): W[1]-hard", DF_KSUM, perspective="solution size k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "easy-on-average", "random knapsack: expected polynomial time (poly # Pareto-optimal points)", BEIER_VOCKING),
+    op("landscape", "knapsack solution-space geometry: the REM-like landscape lives on the number-partitioning row, not borrowed here (R13)"),
+    ], notes="FPTAS witness (weakly NP-hard, poly-unbounded objective under binary encoding -- see R6/E5)."))
+
+# 17b. Number Partitioning  (R13: first-class specimen; REM-like landscape witness)
+ROWS.append(entry("number-partitioning", "Number Partitioning (PARTITION)", "number-theoretic",
+    "n integers in binary; decision: split into two subsets of equal sum", [
+    cell("decision", "NPC", "PARTITION decision; weakly NP-complete", GJ, note="GJ [SP12]"),
+    cell("counting", "#P-complete", "#balanced partitions", VAL_ENUM),
+    cell("approximation", "FPTAS", "min-discrepancy partition: FPTAS (subset-sum DP)", IK75),
+    op("parameterized", "no standard W-hierarchy parameter curated"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "hard-on-average-conjectured", "random number partitioning hard phase: no efficient algorithm known", MERTENS, note="sharp solvability transition (Mertens 1998)", transition_known=True),
+    cell("landscape", "clustering-OGP-known", "random number partitioning: REM-like (random-energy) shattered landscape", BCP01),
+    ], notes="R13: the REM-like landscape makes number partitioning a witness in its own right; the cell previously mis-attributed to knapsack now lives here."))
+
+# 18. Set Cover
+ROWS.append(entry("set-cover", "Set Cover (decision)", "optimization",
+    "ground set + set system (incidence lists); decision: cover of size <= k?", [
+    cell("decision", "NPC", "SET-COVER decision", KARP),
+    cell("counting", "#P-complete", "#set covers", PB83),
+    cell("approximation", "log-APX", "MIN-SET-COVER: (1-o(1)) ln n tight", FEIGE, note="Dinur-Steurer 2014 tight"),
+    cell("parameterized", "W[2]+", "k-SET-COVER: W[2]-complete", DF99, perspective="solution size k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "random set-cover ensembles not curated in pilot"),
+    op("landscape", "not curated in pilot"),
+    ], notes="log-APX and W[2] populate distinct approximation/parameterized values."))
+
+# 19. Max-Cut
+ROWS.append(entry("max-cut", "Maximum Cut", "graph",
+    "simple undirected graph, adjacency-list; random G(n,c/n) ensemble", [
+    cell("decision", "NPC", "MAX-CUT decision: cut >= B?", KARP),
+    cell("counting", "#P-complete", "#maximum cuts / #cuts", PB83),
+    cell("approximation", "APX-complete", "MAX-CUT: 0.878 (GW); APX-complete; UGC-optimal", GW95, note="Papadimitriou-Yannakakis MAX-SNP"),
+    cell("parameterized", "FPT", "MAX-CUT above the m/2 guarantee: FPT", CYG, perspective="above-guarantee (m/2 + k)"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "hard-on-average-conjectured", "max-cut of sparse random graphs: conjectured hard near the spin-glass value (OGP barrier)", DMS17, note="extremal-cut value known (Dembo-Montanari-Sen 2017)", transition_known=True),
+    cell("landscape", "clustering-OGP-known", "spin-glass / max-cut on random graphs: OGP", GS14, note="Dembo-Montanari-Sen; Gamarnik-Jagannath-Sen"),
+    ]))
+
+# 20. PHP (pigeonhole family)
+ROWS.append(entry("php", "Pigeonhole Principle PHP^{n+1}_n (family)", "logic-proof",
+    "fixed unsatisfiable CNF encoding n+1 pigeons into n holes; parameterized by n", [
+    na("decision", "PHP_n is a fixed unsatisfiable CNF family, not a decision problem with varying input (R1)"),
+    na("counting", "not a solution-counting problem (unsatisfiable)"),
+    na("approximation", "not an optimization problem"),
+    na("parameterized", "not a parameterized decision problem"),
+    na("parallelization", "not a within-P decision problem"),
+    cell("proof_size", "exp", "PHP^{n+1}_n Resolution refutation: 2^Omega(n) lower bound", HAKEN, perspective="Resolution"),
+    na("average_case", "a deterministic family, not a random ensemble"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Charge-6 witness (human-trivial, Resolution-exponential); 7 n.a. cells illustrate R1/R2."))
+
+# 21. TQBF
+ROWS.append(entry("tqbf", "True Quantified Boolean Formula (TQBF)", "logic-proof",
+    "fully-quantified Boolean formula; decision: is it true?", [
+    cell("decision", "harder", "TQBF: PSPACE-complete", STOCK73),
+    na("counting", "not a solution-counting problem in the NP sense"),
+    na("approximation", "not an NP-optimization problem"),
+    na("parameterized", "no standard W-hierarchy parameterization curated"),
+    na("parallelization", "PSPACE-complete => not in P unless P=PSPACE; within-P charge n.a."),
+    cell("proof_size", "exp", "false-QBF refutation in Q-resolution: exp lower bounds", BCJ15, perspective="Q-resolution"),
+    op("average_case", "random QBF: algorithmic difficulty uncurated; QSAT phase transition known", cite=GENT_WALSH, transition_known=True),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Populates the 'harder' (PSPACE) decision value and a non-Resolution proof system."))
+
+# 22. Random unsat 3-SAT refutation set  (the Census measured cell, R9)
+ROWS.append(entry("random-3sat-refutation", "Random unsat 3-SAT: refutation set", "logic-proof",
+    "random unsat 3-SAT near density 4.267; the SET of Resolution refutations (proof-space object)", [
+    na("decision", "the object is the refutation SET / proof landscape, not a decision problem (see sat-3 for the decision charge)"),
+    na("counting", "not a solution-counting problem"),
+    na("approximation", "not an optimization problem"),
+    na("parameterized", "not a parameterized decision problem"),
+    na("parallelization", "not a within-P decision problem"),
+    cell("proof_size", "exp", "random unsat 3-SAT Resolution refutation size: exponential", CS88, perspective="Resolution"),
+    na("average_case", "the ensemble average-case decision charge lives on sat-3"),
+    cell("landscape", "freezing-measured",
+         "refutation-SET backbone/freezing of random unsat 3-SAT near threshold (proof-space landscape; R1: proofs, not solutions)",
+         status="measured", experiment=CENSUS_C2,
+         note="R14: value is freezing-measured, NOT clustering-OGP-known. Census C2 measured backbone STRENGTHENING and overlap CONCENTRATION (freezing-style evidence), not a proven overlap gap; no OGP theorem exists for proof space -- that absence is our own I3 novelty. C2 banked (done-gate MET); C3 will refine. Distinct object from the sat-3 solution-space OGP cell."),
+    ], notes="R9 measured cell: the Census backbone datum enters charge 8's ledger as a self-generated, reproducible measurement (R14: freezing-measured, strictest standard for our own datum)."))
+
+
+def main():
+    with open(ATLAS, "w", encoding="utf-8") as f:
+        for r in ROWS:
+            f.write(json.dumps(r, ensure_ascii=False) + "\n")
+    print(f"wrote {len(ROWS)} problems to {ATLAS}")
+
+
+if __name__ == "__main__":
+    main()
