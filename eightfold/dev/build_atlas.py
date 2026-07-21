@@ -114,6 +114,14 @@ APW = "Austrin, Pitassi & Wu, Inapproximability of treewidth and related problem
 KMR97 = "Karger, Motwani & Ramkumar, On approximating the longest path in a graph, Algorithmica 18 (1997)"
 ACP87 = "Arnborg, Corneil & Proskurowski, Complexity of finding embeddings in a k-tree, SIAM J. Alg. Disc. Meth. 8 (1987)"
 AM06 = "Achlioptas & Moore, Random k-SAT: two moments suffice to cross a sharp threshold, SIAM J. Comput. 36 (2006) [NAE-SAT]"
+# batch 2 citations
+HOLYER = "Holyer, The NP-completeness of edge-coloring, SIAM J. Comput. 10 (1981)"
+DAHLHAUS = "Dahlhaus, Johnson, Papadimitriou, Seymour & Yannakakis, The complexity of multiterminal cuts, SIAM J. Comput. 23 (1994)"
+CLLOR = "Chen, Liu, Lu, O'Sullivan & Razgon, A fixed-parameter algorithm for directed feedback vertex set, JACM 55 (2008)"
+VEB81 = "van Emde Boas, Another NP-complete problem and the complexity of computing short vectors in a lattice (1981) [CVP NP-hard]"
+DKRS = "Dinur, Kindler, Raz & Safra, Approximating CVP to within almost-polynomial factors is NP-hard, Combinatorica 23 (2003)"
+MARX06 = "Marx, Parameterized graph separation problems, TCS 351 (2006) [multiway cut FPT]"
+KHOT02 = "Khot, On the power of unique 2-prover 1-round games, STOC 2002 [UGC]"
 
 # ── the Census C2 banked experiment artifact (R9) ─────────────────────────────────────────────────────────
 CENSUS_C2 = {
@@ -602,7 +610,7 @@ ROWS.append(entry("circuit-sat", "Circuit SAT", "sat-csp",
     "Boolean circuit; decision: is there a satisfying input?", [
     cell("decision", "NPC", "CIRCUIT-SAT decision", AB),
     cell("counting", "#P-complete", "#satisfying assignments of a circuit", VAL_ENUM),
-    op("approximation", "MAX-CIRCUIT-SAT approximability not curated"),
+    cell("approximation", "APX-complete", "MAX-CIRCUIT-SAT (maximize satisfied outputs)", AK, note="generalizes MAX-SAT (APX-hard) and in APX by a random assignment"),
     na("parameterized", "no standard parameterization curated"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     op("proof_size", "not curated"),
@@ -775,6 +783,195 @@ ROWS.append(entry("max-coverage", "Maximum Coverage", "optimization",
     cell("counting", "#P-complete", "#k-subsets covering >= t elements", AB, note="counting solutions of an NPC problem is #P-complete (Arora-Barak Ch.17)"),
     cell("approximation", "APX-complete", "MAX-COVERAGE: (1-1/e) greedy membership + (1-1/e) hardness", FEIGE, note="(1-1/e) greedy Nemhauser-Wolsey-Fisher 1978; (1-1/e) hardness Feige 1998 (R20 both sides)"),
     op("parameterized", "k-coverage parameterization not curated"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+
+
+# ========================= A2 batch 2 =========================
+
+# --- graph ---
+ROWS.append(entry("edge-coloring", "Edge Coloring (Chromatic Index)", "graph",
+    "simple undirected graph, adjacency-list; decision: edge-colorable with Delta colors?", [
+    cell("decision", "NPC", "deciding chromatic index Delta vs Delta+1", HOLYER),
+    cell("counting", "#P-complete", "#proper edge-colorings", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    op("approximation", "Vizing gives a +1 ADDITIVE guarantee (Delta or Delta+1); the multiplicative-ratio vocab does not fit"),
+    cell("parameterized", "FPT", "edge-coloring parameterized by treewidth", CYG, perspective="treewidth"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("min-bisection", "Minimum Bisection", "graph",
+    "simple undirected graph, adjacency-list; split into two equal halves minimizing cut", [
+    cell("decision", "NPC", "MIN-BISECTION decision", GJ),
+    cell("counting", "#P-complete", "#minimum bisections", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    op("approximation", "O(log n) approximation known (Racke); no APX-hardness/membership settled"),
+    cell("parameterized", "FPT", "min-bisection is FPT parameterized by the cut size", CYG, perspective="cut size k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "planted-bisection has a detectability transition; not curated here"),
+    op("landscape", "not curated"),
+    ]))
+ROWS.append(entry("multiway-cut", "Multiway Cut", "graph",
+    "edge-weighted graph + terminal set; separate all terminals minimizing cut", [
+    cell("decision", "NPC", "MULTIWAY-CUT (>= 3 terminals) decision", DAHLHAUS),
+    cell("counting", "#P-complete", "#minimum multiway cuts", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    cell("approximation", "APX-complete", "1.2965-approximation + APX-hard", DAHLHAUS, note="APX-hard for >= 3 terminals (Dahlhaus et al.)"),
+    cell("parameterized", "FPT", "multiway cut FPT in the cutset size", MARX06, perspective="cutset size k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("directed-feedback-vertex-set", "Directed Feedback Vertex Set", "graph",
+    "directed graph, adjacency-list; delete <= k vertices to make acyclic", [
+    cell("decision", "NPC", "directed FVS decision", KARP),
+    cell("counting", "#P-complete", "#directed feedback vertex sets", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    op("approximation", "O(log n log log n) approximation; no constant-factor / clean APX status"),
+    cell("parameterized", "FPT", "directed FVS is FPT (Chen et al. 2008)", CLLOR, perspective="solution size k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Directed FVS FPT (Chen et al.) resolved a long-open question -- an FPT witness."))
+ROWS.append(entry("three-dimensional-matching", "3-Dimensional Matching (3DM)", "graph",
+    "tripartite hypergraph (triples over X,Y,Z); decision: perfect matching?", [
+    cell("decision", "NPC", "3DM decision", KARP),
+    cell("counting", "#P-complete", "#3-dimensional matchings", VAL_ENUM),
+    cell("approximation", "APX-complete", "MAX-3DM: constant-factor + APX-hard", AK),
+    cell("parameterized", "FPT", "k-3DM (3-set packing) is FPT via color-coding", AYZ, perspective="solution size k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("bipartiteness", "Bipartiteness (2-Coloring)", "graph",
+    "simple undirected graph, adjacency-list; decision: is the graph 2-colorable?", [
+    cell("decision", "P", "bipartiteness by BFS/DFS 2-coloring", AB),
+    cell("counting", "FP", "#2-colorings = 2^(#connected components) if bipartite, else 0", AB),
+    na("approximation", "decision problem, exactly solved"),
+    na("parameterized", "decision in P"),
+    cell("parallelization", "NC", "2-coloring / connectivity in NC (in fact SL=L)", AB),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Decision P, counting FP, parallel NC -- an easy row (contrast 3-coloring NPC)."))
+
+# --- matrix / algebra ---
+ROWS.append(entry("matrix-multiplication", "Matrix Multiplication", "matrix",
+    "two n x n integer matrices in binary", [
+    cell("decision", "P", "compute the product; poly-time", AB),
+    na("counting", "not a solution-counting problem"),
+    na("approximation", "exactly computed"),
+    na("parameterized", "decision in P"),
+    cell("parallelization", "NC", "matrix multiplication in NC^1", AB),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("linear-equations", "Solving Linear Equations", "matrix",
+    "rational linear system in binary", [
+    cell("decision", "P", "Gaussian elimination, poly-time", AB),
+    na("counting", "the solution set is an affine subspace, not a discrete count"),
+    na("approximation", "exactly solved"),
+    na("parameterized", "decision in P"),
+    cell("parallelization", "NC", "linear algebra over a field is in NC (Csanky/Berkowitz)", BGH82),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+
+# --- lattice / number ---
+ROWS.append(entry("closest-vector-cvp", "Closest Vector Problem (CVP)", "lattice",
+    "lattice basis (integer matrix) + target; find/verify the closest lattice vector", [
+    cell("decision", "NPC", "CVP is NP-complete", VEB81),
+    na("counting", "not a solution-counting problem"),
+    cell("approximation", "inapprox", "NP-hard to approximate within almost-polynomial factors", DKRS),
+    na("parameterized", "no standard parameterization curated"),
+    op("parallelization", "not curated"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "worst-case-hardness stronger than SVP; average-case via lattice reductions -- see sis"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("quadratic-residuosity", "Quadratic Residuosity", "number-theoretic",
+    "integer N + a in Z_N (binary); is a a quadratic residue mod N?", [
+    cell("decision", "NPI-candidate", "QR decision; in NP intersect coNP, not known NPC", AB),
+    na("counting", "not a solution-counting problem"),
+    na("approximation", "not an optimization problem"),
+    na("parameterized", "no standard parameterization"),
+    op("parallelization", "not curated"),
+    na("proof_size", "not a propositional refutation problem"),
+    cell("average_case", "hard-on-average-crypto", "the QR crypto assumption; random self-reducible", AB, note="RSR; boolean records the self-reduction (R18)", worst_to_average_self_reduction=True),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+
+# --- logic / proof / PH ---
+ROWS.append(entry("tautology", "Propositional Tautology (TAUT)", "logic-proof",
+    "propositional formula; decision: is it a tautology?", [
+    cell("decision", "harder", "TAUT is coNP-complete (not in NP unless NP=coNP)", AB),
+    na("counting", "not an NP-solution-counting problem"),
+    na("approximation", "not an optimization problem"),
+    na("parameterized", "no standard parameterization curated"),
+    na("parallelization", "not a within-P decision problem"),
+    cell("proof_size", "exp", "the canonical proof-complexity object; hard tautologies (PHP/Tseitin) are Resolution-exponential", HAKEN, perspective="Resolution"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="coNP-complete decision ('harder'); TAUT IS proof complexity -- the charge-6 home problem."))
+ROWS.append(entry("sigma2-sat", "Sigma_2-SAT (exists-forall QBF)", "logic-proof",
+    "quantified Boolean formula with one alternation (exists x forall y phi)", [
+    cell("decision", "harder", "Sigma_2^p-complete (second level of PH)", STOCK73),
+    na("counting", "not an NP-solution-counting problem"),
+    na("approximation", "not an optimization problem"),
+    na("parameterized", "no standard parameterization curated"),
+    na("parallelization", "not a within-P decision problem"),
+    op("proof_size", "QBF/Sigma_2 proof systems studied; not curated here"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Populates PH level 2 between NPC and PSPACE (TQBF)."))
+ROWS.append(entry("monotone-circuit-value", "Monotone Circuit Value", "logic-proof",
+    "monotone Boolean circuit (AND/OR only) + input; output value", [
+    cell("decision", "P", "evaluate the monotone circuit, poly-time", AB),
+    na("counting", "an evaluation problem, not solution-counting"),
+    na("approximation", "exactly computed"),
+    na("parameterized", "decision in P"),
+    cell("parallelization", "P-complete", "monotone CVP is P-complete", GHR),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Monotone CVP is P-complete (like general CVP) -- parallelization witness."))
+
+# --- CSP / optimization ---
+ROWS.append(entry("one-in-three-sat", "One-in-Three SAT", "sat-csp",
+    "3-CNF; a clause is satisfied iff exactly one literal is true (positive version)", [
+    cell("decision", "NPC", "1-in-3-SAT decision", SCHAEFER),
+    cell("counting", "#P-complete", "#1-in-3 assignments (not affine)", CREIG),
+    cell("approximation", "APX-complete", "MAX-1-in-3-SAT", AK),
+    na("parameterized", "no standard parameterization curated"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    op("proof_size", "not curated"),
+    op("average_case", "not curated"),
+    op("landscape", "not curated"),
+    ]))
+ROWS.append(entry("max-2lin", "MAX-2-LIN over Z_q", "sat-csp",
+    "system of 2-variable linear equations mod q; maximize satisfied equations", [
+    cell("decision", "NPC", "MAX-2LIN gap decision", GJ),
+    cell("counting", "#P-complete", "#max-satisfying assignments", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    cell("approximation", "APX-complete", "constant-factor + APX-hard; UGC-tight (generalizes MAX-CUT)", KHOT02),
+    na("parameterized", "no standard parameterization curated"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    op("landscape", "not curated"),
+    ], notes="The Unique-Games canonical CSP; MAX-CUT is a special case."))
+ROWS.append(entry("job-shop-scheduling", "Job-Shop Scheduling", "optimization",
+    "n jobs, m machines, operation orders + times in binary; minimize makespan", [
+    cell("decision", "NPC", "job-shop makespan <= T decision; strongly NP-hard", GJ),
+    cell("counting", "#P-complete", "#schedules with makespan <= T", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    op("approximation", "O(log^2) approximation known; no PTAS (strongly NP-hard); clean APX status not curated"),
+    op("parameterized", "not curated"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
     op("average_case", "not curated"),

@@ -59,3 +59,11 @@
   frontier cells (avg `hard-on-average-conjectured`, landscape `clustering-OGP-known`). **Per-charge A2 gate
   now PASSES** (decision 98 / counting 95 / approximation 93 / parameterized 86); aggregate 76.8%, 34 tests.
   Stopped there — the remaining opens are genuine frontier (the map of unasked questions).
+- **A2 batch 2:** +16 problems — edge-coloring, min-bisection, multiway-cut, directed-FVS (FPT, Chen et al.),
+  3D-matching, bipartiteness (P/FP/NC easy row), matrix-multiplication, linear-equations, CVP, quadratic-
+  residuosity, tautology (coNP-complete "harder" + the proof-complexity home problem), Σ₂-SAT (PH level 2),
+  monotone-circuit-value (P-complete), 1-in-3-SAT, MAX-2LIN (Unique-Games canonical), job-shop. Counting
+  filled for every NPC row (per the gate). **67 problems, 74.9% cited; per-charge A2 gate PASSES**
+  (decision 98 / counting 96 / approximation 86 / parameterized 85), 34 tests. Genuinely-open approximability
+  cells (edge-coloring / min-bisection / directed-FVS / job-shop) left `open` per R20 — not manufactured.
+  Remaining: ~50 more toward ~120, then A3.
