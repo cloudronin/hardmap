@@ -54,3 +54,8 @@
   (anti-threshold-loosening). `atlas.coverage_report` now emits `core_charge_ratios` + `a2_core_gate_pass`.
   At commit: decision 98% / counting 76% / approximation 93% / parameterized 86% — counting flags the
   batch-2 counting-cell backfill (rider 2).
+- **Rider 2 (cheap-wins backfill, timeboxed):** filled the batch-1 counting gaps (#P-complete via parsimonious
+  reduction — steiner-tree, ILP, metric-TSP, k-center, bin-packing, makespan, max-coverage) and the nae-sat
+  frontier cells (avg `hard-on-average-conjectured`, landscape `clustering-OGP-known`). **Per-charge A2 gate
+  now PASSES** (decision 98 / counting 95 / approximation 93 / parameterized 86); aggregate 76.8%, 34 tests.
+  Stopped there — the remaining opens are genuine frontier (the map of unasked questions).

@@ -113,6 +113,7 @@ BFF = "Bollobas, Fenner & Frieze, An algorithm for finding Hamilton paths and cy
 APW = "Austrin, Pitassi & Wu, Inapproximability of treewidth and related problems, JAIR 49 (2014) [SSE-conjectural]"
 KMR97 = "Karger, Motwani & Ramkumar, On approximating the longest path in a graph, Algorithmica 18 (1997)"
 ACP87 = "Arnborg, Corneil & Proskurowski, Complexity of finding embeddings in a k-tree, SIAM J. Alg. Disc. Meth. 8 (1987)"
+AM06 = "Achlioptas & Moore, Random k-SAT: two moments suffice to cross a sharp threshold, SIAM J. Comput. 36 (2006) [NAE-SAT]"
 
 # ── the Census C2 banked experiment artifact (R9) ─────────────────────────────────────────────────────────
 CENSUS_C2 = {
@@ -488,7 +489,7 @@ ROWS.append(entry("feedback-vertex-set", "Feedback Vertex Set (decision)", "grap
 ROWS.append(entry("steiner-tree", "Steiner Tree (decision)", "graph",
     "edge-weighted graph + terminal set; decision: Steiner tree of weight <= B?", [
     cell("decision", "NPC", "STEINER-TREE decision", KARP),
-    op("counting", "#Steiner trees not curated"),
+    cell("counting", "#P-complete", "#Steiner trees of weight <= B", AB, note="counting feasible solutions of an NPC problem is #P-complete (parsimonious; Arora-Barak Ch.17)"),
     cell("approximation", "APX-complete", "MIN-STEINER-TREE: ~1.39 membership + APX-hard", BYRKA, note="1.39 upper Byrka et al. 2013; APX-hardness Bern-Plassmann 1989 (R20 both sides)"),
     cell("parameterized", "FPT", "Steiner tree parameterized by number of terminals", DREYFUS, perspective="#terminals"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
@@ -565,7 +566,7 @@ ROWS.append(entry("treewidth", "Treewidth (compute)", "graph",
 ROWS.append(entry("k-center", "k-Center", "optimization",
     "metric on n points (distance matrix); decision: cover with k radius-r balls?", [
     cell("decision", "NPC", "k-CENTER decision", GJ),
-    op("counting", "not curated"),
+    cell("counting", "#P-complete", "#feasible k-center covers", AB, note="counting solutions of an NPC problem is #P-complete (Arora-Barak Ch.17)"),
     cell("approximation", "APX-complete", "k-CENTER: 2-approx and NP-hard to beat 2 (both established by Hochbaum-Shmoys)", HOCH_SHM),
     op("parameterized", "not curated"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
@@ -583,8 +584,8 @@ ROWS.append(entry("nae-sat", "Not-All-Equal SAT", "sat-csp",
     cell("parameterized", "FPT", "NAE-SAT parameterized by treewidth (same convention as sat-3)", CYG, perspective="treewidth"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     op("proof_size", "random NAE-SAT refutation size not curated"),
-    op("average_case", "random NAE-SAT phase transition studied; not curated", transition_known=None),
-    op("landscape", "not curated"),
+    cell("average_case", "hard-on-average-conjectured", "random NAE-SAT near threshold: conjectured hard (symmetric CSP, clustered)", AM06, note="clustering as in random k-SAT/coloring", transition_known=True),
+    cell("landscape", "clustering-OGP-known", "random NAE-SAT solution space: clustering / OGP (symmetric CSP)", AM06, note="symmetric-CSP clustering (Coja-Oghlan lineage)"),
     ]))
 ROWS.append(entry("exact-cover-x3c", "Exact Cover by 3-Sets (X3C)", "sat-csp",
     "universe of 3n elements + triples; decision: exact cover?", [
@@ -646,7 +647,7 @@ ROWS.append(entry("subset-sum", "Subset Sum (decision)", "number-theoretic",
 ROWS.append(entry("integer-programming", "Integer Linear Programming (feasibility)", "optimization",
     "rational constraint matrix in binary; decision: integer point in the polytope?", [
     cell("decision", "NPC", "ILP feasibility decision", KARP),
-    op("counting", "#integer points not curated"),
+    cell("counting", "#P-complete", "#integer feasible points of the ILP", AB, note="#P-complete (parsimonious; Arora-Barak Ch.17)"),
     na("approximation", "feasibility problem"),
     cell("parameterized", "FPT", "ILP is FPT in the number of variables (Lenstra)", LENSTRA, perspective="#variables (dimension)"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
@@ -738,7 +739,7 @@ ROWS.append(entry("tutte-polynomial", "Tutte Polynomial (evaluation)", "algebrai
 ROWS.append(entry("bin-packing", "Bin Packing", "optimization",
     "n item sizes in binary + bin capacity; decision: pack into <= k bins?", [
     cell("decision", "NPC", "BIN-PACKING decision", GJ, note="GJ [SR1]"),
-    op("counting", "not curated"),
+    cell("counting", "#P-complete", "#packings into <= k bins", AB, note="counting solutions of an NPC problem is #P-complete (Arora-Barak Ch.17)"),
     cell("approximation", "APX", "bin-packing: 3/2 ABSOLUTE-ratio hardness (from PARTITION) but an asymptotic FPTAS (AFPTAS); APX membership, not completeness (R19)", KK82, note="absolute-ratio convention (R19): constant-factor absolutely, near-optimal asymptotically"),
     cell("parameterized", "FPT", "FPT in the number of distinct item sizes", CYG, perspective="#distinct sizes"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
@@ -749,7 +750,7 @@ ROWS.append(entry("bin-packing", "Bin Packing", "optimization",
 ROWS.append(entry("makespan-scheduling", "Makespan Scheduling (P||Cmax)", "optimization",
     "n job lengths in binary + m machines; decision: makespan <= T?", [
     cell("decision", "NPC", "P||Cmax decision", GJ),
-    op("counting", "not curated"),
+    cell("counting", "#P-complete", "#schedules with makespan <= T", AB, note="counting solutions of an NPC problem is #P-complete (Arora-Barak Ch.17)"),
     cell("approximation", "PTAS", "makespan scheduling: PTAS (Hochbaum-Shmoys)", HOCH_SHM),
     cell("parameterized", "FPT", "FPT in the number of machines / job types", CYG, perspective="#machines"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
@@ -760,7 +761,7 @@ ROWS.append(entry("makespan-scheduling", "Makespan Scheduling (P||Cmax)", "optim
 ROWS.append(entry("metric-tsp", "Metric TSP (decision)", "optimization",
     "complete graph, edge weights obey the triangle inequality; tour <= B?", [
     cell("decision", "NPC", "metric-TSP decision", GJ),
-    op("counting", "not curated"),
+    cell("counting", "#P-complete", "#tours of length <= B", VAL_ENUM, note="#Hamiltonian-tours is #P-complete"),
     cell("approximation", "APX-complete", "metric TSP: 3/2 (Christofides) membership + APX-hard", CHRIST, note="3/2 Christofides 1976; APX-hardness Papadimitriou-Yannakakis 1993; general TSP is inapprox -- same surface, different object (R1)"),
     cell("parameterized", "FPT", "TSP parameterized by treewidth", CYG, perspective="treewidth"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
@@ -771,7 +772,7 @@ ROWS.append(entry("metric-tsp", "Metric TSP (decision)", "optimization",
 ROWS.append(entry("max-coverage", "Maximum Coverage", "optimization",
     "set system + budget k; decision: k sets covering >= t elements?", [
     cell("decision", "NPC", "MAX-COVERAGE decision", KARP),
-    op("counting", "not curated"),
+    cell("counting", "#P-complete", "#k-subsets covering >= t elements", AB, note="counting solutions of an NPC problem is #P-complete (Arora-Barak Ch.17)"),
     cell("approximation", "APX-complete", "MAX-COVERAGE: (1-1/e) greedy membership + (1-1/e) hardness", FEIGE, note="(1-1/e) greedy Nemhauser-Wolsey-Fisher 1978; (1-1/e) hardness Feige 1998 (R20 both sides)"),
     op("parameterized", "k-coverage parameterization not curated"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
