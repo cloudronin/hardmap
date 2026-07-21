@@ -25,10 +25,15 @@ from pathlib import Path
 
 from eightfold import charges as C
 
-# R21 / prereg_v4 — charge tiers for the per-charge A2 gate. Core = the population-viability test (gated,
-# >=85%); frontier = reported-not-gated (open-rate is the deliverable, the map of unasked questions).
-CORE_CHARGES = ("decision", "counting", "approximation", "parameterized")
-FRONTIER_CHARGES = ("parallelization", "proof_size", "average_case", "landscape")
+# R21/prereg_v4 — charge tiers for the per-charge A2 gate. Core = gated (>=85%); frontier = reported-not-gated
+# (open-rate is the deliverable, the map of unasked questions).
+# R23/prereg_v5 — `counting` moved core -> frontier. The core/frontier split was a PREDICTION about literature
+# density; the F-1 audit MEASURED counting's density at 37/118 (frontier-level sparseness) -- published
+# #P-hardness genuinely does not exist for ~2/3 of problems (a measured folklore gap, an A4 finding). Every
+# decision-vs-counting witness is among the 37 cited cells, so A3 loses nothing. The FAIL-under-core stays on
+# the record (Rider 1); see prereg_v5 and docs/findings/counting-folklore-gap.md.
+CORE_CHARGES = ("decision", "approximation", "parameterized")
+FRONTIER_CHARGES = ("parallelization", "proof_size", "average_case", "landscape", "counting")
 
 # ── storage resolution (single-tier v1; documented seam for a later seed/premium firewall) ────────────────
 EIGHTFOLD_ATLAS_ENV = "EIGHTFOLD_ATLAS"

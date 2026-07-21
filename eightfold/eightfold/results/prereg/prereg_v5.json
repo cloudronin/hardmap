@@ -1,0 +1,16 @@
+{
+  "prereg_version": "v5",
+  "supersedes": "v4 (charge-tier amendment only: counting core -> frontier; all other v4 content stands)",
+  "committed_before_analysis": true,
+  "label": "tier-amendment (measured reclassification; the core-gate FAIL is preserved on the record)",
+  "reclassification": {
+    "change": "counting moved from CORE (gated, each core charge >= 85%) to FRONTIER (reported, not gated).",
+    "basis": "MEASURED density, not a lowered bar. The core/frontier split was itself a PREDICTION about literature density, made before counting's density was measured. The F-1 audit measured it: 37 of 118 problems have a published per-problem #P-hardness (or FP) result; ~49 applicable cells GENUINELY lack one -- web-verified that the field proves NP-completeness and parameterized complexity for these problems but rarely their counting versions. 37/118 is frontier-level sparseness. Reclassifying on a MEASURED property corrects a mistaken prediction; it is not lowering a bar to sneak past it (that would be prereg_v4's option 3, explicitly rejected).",
+    "structural_check": "Nothing A3 needs is lost: EVERY decision-vs-counting decoupling witness (permanent/determinant, 2-SAT, Horn-SAT, matching, reachability, stable-matching) is among the 37 CITED cells -- they are the classic problems with real #P-completeness results. A3's leave-one-charge-out ablation already covers residual sensitivity; no new machinery.",
+    "gate_effect": "A2 core gate = decision / approximation / parameterized (each >= 85%); currently PASSES (97 / 89 / 90). counting's open-rate (49/86 applicable open) is reported as a frontier deliverable."
+  },
+  "rider_1_fail_stays_on_record": "The FAIL is NOT erased. Timeline preserved in both readings: counting was classified CORE (prereg_v4, still on file); the F-1 audit dropped it to 43%; under the CORE classification the per-charge gate READ FAIL (documented in the CHANGELOG F-1 + citation-pass entries); the reclassification to frontier happened AFTER that number existed. The defense against goalpost-moving is not pretending the goalpost never moved -- it is documenting the move and its basis so a skeptical reader can judge it.",
+  "rider_2_headline_finding": "The 43% is promoted from embarrassment to HEADLINE FINDING (A4). The audit measured a folklore gap IN THE LITERATURE: the field collectively defaults to 'the counting version of an NP-hard problem is #P-complete' -- the standard assumption, and the exact pattern this atlas's own builder fell into -- yet for ~2/3 of well-studied problems no one has published the proof. That is a measured gap in what counting-complexity theory has actually established, arguably the sharpest single entry in the map of unasked questions. Written up in docs/findings/counting-folklore-gap.md; gets a NAMED paragraph in A4, not a footnote.",
+  "sequence": "Commit prereg_v5 -> owner promotion pass (R8; per checking-the-checker, includes two draws from the counting audit's 37 survivors) -> A3.",
+  "unchanged_from_v4": "The per-charge gate mechanism (R21, R11 method, R12 residual bridges), the >=85% core threshold, frontier = reported-not-gated, and all coding/hypothesis/kill content from prereg_v3/v4 stand. Only counting's tier changed."
+}

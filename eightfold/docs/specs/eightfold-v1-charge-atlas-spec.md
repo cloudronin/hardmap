@@ -220,6 +220,16 @@ body above is unedited. R1–R5 are review findings; R6–R9 are owner-added.
   as schema. (Recoded tqbf → PSPACE-complete, tautology → coNP-complete, Σ₂-SAT → PH-complete/Σ₂ᵖ while only
   two rows were affected. Network-reliability's decision — PP-hard / #P-hard-threshold — has no clean rung
   yet; held `open`, a candidate future `counting-hard` value.)
+- **R23 — `counting` moved core → frontier (prereg_v5).** The F-1 review found the counting column was
+  ~⅔ pattern-matched (my `_npc_opt` helper auto-stamped `#P-complete` with a generic citation); the R20 audit
+  *measured* counting's real citation density at **37/118** — published per-problem #P-hardness genuinely does
+  not exist for most optimization/graph problems (web-verified). Since the core/frontier split was itself a
+  *prediction* about literature density, reclassifying on the measured value corrects the prediction, not a
+  bar (the FAIL-under-core stays on record — **Rider 1**). The A2 core gate is now
+  decision/approximation/parameterized (each ≥85%, PASSES). **Rider 2:** the 43% is an **A4 headline finding**
+  — a measured *folklore gap* (the field defaults to "counting an NP-hard problem is #P-complete" but has not
+  proven it for ~⅔ of well-studied problems), written up in `docs/findings/counting-folklore-gap.md`. Every
+  decision-vs-counting witness sits in the 37 cited cells, so A3 loses nothing.
 - **R21 — Per-charge A2 gate (prereg_v4; committed before batch-2 curation).** As breadth grows, `open` is the
   truthful value in the frontier columns the literature is sparse on. So the A2 gate is fixed *prospectively*
   (before any number trips it — to avoid retroactive threshold-loosening, which the invariants forbid):

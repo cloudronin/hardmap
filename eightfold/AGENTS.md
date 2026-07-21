@@ -48,8 +48,11 @@ claimed periodic table (that would be Move Two, phase-gated on Move One finding 
    version, not an edit. Do not loosen a threshold or widen a marginal to manufacture structure. The
    degeneracy verdict (effective dimensionality ≈ 1) and the population-failure verdict (A1 aggregate <70%;
    A2 per-charge: any core charge <85%, prereg_v4) are pre-registered **outcomes**, not failures — report
-   them. Frontier charges (parallelization/proof-size/average-case/landscape) are reported, not gated — an
-   honest `open` there is the "map of unasked questions", never a viability failure (R21). **Method changes are prereg-gated too (R11):** a
+   them. Core (gated) charges are **decision / approximation / parameterized**; frontier (reported, not gated)
+   are **parallelization / proof-size / average-case / landscape / counting** — an honest `open` there is the
+   "map of unasked questions", never a viability failure (R21). `counting` moved core → frontier (R23/prereg_v5)
+   after the F-1 audit *measured* its citation density at 37/118 — published #P-hardness genuinely does not
+   exist for ~⅔ of problems (a folklore gap; see `docs/findings/counting-folklore-gap.md`). **Method changes are prereg-gated too (R11):** a
    preview-prompted analysis change (e.g. subspace clustering) commits to a new prereg version labeled
    *pilot-informed* before the next milestone's structure run — the preview may teach us about the instrument,
    never tune the analysis post-hoc.

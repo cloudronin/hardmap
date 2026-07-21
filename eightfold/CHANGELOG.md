@@ -133,3 +133,11 @@
   which argues counting belongs in **frontier** (reported, not gated), not core. That is a prereg decision
   (prereg_v5) for the owner; the 37 cited cells still carry every decision-vs-counting decoupling witness
   (permanent/determinant, 2-SAT, stable-matching, reachability, …).
+- **prereg_v5 (R23 — counting → frontier; A2 gate now PASSES):** the F-1 audit *measured* counting's density
+  (37/118, frontier-level), so `counting` moved core → frontier — correcting a mistaken density *prediction*,
+  not lowering a bar. **A2 core gate = decision / approximation / parameterized, all ≥85% (97 / 89 / 90) →
+  PASSES.** *Rider 1:* the FAIL-under-core stays on record (this entry + the F-1 entries; prereg_v4 still
+  gates counting). *Rider 2:* the 43% is an **A4 headline finding** — a measured *folklore gap* (the field
+  assumes #P-completeness of counting NP-hard problems but has not published it for ~⅔ of well-studied ones);
+  written up in `docs/findings/counting-folklore-gap.md`. **Next: owner promotion pass (R8, incl. two
+  counting-survivor draws — checking-the-checker), then A3.** 35 tests, 0 folklore.
