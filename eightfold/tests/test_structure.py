@@ -12,7 +12,9 @@ pytest.importorskip("numpy")  # structure.py is behind the [analysis] extra
 
 from eightfold import charges as C  # noqa: E402
 from eightfold.atlas import DEFAULT_PATH, load_atlas  # noqa: E402
-from eightfold.structure import a3, gap_list, leave_one_charge_out, selftest  # noqa: E402
+from eightfold.structure import (  # noqa: E402
+    a3, cai_chen_residual_audit, gap_list, leave_one_charge_out, selftest,
+)
 
 
 @pytest.fixture(scope="module")
@@ -82,6 +84,23 @@ def test_leave_one_charge_out_one_dim_per_charge():
 def test_drop_measured_ablation_present(out):
     # R9: the ablation number exists so no structure claim can rest on measured cells unnoticed
     assert isinstance(out["H1_dimensionality"]["drop_measured_full_dims"], int)
+
+
+def test_R25_cai_chen_audit_machinery(out):
+    # Structural checks only (not the V values — pinning the science would manufacture the outcome):
+    # the audit must expose all four netting levels and shrink n monotonically as more members are netted out.
+    audit = out["H2_multiplets"]["cai_chen_bridge_audit_R25"]
+    order = ["raw", "conservative", "aggressive", "extreme_floor_delete_whole_cell"]
+    assert all(k in audit for k in order) and "survives" in audit
+    ns = [audit[k]["n"] for k in order]
+    assert ns == sorted(ns, reverse=True)  # more netting -> weakly fewer both-real pairs
+    assert audit["raw"]["netted_out"] == 0
+    assert isinstance(audit["survives"], bool)
+
+
+def test_R25_audit_standalone_matches_a3(out):
+    solo = cai_chen_residual_audit(load_atlas(DEFAULT_PATH))
+    assert solo["raw"] == out["H2_multiplets"]["cai_chen_bridge_audit_R25"]["raw"]
 
 
 def test_selftest_green():

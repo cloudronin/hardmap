@@ -270,6 +270,36 @@ ENTAILMENT_LAYER: list[EntailmentRule] = [
         citation="Marx, Parameterized complexity and approximation algorithms, The Computer Journal 51 (2008).",
         note="R12 bridge: EPTAS-vs-W[1] is theorem-forced; report the residual, not the raw association.",
     ),
+    # R25 — the broader classical approximability->FPT bridge (Cai-Chen). Informational: its true antecedent is
+    # *syntactic-class membership*, which is NOT one of our columns, so it forbids nothing. Load-bearing for the
+    # H2 headline (approx<->parameterized): it is the older, wider bridge the EPTAS/Marx pair does not contain.
+    EntailmentRule(
+        name="max_snp_or_min_f_pi1_membership_implies_fpt_CAI_CHEN",
+        antecedent={"approximation": frozenset({"FPTAS", "EPTAS", "PTAS", "APX", "APX-complete"})},
+        forbids=None,  # in-APX is NECESSARY but NOT sufficient — see preconditions; encoding "APX-complete=>FPT" would be the over-broad R6 error
+        preconditions=(
+            "EXACT hypothesis: an NPO problem whose optimum is *syntactically definable* in MAX SNP "
+            "(max #tuples a quantifier-free formula holds) or MIN F+Pi_1 (min |S| s.t. a Pi_1 formula POSITIVE "
+            "in S) is FPT for its STANDARD parameterization (objective value / solution size). It is CLASS "
+            "MEMBERSHIP that entails FPT, not MAX-SNP-hardness — L-/PTAS-reductions (which establish "
+            "APX-completeness) do NOT transfer fixed-parameter tractability. Being in APX, even APX-complete, "
+            "does NOT imply FPT (Independent Set is poly-APX and W[1]-hard; Dominating Set is log-APX and "
+            "W[2]-hard) — which is why this forbids no column cell. It documents that for the SUBSET of "
+            "APX-complete x FPT problems that are syntactic MAX SNP / MIN F+Pi_1 members under the standard "
+            "parameter (vertex-cover, d-hitting-set, 3-dim-matching, k-set-packing; and the MAX-SNP maximization "
+            "problems under their objective parameter), the (in-APX & FPT) co-occurrence is theorem-forced. "
+            "Connectivity/modification problems (feedback-vertex-set, multiway-cut, connected-VC, steiner, "
+            "cluster-editing/-deletion) are NOT in these classes — acyclicity/connectivity are not "
+            "first-order-definable — and are FPT via separate techniques, so their co-occurrence is not forced. "
+            "R25 audit: netting out the forced members leaves the approx|parameterized association at 0.72 "
+            "(conservative, 4 removed) -> 0.70 (aggressive, all 10 syntactic members) -> 0.68 (extreme: whole "
+            "APX-complete x FPT cell deleted), vs 0.73 raw — the multiplet SURVIVES the subtraction."
+        ),
+        citation=("Cai & Chen, On fixed-parameter tractability and approximability of NP optimization problems, "
+                  "JCSS 54(3):465-474 (1997); extended by Kratsch, Polynomial kernelizations for MIN F+Pi_1 and "
+                  "MAX NP, STACS (2009)."),
+        note="R25 bridge: the wide approximability->FPT entailment; the H2 approx<->param residual survives it (0.73->0.68).",
+    ),
 ]
 
 

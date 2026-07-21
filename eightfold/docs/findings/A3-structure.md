@@ -93,6 +93,36 @@ both-real problems sit at **APX-complete × FPT** — the textbook NP-hard combi
 (vertex cover and its relatives: constant-factor approximable, no PTAS, yet fixed-parameter tractable). That
 cluster is the atlas's single densest multiplet, and neither of its two charges forces the other.
 
+**R25 — auditing the cluster against the *wide* approximability→FPT bridge (the load-bearing check).** The
+EPTAS↔FPT bridge above is narrow; there is an older, broader one the entailment layer did not contain:
+**Cai–Chen (JCSS 1997)** — *every problem in the syntactic class MAX SNP or MIN F⁺Π₁ is FPT for its standard
+(objective-value) parameterization* (extended to poly kernels by Kratsch, STACS 2009). If the 22 cluster
+members were largely covered by it, the headline would demote from "genuine multiplet" to "partly
+theorem-forced." Two facts from the sources make the bridge *narrow* in reach: (i) it is **class membership**
+that entails FPT, **not** MAX-SNP-*hardness* — the L-/PTAS-reductions that establish APX-completeness do **not**
+transfer FPT; and (ii) MIN F⁺Π₁ requires a Π₁ (first-order) feasibility formula, so **connectivity/modification
+problems are excluded** — acyclicity and connectivity are not first-order-definable, which is why feedback
+vertex set, multiway cut, connected VC, the Steiner problems, and cluster editing/deletion are FPT by *separate*
+techniques (iterative compression, Dreyfus–Wagner, hereditary-branching), not by this bridge. Classifying the
+22: only **4** are unambiguous syntactic members under the recorded standard parameter (vertex-cover,
+d-hitting-set, 3-dimensional-matching, k-set-packing); **6** more are MAX SNP maximization problems recorded
+under a structural parameter (treewidth/above-guarantee); the remaining **12** are FPT via routes independent
+of approximability. Netting the bridge out at every level of aggressiveness:
+
+| Netting | approx⟷param V | n |
+|---|---|---|
+| raw (both-real) | 0.73 | 47 |
+| conservative — 4 forced (recorded standard param) | 0.72 | 43 |
+| aggressive — 10 (every MAX SNP / MIN F⁺Π₁ member) | 0.70 | 37 |
+| **extreme floor — delete the entire APX-complete × FPT cell (all 22)** | **0.68** | 25 |
+
+The association **survives even the unfair floor** of deleting the whole disputed cluster, because the coupling
+is not only that cell — it is the full monotone gradient the bridge never touches: `inapprox`/`log-APX` →
+W-hard on one tail, `PTAS`/`APX` → FPT on the other. **Verdict: the approx⟷param multiplet is real, not
+theorem-forced.** The Cai–Chen bridge is now in the entailment layer as an informational rule (R6) — it forbids
+no column cell, precisely because "APX-complete ⟹ FPT" is *false* (Independent Set is APX-ish and W[1]-hard);
+only syntactic membership entails FPT, and membership is not one of our columns.
+
 **Family separation = 0.15** (intra-vs-inter, low). The coarse `problem_family` labels do *not* form tight
 clusters in charge space — exactly as intended: families were required to *emerge* as multiplets (H2), not be
 imposed as an analysis input (SCHEMA.md). A low number here is the healthy outcome.
@@ -174,9 +204,11 @@ What is **not** definitional, and is the real Move-One yield:
    first-class predicate — *does the optimization/ensemble version of this problem exist at all?* — so gaps
    auto-separate into "no such object" vs "object exists, uninhabited." That converts the gap list from a
    candidate pile into a ranked research agenda.
-2. **Net the entailed component out of every association, not just approx⟷param.** R12 was honored for the
-   headline pair; the same bridge-subtraction should run across the whole Cramér's V matrix so "surprising"
-   is a computed residual everywhere, not a per-pair argument.
+2. **Net the entailed component out of every association, not just approx⟷param.** The headline pair is now
+   fully audited — the narrow EPTAS↔FPT *and* the wide Cai–Chen MAX SNP / MIN F⁺Π₁ bridge subtracted (R12, R25),
+   residual 0.68–0.72 — but the same bridge-subtraction should run across the whole Cramér's V matrix so
+   "surprising" is a computed residual everywhere, not a per-pair argument. R25 is the template: identify the
+   theorem, pin its exact scope from the sources, classify each member, net out, report the range.
 3. **The counting-folklore backfill.** The counting column is a measured frontier (49/86 applicable cells
    open) because per-problem #P-hardness is largely unpublished — the [A4 headline
    finding](counting-folklore-gap.md). Every counting-involving gap above inherits that sparsity; resolving
@@ -198,6 +230,11 @@ The kill-gate did not fire; the map is real; the unasked questions are now enume
 - **Data:** `atlas.jsonl`, 118 problems, validator-clean (exit 0), **zero `uncited-folklore`**, core per-charge
   A2 gate PASS (decision 97 / approximation 89 / parameterized 90).
 - **Repo:** commit `e40ae78` (branch `cloudronin/charge-atlas-spec-review-55a58c`), 35 tests green.
+- **R25 audit:** the approx⟷param headline is subtracted against both the narrow EPTAS↔FPT bridge and the wide
+  Cai–Chen MAX SNP / MIN F⁺Π₁ bridge (Cai & Chen, JCSS 54(3):465–474, 1997; Kratsch, STACS 2009); residual
+  0.68–0.72 across conservative→extreme netting. Bridge added to `charges.py::ENTAILMENT_LAYER` as informational
+  (R6). Source verification: web-confirmed the theorem is class-*membership* (not MAX-SNP-hardness) under the
+  standard parameterization; problem-level syntactic-class classification is my reading of the class definitions
+  (Π₁-definability), not a per-problem citation.
 - **Caveats index:** complete-case MCA is n=19 and coarse; family_separation is a coarse-label diagnostic;
-  the gap-list object-mismatch triage is a hand rule pending the Move-Two object-existence predicate; the
-  approx⟷param residual is bridge-subtracted only for the EPTAS↔FPT bridge.
+  the gap-list object-mismatch triage is a hand rule pending the Move-Two object-existence predicate.

@@ -30,6 +30,29 @@
     },
     "approx_param_raw_cramers_v": 0.5182370808066253,
     "residual_note_R12": "Part of this association is theorem-forced: EPTAS<->FPT (Cesati-Trevisan) and W[1]-hardness rules out EPTAS (Marx). Report the RESIDUAL after these known bridges before calling it surprising (residual computation is an A3 deliverable).",
+    "cai_chen_bridge_audit_R25": {
+      "raw": {
+        "v": 0.729,
+        "n": 47,
+        "netted_out": 0
+      },
+      "conservative": {
+        "v": 0.718,
+        "n": 43,
+        "netted_out": 4
+      },
+      "aggressive": {
+        "v": 0.697,
+        "n": 37,
+        "netted_out": 10
+      },
+      "extreme_floor_delete_whole_cell": {
+        "v": 0.678,
+        "n": 25,
+        "netted_out": 22
+      },
+      "survives": true
+    },
     "family_separation": 0.15143275285378044
   },
   "H3_forbidden_and_gaps": {

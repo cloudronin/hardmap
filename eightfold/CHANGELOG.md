@@ -168,3 +168,18 @@
   (16→16 — no measured cell load-bearing). Move-Two prerequisites recorded (object-existence predicate for gap
   triage; matrix-wide bridge subtraction; counting-folklore backfill). **44 tests** (+9 `test_structure.py`,
   locking the harness + verdict *rules*, not the outcomes), 0 folklore, validate exit 0.
+- **R25 — audit the H2 headline (APX-complete × FPT) against the *wide* approximability→FPT bridge.** The A3
+  writeup subtracted only the narrow EPTAS↔FPT bridge; R25 pulls the broader **Cai–Chen (JCSS 1997)** result —
+  *membership* in syntactic **MAX SNP / MIN F⁺Π₁** entails FPT for the standard parameterization (extended by
+  Kratsch, STACS 2009) — the older bridge the layer lacked. Source-verified two load-bearing facts: it is class
+  *membership*, **not** MAX-SNP-*hardness*, that transfers FPT (L-reductions don't carry it), and MIN F⁺Π₁'s Π₁
+  feasibility **excludes connectivity/modification problems** (acyclicity/connectivity aren't FO-definable — so
+  feedback-vertex-set, multiway-cut, connected-VC, Steiner, cluster-edit/-delete are FPT by *separate*
+  techniques). Of the 22 cluster members only 4 are unambiguous syntactic members under the recorded standard
+  parameter; 6 more are MAX SNP under a structural parameter; 12 are independent. New reproducible harness
+  `cai_chen_residual_audit()` (surfaced in `a3_structure.json`): netting out the bridge moves approx⟷param V
+  **0.73 → 0.72 (−4) → 0.70 (−10) → 0.68 (delete the whole cell)** — it **SURVIVES** even the unfair floor,
+  because the coupling is the full monotone gradient (inapprox→W-hard, PTAS/APX→FPT), not one cell. **The
+  multiplet is genuine; A4 leads with it.** Cai–Chen added to `ENTAILMENT_LAYER` as *informational* (R6,
+  forbids nothing — "APX-complete ⟹ FPT" is false: Independent Set is APX-ish and W[1]-hard). **47 tests** (+3),
+  0 folklore, validate exit 0. **Next: A4 closes the box.**

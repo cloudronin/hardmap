@@ -80,3 +80,14 @@ def test_R12_bridges_present_and_informational():
     # informational (R12): they document the approx<->parameterized bridge but forbid no column cell.
     assert C.theorem_forbidden_by({"approximation": "EPTAS"}) == []
     assert C.theorem_forbidden_by({"parameterized": "W[1]"}) == []
+
+
+def test_R25_cai_chen_bridge_present_and_does_not_overreach():
+    names = {r.name for r in C.ENTAILMENT_LAYER}
+    assert "max_snp_or_min_f_pi1_membership_implies_fpt_CAI_CHEN" in names
+    # It is CLASS MEMBERSHIP (off-column) that entails FPT, so the rule must forbid NO column cell — encoding
+    # "APX-complete => FPT" would be the over-broad R6 error (Independent Set is APX-ish and W[1]-hard).
+    rule = next(r for r in C.ENTAILMENT_LAYER if r.name.endswith("CAI_CHEN"))
+    assert rule.forbids is None
+    assert C.theorem_forbidden_by({"approximation": "APX-complete"}) == []
+    assert C.theorem_forbidden_by({"approximation": "APX-complete", "parameterized": "W[1]"}) == []

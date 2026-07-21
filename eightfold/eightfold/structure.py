@@ -328,12 +328,52 @@ def gap_list(entries):
     return {"gaps": gaps, "forbidden": forbidden, "n_gaps": len(gaps), "n_forbidden": len(forbidden)}
 
 
+# R25 — Cai-Chen approximability->FPT bridge audit. The 22-member APX-complete x FPT cluster is the H2 headline;
+# net out the members whose (in-APX & FPT) co-occurrence is theorem-forced (syntactic MAX SNP / MIN F+Pi_1
+# membership, standard parameterization — Cai & Chen JCSS 1997) and confirm the approx|parameterized association
+# survives. Membership classification (not per-problem cited — from the class definitions; connectivity/
+# modification problems are excluded because acyclicity/connectivity are not first-order-definable):
+_CC_FORCED_STD_PARAM = frozenset({          # syntactic member AND recorded standard (objective/solution-size) parameter
+    "vertex-cover", "d-hitting-set", "three-dimensional-matching", "k-set-packing"})
+_CC_MAXSNP_STRUCTURAL_PARAM = frozenset({   # MAX SNP maximization members, but the atlas recorded a structural parameter
+    "sat-3", "nae-sat", "one-in-three-sat", "max-2lin", "max-cut", "max-directed-cut"})
+
+
+def cai_chen_residual_audit(entries, ca="approximation", cb="parameterized"):
+    """R25: recompute the approx|parameterized Cramér's V after netting out the Cai-Chen-forced members, at
+    increasing aggressiveness. If the association survives even deleting the whole APX-complete x FPT cell, the
+    multiplet is genuine, not theorem-forced. Returns a dict of {level: {v, n, netted_out}}."""
+    ids, _, rows = _grid(entries)
+    byid = {pid: r for pid, r in zip(ids, rows)}
+    all_cell = {pid for pid, r in byid.items()  # the full APX-complete x FPT cluster (extreme floor)
+                if r[ca] == "APX-complete" and r[cb] == "FPT"}
+
+    def v_after(drop):
+        xs = [(r[ca], r[cb]) for pid, r in byid.items()
+              if pid not in drop and r[ca] in C.CHARGE_REAL_VALUES[ca] and r[cb] in C.CHARGE_REAL_VALUES[cb]]
+        return (round(cramers_v([x for x, _ in xs], [y for _, y in xs]), 3), len(xs))
+
+    levels = {
+        "raw": frozenset(),
+        "conservative": _CC_FORCED_STD_PARAM,
+        "aggressive": _CC_FORCED_STD_PARAM | _CC_MAXSNP_STRUCTURAL_PARAM,
+        "extreme_floor_delete_whole_cell": frozenset(all_cell),
+    }
+    out = {}
+    for name, drop in levels.items():
+        v, n = v_after(drop)
+        out[name] = {"v": v, "n": n, "netted_out": len(drop)}
+    out["survives"] = out["extreme_floor_delete_whole_cell"]["v"] >= 0.5  # genuine iff it holds even at the floor
+    return out
+
+
 def a3(entries):
     """Full A3 battery + H1–H3 verdicts under prereg_v5. This is the VERDICT run, not a preview."""
     base = run(entries, drop_measured=False)
     dropm = run(entries, drop_measured=True)
     loco = leave_one_charge_out(entries)
     gl = gap_list(entries)
+    cc_audit = cai_chen_residual_audit(entries)  # R25
 
     mca_full = base["mca_full_table"]["dims_above_threshold"]
     mca_cc = base["mca_complete_case"]["dims_above_threshold"]
@@ -361,6 +401,7 @@ def a3(entries):
             "verdict": h2, "witness_amplified": wit,
             "approx_param_raw_cramers_v": base["cramers_v"].get("approximation|parameterized"),
             "residual_note_R12": base["approx_param_bridge_R12"]["note"],
+            "cai_chen_bridge_audit_R25": cc_audit,
             "family_separation": base["clustering"]["family_cohesion"]["separation"],
         },
         "H3_forbidden_and_gaps": {
