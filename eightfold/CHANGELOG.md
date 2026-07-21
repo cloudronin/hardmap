@@ -84,3 +84,11 @@
   parameterized cells (not lazy gaps); a mid-A2 transient (the gate is an A2-COMPLETION target per prereg_v4),
   **not** manufactured up. 35 tests. Remaining: ~38 toward ~120, expected to recover the gate as
   NP-optimization batches (clean approx/param) are added.
+- **A2 batch 4:** +18 NP-optimization/graph problems with clean approximation + parameterized — connected-VC,
+  edge-dominating-set, hitting-set, max-leaf-spanning-tree, prize-collecting-Steiner, feedback-arc-tournament
+  (PTAS), Kemeny (PTAS), capacitated-VC, k-set-packing, partial-VC, group-Steiner, graph-motif,
+  induced-subgraph-iso, disjoint-paths (Robertson–Seymour FPT), cutwidth, treedepth, min-fill-in,
+  weighted-interval-scheduling (P/FP easy). **100 problems, 73.8% cited; per-charge gate PASSES again**
+  (decision 97 / counting 96 / approximation 86 / parameterized 88) — recovered from the batch-3 dip as
+  predicted (treedepth & planar-3-coloring approx recoded `APX` once the constant-factor bounds were
+  confirmed; the rest stayed honestly `open`). 35 tests. Remaining: ~18–20 to ~120.

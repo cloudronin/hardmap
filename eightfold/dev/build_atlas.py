@@ -135,6 +135,9 @@ GRAMM_CE = "Gramm, Guo, Huffner & Niedermeier, FPT algorithms for cluster editin
 GJS76 = "Garey, Johnson & Stockmeyer, Some simplified NP-complete graph problems, TCS 1 (1976) [planar 3-coloring]"
 AKR95 = "Agrawal, Klein & Ravi, When trees collide: 2-approximation for generalized Steiner problems, SIAM J. Comput. 24 (1995)"
 VARDI82 = "Vardi, The complexity of relational query languages, STOC 1982 [FO model checking]"
+# batch 4 citations
+KENYON_MATHIEU = "Kenyon-Mathieu & Schudy, How to rank with few errors, STOC 2007 [feedback-arc / Kemeny PTAS]"
+RS95 = "Robertson & Seymour, Graph minors XIII: the disjoint paths problem, JCTB 63 (1995) [FPT]"
 
 # ── the Census C2 banked experiment artifact (R9) ─────────────────────────────────────────────────────────
 CENSUS_C2 = {
@@ -1108,7 +1111,7 @@ ROWS.append(entry("planar-3-coloring", "Planar 3-Coloring", "graph",
     "planar graph, adjacency-list; decision: 3-colorable?", [
     cell("decision", "NPC", "planar 3-coloring is NP-complete", GJS76),
     cell("counting", "#P-complete", "#proper 3-colorings of a planar graph", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
-    op("approximation", "planar chromatic number is in {1..4} (4CT); 3-vs-4 NP-hardness gives a 4/3 barrier, clean value not curated"),
+    cell("approximation", "APX", "planar chromatic number: 4/3-approx (output 4 by 4CT, opt >= 3); NP-hard to beat 4/3", GJS76, note="membership from the 4-colour theorem; 4/3 barrier from 3-vs-4 NP-hardness"),
     cell("parameterized", "FPT", "planar 3-coloring parameterized by treewidth", CYG, perspective="treewidth"),
     na("parallelization", "NPC => within-P charge n.a. (E2)"),
     na("proof_size", "not a propositional refutation problem"),
@@ -1159,6 +1162,137 @@ ROWS.append(entry("first-order-model-checking", "First-Order Model Checking (com
     na("average_case", "not a random-ensemble hardness object"),
     na("landscape", "not a random-ensemble solution-geometry object"),
     ], notes="Populates PSPACE-complete (combined complexity), beyond TQBF."))
+
+
+# ========================= A2 batch 4 (NP-optimization: clean approximation + parameterized) =========================
+
+def _npc_opt(pid, name, family, enc, approx_val, approx_task, approx_cite, param_val, param_task, param_persp,
+             param_cite, approx_note=None, notes=None, landscape=None):
+    """Helper for an NP-complete optimization problem with clean core charges; frontier honest."""
+    cells = [
+        cell("decision", "NPC", f"{name} decision", KARP),
+        cell("counting", "#P-complete", f"#feasible/optimal solutions of {name}", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+        cell("approximation", approx_val, approx_task, approx_cite, note=approx_note),
+        cell("parameterized", param_val, param_task, param_cite, perspective=param_persp),
+        na("parallelization", "NPC => within-P charge n.a. (E2)"),
+        na("proof_size", "not a propositional refutation problem"),
+        op("average_case", "not curated"),
+        (landscape if landscape else na("landscape", "not a random-ensemble solution-geometry object")),
+    ]
+    return entry(pid, name, family, enc, cells, notes=notes)
+
+ROWS.append(_npc_opt("connected-vertex-cover", "Connected Vertex Cover", "graph",
+    "simple undirected graph; a vertex cover that induces a connected subgraph, size <= k",
+    "APX-complete", "MIN-connected-VC: 2-approximation + APX-hard", AK, "FPT", "FPT in solution size k", "solution size k", CYG))
+ROWS.append(_npc_opt("edge-dominating-set", "Edge Dominating Set", "graph",
+    "simple undirected graph; edge set dominating all edges, size <= k",
+    "APX-complete", "MIN-EDS: 2-approximation + APX-hard", AK, "FPT", "FPT in solution size k", "solution size k", CYG))
+ROWS.append(_npc_opt("hitting-set", "Hitting Set", "optimization",
+    "ground set + set family; hit every set with <= k elements",
+    "log-APX", "MIN-HITTING-SET: ln n greedy + hardness (set-cover dual)", FEIGE, "W[2]+", "k-HITTING-SET: W[2]-complete", "solution size k", DF99))
+ROWS.append(_npc_opt("maximum-leaf-spanning-tree", "Maximum Leaf Spanning Tree", "graph",
+    "simple undirected graph; spanning tree with >= k leaves",
+    "APX-complete", "MAX-LEAF: 2-approximation + APX-hard", AK, "FPT", "FPT in number of leaves k", "leaves k", CYG))
+ROWS.append(_npc_opt("prize-collecting-steiner-tree", "Prize-Collecting Steiner Tree", "optimization",
+    "edge-weighted graph + vertex penalties; minimize tree weight + unconnected penalties",
+    "APX-complete", "2-approximation + APX-hard (from Steiner tree)", AKR95, "FPT", "FPT in number of terminals", "#terminals", CYG))
+ROWS.append(_npc_opt("feedback-arc-set-tournament", "Feedback Arc Set in Tournaments", "graph",
+    "tournament (complete directed graph); delete <= k arcs to make acyclic",
+    "PTAS", "FAST: PTAS on tournaments (Kenyon-Mathieu-Schudy)", KENYON_MATHIEU, "FPT", "FPT in solution size k", "solution size k", CYG))
+ROWS.append(_npc_opt("kemeny-rank-aggregation", "Kemeny Rank Aggregation", "optimization",
+    "set of permutations; find a consensus ranking minimizing total Kendall-tau distance",
+    "PTAS", "Kemeny consensus: PTAS (Kenyon-Mathieu-Schudy)", KENYON_MATHIEU, "FPT", "FPT in the optimal Kemeny score", "Kemeny score k", CYG))
+ROWS.append(_npc_opt("capacitated-vertex-cover", "Capacitated Vertex Cover", "graph",
+    "graph with vertex capacities; cover all edges respecting capacities, size <= k",
+    "APX-complete", "2-approximation + APX-hard", AK, "FPT", "FPT in solution size k", "solution size k", CYG))
+ROWS.append(_npc_opt("k-set-packing", "k-Set Packing", "optimization",
+    "family of sets each of size <= k; find a maximum disjoint subfamily",
+    "APX-complete", "MAX-k-SET-PACKING: constant-factor + APX-hard (for fixed k)", AK, "FPT", "FPT in solution size via color-coding", "solution size", AYZ))
+ROWS.append(_npc_opt("partial-vertex-cover", "Partial Vertex Cover", "graph",
+    "graph; choose k vertices covering the maximum number of edges",
+    "APX-complete", "constant-factor + APX-hard", AK, "W[1]", "k-PARTIAL-VC: W[1]-hard", "solution size k", DF95))
+ROWS.append(_npc_opt("group-steiner-tree", "Group Steiner Tree", "optimization",
+    "edge-weighted graph + vertex groups; minimum tree touching every group",
+    "inapprox", "log^2-hardness (Halperin-Krauthgamer); no poly-log-improvable / constant unless P=NP", AK, "FPT", "FPT in number of groups", "#groups", CYG))
+
+# decision problems adding parameterized coverage (approximation n.a. -- not optimization objects)
+ROWS.append(entry("graph-motif", "Graph Motif", "graph",
+    "vertex-colored graph + multiset of colors; connected subgraph realizing the multiset", [
+    cell("decision", "NPC", "GRAPH-MOTIF decision", GJ),
+    cell("counting", "#P-complete", "#occurrences of the motif", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    na("approximation", "a decision/pattern problem, not an optimization object"),
+    cell("parameterized", "FPT", "FPT in motif size via color-coding", AYZ, perspective="motif size k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("induced-subgraph-isomorphism", "Induced Subgraph Isomorphism", "graph",
+    "pattern graph H + host graph G; is there an induced copy of H in G?", [
+    cell("decision", "NPC", "induced subgraph isomorphism decision (contains CLIQUE)", GJ),
+    cell("counting", "#P-complete", "#induced copies of H", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    na("approximation", "a decision problem"),
+    cell("parameterized", "W[1]", "W[1]-hard in pattern size (contains k-CLIQUE)", DF95, perspective="pattern size k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("disjoint-paths", "Vertex-Disjoint Paths", "graph",
+    "graph + k terminal pairs; k vertex-disjoint paths connecting them", [
+    cell("decision", "NPC", "k-DISJOINT-PATHS decision (NP-hard for variable k)", KARP),
+    cell("counting", "#P-complete", "#disjoint-path systems", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    na("approximation", "a decision problem"),
+    cell("parameterized", "FPT", "FPT in the number of pairs k (Robertson-Seymour graph minors)", RS95, perspective="#pairs k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="A celebrated FPT result (Robertson-Seymour graph minors)."))
+ROWS.append(entry("cutwidth", "Cutwidth", "graph",
+    "graph; linear vertex ordering minimizing the maximum edge cut, <= k", [
+    cell("decision", "NPC", "CUTWIDTH decision", GJ),
+    cell("counting", "#P-complete", "#optimal orderings", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    op("approximation", "O(log^2 n) approximation; clean APX status not curated"),
+    cell("parameterized", "FPT", "FPT in the cutwidth k", CYG, perspective="cutwidth k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("treedepth", "Treedepth", "graph",
+    "graph; minimum height of an elimination forest, <= k", [
+    cell("decision", "NPC", "TREEDEPTH decision", GJ),
+    cell("counting", "#P-complete", "#optimal elimination forests", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    cell("approximation", "APX", "treedepth: constant-factor approximation (membership); APX-hardness not established", CYG, note="constant-factor via CYG; completeness not claimed (R19/R20)"),
+    cell("parameterized", "FPT", "FPT in treedepth k (and computable in linear FPT time)", CYG, perspective="treedepth k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("minimum-fill-in", "Minimum Fill-In", "graph",
+    "graph; add <= k edges to make it chordal", [
+    cell("decision", "NPC", "MIN-FILL-IN decision", GJ, note="Yannakakis 1981"),
+    cell("counting", "#P-complete", "#minimum chordal completions", AB, note="counting solutions of an NPC problem (Arora-Barak Ch.17)"),
+    op("approximation", "approximation studied; clean APX status not curated"),
+    cell("parameterized", "FPT", "FPT in the number of added edges k", CYG, perspective="fill edges k"),
+    na("parallelization", "NPC => within-P charge n.a. (E2)"),
+    na("proof_size", "not a propositional refutation problem"),
+    op("average_case", "not curated"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ]))
+ROWS.append(entry("weighted-interval-scheduling", "Weighted Interval Scheduling", "optimization",
+    "weighted intervals on a line; select a max-weight non-overlapping subset", [
+    cell("decision", "P", "solved exactly by DP (sort + longest-weighted chain)", AB),
+    cell("counting", "FP", "#optimal selections computable in poly time (DP)", AB),
+    na("approximation", "solved exactly in poly time"),
+    na("parameterized", "decision in P"),
+    op("parallelization", "not curated"),
+    na("proof_size", "not a propositional refutation problem"),
+    na("average_case", "not a random-ensemble hardness object"),
+    na("landscape", "not a random-ensemble solution-geometry object"),
+    ], notes="Easy row (P/FP) -- the tractable interval-structured foil to NP-hard packing."))
 
 
 def main():
