@@ -1,0 +1,32 @@
+{
+  "prereg_version": "v1",
+  "committed_before_sweep": true,
+  "note": "Predicted signatures locked before the C3 sweep (Desert Map A2 discipline). All claims are sampler-relative (S1 constructive-saturation DAG, S2 DPLL tree-resolution). A changed prediction is a new prereg version, not an edit.",
+  "hardness_direction": {
+    "convention": "Refutation hardness increases as α DECREASES toward the ~4.267 sat threshold (Desert Map correction).",
+    "hard_cells": [4.5, 5.0],
+    "easy_cells": [8.0, 10.0]
+  },
+  "hypotheses": {
+    "H1_plurality": "Independent sampler runs produce structurally distinct refutations (median pairwise Jaccard well below 0.95); the refutation set is plural.",
+    "H2_geometry_as_alpha_to_threshold": {
+      "length": "Proof length distribution lengthens and its variance grows.",
+      "overlap_Pq": "P(q) shape shifts (possible multi-modal structure); direction TBD but must match across samplers.",
+      "backbone": "Backbone strengthens — more clause-ids at high frequency (the contradiction localizes)."
+    },
+    "H3_replication": "Judged on TRENDS (direction/shape of each metric across the α sweep), NOT levels (R1). S2 (tree) and S1 (DAG) differ in levels by construction (S2 proofs systematically longer, larger backbone) — that level gap is the province-separation FINDING, not an artifact."
+  },
+  "claim_standard": {
+    "concordance": "A geometry claim requires S1-vs-S2 agreement on the TREND direction/shape across α, beyond the S1-vs-S1 glitch (noise) bound. Level agreement is neither expected nor required.",
+    "province_separation": "Reported as an exploratory finding (inter- vs intra-sampler overlap), never treated as an artifact."
+  },
+  "controls": {
+    "planted_core_backbone": "On planted instances the backbone must identify the core clauses at ~100% (calibration standard) — verified in C1 for both samplers (min_core_freq = 1.0).",
+    "glitch_S1_vs_S1": "Two independent S1 seed banks bound sampler noise per metric before any S1-vs-S2 trend is read."
+  },
+  "kill_thresholds": {
+    "no_plurality": "median pairwise Jaccard > 0.95 across cells (both samplers) -> effective proof uniqueness; write up and stop.",
+    "sampler_dominance": "trend-level agreement fails on EVERY metric (S1 and S2 disagree on direction/shape of every α-trend beyond the glitch bound) -> geometry is artifact; stop.",
+    "compute": "CPU-only; 12 h attention ceiling; $20 batch-CPU ceiling."
+  }
+}

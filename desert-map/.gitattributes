@@ -1,0 +1,4 @@
+# Versioned instance fixtures can grow large; route the binary/data forms through Git LFS.
+# Small JSON fixture manifests stay as normal text (committed, human-diffable).
+desertmap/fixtures/**/*.cnf filter=lfs diff=lfs merge=lfs -text
+desertmap/fixtures/**/*.npz filter=lfs diff=lfs merge=lfs -text

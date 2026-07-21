@@ -1,0 +1,24 @@
+# desert-map product-local ignores. Repo-wide caches live in the monorepo root .gitignore.
+
+# Local run outputs pulled back from HF Jobs / produced locally (regenerable; the
+# committable receipts are results/prereg/*.json). Bulky metrics/tensors are NOT committed.
+dm_out/
+results/e0/
+results/e1/
+results/e2/
+results/e3/
+results/e4/
+results/e5/
+results/glitch/
+*.parquet
+*.pt
+*.npz
+
+# Figures are regenerable from the pushed parquet via plots.py.
+results/figures/
+
+# Local HF key drop (see hf/launch.py) — never commit a token.
+HF_KEY.txt
+
+# Local venv for this product.
+.venv/

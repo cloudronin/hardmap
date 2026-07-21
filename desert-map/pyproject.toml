@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "desert-map"
+version = "0.1.0"
+description = "Proof-Space Cartography v1 (codename Desert Map): empirical map of the loss landscape of continuous (gradient-descent) proof search over Resolution refutations of small unsat random 3-SAT. Self-contained hobby-research product; runs sweeps on HF Jobs. Unrelated to PhysMAP."
+requires-python = ">=3.10"
+authors = [{ name = "Vishnu Vettrivel" }]
+license = { text = "UNLICENSED — private" }
+
+# Core runtime is DELIBERATELY LIGHT and TORCH-FREE: the instance generator, the
+# exact Resolution verifier (the trusted backstop oracle), and the fixture harness
+# must import and run with no ML stack. torch lives in [compute] and is lazy-imported
+# only inside relax/losses/run/hessian. `tests/test_light_oracle_import.py` enforces
+# that the oracle path (instance/verify/fixtures) imports without torch.
+dependencies = [
+  # Pin numpy<2 for a stable ABI against torch 2.2–2.4 across local (macOS wheels cap at torch 2.2.2, which
+  # predates numpy-2 support) and the container (torch 2.4.1). PCG64/default_rng streams are stable across
+  # numpy 1↔2, so fixture content-hashes are identical either way.
+  "numpy>=1.24,<2",
+  "pyyaml>=6.0",
+  "python-sat>=1.8",   # fixture SAT-check (Cadical/Minisat) + DRAT for planted refutations (I6)
+]
+
+[project.scripts]
+desertmap = "desertmap.cli:main"
+
+[project.optional-dependencies]
+# The differentiable relaxation engine (M2). CPU wheel locally (n=20 in seconds),
+# CUDA in the HF Jobs container. Lazy-imported inside desertmap/relax.py, losses.py,
+# run.py, hessian.py only — never at package import time.
+compute = ["torch>=2.2", "scipy>=1.11,<1.14"]   # torch: local macOS wheels cap at 2.2.2, container ships 2.4.1;
+                                                # scipy<1.14 supports both numpy 1.26 (local) and numpy 2 (container)
+# HF Jobs submission + parquet artifact push to the private dataset repo.
+hf = ["huggingface_hub>=0.23", "pyarrow>=15"]
+# Plotting (M3 figures). Kept out of core; only needed for the writeup.
+viz = ["matplotlib>=3.8"]
+dev = ["pytest>=7.4"]
+
+[tool.setuptools.packages.find]
+include = ["desertmap*"]
+
+[tool.setuptools.package-data]
+desertmap = [
+  "results/prereg/*.json",
+  "fixtures/*.json",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

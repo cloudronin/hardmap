@@ -1,0 +1,13 @@
+# proof-census product-local ignores. Repo-wide caches live in the monorepo root .gitignore.
+
+# Sampled-proof banks + metric outputs (regenerable from seeds; the committable receipt is
+# results/prereg/*.json + the manifest). Bulky per-cell data is NOT committed.
+census_out/
+results/samples/
+results/metrics/
+results/figures/
+*.parquet
+*.png
+
+# Local venv.
+.venv/

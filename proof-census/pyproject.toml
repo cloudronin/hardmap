@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "proof-census"
+version = "0.1.0"
+description = "Proof Census v1 — empirical population map of the refutation SET of unsat random 3-SAT: sample many valid Resolution refutations per instance with two structurally-different randomized samplers (constructive-saturation DAG + DPLL tree-resolution), compute population statistics on verifier-passing proofs. Successor to Desert Map (killed at M2); reuses its M1 verifier/fixtures."
+requires-python = ">=3.10"
+authors = [{ name = "Vishnu Vettrivel" }]
+license = { text = "UNLICENSED — private" }
+
+# Depends on the sibling `desert-map` product for the M1 assets (desertmap.verify / .instance /
+# .fixtures / .discrete_search). desert-map is not on PyPI, so it is NOT listed here as a resolvable
+# dependency — install it editable in the same venv alongside this package:
+#     pip install -e ./desert-map -e ./proof-census[dev]
+# (CI installs both legs; see .github/workflows/tests.yml.) numpy<2 mirrors desert-map's pin.
+dependencies = [
+  "numpy>=1.24,<2",
+]
+
+[project.scripts]
+proofcensus = "proofcensus.cli:main"
+
+[project.optional-dependencies]
+# Parquet artifact store (only when batch jobs run; local runs keep in-memory / JSON).
+store = ["pyarrow>=15"]
+# Plots (C2 figures).
+viz = ["matplotlib>=3.8"]
+dev = ["pytest>=7.4"]
+
+[tool.setuptools.packages.find]
+include = ["proofcensus*"]
+
+[tool.setuptools.package-data]
+proofcensus = ["results/prereg/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

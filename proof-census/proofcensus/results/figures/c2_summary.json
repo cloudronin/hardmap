@@ -1,0 +1,135 @@
+{
+  "n": 20,
+  "alphas": [
+    4.5,
+    5.0,
+    6.0,
+    8.0,
+    10.0
+  ],
+  "n_instances": 3,
+  "K": 80,
+  "trends": {
+    "median_length": {
+      "s1": [
+        22,
+        33,
+        28,
+        25,
+        27
+      ],
+      "s2": [
+        134,
+        108,
+        82,
+        53,
+        44
+      ],
+      "trend_s1": -1,
+      "trend_s2": 1,
+      "agree": false
+    },
+    "mean_backbone_size": {
+      "s1": [
+        2.0,
+        3.667,
+        2.667,
+        1.333,
+        1.0
+      ],
+      "s2": [
+        17.0,
+        10.333,
+        1.333,
+        1.0,
+        1.0
+      ],
+      "trend_s1": 1,
+      "trend_s2": 1,
+      "agree": true
+    },
+    "mean_median_jaccard": {
+      "s1": [
+        0.128,
+        0.213,
+        0.157,
+        0.169,
+        0.127
+      ],
+      "s2": [
+        0.168,
+        0.163,
+        0.141,
+        0.096,
+        0.071
+      ],
+      "trend_s1": 1,
+      "trend_s2": 1,
+      "agree": true
+    }
+  },
+  "glitch": {
+    "median_length": {
+      "per_alpha_gap": [
+        1,
+        1,
+        2,
+        1,
+        0
+      ],
+      "max_gap": 2
+    },
+    "backbone_size": {
+      "per_alpha_gap": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_gap": 0
+    },
+    "median_jaccard": {
+      "per_alpha_gap": [
+        0.002,
+        0.004,
+        0.011,
+        0.011,
+        0.006
+      ],
+      "max_gap": 0.011
+    }
+  },
+  "province": {
+    "4.5": {
+      "intra_a": 0.162,
+      "intra_b": 0.171,
+      "inter": 0.055,
+      "separation": 0.112
+    },
+    "5.0": {
+      "intra_a": 0.183,
+      "intra_b": 0.168,
+      "inter": 0.094,
+      "separation": 0.082
+    },
+    "6.0": {
+      "intra_a": 0.126,
+      "intra_b": 0.142,
+      "inter": 0.062,
+      "separation": 0.072
+    },
+    "8.0": {
+      "intra_a": 0.186,
+      "intra_b": 0.094,
+      "inter": 0.069,
+      "separation": 0.071
+    },
+    "10.0": {
+      "intra_a": 0.145,
+      "intra_b": 0.075,
+      "inter": 0.06,
+      "separation": 0.05
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "prereg_version": "v1",
+  "committed_before_any_paid_run": true,
+  "note": "Predicted signatures locked BEFORE E1 runs, so the M4 verdict is matched-filtering, not post-hoc pattern reading (spec §5, plan A2). Do not edit predictions after seeing sweep data; a changed prediction is a new prereg version.",
+  "hardness_direction": {
+    "convention": "Resolution REFUTATION hardness (Ben-Sasson–Wigderson width bound): hardness peaks just above the sat threshold and falls as α rises.",
+    "hard_cells": [4.5, 5.0],
+    "easy_cells": [8.0, 10.0],
+    "threshold_alpha": 4.267,
+    "prediction": "All shattering signatures intensify as α DECREASES toward threshold (opposite the solution-space dial)."
+  },
+  "predicted_signatures": {
+    "H1_success_rate": "Sharp collapse boundary as α decreases toward threshold — not smooth decay.",
+    "overlap_distribution": "Unimodal on easy (high-α) cells; splits BIMODAL on hard (low-α) cells. Estimator: ±1-spin overlap q=(1/N)Σ v_i^a v_i^b, Pearson-normalized for soft membership vectors (I2).",
+    "hessian_spectrum": "Top eigenvalues grow / minima sharpen and isolate as α decreases toward threshold.",
+    "failure_vs_success_loss": "Failure losses plateau FAR from valid (needle-no-shadow), not hugging success losses.",
+    "trajectory_lensing_E5": "Deceleration zones + inter-seed scattering increase as α decreases toward threshold; trajectories on easy (high-α) cells flow smooth and parallel."
+  },
+  "controls": {
+    "planted_positive_E0": "Random-init verifier-pass rate ≥ 80% at n=20 (findability). Any verifying refutation counts, not recovery of the specific planted proof (C1).",
+    "sat_negative": "Pipeline on satisfiable instances: zero decodes verify (verifier is the backstop, A1).",
+    "glitch_instrument_noise": "Full pipeline + identical annealing on EASY (high-α, small-n) cells; any clustering/bimodality there is instrument artifact, catalogued and subtracted everywhere else.",
+    "hard_negatives": {
+      "cells": ["php (holes 3,4)", "tseitin-on-expander (nv 8,10)"],
+      "expected_behavior": "No short Resolution proof exists — the relaxation is EXPECTED to FAIL to find a verifying refutation within budget L; that failure is the correct reading, predicted here (C2)."
+    }
+  },
+  "claim_standard": {
+    "concordance_rule": "Shattering is claimed ONLY if the overlap, Hessian, and failure-loss channels independently agree, AFTER subtracting the glitch catalog. Any single-channel signal is reported as an anomaly, not a finding (spec §5).",
+    "kill_no_signal": "Smooth decay toward threshold + unimodal overlap + failure-loss hugging success-loss → negative result written as a short note, stop (spec §6.2)."
+  }
+}
