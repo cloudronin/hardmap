@@ -197,3 +197,20 @@
   (before any v2 roster), then the frontier attack, matrix-wide R25 bridge subtraction, counting backfill, and
   a candidate v2 charge 9 (fine-grained). **Move One is closed: the atlas exists, is honest about its holes,
   and its structure survives the checks brought against it.**
+
+## 0.1.1 (unreleased) — Crucible v1.1 (adversarial self-review)
+
+- **V1 gate MET** — the harness + prereg are locked BEFORE any real-data attack run (spec copied to
+  `docs/specs/eightfold-v1-1-crucible-spec.md`). New **`derived`** evidential status (Crucible S4): a value
+  entailed by a published counting dichotomy, confined to `counting`, **citation-required** (unlike
+  `measured`) with a logged `provenance.condition_check = {theorem, condition, side}` whose `side` must equal
+  the cell value (gate 6b). `structure.py --drop-derived` reverts derived cells to `open` so no H1 claim rests
+  on the S4 backfill (surfaced in `a3()` beside `--drop-measured`). New **`crucible.py`** (behind `[analysis]`)
+  with the **S1 null model**: a per-charge swap-chain MCMC preserving every marginal exactly, holding each
+  row's n.a. typing fixed (R1), rejecting E1/E2-forbidden swaps — validated on a planted-structure toy
+  (detected) and a pure-null toy (quiet). **`prereg_v6.json`** locks all five attack criteria + the S2 dedup
+  classification (114 classes; {clique,IS,VC} merged — collapsing the VC/clique multiplet, so S2's multiplet
+  test rests on permanent/determinant) + the S5 prediction (gradient weakens-but-persists) + Rider B (S3's free
+  parameterized shuffle needs no rejection — no forbidding rule touches that charge — with the break condition
+  recorded); `committed_before_analysis: true`. 57 tests (+10 crucible/derived), validate clean. **Next: V2
+  (run S1–S3 on the real atlas).**

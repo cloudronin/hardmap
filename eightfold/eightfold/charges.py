@@ -116,16 +116,17 @@ STATUS_CONFIRMED = "confirmed"             # primary source read; OWNER-promoted
 STATUS_FOLKLORE = "uncited-folklore"       # asserted without a resolvable citation — a debt, must resolve or revert to open
 STATUS_MEASURED = "measured"               # R9: self-generated empirical value (charges 7, 8 only)
 STATUS_MEASURED_SCALING = "measured-scaling"  # R9: self-generated scaling measurement (charge 6 only)
+STATUS_DERIVED = "derived"                 # Crucible S4: value entailed by a complexity DICHOTOMY (citation + logged condition-check)
 STRUCTURAL_STATUS = "structural"           # the status a sentinel-valued cell carries
 
 EVIDENTIAL_STATUSES: frozenset[str] = frozenset({
-    STATUS_CLAIMED, STATUS_CONFIRMED, STATUS_FOLKLORE, STATUS_MEASURED, STATUS_MEASURED_SCALING,
+    STATUS_CLAIMED, STATUS_CONFIRMED, STATUS_FOLKLORE, STATUS_MEASURED, STATUS_MEASURED_SCALING, STATUS_DERIVED,
 })
 ALL_STATUSES: frozenset[str] = EVIDENTIAL_STATUSES | {STRUCTURAL_STATUS}
 
 # Statuses that count as a *cited, filled* value for coverage (excludes folklore, excludes sentinels).
 CITED_STATUSES: frozenset[str] = frozenset({
-    STATUS_CLAIMED, STATUS_CONFIRMED, STATUS_MEASURED, STATUS_MEASURED_SCALING,
+    STATUS_CLAIMED, STATUS_CONFIRMED, STATUS_MEASURED, STATUS_MEASURED_SCALING, STATUS_DERIVED,
 })
 
 # ── R9 quarantine: which charges may carry a self-generated (measured) value ──────────────────────────────
@@ -133,6 +134,14 @@ MEASURED_ALLOWED: frozenset[str] = frozenset({"average_case", "landscape"})   # 
 MEASURED_SCALING_ALLOWED: frozenset[str] = frozenset({"proof_size"})          # status "measured-scaling"
 # A measured cell's provenance must carry an `experiment` artifact with these keys (Census standard).
 EXPERIMENT_KEYS: tuple[str, ...] = ("prereg", "manifest", "seeds", "code_commit")
+
+# ── Crucible S4: which charges may carry a DICHOTOMY-derived value, and the required condition-check ─────────
+# A `derived` cell's value is entailed by a published complexity dichotomy (e.g. Bulatov #CSP,
+# Dyer–Greenhill #H-coloring, Dyer–Richerby). Unlike `measured` it is NOT citation-exempt — it must cite the
+# theorem AND log a `condition_check` recording that THIS problem meets the theorem's hypotheses. `side` is the
+# dichotomy verdict for this problem and must equal the cell's own value (the gate enforces this consistency).
+DERIVED_ALLOWED: frozenset[str] = frozenset({"counting"})
+CONDITION_CHECK_KEYS: tuple[str, ...] = ("theorem", "condition", "side")
 
 # Charges whose real value requires a `perspective` tag (R1 / §3.2): the proof system / the parameter.
 PERSPECTIVE_REQUIRED: frozenset[str] = frozenset({"proof_size", "parameterized"})

@@ -1,0 +1,85 @@
+{
+  "prereg_version": "v6",
+  "supersedes": "v5 (Crucible v1.1 adversarial self-review — adds the S1–S5 attack criteria; all A1–A4 content stands)",
+  "committed_before_analysis": true,
+  "label": "Crucible: five referee attacks locked BEFORE any real-data run. SURVIVES hardens A4; RESIZED amends it. A RESIZED verdict may not be argued back to SURVIVES in prose.",
+  "note": "Locking rule (inherited): a changed prediction is a NEW prereg version, never an edit. The S1 null harness was validated on planted + pure-null toy atlases before this commit; no attack has been run on the real 118-row atlas at commit time.",
+
+  "attacks": {
+    "S1_null_model": {
+      "claim_at_risk": "H1 multi-dimensionality AND the approx<->parameterized gradient",
+      "prediction": "The real atlas carries structure IN EXCESS of typing: its gradient and its complete-case dimensionality fall outside the envelope of type-respecting nulls.",
+      "method": "M=1000 nulls, fixed seed 20260721. Each null is drawn by a per-charge swap-chain MCMC (burn 5000, thin 500) that PRESERVES every per-charge marginal exactly, holds each row's n.a. typing fixed (R1), and rejects any swap that would create an E1/E2-forbidden combination (charges.theorem_forbidden_by). Battery per null: MCA dims (full + complete-case), approx|parameterized Cramer's V over the both-real subset, and the two witness amplification deltas.",
+      "decision_rule": "TWO sub-verdicts, reported separately. GRADIENT SURVIVES iff the real approx|param V exceeds the null 97.5th percentile (one-sided — association is directional). H1-DIMS SURVIVES iff the real complete-case dims fall OUTSIDE the null 95% envelope [p2.5, p97.5] (two-sided — typing could inflate OR deflate the count). If a stat sits inside its envelope, that claim RESIZES to 'explained by typing + marginals'. This is the number A4 sec.5's unquantified word 'Some' currently lacks.",
+      "implemented_in": "eightfold/crucible.py::s1_null_model"
+    },
+
+    "S2_dedup": {
+      "claim_at_risk": "the gradient AND the multiplets (row-independence objection)",
+      "prediction": "The gradient and the permanent/determinant multiplet hold on the deduplicated roster (direction and significance, not exact magnitudes).",
+      "method": "Rerun the A3 battery on ONE representative per reduction-equivalence class (see s2_dedup_classification). Report deduped vs full side by side.",
+      "decision_rule": "SURVIVES iff on the deduped roster the approx|param gradient keeps its DIRECTION and remains significant (permutation p < 0.05, S3 method) AND the permanent/determinant amplification stays positive (dist_subspace > dist_full8). NOTE: the {clique, independent-set, vertex-cover} merge COLLAPSES the VC/clique multiplet into one class by construction, so S2 cannot test that witness on the deduped roster — its multiplet verdict rests on permanent/determinant, which are NOT reduction-equivalent (determinant FP vs permanent #P-complete) and stay separate."
+    },
+
+    "S3_significance": {
+      "claim_at_risk": "the headline associations (gradient) AND the dims (no p-values today)",
+      "prediction": "The gradient is significant (p < 0.05) and the dims + amplifications are bootstrap-stable.",
+      "method": "Permutation: shuffle the parameterized column across applicable cells, recompute the both-real approx|param V, 10,000 permutations, report p. Repeat for any association the amended writeup calls surprising. Bootstrap: resample rows with replacement, 1,000 resamples, report the distribution of complete-case dims and of the two witness amplification deltas.",
+      "decision_rule": "SURVIVES iff permutation p < 0.05 for the gradient AND complete-case dims >= 3 in >= 95% of bootstrap resamples AND each witness amplification delta > 0 in >= 95% of resamples.",
+      "rider_B_free_shuffle_justification": "The parameterized-column permutation is a FREE shuffle (NO E1/E2 rejection, unlike S1's nulls). This is valid PRECISELY because no column-forbidding rule touches `parameterized`: E1 (counting_FP_implies_decision_P) constrains {counting, decision}; E2 (parallel_defined_only_within_P) constrains {parallelization, decision}; neither names parameterized. The R12 (EPTAS<->FPT) and R25 (Cai-Chen) approx<->parameterized bridges are INFORMATIONAL only (forbids=None). So no permutation of the parameterized column can manufacture a theorem-forbidden table. BREAK CONDITION: if any future ENTAILMENT_LAYER rule with forbids != None ever constrains `parameterized`, this free shuffle becomes invalid and S3 MUST switch to rejection sampling (as S1 does). This note exists so the S1/S3 asymmetry reads as reasoned, and so the break is visible if the layer ever changes.",
+      "implemented_in": "eightfold/crucible.py (V2)"
+    },
+
+    "S4_anchor_growth_phase1": {
+      "claim_at_risk": "H1's honest anchor (the small n=19 complete-case block)",
+      "prediction": "Counting-CSP dichotomy umbrellas can backfill enough of the 28 counting-open blockers to grow the complete-case block to n >= 35, and the anchor still reads >= 3 dims.",
+      "method": "For the 28 rows blocked ONLY by counting=open, check each against the counting dichotomies (Bulatov #CSP; Dyer-Richerby; Dyer-Greenhill #H-coloring; Holant umbrellas). Cells whose verdict is rigorous get status 'derived' (theorem citation + provenance.condition_check = {theorem, condition, side}; side == value). Rerun the anchor MCA.",
+      "decision_rule": "Investigation-grade, not pass/resize: report the complete-case n reached and its dims. HONESTY GUARD: the anchor is reported at BOTH the grown n (with derived cells) AND n=19 (structure.py --drop-derived reverts them to open). H1's qualitative claim (>= 3 dims, not scalar) must hold in BOTH readings, else the growth is flagged as load-bearing. If umbrella coverage cannot reach 35, report how far it got.",
+      "implemented_in": "dev/build_atlas.py (derived fills) + structure.py --drop-derived"
+    },
+
+    "S5_adversarial_roster": {
+      "claim_at_risk": "the gradient (sociology-of-study objection)",
+      "prediction": "PRE-REGISTERED: the gradient WEAKENS BUT PERSISTS after adding deliberately-chosen violators — direction intact, permutation p < 0.05 post-addition. (Committed before the hunt.)",
+      "method": "Audit existing rows for violators the gradient already survived (capacitated-vertex-cover, densest-k-subgraph, group-steiner-tree), then hunt the FPT-approximation literature (Marx's survey and successors) for constant-factor-approximable-yet-W[1]-hard and inapproximable-yet-FPT specimens. UNCAPPED: exhaust the violators identifiable from the surveyed literature (log the search trail). Each addition meets the full R20 citation standard. Added rows are PERMANENT atlas rows (Rider A). Rerun the gradient on the frozen 118 AND the 118+violators roster.",
+      "decision_rule": "SURVIVES iff after adding ALL identified violators the gradient keeps its direction AND stays significant (permutation p < 0.05). RESIZES iff the gradient dissolves — in which case the finding is 'the gradient was roster sociology', and A4 resizes accordingly. Either outcome is banked."
+    }
+  },
+
+  "s2_dedup_classification": {
+    "rule": "Two rows merge iff related by complementation or a trivial re-encoding of the SAME combinatorial object. Restrictions stay SEPARATE (planar/metric/bounded-arity variants — a restriction can change charges, which is the point of the planar trio). Different constraint languages stay SEPARATE (the SAT family). Representative per class = fewest open cells, ties broken alphabetically. Committed BEFORE the S2 rerun.",
+    "merge_classes": [
+      {
+        "class": "clique-independentset-vertexcover",
+        "members": ["clique", "independent-set", "vertex-cover"],
+        "basis": "complementation: max-clique in G = max-IS in complement(G); min-VC in G = V minus max-IS in G. One decision object under trivial reductions.",
+        "representative": "clique",
+        "representative_basis": "all three have 0 open cells; alphabetical tiebreak. Choice does not bias the gradient (clique contributes an (inapprox, W[1]) point; VC would contribute (APX-complete, FPT) — both lie ON the gradient).",
+        "caveat": "This merge collapses the VC/clique H2 multiplet (their approximation/parameterized charges decouple: VC APX-complete+FPT vs clique inapprox+W[1]). S2's multiplet verdict therefore rests on permanent/determinant."
+      },
+      {
+        "class": "planar-vc-is",
+        "members": ["planar-independent-set", "planar-vertex-cover"],
+        "basis": "same complementation within planar graphs (min planar-VC = V minus max planar-IS).",
+        "representative": "planar-independent-set",
+        "representative_basis": "opens tie (1 = 1); alphabetical tiebreak. (Planar variants stay SEPARATE from their general counterparts in the clique-IS-VC class — restriction changes charges: planar-VC is PTAS, general VC is APX-complete.)"
+      },
+      {
+        "class": "setcover-hittingset",
+        "members": ["hitting-set", "set-cover"],
+        "basis": "hypergraph duality: a set-cover instance is a hitting-set instance on the transposed incidence (trivial re-encoding). Charges identical (NPC / open / log-APX / W[2]+).",
+        "representative": "hitting-set",
+        "representative_basis": "fewest opens (2 < 3)."
+      }
+    ],
+    "singletons": "All other 112 problems are their own class (deduped roster = 114 classes).",
+    "I3_ambiguous_pairs_resolved": {
+      "permanent__vs__planar-matching-count": "SEPARATE. Planar restriction changes the counting charge (permanent is #P-complete; planar perfect-matching count is FP via FKT) — the decoupling is exactly the point, not a duplication.",
+      "matching__vs__permanent": "SEPARATE. Decision-matching (P) and counting-#matchings (#P-complete) are different charges' objects (R1); not the same row.",
+      "setcover__vs__hittingset": "MERGED (hypergraph duality, identical charges) — see merge_classes.",
+      "clique-IS_are_true_duplicates_but_VC_differs": "All three merged per the stated rule; noted that clique/IS carry identical charges while VC's approximation/parameterized decouple — the caveat above records the H2 consequence."
+    }
+  },
+
+  "unchanged_from_v5": "Everything from prereg_v3/v4/v5 stands: the A1-A4 coding scheme, the per-charge A2 gate (core >= 85%), the R11 subspace method, the R12/R25 informational bridges, the R17/R18 average_case split, the R22 decision partial order, the R24 landscape evidence-grade split, the missingness/measured/occupancy policies, and the H1/H2/H3 verdicts. Crucible adds the `derived` status (charges 'counting' only; Crucible S4) to the schema; it does not alter any existing gate. The frozen 118-row atlas (sha256 6d53a4f1...) is the roster A3's verdicts describe; S4 (derived fills) and S5 (violator additions) produce an AUGMENTED roster whose reruns are labelled as such (Rider A)."
+}

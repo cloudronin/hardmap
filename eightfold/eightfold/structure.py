@@ -39,11 +39,13 @@ LOCKED_TRIPLES = [
 
 
 # ── data extraction ───────────────────────────────────────────────────────────────────────────────────────
-def _grid(entries, drop_measured=False):
+def _grid(entries, drop_measured=False, drop_derived=False):
     """Return (ids, families, rows) where rows[i] maps charge -> value string (sentinels included).
 
     drop_measured (R9): recode any `measured`/`measured-scaling` cell to a dropped sentinel so the ablation
     removes self-generated values from the analysis.
+    drop_derived (Crucible S4): revert any `derived` (dichotomy-backfilled) cell to `open` — its faithful
+    pre-backfill state — so the ablation shows H1's complete-case anchor WITHOUT the S4 fills (back to n=19).
     """
     ids, families, rows = [], [], []
     for e in entries:
@@ -54,6 +56,8 @@ def _grid(entries, drop_measured=False):
             v = cell.value
             if drop_measured and cell.status in (C.STATUS_MEASURED, C.STATUS_MEASURED_SCALING):
                 v = "n.a."   # ablate: treat the measured value as absent
+            if drop_derived and cell.status == C.STATUS_DERIVED:
+                v = "open"   # ablate: revert the dichotomy fill to its pre-backfill sentinel
             row[cell.charge] = v
         rows.append(row)
     return ids, families, rows
@@ -263,8 +267,8 @@ def occupancy(rows):
 
 
 # ── assemble the preview ─────────────────────────────────────────────────────────────────────────────────
-def run(entries, drop_measured=False):
-    ids, families, rows = _grid(entries, drop_measured=drop_measured)
+def run(entries, drop_measured=False, drop_derived=False):
+    ids, families, rows = _grid(entries, drop_measured=drop_measured, drop_derived=drop_derived)
     cv_full, entailed_pairs = cramers_v_matrix(rows, C.CHARGES)
     cc_rows, cc_charges = complete_case(rows)
     return {
@@ -273,6 +277,7 @@ def run(entries, drop_measured=False):
         "not_the_H1_H3_verdict": "A3 on the full ~120-problem atlas is the verdict; N here is a preview.",
         "n_problems": len(ids),
         "drop_measured": drop_measured,
+        "drop_derived": drop_derived,
         "cramers_v": cv_full,
         "entailment_linked_pairs": entailed_pairs,
         "mca_full_table": mca(rows, C.CHARGES),
@@ -371,6 +376,7 @@ def a3(entries):
     """Full A3 battery + H1–H3 verdicts under prereg_v5. This is the VERDICT run, not a preview."""
     base = run(entries, drop_measured=False)
     dropm = run(entries, drop_measured=True)
+    dropd = run(entries, drop_derived=True)  # Crucible S4: the anchor WITHOUT the dichotomy fills
     loco = leave_one_charge_out(entries)
     gl = gap_list(entries)
     cc_audit = cai_chen_residual_audit(entries)  # R25
@@ -396,6 +402,9 @@ def a3(entries):
             "complete_case_n_kept": base["mca_complete_case"]["n_kept"],
             "loco_min_dims": loco_min, "loco_per_charge": loco,
             "drop_measured_full_dims": dropm["mca_full_table"]["dims_above_threshold"],
+            "drop_derived_full_dims": dropd["mca_full_table"]["dims_above_threshold"],
+            "drop_derived_complete_case_dims": dropd["mca_complete_case"]["dims_above_threshold"],
+            "drop_derived_complete_case_n_kept": dropd["mca_complete_case"]["n_kept"],
         },
         "H2_multiplets": {
             "verdict": h2, "witness_amplified": wit,
@@ -460,6 +469,7 @@ def main(argv=None):
     ap.add_argument("--selftest", action="store_true", help="R7: exercise the pipeline on a synthetic toy table")
     ap.add_argument("--a3", action="store_true", help="the A3 VERDICT run (full battery + H1-H3 + gap list)")
     ap.add_argument("--drop-measured", action="store_true", help="R9 ablation: exclude measured cells")
+    ap.add_argument("--drop-derived", action="store_true", help="Crucible S4 ablation: revert derived (dichotomy) cells to open")
     ap.add_argument("--path", type=Path, default=None, help="atlas path (default: the bundled atlas)")
     ap.add_argument("--out", type=Path, default=None, help="write JSON here (default: results/atlas/pilot_structure.json)")
     args = ap.parse_args(argv if argv is not None else sys.argv[1:])
@@ -476,7 +486,8 @@ def main(argv=None):
         print(f"A3 verdict run (prereg_v5, n={out['n_problems']}) written to {out_path}")
         print(f"  H1 dimensionality: {h1['verdict']}  (full {h1['mca_full_dims']} dims, complete-case "
               f"{h1['mca_complete_case_dims']} dims on n={h1['complete_case_n_kept']}, LOCO min {h1['loco_min_dims']}, "
-              f"drop-measured {h1['drop_measured_full_dims']})")
+              f"drop-measured {h1['drop_measured_full_dims']}, drop-derived cc {h1['drop_derived_complete_case_dims']} "
+              f"on n={h1['drop_derived_complete_case_n_kept']})")
         print(f"  H2 multiplets:     {h2['verdict']}  (witness amplification {h2['witness_amplified']}; "
               f"approx|param raw V={round(h2['approx_param_raw_cramers_v'], 2)})")
         print(f"  H3 forbidden/gaps: {h3['verdict']}  ({h3['n_theorem_forbidden_cells']} theorem-forbidden cells "
@@ -489,12 +500,12 @@ def main(argv=None):
 
     from eightfold.atlas import DEFAULT_PATH, load_atlas
     entries = load_atlas(args.path)
-    out = run(entries, drop_measured=args.drop_measured)
+    out = run(entries, drop_measured=args.drop_measured, drop_derived=args.drop_derived)
     out_path = args.out or (DEFAULT_PATH.parent / "pilot_structure.json")
     out_path.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
     m = out["mca_full_table"]
     cc = out["mca_complete_case"]
-    print(f"structure preview written to {out_path}  (drop_measured={args.drop_measured})")
+    print(f"structure preview written to {out_path}  (drop_measured={args.drop_measured}, drop_derived={args.drop_derived})")
     print(f"  MCA full-table:     dims>1/Q = {m['dims_above_threshold']}  "
           f"(eig {[round(x,3) for x in m['eigenvalues'][:4]]}, n={m['n_problems']})")
     print(f"  MCA complete-case:  dims>1/Q = {cc['dims_above_threshold']}  "
