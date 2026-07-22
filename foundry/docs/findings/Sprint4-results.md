@@ -60,6 +60,18 @@ identified boundary — the algebra carries the geometry exactly where it is rig
 **Outside the affine strata the measured-column program requires relation-level sampling** — the correct, and
 much stronger, next move (out of Sprint 4 scope).
 
+## Connectivity-class prediction test (prereg_v9) — NOT PREDICTIVE, + convergent prior art
+
+Asked whether the connectivity literature's relation-level classes (GKMP tight / OR-free / NAND-free /
+componentwise-bijunctive) predict measured ruggedness where the tractability labels scattered: **NOT_PREDICTIVE**
+— the classes are near-constant within co-clones (vary in 2/13), so they cannot explain the within-co-clone
+scatter, and n_components = 1 for both rugged implication and smooth NAND-Horn. **Convergent prior art**
+(Amendment 2): the GKMP–Schwerdtfeger line built its own finer relation-level classes (tight, safely-tight, CPSS,
+constraint-projection separation) *precisely because Schaefer's classes cannot classify solution-space structure*
+— so our headline was reached first, from the worst-case side; our result is **less novel and better supported for
+it**, and extends it (even those finer classes don't reach the typical-case *sampled* geometry). Detail:
+[Sprint4-connectivity-test.md](Sprint4-connectivity-test.md).
+
 ## Task 0 (the oracle-only closure) still stands
 
 Independently of the measured columns, Sprint 4 opened by confirming the oracle-only census nets to **exactly

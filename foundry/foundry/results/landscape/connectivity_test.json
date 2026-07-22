@@ -1,0 +1,402 @@
+{
+  "n": 39,
+  "verdict": "NOT_PREDICTIVE",
+  "affine_flag_mean": 0.692,
+  "non_affine_mean": 0.676,
+  "total_ruggedness_sd": 0.22,
+  "overall_corr": {
+    "balanced (OR-free&NAND-free)": 0.036,
+    "componentwise-bijunctive": -0.331,
+    "n_components": 0.471
+  },
+  "within_coclone_partial_corr": {
+    "balanced (OR-free&NAND-free)": -0.508,
+    "componentwise-bijunctive": -0.508,
+    "n_components": -0.508
+  },
+  "n_coclones_feature_varies_within": {
+    "balanced (OR-free&NAND-free)": 2,
+    "componentwise-bijunctive": 2,
+    "n_components": 2
+  },
+  "n_coclones_multi": 13,
+  "diagnostic_implication_vs_nandhorn": {
+    "implication": {
+      "or_free": true,
+      "nand_free": true,
+      "componentwise_bijunctive": true,
+      "tight": true,
+      "n_components": 1,
+      "n_tuples": 3,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free"
+    },
+    "nand_horn": {
+      "or_free": true,
+      "nand_free": false,
+      "componentwise_bijunctive": false,
+      "tight": true,
+      "n_components": 1,
+      "n_tuples": 7,
+      "tight_witness": "OR-free"
+    }
+  },
+  "scored_vs_owner_prediction": {
+    "a_affine_separation": "WEAK \u2014 affine flag does not separate (0.69 vs 0.68); the geometric signal (n_components) is a weak between-co-clone effect tractability's aff-flag already spans",
+    "b_outperform_tractability_on_remainder": "FAILS \u2014 connectivity features vary within only 2 of 13 co-clones, so they cannot explain the within-co-clone scatter where tractability failed",
+    "c_substantial_residual_variance": "HOLDS \u2014 within-group ruggedness ranges span [0.34,1.0]"
+  },
+  "finding": "typical-case SAMPLED solution geometry escapes even the connectivity classification purpose-built for WORST-CASE geometry: the connectivity classes are co-clone functions (near-constant within a co-clone), so they live at the SAME resolution as tractability and cannot reach the relation-level, typical-case ruggedness. The worst-case/typical-case dissociation is the finding \u2014 geometry is finer than BOTH the algebraic and the connectivity classification.",
+  "rows": [
+    {
+      "schaefer_profile": "0v+horn+bij",
+      "ruggedness": 0.395,
+      "balanced": false,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive+OR-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v+horn+bij",
+      "ruggedness": 0.487,
+      "balanced": false,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive+OR-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v+horn+bij",
+      "ruggedness": 0.4,
+      "balanced": false,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive+OR-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "1v+dhorn+bij",
+      "ruggedness": 0.654,
+      "balanced": false,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive+NAND-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "1v+dhorn+bij",
+      "ruggedness": 0.522,
+      "balanced": false,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive+NAND-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "1v+dhorn+bij",
+      "ruggedness": 0.44,
+      "balanced": false,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive+NAND-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v+1v+horn+dhorn+bij",
+      "ruggedness": 0.867,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v+1v+horn+dhorn+bij",
+      "ruggedness": 0.78,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v+1v+horn+dhorn+bij",
+      "ruggedness": 0.675,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v+1v+dhorn",
+      "ruggedness": 0.687,
+      "balanced": false,
+      "comp_bij": false,
+      "n_components": 1,
+      "tight_witness": "NAND-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v+1v+dhorn",
+      "ruggedness": 0.816,
+      "balanced": false,
+      "comp_bij": false,
+      "n_components": 1,
+      "tight_witness": "NAND-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v+1v+dhorn",
+      "ruggedness": 0.75,
+      "balanced": false,
+      "comp_bij": false,
+      "n_components": 1,
+      "tight_witness": "NAND-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v+1v+horn",
+      "ruggedness": 0.734,
+      "balanced": false,
+      "comp_bij": false,
+      "n_components": 1,
+      "tight_witness": "OR-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v+1v+horn",
+      "ruggedness": 0.742,
+      "balanced": false,
+      "comp_bij": false,
+      "n_components": 1,
+      "tight_witness": "OR-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v+1v+horn",
+      "ruggedness": 0.595,
+      "balanced": false,
+      "comp_bij": false,
+      "n_components": 1,
+      "tight_witness": "OR-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v",
+      "ruggedness": 0.771,
+      "balanced": false,
+      "comp_bij": false,
+      "n_components": 1,
+      "tight_witness": "OR-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v",
+      "ruggedness": 0.444,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 2,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v",
+      "ruggedness": 0.736,
+      "balanced": false,
+      "comp_bij": false,
+      "n_components": 1,
+      "tight_witness": "OR-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "1v",
+      "ruggedness": 0.658,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 2,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "1v",
+      "ruggedness": 0.657,
+      "balanced": false,
+      "comp_bij": false,
+      "n_components": 1,
+      "tight_witness": "NAND-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "1v",
+      "ruggedness": 0.709,
+      "balanced": false,
+      "comp_bij": false,
+      "n_components": 1,
+      "tight_witness": "NAND-free",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "bij",
+      "ruggedness": 0.599,
+      "balanced": false,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "bij",
+      "ruggedness": 0.599,
+      "balanced": false,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "bij",
+      "ruggedness": 0.537,
+      "balanced": false,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v+1v",
+      "ruggedness": 0.999,
+      "balanced": false,
+      "comp_bij": false,
+      "n_components": 1,
+      "tight_witness": "NONE (not tight)",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v+1v",
+      "ruggedness": 0.999,
+      "balanced": false,
+      "comp_bij": false,
+      "n_components": 1,
+      "tight_witness": "NONE (not tight)",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v+1v",
+      "ruggedness": 0.996,
+      "balanced": false,
+      "comp_bij": false,
+      "n_components": 1,
+      "tight_witness": "NONE (not tight)",
+      "affine": false
+    },
+    {
+      "schaefer_profile": "0v+1v+horn+dhorn+bij+aff",
+      "ruggedness": 0.998,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 2,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": true
+    },
+    {
+      "schaefer_profile": "0v+1v+horn+dhorn+bij+aff",
+      "ruggedness": 0.994,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 2,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": true
+    },
+    {
+      "schaefer_profile": "0v+1v+horn+dhorn+bij+aff",
+      "ruggedness": 1.0,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 2,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": true
+    },
+    {
+      "schaefer_profile": "0v+horn+dhorn+bij+aff",
+      "ruggedness": 0.408,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": true
+    },
+    {
+      "schaefer_profile": "0v+horn+dhorn+bij+aff",
+      "ruggedness": 0.34,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": true
+    },
+    {
+      "schaefer_profile": "0v+horn+dhorn+bij+aff",
+      "ruggedness": 0.413,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": true
+    },
+    {
+      "schaefer_profile": "1v+horn+dhorn+bij+aff",
+      "ruggedness": 0.339,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": true
+    },
+    {
+      "schaefer_profile": "1v+horn+dhorn+bij+aff",
+      "ruggedness": 0.414,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": true
+    },
+    {
+      "schaefer_profile": "1v+horn+dhorn+bij+aff",
+      "ruggedness": 0.408,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 1,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": true
+    },
+    {
+      "schaefer_profile": "bij+aff",
+      "ruggedness": 0.994,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 2,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": true
+    },
+    {
+      "schaefer_profile": "bij+aff",
+      "ruggedness": 0.996,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 2,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": true
+    },
+    {
+      "schaefer_profile": "bij+aff",
+      "ruggedness": 0.996,
+      "balanced": true,
+      "comp_bij": true,
+      "n_components": 2,
+      "tight_witness": "componentwise-bijunctive+OR-free+NAND-free",
+      "affine": true
+    }
+  ]
+}
