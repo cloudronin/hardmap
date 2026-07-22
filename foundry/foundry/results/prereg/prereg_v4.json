@@ -1,0 +1,57 @@
+{
+  "prereg_version": "v4",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "committed_before_analysis": true,
+  "committed_before_any_measured_cell_read": true,
+  "supersedes": "v3 (targeted addition: Sprint 4 measured-instrument-column protocol + the I6 sealed hypothesis; all v1/v2/v3 oracle-column content stands unchanged)",
+  "label": "Sprint 4 — measured instrument columns (N4) + I6 (localization predicts measured landscape ruggedness)",
+  "rationale": "Sprint 4 Task 0 confirmed the oracle-only census nets to exactly zero residual (every oracle charge is a total function of the polymorphism profile; the canon-vs-computation comparison over oracle columns is closed). All remaining census science therefore runs through the MEASURED columns — per-language instrument values the theorems do NOT assign — via oracle×measured and measured×measured cross-structure. This prereg locks that protocol and the flagship sealed test I6 BEFORE any measured cell is generated or read.",
+
+  "I6": {
+    "claim_at_risk": "The bounded-width (localization) oracle column carries predictive information about a purely MEASURED property — solution-space ruggedness — that no theorem assigns. If it does, the synthetic world exhibits genuine oracle×measured cross-structure (not just its own dichotomies); if it does not, the localization charge is inert outside its definitional role.",
+    "hypothesis": "At matched density regimes, bounded-width languages (localization = 'bounded-width') exhibit measurably SMOOTHER solution-space terrain than unbounded-width languages (localization = 'unbounded-width'). Directional: bounded-width => lower measured ruggedness.",
+    "predictor": "localization (oracle, derived): {bounded-width, unbounded-width} — Barto-Kozik. NOT touched or recomputed in Sprint 4.",
+    "response": "landscape (MEASURED, Sprint 4.2): the solution-space geometry read from per-Gamma random-CSP ensembles. The measured reading maps to the fixed FOUNDRY_SPEC landscape vocabulary, ordered smooth -> rugged by this pre-registered ordinal (locked here, before measurement): {'clustering-OGP-refuted': 0, 'clustering-physics': 1, 'clustering-proven': 2, 'freezing-measured': 3}. The mapping thresholds (instrument reading -> vocabulary value) are fixed per family in the I5 memo + calibration gate, before any long run.",
+    "affine_control": "Affine / XOR is the PRE-NAMED exception-and-control: unbounded-width by Barto-Kozik (the sole bounded-width obstruction) yet decision-easy and FPT. Its measured landscape is REPORTED SEPARATELY and is NOT averaged into the I6 bounded-vs-unbounded contrast. Its calibrated prediction is 'rugged-while-decision-easy' (the deceptive-terrain reading); if it comes back smooth, the instrument adaptation is broken (a calibration failure, not an I6 datum).",
+    "decision_rule": {
+      "both_real_set": "rows where BOTH localization is real-valued (always, oracle) AND landscape is a MEASURED real value (Gate-6 manifest present). Affine control rows are excluded from this set and reported separately.",
+      "floor": "n_both_real >= 12 distinct (localization, measured-landscape) rows. If the floor is not met after Sprint 4.2, the verdict is INSUFFICIENT RESOLUTION (a legal outcome, house precedent) — NOT a negative.",
+      "statistic": "the ruggedness-rank association between localization (binary) and the ordinal measured landscape: direction = sign of (mean ruggedness-rank of unbounded-width rows - mean ruggedness-rank of bounded-width rows); magnitude = Cramer's V of the (localization, landscape) contingency.",
+      "test": "a permutation p over the both-real rows using the FIXED harness (the corrected _perm_p_on_table lineage: permute the localization labels among the both-real rows only; p = (#perm with V >= V_obs + 1)/(n_perm+1)). A hand-count selftest on a small known table stays in CI (the analogue of selftest_p2_perm reproducing 1/7).",
+      "verdict": {
+        "SUPPORTED": "direction is bounded-smoother (Delta > 0) AND permutation p < 0.05 AND the floor is met.",
+        "NOT_SUPPORTED": "the floor is met, but either the direction is reversed/null or p >= 0.05.",
+        "INSUFFICIENT_RESOLUTION": "the both-real floor (>= 12) is not met — reported at true power, not as a negative."
+      },
+      "r25_note": "Unlike the oracle-only P2/P3, this association is NOT theorem-forced: landscape is measured, not derived, so a non-zero (localization, landscape) association is genuine oracle×measured cross-structure. R25-netting is not applicable to the measured response (nothing forces it)."
+    },
+    "owner_review_checkpoint": "the I6 verdict is reported RAW to the owner before it enters the Sprint 4 findings doc.",
+    "status": "pre-registered; UNTESTED until Sprint 4.2 measured cells exist."
+  },
+
+  "measured_column_protocol": {
+    "provenance": "every measured cell (landscape, average_case) carries full {prereg, manifest, seeds, code_commit} and validates through the shared kernel (Gate 6). `measured` is NEVER silently upgraded from `open`; a cell becomes measured only with its manifest.",
+    "calibration_gate_before_any_long_run": "planted / known-terrain calibration per ensemble family. The canon anchors are the standard: the 3-SAT-family ensembles MUST reproduce the known Proof-Census C2/C3 signatures (backbone direction, province separation) before any novel family's readings are trusted. XOR/affine is the known-terrain DECEPTION control: its measured landscape must return rugged-while-decision-easy, or the instrument adaptation is declared broken and no measured cell is emitted.",
+    "glitch_bounds": "S1-vs-S1 glitch bounds per family BEFORE any cross-sampler (S1-vs-S2) read; trend-based concordance per the C3 discipline (no single-alpha point reads).",
+    "noise_floor_before_findings": "the between-seed / between-generation noise floor for each measured family is computed and committed BEFORE any I6 or measured finding is read.",
+    "budget": "within the standing $50 CPU ceiling; kill-3 wall-clock rule armed — any per-ensemble run exceeding 2x its pre-run estimate before the first checkpoint is CUT and the omission documented (R15, not a silent drop).",
+    "i5_ensemble_policy": {
+      "instrument_side_choice": "per family, logged in the I5 memo BEFORE generation: NP-side languages (near/above their satisfiability threshold) support a well-posed UNSAT regime for the proof-side instrument; P-side (polynomial-decision) languages have no hard unsat regime and instead take the SOLUTION-side instruments (the landscape of the solution SET, not refutations).",
+      "alpha_grid": "a per-family density (alpha) grid replaces the 3-SAT-specific ALPHAS, fixed per family in the I5 memo before generation.",
+      "n_a_discipline": "a family with no sensible ensemble (e.g. trivially-satisfiable / constant-valid classes) gets a landscape/average_case cell of `n.a.` with the reason logged (R15) — never a silent drop."
+    }
+  },
+
+  "unchanged_from_v3": "P1 (NPI calibration), H_P2_scaled (the scaled-census P2 hypothesis — now with its R25 residual confirmed zero at Sprint 4 Task 0), P2 v1 disposition, P3 (census dimensionality / gradient-both-worlds), the 6 registration anchors + projection-not-inclusion, roster/generations policy, and the kill thresholds all stand exactly. v4 ADDS only the Sprint 4 measured-column protocol and the I6 sealed hypothesis; it touches no oracle column.",
+
+  "standing_discipline": [
+    "prereg before analysis (this v4 is committed before any measured cell is read)",
+    "known-answer calibration first (the calibration gate precedes every long run)",
+    "noise floor before findings",
+    "the permutation harness's hand-count selftest stays in CI",
+    "eightfold byte-identical (Sprint 4 imports the Proof-Census + eightfold apparatus, modifies neither)",
+    "no oracle cell touched",
+    "measured never silently upgraded",
+    "RESIZED verdicts never argued back"
+  ]
+}
