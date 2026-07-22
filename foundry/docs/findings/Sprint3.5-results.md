@@ -6,11 +6,14 @@ census to 15 both-real approximation|parameterized rows spanning 4 distinct pair
 approx|parameterized relationship is not a monotone hardness gradient (positive or reversed) but is stratified by
 the underlying algebra, and it is entirely theorem-forced.
 
-> **H_P2_scaled → STRATIFIED.** V = 0.526, corrected permutation p = 0.049, rank-corr = 0.152. Param-hardness by
-> approximation level is **non-monotone**: PO → 0.5, APX-complete → **1.0**, inapprox → 0.0. `parameterized`
-> tracks affine-ness (affine → FPT); `approximation` tracks 0/1-validity (→ PO) and non-0-valid affine (→
-> inapprox). Both are functions of the co-clone's polymorphisms, so the association is R25 theorem-forced — the
-> stratification **is** the algebra, not an emergent gradient.
+> **H_P2_scaled → STRATIFIED (and not significant).** On 19 both-real rows (15 Boolean + 4 domain-3, once the
+> Thm-4.1 parameterized oracle filled the domain-3 tractable languages): V = 0.472, corrected permutation
+> **p = 0.061** (over 0.05 — no significant association), rank-corr = 0.175. Param-hardness by approximation level
+> is **non-monotone**: PO → 0.5, APX-complete → **1.0**, inapprox → 0.0. `parameterized` tracks affine-ness
+> (affine → FPT); `approximation` tracks 0/1-validity (→ PO) and non-0-valid affine (→ inapprox). Both are
+> functions of the co-clone's polymorphisms, so any association is R25 theorem-forced — the stratification **is**
+> the algebra, not an emergent gradient. (At the smaller 15-row Boolean-only table it was V=0.526, p=0.049 — the
+> marginal significance vanished as domain-3 data was added, which is the honest direction.)
 
 **Provenance.** `H_P2_scaled` sealed in [`prereg_v3`](../../foundry/results/prereg/prereg_v3.json); floor locked
 in the [Sprint 3.5 memo](Sprint3.5-enrichment-memo.md) (commit `3180e1e`) **before** this tier was built.
@@ -68,13 +71,17 @@ A verbatim-source pin (`domain3.py`) turned two of the three DEFER'd domain-3 ch
 - **counting — Bulatov / Dyer–Richerby (IMPLEMENTED, partial).** NP-complete decision ⟹ #P-complete counting
   → 3-coloring / NAE-3 = **#P-complete**. Tractable-decision languages stay `open` (the FP line is strong
   balance / congruence singularity; Mal'tsev is necessary-not-sufficient — not built).
-- **parameterized — Bulatov–Marx Thm 4.1 (IMPLEMENTABLE, heavy; NOT built).** The FPT criterion is a nested
-  (D₁,D₂) search with cc0-closure + multivalued-morphism value-typing + contractions — verified checkable at
-  |D|=3 but a dedicated multi-part build. Left `open` rather than risk a rushed wrong implementation (R20).
+- **parameterized — Bulatov–Marx Thm 4.1 (BUILT, `paramd3.py`).** The full FPT/W[1] criterion — the nested
+  (D₁,D₂) search with cc-closure, multivalued-morphism value-typing (regular/semiregular/self-producing/
+  degenerate), contractions, and closed subsets — implemented at |D|=3 and **verified against the Boolean
+  collapse** (the theorem must reduce to "FPT iff every relation weakly separable" at |D|=2; a 5-case selftest
+  confirms it). Verdicts: **affine (lin-eq-Z₃/z₃-b) → FPT; everything else → W[1]** — the same shape as the
+  Boolean Marx result (affine weakly-separable → FPT). Flagged as implementation-derived (Boolean-collapse-
+  verified; no independent |D|=3 ground truth).
 
-Census re-validates (21 rows, P1 holds); the domain-3 rows are now more accurately charged. This does **not**
-change H_P2_scaled (domain-3 rows still lack `parameterized`, so they are not both-real) — but it removes three
-honest-but-empty `open` cells in favour of verified verdicts.
+Census re-validates (21 rows, P1 holds). The Thm-4.1 fill makes the four tractable domain-3 languages
+**both-real** (approx=PO + parameterized), so H_P2_scaled now runs on **19 rows** — and its p rises from 0.049
+to 0.061 (the association weakens toward non-significance as real data is added; verdict STRATIFIED unchanged).
 
 ## What this says about the canon-vs-computation question
 

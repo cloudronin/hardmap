@@ -33,12 +33,22 @@ def test_d3_census_rows_validate_and_scope():
         vals = {c.charge: c.value for c in r.charges}
         assert vals["decision"] in ("P", "NPC")
         assert vals["localization"] in ("bounded-width", "unbounded-width")
-        # parameterized stays open (Bulatov-Marx Thm 4.1 IMPLEMENTABLE-heavy, not yet built)
-        assert vals["parameterized"] == "open"
+        # parameterized filled by Bulatov-Marx Thm 4.1 (Boolean-collapse-verified implementation)
+        assert vals["parameterized"] in ("FPT", "W[1]")
         # counting: #P-complete iff NP-hard decision (counting >= decision); open for tractable-decision
         assert vals["counting"] == ("#P-complete" if vals["decision"] == "NPC" else "open")
         # approximation: PO where const-valid/semilattice (Thapper-Zivny verified sufficient); else open (UGC-conditional)
         assert vals["approximation"] in ("PO", "open")
+
+
+def test_thm41_boolean_collapse_and_domain3():
+    from foundry import paramd3
+    # R20 gate: Thm 4.1 must reduce to "FPT iff every relation weakly separable" at |D|=2
+    assert paramd3.selftest(verbose=False) == 0
+    # domain-3: affine → FPT (weakly-separable analogue), everything else → W[1] (matches the Boolean Marx shape)
+    assert paramd3.parameterized_d3((D.R_LINEQ3,)) == "FPT"
+    assert paramd3.parameterized_d3((D.R_LEQ3,)) == "W[1]"
+    assert paramd3.parameterized_d3((D.R_NEQ3,)) == "W[1]"
 
 
 def test_domain3_approximation_counting_oracles():

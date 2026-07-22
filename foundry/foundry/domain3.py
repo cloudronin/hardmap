@@ -132,6 +132,7 @@ def d3_row(lang):
     """A census ProblemEntry for a domain-3 language: decision + localization filled (verified general-domain
     dichotomies); every Boolean-specific-dichotomy charge left `open` (honest — those theorems don't transfer)."""
     from foundry.census import derived, language, na, op
+    from foundry.paramd3 import parameterized_d3
     c = classify(lang)
     npc = c["decision"] == "NPC"
     approx = approximation_d3(lang.relations)
@@ -153,7 +154,14 @@ def d3_row(lang):
                 cite="Bulatov, FOCS 2017; Zhuk, JACM 67(5) (2020) — CSP(Γ) ∈ P iff Γ has a WNU polymorphism, else NPC"),
         counting_cell,
         approx_cell,
-        op("parameterized", "domain-3 Exact-Ones — Bulatov-Marx Thm 4.1 (IMPLEMENTABLE but heavy: cc0-closure + MVM value-typing + contractions); not yet built → open"),
+        derived("parameterized", parameterized_d3(lang.relations),
+                "Exact-Ones CSP(Γ): a solution of weight exactly k (k non-zero variables), parameterized by k, over |D|=3",
+                theorem="Bulatov-Marx 2014 (Thm 4.1)",
+                condition=("no nested (D1,D2) witnesses W[1]-hardness (Thm 4.1 conditions 1-5) → FPT"
+                           if parameterized_d3(lang.relations) == "FPT"
+                           else "a nested (D1,D2) pair meets Thm 4.1 conditions 1-5 → W[1]-complete"),
+                cite="Bulatov & Marx, SICOMP 43(2) (2014), Thm 4.1 (arXiv:1206.4854); Boolean-collapse-verified implementation",
+                perspective="solution weight k (number of variables set to a non-zero value)"),
         (na("parallelization", "decision is NPC — parallelization is a within-P classification (E2)") if npc
          else op("parallelization", "within-P NC/P-complete — the Boolean ABISV refinement does not transfer to |D|=3")),
         op("proof_size", "instrument column (N4)"),

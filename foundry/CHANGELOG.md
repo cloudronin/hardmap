@@ -112,5 +112,14 @@
   (UGC-conditional); **counting** — NP-complete decision ⟹ #P-complete → 3-coloring/NAE = #P-complete,
   tractable = open (strong balance not built); **parameterized** — Bulatov–Marx Thm 4.1 IMPLEMENTABLE-heavy,
   left `open` rather than risk a rushed wrong build (R20). Census re-validates (21 rows, P1 holds); does not
-  change H_P2_scaled (domain-3 still lacks parameterized → not both-real). 30 foundry tests. **Next: R25-net the
-  census (P2/P3 residuals); the Thm-4.1 parameterized oracle as a dedicated build; Sprint 4 (N4 instruments).**
+  change H_P2_scaled (domain-3 still lacks parameterized → not both-real). 30 foundry tests.
+- **Bulatov–Marx Thm 4.1 parameterized oracle BUILT (`paramd3.py`).** The full OCSP FPT/W[1] criterion — the
+  nested (D₁,D₂) search with cc-closure, multivalued-morphism value-typing, contractions, closed subsets —
+  implemented at |D|=3 and **verified against the Boolean collapse** (must reduce to "FPT iff every relation
+  weakly separable" at |D|=2; a 5-case selftest confirms). Domain-3 verdicts: **affine → FPT, else → W[1]** (the
+  Boolean Marx shape); flagged implementation-derived (no independent |D|=3 ground truth). Fills the last domain-3
+  charge → the 4 tractable domain-3 languages become **both-real**, so **H_P2_scaled runs on 19 rows**: still
+  **STRATIFIED**, V=0.472, and **p rises 0.049→0.061 (non-significant)** — the association weakens toward noise as
+  real data is added, the honest direction. The theorem-world's approx|param is algebra-stratified, not a
+  gradient (positive or reversed); same message as P3 (k\*=3 DIVERGENT). 31 foundry tests; eightfold
+  byte-identical. **Next: R25-net the census residuals; Sprint 4 (N4 instruments).**

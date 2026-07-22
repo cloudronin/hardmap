@@ -46,7 +46,7 @@
   "P2_v1": {
     "attack": "P2_gradient_census",
     "disposition": "FLOOR_MET — superseded by H_P2_scaled",
-    "n_both_real": 15,
+    "n_both_real": 19,
     "n_distinct_both_real_rows": 4,
     "both_real_pairs": [
       [
@@ -66,8 +66,8 @@
         "FPT"
       ]
     ],
-    "gradient_v": 0.526,
-    "perm_p": 0.0493,
+    "gradient_v": 0.472,
+    "perm_p": 0.0609,
     "n_perm": 20000,
     "exact_perm_p_by_counting": 0.1429,
     "descriptive_observation": {
@@ -85,11 +85,11 @@
   "H_P2_scaled": {
     "attack": "H_P2_scaled",
     "floor_met": true,
-    "n_both_real": 15,
+    "n_both_real": 19,
     "n_distinct_pairs": 4,
-    "cramers_v": 0.526,
-    "perm_p": 0.0493,
-    "rank_corr": 0.152,
+    "cramers_v": 0.472,
+    "perm_p": 0.0609,
+    "rank_corr": 0.175,
     "param_hardness_by_approx_level": {
       "PO": 0.5,
       "APX-complete": 1.0,
@@ -112,29 +112,29 @@
     ],
     "census_curve": {
       "1": {
-        "acc_mean": 0.635,
-        "acc_se": 0.0264,
-        "ll_mean": -0.7232
+        "acc_mean": 0.645,
+        "acc_se": 0.0312,
+        "ll_mean": -0.6852
       },
       "2": {
-        "acc_mean": 0.72,
-        "acc_se": 0.0236,
-        "ll_mean": -0.5088
+        "acc_mean": 0.69,
+        "acc_se": 0.028,
+        "ll_mean": -0.5108
       },
       "3": {
-        "acc_mean": 0.87,
-        "acc_se": 0.0231,
-        "ll_mean": -0.3785
+        "acc_mean": 0.885,
+        "acc_se": 0.0254,
+        "ll_mean": -0.3643
       },
       "4": {
-        "acc_mean": 0.87,
-        "acc_se": 0.0231,
-        "ll_mean": -0.3899
+        "acc_mean": 0.885,
+        "acc_se": 0.0254,
+        "ll_mean": -0.3699
       },
       "5": {
-        "acc_mean": 0.875,
-        "acc_se": 0.0216,
-        "ll_mean": -0.3974
+        "acc_mean": 0.885,
+        "acc_se": 0.0254,
+        "ll_mean": -0.3753
       }
     },
     "reference_canon": {
