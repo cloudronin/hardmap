@@ -1,0 +1,62 @@
+{
+  "prereg_version": "v7",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "committed_before_analysis": true,
+  "committed_before_fresh_confirmation_data_read": true,
+  "supersedes": "v6 (owner addition: the GKMP theory-netting column + three-tier writeup scoring, committed BEFORE any fresh confirmation data is read). All v6 content stands; this adds the per-family theory-prediction column and its scoring rule. A prior buggy confirmation run (wrong density anchor, alpha_struct=0.2 grid-floor bug) is DISCARDED as a bug; the corrected run uses a FRESH, never-read seed base (90000) so the netting genuinely precedes the numbers.",
+  "label": "Sprint 4 — GKMP theory-netting column (theory-forced / permitted / silent), per-family, R20-verified",
+
+  "why_before_the_numbers": "R25/R12 rule: the netting standard must precede the numbers. Committed in advance, the confirmation output arrives PRE-PARTITIONED into what published structure theory forces, what it merely permits, and what it never addressed — a scored three-way comparison, not post-hoc argument.",
+
+  "primary_source_R20_verified": {
+    "citation": "P. Gopalan, P. G. Kolaitis, E. Maneva, C. H. Papadimitriou, 'The Connectivity of Boolean Satisfiability: Computational and Structural Dichotomies,' SIAM J. Comput. 38(6):2330-2355, 2009 (ICALP 2006; arXiv cs/0609072).",
+    "definition_6_tight": "A set S of relations is TIGHT iff at least one holds: (1) every relation is componentwise bijunctive; (2) every relation is OR-free; (3) every relation is NAND-free.",
+    "theorem_10_diameter": "If S is tight, then for every CNF(S)-formula the diameter of the solution graph G(phi) is LINEAR in the number of variables; otherwise there exist CNF(S)-formulas whose G(phi) has diameter EXPONENTIAL in n (2^Omega(sqrt n)).",
+    "section_4": "If S is Schaefer, then S is tight (the converse fails).",
+    "jurisdiction": "BOOLEAN domain only. G(phi) connects solutions at Hamming distance 1. The dichotomy is about (a) st-connectivity complexity and (b) component DIAMETER — NOT about the pairwise-overlap dispersion this instrument measures, and NOT about |D|>2.",
+    "load_bearing_consequence": "All Boolean census families (Horn, dual-Horn, bijunctive, affine, and their 0/1-valid sub-cases) are Schaefer -> TIGHT -> the SAME bin (linear component-diameter). GKMP's dichotomy therefore does NOT force the affine-vs-bounded ruggedness ORDERING this instrument measures — they are all tight. The instrument's ordering is a FINER distinction than GKMP draws."
+  },
+  "successor_literature_check_timeboxed": {
+    "result": "EMPTY for the domain-3 rows. The Reconfiguration-CSP (single-flip) connectivity dichotomy is Boolean (Gopalan et al.; follow-ups arXiv 1403.6165, 1510.06700). For non-Boolean / larger domains there is NO published solution-space connectivity dichotomy — 'notoriously hard,' 'not studied'; still an OPEN, active direction as of 2025 (arXiv 2511.22914, 'Towards an algebraic approach to the reconfiguration CSP').",
+    "consequence": "the domain-3 census rows (order-3, median-3, lin-eq-z3, lin-eq-z3-b) are OUTSIDE any published connectivity classification's jurisdiction — theory-silent by pre-committed absence."
+  },
+
+  "per_family_theory_netting_column": {
+    "_legend": "theory-forced = a published classification (or field-agnostic linear algebra) DETERMINES the terrain class; theory-permitted = consistent with the classification but the quantitative reading is not forced; theory-silent = outside every published classification's jurisdiction.",
+    "xor-sat": {"value": "theory-forced", "basis": "GKMP tight (linear diameter) + solution set is a coset of a GF(2) linear subspace; random linear-code coset -> pairwise Hamming concentrates ~ n/2 -> low overlap / dispersion is FORCED by linear algebra."},
+    "zerovalid-affine": {"value": "theory-forced", "basis": "as xor-sat (homogeneous GF(2) coset; dispersion forced)."},
+    "onevalid-affine": {"value": "theory-forced", "basis": "as xor-sat (affine GF(2) coset; dispersion forced)."},
+    "lin-eq-z3": {"value": "theory-forced", "basis": "coset of a GF(3) linear subspace; dispersion forced by linear algebra (field-agnostic). NB GKMP-proper is Boolean-silent here; the FORCING is the coset argument, not GKMP."},
+    "lin-eq-z3-b": {"value": "theory-forced", "basis": "as lin-eq-z3 (GF(3) coset; dispersion forced)."},
+    "horn-sat": {"value": "theory-forced", "basis": "GKMP tight (Schaefer); Horn relations closed under min -> solution set is a distributive lattice, single-flip-connected, concentrated toward the least model -> consensus/clustering (smooth) forced by order theory + GKMP."},
+    "dual-horn": {"value": "theory-forced", "basis": "dual of Horn (closed under max); lattice, connected, smooth forced."},
+    "zerovalid-horn": {"value": "theory-forced", "basis": "0-valid Horn; still min-closed lattice -> smooth forced."},
+    "onevalid-dualhorn": {"value": "theory-forced", "basis": "1-valid dual-Horn; max-closed lattice -> smooth forced."},
+    "2-sat": {"value": "theory-permitted", "basis": "GKMP tight (bijunctive = median-closed -> CONNECTED, linear diameter) — connectivity forced, but the QUANTITATIVE mid-level overlap this instrument reads is NOT forced by the diameter class. Consistent with, not forced by, GKMP."},
+    "zerovalid-bijunctive": {"value": "theory-permitted", "basis": "0-valid bijunctive; GKMP tight/connected forced, overlap degree not forced."},
+    "onevalid-bijunctive": {"value": "theory-permitted", "basis": "1-valid bijunctive; as 2-sat."},
+    "order-3": {"value": "theory-silent", "basis": "|D|=3 semilattice (min) CSP. GKMP is Boolean-only; NO published non-Boolean connectivity dichotomy; not affine (no coset argument). Terrain class is outside every published classification's jurisdiction. THE ANOMALY ROW."},
+    "median-3": {"value": "theory-silent", "basis": "|D|=3 majority/median CSP. As order-3: Boolean-silent, non-affine, no published |D|=3 connectivity result. THE ANOMALY ROW."}
+  },
+  "jurisdiction_fact_on_record": "The anomaly rows (order-3, median-3) are domain-3 and theory-SILENT. If the anomaly (bounded-width yet affine-rugged) SURVIVES the fresh confirmation draws, it does so as a measurement NO published classification speaks to — the strongest novelty position available, established here by PRE-COMMITTED ABSENCE, not discovered at writeup.",
+
+  "three_tier_writeup_scoring_rule": {
+    "rule": "H_I6b's confirmed ordering (if it lands) is reported in three tiers; NO tier borrows another's language.",
+    "theory_forced_tier": "the theory-forced portion (affine dispersion; Horn/dual-Horn lattice-consensus) is reported as MEASURED CONFIRMATION of known structure theory — valuable, NOT novel.",
+    "theory_permitted_tier": "the theory-permitted portion (bijunctive quantitative overlap) is reported as QUANTITATIVE REFINEMENT beyond what theory forces.",
+    "theory_silent_tier": "the theory-silent portion (the domain-3 order-3/median-3 anomaly, IF it holds on fresh data) is reported as the NOVEL MEASURED FINDING — no published classification addresses it."
+  },
+
+  "corrected_run_parameters": {
+    "bug_fixed": "alpha_struct locator: `c < K` (strictly below the sampler cap = constraints biting), not `c <= K` (which fired at the grid floor 0.2 for all families, measuring the ultra-loose regime where geometry washes out).",
+    "fresh_seed_base": 90000,
+    "note": "same fixed permutation harness (hand-count selftest in CI), same two-density (0.7/0.9 * alpha_struct) stability requirement, same both-samplers-concordant rule. Only the density anchor is corrected and the seed base is fresh."
+  },
+
+  "unchanged_from_v6": "H_I6a (binary, face value), H_I6b (ordering, stable across densities), the relative-density protocol, the measured-column protocol, sampled-population provenance, and all standing discipline stand. No oracle column is touched.",
+  "standing_discipline": [
+    "prereg before analysis; the netting column precedes any fresh confirmation datum (R20-verified sources, no reconstruction)",
+    "three-tier scoring: forced=confirmation, permitted=refinement, silent=novel; no tier borrows another's language",
+    "eightfold byte-identical; no oracle cell touched; measured never silently upgraded; RESIZED never argued back"
+  ]
+}
