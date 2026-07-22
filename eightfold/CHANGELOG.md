@@ -261,3 +261,24 @@
   tests pass unchanged, and `a3_structure.json` (sha `9a5ec8e0…`) + `crucible_results.json` (sha `5349b8bf…`)
   regenerate **byte-identical** — the science did not move. Eightfold now freezes as Foundry's library
   dependency; from here it is not modified to suit Foundry (Foundry Phase K, R-A).
+
+## 0.1.3 (unreleased) — Factors v1 (effective dimensionality by held-out prediction)
+
+- **F-1 — the estimator is locked and the planted-k selftest is GREEN (`prereg_v7.json` + `factors.py`).**
+  Factors v1 answers "how many effective dimensions does hardness have?" with a held-out-prediction estimator,
+  NOT MCA eigenvalue counts (S1-disqualified: per-charge marginals + typing reproduce them). Primary =
+  **latent class model** (finite mixture of per-charge categoricals, EM, add-α smoothing, multi-restart);
+  selection = **held-out masked-cell accuracy**, k=1..6; the claim is the **1-SE interval** and the headline is
+  the parsimonious 1-SE k\* (smallest k statistically indistinguishable from the best). The maskable set is
+  **real-valued cells only** (open/unmeasured/n.a. are marginalized, never imputed). Model ladder (owner
+  decision, locked): LCM first; **escalate to low-rank categorical PCA only if the selftest fails** (≤2
+  redesigns each, then a negative note) — a pre-committed fallback, never a mid-run swap. **Selftest passes on
+  the first LCM attempt:** planted k=3 recovered (accuracy 0.42→0.74→**0.95** plateau; k\*=3), and the pure null
+  stays quiet (k\*=1 — the argmax is a noisy 3 on the flat null, the parsimonious rule correctly reports 1).
+  Reuses `structure._grid`, `crucible._S2_DROP` (the 114-class S2 dedup), and `crucible._null_chain`/`_envelope`
+  (the excess-over-null secondary); ADDITIVE to the frozen kernel — `a3_structure.json` (sha `9a5ec8e0…`)
+  regenerates byte-identical, no existing module touched. Spec-parametrized so Foundry reuses the same estimator
+  on the census (P3, Sprint 3.3). 69 tests (8 new in `test_factors.py`, testing the pre-registered RULES —
+  interval-within-1-SE, parsimonious-k\*, maskable-set, ablation plumbing, MCA-disqualified — never a pinned
+  k\*). **Next: F-2 — the verdict run on the dedup'd 114-class canon (k\* interval + loadings + ablations +
+  excess-over-null; on-file prediction k\*∈{3,4} scored).**

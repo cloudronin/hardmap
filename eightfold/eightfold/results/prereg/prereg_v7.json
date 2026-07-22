@@ -1,0 +1,71 @@
+{
+  "prereg_version": "v7",
+  "project": "Eightfold — Factors v1 (effective dimensionality of the charge atlas)",
+  "committed_before_analysis": true,
+  "note": "Factors v1 is the held-out-prediction estimator for the effective dimensionality k* of hardness on the post-Crucible canon atlas, with loadings as candidate factor identities. A NEW eightfold analysis line (v1-v5 = atlas/A3; v6 = Crucible), ADDITIVE to the frozen 8-charge kernel: a3_structure.json (sha 9a5ec8e0...) and crucible_results.json (sha 5349b8bf...) must regenerate byte-identical after Factors lands. Locking rule (line-wide): a changed prediction is a NEW version, never an edit. At v7 commit: factors.py + its planted/null selftest exist and the selftest is GREEN; NO real-canon run has been read. F-2 is the first real run and is gated on this lock. Model-class decision is the OWNER's (this session): primary = latent class model; escalate to low-rank categorical PCA only if the F-1 selftest fails, per the ladder below.",
+
+  "estimator": {
+    "primary": {
+      "claim_at_risk": "the effective dimensionality k* of hardness — H1's 'hardness is a vector, not a scalar' made quantitative and predictive.",
+      "input": "the DEDUP'D 114-class table (Crucible S2 roster: the 118-row atlas minus crucible._S2_DROP = {independent-set, vertex-cover, planar-vertex-cover, set-cover}), extracted via structure._grid. The raw 118 is a reported sensitivity, never the primary.",
+      "maskable_set": "REAL-VALUED cells only. A held-out prediction can be scored only against a real level, so open / unmeasured / n.a. are treated as MISSING (marginalized in the likelihood), never imputed. This refines cell_is_applicable (which counts open as applicable): the S1 null shuffles applicable cells, but Factors SCORES real-valued cells.",
+      "method": "held-out masked-cell predictive accuracy of a k-latent-factor CATEGORICAL model, k in 1..6. Per repeated fold: mask a random 10% of real-valued cells, fit the model on the remaining observed cells, predict each held-out cell from the fitted model, score mean held-out ACCURACY (primary) and held-out log-likelihood (robustness). Fixed seed 20260721; R repeated folds fixed before F-2 (see implementation_params).",
+      "decision_rule": "Let best = max over k of mean held-out accuracy and se_best = its cross-fold SE. The CLAIM is the INTERVAL = every k whose mean accuracy is within 1 SE of best (i.e. mean[k] >= best - se_best), stated at its size — never a bare point. Two points are reported inside it: k*_argmax = argmax mean accuracy, and the HEADLINE k*_hat = the PARSIMONIOUS 1-SE choice = the smallest k in the interval (standard 1-SE rule: prefer the simplest model statistically indistinguishable from the best). k*_hat <= 1 = 'no latent dimensionality beyond per-charge marginals' (for the LCM the one-class model IS the marginal/independence model), reported as one verdict.",
+      "implemented_in": "eightfold/factors.py::estimate"
+    },
+    "model_ladder": {
+      "rule": "ORDERED PAIR, pre-committed (owner decision 'LCM first, escalate if it fails'): [1] latent class model (finite mixture of per-charge categoricals, fit by EM, add-alpha Dirichlet smoothing, multi-restart best-train-loglik); [2] low-rank categorical PCA (logistic; continuous latent factors + literal charge-level loadings). Which model is used is decided SOLELY by the F-1 planted-k SELFTEST GATE below, on synthetic known-answer data — NEVER by real-canon performance. Escalation is pre-committed, hence honest, and is NOT a mid-run metric swap.",
+      "primary_model": "latent class model (LCM)",
+      "fallback_model": "low-rank categorical PCA",
+      "loadings_definition": "LCM -> the k class-conditional per-charge profiles theta[c,j,.]; low-rank -> the charge-level x factor loading matrix. The P3 (Foundry) comparison is by PROJECTION never inclusion; the exact metric+threshold are operationalized in Foundry prereg_v2 before any census loadings are computed (Foundry rider R-i)."
+    },
+    "secondary": {
+      "claim_at_risk": "that the k* structure is real association, not an artifact of per-charge marginals + n.a. typing.",
+      "method": "excess-over-null. Run the primary estimator on the real dedup'd table AND on M draws from the S1 null (crucible._null_chain: per-charge marginals + each row's n.a. typing + entailment E1/E2 all preserved, real values swap-shuffled). Fixed seed 20260721.",
+      "decision_rule": "REPORTED alongside the interval. Statistic = the real table's held-out-accuracy GAIN of k* over k=1, placed against the null distribution of the same gain via crucible._envelope. EXCESS-over-typing iff the real gain exceeds the null 97.5th percentile (one-sided). A k* whose gain sits INSIDE the null envelope RESIZES the dimensionality claim to 'explained by typing + marginals' — stated at that size, never argued back.",
+      "implemented_in": "eightfold/factors.py::excess_over_null"
+    }
+  },
+
+  "on_file_prediction": {
+    "P_k_star": {
+      "prediction": "k* in {3,4} — hardness is genuinely multi-dimensional but low-dimensional: the charges neither collapse to a scalar (k*=1) nor spread to full rank.",
+      "decision_rule": "SCORED, not gated. Report whether {3,4} intersects the k* interval. HIT = {3,4} meets the interval; MISS (interval entirely below 3 or above 4) is a PRE-STATED acceptable finding, reported at size. This prediction does not move the estimator; it is graded against it.",
+      "status": "on-file witness prediction (F1 note)"
+    },
+    "P_loadings": {
+      "prediction": "the k* factor identities read approximately as core-intractability / structural-tamability / statistical-geometric.",
+      "decision_rule": "INTERPRETIVE ONLY. The loadings for k* are reported and NAMED only inside an explicitly-labelled interpretive section. The names are candidate identities, never a tested claim in v1.",
+      "status": "interpretive (named post-fit, in a walled section)"
+    }
+  },
+
+  "ablation_policy": {
+    "rule": "R-fac1 — every k* estimate is reported under ALL of: (a) dedup'd 114-class table = PRIMARY (crucible._S2_DROP), raw 118 as a reported sensitivity; (b) leave-one-charge-out — drop each of the 8 charges in turn and re-estimate k*, so no dimensionality claim hinges on a single charge (report the LOCO min/max k*); (c) --drop-measured (structure._grid drop_measured=True) — no claim may rest on the two measured charges (average_case, landscape) alone (R9). BOTH weightings reported: per-distinct-profile and per-row.",
+    "implemented_in": "eightfold/factors.py::estimate (ablations block)"
+  },
+
+  "sensitivity_MCA_disqualified": {
+    "rule": "R-fac2 — the MCA eigenvalue dimension count (structure.mca dims_above_threshold) is reported as a SENSITIVITY ONLY, explicitly flagged S1-DISQUALIFIED as the primary estimator (Crucible S1: per-charge marginals + typing reproduce the eigenvalue structure). It NEVER sets k*."
+  },
+
+  "kill_thresholds": {
+    "F1_selftest_gate": "The F-1 planted-k SELFTEST is the program-level go/no-go, operationalized on k*_hat (the parsimonious 1-SE choice) and the interval. Primary (LCM): (i) RECOVERY — on synthetic tables sampled from a KNOWN-k latent class model, the interval must CONTAIN the planted k AND k*_hat must equal the planted k; (ii) NULL-QUIET — on a pure-null table (independent per-charge marginals) k*_hat must be in {0,1} (for the LCM: k*_hat = 1; no k>=2 improves held-out accuracy beyond the 1-SE band). LCM gets <=2 harness REDESIGNS (implementation-level only: restarts, fold count, smoothing, k-selection tie-breaks) to pass. On failure -> ESCALATE to low-rank categorical PCA (its own planted-k attempt, same gate). If BOTH model classes fail -> write the NEGATIVE note; the interval claim is DEFERRED to Foundry-scale data (the estimator class is unfit at n~114). At no point is any estimator tuned on the real canon table.",
+    "time_box": "F-1..F-3 within one weekend block (6-8 h). The F-2 real run happens only after this prereg is committed AND the F-1 selftest is green."
+  },
+
+  "implementation_params_fixed_before_F2": {
+    "note": "These are implementation knobs, NOT pre-registered claims; fixed here so F-2 has no free choices. Recorded in factors_v1.json's manifest at F-2.",
+    "seed": 20260721,
+    "k_range": [1, 2, 3, 4, 5, 6],
+    "mask_fraction": 0.10,
+    "cv_repeats": 30,
+    "em_restarts": 8,
+    "em_max_iters": 150,
+    "smoothing_alpha": 0.5,
+    "excess_over_null_M": 150,
+    "k_star_rule": "k*_hat = smallest k within 1 SE of the best mean held-out accuracy (parsimonious 1-SE); interval = all such k; the claim is the interval. On a flat curve the argmax may be noisy while k*_hat stays parsimonious — verified on the pure-null selftest (argmax noisy, k*_hat=1)."
+  },
+
+  "unchanged_from_v6": "The Crucible battery (S1-S5) and its verdicts stand exactly as committed in prereg_v6 and banked in A4 section 8. Factors v1 adds a new analysis; it does not touch the atlas data, the 8-charge kernel, or any prior verdict. MCA-as-primary stays disqualified per S1."
+}

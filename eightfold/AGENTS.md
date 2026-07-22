@@ -71,6 +71,20 @@ claimed periodic table (that would be Move Two, phase-gated on Move One finding 
    (DOI, book + page) need no snapshot. The gate must still pass when the live pages go dark — the atlas
    validates in five years.
 
+## Analysis modules (additive to the frozen kernel)
+
+The harness is `structure.py` (A3 — dimensionality/multiplets/gaps), `crucible.py` (S1–S5 adversarial
+self-review), and `factors.py` (**Factors v1** — effective dimensionality k\* by held-out prediction,
+`prereg_v7`). Phase K extracted the vocabulary into a `ChargeSpec` (`charges.py::EIGHTFOLD_SPEC`) so one
+validator/harness serves Foundry's census too; from that point Eightfold is Foundry's frozen library dependency
+and **Foundry never modifies it**. A new *eightfold-side* analysis module is still permitted — it postdates
+Phase K, exactly like Factors v1 (a canon-fitted estimator the Foundry `P3` prereg always anticipated) — provided
+it is **additive**: it changes no existing behavior, and `a3_structure.json` / `crucible_results.json` must
+regenerate **byte-identical**. The "never modify eightfold" invariant (`foundry/AGENTS.md`) governs the
+Foundry→Eightfold direction, not owner-driven Eightfold features. MCA eigenvalue counts are **S1-disqualified** as
+a dimensionality estimator (Crucible S1: marginals+typing reproduce them); Factors' held-out prediction is the
+claim.
+
 ## Storage & tiering
 
 Canonical storage is versioned JSONL (`results/atlas/atlas.jsonl`, one problem per line, line-diffable) + a

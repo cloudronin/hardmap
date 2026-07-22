@@ -5,6 +5,7 @@ The submodules also run standalone:
     python -m eightfold.atlas validate
     python -m eightfold.atlas summary
     python -m eightfold.structure --pilot
+    python -m eightfold.factors --selftest
 """
 from __future__ import annotations
 
@@ -15,7 +16,7 @@ def main(argv: list[str] | None = None) -> int:
     argv = sys.argv[1:] if argv is None else argv
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__)
-        print("commands: validate | summary | structure")
+        print("commands: validate | summary | structure | factors")
         return 0
     cmd, rest = argv[0], argv[1:]
     if cmd in ("validate", "summary"):
@@ -24,7 +25,10 @@ def main(argv: list[str] | None = None) -> int:
     if cmd == "structure":
         from eightfold import structure
         return structure.main(rest)
-    print(f"eightfold: unknown command {cmd!r} (expected validate|summary|structure)", file=sys.stderr)
+    if cmd == "factors":
+        from eightfold import factors
+        return factors.main(rest)
+    print(f"eightfold: unknown command {cmd!r} (expected validate|summary|structure|factors)", file=sys.stderr)
     return 2
 
 
