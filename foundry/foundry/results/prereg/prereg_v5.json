@@ -1,0 +1,81 @@
+{
+  "prereg_version": "v5",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "committed_before_analysis": true,
+  "committed_before_any_measured_cell_read": true,
+  "supersedes": "v4 (owner-approved amendment after the I5 memo: solution-side instrument + hybrid split, riders R-a..R-e). All v4 measured-column protocol + standing discipline stand; this amends the I6 operationalization and adds the solution-side instrument spec. Committed BEFORE any instance is generated or measured.",
+  "label": "Sprint 4 — solution-side landscape instrument + deconfounded I6 (owner riders R-a..R-e)",
+  "why_amended": "The I5 apparatus map established that the reusable Proof-Census samplers are PROOF-space (refutation) samplers, not solution-space samplers, so the `landscape` charge (and I6) needs a net-new solution-side instrument, applied to the P-decision languages per the hybrid split. Applying it there DECONFOUNDS I6: the contrast becomes all-decision-P, isolating width from decision-complexity. v4's 'affine reported separately' is self-defeating under this design (affine is the only unbounded-width landscape arm), so it is corrected here.",
+
+  "I6_operationalized": {
+    "claim_at_risk": "Does the bounded-width (localization) oracle predict a purely MEASURED, theorems-don't-assign property — solution-space ruggedness — among languages that are uniformly easy to DECIDE? A yes is genuine oracle×measured cross-structure isolating WIDTH; the decision-complexity confound is removed by construction.",
+    "deconfounded_contrast": {
+      "design": "the I6 landscape contrast runs ONLY on the decision-P languages, so width is the sole varying axis: 9 bounded-width-P vs 5 affine-unbounded-P.",
+      "bounded_width_arm_9": ["horn-sat", "dual-horn", "2-sat", "zerovalid-horn", "zerovalid-bijunctive", "onevalid-dualhorn", "onevalid-bijunctive", "order-3", "median-3"],
+      "unbounded_width_arm_5_affine": ["xor-sat", "zerovalid-affine", "onevalid-affine", "lin-eq-z3", "lin-eq-z3-b"],
+      "R-a_affine_role": "affine is the UNBOUNDED-WIDTH ARM of the contrast (not a separately-reported side-control). Its XOR-rugged expectation does DOUBLE DUTY: CALIBRATION FIRST (the known-rugged pole of the Vega, R-b) — it must pass calibration before any datum is trusted — THEN it serves as the contrast's unbounded arm. Roles stated, in that order.",
+      "np_hard_rows_5": {"rows": ["3-sat", "nae-sat", "one-in-three-sat", "3-coloring", "nae-3dom"],
+                          "instrument": "PROOF-side (proof_size), a SEPARATE apparatus-native deliverable — NOT part of the landscape contrast."}
+    },
+    "hypothesis": "At matched density, bounded-width-P languages read SMOOTHER solution-space terrain than affine-unbounded-P languages. Directional: bounded-width => lower ruggedness rank.",
+    "response_ordinal": "landscape (MEASURED, sampled-population) on the smooth->rugged ordinal {clustering-OGP-refuted:0, clustering-physics:1, clustering-proven:2, freezing-measured:3}; the reading->vocabulary thresholds are fixed per family at the calibration gate.",
+    "decision_rule": {
+      "both_real_set": "decision-P rows with a CONCORDANT two-sampler measured landscape (R-c) — both structurally-different samplers agree at trend level. A row without a qualified, concordant landscape cell is NOT both-real.",
+      "floor": "n_both_real >= 12 concordant (localization, landscape) rows (max reachable = 14 under this design). Floor not met => INSUFFICIENT_RESOLUTION.",
+      "statistic": "direction = sign(mean ruggedness-rank of affine-unbounded arm - mean ruggedness-rank of bounded arm); magnitude = Cramer's V of the (localization, landscape) contingency.",
+      "test": "permutation p over the both-real rows using the FIXED harness (permute localization labels among both-real rows only; hand-count selftest in CI).",
+      "verdict": {
+        "SUPPORTED": "direction bounded-smoother (Delta>0) AND permutation p<0.05 AND floor met AND the instrument passed BOTH Vega poles (R-b).",
+        "NOT_SUPPORTED": "instrument qualified + floor met, but direction reversed/null or p>=0.05.",
+        "INSUFFICIENT_RESOLUTION": "instrument qualified but the >=12 concordant-row floor is not met.",
+        "INSTRUMENT_NOT_QUALIFIED": "the solution-side instrument fails to pass BOTH Vega poles within its build kill-box (R-b, R-e) — a LEGAL outcome; I6 is not scored on an uncalibrated instrument."
+      },
+      "sampler_relative": "R-d: restart/local-search solution sampling is NON-UNIFORM (the Proof-Census non-uniformity lesson transposed). EVERY landscape cell's provenance records `sampled-population` + the sampler set + seeds; the I6 verdict language inherits it (a sampler-relative claim, not a uniform-solution-space claim). NOT R25-forced: landscape is measured, not derived."
+    },
+    "owner_review_checkpoint": "the I6 verdict is reported RAW to the owner before it enters the Sprint 4 findings doc."
+  },
+
+  "solution_side_instrument": {
+    "status": "NET-NEW build (E0-discipline); the proof-side apparatus is reused UNCHANGED only for the parallel proof_size deliverable.",
+    "components": [
+      "per-Gamma density-dialed random-instance generator + CNF encoding (Boolean direct; domain-3 via a direct/log CNF encoding that a calibration check must confirm faithful)",
+      "sampler-1 (Cadical-restart): pysat/Cadical get_model + randomized polarity/restarts + blocking clauses for diversity",
+      "sampler-2 (structurally different): a stochastic local-search / unit-propagation random-walk sampler",
+      "affine-EXACT sampler: uniform over the linear solution coset by Gaussian elimination — UNBIASED ground truth, available only on the affine arm",
+      "solution-space metrics (Census concepts transposed from clause-ids to assignments): overlap q = 2*Jaccard-1 (or normalized Hamming), backbone = FROZEN VARIABLES (same value across all sampled solutions), clustering = P(q) modality; reuse glitch_bound (solution metric_fn) + sampler_agreement_trend (concordance)"
+    ],
+    "R-b_two_pole_vega": {
+      "requirement": "the instrument must be calibrated at BOTH poles before any datum is trusted — an instrument that only ever reads 'rugged' is CONFIRMED, not calibrated.",
+      "known_rugged_pole": "random k-XOR (affine): the literature's clustering/OGP shattering results are the reference — must read RUGGED while decision-easy.",
+      "known_smooth_pole": "a provably well-connected solution space (a 2-SAT-class or const-valid representative whose solution graph is connected / non-clustering) — must read SMOOTH.",
+      "gate": "PASS iff the rugged pole reads rugged AND the smooth pole reads smooth, both above the glitch/noise floor, both samplers concordant."
+    },
+    "R-c_concordance": {
+      "rule": "two structurally-different samplers with TREND-level agreement (the S1/S2 house rule transposed); one sampler is an anecdote-generator.",
+      "affine_arm_bonus": "on the affine arm the exact sampler is a THIRD, giving direct ground truth: measure sampler-1 and sampler-2 BIAS against the exact solution distribution. This is the only place in the program where sampler bias itself is directly measurable — LOG IT AS A DELIVERABLE."
+    },
+    "R-e_build_kill_box": {
+      "budget": "~4-5 h build attention + 2 redesigns to pass the two-pole Vega + concordance calibration.",
+      "on_failure": "I6 lands INSTRUMENT_NOT_QUALIFIED (legal). Do not force a reading on an uncalibrated instrument.",
+      "cpu_budget": "measurement runs within the standing $50 ceiling; kill-3 wall-clock armed."
+    }
+  },
+
+  "proof_side_deliverable": {
+    "rows": ["3-sat", "nae-sat", "one-in-three-sat", "3-coloring", "nae-3dom"],
+    "instrument": "the Proof-Census apparatus reused UNCHANGED (sampler_s1/s2, sample_k_parallel, verifier gate, glitch_bound, province_separation, sampler_agreement_trend) on UNSAT Gamma-instances above threshold.",
+    "fills": "proof_size (resolution refutation size) + refutation geometry (backbone, province separation).",
+    "framing": "R-e: a CONSISTENCY CHECK against Ben-Sasson-Wigderson (bounded relational width <-> resolution width/size). Theorem-adjacent => CALIBRATION-GRADE evidence, explicitly NOT discovery. Runs in PARALLEL with the solution-side build."
+  },
+
+  "unchanged_from_v4": "the measured-column protocol (Gate-6 manifests, calibration-gate-before-long-runs, glitch bounds, noise-floor-before-findings, budget + kill-3, I5 ensemble policy) and all standing discipline stand exactly. P1/H_P2_scaled/P2/P3 + the 6 anchors + roster/generations + kill thresholds unchanged. No oracle column is touched.",
+
+  "standing_discipline": [
+    "prereg before analysis (this v5 is committed before any instance is generated or measured)",
+    "known-answer calibration first — now TWO-POLE (rugged AND smooth), R-b",
+    "noise floor before findings",
+    "two structurally-different samplers with trend concordance (R-c); the permutation harness hand-count selftest stays in CI",
+    "sampler-relative provenance: landscape cells are sampled-population (R-d)",
+    "eightfold byte-identical; no oracle cell touched; measured never silently upgraded; RESIZED never argued back"
+  ]
+}
