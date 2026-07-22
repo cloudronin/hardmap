@@ -60,16 +60,25 @@ identified boundary — the algebra carries the geometry exactly where it is rig
 **Outside the affine strata the measured-column program requires relation-level sampling** — the correct, and
 much stronger, next move (out of Sprint 4 scope).
 
-## Connectivity-class prediction test (prereg_v9) — NOT PREDICTIVE, + convergent prior art
+## The clone-invariant impossibility — the structural result (prereg_v9 test)
 
-Asked whether the connectivity literature's relation-level classes (GKMP tight / OR-free / NAND-free /
-componentwise-bijunctive) predict measured ruggedness where the tractability labels scattered: **NOT_PREDICTIVE**
-— the classes are near-constant within co-clones (vary in 2/13), so they cannot explain the within-co-clone
-scatter, and n_components = 1 for both rugged implication and smooth NAND-Horn. **Convergent prior art**
-(Amendment 2): the GKMP–Schwerdtfeger line built its own finer relation-level classes (tight, safely-tight, CPSS,
-constraint-projection separation) *precisely because Schaefer's classes cannot classify solution-space structure*
-— so our headline was reached first, from the worst-case side; our result is **less novel and better supported for
-it**, and extends it (even those finer classes don't reach the typical-case *sampled* geometry). Detail:
+The connectivity-class test (does the GKMP relation-level classification predict measured ruggedness where
+tractability failed?) came back **NOT_PREDICTIVE** — and generalized into the strongest result of the measured
+line, proof-shaped:
+
+> **A co-clone is the set of relations sharing a polymorphism clone, so every language-level algebraic invariant —
+> tractability class, connectivity class, rigidity rank, anything read off the polymorphisms — is constant on the
+> co-clone by construction. No such invariant can explain within-co-clone terrain variation: it is carried by the
+> choice of representative relation, the information the clone discards.**
+
+Tractability failing (Sprint 4.5) and connectivity failing (here) are **one structural fact, not two
+coincidences** — the connectivity features are near-constant within co-clones (vary in 2/13), and n_components = 1
+for both rugged implication and smooth NAND-Horn. Framed correctly: *worst-case structural classification does not
+reach typical-case sampled geometry* — not "the connectivity classes fail" (they succeed at their own diameter /
+connectivity questions). **Convergent prior art** (Amendment 2): the GKMP–Schwerdtfeger line built finer
+relation-level classes (tight, safely-tight, CPSS, constraint-projection separation) *because Schaefer's classes
+cannot classify solution-space structure* — our headline was reached first from the worst-case side; we are less
+novel, better supported, and extend it (even those classes stop at the co-clone boundary). Detail:
 [Sprint4-connectivity-test.md](Sprint4-connectivity-test.md).
 
 ## Task 0 (the oracle-only closure) still stands

@@ -14,6 +14,32 @@ Sprint-4.5 arity-3 Boolean relations already measured (no new sampling). Impleme
 
 ---
 
+## The general result — the clone-invariant impossibility (lead)
+
+The connectivity features are near-constant within a co-clone (they vary in only **2 of 13**). This is **not
+specific to the connectivity classes**, and it is the real result, proof-shaped:
+
+> **A co-clone *is* the set of relations sharing a polymorphism clone. Therefore every language-level algebraic
+> invariant — tractability class, connectivity class, rigidity rank, anything read off the polymorphisms — is
+> *constant on the co-clone by construction*. No such invariant can explain within-co-clone terrain variation:
+> the variation is carried by the *choice of representative relation*, precisely the information the clone
+> discards.**
+
+The two empirical negatives — tractability failed to predict within-co-clone ruggedness (Sprint 4.5), connectivity
+failed here — are **two instances of one structural fact**, not two coincidences. Any future clone-derived charge
+(including rigidity rank, below) inherits the same ceiling: it can speak to *between*-co-clone quantities, never to
+*within*-co-clone terrain variation. That is why the surviving rigidity question (prereg_v10) is posed about the
+between-stratum spread, not the within-stratum values.
+
+**Framing discipline.** This is *"worst-case structural classification does not reach typical-case sampled
+geometry,"* **not** "the connectivity classes do not work." They were built for a different question — the
+diameter dichotomy and the st-connectivity trichotomy — and they succeed at it. Amendment 2's convergent-prior-art
+credit stands in full: the GKMP–Schwerdtfeger line hit the same wall we did (coarse tractability labels cannot
+classify solution-space structure) and answered it by building finer classes; our result only adds that even those
+finer classes stop at the co-clone boundary, because they too are clone invariants.
+
+---
+
 ## The result
 
 The connectivity features are **near-constant within a co-clone** — they vary within only **2 of 13** co-clones —

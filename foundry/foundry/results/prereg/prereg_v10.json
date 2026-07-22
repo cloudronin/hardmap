@@ -1,0 +1,36 @@
+{
+  "prereg_version": "v10",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "committed_before_analysis": true,
+  "committed_before_rigidity_derived": true,
+  "role": "SEALED prediction for the RIGIDITY-ENVELOPE test. Committed BEFORE the rigidity rank is derived on the co-clones and BEFORE the rank<->spread alignment is computed. Re-analysis of data in hand (Sprint 4.5 spreads); no new sampling.",
+  "supersedes": "extends v9 (connectivity test). No oracle column touched.",
+
+  "why_the_envelope_and_not_the_values": "The clone-invariant impossibility (prereg_v9 general result): rigidity rank is a CLONE function, hence constant on a co-clone, so by that argument it CANNOT explain within-co-clone terrain VALUES — testing it against individual ruggedness would test something we now know is impossible. The surviving, legitimate question is BETWEEN strata: does the algebra predict HOW MUCH freedom it leaves — i.e. the within-co-clone SPREAD? A stratum statistic is a legitimate clone-level target.",
+
+  "object_1_charge_rigidity_rank": {
+    "status": "oracle-DERIVED from the clone alone (at fixed small arity), before any measurement — `derived` with logged condition-checks.",
+    "scale": {"4": "Maltsev term (affine)", "3": "near-unanimity / majority term", "2": "semilattice or other idempotent Taylor term", "1": "weak-NU term only", "0": "no Taylor term"},
+    "assignment_rule": "rank = the STRONGEST idempotent term the clone provides (most rigid wins): affine->4; else majority(bijunctive)->3; else semilattice(Horn or dual-Horn)->2; else a weak-NU-only tractable term->1; else->0. The 0-/1-valid-only co-clones (tractable by a constant, no idempotent Taylor term) are the documented edge case: recorded at the LOW end (no idempotent Taylor structure) and flagged, not forced."
+  },
+  "object_2_target_within_coclone_spread": {
+    "status": "MEASURED from terrain alone (Sprint 4.5): the within-co-clone ruggedness spread (max-min across genuine same-profile representatives), defined only for strata with >= 2 representatives.",
+    "source": "results/landscape/sprint45_within_coclone.json (13 co-clones, data in hand)."
+  },
+
+  "sealed_prediction_owner": {
+    "prediction": "within-co-clone ruggedness SPREAD DECREASES MONOTONICALLY with rigidity rank: near-zero at rank 4 (Sprint 4.5 already shows affine at 0.002-0.075), LARGEST at ranks 1-2 (already shows up to 0.327), INTERMEDIATE at rank 3.",
+    "question_in_one_line": "does the algebra predict how much freedom it leaves?",
+    "verdict_vocab": {
+      "CONFIRMED": "spread decreases monotonically across ranks 4>3>2>1 (rank-means strictly ordered) AND a negative rank<->spread rank-correlation",
+      "PARTIAL": "the ordering holds at the rigid end (rank 4 smallest) but breaks at the low end, or one adjacent-rank inversion",
+      "NOT_CONFIRMED": "no monotone trend / non-negative correlation"
+    }
+  },
+
+  "anti_circularity_non_negotiable": "Rigidity rank is DERIVED FROM THE ALGEBRA ALONE (polymorphism clone), before and independently of any terrain measurement. Spread is MEASURED FROM TERRAIN ALONE. Defining rigidity as (or from) low spread would make the hypothesis a tautology and is FORBIDDEN. The rank assignment uses only the polymorphism flags; it never reads the spread.",
+
+  "test": "tag each of Sprint 4.5's 13 co-clones with its rigidity rank (from the flags), pair with its measured within-co-clone spread, report the per-rank spread means + the rank<->spread correlation, and score against the sealed prediction.",
+  "scope": "re-analysis of data in hand; no new sampling. Boolean co-clones.",
+  "standing_discipline": ["prereg before the rigidity rank is derived", "anti-circularity: rank from algebra, spread from terrain", "score against the sealed prediction; no rescue", "the clone-invariant impossibility bounds this to a BETWEEN-stratum claim", "eightfold byte-identical; no oracle cell touched"]
+}
