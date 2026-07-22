@@ -14,12 +14,12 @@ determinate and left `open` elsewhere — never guessed.**
 | **approximation** | **KSTW 2001** (+ Håstad 2001) | Max-CSP(Γ) ∈ PO if Γ is 0-valid, 1-valid, or 2-monotone; else APX-complete. Max-affine (Max-3LIN) is **inapprox** (Håstad). | PO for 0-/1-valid; inapprox for affine; APX-complete for Horn/dual-Horn/bijunctive/NP-hard. |
 | **parallelization** | **ABISV 2009** (refining Schaefer via Post's lattice) | within-P classes: affine ∈ ⊕L ⊆ NC; bijunctive ∈ NL ⊆ NC; Horn/dual-Horn are **P-complete**; 0-/1-valid trivial ∈ NC. | NC for {affine, bijunctive, 0-valid, 1-valid}; P-complete for {Horn, dual-Horn}; **n.a.** for NPC (E2). |
 | **localization** (I6) | **Barto–Kozik 2014** | bounded width iff Γ has two weak-NU polymorphisms of different arity; the **only** obstruction is affine/linear equations. Bounded width ⟹ CSP(Γ) ∈ P (in NL). | bounded-width for {0-/1-valid, Horn, dual-Horn, bijunctive}; **unbounded-width for affine** (the deceptive-terrain control) and for NP-hard. |
+| **parameterized** (I1, Sprint 2.1) | **Marx 2005** (parameterized Schaefer dichotomy); **Bulatov–Marx 2014** (weak-separability definition + W[1] membership, arXiv:1206.4854) | **Exact-Ones CSP(Γ)** — a satisfying assignment of **weight exactly k**, parameterized by k — is **FPT iff Γ is weakly separable, else W[1]-complete**: a complete dichotomy over all Boolean Γ (W[1]-membership even when decision is NP-complete). Weak separability = **union** (disjoint t₁,t₂∈R ⟹ t₁+t₂∈R) + **difference** (disjoint t₁,t₂ with t₂,t₁+t₂∈R ⟹ t₁∈R) closure; it **implies 0-validity**. | **FPT for affine** (weakly separable); **W[1] for every other class** — Horn/dual-Horn/bijunctive each contain implication `x→y` (0-valid), which fails the *difference* condition; NP-hard a fortiori. **Class-level** verdict: the CKZ representatives trade 0-validity away for the Max/decision charges, so a naive per-relation check misfires (affine's `x⊕y=1` is not 0-valid) — the value is keyed on the Schaefer class (like counting). |
 
 ## Verified dichotomy EXISTS, per-co-clone check deferred → `open` in N1 v1
 
 | Charge | Theorem | Why deferred |
 |---|---|---|
-| **parameterized** (I1) | **Marx 2005** — Boolean weighted-Sat (weight exactly k) is FPT or W[1]-complete (a parameterized Schaefer analog). | The tractable side is "weakly separable" Γ — a specific per-relation condition not yet computed per co-clone. Verified fillable; left `open` until the weakly-separable classifier is written (honest, not guessed). |
 | **proof_size** (random) | **Molloy** (random-CSP resolution complexity) | About *random* Γ-instances (density-dialed), not the language directly; belongs with the N4 ensemble design (I5). `open` in v1. |
 
 ## Instrument columns — `measured` (N4), not this pass
@@ -51,4 +51,5 @@ bases). We are **not aware** of a prior artifact that assembles these into a sin
 
 Schaefer, STOC 1978 · Creignou & Hermann, Inf. Comput. 125 (1996) · Khanna–Sudan–Trevisan–Williamson, SICOMP
 30 (2001); Håstad, JACM 48 (2001) · Allender–Bauland–Immerman–Schnoor–Vollmer, JCSS 75 (2009) · Barto & Kozik,
-JACM 61 (2014) · Marx, Comput. Complexity 2005 · Creignou–Kolaitis–Zanuttini, JCSS 74 (2008).
+JACM 61 (2014) · Marx, Comput. Complexity 14 (2005) 153–183; Bulatov & Marx, SICOMP 43 (2014) 573–616
+(arXiv:1206.4854) · Creignou–Kolaitis–Zanuttini, JCSS 74 (2008).

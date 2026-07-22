@@ -26,9 +26,11 @@ def cell(charge, value, task, *, status="claimed", cite=None, condition_check=No
     return ChargeCell(charge, value, task, status, prov, perspective)
 
 
-def derived(charge, value, task, *, theorem, condition, cite):
-    """A dichotomy-derived cell: logs the per-language condition-check whose `side` is the value."""
-    return cell(charge, value, task, status="derived", cite=cite,
+def derived(charge, value, task, *, theorem, condition, cite, perspective=None):
+    """A dichotomy-derived cell: logs the per-language condition-check whose `side` is the value.
+    `perspective` is required for perspective-dependent charges (parameterized = the parameter; proof_size = the
+    proof system) — kernel gate 5."""
+    return cell(charge, value, task, status="derived", cite=cite, perspective=perspective,
                 condition_check={"theorem": theorem, "condition": condition, "side": value})
 
 

@@ -54,9 +54,10 @@ def test_affine_is_the_deceptive_terrain_control():
 
 
 def test_deferred_columns_are_open_not_guessed():
-    # parameterized (Marx, per-cell deferred) + proof_size + the measured instruments are honestly `open`
+    # proof_size (Molloy, N4 ensemble) + the measured instruments are honestly `open`. parameterized is now
+    # FILLED by the Marx dichotomy (Sprint 2.1) — see test_parameterized_oracle_is_marx.
     for r in build_boolean_census():
-        for ch in ("parameterized", "proof_size", "average_case", "landscape"):
+        for ch in ("proof_size", "average_case", "landscape"):
             assert _val(r, ch) == "open", (r.problem_id, ch)
 
 
@@ -69,3 +70,26 @@ def test_verify_class_catches_a_mislabelled_coclone():
 def test_registration_anchors_present():
     ids = {r.problem_id for r in build_boolean_census()}
     assert {"xor-sat", "horn-sat", "2-sat", "3-sat", "nae-sat", "one-in-three-sat"} <= ids
+
+
+def test_parameterized_oracle_is_marx():
+    # Exact-Ones CSP(Γ) parameterized by solution weight: FPT iff Γ weakly separable, else W[1] (Marx 2005 /
+    # Bulatov-Marx). Among these co-clones only affine is weakly separable → FPT; every other class → W[1].
+    for r in build_boolean_census():
+        cc = next(c for c in PL.BOOLEAN_COCLONES if c.id == r.problem_id)
+        p = next(c for c in r.charges if c.charge == "parameterized")
+        assert p.value == ("FPT" if cc.schaefer_class == PL.AFFINE else "W[1]"), (cc.id, p.value)
+        assert p.status == "derived" and p.provenance["condition_check"]["side"] == p.value
+        assert p.perspective  # perspective-required charge (the parameter)
+
+
+def test_weak_separability_criterion():
+    # the verified union+difference definition (Bulatov-Marx arXiv:1206.4854) on hand-checked relations
+    r_impl = frozenset({(0, 0), (0, 1), (1, 1)})               # x→y: 0-valid, fails DIFFERENCE ((1,0),(0,1))
+    assert PL.is_weakly_separable([PL.R_XOR3])                 # homogeneous affine (0-valid) → WS
+    assert not PL.is_weakly_separable([r_impl])                # implication → not WS
+    assert not PL.is_weakly_separable([PL.R_NEG2])             # ¬x∨¬y → fails UNION ((1,0),(0,1)→(1,1)∉R)
+    assert not PL.is_weakly_separable([PL.R_NOR3])             # ¬x∨¬y∨¬z → fails UNION ((1,0,0),(0,1,1)→(1,1,1))
+    # weak separability implies 0-validity → a non-0-valid affine relation fails the naive check; this is WHY
+    # the oracle classifies at the class level (the CKZ reps trade 0-validity away for the Max/decision charges)
+    assert not PL.is_weakly_separable([PL.R_XOR2])             # x⊕y=1 is affine but NOT 0-valid → naive check fails

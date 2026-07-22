@@ -3,8 +3,9 @@
 Each oracle VERIFIES the co-clone's declared Schaefer class (polymorphism closure + faithfulness: a non-trivial
 tractable witness must not be 0-/1-valid, else its Max is trivially PO), then emits a `derived` cell whose
 logged `condition_check` records the computed check and whose `side` equals the value (FOUNDRY_SPEC gate 6b).
-Verified-but-per-cell-deferred columns (parameterized/Marx, proof_size/Molloy) and the measured instrument
-columns (average_case, landscape) are `open` — honest, not guessed (I-phase discipline).
+The parameterized column is filled by the Marx dichotomy (Sprint 2.1, class-level: FPT iff weakly separable).
+proof_size/Molloy and the measured instrument columns (average_case, landscape) remain `open` — honest, not
+guessed (I-phase discipline).
 """
 from foundry import postlattice as PL
 from foundry.census import derived, language, na, op
@@ -71,8 +72,26 @@ def classify(cc):
                                           if k == PL.AFFINE else "NP-hard → not bounded width")
     cells.append(derived("localization", lval, "solvable by local consistency (bounded relational width)?",
                          theorem="Barto-Kozik 2014", condition=lcond, cite="Barto & Kozik, JACM 61 (2014)"))
+    # parameterized — Marx 2005 (parameterized Schaefer dichotomy): Exact-Ones CSP(Γ) (a satisfying assignment
+    # of weight exactly k, parameterized by k) is FPT iff Γ is weakly separable, else W[1]-complete. The verdict
+    # is CLASS-level (like counting): weak separability implies 0-validity, and the CKZ representatives trade
+    # 0-validity away for the Max/decision charges, so a naive per-relation check would misfire (affine's x⊕y=1
+    # is not 0-valid, yet affine IS weakly separable). Only affine is weakly separable among these co-clones.
+    if k == PL.AFFINE:
+        pval, pcond = "FPT", "affine is weakly separable (Bulatov-Marx) → Exact-Ones CSP(Γ) is FPT"
+    elif k in (PL.HORN, PL.DUAL_HORN, PL.BIJUNCTIVE):
+        pval, pcond = "W[1]", (f"{k} contains implication x→y, which fails the difference condition of weak "
+                               f"separability → Exact-Ones W[1]-complete (decision is P, but the weight-k "
+                               f"restriction is W[1]-hard)")
+    else:  # np-hard-region
+        pval, pcond = "W[1]", ("Γ is in none of the tractable Schaefer classes, a fortiori not weakly separable "
+                               "→ Exact-Ones W[1]-complete (W[1]-membership holds even though decision is NP-complete)")
+    cells.append(derived("parameterized", pval,
+                         "Exact-Ones CSP(Γ): a satisfying assignment of weight exactly k, parameterized by k",
+                         theorem="Marx 2005 (parameterized Schaefer dichotomy)", condition=pcond,
+                         cite="Marx, Comput. Complexity 14 (2005) 153-183; Bulatov & Marx, SICOMP 43 (2014) 573-616 (arXiv:1206.4854)",
+                         perspective="solution weight k (number of variables set to 1)"))
     # deferred (verified dichotomy exists, per-co-clone check not computed) + measured → open (honest)
-    cells.append(op("parameterized", "weighted CSP(Γ) weight-k — Marx dichotomy verified; weakly-separable per-co-clone check deferred (I1)"))
     cells.append(op("proof_size", "random Γ-instance refutation size — Molloy (needs the N4 ensemble design, I5)"))
     cells.append(op("average_case", "random Γ-ensemble difficulty — measured instrument column (N4)"))
     cells.append(op("landscape", "random Γ-ensemble solution geometry — measured instrument column (N4)"))

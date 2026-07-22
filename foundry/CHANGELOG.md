@@ -35,3 +35,19 @@
   unbounded-width). 16 foundry tests (test the dichotomy *rules*, not verdicts). **v1 = the distinct-profile
   spine; finer/0-1-valid/chain co-clones are a documented v1.1 extension. Next (post-defense): N2 analysis
   (predictions 1-2 on the census) + N3-N5.**
+
+## 0.1.1 (unreleased) — Sprint 2.1 (Marx parameterized oracle)
+
+- **The `parameterized` column is filled by the Marx dichotomy (was `open`).** Verified the Exact-Ones (CSP by
+  solution size) dichotomy from the primary source — Marx, Comput. Complexity 14 (2005); weak-separability
+  definition + W[1] membership from **Bulatov–Marx, SICOMP 43 (2014) / arXiv:1206.4854**: **Exact-Ones CSP(Γ) is
+  FPT iff Γ is weakly separable, else W[1]-complete** (a complete dichotomy over all Boolean Γ; W[1]-membership
+  even when decision is NP-complete). `postlattice.is_weakly_separable` implements the verified **union +
+  difference** criterion (faithful on 0-valid relations). **Key R20 subtlety:** weak separability *implies*
+  0-validity, and the CKZ representatives trade 0-validity away for the Max/decision charges, so a naive
+  per-relation check misfires (affine's `x⊕y=1` is not 0-valid, yet affine *is* weakly separable) — the oracle
+  keys the verdict on the **Schaefer class**, like counting. Result: **xor-sat (affine) → FPT; every other
+  co-clone → W[1]** (Horn/dual-Horn/bijunctive each contain implication `x→y`, which fails the difference
+  condition; NP-hard a fortiori). All 7 rows re-validate through the shared kernel (gate 5 perspective + gate 6b
+  side==value); **4 distinct profiles unchanged**; P1 still passes. 18 foundry tests (+2: the Marx oracle rule
+  + the WS definition on hand-checked relations). **Next: Sprint 2.2 — the N3 general-domain tier (K1 timebox).**

@@ -54,6 +54,41 @@ def is_1valid(relations):
     return all(tuple(1 for _ in next(iter(r))) in r for r in relations)
 
 
+# ── Marx weak separability (the Exact-Ones / CSP-by-solution-size dichotomy criterion) ──────────────────────
+# Bulatov & Marx, "Constraint satisfaction parameterized by solution size", SICOMP 43 (2014) 573-616
+# (arXiv:1206.4854); dichotomy: Marx, Comput. Complexity 14 (2005) 153-183. A relation R (over {0,1}) is weakly
+# separable iff BOTH hold on its tuples (+ = coordinatewise OR of DISJOINT tuples; disjoint = never both 1):
+#   (union)      for all disjoint t1,t2 in R:                       t1+t2 in R
+#   (difference) for all disjoint t1,t2 with t2 in R and t1+t2 in R: t1 in R
+# A LANGUAGE is weakly separable iff every relation is. NB weak separability IMPLIES 0-validity (difference with
+# t1 = all-zero forces 0 in R), so this is a faithful check only on 0-valid relations; the parameterized ORACLE
+# classifies co-clones at the CLASS level (Schaefer class), because the CKZ representatives trade 0-validity away
+# for the Max/decision charges (e.g. affine's x⊕y=1 is not 0-valid, yet the affine class IS weakly separable).
+def _disjoint(a, b):
+    return all(not (x and y) for x, y in zip(a, b))
+
+
+def _union(a, b):
+    return tuple(x | y for x, y in zip(a, b))
+
+
+def is_weakly_separable(relations):
+    """The verified Marx/Bulatov-Marx union+difference criterion (faithful on 0-valid relations)."""
+    for rel in relations:
+        rows = list(rel)
+        arity = len(rows[0])
+        universe = list(product((0, 1), repeat=arity))
+        for a in rows:                                   # union closure over disjoint pairs
+            for b in rows:
+                if _disjoint(a, b) and _union(a, b) not in rel:
+                    return False
+        for t2 in rows:                                  # difference: t2, t1+t2 in R (disjoint) => t1 in R
+            for t1 in universe:
+                if _disjoint(t1, t2) and _union(t1, t2) in rel and t1 not in rel:
+                    return False
+    return True
+
+
 # ── canonical relations (each a frozenset of same-arity tuples) ───────────────────────────────────────────
 def _all_except(arity, excluded):
     ex = set(excluded)
