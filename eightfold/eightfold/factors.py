@@ -243,7 +243,7 @@ def estimate_rows(rows, spec=C.EIGHTFOLD_SPEC, *, charges=None, ks=K_RANGE, mask
     return out
 
 
-def excess_over_null(rows, spec=C.EIGHTFOLD_SPEC, *, k_hat, m=NULL_M, seed=SEED, repeats=8, restarts=4,
+def excess_over_null(rows, spec=C.EIGHTFOLD_SPEC, *, k_hat, m=NULL_M, seed=SEED, repeats=5, restarts=3,
                      max_iters=80, burn=X.S1_BURN, thin=X.S1_THIN):
     """Secondary estimator: is k_hat's predictive gain over k=1 real, or an artifact of marginals + typing?
     Compare the real gain (acc[k_hat] - acc[1]) to the same gain over M S1 nulls (marginal+typing+entailment
@@ -270,12 +270,19 @@ def excess_over_null(rows, spec=C.EIGHTFOLD_SPEC, *, k_hat, m=NULL_M, seed=SEED,
 
 # ── F-2 verdict run (the dedup'd canon + ablations + sensitivity) ──────────────────────────────────────────
 def factors_verdict(entries, spec=C.EIGHTFOLD_SPEC, *, drop_measured=False, primary_raw=False,
-                    with_null=True, budget=None):
+                    with_null=True, budget=None, ab_budget=None):
     """Assemble the Factors v1 verdict: primary k* on the dedup'd 114-class table, LOCO / drop-measured / raw
-    ablations, excess-over-null, MCA sensitivity (flagged disqualified), and the on-file prediction score."""
+    ablations, excess-over-null, MCA sensitivity (flagged disqualified), and the on-file prediction score.
+
+    The PRIMARY claim uses the full prereg budget (`budget`, default the prereg_v7 implementation_params). The
+    ablations (LOCO / drop-measured / raw sensitivity) use a lighter CV budget (`ab_budget`) — they report k*
+    ROBUSTNESS, not a precise interval, so a lighter fold count suffices; both budgets are recorded below."""
     b = {"repeats": CV_REPEATS, "restarts": EM_RESTARTS, "max_iters": EM_MAX_ITERS}
     if budget:
         b.update(budget)
+    ab = {"repeats": 12, "restarts": 4, "max_iters": 100}
+    if ab_budget:
+        ab.update(ab_budget)
     dedup = [e for e in entries if e.problem_id not in X._S2_DROP]
     primary_entries = list(entries) if primary_raw else dedup
     sens_entries = dedup if primary_raw else list(entries)
@@ -284,19 +291,19 @@ def factors_verdict(entries, spec=C.EIGHTFOLD_SPEC, *, drop_measured=False, prim
     primary = estimate_rows(rows, spec, **b)
     k_hat = primary["k_hat_1se"]
 
-    # (a) raw/dedup sensitivity — the OTHER roster
+    # (a) raw/dedup sensitivity — the OTHER roster (lighter budget)
     _, _, sens_rows = S._grid(sens_entries, drop_measured=drop_measured)
-    sensitivity = estimate_rows(sens_rows, spec, loadings=False, **b)
+    sensitivity = estimate_rows(sens_rows, spec, loadings=False, **ab)
 
-    # (b) leave-one-charge-out — no dimensionality claim may hinge on a single charge
+    # (b) leave-one-charge-out — no dimensionality claim may hinge on a single charge (lighter budget)
     loco = {}
     for drop in spec.charges:
         keep = [c for c in spec.charges if c != drop]
-        loco[drop] = estimate_rows(rows, spec, charges=keep, loadings=False, **b)["k_hat_1se"]
+        loco[drop] = estimate_rows(rows, spec, charges=keep, loadings=False, **ab)["k_hat_1se"]
 
-    # (c) drop-measured — no claim rests on the two measured charges alone (R9)
+    # (c) drop-measured — no claim rests on the two measured charges alone (R9) (lighter budget)
     _, _, rows_dm = S._grid(primary_entries, drop_measured=True)
-    drop_measured_k = estimate_rows(rows_dm, spec, loadings=False, **b)["k_hat_1se"]
+    drop_measured_k = estimate_rows(rows_dm, spec, loadings=False, **ab)["k_hat_1se"]
 
     # (d) MCA sensitivity — S1-DISQUALIFIED as primary (Crucible S1); reported, never the claim
     mca_dims = S.mca(rows, spec.charges)["dims_above_threshold"]
@@ -309,6 +316,9 @@ def factors_verdict(entries, spec=C.EIGHTFOLD_SPEC, *, drop_measured=False, prim
 
     return {
         "factors": True, "prereg": "prereg_v7", "model": primary["model"],
+        "manifest": {"seed": SEED, "primary_budget": b, "ablation_budget": ab,
+                     "mask_fraction": MASK_FRAC, "smoothing_alpha": SMOOTHING_ALPHA,
+                     "excess_over_null_M": NULL_M if with_null else 0},
         "primary_roster": "raw-118" if primary_raw else "dedup-114 (S2)",
         "drop_measured": drop_measured,
         "n_rows": primary["n_rows"], "n_distinct_profiles": primary["n_distinct_profiles"],

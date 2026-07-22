@@ -59,7 +59,8 @@ def test_maskable_set_is_real_valued_only():
 def test_factors_verdict_structure_ablations_and_mca_disqualified():
     # the full verdict assembly on a valid synthetic table (crucible's planted toy); tiny budget, no null
     out = F.factors_verdict(X._planted_toy(), with_null=False,
-                            budget=dict(repeats=3, restarts=2, max_iters=40, ks=range(1, 4)))
+                            budget=dict(repeats=3, restarts=2, max_iters=40, ks=range(1, 4)),
+                            ab_budget=dict(repeats=2, restarts=2, max_iters=30, ks=range(1, 4)))
     assert out["factors"] is True and out["prereg"] == "prereg_v7" and out["model"] == "lcm"
     # LOCO ran for every charge; the interval is a non-empty subset of the k-range
     assert set(out["ablations"]["leave_one_charge_out_k_hat"]) == set(C.EIGHTFOLD_SPEC.charges)

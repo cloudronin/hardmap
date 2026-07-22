@@ -1,0 +1,163 @@
+{
+  "factors": true,
+  "prereg": "prereg_v7",
+  "model": "lcm",
+  "manifest": {
+    "seed": 20260721,
+    "primary_budget": {
+      "repeats": 30,
+      "restarts": 8,
+      "max_iters": 150
+    },
+    "ablation_budget": {
+      "repeats": 12,
+      "restarts": 4,
+      "max_iters": 100
+    },
+    "mask_fraction": 0.1,
+    "smoothing_alpha": 0.5,
+    "excess_over_null_M": 150
+  },
+  "primary_roster": "dedup-114 (S2)",
+  "drop_measured": false,
+  "n_rows": 114,
+  "n_distinct_profiles": 72,
+  "k_star": {
+    "verdict_interval": [
+      1
+    ],
+    "k_hat_1se": 1,
+    "k_argmax": 1,
+    "best_acc": 0.6656,
+    "se_at_best": 0.0161,
+    "curve": {
+      "1": {
+        "acc_mean": 0.6656,
+        "acc_se": 0.0161,
+        "ll_mean": -0.9951
+      },
+      "2": {
+        "acc_mean": 0.6065,
+        "acc_se": 0.015,
+        "ll_mean": -0.9896
+      },
+      "3": {
+        "acc_mean": 0.6172,
+        "acc_se": 0.0154,
+        "ll_mean": -0.9649
+      },
+      "4": {
+        "acc_mean": 0.6183,
+        "acc_se": 0.0151,
+        "ll_mean": -0.9543
+      },
+      "5": {
+        "acc_mean": 0.6344,
+        "acc_se": 0.0143,
+        "ll_mean": -0.949
+      },
+      "6": {
+        "acc_mean": 0.6333,
+        "acc_se": 0.0143,
+        "ll_mean": -0.9534
+      }
+    },
+    "rule": "k*_hat = smallest k within 1 SE of the best mean held-out accuracy (parsimonious 1-SE rule); the CLAIM is the interval, stated at its size. MCA counts are S1-disqualified."
+  },
+  "on_file_prediction_P_k": {
+    "prediction": "k* in {3,4}",
+    "interval": [
+      1
+    ],
+    "hit": false,
+    "note": "scored, not gated (prereg_v7)"
+  },
+  "ablations": {
+    "sensitivity_other_roster": {
+      "roster": "raw-118",
+      "k_hat_1se": 1,
+      "interval": [
+        1,
+        4,
+        5,
+        6
+      ]
+    },
+    "leave_one_charge_out_k_hat": {
+      "decision": 1,
+      "counting": 1,
+      "approximation": 1,
+      "parameterized": 1,
+      "parallelization": 1,
+      "proof_size": 1,
+      "average_case": 1,
+      "landscape": 1
+    },
+    "loco_min": 1,
+    "loco_max": 1,
+    "drop_measured_k_hat": 1,
+    "note": "R-fac1: k* robust to roster (dedup vs raw), to any single charge (LOCO), and to the measured cells."
+  },
+  "excess_over_null": {
+    "k_hat": 1,
+    "M": 150,
+    "real_gain_acc_khat_over_k1": 0.0,
+    "null_envelope": {
+      "real": 0.0,
+      "null_mean": 0.0,
+      "null_p2.5": 0.0,
+      "null_p97.5": 0.0,
+      "real_above_p97_5": false,
+      "real_outside_95": false,
+      "one_sided_p_ge": 1.0
+    },
+    "excess_over_typing": false,
+    "rule": "k_hat's dimensionality is structure-beyond-typing iff the real acc-gain of k_hat over k=1 exceeds the null 97.5th pct (one-sided). Inside the envelope -> RESIZE to 'explained by typing + marginals', stated at that size."
+  },
+  "mca_sensitivity_DISQUALIFIED": {
+    "dims_above_threshold": 16,
+    "note": "R-fac2: MCA eigenvalue count is reported as a sensitivity ONLY and is S1-disqualified as the primary estimator (Crucible S1). It does not set k*."
+  },
+  "loadings_interpretive": {
+    "k": 1,
+    "classes": [
+      {
+        "prior": 1.0,
+        "profile": {
+          "decision": {
+            "modal": "NPC",
+            "p_modal": 0.62
+          },
+          "counting": {
+            "modal": "#P-complete",
+            "p_modal": 0.814
+          },
+          "approximation": {
+            "modal": "APX-complete",
+            "p_modal": 0.512
+          },
+          "parameterized": {
+            "modal": "FPT",
+            "p_modal": 0.812
+          },
+          "parallelization": {
+            "modal": "NC",
+            "p_modal": 0.639
+          },
+          "proof_size": {
+            "modal": "exp",
+            "p_modal": 0.773
+          },
+          "average_case": {
+            "modal": "easy-on-average",
+            "p_modal": 0.438
+          },
+          "landscape": {
+            "modal": "clustering-proven",
+            "p_modal": 0.474
+          }
+        }
+      }
+    ]
+  }
+}

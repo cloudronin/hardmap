@@ -282,3 +282,19 @@
   interval-within-1-SE, parsimonious-k\*, maskable-set, ablation plumbing, MCA-disqualified — never a pinned
   k\*). **Next: F-2 — the verdict run on the dedup'd 114-class canon (k\* interval + loadings + ablations +
   excess-over-null; on-file prediction k\*∈{3,4} scored).**
+- **F-2/F-3 — VERDICT: k\* = 1; the on-file prediction k\*∈{3,4} MISSES**
+  ([`factors_v1.json`](eightfold/results/atlas/factors_v1.json), sha `55bf628a…`;
+  [`docs/findings/Factors-v1.md`](docs/findings/Factors-v1.md)). On the dedup'd 114-class canon (72 distinct
+  profiles), held-out masked-cell accuracy is **best at k=1 (0.666±0.016)** and *strictly worse* for every k≥2
+  (0.61–0.63) — adding latent classes overfits. The k\* interval is **[1]**, robust across all ablations
+  (leave-one-charge-out = 1 for every drop; --drop-measured = 1; raw-118 = 1). Excess-over-null is degenerate at
+  k\*=1 (no structure beyond typing). **This is the quantitative successor to Crucible S1** (which had already
+  RESIZED the MCA dimensionality as marginal-driven): the marginal-robust estimator gives **prediction-1 vs
+  MCA-16** — the atlas is *predictively* one-dimensional. The surviving approx⟷param gradient is a real *local*
+  pairwise association, not a *global* predictive dimension; both coexist. Reported honestly at size with the
+  load-bearing caveat named: the selftest validated recovery of STRONG structure, so k\*=1 means "no structure
+  strong enough to beat marginals at n≈114," and the **pre-registered path to revise is scale (Foundry-scale
+  data), not model-switching** — the low-rank arm fires only on selftest failure and must not be reached
+  post-hoc. No prior verdict argued back; `a3_structure.json`/`crucible_results.json` byte-identical. **Next:
+  Sprint 2 — the Marx weakly-separable oracle (foundry `parameterized` column) + N3 gen-1; then Sprint 3.3 P3
+  inherits this k\*=1 canon fit.**
