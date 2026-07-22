@@ -227,3 +227,13 @@
   redesign mid-Crucible** (a null-calibrated amplification is a labelled post-V4 re-analysis under a new
   prereg, never a quiet swap); **S2/S3 read gradient-first**. 59 tests. **Next: V3 (S4 derived backfill + S5
   violator hunt).**
+- **V3 — S5 adversarial roster (S4 deferred).** Gradient-first hunt for violators of the approx⟷param
+  gradient. The audit found the frozen roster ALREADY carries 7 (knapsack/subset-sum FPTAS×W[1], partial-VC
+  APX-complete×W[1]; 3-coloring/TSP/longest-path/group-steiner hard-approx×FPT) — V=0.73 already survives them.
+  The field's easy-approx×hard-param violators are dominated by clustering (k-center W[1]-hard-by-k and
+  k-median W[2]-hard-by-k are already present but param-underspecified); **k-means** (APX-complete yet
+  W[2]-hard by k, R20-cited) is the clean absent addition, kept in a separate `s5_violators.jsonl` so the
+  frozen atlas stays 118 (Rider A). **S5 SURVIVES exactly as prereg'd:** adding k-means weakens the gradient
+  0.73→0.66 but it persists at permutation **p=0.0001**. The gradient is NOT roster sociology. **S4 deferred**
+  — S1 showed the dimension count is typing-driven regardless of n, so anchor-growth is no longer load-bearing;
+  the `derived` machinery is built and tested for a later pass. 61 tests. **Next: V4 (amended A4).**

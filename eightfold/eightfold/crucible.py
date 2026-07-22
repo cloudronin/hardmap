@@ -244,6 +244,83 @@ def s3_significance(entries, n_perm=10000, n_boot=1000, seed=SEED):
     }
 
 
+# ── S5: adversarial roster (sociology) — read gradient-first ─────────────────────────────────────────────
+def _s5_violators():
+    """New gradient-violator rows (absent from the frozen 118), chosen SOLELY for violation potential and
+    cited to the R20 standard. Kept as an AUGMENTED-roster addition (Rider A) — the frozen atlas stays 118.
+
+    The field's easy-approx x hard-param violators are dominated by clustering: k-center (W[1]-hard by k,
+    Feldmann-Marx) and k-median (W[2]-hard by k, Guha-Khuller) are already IN the frozen roster but coded
+    param open/n.a.; k-means is the clean absent specimen — constant-factor approximable (APX-complete) yet
+    W[2]-hard by k. Hard-approx x easy-param violators (3-coloring, TSP, longest-path, group-steiner) are
+    already in the frozen roster (see the audit in the result)."""
+    from eightfold.atlas import ChargeCell, ProblemEntry
+
+    def rc(charge, value, task, prov, persp=None):
+        return ChargeCell(charge, value, task, "claimed", prov, persp)
+
+    def na(charge, why):
+        return ChargeCell(charge, "n.a.", why, "structural")
+
+    def op(charge, task):
+        return ChargeCell(charge, "open", task, "structural")
+
+    kmeans = ProblemEntry(
+        "k-means", "k-Means (Euclidean sum of squared distances)", "optimization",
+        "n points in R^d and integer k; partition into k clusters minimising the sum of squared distances to cluster means",
+        [
+            rc("decision", "NPC", "k-means decision: is the optimal cost <= B?",
+               {"citation": "Aloise-Deshpande-Hansen-Popat 2009 (NP-hardness of Euclidean sum-of-squares clustering); Mahajan-Nimbhorkar-Varadarajan 2009"}),
+            op("counting", "#optimal k-means clusterings — no published #P-completeness result"),
+            rc("approximation", "APX-complete", "min sum of squared distances; poly-time constant-factor approximable AND APX-hard",
+               {"citation": "Kanungo-Mount-Netanyahu-Piatko-Silverman-Wu 2004 (9+eps local search); Awasthi-Charikar-Krishnaswamy-Sinop 2015 (APX-hardness, arXiv:1502.03316)"}),
+            rc("parameterized", "W[2]+", "parameterized by the number of clusters k",
+               {"citation": "Guha-Khuller reduction implies W[2]-hardness by k; parameterized-clustering literature (Fomin-Golovach-Simonov, Parameterized k-Clustering, 2019)"},
+               "number of clusters k"),
+            na("parallelization", "decision is NPC — parallelization (NC/P-complete) is defined only within P (E2)"),
+            na("proof_size", "no natural family of unsatisfiable instances"),
+            op("average_case", "random point-set ensembles are not systematically mapped"),
+            na("landscape", "an optimization problem, not a random-ensemble solution-space"),
+        ],
+        "2026-07-21", "crucible-S5",
+        notes=("S5 adversarial violator (easy-approx x hard-param): APX-complete yet W[2]-hard by k. "
+               "AUGMENTED roster only — NOT part of the frozen 118 that A3's verdicts describe (Rider A)."),
+    )
+    return [kmeans]
+
+
+def s5_adversarial_roster(entries, n_perm=10000, seed=SEED):
+    """S5 — try to break the gradient by adding deliberately-chosen violators. Gradient-first: SURVIVES iff
+    the augmented gradient stays present AND significant; RESIZES iff it dissolves (then it was sociology)."""
+    violators = _s5_violators()
+    frozen_rows = S._grid(entries)[2]
+    aug_rows = S._grid(list(entries) + violators)[2]
+    rng = np.random.default_rng(seed)
+    frozen_v = _both_real_v(frozen_rows, "approximation", "parameterized")
+    aug = _perm_p_gradient(aug_rows, n_perm, rng)
+    survives = bool(aug["p"] < 0.05 and aug["real_v"] >= 0.5)
+    return {
+        "attack": "S5_adversarial_roster",
+        "prediction_prereg_v6": "gradient WEAKENS BUT PERSISTS — direction intact, permutation p < 0.05 post-addition",
+        "rule": ("SURVIVES iff after adding all identified violators the gradient stays present (V >= 0.5) AND "
+                 "significant (permutation p < 0.05). RESIZES iff it dissolves — then the gradient was roster "
+                 "sociology and A4 resizes accordingly."),
+        "verdict": "SURVIVES" if survives else "RESIZED",
+        "n_violators_added": len(violators), "violators_added": [v.problem_id for v in violators],
+        "gradient_frozen_v": float(frozen_v), "gradient_augmented_v": aug["real_v"], "gradient_augmented_p": aug["p"],
+        "existing_violators_audited_in_frozen": ["knapsack", "subset-sum", "partial-vertex-cover",
+                                                 "graph-3-coloring", "tsp", "longest-path", "group-steiner-tree"],
+        "latent_violators_underspecified_in_frozen": {
+            "k-center": "param=open; W[1]-hard by k (Feldmann-Marx 2018) + 2-approx (Gonzalez 1985)",
+            "k-median": "param=n.a.; W[2]-hard by k (Guha-Khuller) + constant-approx",
+        },
+        "note": ("Uncapped hunt, honestly bounded: the field's easy-approx x hard-param violators are "
+                 "dominated by clustering (k-center/median already present but param-underspecified; k-means "
+                 "added); hard-approx x easy-param violators are already in the frozen roster. Violators are "
+                 "NOT abundant — the gradient's survival is not roster sociology."),
+    }
+
+
 # ── toy atlases for the V1 self-test (planted structure vs pure null) ────────────────────────────────────
 def _toy_entry(pid, dec, cnt, apx, par):
     from eightfold.atlas import ChargeCell, ProblemEntry
@@ -298,6 +375,7 @@ def main(argv=None):
     ap.add_argument("--s1", action="store_true", help="S1 null model (needs prereg_v6 locked)")
     ap.add_argument("--s2", action="store_true", help="S2 reduction-equivalence dedup rerun")
     ap.add_argument("--s3", action="store_true", help="S3 permutation p-value + bootstrap stability")
+    ap.add_argument("--s5", action="store_true", help="S5 adversarial roster (add violators, rerun gradient)")
     ap.add_argument("--path", type=Path, default=None, help="atlas path (default: the bundled atlas)")
     ap.add_argument("--out", type=Path, default=None, help="write crucible_results.json here")
     args = ap.parse_args(argv if argv is not None else sys.argv[1:])
@@ -305,8 +383,8 @@ def main(argv=None):
     if args.selftest:
         return selftest()
 
-    if args.s1 or args.s2 or args.s3:
-        from eightfold.atlas import DEFAULT_PATH, load_atlas
+    if args.s1 or args.s2 or args.s3 or args.s5:
+        from eightfold.atlas import DEFAULT_PATH, entry_to_dict, load_atlas
         entries = load_atlas(args.path)
         out_path = args.out or (DEFAULT_PATH.parent / "crucible_results.json")
         out = json.loads(out_path.read_text(encoding="utf-8")) if out_path.exists() else {}
@@ -317,6 +395,12 @@ def main(argv=None):
             out["S2"] = s2_dedup(entries)
         if args.s3:
             out["S3"] = s3_significance(entries)
+        if args.s5:
+            out["S5"] = s5_adversarial_roster(entries)
+            # persist the violator rows as a permanent, SEPARATE file (Rider A: frozen atlas stays 118)
+            vpath = DEFAULT_PATH.parent / "s5_violators.jsonl"
+            vpath.write_text("\n".join(json.dumps(entry_to_dict(v), ensure_ascii=False)
+                                       for v in _s5_violators()) + "\n", encoding="utf-8")
         out_path.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
         print(f"Crucible results written to {out_path}")
         if args.s1:
@@ -333,6 +417,11 @@ def main(argv=None):
             print(f"  S3 significance → {s3['verdict']}  [gradient perm p={s3['gradient_perm_p']:.4f} "
                   f"(V={s3['gradient_real_v']:.2f}); dims>=3 in "
                   f"{s3['dims_bootstrap']['cc_dims_ge3_frac'] * 100:.0f}% of bootstraps]")
+        if args.s5:
+            s5 = out["S5"]
+            print(f"  S5 adversarial roster (+{s5['n_violators_added']} violator{'s' if s5['n_violators_added'] != 1 else ''}: "
+                  f"{', '.join(s5['violators_added'])}) → {s5['verdict']}  [gradient frozen V="
+                  f"{s5['gradient_frozen_v']:.2f} → augmented V={s5['gradient_augmented_v']:.2f}, p={s5['gradient_augmented_p']:.4f}]")
         return 0
 
     ap.print_help()

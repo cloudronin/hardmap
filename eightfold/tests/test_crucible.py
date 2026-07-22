@@ -15,8 +15,8 @@ from eightfold import charges as C  # noqa: E402
 from eightfold import structure as S  # noqa: E402
 from eightfold.atlas import DEFAULT_PATH, load_atlas  # noqa: E402
 from eightfold.crucible import (  # noqa: E402
-    _both_real_v, _null_chain, _row_valid, _planted_toy, _null_toy, s1_null_model, s2_dedup,
-    s3_significance, selftest,
+    _both_real_v, _null_chain, _row_valid, _planted_toy, _null_toy, _s5_violators, s1_null_model,
+    s2_dedup, s3_significance, s5_adversarial_roster, selftest,
 )
 
 
@@ -89,3 +89,20 @@ def test_s3_significance_machinery():
     assert s3["verdict"] in ("SURVIVES", "RESIZED")
     assert 0.0 <= s3["gradient_perm_p"] <= 1.0
     assert 0.0 <= s3["dims_bootstrap"]["cc_dims_ge3_frac"] <= 1.0
+
+
+def test_s5_violators_validate_clean_and_are_true_violators():
+    from eightfold import atlas
+    vs = _s5_violators()
+    assert vs and all(atlas.validate(v) == [] for v in vs)   # additions must pass every QC gate (R20)
+    km = next(v for v in vs if v.problem_id == "k-means")
+    ch = {c.charge: c.value for c in km.charges}
+    # easy-approx (constant-factor) x hard-param (W[2]) — a genuine gradient violator
+    assert ch["approximation"] == "APX-complete" and ch["parameterized"] == "W[2]+"
+
+
+def test_s5_machinery():
+    s5 = s5_adversarial_roster(load_atlas(DEFAULT_PATH), n_perm=200)
+    assert s5["verdict"] in ("SURVIVES", "RESIZED")
+    assert s5["gradient_augmented_v"] <= s5["gradient_frozen_v"] + 1e-9   # violators weaken (or hold) the gradient
+    assert 0.0 <= s5["gradient_augmented_p"] <= 1.0

@@ -102,5 +102,32 @@
       "vcclique_amp_pos_frac_where_present": 1.0,
       "vcclique_present_frac": 0.369
     }
+  },
+  "S5": {
+    "attack": "S5_adversarial_roster",
+    "prediction_prereg_v6": "gradient WEAKENS BUT PERSISTS — direction intact, permutation p < 0.05 post-addition",
+    "rule": "SURVIVES iff after adding all identified violators the gradient stays present (V >= 0.5) AND significant (permutation p < 0.05). RESIZES iff it dissolves — then the gradient was roster sociology and A4 resizes accordingly.",
+    "verdict": "SURVIVES",
+    "n_violators_added": 1,
+    "violators_added": [
+      "k-means"
+    ],
+    "gradient_frozen_v": 0.7293188136240089,
+    "gradient_augmented_v": 0.6552122880625352,
+    "gradient_augmented_p": 9.999000099990002e-05,
+    "existing_violators_audited_in_frozen": [
+      "knapsack",
+      "subset-sum",
+      "partial-vertex-cover",
+      "graph-3-coloring",
+      "tsp",
+      "longest-path",
+      "group-steiner-tree"
+    ],
+    "latent_violators_underspecified_in_frozen": {
+      "k-center": "param=open; W[1]-hard by k (Feldmann-Marx 2018) + 2-approx (Gonzalez 1985)",
+      "k-median": "param=n.a.; W[2]-hard by k (Guha-Khuller) + constant-approx"
+    },
+    "note": "Uncapped hunt, honestly bounded: the field's easy-approx x hard-param violators are dominated by clustering (k-center/median already present but param-underspecified; k-means added); hard-approx x easy-param violators are already in the frozen roster. Violators are NOT abundant — the gradient's survival is not roster sociology."
   }
 }
