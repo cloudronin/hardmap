@@ -16,5 +16,22 @@
   `EIGHTFOLD_SPEC` correctly fails. **`prereg_v1.json`** locks predictions 1–4 (P3 = untested, Factors absent),
   roster/generations policy, the Crucible-hardened battery, kill thresholds, and the I-phase (I1–I6) status.
   **F1 note committed** (`docs/findings/F1-canon-or-computation-note.md`, Rider C) — the predictions'
-  timestamped provenance. **Next (post-defense): the I-phase, then N1 (CKZ co-clone roster + dichotomy
-  oracles).**
+  timestamped provenance. **Next: the I-phase, then N1 (CKZ co-clone roster + dichotomy oracles).**
+- **I-phase — dichotomy oracles verified** (`docs/findings/I-phase-investigation.md`). Web-verified the exact
+  statements/scopes: Schaefer (decision), Creignou–Hermann (#CSP ∈ FP iff affine), KSTW+Håstad (Max-CSP),
+  ABISV (within-P NC/P-complete), Barto–Kozik (bounded width iff a weak-NU polymorphism; affine is the sole
+  obstruction), Marx (parameterized dichotomy exists), CKZ (a plain basis per co-clone — the roster generator,
+  R-B). Per discipline: cleanly-per-cell columns fill `derived`; `parameterized` (Marx verified, weakly-
+  separable per-co-clone check deferred) and `proof_size` (Molloy, N4) are honestly `open`, never guessed.
+- **N1 — Boolean census built + validated.** `postlattice.py`: the Post's-lattice spine as concrete relations
+  (R-B — CKZ plain-basis representatives, never enumeration); `oracles.py`: the oracles **compute** each
+  co-clone's class by testing polymorphism closure (a real logged `condition_check`, not a hand flag) + a
+  faithfulness gate (a non-trivial tractable witness must not be 0-/1-valid). `dev/build_census.py` →
+  **`results/census/census.jsonl`** (7 co-clone rows: affine/xor-sat, Horn, dual-Horn, bijunctive/2-SAT, +
+  3 NP-hard anchors; **4 distinct charge profiles**). `derived`: decision, counting, approximation,
+  parallelization, localization; `open`: parameterized, proof_size, average_case, landscape. **Validates clean
+  through the shared kernel** with FOUNDRY_SPEC; **P1 NPI calibration passes** (zero NPI rows — Schaefer
+  dichotomy); affine is the distinct deceptive-terrain control (P decision, FP counting, yet inapprox +
+  unbounded-width). 16 foundry tests (test the dichotomy *rules*, not verdicts). **v1 = the distinct-profile
+  spine; finer/0-1-valid/chain co-clones are a documented v1.1 extension. Next (post-defense): N2 analysis
+  (predictions 1-2 on the census) + N3-N5.**
