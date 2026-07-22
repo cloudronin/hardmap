@@ -1,0 +1,90 @@
+{
+  "prereg_version": "v12",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "committed_before_analysis": true,
+  "committed_before_any_measurement": true,
+  "codename": "Pebble",
+  "role": "Sprint 6 — the SUBSTRATE layer. Tests whether one measurable quantity — reach xi, how far information about a partial solution propagates through a problem's constraint structure — underlies the charges. Supersedes the parked charge-9/Omega- design (vacuous at k*=1). Committed BEFORE any measurement. (Referred to as 'prereg_v10' in the owner brief; this is the next version in sequence.)",
+  "supersedes": "extends v1-v11. No oracle/charge column is touched; the substrate is a separate foundry-side layer (substrate.py).",
+
+  "v1_is_a_pilot_stated_up_front": {
+    "the_resize": "The program's OWN proven results bound what v1 can adjudicate. v1 is a PILOT: is xi measurable, does it calibrate (two poles), does it predict terrain within co-clones, does it scale interpretably? It is NOT the adjudicating differential/gradient test.",
+    "why_v1_cannot_discriminate_substrate_from_uniform_null": "Under the clone-invariant impossibility + the regime split (below), the only WITHIN-co-clone-testable charges in v1 are landscape and (thinly) average_case — exactly the two the sealed table predicts STRONG for near-definitional reasons. The DISCRIMINATING part of the differential (moderate approx/param, none parallelization) lives entirely in the BETWEEN-co-clone regime at n≈13 strata. So v1 cannot separate the substrate hypothesis from the uniform-prediction null. This is a fact about the ROSTER, not the hypothesis.",
+    "adjudication_is_phase_2": "the differential test that actually adjudicates requires the canon extension (non-CSP rows) OR many more strata for between-regime power."
+  },
+
+  "substrate_layer_schema": "foundry/foundry/substrate.py — SubstrateCell (kept OUTSIDE ProblemEntry.charges; eightfold shape gate untouched), a one-way PredictiveRule (substrate -> predicts charge, never the reverse — asymmetry in the code path), and validate_entry_with_substrate composing over eightfold.atlas.validate. R1 typing: every substrate cell carries canonical_ensemble + density_anchor. eightfold byte-identical.",
+
+  "sealed_differential_prediction_DESCRIPTIVE_in_v1": {
+    "note": "the pattern (not the existence) is the claim. Sealed here as substrate.REACH_LAYER; SCORED DESCRIPTIVELY in v1 so phase 2 inherits a sealed prediction rather than writing one after the fact.",
+    "table": {
+      "landscape": {"strength": "strong", "regime": "within-co-clone", "basis": "clustering ≈ correlation decay (near-definitional)"},
+      "average_case": {"strength": "strong", "regime": "within-co-clone", "basis": "cavity-method threshold literature"},
+      "approximation": {"strength": "moderate", "regime": "between-co-clone", "basis": "PCP/expander: inapprox lives where nothing decays"},
+      "parameterized": {"strength": "moderate", "regime": "between-co-clone", "basis": "kernelization/treewidth: bounded local structure permits compression"},
+      "proof_size": {"strength": "weak", "regime": "between-co-clone", "basis": "width bounds suggestive; solution-side link a leap"},
+      "counting": {"strength": "weak", "regime": "between-co-clone", "basis": "approx-counting decay conditions; exact counting a different object"},
+      "parallelization": {"strength": "none", "regime": "between-co-clone", "basis": "no statable mechanism — the negative control"}
+    },
+    "competing_null_to_beat": "'xi predicts everything equally' — uniform prediction means xi is a generic-difficulty proxy, a NOT SUPPORTED outcome for the substrate hypothesis even if every individual correlation is significant. ADJUDICATED IN PHASE 2, not v1."
+  },
+
+  "regime_split_and_effective_n": {
+    "within_co_clone": "xi vs the MEASURED charges (landscape, thinly average_case). Unit of analysis = the ROW. High resolution; xi varies within stratum; this is the substrate hypothesis's distinctive claim and the REAL v1 test.",
+    "between_co_clone": "xi vs the ORACLE charges (approximation/parameterized/counting/parallelization). Oracle charges are clone-CONSTANT, so unit = the CO-CLONE, n = number of strata ~13. Deeper caveat: a stratum-averaged xi is itself a clone-level statistic, so this is one clone-level quantity vs another across ~12 points. REPORT IT, CAVEAT IT, NEVER LEAD WITH IT.",
+    "consequence": "the within-regime charges are the near-definitional strong ones; the discriminating charges are all between-regime at n≈13 -> v1 cannot discriminate (see above)."
+  },
+
+  "P5_flagship_gradient_shrinkage_DEFERRED_by_scope": {
+    "status": "NOT RUN in v1. Recorded as deferred-by-scope with reason; never reported as a pending result.",
+    "reason": "the coupling xi would explain is the CANON's EMPIRICAL approx<->param gradient, which lives on non-CSP rows (deferred to phase 2). The only coupling xi reaches in v1 is the CENSUS one, which Task 0 proved is theorem-forced with residual 0. Conditioning xi on a coupling already fully explained by its own dichotomies is vacuous — executing it and calling it the flagship would be the kind of technically-executed-but-meaningless test this program exists to avoid.",
+    "phase_2": "run on the canon's empirical coupling once xi is extended beyond CSP."
+  },
+
+  "P1_pilot_sealed_numeric_rule_R1": {
+    "question": "does tuple_dispersion's HELD-OUT predictive power (Sprint 4.6 experiment B) decay with instance size and constraint density? tuple_dispersion (local, relation-level) predicting ruggedness (global, solution-set) on unseen co-clones is the substrate hypothesis's first datum; the pilot asks whether it survives composition and how fast it attenuates.",
+    "size_bands": "fixed in advance = the MIN and MAX instance size in the pilot size sweep (per arity, extending Sprint 4.6's fixed N).",
+    "sealed_rule": {
+      "attenuating": "held-out R^2 drops by >= 30% (relative) from the smallest to the largest size band AND the drop exceeds the bootstrap noise band -> local geometry propagates with FINITE RANGE (a genuine propagation result; xi's pilot measurement).",
+      "undiminished": "the drop is < 30% and the trend is flat outside the noise band -> solution dispersion is largely COMPOSITIONALLY INHERITED from tuple dispersion; report B at that size and reframe the reach instrument as CONSTRUCTION, not propagation.",
+      "INCONCLUSIVE": "the trend is within the bootstrap noise band -> declared on measurement quality, not argued after."
+    },
+    "undiminished_is_informative_pre_framing": "an UNDIMINISHED verdict is a REAL result, not a disappointment: 'global solution geometry is compositionally inherited from local relation geometry, with no measurable attenuation' is a clean structural statement about how terrain is built, and it tells us the propagation framing is the wrong lens for this phenomenon BEFORE the instrument gets built out. Written here so the outcome is pre-framed as informative."
+  },
+
+  "xi_instrument": {
+    "operation": "for an instance: sample solutions (base marginals); condition one variable v=value; resample (conditioned marginals); per other variable u, shift = |marginal_cond(u) - marginal_base(u)|; bin by constraint-graph distance d(v,u); fit the decay (exponential first; report fit quality; flag power-law-looking decay rather than forcing an exponential).",
+    "two_pole_calibration": "MANDATORY before any unknown reading. Long pole: XOR/affine (parity chains propagate globally by construction). Short pole: a decoupled / trivially-local family (near-zero shift beyond d=1). The instrument must SEPARATE them before measuring anything. Failure after two redesigns -> INSTRUMENT NOT QUALIFIED, a legal outcome.",
+    "sampler_bias_control": "xi inherits the R-d non-uniform-sampling caveat: affine-exact ground-truth bias check on the affine arm; two structurally-different samplers with concordance + glitch bounds; provenance = sampled-population.",
+    "drop_point_sensitivity": "condition on high-degree vs peripheral variables separately (homogeneous vs structured-core is itself a medium property; reported, not averaged).",
+    "R3_conditioning_value_sensitivity": "pin v=0 vs v=1 measured + reported SEPARATELY. For asymmetric relations (implication is the standing example) the two may propagate very differently; a material gap is itself a medium property (a findings line), never averaged away.",
+    "R2_bfs_distance_typing_and_bias": "variable-adjacency = two variables adjacent iff they co-occur in a constraint scope; BFS for shortest-path distance. KNOWN BIAS recorded here: shared-scope adjacency makes every variable in a scope mutually adjacent, so distances COMPRESS as arity grows (the roster spans arity 3-4) — a confound of the same species Sprint 4 caught with the domain baseline. P3 carries the diagnostic (report xi against mean scope size per family) so xi-tracks-arity is visible before interpretation.",
+    "scaling": "measure xi at several instance sizes per family: SATURATING xi = local structure; GROWING with n = genuinely global entanglement (the criticality signature). Report the scaling exponent / saturation point per family."
+  },
+
+  "scope_and_typing": "xi is well-defined where instances have a constraint graph and solutions are samplable. Where they do not (factoring, group isomorphism, most non-CSP canon rows) the substrate cell is `n.a.` BY TYPING, declared here. v1 tests the hypothesis on CSP-shaped problems ONLY.",
+
+  "anchor_six_descriptive_no_verdict": "the six canon∩census rows (3-SAT, 2-SAT, XOR-SAT, Horn-SAT, NAE-SAT, 1-in-3-SAT) are the only place xi meets empirically-sourced charges. Measure xi there and report DESCRIPTIVELY, NO verdict — n=6 is below any resolution floor and is declared so IN ADVANCE, not after seeing whether it looks good.",
+
+  "kill_criteria": [
+    "Instrument (P2): poles not separated after two redesigns -> INSTRUMENT NOT QUALIFIED, negative note, stop.",
+    "Resolution: per-family xi error bars overlapping across families -> INSUFFICIENT RESOLUTION, declared on measurement quality.",
+    "Box: CPU only, $50 ceiling; if the P3 sweep exceeds 2x its estimate before the first checkpoint, cut coverage and document the asymmetry (C3 precedent).",
+    "Not a v1 kill: the uniform-prediction 'NOT SUPPORTED' is a PHASE-2 adjudication — v1 cannot discriminate it; v1 reports the differential descriptively only."
+  ],
+
+  "standing_discipline": [
+    "prereg before measurement (this v12)",
+    "two-pole known-answer calibration before any unknown reading",
+    "density anchoring stated per family before measurement (the washout-regime lesson)",
+    "two-sampler concordance + glitch bounds; sampled-population provenance (R-d)",
+    "full manifests/seeds/commit (Gate-6 analogue) on every substrate cell",
+    "hand-count selftest on the decay-fit / permutation harness (in CI)",
+    "n.a.-by-typing where the object doesn't exist, never guessed",
+    "effective-n accounting: row for within-regime, co-clone for between-regime",
+    "eightfold byte-identical (foundry-side only); no oracle/charge cell touched",
+    "sealed predictions scored as they land, including the misses"
+  ],
+
+  "after_this_sprint_phase_2": "gated on v1 carrying signal: (a) extend xi beyond CSP to the canon's gradient-carrying rows (vertex cover, clique, Steiner) OR add many more strata -> then the differential + uniform-null are adjudicable; (b) P5 gradient shrinkage on the canon's empirical coupling (the true flagship); (c) the 'character' axis (perturbations amplify/conserve/damp — the discrete-Lyapunov analogue), a separate instrument built only if reach carries signal."
+}
