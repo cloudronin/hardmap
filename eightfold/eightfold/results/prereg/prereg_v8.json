@@ -1,0 +1,52 @@
+{
+  "prereg_version": "v8",
+  "project": "Eightfold — Factors v1.1 (a pre-registered follow-up to the v7 k*=1 verdict)",
+  "committed_before_analysis": true,
+  "supersedes": null,
+  "note": "NOT an edit of prereg_v7 — a NEW analysis (locking rule: a changed prediction is a new version). v7 reported k*=1 on the canon by held-out prediction with a latent class model; the on-file prediction k*∈{3,4} MISSED. This follow-up is OWNER-CHOSEN (not a post-hoc swap): it TRIANGULATES the k*=1 verdict along two axes to test whether it is a genuine finding or an artifact of the model class / charge sparsity. v7's k*=1 remains the PRIMARY verdict and is NOT argued back; this refines it. At v8 commit: the low-rank arm + its planted-rank/null selftest exist and the selftest is GREEN; NO real-canon low-rank run has been read (F-4c is the first).",
+
+  "motivation": "k*=1 could mean (a) the atlas is genuinely predictively 1-dimensional, or (b) the LATENT CLASS model (discrete classes) is the wrong instrument for weak CONTINUOUS structure, or (c) the sparse frontier charges wash out real structure in the well-populated core. This follow-up separates (a) from (b) and (c).",
+
+  "arms": {
+    "lowrank_full_8": {
+      "axis": "MODEL CLASS — a continuous-factor model on all 8 charges",
+      "estimator": "low-rank categorical PCA, NULL-CORRECTED. Soft-impute truncated-SVD of the one-hot indicator matrix; held-out masked-cell accuracy per rank k=0..5 (k=0 = the marginal baseline). Because the raw SVD rank inherits the one-hot COMPOSITIONAL ARTIFACT (the same inflation that disqualifies MCA), a rank is credited ONLY if it beats an independence (column-permutation) null: k* = the parsimonious real plateau (smallest k within 1 SE of the best held-out accuracy) credited iff every rank 1..plateau beats the null 97.5th-pct gain (contiguous structure from rank 1); else k* = 0.",
+      "decision_rule": "Report k* and the per-rank gain-vs-null. k* <= 1 AGREES with v7 (no continuous structure the LCM missed). k* >= 2 = the low-rank model found real structure beyond marginals that the discrete LCM did not — a methodological finding reported at size (it would then inform which model P3 uses).",
+      "implemented_in": "eightfold/factors.py::estimate_rows_lowrank"
+    },
+    "lowrank_core_4": {
+      "axis": "CHARGE SPARSITY — the continuous-factor model on the well-populated core",
+      "estimator": "the same null-corrected low-rank arm, restricted to the COMPLETE-CASE block on the four core charges (decision, counting, approximation, parameterized; structure.complete_case) — rows real-valued on all four.",
+      "decision_rule": "k* <= 1 confirms the sparsity of the frontier charges was not masking core structure. k* >= 2 = removing the sparse charges reveals structure. Carries the N-UNDERPOWER caveat: the complete-case block is small; a k*=1/0 here is weak evidence, a k*>=2 is the informative direction.",
+      "implemented_in": "eightfold/factors.py::followup_verdict"
+    },
+    "lcm_core_4": {
+      "axis": "CHARGE SPARSITY — the LCM on the well-populated core (the v7 model, restricted)",
+      "estimator": "the v7 latent class model restricted to the same core-4 complete-case block.",
+      "decision_rule": "same as lowrank_core_4; run under the v7 model so the model-class and sparsity axes are separable.",
+      "implemented_in": "eightfold/factors.py::followup_verdict"
+    }
+  },
+
+  "selftest_gate": "The low-rank arm's planted-rank SELFTEST is the fitness gate (eightfold/factors.py::selftest_lowrank): on a synthetic rank-r table it must recover k* >= 2 with r on the real plateau, AND on a pure independent null (skewed marginals) it must be quiet (k* <= 1, tolerating a single noise-floor rank-1 edge crossing). GREEN at v8 commit. If the low-rank arm could not pass this, it would be reported UNFIT and the triangulation would rest on lcm_core_4 alone.",
+
+  "combined_verdict": {
+    "rule": "k*=1 is CONFIRMED ROBUST iff every arm gives k* <= 1 (model class and charge sparsity both fail to reveal structure). A single arm with k* >= 2 is a METHODOLOGICAL FINDING, reported at its size, that refines the reading (names the limiting factor — discrete-class model, or frontier sparsity) but does NOT overturn v7's primary k*=1. The pre-registered path to a FULL revision of k*=1 remains Foundry-scale data, not this follow-up.",
+    "no_argue_back": "v7's k*=1 is the banked primary. This follow-up cannot promote it back to a multi-dimensional verdict; at most it identifies WHY the primary is 1 and flags a continuous-factor re-reading for a future, larger-n analysis."
+  },
+
+  "implementation_params": {
+    "seed": 20260721,
+    "lowrank_k_range": [0, 1, 2, 3, 4, 5],
+    "mask_fraction": 0.10,
+    "cv_repeats": 30,
+    "soft_impute_iters": 12,
+    "null_model": "column-permutation (each charge's column permuted across rows — preserves every marginal, destroys cross-charge structure; the independence null the compositional artifact requires)",
+    "m_null": 60,
+    "null_repeats": 4
+  },
+
+  "reference_verdict_v7": {"model": "lcm", "roster": "dedup-114 all-8", "k_hat_1se": 1, "interval": [1],
+                            "on_file_prediction_k_in_3_4": "MISS"},
+  "unchanged": "The v7 estimator, its k*=1 verdict, the Crucible S1-S5 verdicts, and the frozen 8-charge kernel all stand. Factors v1.1 adds a follow-up analysis; a3_structure.json / crucible_results.json regenerate byte-identical."
+}

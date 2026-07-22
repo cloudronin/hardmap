@@ -82,6 +82,21 @@ def test_excess_over_null_rule_wellformed():
     assert e["excess_over_typing"] in (True, False, None)
 
 
+def test_selftest_lowrank_green():
+    # prereg_v8 gate: the null-corrected low-rank arm recovers a planted rank AND stays quiet on an independent null
+    assert F.selftest_lowrank(verbose=False) == 0
+
+
+def test_lowrank_is_null_corrected():
+    # a rank is credited only if it beats the independence-null envelope (contiguous from rank 1) — so the
+    # one-hot compositional artifact cannot be read as structure; an independent null must not credit rank>=2
+    r = F.estimate_rows_lowrank(F._null_factor_table(80, dominant_p=0.6, seed=F.SEED + 3),
+                                repeats=6, m_null=20, null_repeats=3, seed=F.SEED, loadings=False)
+    assert r["k_star_excess"] <= 1
+    for k, cell in r["curve"].items():
+        assert "beats_null" in cell and "null_gain_p97.5" in cell
+
+
 def test_estimate_is_spec_portable():
     # the estimator reads levels through the spec (not eightfold module constants) — Foundry can reuse it
     r = F.estimate_rows(F._planted_factor_table(2, n_per=20, seed=F.SEED), spec=C.EIGHTFOLD_SPEC,
