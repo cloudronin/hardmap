@@ -1,0 +1,52 @@
+{
+  "prereg_version": "v11",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "committed_before_analysis": true,
+  "committed_before_any_fit_touches_measured_data": true,
+  "role": "Sprint 4.6 — roster expansion (arity 4) + two sealed experiments: A (rigidity middle-rank retest), B (relation-level terrain prediction). Committed BEFORE any terrain of the expanded roster is measured or fit. (Referred to as 'prereg_v9' in the owner brief; this is the next version in sequence.)",
+  "supersedes": "extends v9 (connectivity) + v10 (rigidity). No oracle column touched.",
+
+  "roster_expansion": {
+    "construction": "arity-3 (full enumeration, 4-7 tuples) + arity-4 (bounded random sample, 5-13 tuples, seeded), grouped by IDENTICAL 6-flag polymorphism profile. Feasibility probe (algebra only, no terrain): 23 distinct profiles.",
+    "resolution_targets": {
+      "A_middle_ranks": ">= 5 genuine same-profile representatives in EACH of rank 2 (semilattice) and rank 3 (majority) — the ranks where the 3~2 tie sits. FEASIBLE per probe (ranks 2,3 have profiles with 5-215 reps).",
+      "rank_4_maltsev": "reported SEPARATELY. Affine relations are structurally RARE (probe: max 3 reps per affine profile) — a declared cap, NOT a resolution failure. Rank 4's envelope-pinning is already firm (Sprint 4.5: spread 0.039); it is re-reported at whatever reps exist, not required to reach 5.",
+      "rank_1_weak_NU_only": "EMPTY by Post's lattice — no Boolean idempotent clone is weak-NU-only without min/max/majority/minority. A declared mathematical absence, not a resolution failure.",
+      "B_held_out": ">= 6 co-clones with >= 5 representatives each, so a held-out-by-co-clone split is well-posed."
+    },
+    "resolution_floor": "if A cannot reach >=5 reps in BOTH rank 2 and rank 3, A returns INSUFFICIENT_RESOLUTION (roster size). If B cannot reach >=6 co-clones x >=5 reps, B returns INSUFFICIENT_RESOLUTION. Declared here, before results exist."
+  },
+
+  "experiment_A_rigidity_middle_rank_retest": {
+    "sealed_prediction": "the SAME as prereg_v10: within-co-clone ruggedness spread DECREASES MONOTONICALLY with rigidity rank. Scored on the fuller sample; rank 4's envelope-pinning reported separately (already firm).",
+    "the_3_2_tie": "Sprint 4.5's rank 3 (0.140) ~ rank 2 (0.138) is currently ambiguous between thin-strata noise and a real absence of ordering in the hierarchy's middle. The expanded roster (>=5 reps each) discriminates.",
+    "zero_one_valid_exclusion_PRE_REGISTERED": "0-valid and 1-valid are TRIVIAL-SATISFIABILITY properties (closure under a constant; all-0/all-1 always satisfies) — they RIDE the lattice, they are NOT idempotent Taylor conditions. Therefore the rank assignment ignores 0/1-validity (rank = strongest idempotent term: Maltsev/majority/semilattice), and co-clones distinguished ONLY by 0/1-validity (the pure {0v},{1v},{0v,1v} strata) are EXCLUDED from A. This principle is stated HERE, before the run; the exclusion is scored as pre-registered. (In prereg_v10 the -0.629 excl-edge was post-hoc and stands only as exploratory, reported beside the full-set number.)",
+    "verdict_vocab": {"CONFIRMED": "spread strictly decreasing rank 3 > rank 2 with the fuller sample (tie resolved in favor of ordering) + negative rank<->spread correlation",
+                       "TIE_REAL": "rank 3 ~ rank 2 persists with adequate resolution (>=5 reps each) -> the middle of the hierarchy genuinely does not order terrain",
+                       "PARTIAL": "ordering weak/mixed", "INSUFFICIENT_RESOLUTION": "floor not met"}
+  },
+
+  "experiment_B_relation_level_terrain_prediction": {
+    "question": "do features of the SPECIFIC relation (the information the clone discards) predict terrain where clone-level invariants provably cannot?",
+    "feature_set_is_CLOSED": "EXACTLY THREE features, mechanisms + signs written here before any fit. No fourth feature; if none of the three predicts, that IS the result.",
+    "features": {
+      "i_density": {"definition": "|R| / |D|^arity", "sign": "NEGATIVE", "mechanism": "sparse relations force tight variable coupling (few allowed tuples -> solutions pinned together far apart -> rugged); dense relations leave slack (smoother). Headline feature."},
+      "ii_arity": {"definition": "the relation's arity (2-4 across the expanded roster)", "sign": "TWO-SIDED (exploratory)", "mechanism": "unclear a priori: higher arity spreads each constraint over more variables (could dilute per-variable coupling -> smoother) OR couples more variables jointly (-> rugged). Tested for a monotone effect; no committed sign, so it does NOT satisfy the sign-match clause of the decision rule."},
+      "iii_tuple_dispersion": {"definition": "mean pairwise Hamming distance among R's tuples, normalized by arity", "sign": "POSITIVE", "mechanism": "a relation whose allowed tuples sit far apart in Hamming space propagates that spread to its instances' solution sets -> rugged. Relation-intrinsic geometry the clone discards."}
+    },
+    "evaluation_both_required": {
+      "permutation_null": "shuffle the feature->outcome pairing, refit, build the envelope; fixed harness with a hand-count selftest in CI. The fit must beat the null envelope.",
+      "held_out_split_by_coclone": "fit on a subset of co-clones, predict the ruggedness of representatives in UNSEEN co-clones; compare to the marginal (mean-ruggedness) baseline. HELD-OUT IS PRIMARY; in-sample is sensitivity only."
+    },
+    "sealed_decision_rule": {
+      "SUPPORTED": "a pre-registered SIGNED feature's sign matches (density NEGATIVE or tuple_dispersion POSITIVE) AND the fit beats the permutation envelope AND held-out beats the marginal baseline",
+      "NOT_SUPPORTED": "the fit does not beat the null, or held-out does not beat the baseline, or the signed features' signs do not match",
+      "INSUFFICIENT_RESOLUTION": "the B roster floor (>=6 co-clones x >=5 reps) is not met"
+    },
+    "framing_if_supported": "complexity is a CLONE-level property; terrain would be a RELATION-level one — two components of the hardness vector living at different resolutions of the same object. Sharper than the retired basis hypothesis. Novelty language ONLY after the bridge hunt."
+  },
+
+  "bridge_hunt_before_novelty": "timeboxed search of the adjacent vocabularies (random-CSP instance structure; constraint density and clustering/satisfiability thresholds; relation density and solution-space geometry). The statistical-physics literature on random-CSP ensembles is the likeliest neighbor and may already own the density mechanism. Any novelty claim in B's findings is gated on this hunt (R20).",
+
+  "standing_discipline": ["prereg before any fit touches measured data", "feature set CLOSED at three; no post-hoc fourth", "held-out primary, in-sample sensitivity only", "0/1-valid exclusion pre-registered as principle (non-Taylor)", "the permutation harness hand-count selftest stays in CI", "score at size; INSUFFICIENT_RESOLUTION and NOT_SUPPORTED are legal", "eightfold byte-identical; no oracle cell touched"]
+}
