@@ -214,3 +214,16 @@
   parameterized shuffle needs no rejection — no forbidding rule touches that charge — with the break condition
   recorded); `committed_before_analysis: true`. 57 tests (+10 crucible/derived), validate clean. **Next: V2
   (run S1–S3 on the real atlas).**
+- **V2 — S1–S3 run (`crucible_results.json`).** The **approx⟷parameterized gradient is the flagship and it
+  SURVIVES all three attacks:** **S1** null model (M=1000) — real V=0.73 sits far outside the type-respecting
+  null envelope (p97.5=0.38); **S2** dedup (114 classes) — V=0.73→0.68, permutation p=0.0003; **S3** — the
+  permutation **p=0.0001** (10k) the atlas never had. But S1 **RESIZES** two claims (banked honestly, not
+  argued back): **H1's dimension count is typing-driven** — the real dims sit INSIDE the null envelope, at the
+  *low* end (the atlas is more *correlated*, not more dimensional), quantifying A4 §5's unquantified "Some";
+  "not scalar" itself still holds (dims≥3 in 96% of bootstraps). And the **H2 witness amplifications do not
+  exceed typing** — permanent/determinant (0.29) is *below* the null mean (0.35), VC/clique inside the
+  envelope; the R11 amplification metric carries a positive bias the null exposes (the pairs still separate
+  replicably — 100% positive where present in bootstrap — but not beyond chance). Owner riders: **no metric
+  redesign mid-Crucible** (a null-calibrated amplification is a labelled post-V4 re-analysis under a new
+  prereg, never a quiet swap); **S2/S3 read gradient-first**. 59 tests. **Next: V3 (S4 derived backfill + S5
+  violator hunt).**

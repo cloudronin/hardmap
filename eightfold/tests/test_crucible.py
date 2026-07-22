@@ -15,7 +15,8 @@ from eightfold import charges as C  # noqa: E402
 from eightfold import structure as S  # noqa: E402
 from eightfold.atlas import DEFAULT_PATH, load_atlas  # noqa: E402
 from eightfold.crucible import (  # noqa: E402
-    _both_real_v, _null_chain, _row_valid, _planted_toy, _null_toy, s1_null_model, selftest,
+    _both_real_v, _null_chain, _row_valid, _planted_toy, _null_toy, s1_null_model, s2_dedup,
+    s3_significance, selftest,
 )
 
 
@@ -71,3 +72,20 @@ def test_both_real_v_matches_structure_convention():
     _, _, base = S._grid(load_atlas(DEFAULT_PATH))
     v = _both_real_v(base, "approximation", "parameterized")
     assert 0.0 <= v <= 1.0
+
+
+def test_s2_dedup_machinery():
+    # deduped roster is the 114-class one (4 non-representatives dropped); verdict + p well-formed
+    s2 = s2_dedup(load_atlas(DEFAULT_PATH), n_perm=200)
+    assert s2["n_classes"] == 114
+    assert s2["verdict"] in ("SURVIVES", "RESIZED")
+    assert 0.0 <= s2["gradient_dedup_p"] <= 1.0
+    # vertex-cover/clique is merged away by dedup — its amplification must be untestable (None), as prereg'd
+    assert s2["multiplet_amplifications_dedup_caveated"]["vertex-cover|clique"] is None
+
+
+def test_s3_significance_machinery():
+    s3 = s3_significance(load_atlas(DEFAULT_PATH), n_perm=200, n_boot=100)
+    assert s3["verdict"] in ("SURVIVES", "RESIZED")
+    assert 0.0 <= s3["gradient_perm_p"] <= 1.0
+    assert 0.0 <= s3["dims_bootstrap"]["cc_dims_ge3_frac"] <= 1.0

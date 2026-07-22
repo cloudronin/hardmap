@@ -1,0 +1,106 @@
+{
+  "crucible": true,
+  "prereg": "prereg_v6",
+  "S1": {
+    "attack": "S1_null_model",
+    "M": 1000,
+    "seed": 20260721,
+    "rule": "SURVIVES iff the real approx|param V exceeds the null 97.5th pct (one-sided) AND the real complete-case dims fall outside the null 95% envelope — structure beyond typing.",
+    "verdict": "RESIZED",
+    "gradient_excess_over_typing": true,
+    "dims_excess_over_typing": false,
+    "envelope": {
+      "mca_full_dims": {
+        "real": 16,
+        "null_mean": 16.533,
+        "null_p2.5": 15.0,
+        "null_p97.5": 18.0,
+        "real_above_p97_5": false,
+        "real_outside_95": false,
+        "one_sided_p_ge": 0.944
+      },
+      "mca_cc_dims": {
+        "real": 5,
+        "null_mean": 7.405,
+        "null_p2.5": 5.0,
+        "null_p97.5": 10.0,
+        "real_above_p97_5": false,
+        "real_outside_95": false,
+        "one_sided_p_ge": 0.994
+      },
+      "approx_param_v": {
+        "real": 0.7293188136240089,
+        "null_mean": 0.08291606844128464,
+        "null_p2.5": 0.0,
+        "null_p97.5": 0.38376902054087664,
+        "real_above_p97_5": true,
+        "real_outside_95": true,
+        "one_sided_p_ge": 0.0
+      },
+      "amp_permdet": {
+        "real": 0.29200000000000004,
+        "null_mean": 0.348265,
+        "null_p2.5": -0.125,
+        "null_p97.5": 0.625,
+        "real_above_p97_5": false,
+        "real_outside_95": false,
+        "one_sided_p_ge": 0.708
+      },
+      "amp_vcclique": {
+        "real": 0.41700000000000004,
+        "null_mean": 0.157896,
+        "null_p2.5": -0.25,
+        "null_p97.5": 0.5,
+        "real_above_p97_5": false,
+        "real_outside_95": false,
+        "one_sided_p_ge": 0.125
+      }
+    },
+    "real": {
+      "mca_full_dims": 16,
+      "mca_cc_dims": 5,
+      "cc_n": 19,
+      "approx_param_v": 0.7293188136240089,
+      "amp_permdet": 0.29200000000000004,
+      "amp_vcclique": 0.41700000000000004
+    }
+  },
+  "S2": {
+    "attack": "S2_dedup",
+    "n_classes": 114,
+    "dropped": [
+      "independent-set",
+      "planar-vertex-cover",
+      "set-cover",
+      "vertex-cover"
+    ],
+    "rule": "Read gradient-first (Rider 2). SURVIVES iff the deduped gradient stays present (V >= 0.5) AND significant (permutation p < 0.05). vertex-cover/clique is merged away, so its amplification cannot be tested here; permanent/determinant is reported but inherits the S1 bias caveat (not gated).",
+    "verdict": "SURVIVES",
+    "gradient_full_v": 0.7293188136240089,
+    "gradient_dedup_v": 0.6807415742475927,
+    "gradient_dedup_p": 0.00029997000299970003,
+    "multiplet_amplifications_dedup_caveated": {
+      "permanent|determinant": 0.29200000000000004,
+      "vertex-cover|clique": null
+    }
+  },
+  "S3": {
+    "attack": "S3_significance",
+    "rule": "Read gradient-first (Rider 2). GRADIENT SURVIVES iff permutation p < 0.05. Complete-case dims >=3 bootstrap fraction documents the 'not scalar' claim. Amplification bootstrap is reported with the S1 bias caveat (not gated).",
+    "verdict": "SURVIVES",
+    "gradient_perm_p": 9.999000099990002e-05,
+    "gradient_real_v": 0.7293188136240089,
+    "n_perm": 10000,
+    "dims_bootstrap": {
+      "cc_dims_ge3_frac": 0.959,
+      "cc_dims_median": 4.0,
+      "stable_ge_95pct": true
+    },
+    "amplification_bootstrap_caveated": {
+      "permdet_amp_pos_frac_where_present": 1.0,
+      "permdet_present_frac": 0.416,
+      "vcclique_amp_pos_frac_where_present": 1.0,
+      "vcclique_present_frac": 0.369
+    }
+  }
+}
