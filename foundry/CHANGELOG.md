@@ -143,3 +143,25 @@
   **closed permanently**; all remaining census science runs through the measured instrument columns. 37 foundry
   + 72 eightfold tests green; no oracle cell touched; eightfold byte-identical. **Next: prereg_v4 (I6 lock) +
   the I5 per-family ensemble memo (owner-review checkpoint, before any generation).**
+
+## 0.1.5 (unreleased) — Sprint 4.1 (solution-side landscape instrument + calibration gate)
+
+- **prereg_v4 (I6 lock) + I5 ensemble memo + prereg_v5 (owner riders R-a..R-e).** prereg_v4 locked the I6
+  hypothesis + measured-column protocol before any measured cell. The I5 memo (owner-review) surfaced the
+  load-bearing finding that the Proof-Census `sampler_s1/s2` are PROOF-space samplers, not solution-space — so
+  the `landscape` charge needs a net-new solution-side instrument, applied (per the hybrid split) to the
+  decision-P rows, which DECONFOUNDS I6 (9 bounded-P vs 5 affine-P). Owner approved Option C; prereg_v5 amended
+  I6: affine is the unbounded-width ARM (not a side-control), two-pole Vega calibration (R-b), two-sampler
+  concordance + affine-exact ground truth (R-c), sampled-population provenance (R-d), INSTRUMENT_NOT_QUALIFIED as
+  a legal outcome + build kill-box (R-e).
+- **Solution-side instrument BUILT + calibrated (`ensemble.py`, `solscape.py`; net-new, pure-Python).** Native
+  domain-general random-CSP generator; two structurally-different samplers (`sample_dpll` systematic +
+  `sample_walksat` local search) + `sample_affine_exact` (uniform over the GF(p) solution coset — unbiased ground
+  truth). Ruggedness = excess mean overlap above the random-agreement baseline (the density sweep showed
+  solution-graph fragmentation is a solution-COUNT artifact, discarded). **Two-pole Vega PASSES** (XOR rugged
+  0.998 vs Horn smooth 0.829, sep 0.169); samplers concord (max gap 0.037); affine-exact confirms sampler bias
+  0.005 (near-zero). **Calibration finding:** bounded-width is NOT a uniform smooth class — ruggedness tracks the
+  specific polymorphism (Horn/semilattice smooth 0.83; 2-SAT/majority mid 0.89; order/median 0.93 ≈ affine), so
+  I6's binary width predictor is weak (+0.11 direction) while the polymorphism GRADIENT is the genuine measured
+  cross-structure. 44 foundry + 72 eightfold tests green; eightfold byte-identical. **Owner-review checkpoint
+  (calibration gate, `docs/findings/Sprint4-calibration-gate.md`): 4 decisions before the measurement runs.**
