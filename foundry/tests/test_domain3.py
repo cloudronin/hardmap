@@ -27,15 +27,29 @@ def test_bulatov_zhuk_decision_and_barto_kozik_width():
     assert C["order-3"]["localization"] == "bounded-width"
 
 
-def test_d3_census_rows_validate_and_honest_scope():
+def test_d3_census_rows_validate_and_scope():
     for r in D.build_d3_census():
         assert atlas.validate(r, FOUNDRY_SPEC) == [], (r.problem_id, atlas.validate(r, FOUNDRY_SPEC))
         vals = {c.charge: c.value for c in r.charges}
         assert vals["decision"] in ("P", "NPC")
         assert vals["localization"] in ("bounded-width", "unbounded-width")
-        # the Boolean-specific-dichotomy charges are honestly `open` for domain-3 (theorems don't transfer)
-        for ch in ("counting", "approximation", "parameterized"):
-            assert vals[ch] == "open", (r.problem_id, ch, vals[ch])
+        # parameterized stays open (Bulatov-Marx Thm 4.1 IMPLEMENTABLE-heavy, not yet built)
+        assert vals["parameterized"] == "open"
+        # counting: #P-complete iff NP-hard decision (counting >= decision); open for tractable-decision
+        assert vals["counting"] == ("#P-complete" if vals["decision"] == "NPC" else "open")
+        # approximation: PO where const-valid/semilattice (Thapper-Zivny verified sufficient); else open (UGC-conditional)
+        assert vals["approximation"] in ("PO", "open")
+
+
+def test_domain3_approximation_counting_oracles():
+    cl = {l.id: D.classify(l) for l in D.CURATED_D3}
+    for l in D.CURATED_D3:
+        ap = D.approximation_d3(l.relations)
+        cn = D.counting_d3(l.relations, cl[l.id]["decision"])
+        if l.id in ("lin-eq-z3", "order-3", "median-3", "lin-eq-z3-b"):
+            assert ap == "PO", (l.id, ap)                 # const-valid / semilattice → PO (Thapper-Zivny)
+        if l.id in ("3-coloring", "nae-3dom"):
+            assert cn == "#P-complete" and ap is None      # NP-hard → #P-complete counting; Max not-PO → open
 
 
 def test_full_census_p1_calibration_holds():

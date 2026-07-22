@@ -105,5 +105,12 @@
   tracks 0/1-validity) — and it is entirely **R25 theorem-forced**. Honest caveats: p is marginal (0.049) and
   composition-sensitive; the Boolean lattice caps distinct pairs at 4. The canon's empirical positive gradient
   does **not** reproduce as a monotone gradient in the theorem-world; same message as P3 (still k\*=3 DIVERGENT
-  at n=21). 29 foundry tests. **Next: implement the verified domain-3 approximation (Thapper–Živný) + counting
-  (Mal'tsev) oracles; R25-net the census.**
+  at n=21). 29 foundry tests.
+- **Domain-3 oracles implemented (the memo's "implement everything implementable").** Verbatim-source pin
+  (`domain3.py`): **approximation** — Thapper–Živný (PO iff constant-valid or 2-semilattice → BLP; *majority is
+  not sufficient*, the Max-Cut trap) → lin-eq-Z₃/order/median/lin-eq-Z₃-b = PO, 3-coloring/NAE = open
+  (UGC-conditional); **counting** — NP-complete decision ⟹ #P-complete → 3-coloring/NAE = #P-complete,
+  tractable = open (strong balance not built); **parameterized** — Bulatov–Marx Thm 4.1 IMPLEMENTABLE-heavy,
+  left `open` rather than risk a rushed wrong build (R20). Census re-validates (21 rows, P1 holds); does not
+  change H_P2_scaled (domain-3 still lacks parameterized → not both-real). 30 foundry tests. **Next: R25-net the
+  census (P2/P3 residuals); the Thm-4.1 parameterized oracle as a dedicated build; Sprint 4 (N4 instruments).**

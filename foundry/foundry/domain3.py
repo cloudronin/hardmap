@@ -99,19 +99,61 @@ CURATED_D3 = [
 ]
 
 
+# ── verified domain-3 approximation + counting oracles (Sprint 3.5, agent-pinned) ──────────────────────────
+def _const_valid(rels):
+    """Is Γ c-valid for some constant c∈{0,1,2}? Then all-c satisfies every constraint → Max-CSP trivially PO."""
+    return any(all(tuple(c for _ in next(iter(r))) in r for r in rels) for c in D3)
+
+
+def _semilattice_closed(rels):
+    """Closed under a semilattice (min or max)? A 2-semilattice ⟹ a binary symmetric fractional polymorphism
+    ⟹ the Basic LP solves Max-CSP(Γ) ⟹ PO (Thapper–Živný / Kolmogorov–Thapper–Živný). NB majority alone is
+    NOT sufficient (Max-Cut has a majority polymorphism yet is NP-hard) — this checks a genuine semilattice."""
+    return all(_closed_under(r, _MIN, 2) for r in rels) or all(_closed_under(r, _MAX, 2) for r in rels)
+
+
+def approximation_d3(rels):
+    """Max-CSP(Γ) exact-solvability, the PO boundary (Thapper–Živný, verified sufficient conditions). Returns
+    'PO' where certain, else None (`open`) — the not-PO discrete class (APX-complete vs inapprox) is
+    UGC-conditional at general domains (Raghavendra), so it stays honestly open."""
+    if _const_valid(rels) or _semilattice_closed(rels):
+        return "PO"
+    return None
+
+
+def counting_d3(rels, decision):
+    """#CSP(Γ) (Bulatov / Dyer–Richerby). NP-complete decision ⟹ #P-complete counting (counting is at least as
+    hard as decision). For tractable-decision languages the FP-vs-#P-complete line is strong balance /
+    congruence singularity (Mal'tsev is necessary-not-sufficient) — not implemented here, so `open` (honest)."""
+    return "#P-complete" if decision == "NPC" else None
+
+
 def d3_row(lang):
     """A census ProblemEntry for a domain-3 language: decision + localization filled (verified general-domain
     dichotomies); every Boolean-specific-dichotomy charge left `open` (honest — those theorems don't transfer)."""
     from foundry.census import derived, language, na, op
     c = classify(lang)
     npc = c["decision"] == "NPC"
+    approx = approximation_d3(lang.relations)
+    cnt = counting_d3(lang.relations, c["decision"])
+    counting_cell = (derived("counting", cnt, "#CSP(Γ): count satisfying assignments over |D|=3",
+                             theorem="Bulatov 2013 / Dyer-Richerby 2013",
+                             condition="NP-complete decision → #P-hard counting",
+                             cite="Bulatov, JACM 60(5) (2013); Dyer & Richerby, SICOMP 42(3) (2013)") if cnt
+                     else op("counting", "domain-3 #CSP: tractable-decision language — FP-vs-#P-complete needs the strong-balance/congruence-singularity test (Mal'tsev necessary-not-sufficient); open"))
+    approx_cell = (derived("approximation", approx, "Max-CSP(Γ): maximise satisfied constraints over |D|=3",
+                          theorem="Thapper-Živný 2016 (finite-valued dichotomy)",
+                          condition=("constant-valid → all-c maximises Max → PO" if _const_valid(lang.relations)
+                                     else "semilattice (2-semilattice) polymorphism → BLP solves Max-CSP → PO"),
+                          cite="Thapper & Živný, JACM 63(4) (2016); Kolmogorov-Thapper-Živný, SICOMP 44 (2015)") if approx
+                   else op("approximation", "domain-3 Max-CSP: not PO by the verified sufficient conditions; the not-PO discrete class is UGC-conditional (Raghavendra) → open"))
     cells = [
         derived("decision", c["decision"], "CSP(Γ) satisfiability over the 3-element domain",
                 theorem="Bulatov 2017 / Zhuk 2020 (CSP dichotomy)", condition=c["decision_cond"],
                 cite="Bulatov, FOCS 2017; Zhuk, JACM 67(5) (2020) — CSP(Γ) ∈ P iff Γ has a WNU polymorphism, else NPC"),
-        op("counting", "domain-3 #CSP (Bulatov 2008) — Boolean Creignou-Hermann does not transfer; not operationalized here"),
-        op("approximation", "domain-3 Max-CSP — Boolean KSTW does not transfer"),
-        op("parameterized", "domain-3 Exact-Ones — general-domain weak separability not verified (Boolean Marx does not transfer)"),
+        counting_cell,
+        approx_cell,
+        op("parameterized", "domain-3 Exact-Ones — Bulatov-Marx Thm 4.1 (IMPLEMENTABLE but heavy: cc0-closure + MVM value-typing + contractions); not yet built → open"),
         (na("parallelization", "decision is NPC — parallelization is a within-P classification (E2)") if npc
          else op("parallelization", "within-P NC/P-complete — the Boolean ABISV refinement does not transfer to |D|=3")),
         op("proof_size", "instrument column (N4)"),

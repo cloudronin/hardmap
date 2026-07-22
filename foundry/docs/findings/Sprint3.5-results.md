@@ -56,6 +56,26 @@ The both-real contingency (the table H_P2_scaled runs on):
 3. **The association is theorem-forced (R25).** Both charges are polymorphism functions, so STRATIFIED is the
    algebra showing through — not an emergent, empirical gradient like the canon's. The R25-netted residual is ~0.
 
+## Domain-3 oracles implemented (the memo's "implement everything implementable")
+
+A verbatim-source pin (`domain3.py`) turned two of the three DEFER'd domain-3 charges into verified fills:
+
+- **approximation — Thapper–Živný (IMPLEMENTED, partial).** Max-CSP(Γ) ∈ PO where Γ is constant-valid (all-c
+  maximises Max) or semilattice-closed (a 2-semilattice ⟹ a binary symmetric fractional polymorphism ⟹ BLP
+  solves it). **Critical trap avoided:** a *majority* polymorphism does **not** imply PO (Max-Cut has majority
+  yet is NP-hard). Result: lin-eq-Z₃ / order / median / lin-eq-Z₃-b → **PO**; 3-coloring / NAE-3 → `open` (not-PO,
+  but the discrete class is UGC-conditional — Raghavendra — so honestly open).
+- **counting — Bulatov / Dyer–Richerby (IMPLEMENTED, partial).** NP-complete decision ⟹ #P-complete counting
+  → 3-coloring / NAE-3 = **#P-complete**. Tractable-decision languages stay `open` (the FP line is strong
+  balance / congruence singularity; Mal'tsev is necessary-not-sufficient — not built).
+- **parameterized — Bulatov–Marx Thm 4.1 (IMPLEMENTABLE, heavy; NOT built).** The FPT criterion is a nested
+  (D₁,D₂) search with cc0-closure + multivalued-morphism value-typing + contractions — verified checkable at
+  |D|=3 but a dedicated multi-part build. Left `open` rather than risk a rushed wrong implementation (R20).
+
+Census re-validates (21 rows, P1 holds); the domain-3 rows are now more accurately charged. This does **not**
+change H_P2_scaled (domain-3 rows still lack `parameterized`, so they are not both-real) — but it removes three
+honest-but-empty `open` cells in favour of verified verdicts.
+
 ## What this says about the canon-vs-computation question
 
 The canon's approx|parameterized **positive** gradient (empirical, S1/S2/S3/S5-survived at p=0.0001) does **not**

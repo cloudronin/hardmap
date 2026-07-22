@@ -45,7 +45,7 @@
   },
   "P2_v1": {
     "attack": "P2_gradient_census",
-    "disposition": "INSUFFICIENT_RESOLUTION",
+    "disposition": "FLOOR_MET — superseded by H_P2_scaled",
     "n_both_real": 15,
     "n_distinct_both_real_rows": 4,
     "both_real_pairs": [
@@ -112,29 +112,29 @@
     ],
     "census_curve": {
       "1": {
-        "acc_mean": 0.5222,
-        "acc_se": 0.028,
-        "ll_mean": -0.7695
+        "acc_mean": 0.635,
+        "acc_se": 0.0264,
+        "ll_mean": -0.7232
       },
       "2": {
-        "acc_mean": 0.6722,
-        "acc_se": 0.0374,
-        "ll_mean": -0.5856
+        "acc_mean": 0.72,
+        "acc_se": 0.0236,
+        "ll_mean": -0.5088
       },
       "3": {
-        "acc_mean": 0.7944,
-        "acc_se": 0.0271,
-        "ll_mean": -0.4312
+        "acc_mean": 0.87,
+        "acc_se": 0.0231,
+        "ll_mean": -0.3785
       },
       "4": {
-        "acc_mean": 0.8,
-        "acc_se": 0.0286,
-        "ll_mean": -0.4371
+        "acc_mean": 0.87,
+        "acc_se": 0.0231,
+        "ll_mean": -0.3899
       },
       "5": {
-        "acc_mean": 0.8,
-        "acc_se": 0.0286,
-        "ll_mean": -0.4431
+        "acc_mean": 0.875,
+        "acc_se": 0.0216,
+        "ll_mean": -0.3974
       }
     },
     "reference_canon": {
