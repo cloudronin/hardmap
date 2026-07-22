@@ -275,7 +275,15 @@ def _s5_violators():
             rc("approximation", "APX-complete", "min sum of squared distances; poly-time constant-factor approximable AND APX-hard",
                {"citation": "Kanungo-Mount-Netanyahu-Piatko-Silverman-Wu 2004 (9+eps local search); Awasthi-Charikar-Krishnaswamy-Sinop 2015 (APX-hardness, arXiv:1502.03316)"}),
             rc("parameterized", "W[2]+", "parameterized by the number of clusters k",
-               {"citation": "Guha-Khuller reduction implies W[2]-hardness by k; parameterized-clustering literature (Fomin-Golovach-Simonov, Parameterized k-Clustering, 2019)"},
+               {"citation": "Downey-Fellows 1999 (DOMINATING SET is W[2]-complete for the solution-size parameter); Hsu-Nemhauser 1979 (the unit-length k-center reduction)",
+                "note": ("W[2]-hardness of k-means by k is LOGGED here (R20 — the S5 specimen's load-bearing "
+                         "property made explicit, not left implicit-via-Guha-Khuller): DOMINATING SET "
+                         "(W[2]-complete) reduces to k-center/k-median/k-means by giving each graph edge unit "
+                         "length, so a size-k dominating set exists IFF k centers achieve cost 0 (every point "
+                         "coincides with a chosen center iff it is dominated); a no-instance forces cost >= 1, "
+                         "a gap the sum-of-squared-distances objective preserves. The reduction is "
+                         "parameter-preserving in k, so k-means inherits W[2]-hardness. Poly-time "
+                         "constant-factor approximation coexists (see the approximation cell) — the violation.")},
                "number of clusters k"),
             na("parallelization", "decision is NPC — parallelization (NC/P-complete) is defined only within P (E2)"),
             na("proof_size", "no natural family of unsatisfiable instances"),
@@ -311,8 +319,8 @@ def s5_adversarial_roster(entries, n_perm=10000, seed=SEED):
         "existing_violators_audited_in_frozen": ["knapsack", "subset-sum", "partial-vertex-cover",
                                                  "graph-3-coloring", "tsp", "longest-path", "group-steiner-tree"],
         "latent_violators_underspecified_in_frozen": {
-            "k-center": "param=open; W[1]-hard by k (Feldmann-Marx 2018) + 2-approx (Gonzalez 1985)",
-            "k-median": "param=n.a.; W[2]-hard by k (Guha-Khuller) + constant-approx",
+            "k-center": "param=open; W[2]-hard by k via DOMINATING SET (Downey-Fellows; Hsu-Nemhauser unit-length reduction) + 2-approx (Gonzalez 1985)",
+            "k-median": "param=n.a.; W[2]-hard by k via the same DOMINATING SET reduction + constant-approx",
         },
         "note": ("Uncapped hunt, honestly bounded: the field's easy-approx x hard-param violators are "
                  "dominated by clustering (k-center/median already present but param-underspecified; k-means "
