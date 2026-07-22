@@ -1,0 +1,54 @@
+{
+  "prereg_version": "v8",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "committed_before_analysis": true,
+  "role": "CLOSURE addendum: records the Sprint-4 sealed-hypothesis verdicts after the domain-confound check, and defines the Sprint 4.5 gate. Verdicts scored, no rescue; downgrading on new evidence is legal, upgrading forbidden.",
+  "supersedes": "extends v4-v7 (closes their sealed hypotheses). No oracle column touched.",
+
+  "sealed_verdicts": {
+    "H_I6a_binary_width": {
+      "verdict": "SUPPORTED (internally valid) — external validity BROKEN.",
+      "internal": "the sealed contrast passed the rank test (Mann-Whitney affine>bounded, U=45/45 p=0.0005 @0.7*alpha_struct; U=43/45 p=0.002 @0.9). The median-cut Cramer's V (V=0.72, p=0.020) is demoted to sensitivity — the cut was not pre-sealed.",
+      "external": "BROKEN. The confound check showed a bounded-width relation (implication x->y) reads as rugged (0.79) as affine, so ARM COMPOSITION, not the width bit, drives the separation. The census bounded reps happened to be mostly the smooth kind.",
+      "licensed_claim": "'affine representatives are uniformly rugged and these particular bounded representatives mostly are not' — NEVER 'width predicts terrain'.",
+      "ledger": "F1 ledger records BOTH halves: internally-valid test, does not generalize."
+    },
+    "H_I6b_polymorphism_ordering": {
+      "verdict": "REFUTED as a law.",
+      "counterexample": "implication vs NAND-Horn (both Boolean bounded-width) read 0.79 vs 0.48 — same loose class, opposite terrain. The census ordering (semilattice<majority<order/median<=affine) was representative selection, not a polymorphism law."
+    },
+    "anomaly_domain3": {
+      "verdict": "WITHDRAWN.",
+      "reason": "order-3's ruggedness is the <= relation's, which is Boolean-visible (implication reads 0.79) and thus INSIDE GKMP's jurisdiction — no theory-silent novelty. The tier system worked: the novel (theory-silent) tier emptied itself under scrutiny."
+    },
+    "theory_forced_tier": {
+      "verdict": "CONFIRMED (reported as confirmation of known structure, NO novelty language).",
+      "content": "affine coset dispersion (linear-algebra forced) and semilattice/absorbing consensus (order-theory) read as the classification predicts."
+    },
+    "instrument": {
+      "verdict": "QUALIFIED (explicitly).",
+      "basis": "passed both Vega poles in BOTH domains; normalization (q_random baseline correction) validated against a known-smooth |D|=3 family (0-attractor reads 0.55, and the same-relation cross-domain gap collapses 0.40 raw -> 0.05 normalized); and it produced the discriminating evidence that dissolved the anomaly. 'No oracle x measured cross-structure found' is a MEASUREMENT, not a disqualification."
+    }
+  },
+
+  "lead_finding": "COMPLEXITY FACTORS THROUGH THE ALGEBRAIC CLASSIFICATION; SOLUTION GEOMETRY DOES NOT. Measured solution-space ruggedness varies at the RELATION level — across families sharing width, sharing polymorphism class, and across domains. Two structures the field treats as coupled (algebraic tractability and solution-space geometry) come apart under measurement. Negative in the useful sense; the honest headline of Sprint 4.",
+
+  "structural_consequence": "The census's one-representative-per-co-clone roster is VALID for the ORACLE columns (charges are constant within a co-clone by theorem — confirmed at Task 0, residual = 0) and INVALID for the MEASURED columns (ruggedness is demonstrably NOT constant within a loose class). Every measured-column result inherits its representative choice. This must be stated plainly in the findings.",
+
+  "sprint_4_5_gate": {
+    "name": "within-co-clone replication — the cheap test that decides the measured-column program.",
+    "committed_before_run": true,
+    "design": "pick 3-4 co-clones; generate 2-3 DISTINCT representative bases per co-clone with the IDENTICAL polymorphism profile (verified by the polymorphism test); measure all under the SAME instrument + normalization, at each family's alpha_struct regime (0.7 and 0.9).",
+    "decision_rule": {
+      "CLUSTER": "tight within-co-clone ruggedness (small spread) => geometry factors through the classification at fine grain; the census design SURVIVES with a coarse-class caveat.",
+      "SCATTER": "wide within-co-clone ruggedness => geometry does NOT factor through the algebra at all; the measured-column program needs RELATION-LEVEL sampling, and a relation-level study becomes the correct and much stronger next move."
+    },
+    "gates": "the measured-column program is gated on this result. The Sprint 4 findings doc is written AFTER 4.5 reports, so it states the sampling verdict rather than infers it. Do this BEFORE any relation-level study."
+  },
+
+  "standing_discipline": [
+    "verdicts scored at face value; no rescue; downgrade-legal / upgrade-forbidden",
+    "the confound check's discriminating evidence is the record; the anomaly is withdrawn, not softened",
+    "eightfold byte-identical; no oracle cell touched; measured never silently upgraded; RESIZED never argued back"
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "poles_and_contrasts": {
+    "implication_leq_D2": {
+      "alpha_struct": 2.1,
+      "domain_size": 2,
+      "0.7": {
+        "alpha": 1.47,
+        "normalized": 0.719,
+        "raw": 0.418
+      },
+      "0.9": {
+        "alpha": 1.89,
+        "normalized": 0.792,
+        "raw": 0.403
+      }
+    },
+    "NAND_horn_D2": {
+      "alpha_struct": 1.2,
+      "domain_size": 2,
+      "0.7": {
+        "alpha": 0.84,
+        "normalized": 0.518,
+        "raw": 0.244
+      },
+      "0.9": {
+        "alpha": 1.08,
+        "normalized": 0.478,
+        "raw": 0.184
+      }
+    },
+    "order3_leq_D3": {
+      "alpha_struct": 2.1,
+      "domain_size": 3,
+      "0.7": {
+        "alpha": 1.47,
+        "normalized": 0.803,
+        "raw": 0.599
+      },
+      "0.9": {
+        "alpha": 1.89,
+        "normalized": 0.835,
+        "raw": 0.599
+      }
+    },
+    "zero_attractor_D3_SMOOTH_POLE": {
+      "alpha_struct": 4.1,
+      "domain_size": 3,
+      "0.7": {
+        "alpha": 2.87,
+        "normalized": 0.602,
+        "raw": 0.429
+      },
+      "0.9": {
+        "alpha": 3.69,
+        "normalized": 0.529,
+        "raw": 0.39
+      }
+    },
+    "equality_D3_bad_pole": {
+      "alpha_struct": 1.0,
+      "domain_size": 3,
+      "0.7": {
+        "alpha": 0.7,
+        "normalized": 0.998,
+        "raw": 0.665
+      },
+      "0.9": {
+        "alpha": 0.9,
+        "normalized": 0.998,
+        "raw": 0.704
+      }
+    },
+    "lineq_z3_D3_RUGGED_POLE": {
+      "alpha_struct": 0.8,
+      "domain_size": 3,
+      "0.7": {
+        "alpha": 0.56,
+        "normalized": 0.998,
+        "raw": 0.664
+      },
+      "0.9": {
+        "alpha": 0.72,
+        "normalized": 1.0,
+        "raw": 0.672
+      }
+    },
+    "2sat_D2": {
+      "alpha_struct": 1.8,
+      "domain_size": 2,
+      "0.7": {
+        "alpha": 1.26,
+        "normalized": 0.585,
+        "raw": 0.331
+      },
+      "0.9": {
+        "alpha": 1.62,
+        "normalized": 0.413,
+        "raw": 0.256
+      }
+    }
+  },
+  "H_I6a_mann_whitney": {
+    "0.7": {
+      "U": 45.0,
+      "max": 45,
+      "rank_biserial": 1.0,
+      "perm_p": 0.0005,
+      "n_affine": 5,
+      "n_bounded": 9
+    },
+    "0.9": {
+      "U": 43.0,
+      "max": 45,
+      "rank_biserial": 0.911,
+      "perm_p": 0.002,
+      "n_affine": 5,
+      "n_bounded": 9
+    }
+  },
+  "_manifest": {
+    "prereg": "v8",
+    "provenance": "sampled-population",
+    "instrument": "foundry.solscape",
+    "conclusion": "metric NOT domain-biased; ruggedness is relation-specific; anomaly WITHDRAWN"
+  }
+}
