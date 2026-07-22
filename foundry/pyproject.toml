@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "foundry"
+version = "0.1.0"
+description = "Synthetic Census (codename Foundry): a multi-charge atlas over generated constraint languages — a roster no human chose — testing whether the Eightfold canon's structure reproduces free of selection bias. Proof-space line, project 5."
+requires-python = ">=3.10"
+authors = [{ name = "Vishnu Vettrivel" }]
+license = { text = "UNLICENSED — private" }
+
+# One-way dependency on the sibling `eightfold` product (the atlas KERNEL: the ChargeSpec-parametrized
+# validator + Crucible-hardened harness) and later `proof-census` (the measurement apparatus, N4). Neither is
+# on PyPI; install both editable in one venv, as proof-census does with desert-map:
+#     pip install -e ./eightfold -e ./proof-census -e ./foundry[analysis,dev]
+# foundry IMPORTS them and never modifies them. (Eightfold was refactored to the kernel in Phase K, which
+# PRE-DATES this invariant — see AGENTS.md.) Core (foundry/charges.py) is stdlib-only via eightfold's core;
+# the shared harness sits behind [analysis].
+dependencies = []
+
+[project.scripts]
+foundry = "foundry.cli:main"
+
+[project.optional-dependencies]
+analysis = ["numpy>=1.24", "scipy>=1.10"]   # the reused eightfold harness (structure/crucible) needs these
+viz = ["matplotlib>=3.8"]
+dev = ["pytest>=7.4"]
+
+[tool.setuptools.packages.find]
+include = ["foundry*"]
+
+[tool.setuptools.package-data]
+foundry = ["results/prereg/*.json", "results/census/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

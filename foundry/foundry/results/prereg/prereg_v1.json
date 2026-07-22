@@ -1,0 +1,64 @@
+{
+  "prereg_version": "v1",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "committed_before_analysis": true,
+  "note": "Operationalizes the F1 predictions (docs/findings/F1-canon-or-computation-note.md). Locking rule (inherited from the line): a changed prediction is a NEW version, never an edit. At v1 commit: the atlas kernel (Eightfold Phase K) + FOUNDRY_SPEC + a hand-checked toy stratum exist; NO generated census, NO oracle run, NO measured cell. The I-phase (I1-I6) and the Boolean census (N1) are not yet built.",
+
+  "predictions": {
+    "P1_NPI_calibration": {
+      "prediction": "The census's decision=NPI-candidate row is EMPTY, by the Schaefer / Bulatov-Zhuk dichotomy (CSP(Gamma) is P or NP-complete, never NP-intermediate).",
+      "decision_rule": "FIRST analysis run = pipeline validation. If any census row carries decision=NPI-candidate, HALT: it is a pipeline bug (bad oracle / bad enumeration), not a discovery. Pass = zero NPI rows.",
+      "status": "known-answer calibration"
+    },
+    "P2_gradient_persistence": {
+      "prediction": "The approximation<->parameterized gradient appears in tier-1 CSP-land with DIRECTION intact (harder-to-approximate co-occurs with harder-to-parameterize).",
+      "decision_rule": "Compute the both-real approx|parameterized Cramer's V on the census; SURVIVES iff it (a) beats the S1 null envelope (structure beyond typing) AND (b) is significant by permutation (p<0.05). RESIZE = the gradient does NOT persist -> the canon's-world finding (the gradient was roster sociology), acceptable and stated in advance.",
+      "status": "primary substantive prediction"
+    },
+    "P3_factor_reproduction": {
+      "prediction": "Canon-fitted latent-factor loadings (k=3-4 on file) reproduce on the census within a pre-stated tolerance.",
+      "decision_rule": "GATED ON FACTORS v1 EXISTING. Estimator: held-out-prediction (S1-disqualified MCA-style dimension counts). Registration via the canon-cap-census overlap anchors (3-SAT, 2-SAT, XOR-SAT, Horn-SAT, NAE-SAT, 1-in-3-SAT) BEFORE the loading comparison is read; controls validated by PROJECTION, never inclusion. If Factors v1 does not exist when Foundry runs, P3 is REPORTED UNTESTED, never approximated.",
+      "status": "UNTESTED at v1 (Factors v1 does not exist in the repo)"
+    },
+    "P4_tier2_inhabitation": {
+      "prediction": "At least one Eightfold A3 gap-list cell (post-Crucible resize) is inhabited by construction within the box.",
+      "decision_rule": "A construction attempt (padding / Ladner diagonalization / ensemble design) on the priority cell (average-case x landscape) either inhabits it (a `constructed` specimen, flagged, excluded from natural-population analyses) or produces a documented failed-attempt log. Pass = >=1 inhabited-or-logged.",
+      "status": "construction target"
+    }
+  },
+
+  "roster_policy": {
+    "boolean_tier": "One Creignou-Kolaitis-Zanuttini plain-basis representative per Boolean co-clone off the known co-clone lattice (Rider B: generate at the co-clone level; enumeration of relation-sets is impossible at 2^256). Arity bound governs reachable co-clones; class sizes recorded. Hand-rolled enumeration is a small-arity cross-check only.",
+    "general_domain_tier": "Domains 3-4, languages sampled uniform-random, deduped to polymorphism-equivalence where the oracle makes it checkable; one representative per realized class; class sizes recorded.",
+    "effective_n": "Every analysis reports the distinct-charge-profile count alongside the row count; factor-power claims cite the former."
+  },
+  "generations_policy": {
+    "G": 3,
+    "rule": "Three independent generations of the sampled tier and of every measured ensemble. Between-generation variance is computed FIRST and is the noise floor all findings must exceed (glitch-check discipline). Self-averaging report: which statistics concentrate across generations, which don't (the latter is itself a finding).",
+    "note": "The Boolean co-clone tier is DETERMINISTIC (canonical CKZ representatives) -> generations-exempt (a calibration property)."
+  },
+  "analysis_battery": {
+    "engine": "the Crucible-hardened battery, reused from eightfold via the Phase-K kernel with FOUNDRY_SPEC",
+    "null_model": "S1 (typing + per-charge marginals + entailment preserved; values shuffled by the swap-chain) run BEFORE any structure claim; the census must beat its own nulls.",
+    "entailment_netting": "R25 matrix-wide as STANDARD, not exception (net the theorem-forced component out of every association before calling it surprising).",
+    "registration_anchors": ["3-sat", "2-sat", "xor-sat", "horn-sat", "nae-sat", "one-in-three-sat"],
+    "controls": "the tractable co-clones = easy stratum; the affine (XOR) class = deceptive-terrain control (easy decision, hard measured landscape) — the model must place it distinctively (a pre-registered negative if it fails). Fit validated by PROJECTION, never inclusion.",
+    "weightings": "both reported — per-class (problem-space structure) and class-size-weighted (typical-random-problem structure)."
+  },
+
+  "kill_thresholds": {
+    "K1_oracle_timebox": "If the general-domain dichotomy oracle exceeds its I-phase-set timebox, scope collapses to the Boolean census; P1-P2 proceed; P3 reported untested.",
+    "K2_profile_poverty": "If the Boolean tier realizes fewer distinct charge profiles than the I2-set floor, factor-question claims leave scope for this version; bias-verdict work continues.",
+    "K3_instrument_wallclock": "Per-ensemble measurement exceeding 2x its estimate before first checkpoint is cut per the Proof-Census C3 precedent; coverage asymmetries documented, never silently dropped.",
+    "K4_timebox": "40 h paired across N0-N5; $50 CPU-only. N3-N5 individually deferrable without killing N1-N2's standalone value."
+  },
+
+  "iphase_status_at_v1": {
+    "I1_marx_abisv_oracles": "PENDING — parameterized (Marx weighted-CSP FPT/W[1]) and parallelization (ABISV within-P) dichotomy oracles unverified; those columns are `open` until verified.",
+    "I2_ckz_coclone_roster": "PENDING — confirm one CKZ plain-basis representative per Boolean co-clone as the generator + expected distinct-profile count (K2 floor).",
+    "I3_general_domain_oracle": "PENDING — polymorphism condition-check cost at domain 3-4 (K1 timebox).",
+    "I4_prior_art_recheck": "PENDING — deep re-check of the Post's-lattice / random-CSP literature for a prior cross-task table.",
+    "I5_ensemble_design": "PENDING — well-posed per-language random-CSP ensembles for the instrument columns.",
+    "I6_localization_charge": "PENDING — verify the Barto-Kozik bounded-width condition-check's implementability; the localization hypothesis (bounded-width co-varies with approximation + parameterized and absorbs a share of the approx<->param gradient) is pre-registered here."
+  }
+}
