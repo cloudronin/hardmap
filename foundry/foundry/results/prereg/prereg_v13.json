@@ -1,0 +1,80 @@
+{
+  "prereg_version": "v13",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Pebble",
+  "role": "Sprint 6 P0 ADDENDUM — the STRUCTURAL-PREDICTOR RACE. Seals a small closed set of cheap constraint-graph features as a RIVAL predictor to reach ξ (never a substitute), so that when ξ is measured (P3/P4) the free graph-only baseline is scored beside it. Committed BEFORE any ξ measurement AND before any structural feature is computed on the roster.",
+  "extends": "v12 (sealed, untouched at commit f8c8cf7). v12 remains the Pebble P0 prereg + the pilot's sealed numeric rule (R-1). This addendum adds ONLY the structural race; it touches no oracle/charge column and does not alter v12.",
+  "committed_before_analysis": true,
+  "committed_before_any_xi_or_structural_measurement": true,
+  "why_a_new_version_not_an_edit_of_v12": "v12 is committed and is the rule the pilot (P1) is being scored against. Rewriting a sealed prereg mid-flight is exactly the move the program's discipline forbids. v13 seals the structural race as a dated addendum before the measurements it governs (P3/P4) have run, so 'prereg before measurement' holds for the race without disturbing the sealed pilot prereg.",
+
+  "motivation": {
+    "the_argument": "ξ costs sampling; the constraint hypergraph is FREE — we already generate it. In every physical analogue, propagation range is governed by the medium's geometry, and here the medium IS the constraint graph. The theory backing is real in BOTH directions: expanders are where nothing decays (the PCP / inapproximability constructions rely on it), and bounded treewidth is where propagation is containable (why dynamic programming works there). So cheap structural features are a LEGITIMATE RIVAL predictor, not a substitute to be dismissed. Race them.",
+    "stance": "structural features are a rival, not a foil. If they win, that is a real cost-saving result about the medium, not a defeat for the instrument (see pre_labeled_outcome)."
+  },
+
+  "closed_feature_set_capped_at_four": {
+    "capping_reason": "closed like Sprint 4.6's feature set, same reasoning: descriptive features against a modest roster will find SOMETHING by arithmetic. Four features, fixed here, no post-hoc additions. All computed on the variable-adjacency graph (nodes = variables; edge iff two variables co-occur in a constraint scope — the SAME graph ξ's BFS distance uses), on instances already being generated, with NO new sampling.",
+    "features": {
+      "spectral_gap": {
+        "definition": "lambda_2(L), L = D - A the combinatorial Laplacian of the variable-adjacency graph (the Fiedler algebraic connectivity). = 0 iff the graph is disconnected. Cheeger: edge-expansion h(G) >= lambda_2 / 2.",
+        "why_this_surrogate": "the standard, robust, hand-verifiable expansion proxy; unlike the normalized Laplacian it does not blow up on isolated variables (degree-0 vars occur when a generated instance leaves a variable unconstrained) — it reads 0, the correct 'no expansion' signal.",
+        "known_bias_recorded": "UNNORMALIZED: lambda_2 scales with degree, and degree scales with constraint density, so spectral_gap correlates with density MECHANICALLY. This is why prediction 1 is scored DENSITY-RESOLVED (within a density band degree scale is ~fixed) and why degree_summary is reported alongside so the scale is visible — same species of confound the R-2 arity-bias diagnostic guards."
+      },
+      "expansion_proxy": {
+        "definition": "sampled edge-expansion: over K = 256 random vertex subsets S (each variable included i.i.d. w.p. 0.5, empty/full rejected), h(S) = |edges crossing (S, complement)| / min(|S|, |complement|); report the MIN over samples.",
+        "why_this_surrogate": "a direct COMBINATORIAL estimate of the graph's bottleneck, complementing the spectral (Cheeger) bound from the cut side rather than the eigenvalue side. Cheap: O(K * |E|), no eigendecomposition. Fixed seed per instance (ensemble.rng_for) for provenance.",
+        "known_bias_recorded": "sampling can only OVERESTIMATE the true minimum expansion (min over sampled cuts >= true min). Declared here; reported as 'sampled-min edge-expansion (upper estimate)', never as the exact expansion."
+      },
+      "degree_summary": {
+        "definition": "MEAN and VARIANCE of variable degree (number of distinct scope-neighbours) in the variable-adjacency graph. Two numbers.",
+        "why_this_surrogate": "the cheapest possible geometry summary and the control that makes the spectral_gap density-scaling visible. Higher moments are NOT used (set is closed)."
+      },
+      "treewidth_ub": {
+        "definition": "a heuristic UPPER BOUND on treewidth via the MIN-DEGREE elimination ordering (repeatedly eliminate the current-min-degree vertex, fill its neighbourhood to a clique; width = max elimination degree).",
+        "why_this_surrogate": "exact treewidth is expensive; min-degree is O(n^2), deterministic, and hand-verifiable. LABELLED A BOUND, never reported as 'treewidth'. min-fill is the alternative not taken, recorded here to keep the set closed at four.",
+        "theory_hook": "bounded treewidth = propagation containable (dynamic programming); a low bound predicts ξ should be short-range/containable."
+      }
+    }
+  },
+
+  "sealed_predictions_owner_on_record_score_them": {
+    "scoring_note": "density-RESOLVED, not pooled — prediction 1 is a claim about WHERE each predictor wins, not which wins overall.",
+    "P1_structural_predicts_xi_density_resolved": "structural features predict ξ WELL at high density (graph geometry dominates) and POORLY near the satisfiability threshold (solution-set structure dominates, and the graph alone cannot see it). Scored per density band, not pooled.",
+    "P2_free_proxy_exists": "if ξ predicts terrain AND the structural features predict terrain at COMPARABLE strength, the honest conclusion is that a FREE proxy exists and the sampling instrument is OPTIONAL for this purpose — state it plainly rather than defending the expensive instrument.",
+    "P3_xi_sees_what_the_graph_cannot": "if ξ predicts terrain WHERE the structural features do NOT, ξ is measuring something the graph alone cannot see — the strongest available justification for the sampling cost."
+  },
+
+  "evaluation_protocol": {
+    "discipline": "identical to Sprint 4.6: permutation null, held-out split by co-clone, marginal baseline. No metric introduced after seeing data.",
+    "two_comparisons_both_sealed": {
+      "A_structural_to_xi": "does the free graph feature set predict the (expensive) ξ reading? held-out by co-clone, density-resolved (prediction P1).",
+      "B_structural_vs_xi_to_terrain": "ξ -> terrain vs structural -> terrain (ruggedness/landscape), same held-out/perm-null/baseline discipline, density-resolved (predictions P2, P3)."
+    },
+    "reporting": "report the ξ-vs-structural comparison DENSITY-RESOLVED throughout; a pooled number would hide exactly the where-each-wins structure the predictions are about."
+  },
+
+  "three_tier_scope_note_for_the_findings": {
+    "route_alongside": "the existing bounded-width readout (foundry oracles 'localization', Barto-Kozik 2014) — the ALGEBRAIC, clone-level propagation readout we already compute for free — so the writeup can state the three-tier picture explicitly. What each tier can and cannot reach is itself a result worth stating.",
+    "tiers": {
+      "algebraic": "localization / bounded-width (weak-NU polymorphism; Barto-Kozik). FREE, EXACT, CLONE-LEVEL. PROVABLY cannot reach within-family (within-co-clone) variation — the Sprint 4.6 clone-invariant impossibility. Reads the medium's algebra.",
+      "structural": "the four graph features. FREE, INSTANCE-LEVEL, GRAPH-ONLY — blind to the solution set. Reads the medium's geometry.",
+      "sampled": "ξ (reach). EXPENSIVE, INSTANCE-LEVEL, SEES THE SOLUTION SET. Reads what propagation does to the answers."
+    },
+    "the_result_to_state": "the reach of each tier is a structural finding: the algebraic tier cannot see within-co-clone variation at all; the structural tier can see instance geometry but not the solution set; only the sampled tier sees the solution set. Where structural matches ξ, geometry alone suffices; where only ξ predicts, the solution set carries information neither free tier can reach."
+  },
+
+  "pre_labeled_outcome_sealed_so_it_reads_the_same_either_way": "if the FREE structural features match ξ, the finding is 'propagation range is predictable from constraint geometry alone' — a POSITIVE, cost-saving result, NOT a defeat for the instrument. Sealed here so the outcome is pre-framed before it is seen.",
+
+  "scope_and_typing": "structural features are defined exactly where ξ is: the instance has a constraint graph (CSP-shaped). Where it does not, the structural cell is n.a. BY TYPING, same as ξ. Same v1-is-CSP-only scope as v12.",
+
+  "standing_discipline_additions": [
+    "closed structural feature set (capped at four; no post-hoc additions)",
+    "hand-count selftest on the structural harness (spectral gap / expansion / degree / treewidth-ub on known small graphs) in CI",
+    "spectral_gap density-scaling bias declared; degree_summary reported alongside; scoring density-resolved",
+    "treewidth surrogate labelled a BOUND, never 'treewidth'",
+    "sampled-min edge-expansion labelled an upper estimate",
+    "structural cell n.a.-by-typing wherever ξ is",
+    "eightfold byte-identical (foundry-side only)"
+  ]
+}
