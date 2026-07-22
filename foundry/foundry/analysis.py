@@ -186,6 +186,8 @@ def h_p2_scaled(entries=None, floor_rows=15, floor_pairs=4, n_perm=20000, seed=X
 
 
 def run_all():
+    from foundry.r25 import census_residual_audit
     return {"census": "boolean(7) + finer-boolean(8) + general-domain-|D|=3(6) = 21 rows",
             "p2_perm_selftest_passes": selftest_p2_perm(n_perm=5000) == 0,
-            "noise_floor": noise_floor(), "P2_v1": p2_gradient(), "H_P2_scaled": h_p2_scaled(), "P3": p3_factors()}
+            "noise_floor": noise_floor(), "P2_v1": p2_gradient(), "H_P2_scaled": h_p2_scaled(), "P3": p3_factors(),
+            "R25_residual": census_residual_audit()}

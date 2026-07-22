@@ -12,7 +12,14 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="foundry")
     ap.add_argument("--validate-toy", action="store_true",
                     help="validate the hand-checked toy stratum via the shared kernel (proves Phase-K reuse)")
+    ap.add_argument("--r25", action="store_true",
+                    help="R25 census residual audit (Sprint 4 Task 0): confirm the theorem-forced component nets "
+                         "to exactly zero residual — a STOP-the-line selftest of the netting machinery")
     args = ap.parse_args(argv if argv is not None else sys.argv[1:])
+
+    if args.r25:
+        from foundry.r25 import census_r25_selftest
+        return census_r25_selftest()
 
     if args.validate_toy:
         rows = toy_census()

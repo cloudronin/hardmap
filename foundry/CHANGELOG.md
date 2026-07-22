@@ -123,3 +123,23 @@
   real data is added, the honest direction. The theorem-world's approx|param is algebra-stratified, not a
   gradient (positive or reversed); same message as P3 (k\*=3 DIVERGENT). 31 foundry tests; eightfold
   byte-identical. **Next: R25-net the census residuals; Sprint 4 (N4 instruments).**
+
+## 0.1.4 (unreleased) — Sprint 4 Task 0 (R25-netting confirmation)
+
+- **R25-netting confirmed: the oracle-only census nets to exactly zero residual** (`foundry/r25.py`,
+  `tests/test_r25.py`; `python -m foundry.cli --r25`). Netting the theorem-forced component out of the P2/P3
+  statistics per the standing R25 procedure (`cai_chen_residual_audit`) returns the predicted **zero, three
+  independent ways**: (1) **provenance netting** — all 19 both-real rows are theorem-`derived`, so netting
+  empties the table (raw approx|param **V = 0.472 → residual V undefined**, `survives = False`, the OPPOSITE of
+  the canon); (2) **within-stratum pooled V = 0.0** over 15 polymorphism-profile strata; (3) **residual
+  dimensionality = 0** (0 non-`derived` oracle cells; census k\*=3 → 0). This is a **selftest of the netting
+  machinery**, not a discovery run — a non-zero residual would STOP the line, and none appeared. The zero is
+  given teeth by a **functional-determination** check (same polymorphism profile ⟹ same oracle charges, holding
+  across 4 multi-row strata that span the two independent oracle code paths) and a **perspective-aware anchor
+  cross-validation** against the real canon atlas: **18/18 perspective-free cells agree** (decision/counting/
+  approximation over 6 anchors), while `parameterized` is perspective-divergent (canon treewidth vs census
+  Exact-Ones) and `localization` is canon-absent — "cross-validated at the anchors, incomparable elsewhere."
+  Findings: `docs/findings/Sprint4-Task0-R25-netting.md`. The oracle-only canon-vs-computation comparison is
+  **closed permanently**; all remaining census science runs through the measured instrument columns. 37 foundry
+  + 72 eightfold tests green; no oracle cell touched; eightfold byte-identical. **Next: prereg_v4 (I6 lock) +
+  the I5 per-family ensemble memo (owner-review checkpoint, before any generation).**

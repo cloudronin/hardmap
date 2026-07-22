@@ -57,7 +57,9 @@ The both-real contingency (the table H_P2_scaled runs on):
    counting/approximation oracles, which the Sprint-3.5 memo verdicted **DEFER** (UGC-conditional / not
    implementable in budget). So the ≥15-rows floor is cleared partly by faithful-but-degenerate co-clones.
 3. **The association is theorem-forced (R25).** Both charges are polymorphism functions, so STRATIFIED is the
-   algebra showing through — not an emergent, empirical gradient like the canon's. The R25-netted residual is ~0.
+   algebra showing through — not an emergent, empirical gradient like the canon's. The R25-netted residual is
+   **now confirmed exactly zero** (Sprint 4 Task 0): netting the theorem-forced component collapses V = 0.472 to
+   undefined and k\* = 3 to 0 — see [Sprint4-Task0-R25-netting.md](Sprint4-Task0-R25-netting.md).
 
 ## Domain-3 oracles implemented (the memo's "implement everything implementable")
 
