@@ -1,13 +1,16 @@
-# Sprint 4 results — the measured instrument columns: a clean negative
+# Sprint 4 results — the measured instrument columns: partial factoring with an identified boundary
 
-**Lead finding: complexity factors through the algebraic classification; solution geometry does not.** Sprint 4
-built the solution-side `landscape` instrument (the Proof-Census apparatus measures the proof side; the landscape
-charge is the satisfiable side), qualified it against two-pole calibration in both domains, and used it to ask
-whether any oracle charge predicts measured solution-space ruggedness. The answer, after a full domain-confound
-check and a within-co-clone replication, is **no** — measured ruggedness varies at the **relation** level, across
-families sharing width, sharing polymorphism class, and across domains. Two structures the field treats as
-coupled — algebraic tractability and solution-space geometry — come apart under measurement. This is negative in
-the useful sense, and it is the honest headline.
+**Lead finding: complexity factors through the algebraic classification everywhere; solution geometry factors
+through it only where the algebra is rigid enough to force it.** Sprint 4 built the solution-side `landscape`
+instrument (the Proof-Census apparatus measures the proof side; the landscape charge is the satisfiable side),
+qualified it against two-pole calibration in both domains, and asked whether any oracle charge predicts measured
+solution-space ruggedness. The answer, after a full domain-confound check and a within-co-clone replication, is a
+**partial factoring with a sharp boundary**, not a uniform failure: **within the affine strata the algebra pins
+terrain completely** (coset structure forces dispersion — every affine co-clone clusters at within-spread
+0.002–0.075), while **everywhere else geometry is relation-specific** (non-affine co-clones scatter up to 0.327,
+across families sharing width, sharing polymorphism class, and across domains). The tractability classification
+carries the geometry exactly as far as its rigidity reaches, and no further. That boundary — algebraic where the
+algebra is rigid, relation-specific otherwise — is the honest headline.
 
 Provenance: preregs [v4](../../foundry/results/prereg/prereg_v4.json)–[v8](../../foundry/results/prereg/prereg_v8.json)
 (each locked before its run; the GKMP netting column locked before fresh data); instrument
@@ -48,11 +51,14 @@ Measuring 3 genuine same-6-flag-profile representatives within each of 13 tracta
   same-profile representatives (spread **0.327**); several others 0.15–0.21. A single representative's measured
   value is *not* representative of its co-clone.
 
-**Verdict SCATTER** (pre-registered rule: any co-clone ≥ 0.15). **Structural consequence (F1 amended):** the
-census's one-representative-per-co-clone roster is **valid for the oracle columns** (charges constant within a
-co-clone by theorem — Task 0 residual = 0) and **invalid for the measured columns**. Geometry factors through the
-algebra only for affine; elsewhere it is relation-specific. **The measured-column program therefore requires
-relation-level sampling** — which becomes the correct, and much stronger, next move (out of Sprint 4 scope).
+**Verdict SCATTER, with a sharp boundary** (pre-registered rule: any co-clone ≥ 0.15). **Structural consequence
+(F1 amended):** the census's one-representative-per-co-clone roster is **valid for the oracle columns** (charges
+constant within a co-clone by theorem — Task 0 residual = 0), **valid for the measured columns *within the affine
+strata*** (coset structure pins terrain — affine co-clones cluster at 0.002–0.075), and **invalid for the
+measured columns elsewhere** (non-affine co-clones scatter up to 0.327). This is partial factoring with an
+identified boundary — the algebra carries the geometry exactly where it is rigid enough (affine) and not beyond.
+**Outside the affine strata the measured-column program requires relation-level sampling** — the correct, and
+much stronger, next move (out of Sprint 4 scope).
 
 ## Task 0 (the oracle-only closure) still stands
 

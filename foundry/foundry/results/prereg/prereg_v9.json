@@ -1,0 +1,40 @@
+{
+  "prereg_version": "v9",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "committed_before_analysis": true,
+  "committed_before_classification_derived": true,
+  "role": "SEALED prediction for the connectivity-class test: do the connectivity literature's RELATION-LEVEL classes predict measured ruggedness where the tractability (Schaefer) labels failed? Committed BEFORE the classification column is derived on the measured relations. No new sampling — re-analysis of measurements in hand.",
+  "supersedes": "extends v4-v8 (Sprint 4). No oracle column touched.",
+
+  "R20_class_definitions_verified": {
+    "source": "Gopalan, Kolaitis, Maneva, Papadimitriou, SICOMP 38(6) 2009 (arXiv cs/0609072), Def 5-6, Thm 8-10.",
+    "OR_free": "R (arity k) is OR-free if OR={(0,1),(1,0),(1,1)} cannot be obtained from R by fixing k-2 coordinates to constants (leaving 2 free coordinates).",
+    "NAND_free": "R is NAND-free if NAND={(0,0),(0,1),(1,0)} cannot be so obtained.",
+    "componentwise_bijunctive": "each connected component of G(R) (tuples of R, edges at Hamming distance 1) is bijunctive (closed under majority).",
+    "tight": "S is tight iff (every R componentwise bijunctive) OR (every R OR-free) OR (every R NAND-free). Per-relation, we record all three witnesses + tight = any.",
+    "complexity": "tight => st-connectivity in P AND diameter O(n); not tight => PSPACE-complete AND diameter 2^Omega(sqrt n).",
+    "finer_classes": "safely-tight / CPSS (Schwerdtfeger trichotomy) are refinements for the st-connectivity COMPLEXITY split (P/coNP/PSPACE). They will be computed ONLY if their definitions are R20-verified from the source; otherwise recorded as `definition-not-verified`, never guessed. Note: all measured relations are Schaefer=>tight, so the DISCRIMINATING features are the tight-WITNESS (OR-free vs NAND-free vs componentwise-bijunctive) and the component structure of G(R)."
+  },
+
+  "the_test": {
+    "column": "for each MEASURED Boolean relation (implication, NAND-Horn, the Sprint 4.5 within-co-clone replicates, the census Boolean families) compute {or_free, nand_free, componentwise_bijunctive, tight, n_components(G(R))}. The |D|=3 relations (order-3, median-3, lin-eq-z3, 0-attractor) are GKMP-out-of-jurisdiction -> `n/a-out-of-jurisdiction`, NOT guessed.",
+    "analysis": "correlate the connectivity classification with the measured ruggedness already in hand; compare its predictive power to the Schaefer/tractability label.",
+    "predictive_power_metric": "within-class ruggedness variance under the connectivity classes vs under the Schaefer classes: a connectivity classification that PREDICTS ruggedness yields tighter within-class ruggedness (lower pooled within-class spread/variance). Report per-feature correlations too (e.g. n_components vs ruggedness)."
+  },
+
+  "sealed_prediction_owner": {
+    "on_record": "the connectivity classes will (a) SEPARATE affine from non-affine (already known — affine's coset geometry); (b) OUTPERFORM tractability labels on the remainder; (c) still leave SUBSTANTIAL within-class variance — because the classes are WORST-CASE structural (connectivity/diameter) while the measurement is TYPICAL-CASE sampled (overlap dispersion). Partial prediction, not clean.",
+    "verdict_vocab": {
+      "PREDICTIVE": "connectivity classes materially reduce within-class ruggedness variance beyond the Schaefer labels (all three sub-predictions hold, incl. (b)) -> solution geometry is algebraic at the right resolution; the geometric component gets a named mechanism with proven theory.",
+      "NOT_PREDICTIVE": "connectivity classes do NOT reduce within-class variance beyond tractability -> typical-case sampled geometry escapes even the classification purpose-built for worst-case geometry; that DISSOCIATION is the finding.",
+      "PARTIAL": "(b) holds but (c) dominates — the owner's stated expectation: some improvement, substantial residual variance."
+    }
+  },
+
+  "either_outcome_is_real": "PREDICTIVE => geometry gets a named, proven-theory mechanism (the hardness vector's geometric component). NOT_PREDICTIVE => a clean worst-case/typical-case dissociation. No rescue either way; score against the sealed prediction.",
+
+  "convergent_prior_art_recorded": "the GKMP-Schwerdtfeger connectivity line developed its own finer relation-level classes (tight, safely-tight, CPSS, constraint-projection separation) PRECISELY because Schaefer's tractability classes could not classify solution-space structure. This is CONVERGENT prior art for the Sprint-4 headline (complexity factors through the algebra, geometry does not, at the tractability resolution). Our result is less novel and better supported for it; the findings say so plainly (Sprint4-results.md, Amendment 2).",
+
+  "scope": "literature-to-column + re-analysis of measurements in hand; no new sampling. Boolean-only classes; |D|=3 rows honestly n/a-out-of-jurisdiction.",
+  "standing_discipline": ["prereg before the classification is derived", "R20: verified definitions only, no reconstruction; unverifiable classes recorded as definition-not-verified", "score against the sealed partial prediction; no rescue", "eightfold byte-identical; no oracle cell touched"]
+}
