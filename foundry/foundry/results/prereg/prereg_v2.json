@@ -1,0 +1,28 @@
+{
+  "prereg_version": "v2",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "committed_before_analysis": true,
+  "supersedes": "v1 (targeted amendment: re-operationalizes P3 given the Factors v1 result; all other v1 content stands unchanged)",
+  "label": "P3-operationalization (post-Factors-v1); riders R-i + R-vi",
+  "note": "Foundry prereg_v1 wrote P3 (canon-fitted latent-factor loadings reproduce on the census) as a placeholder GATED ON FACTORS v1 EXISTING. Factors v1 now exists (eightfold prereg_v7) and the canon reads k*=1 by held-out prediction — the on-file k in {3,4} MISSED, and k*=1 is confirmed robust across model class + charge sparsity (eightfold prereg_v8). A k*=1 canon fit is a single marginal profile, so the loading-COMPARISON design of v1's P3 collapses (there are no multiple loadings to register and compare by projection). This amendment re-operationalizes P3 as the honest census-side questions, pinned with an exact metric + threshold BEFORE any census Factors/loading run (R-i: closes post-hoc tolerance-shopping). It operationalizes a pre-registered verdict given a NEW fact; it is NOT a changed prediction.",
+
+  "P3_reframed": {
+    "prediction": "The canon-vs-computation verdict at the FACTOR level: does the generated census carry the same (absence of) global latent dimensionality as the human-chosen canon?",
+    "why_reframed": "The canon side is now k*=1 (Factors v1/v1.1). Registering k=3-4 canon loadings via the anchors and comparing by projection is vacuous with one factor. The informative comparison becomes: run the IDENTICAL estimator on the census and ask whether the two universes return the same verdict.",
+    "operational_tests": {
+      "P3a_census_dimensionality": {
+        "method": "Run eightfold.factors — the IDENTICAL LCM held-out-prediction estimator, prereg_v7 params (mask 0.10, k=1..6, parsimonious 1-SE k*, seed 20260721) — on the census under FOUNDRY_SPEC. Report the census k* interval and k*_hat.",
+        "decision_rule": "SAME-WORLD iff census k*_hat <= 1 (the census also carries no global latent dimensionality beyond marginals). DIVERGENT iff census k*_hat >= 2 (the generated world has latent structure the human canon lacks) — reported at size."
+      },
+      "P3b_gradient_both_worlds": {
+        "method": "Compute the both-real approximation|parameterized Cramer's V on the census (the parameterized column filled by the Marx oracle, Sprint 2.1) vs the census S1 null (kernel S1, FOUNDRY_SPEC), R25-netted. This is the P2 statistic, reused.",
+        "decision_rule": "GRADIENT-PRESENT-BOTH iff the census gradient beats its S1 null (as the canon's did per Crucible S1). If present in both, the canon-vs-computation answer is: whatever hardness structure exists is PAIRWISE (a local coupling), in BOTH the chosen and the generated universe."
+      }
+    },
+    "combined_verdict": "The ruling is read from (P3a, P3b) jointly: (i) census k*<=1 AND gradient present in both -> 'structure is pairwise, not a global basis, in both worlds' (the strong same-verdict answer: the canon's shape reproduces under generation); (ii) census k*>=2 -> the generated world carries latent dimensionality the canon lacks (curation did NOT manufacture the canon's low dimensionality — the opposite finding); (iii) gradient present in one world but not the other -> the pairwise coupling is roster-specific. Each is a legitimate, pre-stated answer.",
+    "registration": "For any residual per-cell comparison, registration is via the six canon-cap-census overlap anchors (3-SAT, 2-SAT, XOR-SAT, Horn-SAT, NAE-SAT, 1-in-3-SAT) BEFORE the comparison is read; controls validated by PROJECTION, never inclusion (carried from v1).",
+    "status": "operationalized (was UNTESTED at v1); the estimator now exists"
+  },
+
+  "unchanged_from_v1": "P1 (NPI calibration), P2 (gradient persistence), P4 (tier-2 inhabitation), the roster_policy, generations_policy, analysis_battery, kill_thresholds K1-K4, and the I-phase status all stand exactly as committed in prereg_v1. Only P3's operationalization is amended here, forced by the Factors v1 k*=1 result."
+}
