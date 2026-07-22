@@ -1,0 +1,141 @@
+{
+  "verdict": "PARTIAL",
+  "per_rank": {
+    "4": {
+      "mean_spread": 0.039,
+      "vals": [
+        0.006,
+        0.073,
+        0.075,
+        0.002
+      ],
+      "n": 4
+    },
+    "3": {
+      "mean_spread": 0.14,
+      "vals": [
+        0.092,
+        0.214,
+        0.192,
+        0.062
+      ],
+      "n": 4
+    },
+    "2": {
+      "mean_spread": 0.138,
+      "vals": [
+        0.129,
+        0.147
+      ],
+      "n": 2
+    },
+    "0": {
+      "mean_spread": 0.127,
+      "vals": [
+        0.327,
+        0.052,
+        0.003
+      ],
+      "n": 3
+    }
+  },
+  "corr_rank_spread_all": -0.295,
+  "corr_rank_spread_excl_edge": -0.629,
+  "rigid_end_holds (rank4 smallest)": true,
+  "strict_monotone_4_3_2": false,
+  "named_mechanism": "rank-4 Maltsev/affine pins the envelope near zero (mean spread 0.039) \u2014 the named mechanism for the affine boundary of Sprint 4 (coset rigidity forces near-zero within-co-clone freedom)",
+  "breaks": "ranks 3 and 2 tie (not strict monotone); the 0/1-valid edge co-clones (no idempotent Taylor term) do not fit \u2014 one spread-0.327 outlier alongside 0.003/0.052",
+  "rows": [
+    {
+      "co_clone": "0v+horn+bij",
+      "rigidity_rank": 3,
+      "rank_name": "near-unanimity/majority (bijunctive)",
+      "edge": false,
+      "within_coclone_spread": 0.092
+    },
+    {
+      "co_clone": "1v+dhorn+bij",
+      "rigidity_rank": 3,
+      "rank_name": "near-unanimity/majority (bijunctive)",
+      "edge": false,
+      "within_coclone_spread": 0.214
+    },
+    {
+      "co_clone": "0v+1v+horn+dhorn+bij",
+      "rigidity_rank": 3,
+      "rank_name": "near-unanimity/majority (bijunctive)",
+      "edge": false,
+      "within_coclone_spread": 0.192
+    },
+    {
+      "co_clone": "0v+1v+dhorn",
+      "rigidity_rank": 2,
+      "rank_name": "semilattice (Horn/dual-Horn)",
+      "edge": false,
+      "within_coclone_spread": 0.129
+    },
+    {
+      "co_clone": "0v+1v+horn",
+      "rigidity_rank": 2,
+      "rank_name": "semilattice (Horn/dual-Horn)",
+      "edge": false,
+      "within_coclone_spread": 0.147
+    },
+    {
+      "co_clone": "0v",
+      "rigidity_rank": 0,
+      "rank_name": "tractable-by-constant, no idempotent Taylor term (edge)",
+      "edge": true,
+      "within_coclone_spread": 0.327
+    },
+    {
+      "co_clone": "1v",
+      "rigidity_rank": 0,
+      "rank_name": "tractable-by-constant, no idempotent Taylor term (edge)",
+      "edge": true,
+      "within_coclone_spread": 0.052
+    },
+    {
+      "co_clone": "bij",
+      "rigidity_rank": 3,
+      "rank_name": "near-unanimity/majority (bijunctive)",
+      "edge": false,
+      "within_coclone_spread": 0.062
+    },
+    {
+      "co_clone": "0v+1v",
+      "rigidity_rank": 0,
+      "rank_name": "tractable-by-constant, no idempotent Taylor term (edge)",
+      "edge": true,
+      "within_coclone_spread": 0.003
+    },
+    {
+      "co_clone": "0v+1v+horn+dhorn+bij+aff",
+      "rigidity_rank": 4,
+      "rank_name": "Maltsev (affine)",
+      "edge": false,
+      "within_coclone_spread": 0.006
+    },
+    {
+      "co_clone": "0v+horn+dhorn+bij+aff",
+      "rigidity_rank": 4,
+      "rank_name": "Maltsev (affine)",
+      "edge": false,
+      "within_coclone_spread": 0.073
+    },
+    {
+      "co_clone": "1v+horn+dhorn+bij+aff",
+      "rigidity_rank": 4,
+      "rank_name": "Maltsev (affine)",
+      "edge": false,
+      "within_coclone_spread": 0.075
+    },
+    {
+      "co_clone": "bij+aff",
+      "rigidity_rank": 4,
+      "rank_name": "Maltsev (affine)",
+      "edge": false,
+      "within_coclone_spread": 0.002
+    }
+  ]
+}
