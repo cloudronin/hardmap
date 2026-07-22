@@ -6,21 +6,28 @@ blind structure detection over it.
 
 **What the atlas answers:**
 
-> **Yes — and the vector has earned internal structure.** Hardness is multi-dimensional (H1), it
-> carries genuine **multiplets** that survive subtraction of the known theorem-bridges (H2, R25), and
-> its empty regions separate cleanly into theorem-forbidden cells and a small, falsifiable **gap
-> frontier** (H3). The single sharpest empirical yield is not a structure at all but a *hole*: the
-> **counting-folklore gap** — for ~⅔ of well-studied problems the field assumes, but has never
-> published, the #P-completeness of the counting version. The honest rider: part of H1's
-> dimensionality is definitional (eight different formal objects cannot collapse to one axis), so the
-> load-bearing discoveries are the multiplets, the folklore gap, and the two gap-frontier facts — not
-> the dimension count itself.
+> **Yes — and one piece of the vector's structure is load-bearing.** Hardness is multi-dimensional
+> (H1: not scalar), and its empty regions separate cleanly into theorem-forbidden cells and a small,
+> falsifiable **gap frontier** (H3). But the finding that **survived every adversarial check** (§8) is the
+> **approximation⟷parameterized gradient** — harder-to-approximate tracks harder-to-parameterize — beyond a
+> type-respecting null, beyond row-dedup, at p<0.001, and against the field's known violators. The single
+> sharpest empirical yield is not a structure but a *hole*: the **counting-folklore gap** — for ~⅔ of
+> well-studied problems the field assumes, but has never published, the #P-completeness of the counting
+> version. **Honest riders, banked under prereg (§8):** part of H1's dimensionality is definitional (eight
+> formal objects cannot collapse to one axis) — and Crucible's null model shows the dimension *count* is
+> fully typing-driven; the multiplet *amplifications* likewise do not exceed typing. The load-bearing
+> empirical claims are the **gradient**, the **folklore gap**, and the two gap-frontier facts — not the
+> dimension count, and not the amplification magnitudes.
 
 Instrument: [`atlas.jsonl`](../../eightfold/results/atlas/atlas.jsonl) — **118 problems × 8 charges**,
 citation-gated, validator-clean, **zero uncited-folklore**. Verdict run:
 [`A3-structure.md`](A3-structure.md) / [`a3_structure.json`](../../eightfold/results/atlas/a3_structure.json).
 Prereg: [`prereg_v5.json`](../../eightfold/results/prereg/prereg_v5.json) (`committed_before_analysis: true`).
 Sub-findings: [A1 pilot](A1-pilot.md) · [A2 setup](A2-setup.md) · [counting-folklore gap](counting-folklore-gap.md) · [I1–I4](I1-I4-investigation.md).
+
+> **Crucible (v1.1) note.** §§1–7 report the A3 verdicts on the **frozen 118-row atlas**. **§8** records the
+> adversarial self-review (prereg_v6) that hardened them: the approx⟷parameterized gradient survived every
+> attack; H1's dimension count and the H2 amplifications were **resized** honestly. Read §2/§5 with §8.
 
 ---
 
@@ -50,7 +57,8 @@ true. That distinction is the whole point.
 **H1 — hardness is a vector: SUPPORTED.** ≥3 effective MCA dimensions in the full table (16), the
 sentinel-free complete-case block (5, n=19), *and* under every leave-one-charge-out (min 13); the
 scalar-hardness kill-gate did not fire. (Honest anchor: the full-table 16 is inflated by sentinel
-categories — the complete-case 5 carries the verdict.)
+categories — the complete-case 5 carries the verdict.) **→ Crucible §8 resizes this: the dimension *count*
+is typing-driven (inside the null envelope); "not scalar" holds, the count is not a discovery.**
 
 **H2 — multiplets exist: SUPPORTED, and bridge-audited.** The two canonical witnesses re-separate in
 their predicted subspaces (permanent/determinant; vertex-cover/clique). The atlas's densest multiplet is
@@ -59,7 +67,10 @@ signature). The headline check was **R25**: does that cluster survive subtractio
 approximability→FPT bridge (Cai–Chen, MAX SNP / MIN F⁺Π₁ membership ⟹ FPT), not just the narrow
 EPTAS↔FPT one? It does — netting out the theorem-forced members moves the approx⟷param association
 **0.73 → 0.72 → 0.70 → 0.68** even when the *entire* cluster is deleted, because the coupling is the full
-monotone gradient (`inapprox`→W-hard, `PTAS`/`APX`→FPT), not one cell. The multiplet is genuine.
+monotone gradient (`inapprox`→W-hard, `PTAS`/`APX`→FPT), not one cell. **→ Crucible §8 resizes the multiplet
+*amplifications*: under a type-respecting null they do not exceed typing (the R11 metric has a positive
+bias). The pairs separate as predicted, but the earned finding is the *gradient* — which survives S1, S2,
+S3, and S5.**
 
 **H3 — forbidden regions & gaps: SUPPORTED.** All 16 theorem-forbidden cells (E1: counting-FP⟹decision-P;
 E2: parallelization only within P) are empty in the data — the entailment layer is consistent with the
@@ -124,17 +135,22 @@ The intellectually honest question about H1 is whether the multi-dimensionality 
 type-of-object partition that R1 builds in. The answer is **both, and the split is the finding**:
 
 - **Definitional (not a discovery):** the eight charges attach to eight different formal objects, which
-  *cannot* collapse onto one axis in any faithfully-typed atlas. Some of H1's dimension count is the
-  price of taking R1 seriously — it would appear whether or not hardness "really" factors. Reporting the
-  dimension count as a discovery would over-claim.
-- **Empirical (the real yield):** *which* charges co-vary, and *how the co-variation clusters*, is not
-  forced by object-type. The permanent/determinant and vertex-cover/clique multiplets, and the
-  approx⟷param cluster that **survived the Cai–Chen bridge subtraction (R25)**, are earned structure. So
-  is the counting-folklore gap, and so are the two frontier facts of §4.
+  *cannot* collapse onto one axis in any faithfully-typed atlas. Some of H1's dimension count is the price
+  of taking R1 seriously — it would appear whether or not hardness "really" factors. **Crucible now puts a
+  number on "some" (§8): statistically it is essentially *all* — the real dimension count sits inside a
+  type-respecting null envelope, so the count is a consequence of typing, not a discovery.** Reporting it as
+  a discovery would over-claim.
+- **Empirical (the real yield):** *which* charges co-vary is not forced by object-type. The **approx⟷param
+  gradient** — which survived both the Cai–Chen bridge subtraction (R25) *and* every Crucible attack (§8:
+  null model, dedup, p<0.001, adversarial roster) — is the earned structure. The permanent/determinant and
+  vertex-cover/clique **multiplets** separate as predicted, but their *amplification* does not exceed typing
+  under the S1 null (§8) — so the earned claim there is "the pairs decouple where theory says," not "the
+  decoupling is beyond chance." The counting-folklore gap and the two frontier facts of §4 are also earned.
 
-**Bottom line for Move One:** hardness is a vector; the vector has genuine multiplet structure; and the
-atlas's most valuable outputs are the *holes* it makes visible — the counting-folklore gap and the
-average-case/landscape frontier — precisely because the citation gate refused to paper them over.
+**Bottom line for Move One:** hardness is a vector (not scalar); its one load-bearing empirical axis is the
+approx⟷param gradient, which survived adversarial self-review; and the atlas's most valuable outputs are the
+*holes* it makes visible — the counting-folklore gap and the average-case/landscape frontier — precisely
+because the citation gate refused to paper them over.
 
 ---
 
@@ -171,12 +187,74 @@ Move Two (predict-and-populate: use the structure to place bets on uninhabited c
 - **Corpus:** 118 problems, validator exit 0, zero `uncited-folklore`, core per-charge A2 gate PASS
   (decision 97 / approximation 89 / parameterized 90); counting reported as a frontier column (43% cited)
   per the measured-density reclassification (prereg_v5, with the core-gate FAIL preserved on the record).
-- **Tests:** 47 green, locking the harness and the verdict *rules* (not the outcomes).
-- **Caveats:** complete-case MCA is n=19 and coarse; `family_separation` is a coarse-label diagnostic;
-  the gap-list object-mismatch triage is a hand rule pending prerequisite #1; the R25 problem-level
-  syntactic-class classification is my reading of the class definitions (Π₁-definability), source-verified
-  for the *theorem scope* but not per-problem-cited; measured cells (Census backbone) are load-bearing for
-  no structural claim (`--drop-measured` leaves dimensionality unchanged).
+- **Tests:** 61 green (A3 harness + the Crucible S1–S5 harness + `derived`-status gates), locking the
+  harness and the verdict *rules* (not the outcomes).
+- **Caveats — three of A4's original caveats are now *tested*, not open (Crucible §8, prereg_v6):**
+  row-independence (→ S2 dedup), the absence of p-values (→ S3, permutation p=0.0001), and
+  sociology-of-study (→ S5 adversarial roster). The n=19 anchor was *not* grown (S4 deferred — S1 showed the
+  count is typing-driven regardless of n). Remaining caveats: `family_separation` is a coarse-label
+  diagnostic; the gap-list object-mismatch triage is a hand rule pending prerequisite #1; the R25
+  problem-level syntactic-class classification is my reading of the class definitions (Π₁-definability),
+  source-verified for the *theorem scope* but not per-problem-cited; measured cells (Census backbone) are
+  load-bearing for no structural claim (`--drop-measured` unchanged, and now `--drop-derived` likewise).
 
-**Move One is closed.** The atlas exists, it is honest about its holes, and the structure it found
-survives the checks brought against it.
+---
+
+## 8. Crucible results — adversarial self-review (v1.1)
+
+Before any external motion, the five strongest referee attacks were run *by us*, under
+[`prereg_v6.json`](../../eightfold/results/prereg/prereg_v6.json) (`committed_before_analysis: true`, locked
+before any real-data run). Machine output: [`crucible_results.json`](../../eightfold/results/atlas/crucible_results.json).
+Every verdict is banked; a RESIZED verdict is stated at its new size, never argued back.
+
+**Roster provenance (Rider A).** All numbers in §§1–7 describe the **frozen 118-row atlas** (`atlas.jsonl`,
+sha256 `6d53a4f1…`). S5 adds one violator (`k-means`), kept in a separate
+[`s5_violators.jsonl`](../../eightfold/results/atlas/s5_violators.jsonl); the **augmented** roster (119) is
+used *only* where labelled "augmented" below.
+
+**The flagship survived every attack.** The approximation⟷parameterized gradient:
+
+| Attack | What it tests | Result | Verdict |
+|---|---|---|---|
+| **S1** null model (M=1000) | structure beyond typing | real V=**0.73** vs type-respecting null p97.5=**0.38** | **SURVIVES** |
+| **S2** dedup (114 classes) | row-independence | V 0.73 → **0.68**, permutation p=**0.0003** | **SURVIVES** |
+| **S3** significance | the p-value the atlas lacked | permutation **p=0.0001** (10k) | **SURVIVES** |
+| **S5** adversarial roster (augmented 119) | sociology-of-study | +k-means: 0.73→**0.66**, p=**0.0001** | **SURVIVES** (weakens-but-persists, exactly as prereg'd) |
+
+**Two claims RESIZED — honestly, and not argued back:**
+
+- **H1 dimensionality → the dimension *count* is typing-driven.** S1's null preserves typing (the `n.a.`
+  mask) + per-charge marginals and destroys cross-charge structure. The real complete-case dims (5) sit
+  *inside* the null envelope [p2.5=5, mean=7.4, p97.5=10] — at the **low** end: the real atlas is *more
+  correlated* (fewer effective axes) than typing predicts, not more dimensional. **This is the number §5's
+  word "Some" was missing:** the dimension count is (statistically) a consequence of R1 typing, not of
+  empirical structure in excess of it. "Not scalar" still holds — complete-case dims ≥3 in **96%** of
+  bootstraps (S3) — but H1's *earned* content is the gradient, not the dimension count.
+- **H2 witness amplifications → not beyond typing.** Under the S1 null, permanent/determinant amplifies
+  *less* than a random pair (0.29 vs null mean 0.35) and vertex-cover/clique sits inside the envelope (0.42
+  vs p97.5=0.50). The pairs *do* separate replicably in their predicted subspaces (100% positive where
+  present in the S3 bootstrap), but the R11 amplification metric (in-subspace − full-8 distance) carries a
+  **positive bias** the null exposes — so the amplification is not distinguishable from typing. **§2's "the
+  multiplet is genuine" resizes to: the pairs separate as predicted, but the separation does not exceed what
+  typing produces by chance.** *(Interpretation only, per owner rider: a bias-corrected, null-calibrated
+  amplification metric is a labelled re-analysis under a new prereg, run only after this writeup exists —
+  never a mid-Crucible instrument swap that would let RESIZED argue itself back to SURVIVES.)*
+
+**What is now settled.** The gradient — harder-to-approximate ⟷ harder-to-parameterize — is the
+load-bearing empirical finding: beyond typing (S1), robust to collapsing reduction-equivalent rows (S2),
+p<0.001 (S3), and weakens-but-persists against the field's known violators (S5 — seven already in the
+frozen roster + k-means; violators are not abundant, so the gradient is not roster sociology). The
+counting-folklore gap (§3) is untouched by these attacks and stands. **S4 (grow the n=19 anchor) was
+deferred:** S1 showed the dimension count is typing-driven regardless of n, so anchor-growth is no longer
+load-bearing; the `derived`-status machinery is built and tested for a later pass.
+
+**Crucible ledger.** S1 gradient **SURVIVES** / S1 H1-dims **RESIZED** / S1 H2-amplification **RESIZED** ·
+S2 **SURVIVES** · S3 **SURVIVES** · S4 **deferred** · S5 **SURVIVES**.
+
+---
+
+**Move One is closed, and hardened.** The atlas exists, it is honest about its holes, and — Crucible now
+shows — its *load-bearing* finding, the approx⟷parameterized gradient, survives every check brought against
+it: the null model, dedup, a p<0.001, and an adversarial roster. Two claims resized honestly along the way
+(§8) — the dimension count is typing-driven, and the multiplet amplifications do not exceed typing. Nothing
+shipped until that was on the record.

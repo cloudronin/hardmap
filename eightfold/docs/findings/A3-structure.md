@@ -1,5 +1,12 @@
 # A3 — Structure detection over the charge atlas
 
+> **Roster + Crucible note (Rider A).** These verdicts refer to the **frozen 118-row atlas**
+> (`atlas.jsonl`, sha256 `6d53a4f1…`). They were subsequently stress-tested under adversarial self-review
+> (Crucible v1.1, prereg_v6) — see [A4 §8](A4-charge-atlas-move-one.md#8-crucible-results--adversarial-self-review-v11)
+> for the augmented-roster reruns. Net: the approx⟷parameterized gradient **survived** every attack; H1's
+> dimension **count** and the H2 **amplifications** were **resized** (typing-consistent). Read the H1/H2
+> verdicts below with A4 §8.
+
 **Verdict:** **H1 SUPPORTED · H2 SUPPORTED · H3 SUPPORTED.**
 
 > Hardness is a **vector, not a scalar** — at least 5 effective dimensions survive the most

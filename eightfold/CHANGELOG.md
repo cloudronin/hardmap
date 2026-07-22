@@ -237,3 +237,12 @@
   0.73→0.66 but it persists at permutation **p=0.0001**. The gradient is NOT roster sociology. **S4 deferred**
   — S1 showed the dimension count is typing-driven regardless of n, so anchor-growth is no longer load-bearing;
   the `derived` machinery is built and tested for a later pass. 61 tests. **Next: V4 (amended A4).**
+- **V4 — amended A4 (Crucible closed).** [`A4-charge-atlas-move-one.md`](docs/findings/A4-charge-atlas-move-one.md)
+  §8 "Crucible results" appendix banks every verdict — the approx⟷param **gradient SURVIVES S1/S2/S3/S5**;
+  **H1's dimension count + the H2 amplifications RESIZED** under the S1 null; S4 deferred — with a ledger
+  line. The headline blockquote now leads with the *gradient* (the survivor), not the dimension count or the
+  amplifications; §5's unquantified "Some" is quantified (statistically ~all of the dimension count is
+  typing-driven); §2 H1/H2 carry resize pointers; §7 notes three original caveats (row-independence,
+  no-p-values, sociology) are now *tested*, not open. **Rider A** provenance: §8 numbers labelled
+  frozen-118 vs augmented-119, and A3-structure.md gets a header note pointing to §8 (frozen sha256). No
+  RESIZED verdict argued back to SURVIVES. **Crucible v1.1 complete — nothing shipped until this existed.**
