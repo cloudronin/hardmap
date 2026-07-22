@@ -51,43 +51,67 @@ def _contingency(rows):
     return both
 
 
-def p2_gradient(entries=None, m=1000, seed=X.SEED, n_perm=20000):
+def _perm_p_on_table(xs, ys, n_perm, seed):
+    """CORRECT permutation test for association between two aligned label lists: permute ys among ITS OWN rows
+    (the contingency table), recompute Cramer's V, p = (#perm with V>=real + 1)/(n_perm+1). This is the fix for
+    the Sprint-3 bug, where parameterized was permuted among ALL non-n.a. cells (incl. domain-3 `open`), which
+    injected extra values and made the p-value arithmetically impossible. Verified by selftest_p2_perm()."""
+    real_v = S.cramers_v(xs, ys)
+    if real_v != real_v:
+        return {"real_v": None, "p": None}
+    rng = np.random.default_rng(seed)
+    ys = list(ys)
+    ge = 0
+    for _ in range(n_perm):
+        v = S.cramers_v(xs, list(rng.permutation(ys)))
+        if v == v and v >= real_v - 1e-9:
+            ge += 1
+    return {"real_v": round(real_v, 3), "p": round((ge + 1) / (n_perm + 1), 4)}
+
+
+def selftest_p2_perm(n_perm=20000):
+    """The permutation p on the census's both-real shape (6 identical + 1 distinct) must reproduce the
+    hand-countable p = 1/7 (V=1.0 exactly when the lone FPT lands on the lone inapprox row). A tiny 3-row case
+    gives p = 1/3. Byte-identical ethic for statistics: a broken test is a bug, not a verdict."""
+    r7 = _perm_p_on_table(["APX"] * 6 + ["inapprox"], ["W1"] * 6 + ["FPT"], n_perm, X.SEED)
+    r3 = _perm_p_on_table(["A", "A", "B"], ["y", "y", "x"], n_perm, X.SEED)
+    ok7 = r7["real_v"] == 1.0 and 0.11 < r7["p"] < 0.18          # exact 1/7 = 0.1429
+    ok3 = r3["real_v"] == 1.0 and 0.28 < r3["p"] < 0.40          # exact 1/3 = 0.3333
+    print(f"P2 permutation selftest: 7-row p={r7['p']} (exact 1/7=0.143), 3-row p={r3['p']} (exact 1/3=0.333)"
+          f" -> {'PASSED' if ok7 and ok3 else 'FAILED'}")
+    return 0 if (ok7 and ok3) else 1
+
+
+def p2_gradient(entries=None, seed=X.SEED, n_perm=20000):
+    """P2 on the census — CORRECTED and DISPOSITIONED HONESTLY. The both-real table is only the 7 Boolean rows
+    (domain-3 leaves approx+param `open`), and 6 of them are identical: this cannot test the gradient. Verdict:
+    INSUFFICIENT RESOLUTION (the same disposition the Boolean tier already carries). The direction-reversal is a
+    DESCRIPTIVE observation + a pre-registered hypothesis for the scaled census — NOT a ruling, and NOT evidence
+    for 'roster sociology' (Crucible S5 retired that explanation on the actual canon at p=0.0001; a 7-row
+    theorem-world anecdote cannot reinstate it)."""
     entries = full_census() if entries is None else entries
     _, _, base = S._grid(entries)
     both = _contingency(base)
-    real_v = X._both_real_v(base, CA, CB, FOUNDRY_SPEC)
-    # S1 null envelope (marginals + n.a. typing + entailment preserved; values swap-shuffled)
-    rng = np.random.default_rng(seed)
-    null_vs = [X._both_real_v(rows, CA, CB, FOUNDRY_SPEC)
-               for rows in X._null_chain(base, rng, X.S1_BURN, X.S1_THIN, m, FOUNDRY_SPEC)]
-    env = X._envelope(real_v, null_vs)
-    # permutation p — free shuffle of the parameterized column among applicable cells
-    idx = [i for i, r in enumerate(base) if r[CB] != "n.a."]
-    vals = [base[i][CB] for i in idx]
-    arr = [dict(r) for r in base]
-    ge = 0
-    rv = real_v if real_v == real_v else -1.0
-    for _ in range(n_perm):
-        perm = rng.permutation(vals)
-        for k, i in enumerate(idx):
-            arr[i][CB] = perm[k]
-        v = X._both_real_v(arr, CA, CB, FOUNDRY_SPEC)
-        if v == v and v >= rv:
-            ge += 1
-    perm_p = (ge + 1) / (n_perm + 1)
-    # the affine/XOR deceptive-terrain decoupling witness (hard-approx + easy-param), reproduced from the canon
+    xs = [a for a, b in both]
+    ys = [b for a, b in both]
+    perm = _perm_p_on_table(xs, ys, n_perm, seed)
+    distinct = sorted(set(both))
     xor = next((e for e in entries if e.problem_id == "xor-sat"), None)
     xor_cells = {c.charge: c.value for c in xor.charges} if xor else {}
     return {
-        "attack": "P2_gradient_census", "n_both_real": len(both), "both_real_pairs": sorted(set(both)),
-        "gradient_v": (round(real_v, 3) if real_v == real_v else None), "perm_p": round(perm_p, 4), "n_perm": n_perm,
-        "s1_null_envelope": {k: (round(v, 3) if isinstance(v, float) else v) for k, v in env.items()},
-        "beats_null": env["real_above_p97_5"],
-        "decoupling_witness": {"xor-sat": {"approximation": xor_cells.get(CA), "parameterized": xor_cells.get(CB)}},
-        "rule": ("SURVIVES iff the census approx|param V beats its S1 null (one-sided) AND permutation p<0.05. "
-                 "At the v1 census n this is expected to be underpowered/inconclusive (a pre-registered K2 "
-                 "outcome). The DIRECTION is the finding: the affine/XOR decoupling (hard-approx + easy-param) "
-                 "runs opposite to the canon's positive gradient."),
+        "attack": "P2_gradient_census",
+        "disposition": "INSUFFICIENT_RESOLUTION",
+        "n_both_real": len(both), "n_distinct_both_real_rows": len(distinct), "both_real_pairs": distinct,
+        "gradient_v": perm["real_v"], "perm_p": perm["p"], "n_perm": n_perm, "exact_perm_p_by_counting": round(1 / 7, 4),
+        "descriptive_observation": {
+            "direction": "REVERSED vs the canon (harder-approx co-occurs with EASIER param)",
+            "decoupling_witness_xor_sat": {"approximation": xor_cells.get(CA), "parameterized": xor_cells.get(CB)},
+            "note": "one distinctive row (affine/XOR) against six identical rows — an anecdote with V=1.0, not a test."},
+        "s1_null": "not a ruling at this resolution — 7 both-real rows, 6 identical; the S1 null is uninformative here",
+        "roster_sociology": "STRUCK — contradicts Crucible S5 (roster exhausted with every known violator; gradient survived p=0.0001). Not reinstated by a 7-row anecdote.",
+        "rule": ("A 7-row both-real table with 6 identical rows cannot test the gradient (permutation p=1/7≈0.143 "
+                 "by counting, non-significant by construction). Disposition = INSUFFICIENT RESOLUTION. The "
+                 "direction-reversal is logged descriptively and pre-registered for the scaled census (prereg_v3)."),
     }
 
 
@@ -100,16 +124,25 @@ def p3_factors(entries=None, budget=None):
         b.update(budget)
     lcm = F.estimate_rows(rows, FOUNDRY_SPEC, **b)
     return {
-        "attack": "P3_factors_census", "n_rows": len(rows), "n_distinct_profiles": lcm["n_distinct_profiles"],
+        "attack": "P3_factors_census", "disposition": "DIVERGENT (directional at n=13)",
+        "n_rows": len(rows), "n_distinct_profiles": lcm["n_distinct_profiles"],
         "census_k_hat_1se": lcm["k_hat_1se"], "census_interval": lcm["interval"], "census_curve": lcm["curve"],
         "reference_canon": {"k_hat_1se": 1, "note": "canon read k*=1 (Factors v1/v1.1)"},
         "same_world": lcm["k_hat_1se"] <= 1,
-        "rule": ("prereg_v2 P3a: SAME-WORLD iff census k*_hat <= 1 (both universes carry no global latent "
-                 "dimensionality beyond marginals). At n=13 this is underpowered — a small census is mechanically "
-                 "low-dimensional; the meaningful comparison needs Foundry-scale data."),
+        "caveats_promoted": {
+            "power": "n=13 with ~1-2 masked cells per fold — k*=3 is directional at best, not a precise count.",
+            "the_real_finding": ("caveat 2 IS the finding: the comparison as operationalized contrasts a "
+                                 "THEOREM-COUPLED construction (census charges derived from one another by the "
+                                 "dichotomies) against an EMPIRICAL population (canon charges from independent "
+                                 "literature), so divergence was structurally likely regardless of what hardness "
+                                 "is. k*=3 is the census re-expressing its own entailment, not emergent structure."),
+            "v1.1_path": "R25-net the census's factor structure; refine the Boolean tier to escape profile poverty."},
+        "rule": ("prereg_v2 P3a: SAME-WORLD iff census k*_hat <= 1. Census k*_hat > 1 -> DIVERGENT, but reported "
+                 "as DIRECTIONAL at n=13; the meaningful comparison needs Foundry-scale data + R25-netting."),
     }
 
 
-def run_all(m=1000):
+def run_all():
     return {"census": "boolean-coclone(7) + general-domain-|D|=3(6) = 13 rows",
-            "noise_floor": noise_floor(), "P2": p2_gradient(m=m), "P3": p3_factors()}
+            "p2_perm_selftest_passes": selftest_p2_perm(n_perm=5000) == 0,
+            "noise_floor": noise_floor(), "P2": p2_gradient(), "P3": p3_factors()}

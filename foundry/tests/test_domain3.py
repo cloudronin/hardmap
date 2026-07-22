@@ -45,11 +45,20 @@ def test_full_census_p1_calibration_holds():
     assert npi == []
 
 
-def test_p2_decoupling_witness_present():
-    # the affine/XOR row is the deceptive-terrain DECOUPLING: hard-approx (inapprox) + easy-param (FPT)
-    p2 = A.p2_gradient(m=40, n_perm=200)
-    assert p2["decoupling_witness"]["xor-sat"] == {"approximation": "inapprox", "parameterized": "FPT"}
-    assert p2["n_both_real"] == 7  # only the Boolean tier fills both approx and parameterized
+def test_p2_permutation_selftest_reproduces_hand_count():
+    # the fix for the impossible p=0.0002: the permutation must run on the both-real rows only, so a table with
+    # 6 identical + 1 distinct row gives the hand-countable p = 1/7 (and a 3-row analogue gives 1/3)
+    assert A.selftest_p2_perm(n_perm=4000) == 0
+
+
+def test_p2_disposition_is_insufficient_resolution():
+    p2 = A.p2_gradient(n_perm=4000)
+    assert p2["disposition"] == "INSUFFICIENT_RESOLUTION"
+    assert p2["n_both_real"] == 7 and p2["n_distinct_both_real_rows"] == 2
+    assert 0.10 < p2["perm_p"] < 0.20                     # ~1/7, non-significant by construction
+    # the affine/XOR decoupling is a DESCRIPTIVE observation, not a ruling; sociology is struck (contradicts S5)
+    assert p2["descriptive_observation"]["decoupling_witness_xor_sat"] == {"approximation": "inapprox", "parameterized": "FPT"}
+    assert "STRUCK" in p2["roster_sociology"]
 
 
 def test_p3_factors_harness_runs():

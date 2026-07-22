@@ -1,118 +1,100 @@
-# Sprint 3 — the canon-vs-computation verdicts (P2, P3) on the synthetic census
+# Sprint 3 — the census verdicts (P2, P3), corrected
 
-**Two verdicts, both DIVERGENT from the human canon — and both honest at v1's tiny scale (n=13).**
+**P2 → INSUFFICIENT RESOLUTION. P3 → DIVERGENT (directional at n=13).** At v1 census scale (13 rows) neither
+question is powered; both are reported at their true size, and the one genuinely new object is stated as a
+one-row observation plus a single pre-registered hypothesis for the scaled census.
 
-> **P2 (gradient):** the census carries a *strong, significant* approximation⟷parameterized coupling (V=1.0,
-> permutation p=0.0002, beats its S1 null) — **but with the direction REVERSED.** The affine/XOR row is
-> `(inapprox, FPT)` = hard-to-approximate yet *easy* to parameterize; the canon's gradient is
-> harder-approx→harder-param. The generated Boolean world's dominant approx/param signal is the **deceptive-terrain
-> decoupling**, not the canon's positive gradient. → **RESIZE** (the pre-registered canon's-world outcome).
->
-> **P3 (dimensionality):** the census reads **k\*=3** under the identical Factors estimator, **not** the canon's
-> **k\*=1** → **DIVERGENT** (prereg_v2 P3a). The generated world is *more* structured — but that structure is
-> **theorem-forced** (the classification dichotomies couple the charges by construction), whereas the canon's
-> charges are empirically near-independent. The census re-expresses its own dichotomies; it does not reproduce
-> the canon's shape.
+> **Correction (this supersedes the first-pass Sprint-3 writeup).** The first pass reported a P2 permutation
+> p=0.0002 and read it as a "roster sociology" ruling. **Both were wrong.** (1) The p-value was a **bug**: the
+> harness permuted `parameterized` among *all* non-`n.a.` cells — which injected the 6 domain-3 `open` values —
+> instead of permuting among the 7 both-real rows. On the correct table (6 identical rows + 1 distinct) the
+> permutation p is **1/7 ≈ 0.143 by counting**, non-significant; a selftest now reproduces 1/7 and 1/3 exactly
+> (`foundry.analysis.selftest_p2_perm`). Fixing a broken statistic is the byte-identical ethic applied to
+> statistics, not arguing a verdict back. (2) The **"roster sociology" sentence is struck** — it contradicts a
+> banked verdict: Crucible **S5** retired that explanation on the actual canon (roster deliberately exhausted
+> with every known violator; the gradient survived at p=0.0001). A 7-row theorem-world anecdote cannot reinstate
+> it.
 
-**The canon-vs-computation answer, stated plainly:** the human-curated atlas and the theorem-generated census
-**disagree on both structure and dimensionality**, for an illuminating reason — they source their charge values
-differently. The canon's charges are independent literature facts (empirically incompressible, k\*=1, with a
-weak positive approx/param gradient that is roster sociology). The census's charges are outputs of the
-classification theorems (coupled by construction, k\*=3, with the affine decoupling dominating). **The canon's
-structure is not manufactured by curation — if anything the invented universe is the more structured one, because
-its structure is the dichotomies talking to themselves.**
-
-**Provenance.** Pre-registered in [`prereg_v2.json`](../../foundry/results/prereg/prereg_v2.json) (P3 reframed
-before any census run, riders R-i/R-vi). Census: [`census.jsonl`](../../foundry/results/census/census.jsonl)
-(sha `4de6d772…`, 13 rows). Machine output:
-[`census_analysis.json`](../../foundry/results/census/census_analysis.json) (sha `93676357…`,
-`foundry.analysis.run_all`). Estimator: the IDENTICAL `eightfold.factors` LCM + `crucible._null_chain`/`_both_real_v`
-under `FOUNDRY_SPEC` — no eightfold modification (byte-identical). **Report at size: n=13 is tiny; these are
-directional v1 findings, and the meaningful comparison needs Foundry-scale data (the pre-registered path).**
+**Provenance.** Pre-registered in [`prereg_v2.json`](../../foundry/results/prereg/prereg_v2.json) (P3) and
+[`prereg_v3.json`](../../foundry/results/prereg/prereg_v3.json) (the scaled-census P2 hypothesis). Census:
+[`census.jsonl`](../../foundry/results/census/census.jsonl) (13 rows). Output:
+[`census_analysis.json`](../../foundry/results/census/census_analysis.json) (sha `7a468a7f…`). Estimator: the
+identical `eightfold.factors` + corrected permutation test under `FOUNDRY_SPEC` — no eightfold modification.
 
 ---
 
-## The census (Sprint 2.2 — the N3 general-domain tier)
+## The census (Sprint 2.2 — the N3 general-domain tier) — stands unchanged
 
-13 rows = **7 Boolean co-clone** (N1) + **6 general-domain |D|=3** (N3), **7 distinct charge profiles**, validates
-clean through the shared kernel, P1 NPI calibration still passes.
+13 rows = **7 Boolean co-clone** (N1) + **6 general-domain |D|=3** (N3), **7 distinct profiles**, validates clean,
+**P1 still passes**, **K1 did not fire**. The domain-3 tier is a curated set of textbook-certain languages, each
+re-verified by the polymorphism machinery, filling only the **verified general-domain** charges — **decision**
+(Bulatov 2017 / Zhuk 2020: P iff a WNU polymorphism exists) and **localization** (Barto–Kozik 2014, general;
+affine is Maltsev-tractable but unbounded). counting/approximation/parameterized stay `open` for domain-3 (the
+Boolean dichotomies do not transfer — honest). R20 caught a mislabelled "betweenness" mid-build (majority-closed
+over the fixed 3-element domain → tractable) and refused the NP-complete label.
 
-The domain-3 tier is a **curated set of textbook-certain languages, each re-verified by the polymorphism
-machinery** (Boolean → general-domain: the closure operators are domain-agnostic). Only the charges whose
-dichotomy is *verified general-domain* are filled (R20); the rest are `open` (the Boolean dichotomies do not
-transfer):
+## 3.1 — between-generation noise floor — stands unchanged
 
-| Charge | Domain-3 oracle | Verified |
+Both tiers are deterministic → **generations-exempt**; the sampled polymorphism-profile explorer drifts ≤ **0.083**
+across G=3. The census rows are deterministic, so the verdicts below are exact.
+
+## 3.2 — P2: INSUFFICIENT RESOLUTION
+
+The both-real approximation|parameterized table is **only the 7 Boolean rows** (domain-3 leaves both `open`), and
+**six of them are identical**:
+
+| rows | approximation | parameterized |
 |---|---|---|
-| **decision** | **Bulatov 2017 / Zhuk 2020** — CSP(Γ) ∈ P iff Γ has a WNU polymorphism, else NP-complete | lin-eq-Z₃/order/median → P; 3-coloring/NAE-3 → NPC (polymorphism test agrees with textbook) |
-| **localization** | **Barto–Kozik 2014** (general domain) — bounded width iff WNU of all arities; a semilattice/majority gives it, affine (Maltsev-only) does not | order/median → bounded; affine → unbounded (the |D|=3 analogue of Boolean XOR); NPC → unbounded |
-| counting / approximation / parameterized / proof_size / instruments | Boolean Creignou–Hermann / KSTW / Marx do **not** transfer; general-domain analogues unverified | `open` (honest) |
+| horn / dual-horn / 2-sat / 3-sat / nae / 1-in-3 ×6 | APX-complete | W[1] |
+| xor-sat (affine) ×1 | inapprox | FPT |
 
-The R20 discipline caught a real error mid-build: a naïve "betweenness" encoding over the fixed 3-element domain
-turned out majority-closed (tractable), so the polymorphism test **refused the NP-complete label** — it was
-replaced with a second affine language.
+A 7-row table with six identical rows **cannot test the gradient.** V=1.0 is real but empty: the permutation p is
+**1/7 ≈ 0.143** (V=1.0 exactly when the lone FPT lands on the lone inapprox row) — the corrected harness returns
+0.149, non-significant. **Disposition: INSUFFICIENT RESOLUTION**, the same disposition the Boolean tier already
+carries on this question. One distinctive row is an anecdote wearing a V of 1.0.
 
-## 3.1 — between-generation noise floor
+**The one genuinely new object, at its honest one-row size:** in the theorem-generated world the affine/XOR
+**decoupling** — `(inapprox, FPT)`, hard-to-approximate yet FPT — is *not an outlier*; on this census it **is the
+entire approx|parameterized axis.** That connects directly to **I6**: affine is the sole bounded-width obstruction
+(Barto–Kozik) — the one language easy to solve, resistant to local consistency, FPT (Maltsev) yet inapproximable
+(Håstad). It is a **descriptive observation**, not a ruling, and it earns **exactly one pre-registered
+hypothesis** for the scaled census ([`prereg_v3.json`](../../foundry/results/prereg/prereg_v3.json), `H_P2_scaled`):
+as the Boolean tier refines to many distinct rows, does the approx|param association go **(a) positive**
+(canon-like), **(b) stay reversed** (affine-dominated), or **(c) split by stratum**? **That, at scale, is the real
+P2.**
 
-Both census tiers are **deterministic** (curated CKZ / CKZ-analogue representatives) → **generations-exempt**
-(the prereg's calibration property). The only sampled component is the domain-3 polymorphism-profile *explorer*;
-across G=3 generations its profile-share vector drifts by at most **0.083**. Because the census rows themselves
-are deterministic, the P2/P3 verdicts below are **exact**, not subject to this drift.
+The canon's positive gradient is **not** touched by this: it survived Crucible S1/S2/S3 and the **S5** adversarial
+roster at p=0.0001. Nothing here reinstates "roster sociology."
 
-## 3.2 — P2 gradient verdict: RESIZE (reversed direction)
+## 3.3 — P3: DIVERGENT (directional at n=13), with the caveat promoted to the finding
 
-Both-real approx|parameterized rows (only the Boolean tier fills both charges; domain-3 leaves them `open`):
+The identical LCM held-out-prediction estimator on the 13-row census reads **k\*=3** (interval [3,4,5]; curve
+0.67→0.62→0.75), against the canon's **k\*=1**. Per prereg_v2 P3a (SAME-WORLD iff census k\*≤1), the census is
+**DIVERGENT** — but two caveats *are* the finding, not footnotes to it:
 
-| rows | approximation | parameterized | reading |
-|---|---|---|---|
-| xor-sat (affine) ×1 | **inapprox** (hardest approx) | **FPT** (easiest param) | the **decoupling** — hard-approx, easy-param |
-| horn/dual-horn/2-sat/3-sat/nae/1-in-3 ×6 | APX-complete | W[1] | medium/medium |
+1. **Power.** n=13 with ~1–2 masked cells per fold. **k\*=3 is directional at best, not a precise count.**
+2. **The comparison was structurally loaded.** The census's charges are **derived from one another by the
+   classification theorems** (counting=FP iff affine, localization tracks the polymorphisms, decision splits on
+   the same algebra); the canon's charges are **independent literature facts**. So the operationalized comparison
+   contrasts a **theorem-coupled construction** against an **empirical population** — divergence was structurally
+   likely *regardless of what hardness is*. k\*=3 is the census re-expressing its own entailment layer, not
+   emergent structure.
 
-V=1.0 (perfect association), permutation **p=0.0002**, and it **beats the S1 null** (null-mean V=0.22, real
-outside the envelope). So an association is unambiguously present — but read the **direction**: as approximation
-gets *harder* (APX-complete→inapprox) parameterized gets *easier* (W[1]→FPT), the **opposite** of the canon's
-"harder→harder" gradient. In the co-clone world the affine/XOR **deceptive-terrain control** (the pre-registered
-distinctive placement) is not a lone outlier — it **defines** the approx/param axis. **Verdict: the canon's
-positive gradient does not persist with direction intact → RESIZE**, the pre-registered "canon's-world" outcome
-(the positive gradient was partly roster sociology; the theorem-world's coupling is the decoupling).
+So P3 is DIVERGENT, but the honest reading is not "the census is richer" — it is "the two atlases encode
+different objects, and the comparison as posed could hardly have come out otherwise." **P3 becomes meaningful only
+after the v1.1 path: R25-net the census's factor structure (remove the theorem-forced component) and refine the
+Boolean tier to escape profile poverty.**
 
-## 3.3 — P3 dimensionality verdict: DIVERGENT (census k\*=3 ≠ canon k\*=1)
+## What stands, what was struck
 
-The identical LCM held-out-prediction estimator on the 13-row census: held-out accuracy k=1 **0.67**, k=2 0.62,
-k=3 **0.75**, k=4/5 0.75 → **k\*=3** (interval [3,4,5]). Per prereg_v2 P3a (SAME-WORLD iff census k\*≤1): the
-census is **DIVERGENT** from the canon's k\*=1.
-
-But the divergence's *meaning* is the finding, not the number. The census's charges are **derived from one
-another by the classification theorems** — counting=FP iff affine, localization tracks the polymorphisms,
-decision splits on the same algebra — so the rows lie on a low-dimensional manifold **by construction**. k\*=3 is
-the census re-expressing its own entailment structure, **not** an emergent common cause. The canon's k\*=1, by
-contrast, is a statement about *empirically sourced* charges that turned out predictively incompressible. So the
-honest reading is not "the census is richer" but "**the two atlases encode fundamentally different objects** — a
-theorem-coupled construction versus an empirical population — and their factor structure differs accordingly."
-The hoped-for same-verdict-both-worlds does **not** hold.
-
-## Honest caveats
-
-1. **n=13 is tiny.** Held-out CV masks ~1–2 cells per fold; k\*=3 is a directional signal, not a precise count.
-   What is robust: the census does **not** collapse to the canon's k\*=1, and the approx/param association is the
-   affine decoupling. Both need Foundry-scale confirmation.
-2. **The census's structure is theorem-forced.** Its associations are largely the entailment layer (R25) by
-   construction; a v1.1 analysis should R25-net the census's factor structure before calling any residual
-   emergent. The current k\*=3 is not net of the dichotomy coupling.
-3. **The domain-3 tier fills only 2 charges** (decision, localization) — the Boolean-specific dichotomies
-   (counting/approximation/parameterized) do not transfer, so the domain-3 rows contribute nothing to P2 and
-   little to P3. A richer general-domain census needs verified domain-3 counting/approximation oracles (a real
-   research lift), or a finer Boolean tier (0-/1-valid, chains — the documented v1.1 extension).
-4. **No prior verdict argued back.** The canon's k\*=1 and its RESIZED Crucible verdicts stand; Foundry reports
-   its own, DIVERGENT, world at size.
+**Stands:** the census build + provenance, P1 passing, K1 not firing, the domain-3 tier's honest 2-charge scope,
+the generations-exemption logic, and P3's DIVERGENT verdict (with caveats promoted). **Struck:** the P2 p=0.0002
+(bug → 1/7) and the "canon's-world / roster sociology" ruling (contradicts S5). **No banked verdict is argued
+back;** the correction removes an unsupported claim and a broken number.
 
 ## Forward
 
-- The **program's central question is answered directionally at v1**: the canon's low-dimensional,
-  positive-gradient structure is **not reproduced** by a theorem-generated census — because the census's charges
-  are dichotomy-coupled, not empirically sourced. Same-verdict-both-worlds is refuted at v1 scale.
-- The **decisive test needs scale**: a much larger census (finer Boolean co-clones + verified domain-3
-  counting/approximation) and an R25-netted factor analysis. That is the Foundry-scale path prereg_v2 anticipates.
-- **Kill status:** K1 (domain-3 oracle) did NOT fire — decision+localization were verified general-domain in the
-  timebox. K2 (profile poverty) is partially live: 7 distinct profiles is thin for a factor claim, which is why
-  P3 is reported at size.
+- **The real P2 is `H_P2_scaled` at scale** (prereg_v3): positive / reversed / stratified, on a refined Boolean
+  tier with the corrected, selftest-locked permutation test + R25-netting.
+- **The real P3 needs R25-netting + more distinct profiles** before "does the invented world agree" is a fair
+  question. The v1 answer is: at this scale, structurally divergent, not yet informative about hardness.

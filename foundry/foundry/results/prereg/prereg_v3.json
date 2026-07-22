@@ -1,0 +1,18 @@
+{
+  "prereg_version": "v3",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "committed_before_analysis": true,
+  "supersedes": "v2 (targeted addition: one pre-registered hypothesis for the SCALED census, from the one honest object Sprint 3 produced; all other v2/v1 content stands unchanged)",
+  "label": "scaled-census P2 hypothesis (post Sprint-3 correction)",
+  "note": "Sprint 3's P2 on the v1 census was INSUFFICIENT RESOLUTION: the both-real approx|parameterized table is 7 rows, 6 of them identical (APX-complete, W[1]) and one distinct (inapprox, FPT). A permutation p on that shape is 1/7≈0.143 by counting (a bug had reported 0.0002 — parameterized was permuted among all non-n.a. cells incl. domain-3 `open`; fixed, with a selftest that reproduces 1/7). The only honest scientific object from that sprint is a ONE-ROW descriptive observation, promoted here to a single pre-registered hypothesis for when the census scales.",
+
+  "H_P2_scaled": {
+    "the_object": "In the theorem-generated Boolean world, the affine/XOR row is (approximation=inapprox, parameterized=FPT) — hard-to-approximate yet FPT. The deceptive-terrain control is not an outlier here; on the v1 census it is the entire approx|parameterized axis. This connects to I6: affine is the SOLE bounded-width obstruction (Barto-Kozik), i.e. the one language that is easy to solve yet resists local consistency AND (Maltsev) is FPT while (Håstad) inapproximable.",
+    "prediction": "As the Boolean tier refines (0-/1-valid, S0^k/S1^k chains, intersections — the documented v1.1 roster expansion) so the both-real approx|parameterized table has many distinct rows, the association resolves to ONE of three pre-stated outcomes.",
+    "decision_rule": "On the SCALED census (>= a pre-set distinct-row floor to be fixed in the roster-expansion prereg), compute the both-real approx|parameterized Cramer's V with the CORRECTED permutation test (permute among the both-real rows only; selftest-locked) and R25-net the entailment-forced component. Then classify: (a) POSITIVE / canon-like — harder-approx co-occurs with harder-param (the canon's direction reproduces under generation); (b) REVERSED / affine-dominated — the decoupling generalizes beyond affine (hard-approx co-occurs with easy-param broadly); (c) STRATIFIED — the sign splits by co-clone stratum (e.g. positive within the NP-hard region, reversed on the tractable-but-inapproximable languages). This is the REAL P2.",
+    "not_a_ruling_at_v1": "The v1 direction-reversal is DESCRIPTIVE only and is NOT evidence that the canon's gradient is 'roster sociology' — Crucible S5 already retired that explanation on the actual canon (roster exhausted with every known violator; gradient survived at p=0.0001). A 7-row theorem-world anecdote cannot reinstate a hypothesis a dedicated adversarial attack on the real data has retired.",
+    "status": "pre-registered for the scaled census; UNTESTED at v1 (insufficient resolution)"
+  },
+
+  "unchanged_from_v2": "P3's reframed operationalization (P3a census dimensionality, P3b gradient-both-worlds), the registration anchors + projection-not-inclusion, and everything carried into v2 from v1 (P1, roster/generations policy, kill thresholds) stand exactly. Only the single scaled-census P2 hypothesis is added here."
+}

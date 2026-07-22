@@ -1,5 +1,6 @@
 {
   "census": "boolean-coclone(7) + general-domain-|D|=3(6) = 13 rows",
+  "p2_perm_selftest_passes": true,
   "noise_floor": {
     "deterministic_tiers_exempt": [
       "boolean-coclone",
@@ -44,7 +45,9 @@
   },
   "P2": {
     "attack": "P2_gradient_census",
+    "disposition": "INSUFFICIENT_RESOLUTION",
     "n_both_real": 7,
+    "n_distinct_both_real_rows": 2,
     "both_real_pairs": [
       [
         "APX-complete",
@@ -56,28 +59,24 @@
       ]
     ],
     "gradient_v": 1.0,
-    "perm_p": 0.0002,
+    "perm_p": 0.1489,
     "n_perm": 20000,
-    "s1_null_envelope": {
-      "real": 1.0,
-      "null_mean": 0.217,
-      "null_p2.5": 0.0,
-      "null_p97.5": 1.0,
-      "real_above_p97_5": true,
-      "real_outside_95": true,
-      "one_sided_p_ge": 0.0
-    },
-    "beats_null": true,
-    "decoupling_witness": {
-      "xor-sat": {
+    "exact_perm_p_by_counting": 0.1429,
+    "descriptive_observation": {
+      "direction": "REVERSED vs the canon (harder-approx co-occurs with EASIER param)",
+      "decoupling_witness_xor_sat": {
         "approximation": "inapprox",
         "parameterized": "FPT"
-      }
+      },
+      "note": "one distinctive row (affine/XOR) against six identical rows — an anecdote with V=1.0, not a test."
     },
-    "rule": "SURVIVES iff the census approx|param V beats its S1 null (one-sided) AND permutation p<0.05. At the v1 census n this is expected to be underpowered/inconclusive (a pre-registered K2 outcome). The DIRECTION is the finding: the affine/XOR decoupling (hard-approx + easy-param) runs opposite to the canon's positive gradient."
+    "s1_null": "not a ruling at this resolution — 7 both-real rows, 6 identical; the S1 null is uninformative here",
+    "roster_sociology": "STRUCK — contradicts Crucible S5 (roster exhausted with every known violator; gradient survived p=0.0001). Not reinstated by a 7-row anecdote.",
+    "rule": "A 7-row both-real table with 6 identical rows cannot test the gradient (permutation p=1/7≈0.143 by counting, non-significant by construction). Disposition = INSUFFICIENT RESOLUTION. The direction-reversal is logged descriptively and pre-registered for the scaled census (prereg_v3)."
   },
   "P3": {
     "attack": "P3_factors_census",
+    "disposition": "DIVERGENT (directional at n=13)",
     "n_rows": 13,
     "n_distinct_profiles": 7,
     "census_k_hat_1se": 3,
@@ -118,6 +117,11 @@
       "note": "canon read k*=1 (Factors v1/v1.1)"
     },
     "same_world": false,
-    "rule": "prereg_v2 P3a: SAME-WORLD iff census k*_hat <= 1 (both universes carry no global latent dimensionality beyond marginals). At n=13 this is underpowered — a small census is mechanically low-dimensional; the meaningful comparison needs Foundry-scale data."
+    "caveats_promoted": {
+      "power": "n=13 with ~1-2 masked cells per fold — k*=3 is directional at best, not a precise count.",
+      "the_real_finding": "caveat 2 IS the finding: the comparison as operationalized contrasts a THEOREM-COUPLED construction (census charges derived from one another by the dichotomies) against an EMPIRICAL population (canon charges from independent literature), so divergence was structurally likely regardless of what hardness is. k*=3 is the census re-expressing its own entailment, not emergent structure.",
+      "v1.1_path": "R25-net the census's factor structure; refine the Boolean tier to escape profile poverty."
+    },
+    "rule": "prereg_v2 P3a: SAME-WORLD iff census k*_hat <= 1. Census k*_hat > 1 -> DIVERGENT, but reported as DIRECTIONAL at n=13; the meaningful comparison needs Foundry-scale data + R25-netting."
   }
 }

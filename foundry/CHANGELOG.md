@@ -69,13 +69,17 @@
   `census_analysis.json`). Built from the already-spec-threaded eightfold primitives (`crucible._null_chain` /
   `_both_real_v`, `eightfold.factors`) under FOUNDRY_SPEC — **no eightfold modification**. **3.1 noise floor:**
   both tiers deterministic → generations-exempt; the sampled explorer drifts ≤0.083, so the census verdicts are
-  exact. **3.2 P2 → RESIZE:** a strong significant approx|param coupling (V=1.0, perm p=0.0002, beats the S1
-  null) but **direction REVERSED** — the affine/XOR decoupling (inapprox+FPT: hard-approx, easy-param) *defines*
-  the axis, opposite the canon's positive gradient (the deceptive-terrain control asserts itself). **3.3 P3 →
-  DIVERGENT:** the identical Factors estimator reads census **k\*=3** (interval [3,4,5]), not the canon's k\*=1 —
-  but the census's structure is **theorem-forced** (the dichotomies couple the charges by construction), so it
-  re-expresses its own entailment, it does not reproduce the canon's shape. **Answer (v1, n=13, directional):
-  the human canon and the theorem-generated census DISAGREE on both structure and dimensionality, because they
-  source charge values differently — empirical literature (canon k\*=1, positive gradient) vs classification
-  theorems (census k\*=3, affine decoupling).** Reported honestly at size; the decisive test needs Foundry-scale
-  data + R25-netting. 24 foundry tests. **Next: N4 instrument columns (Sprint 4); a larger census for a powered P3.**
+  exact. **3.2 P2 → INSUFFICIENT RESOLUTION:** the both-real approx|param table is 7 rows, **6 identical** — it
+  cannot test the gradient. Corrected permutation **p=1/7≈0.143** (non-significant), after a **bug** that had
+  permuted parameterized among all non-`n.a.` cells (injecting the 6 domain-3 `open` values) and reported an
+  arithmetically-impossible 0.0002; a **selftest now reproduces 1/7 and 1/3 exactly**. The direction-reversal
+  (affine/XOR decoupling: inapprox+FPT) is a **descriptive one-row observation** + a single pre-registered
+  hypothesis for the scaled census (**`prereg_v3` H_P2_scaled**: positive / reversed / stratified). The earlier
+  "roster sociology" reading is **STRUCK** — it contradicts Crucible **S5** (roster exhausted with every known
+  violator; the gradient survived at p=0.0001; a 7-row anecdote cannot reinstate it). **3.3 P3 → DIVERGENT
+  (directional at n=13):** the identical Factors estimator reads census **k\*=3** (interval [3,4,5]) vs the
+  canon's k\*=1 — but the caveat **is** the finding: the census's charges are theorem-coupled (the dichotomies
+  derive them from one another) while the canon's are empirically sourced, so divergence was structurally likely
+  regardless of what hardness is; k\*=3 is the census re-expressing its own entailment. Meaningful only after
+  R25-netting + a finer Boolean tier. **No banked verdict argued back;** the correction removes a broken number
+  and an unsupported claim. 25 foundry tests. **Next: N4 (Sprint 4); the scaled census where P2/P3 become real.**
