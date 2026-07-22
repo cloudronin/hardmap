@@ -1,0 +1,1267 @@
+{
+  "0v+horn+bij": {
+    "profile": [
+      "0v",
+      "horn",
+      "bij"
+    ],
+    "n_relations_in_coclone": 22,
+    "representatives": [
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "ruggedness": 0.395
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ]
+        ],
+        "ruggedness": 0.487
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ]
+        ],
+        "ruggedness": 0.4
+      }
+    ],
+    "within_coclone_spread": 0.092
+  },
+  "1v+dhorn+bij": {
+    "profile": [
+      "1v",
+      "dhorn",
+      "bij"
+    ],
+    "n_relations_in_coclone": 22,
+    "representatives": [
+      {
+        "relation": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.654
+      },
+      {
+        "relation": [
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.522
+      },
+      {
+        "relation": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.44
+      }
+    ],
+    "within_coclone_spread": 0.214
+  },
+  "0v+1v+horn+dhorn+bij": {
+    "profile": [
+      "0v",
+      "1v",
+      "horn",
+      "dhorn",
+      "bij"
+    ],
+    "n_relations_in_coclone": 18,
+    "representatives": [
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.867
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.78
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.675
+      }
+    ],
+    "within_coclone_spread": 0.192
+  },
+  "0v+1v+dhorn": {
+    "profile": [
+      "0v",
+      "1v",
+      "dhorn"
+    ],
+    "n_relations_in_coclone": 16,
+    "representatives": [
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.687
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.816
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.75
+      }
+    ],
+    "within_coclone_spread": 0.129
+  },
+  "0v+1v+horn": {
+    "profile": [
+      "0v",
+      "1v",
+      "horn"
+    ],
+    "n_relations_in_coclone": 16,
+    "representatives": [
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.734
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.742
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.595
+      }
+    ],
+    "within_coclone_spread": 0.147
+  },
+  "0v": {
+    "profile": [
+      "0v"
+    ],
+    "n_relations_in_coclone": 15,
+    "representatives": [
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ]
+        ],
+        "ruggedness": 0.771
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "ruggedness": 0.444
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ]
+        ],
+        "ruggedness": 0.736
+      }
+    ],
+    "within_coclone_spread": 0.327
+  },
+  "1v": {
+    "profile": [
+      "1v"
+    ],
+    "n_relations_in_coclone": 15,
+    "representatives": [
+      {
+        "relation": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.658
+      },
+      {
+        "relation": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.657
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.709
+      }
+    ],
+    "within_coclone_spread": 0.052
+  },
+  "bij": {
+    "profile": [
+      "bij"
+    ],
+    "n_relations_in_coclone": 6,
+    "representatives": [
+      {
+        "relation": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ]
+        ],
+        "ruggedness": 0.599
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "ruggedness": 0.599
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "ruggedness": 0.537
+      }
+    ],
+    "within_coclone_spread": 0.062
+  },
+  "0v+1v": {
+    "profile": [
+      "0v",
+      "1v"
+    ],
+    "n_relations_in_coclone": 3,
+    "representatives": [
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.999
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.999
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.996
+      }
+    ],
+    "within_coclone_spread": 0.003
+  },
+  "0v+1v+horn+dhorn+bij+aff": {
+    "profile": [
+      "0v",
+      "1v",
+      "horn",
+      "dhorn",
+      "bij",
+      "aff"
+    ],
+    "n_relations_in_coclone": 3,
+    "representatives": [
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.998
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.994
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 1.0
+      }
+    ],
+    "within_coclone_spread": 0.006
+  },
+  "0v+horn+dhorn+bij+aff": {
+    "profile": [
+      "0v",
+      "horn",
+      "dhorn",
+      "bij",
+      "aff"
+    ],
+    "n_relations_in_coclone": 3,
+    "representatives": [
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ]
+        ],
+        "ruggedness": 0.408
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "ruggedness": 0.34
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.413
+      }
+    ],
+    "within_coclone_spread": 0.073
+  },
+  "1v+horn+dhorn+bij+aff": {
+    "profile": [
+      "1v",
+      "horn",
+      "dhorn",
+      "bij",
+      "aff"
+    ],
+    "n_relations_in_coclone": 3,
+    "representatives": [
+      {
+        "relation": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.339
+      },
+      {
+        "relation": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.414
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "ruggedness": 0.408
+      }
+    ],
+    "within_coclone_spread": 0.075
+  },
+  "bij+aff": {
+    "profile": [
+      "bij",
+      "aff"
+    ],
+    "n_relations_in_coclone": 3,
+    "representatives": [
+      {
+        "relation": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0
+          ]
+        ],
+        "ruggedness": 0.994
+      },
+      {
+        "relation": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ]
+        ],
+        "ruggedness": 0.996
+      },
+      {
+        "relation": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "ruggedness": 0.996
+      }
+    ],
+    "within_coclone_spread": 0.002
+  },
+  "_verdict": {
+    "max_within_coclone_spread": 0.327,
+    "verdict": "SCATTER",
+    "n_coclones_tested": 13,
+    "rule": "SCATTER if any co-clone's within-spread >= 0.15 (measured columns need relation-level sampling); else CLUSTER (census roster survives with a coarse-class caveat)"
+  }
+}

@@ -165,3 +165,27 @@
   I6's binary width predictor is weak (+0.11 direction) while the polymorphism GRADIENT is the genuine measured
   cross-structure. 44 foundry + 72 eightfold tests green; eightfold byte-identical. **Owner-review checkpoint
   (calibration gate, `docs/findings/Sprint4-calibration-gate.md`): 4 decisions before the measurement runs.**
+
+## 0.1.6 (unreleased) — Sprint 4.2/4.5 (measured columns: a clean negative)
+
+- **The measured-column line ends negative, and honestly: complexity factors through the algebraic
+  classification; solution geometry does not.** Confirmation run (fresh seeds, prereg_v6/v7, GKMP netting locked
+  before the data) initially read H_I6a SUPPORTED (Mann-Whitney p=0.002) and H_I6b CONFIRMED with an apparent
+  domain-3 anomaly — but the owner-mandated **domain-confound check** dissolved it: the metric is unbiased (a
+  known-smooth |D|=3 pole reads 0.53; the same-relation cross-domain gap collapses 0.40 raw → 0.05 normalized),
+  yet ruggedness is **relation-specific** — Boolean implication (bounded-width) is as rugged (0.79) as affine
+  while NAND-Horn (also bounded-width) is smooth (0.48). Verdicts (prereg_v8, no rescue): **H_I6a SUPPORTED
+  internally / external validity BROKEN** (arm composition drives it, not width); **H_I6b REFUTED as law**;
+  **anomaly WITHDRAWN** (order-3's ruggedness is the ≤ relation's, Boolean-visible, inside GKMP's jurisdiction —
+  the theory-silent tier emptied itself); **theory-forced tier CONFIRMED** (affine coset dispersion); **instrument
+  QUALIFIED**.
+- **Sprint 4.5 within-co-clone replication → SCATTER.** Three genuine same-6-flag-profile representatives per
+  tractable arity-3 co-clone: affine co-clones cluster (coset-forced, spread 0.002–0.075) but non-affine scatter
+  up to **0.327** (pure 0-valid ranges 0.44–0.77). **The census one-representative-per-co-clone roster is valid
+  for oracle columns (Task 0 residual=0) and INVALID for measured columns** (F1 §3 amended). Measured columns
+  need relation-level sampling — the honest, stronger next move.
+- Instrument: `ensemble.py` + `solscape.py` (net-new, pure-Python; two structurally-different samplers +
+  affine-exact ground truth). Findings: `docs/findings/Sprint4-results.md`, `Sprint4-confound-check.md`. Evidence:
+  `results/landscape/{confirm_v7,confound_check,sprint45_within_coclone}.json`. 44 foundry + 72 eightfold tests
+  green; no oracle cell touched; eightfold byte-identical. **Next: relation-level solution-geometry study (gated
+  in); Sprints 5–6 (construction + charge-9/Ω⁻) unaffected.**

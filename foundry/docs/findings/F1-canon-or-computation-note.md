@@ -36,7 +36,11 @@ the canon's structure reproduces.
 
 The roster must be **tall, wide, diverse, replicated** — the latent-factor question needs statistical power:
 - **tall / diverse:** one representative per co-clone (Boolean) and per realized polymorphism-class (general
-  domain); class sizes recorded.
+  domain); class sizes recorded. **AMENDED (Sprint 4.5, prereg_v8):** one-representative-per-co-clone is valid
+  ONLY for the **oracle** columns (charges constant within a co-clone by theorem — Task 0 residual = 0). It is
+  **invalid for the MEASURED columns** — within-co-clone ruggedness scatters up to 0.327 across same-profile
+  representatives (only affine co-clones cluster, coset-forced). Measured columns require **relation-level
+  sampling**, not one representative per co-clone.
 - **replicated:** G = 3 independent generations of every sampled tier and every measured ensemble;
   between-generation variance is the noise floor findings must exceed (glitch-check discipline, promoted to
   atlases).
