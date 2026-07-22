@@ -1,0 +1,554 @@
+{
+  "prereg": "v7",
+  "fresh_base_seed": 90000,
+  "measured": {
+    "xor-sat": {
+      "localization": "unbounded",
+      "poly_arm": "affine",
+      "alpha_struct": 0.9,
+      "densities": {
+        "0.7": 0.63,
+        "0.9": 0.81
+      },
+      "readings": {
+        "0.7": {
+          "alpha": 0.63,
+          "score": 0.889,
+          "concord": 0.0,
+          "per_sampler": {
+            "dpll": 0.889,
+            "walksat": 0.889
+          }
+        },
+        "0.9": {
+          "alpha": 0.81,
+          "score": 0.876,
+          "concord": 0.0,
+          "per_sampler": {
+            "dpll": 0.876,
+            "walksat": 0.876
+          }
+        }
+      }
+    },
+    "zerovalid-affine": {
+      "localization": "unbounded",
+      "poly_arm": "affine",
+      "alpha_struct": 0.8,
+      "densities": {
+        "0.7": 0.56,
+        "0.9": 0.72
+      },
+      "readings": {
+        "0.7": {
+          "alpha": 0.56,
+          "score": 0.997,
+          "concord": 0.002,
+          "per_sampler": {
+            "dpll": 0.998,
+            "walksat": 0.996
+          }
+        },
+        "0.9": {
+          "alpha": 0.72,
+          "score": 0.942,
+          "concord": 0.001,
+          "per_sampler": {
+            "dpll": 0.942,
+            "walksat": 0.943
+          }
+        }
+      }
+    },
+    "onevalid-affine": {
+      "localization": "unbounded",
+      "poly_arm": "affine",
+      "alpha_struct": 0.8,
+      "densities": {
+        "0.7": 0.56,
+        "0.9": 0.72
+      },
+      "readings": {
+        "0.7": {
+          "alpha": 0.56,
+          "score": 0.998,
+          "concord": 0.001,
+          "per_sampler": {
+            "dpll": 0.999,
+            "walksat": 0.998
+          }
+        },
+        "0.9": {
+          "alpha": 0.72,
+          "score": 0.944,
+          "concord": 0.001,
+          "per_sampler": {
+            "dpll": 0.945,
+            "walksat": 0.944
+          }
+        }
+      }
+    },
+    "lin-eq-z3": {
+      "localization": "unbounded",
+      "poly_arm": "affine",
+      "alpha_struct": 0.9,
+      "densities": {
+        "0.7": 0.63,
+        "0.9": 0.81
+      },
+      "readings": {
+        "0.7": {
+          "alpha": 0.63,
+          "score": 1.0,
+          "concord": 0.001,
+          "per_sampler": {
+            "dpll": 0.999,
+            "walksat": 1.0
+          }
+        },
+        "0.9": {
+          "alpha": 0.81,
+          "score": 0.999,
+          "concord": 0.002,
+          "per_sampler": {
+            "dpll": 0.998,
+            "walksat": 1.0
+          }
+        }
+      }
+    },
+    "lin-eq-z3-b": {
+      "localization": "unbounded",
+      "poly_arm": "affine",
+      "alpha_struct": 0.9,
+      "densities": {
+        "0.7": 0.63,
+        "0.9": 0.81
+      },
+      "readings": {
+        "0.7": {
+          "alpha": 0.63,
+          "score": 0.979,
+          "concord": 0.006,
+          "per_sampler": {
+            "dpll": 0.982,
+            "walksat": 0.976
+          }
+        },
+        "0.9": {
+          "alpha": 0.81,
+          "score": 0.788,
+          "concord": 0.0,
+          "per_sampler": {
+            "dpll": 0.788,
+            "walksat": 0.788
+          }
+        }
+      }
+    },
+    "horn-sat": {
+      "localization": "bounded",
+      "poly_arm": "semilattice",
+      "alpha_struct": 1.1,
+      "densities": {
+        "0.7": 0.77,
+        "0.9": 0.99
+      },
+      "readings": {
+        "0.7": {
+          "alpha": 0.77,
+          "score": 0.605,
+          "concord": 0.021,
+          "per_sampler": {
+            "dpll": 0.615,
+            "walksat": 0.594
+          }
+        },
+        "0.9": {
+          "alpha": 0.99,
+          "score": 0.544,
+          "concord": 0.017,
+          "per_sampler": {
+            "dpll": 0.553,
+            "walksat": 0.536
+          }
+        }
+      }
+    },
+    "dual-horn": {
+      "localization": "bounded",
+      "poly_arm": "semilattice",
+      "alpha_struct": 1.1,
+      "densities": {
+        "0.7": 0.77,
+        "0.9": 0.99
+      },
+      "readings": {
+        "0.7": {
+          "alpha": 0.77,
+          "score": 0.604,
+          "concord": 0.014,
+          "per_sampler": {
+            "dpll": 0.611,
+            "walksat": 0.597
+          }
+        },
+        "0.9": {
+          "alpha": 0.99,
+          "score": 0.544,
+          "concord": 0.031,
+          "per_sampler": {
+            "dpll": 0.56,
+            "walksat": 0.529
+          }
+        }
+      }
+    },
+    "zerovalid-horn": {
+      "localization": "bounded",
+      "poly_arm": "semilattice",
+      "alpha_struct": 3.2,
+      "densities": {
+        "0.7": 2.24,
+        "0.9": 2.88
+      },
+      "readings": {
+        "0.7": {
+          "alpha": 2.24,
+          "score": 0.315,
+          "concord": 0.001,
+          "per_sampler": {
+            "dpll": 0.315,
+            "walksat": 0.314
+          }
+        },
+        "0.9": {
+          "alpha": 2.88,
+          "score": 0.241,
+          "concord": 0.0,
+          "per_sampler": {
+            "dpll": 0.241,
+            "walksat": 0.241
+          }
+        }
+      }
+    },
+    "onevalid-dualhorn": {
+      "localization": "bounded",
+      "poly_arm": "semilattice",
+      "alpha_struct": 3.2,
+      "densities": {
+        "0.7": 2.24,
+        "0.9": 2.88
+      },
+      "readings": {
+        "0.7": {
+          "alpha": 2.24,
+          "score": 0.314,
+          "concord": 0.004,
+          "per_sampler": {
+            "dpll": 0.316,
+            "walksat": 0.312
+          }
+        },
+        "0.9": {
+          "alpha": 2.88,
+          "score": 0.242,
+          "concord": 0.001,
+          "per_sampler": {
+            "dpll": 0.243,
+            "walksat": 0.242
+          }
+        }
+      }
+    },
+    "2-sat": {
+      "localization": "bounded",
+      "poly_arm": "majority",
+      "alpha_struct": 1.4,
+      "densities": {
+        "0.7": 0.98,
+        "0.9": 1.26
+      },
+      "readings": {
+        "0.7": {
+          "alpha": 0.98,
+          "score": 0.776,
+          "concord": 0.026,
+          "per_sampler": {
+            "dpll": 0.789,
+            "walksat": 0.763
+          }
+        },
+        "0.9": {
+          "alpha": 1.26,
+          "score": 0.598,
+          "concord": 0.036,
+          "per_sampler": {
+            "dpll": 0.616,
+            "walksat": 0.58
+          }
+        }
+      }
+    },
+    "zerovalid-bijunctive": {
+      "localization": "bounded",
+      "poly_arm": "majority",
+      "alpha_struct": 4.1,
+      "densities": {
+        "0.7": 2.87,
+        "0.9": 3.69
+      },
+      "readings": {
+        "0.7": {
+          "alpha": 2.87,
+          "score": 0.658,
+          "concord": 0.091,
+          "per_sampler": {
+            "dpll": 0.704,
+            "walksat": 0.613
+          }
+        },
+        "0.9": {
+          "alpha": 3.69,
+          "score": 0.613,
+          "concord": 0.092,
+          "per_sampler": {
+            "dpll": 0.659,
+            "walksat": 0.567
+          }
+        }
+      }
+    },
+    "onevalid-bijunctive": {
+      "localization": "bounded",
+      "poly_arm": "majority",
+      "alpha_struct": 4.1,
+      "densities": {
+        "0.7": 2.87,
+        "0.9": 3.69
+      },
+      "readings": {
+        "0.7": {
+          "alpha": 2.87,
+          "score": 0.67,
+          "concord": 0.083,
+          "per_sampler": {
+            "dpll": 0.712,
+            "walksat": 0.629
+          }
+        },
+        "0.9": {
+          "alpha": 3.69,
+          "score": 0.627,
+          "concord": 0.078,
+          "per_sampler": {
+            "dpll": 0.666,
+            "walksat": 0.588
+          }
+        }
+      }
+    },
+    "order-3": {
+      "localization": "bounded",
+      "poly_arm": "order_median",
+      "alpha_struct": 2.5,
+      "densities": {
+        "0.7": 1.75,
+        "0.9": 2.25
+      },
+      "readings": {
+        "0.7": {
+          "alpha": 1.75,
+          "score": 0.829,
+          "concord": 0.157,
+          "per_sampler": {
+            "dpll": 0.907,
+            "walksat": 0.75
+          }
+        },
+        "0.9": {
+          "alpha": 2.25,
+          "score": 0.857,
+          "concord": 0.005,
+          "per_sampler": {
+            "dpll": 0.86,
+            "walksat": 0.855
+          }
+        }
+      }
+    },
+    "median-3": {
+      "localization": "bounded",
+      "poly_arm": "order_median",
+      "alpha_struct": 2.5,
+      "densities": {
+        "0.7": 1.75,
+        "0.9": 2.25
+      },
+      "readings": {
+        "0.7": {
+          "alpha": 1.75,
+          "score": 0.829,
+          "concord": 0.157,
+          "per_sampler": {
+            "dpll": 0.907,
+            "walksat": 0.75
+          }
+        },
+        "0.9": {
+          "alpha": 2.25,
+          "score": 0.857,
+          "concord": 0.005,
+          "per_sampler": {
+            "dpll": 0.86,
+            "walksat": 0.855
+          }
+        }
+      }
+    }
+  },
+  "H_I6a": {
+    "hypothesis": "H_I6a (binary bounded vs affine, face value)",
+    "density": "0.9",
+    "n_concordant": 14,
+    "affine_mean": 0.91,
+    "bounded_mean": 0.569,
+    "direction_affine_minus_bounded": 0.341,
+    "cramers_v": 0.72,
+    "perm_p": 0.0204,
+    "verdict": "SUPPORTED",
+    "note": "scored at face value per owner ruling; no rescue. Records to the F1 ledger."
+  },
+  "H_I6b": {
+    "hypothesis": "H_I6b (polymorphism ordering semilattice<majority<order/median<=affine)",
+    "per_density": {
+      "0.7": {
+        "arm_means": {
+          "semilattice": 0.46,
+          "majority": 0.701,
+          "order_median": 0.829,
+          "affine": 0.973
+        },
+        "ordering_holds": true
+      },
+      "0.9": {
+        "arm_means": {
+          "semilattice": 0.393,
+          "majority": 0.613,
+          "order_median": 0.857,
+          "affine": 0.91
+        },
+        "ordering_holds": true
+      }
+    },
+    "stable_across_densities": true,
+    "verdict": "CONFIRMED",
+    "anomaly_bounded_width_splits": true,
+    "anomaly_note": "order-3/median-3 (bounded-width) read affine-rugged while Horn/semilattice read smooth"
+  },
+  "theory_netting_tiers": {
+    "tier_means_at_0.9": {
+      "theory-forced": 0.68,
+      "theory-permitted": 0.613,
+      "theory-silent": 0.857
+    },
+    "tier_members": {
+      "theory-forced": [
+        [
+          "xor-sat",
+          "affine",
+          0.876
+        ],
+        [
+          "zerovalid-affine",
+          "affine",
+          0.942
+        ],
+        [
+          "onevalid-affine",
+          "affine",
+          0.944
+        ],
+        [
+          "lin-eq-z3",
+          "affine",
+          0.999
+        ],
+        [
+          "lin-eq-z3-b",
+          "affine",
+          0.788
+        ],
+        [
+          "horn-sat",
+          "semilattice",
+          0.544
+        ],
+        [
+          "dual-horn",
+          "semilattice",
+          0.544
+        ],
+        [
+          "zerovalid-horn",
+          "semilattice",
+          0.241
+        ],
+        [
+          "onevalid-dualhorn",
+          "semilattice",
+          0.242
+        ]
+      ],
+      "theory-permitted": [
+        [
+          "2-sat",
+          "majority",
+          0.598
+        ],
+        [
+          "zerovalid-bijunctive",
+          "majority",
+          0.613
+        ],
+        [
+          "onevalid-bijunctive",
+          "majority",
+          0.627
+        ]
+      ],
+      "theory-silent": [
+        [
+          "order-3",
+          "order_median",
+          0.857
+        ],
+        [
+          "median-3",
+          "order_median",
+          0.857
+        ]
+      ]
+    },
+    "anomaly_survives_on_fresh_data": true,
+    "anomaly_gap_silent_minus_semilattice": 0.464,
+    "interpretation": "theory-silent (order-3/median-3) reads rugged like affine despite bounded-width -> a measured finding no published connectivity classification addresses (novel by pre-committed absence, prereg_v7)"
+  },
+  "_wall": 690.8,
+  "_manifest": {
+    "prereg": "v7",
+    "code_commit": "e0113b3",
+    "fresh_seed_base": 90000,
+    "provenance": "sampled-population (R-d)",
+    "instrument": "foundry.solscape + foundry.landscape_run",
+    "samplers": [
+      "dpll",
+      "walksat"
+    ],
+    "affine_arm_ground_truth": "sample_affine_exact",
+    "density_anchor": "0.7 and 0.9 * per-family alpha_struct (count<K)",
+    "note": "corrected run; buggy alpha_struct=0.2 run discarded"
+  }
+}
