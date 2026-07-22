@@ -11,20 +11,22 @@ from pathlib import Path
 from eightfold.atlas import entry_to_dict
 
 from foundry.domain3 import build_d3_census
+from foundry.finer import build_finer_census
 from foundry.oracles import build_boolean_census
 
 OUT = Path(__file__).resolve().parents[1] / "foundry" / "results" / "census" / "census.jsonl"
 
 
 def main() -> int:
-    boolean = build_boolean_census()            # N1 Boolean co-clone tier (deterministic, all 9 charges reachable)
+    boolean = build_boolean_census()            # N1 Boolean co-clone tier (Schaefer classes)
+    finer = build_finer_census()                 # N1 v1.1 finer Boolean tier (0-/1-valid + intersections)
     d3 = build_d3_census()                       # N3 general-domain |D|=3 tier (decision + localization only)
-    rows = boolean + d3
+    rows = boolean + finer + d3
     OUT.write_text("\n".join(json.dumps(entry_to_dict(r), ensure_ascii=False) for r in rows) + "\n",
                    encoding="utf-8")
     profiles = {tuple((c.charge, c.value) for c in sorted(r.charges, key=lambda c: c.charge)) for r in rows}
-    print(f"wrote {len(rows)} rows = {len(boolean)} Boolean co-clone + {len(d3)} general-domain (|D|=3) → {OUT}"
-          f"  (distinct charge profiles: {len(profiles)})")
+    print(f"wrote {len(rows)} rows = {len(boolean)} Boolean co-clone + {len(finer)} finer Boolean + {len(d3)} "
+          f"general-domain (|D|=3) → {OUT}  (distinct charge profiles: {len(profiles)})")
     return 0
 
 

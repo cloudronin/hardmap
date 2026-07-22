@@ -1,5 +1,5 @@
 {
-  "census": "boolean-coclone(7) + general-domain-|D|=3(6) = 13 rows",
+  "census": "boolean(7) + finer-boolean(8) + general-domain-|D|=3(6) = 21 rows",
   "p2_perm_selftest_passes": true,
   "noise_floor": {
     "deterministic_tiers_exempt": [
@@ -43,14 +43,22 @@
     "max_between_generation_drift": 0.083,
     "note": "Curated census rows are deterministic (generations-exempt). The drift is the sampled explorer's profile-share instability across G generations — the floor a finding must clear."
   },
-  "P2": {
+  "P2_v1": {
     "attack": "P2_gradient_census",
     "disposition": "INSUFFICIENT_RESOLUTION",
-    "n_both_real": 7,
-    "n_distinct_both_real_rows": 2,
+    "n_both_real": 15,
+    "n_distinct_both_real_rows": 4,
     "both_real_pairs": [
       [
         "APX-complete",
+        "W[1]"
+      ],
+      [
+        "PO",
+        "FPT"
+      ],
+      [
+        "PO",
         "W[1]"
       ],
       [
@@ -58,8 +66,8 @@
         "FPT"
       ]
     ],
-    "gradient_v": 1.0,
-    "perm_p": 0.1489,
+    "gradient_v": 0.526,
+    "perm_p": 0.0493,
     "n_perm": 20000,
     "exact_perm_p_by_counting": 0.1429,
     "descriptive_observation": {
@@ -74,11 +82,28 @@
     "roster_sociology": "STRUCK — contradicts Crucible S5 (roster exhausted with every known violator; gradient survived p=0.0001). Not reinstated by a 7-row anecdote.",
     "rule": "A 7-row both-real table with 6 identical rows cannot test the gradient (permutation p=1/7≈0.143 by counting, non-significant by construction). Disposition = INSUFFICIENT RESOLUTION. The direction-reversal is logged descriptively and pre-registered for the scaled census (prereg_v3)."
   },
+  "H_P2_scaled": {
+    "attack": "H_P2_scaled",
+    "floor_met": true,
+    "n_both_real": 15,
+    "n_distinct_pairs": 4,
+    "cramers_v": 0.526,
+    "perm_p": 0.0493,
+    "rank_corr": 0.152,
+    "param_hardness_by_approx_level": {
+      "PO": 0.5,
+      "APX-complete": 1.0,
+      "inapprox": 0.0
+    },
+    "verdict": "STRATIFIED",
+    "theorem_forced_note": "approx and parameterized are both functions of the co-clone's polymorphisms (approx tracks 0/1-validity → PO; parameterized tracks affine-ness → FPT), so the association is R25 theorem-forced — the stratification IS the algebra, not an emergent hardness gradient. The one non-0-valid affine anecdote (inapprox, FPT) remains n=1.",
+    "rule": "prereg_v3 H_P2_scaled: POSITIVE (monotone harder-approx→harder-param, canon-like) / REVERSED / STRATIFIED (non-monotone, algebra-driven). Corrected selftest-locked permutation test."
+  },
   "P3": {
     "attack": "P3_factors_census",
     "disposition": "DIVERGENT (directional at n=13)",
-    "n_rows": 13,
-    "n_distinct_profiles": 7,
+    "n_rows": 21,
+    "n_distinct_profiles": 10,
     "census_k_hat_1se": 3,
     "census_interval": [
       3,
@@ -87,29 +112,29 @@
     ],
     "census_curve": {
       "1": {
-        "acc_mean": 0.67,
-        "acc_se": 0.0363,
-        "ll_mean": -0.6243
+        "acc_mean": 0.5222,
+        "acc_se": 0.028,
+        "ll_mean": -0.7695
       },
       "2": {
-        "acc_mean": 0.62,
-        "acc_se": 0.0521,
-        "ll_mean": -0.6235
+        "acc_mean": 0.6722,
+        "acc_se": 0.0374,
+        "ll_mean": -0.5856
       },
       "3": {
-        "acc_mean": 0.75,
-        "acc_se": 0.05,
-        "ll_mean": -0.5032
+        "acc_mean": 0.7944,
+        "acc_se": 0.0271,
+        "ll_mean": -0.4312
       },
       "4": {
-        "acc_mean": 0.75,
-        "acc_se": 0.05,
-        "ll_mean": -0.5113
+        "acc_mean": 0.8,
+        "acc_se": 0.0286,
+        "ll_mean": -0.4371
       },
       "5": {
-        "acc_mean": 0.75,
-        "acc_se": 0.05,
-        "ll_mean": -0.5196
+        "acc_mean": 0.8,
+        "acc_se": 0.0286,
+        "ll_mean": -0.4431
       }
     },
     "reference_canon": {

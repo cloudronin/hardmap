@@ -51,14 +51,14 @@ def test_p2_permutation_selftest_reproduces_hand_count():
     assert A.selftest_p2_perm(n_perm=4000) == 0
 
 
-def test_p2_disposition_is_insufficient_resolution():
+def test_p2_corrected_harness_and_sociology_struck():
+    # locks the Sprint-3 correction, independent of census size: the affine/XOR decoupling is a DESCRIPTIVE
+    # observation (not a ruling), and the roster-sociology reading is struck (it contradicted Crucible S5)
     p2 = A.p2_gradient(n_perm=4000)
-    assert p2["disposition"] == "INSUFFICIENT_RESOLUTION"
-    assert p2["n_both_real"] == 7 and p2["n_distinct_both_real_rows"] == 2
-    assert 0.10 < p2["perm_p"] < 0.20                     # ~1/7, non-significant by construction
-    # the affine/XOR decoupling is a DESCRIPTIVE observation, not a ruling; sociology is struck (contradicts S5)
     assert p2["descriptive_observation"]["decoupling_witness_xor_sat"] == {"approximation": "inapprox", "parameterized": "FPT"}
     assert "STRUCK" in p2["roster_sociology"]
+    # the corrected permutation harness reproduces the hand-countable p (the fix for the impossible 0.0002)
+    assert A.selftest_p2_perm(n_perm=4000) == 0
 
 
 def test_p3_factors_harness_runs():

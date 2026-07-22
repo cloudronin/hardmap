@@ -16,13 +16,14 @@ from eightfold import factors as F
 from eightfold import structure as S
 from foundry.charges import FOUNDRY_SPEC
 from foundry.domain3 import build_d3_census, sample_binary_languages
+from foundry.finer import build_finer_census
 from foundry.oracles import build_boolean_census
 
 CA, CB = "approximation", "parameterized"
 
 
 def full_census():
-    return build_boolean_census() + build_d3_census()
+    return build_boolean_census() + build_finer_census() + build_d3_census()
 
 
 # ── 3.1 between-generation noise floor (the sampled explorer; curated tiers are deterministic/exempt) ────────
@@ -98,9 +99,10 @@ def p2_gradient(entries=None, seed=X.SEED, n_perm=20000):
     distinct = sorted(set(both))
     xor = next((e for e in entries if e.problem_id == "xor-sat"), None)
     xor_cells = {c.charge: c.value for c in xor.charges} if xor else {}
+    floor_met = len(both) >= 15 and len(distinct) >= 4
     return {
         "attack": "P2_gradient_census",
-        "disposition": "INSUFFICIENT_RESOLUTION",
+        "disposition": ("FLOOR_MET — superseded by H_P2_scaled" if floor_met else "INSUFFICIENT_RESOLUTION"),
         "n_both_real": len(both), "n_distinct_both_real_rows": len(distinct), "both_real_pairs": distinct,
         "gradient_v": perm["real_v"], "perm_p": perm["p"], "n_perm": n_perm, "exact_perm_p_by_counting": round(1 / 7, 4),
         "descriptive_observation": {
@@ -142,7 +144,48 @@ def p3_factors(entries=None, budget=None):
     }
 
 
+_APPROX_RANK = {"PO": 0, "APX-complete": 1, "inapprox": 2}   # easy -> hard
+_PARAM_RANK = {"FPT": 0, "W[1]": 1, "W[2]+": 2, "XP": 3, "para-NP-hard": 4}
+
+
+def h_p2_scaled(entries=None, floor_rows=15, floor_pairs=4, n_perm=20000, seed=X.SEED):
+    """H_P2_scaled (prereg_v3): the real P2 on the enriched census. Runs ONLY if the pre-registered floor is met
+    (>= floor_rows both-real approx|param rows spanning >= floor_pairs distinct pairs). Verdict ∈ {POSITIVE,
+    REVERSED, STRATIFIED}: is the approx|parameterized association a monotone hardness gradient (canon-like
+    positive / reversed) or stratified by the underlying algebra? Corrected permutation test (both-real rows
+    only). Note: the census's approx and parameterized are BOTH functions of the co-clone's polymorphisms, so any
+    association is theorem-forced (R25) — the stratification IS the algebra, not an emergent gradient."""
+    import numpy as np
+    entries = full_census() if entries is None else entries
+    both = _contingency(S._grid(entries)[2])
+    n, pairs = len(both), len(set(both))
+    if n < floor_rows or pairs < floor_pairs:
+        return {"attack": "H_P2_scaled", "floor_met": False, "n_both_real": n, "n_distinct_pairs": pairs,
+                "disposition": "INSUFFICIENT_RESOLUTION (floor not met — H_P2_scaled waits)"}
+    xs, ys = [a for a, b in both], [b for a, b in both]
+    perm = _perm_p_on_table(xs, ys, n_perm, seed)
+    xr, yr = [_APPROX_RANK[a] for a in xs], [_PARAM_RANK[b] for b in ys]
+    rho = float(np.corrcoef(xr, yr)[0, 1]) if len(set(xr)) > 1 and len(set(yr)) > 1 else float("nan")
+    strat = {a: round(float(np.mean([_PARAM_RANK[b] for x, b in zip(xs, ys) if x == a])), 2)
+             for a in sorted(set(xs), key=lambda a: _APPROX_RANK[a])}
+    levels = [strat[a] for a in sorted(strat, key=lambda a: _APPROX_RANK[a])]
+    monotone_up = all(levels[i] <= levels[i + 1] for i in range(len(levels) - 1))
+    monotone_down = all(levels[i] >= levels[i + 1] for i in range(len(levels) - 1))
+    verdict = "POSITIVE" if (monotone_up and rho > 0.3) else ("REVERSED" if (monotone_down and rho < -0.3)
+                                                              else "STRATIFIED")
+    return {"attack": "H_P2_scaled", "floor_met": True, "n_both_real": n, "n_distinct_pairs": pairs,
+            "cramers_v": round(perm["real_v"], 3), "perm_p": perm["p"], "rank_corr": round(rho, 3),
+            "param_hardness_by_approx_level": strat, "verdict": verdict,
+            "theorem_forced_note": ("approx and parameterized are both functions of the co-clone's polymorphisms "
+                                    "(approx tracks 0/1-validity → PO; parameterized tracks affine-ness → FPT), so "
+                                    "the association is R25 theorem-forced — the stratification IS the algebra, not "
+                                    "an emergent hardness gradient. The one non-0-valid affine anecdote (inapprox, "
+                                    "FPT) remains n=1."),
+            "rule": ("prereg_v3 H_P2_scaled: POSITIVE (monotone harder-approx→harder-param, canon-like) / REVERSED "
+                     "/ STRATIFIED (non-monotone, algebra-driven). Corrected selftest-locked permutation test.")}
+
+
 def run_all():
-    return {"census": "boolean-coclone(7) + general-domain-|D|=3(6) = 13 rows",
+    return {"census": "boolean(7) + finer-boolean(8) + general-domain-|D|=3(6) = 21 rows",
             "p2_perm_selftest_passes": selftest_p2_perm(n_perm=5000) == 0,
-            "noise_floor": noise_floor(), "P2": p2_gradient(), "P3": p3_factors()}
+            "noise_floor": noise_floor(), "P2_v1": p2_gradient(), "H_P2_scaled": h_p2_scaled(), "P3": p3_factors()}

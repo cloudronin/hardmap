@@ -83,3 +83,27 @@
   regardless of what hardness is; k\*=3 is the census re-expressing its own entailment. Meaningful only after
   R25-netting + a finer Boolean tier. **No banked verdict argued back;** the correction removes a broken number
   and an unsupported claim. 25 foundry tests. **Next: N4 (Sprint 4); the scaled census where P2/P3 become real.**
+
+## 0.1.3 (unreleased) — Sprint 3.5 (census enrichment): finer Boolean tier + H_P2_scaled
+
+- **Floor locked + domain-3 oracle memo** ([`docs/findings/Sprint3.5-enrichment-memo.md`](docs/findings/Sprint3.5-enrichment-memo.md)).
+  The H_P2_scaled go/no-go floor (≥15 both-real approx|param rows, ≥4 distinct pairs) was committed **before** any
+  enriched-census numbers existed. Domain-3 counting/approximation/parameterized investigation (R20, primary
+  statements) → verdicts later refined by a verbatim source pin (Thapper–Živný approximation IMPLEMENTABLE via a
+  binary symmetric fractional polymorphism / semilattice-sufficient; #CSP counting = Mal'tsev-necessity partial;
+  Bulatov–Marx parameterized IMPLEMENTABLE-heavy via Thm 4.1).
+- **Session 1 — finer Boolean tier (`finer.py`) clears the floor.** `classify_boolean` computes every charge from
+  a language's polymorphisms + the verified theorems (Schaefer / KSTW+Håstad / Creignou–Hermann / Marx /
+  Barto–Kozik); 0-/1-valid languages get **approximation = PO** (all-0/all-1 maximise Max) and a **computable**
+  parameterized value (Marx weak-separability is faithful on 0-valid relations). Census → **21 rows (7 N1 + 8
+  finer + 6 domain-3), 10 distinct profiles**; validates clean; P1 holds. Both-real = **15 rows / 4 distinct
+  pairs → floor MET** (adds the (PO,FPT) and (PO,W[1]) pairs).
+- **H_P2_scaled → STRATIFIED** ([`docs/findings/Sprint3.5-results.md`](docs/findings/Sprint3.5-results.md)). On the
+  3×2 contingency: V=0.526, corrected permutation p=0.049, rank-corr=0.152; param-hardness by approx level is
+  non-monotone (PO 0.5, APX-complete 1.0, inapprox 0.0). The approx|param relationship is **not** a monotone
+  gradient (positive or reversed) but **stratified by the algebra** (parameterized tracks affine-ness; approx
+  tracks 0/1-validity) — and it is entirely **R25 theorem-forced**. Honest caveats: p is marginal (0.049) and
+  composition-sensitive; the Boolean lattice caps distinct pairs at 4. The canon's empirical positive gradient
+  does **not** reproduce as a monotone gradient in the theorem-world; same message as P3 (still k\*=3 DIVERGENT
+  at n=21). 29 foundry tests. **Next: implement the verified domain-3 approximation (Thapper–Živný) + counting
+  (Mal'tsev) oracles; R25-net the census.**
