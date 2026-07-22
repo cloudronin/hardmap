@@ -186,6 +186,21 @@ def validate(entry: ProblemEntry) -> list[str]:
             if not isinstance(exp, dict) or any(not exp.get(k) for k in C.EXPERIMENT_KEYS):
                 errs.append(f"{tag}: measured value needs provenance.experiment with all of "
                             f"{list(C.EXPERIMENT_KEYS)} (R9 — reproducible artifact, Census standard)")
+        # Gate 6b: derived quarantine (Crucible S4). A dichotomy-derived value is confined to DERIVED_ALLOWED
+        # and must log a per-problem condition_check whose `side` equals the cell's own value. Citation is NOT
+        # exempted (see gate 3) — the dichotomy theorem must be cited too.
+        if cell.status == C.STATUS_DERIVED:
+            if cell.charge not in C.DERIVED_ALLOWED:
+                errs.append(f"{tag}: status 'derived' is allowed only on charge(s) {sorted(C.DERIVED_ALLOWED)} "
+                            f"(Crucible S4 — dichotomy-derived values are quarantined)")
+            cc = cell.provenance.get("condition_check")
+            if not isinstance(cc, dict) or any(not cc.get(k) for k in C.CONDITION_CHECK_KEYS):
+                errs.append(f"{tag}: derived value needs provenance.condition_check with all of "
+                            f"{list(C.CONDITION_CHECK_KEYS)} (the logged check that the problem meets the "
+                            f"dichotomy's hypotheses)")
+            elif cc.get("side") != cell.value:
+                errs.append(f"{tag}: derived condition_check.side {cc.get('side')!r} must equal the cell "
+                            f"value {cell.value!r} (the dichotomy verdict IS the value)")
         # Gate 8: web citations must be snapshotted (R10) — a url that can go dark needs an archive pointer.
         if isinstance(cell.provenance, dict) and cell.provenance.get("url"):
             if not cell.provenance.get("snapshot"):

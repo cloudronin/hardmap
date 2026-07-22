@@ -197,3 +197,52 @@
   (before any v2 roster), then the frontier attack, matrix-wide R25 bridge subtraction, counting backfill, and
   a candidate v2 charge 9 (fine-grained). **Move One is closed: the atlas exists, is honest about its holes,
   and its structure survives the checks brought against it.**
+
+## 0.1.1 (unreleased) — Crucible v1.1 (adversarial self-review)
+
+- **V1 gate MET** — the harness + prereg are locked BEFORE any real-data attack run (spec copied to
+  `docs/specs/eightfold-v1-1-crucible-spec.md`). New **`derived`** evidential status (Crucible S4): a value
+  entailed by a published counting dichotomy, confined to `counting`, **citation-required** (unlike
+  `measured`) with a logged `provenance.condition_check = {theorem, condition, side}` whose `side` must equal
+  the cell value (gate 6b). `structure.py --drop-derived` reverts derived cells to `open` so no H1 claim rests
+  on the S4 backfill (surfaced in `a3()` beside `--drop-measured`). New **`crucible.py`** (behind `[analysis]`)
+  with the **S1 null model**: a per-charge swap-chain MCMC preserving every marginal exactly, holding each
+  row's n.a. typing fixed (R1), rejecting E1/E2-forbidden swaps — validated on a planted-structure toy
+  (detected) and a pure-null toy (quiet). **`prereg_v6.json`** locks all five attack criteria + the S2 dedup
+  classification (114 classes; {clique,IS,VC} merged — collapsing the VC/clique multiplet, so S2's multiplet
+  test rests on permanent/determinant) + the S5 prediction (gradient weakens-but-persists) + Rider B (S3's free
+  parameterized shuffle needs no rejection — no forbidding rule touches that charge — with the break condition
+  recorded); `committed_before_analysis: true`. 57 tests (+10 crucible/derived), validate clean. **Next: V2
+  (run S1–S3 on the real atlas).**
+- **V2 — S1–S3 run (`crucible_results.json`).** The **approx⟷parameterized gradient is the flagship and it
+  SURVIVES all three attacks:** **S1** null model (M=1000) — real V=0.73 sits far outside the type-respecting
+  null envelope (p97.5=0.38); **S2** dedup (114 classes) — V=0.73→0.68, permutation p=0.0003; **S3** — the
+  permutation **p=0.0001** (10k) the atlas never had. But S1 **RESIZES** two claims (banked honestly, not
+  argued back): **H1's dimension count is typing-driven** — the real dims sit INSIDE the null envelope, at the
+  *low* end (the atlas is more *correlated*, not more dimensional), quantifying A4 §5's unquantified "Some";
+  "not scalar" itself still holds (dims≥3 in 96% of bootstraps). And the **H2 witness amplifications do not
+  exceed typing** — permanent/determinant (0.29) is *below* the null mean (0.35), VC/clique inside the
+  envelope; the R11 amplification metric carries a positive bias the null exposes (the pairs still separate
+  replicably — 100% positive where present in bootstrap — but not beyond chance). Owner riders: **no metric
+  redesign mid-Crucible** (a null-calibrated amplification is a labelled post-V4 re-analysis under a new
+  prereg, never a quiet swap); **S2/S3 read gradient-first**. 59 tests. **Next: V3 (S4 derived backfill + S5
+  violator hunt).**
+- **V3 — S5 adversarial roster (S4 deferred).** Gradient-first hunt for violators of the approx⟷param
+  gradient. The audit found the frozen roster ALREADY carries 7 (knapsack/subset-sum FPTAS×W[1], partial-VC
+  APX-complete×W[1]; 3-coloring/TSP/longest-path/group-steiner hard-approx×FPT) — V=0.73 already survives them.
+  The field's easy-approx×hard-param violators are dominated by clustering (k-center W[1]-hard-by-k and
+  k-median W[2]-hard-by-k are already present but param-underspecified); **k-means** (APX-complete yet
+  W[2]-hard by k, R20-cited) is the clean absent addition, kept in a separate `s5_violators.jsonl` so the
+  frozen atlas stays 118 (Rider A). **S5 SURVIVES exactly as prereg'd:** adding k-means weakens the gradient
+  0.73→0.66 but it persists at permutation **p=0.0001**. The gradient is NOT roster sociology. **S4 deferred**
+  — S1 showed the dimension count is typing-driven regardless of n, so anchor-growth is no longer load-bearing;
+  the `derived` machinery is built and tested for a later pass. 61 tests. **Next: V4 (amended A4).**
+- **V4 — amended A4 (Crucible closed).** [`A4-charge-atlas-move-one.md`](docs/findings/A4-charge-atlas-move-one.md)
+  §8 "Crucible results" appendix banks every verdict — the approx⟷param **gradient SURVIVES S1/S2/S3/S5**;
+  **H1's dimension count + the H2 amplifications RESIZED** under the S1 null; S4 deferred — with a ledger
+  line. The headline blockquote now leads with the *gradient* (the survivor), not the dimension count or the
+  amplifications; §5's unquantified "Some" is quantified (statistically ~all of the dimension count is
+  typing-driven); §2 H1/H2 carry resize pointers; §7 notes three original caveats (row-independence,
+  no-p-values, sociology) are now *tested*, not open. **Rider A** provenance: §8 numbers labelled
+  frozen-118 vs augmented-119, and A3-structure.md gets a header note pointing to §8 (frozen sha256). No
+  RESIZED verdict argued back to SURVIVES. **Crucible v1.1 complete — nothing shipped until this existed.**

@@ -65,6 +65,12 @@ could be defined, the cell is `open` even if unstudied — never `n.a.`.
   `measured-scaling` only on charge 6; validator-rejected on charges 1–5. Requires
   `provenance.experiment = {prereg, manifest, seeds, code_commit}` (Census standard). v1 fills these only from
   already-banked experiments.
+- `derived` — **Crucible S4**: a value *entailed by a published complexity dichotomy* (e.g. Bulatov #CSP,
+  Dyer–Greenhill #H-coloring, Dyer–Richerby). Allowed only on `counting`. Unlike `measured` it is **not**
+  citation-exempt — it must cite the theorem **and** log `provenance.condition_check = {theorem, condition,
+  side}` recording that this problem meets the theorem's hypotheses, with `side` equal to the cell's own value.
+  Counts as filled (enters the complete-case block); `structure.py --drop-derived` reverts it to `open` so no
+  H1 claim rests on the backfill.
 - `structural` — the status of a sentinel-valued cell.
 
 ## The QC gates (enforced by `atlas.py::validate`)
@@ -77,6 +83,9 @@ could be defined, the cell is `open` even if unstudied — never `n.a.`.
 5. **Perspective (R1/§3.2)** — `proof_size` / `parameterized` real values carry a `perspective`.
 6. **Measured quarantine (R9)** — `measured` only on charges 7/8, `measured-scaling` only on 6; both require a
    full `provenance.experiment`.
+6b. **Derived quarantine (Crucible S4)** — `derived` only on `counting`; requires
+   `provenance.condition_check = {theorem, condition, side}` with `side` equal to the cell value; the theorem
+   citation is still required (not exempt).
 7. **Shape** — exactly one cell per charge (names match `CHARGES`); slug/family/encoding/date/reviewer
    well-formed.
 8. **Source snapshot (R10)** — any provenance carrying a `url` also carries a `snapshot` (Wayback capture or a

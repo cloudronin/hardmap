@@ -19,7 +19,10 @@
       "average_case": 18,
       "landscape": 17
     },
-    "drop_measured_full_dims": 16
+    "drop_measured_full_dims": 16,
+    "drop_derived_full_dims": 16,
+    "drop_derived_complete_case_dims": 5,
+    "drop_derived_complete_case_n_kept": 19
   },
   "H2_multiplets": {
     "verdict": "SUPPORTED",

@@ -70,6 +70,40 @@ def test_measured_allowed_on_landscape_with_experiment_R9():
     assert any("R9" in s for s in atlas.validate(bad))
 
 
+def test_derived_rejected_off_counting_crucible_S4():
+    cc = {"theorem": "T", "condition": "hard-side", "side": "NPC"}
+    e = _entry({"decision": _cell("decision", "NPC", status="derived",
+                                  prov={"citation": "x", "condition_check": cc})})
+    assert any("derived" in s and "counting" in s for s in atlas.validate(e))
+
+
+def test_derived_allowed_on_counting_with_condition_check_S4():
+    cc = {"theorem": "Dyer-Greenhill 2000", "condition": "H neither complete nor complete-bipartite",
+          "side": "#P-complete"}
+    ok = _entry({"counting": _cell("counting", "#P-complete", status="derived",
+                                   prov={"citation": "DyerGreenhill2000", "condition_check": cc})})
+    assert atlas.validate(ok) == []
+    # missing condition_check → rejected
+    bad = _entry({"counting": _cell("counting", "#P-complete", status="derived",
+                                    prov={"citation": "DyerGreenhill2000"})})
+    assert any("condition_check" in s for s in atlas.validate(bad))
+
+
+def test_derived_side_must_equal_value_S4():
+    cc = {"theorem": "T", "condition": "c", "side": "FP"}   # side disagrees with the cell value
+    mism = _entry({"counting": _cell("counting", "#P-complete", status="derived",
+                                     prov={"citation": "x", "condition_check": cc})})
+    assert any("side" in s and "must equal" in s for s in atlas.validate(mism))
+
+
+def test_derived_still_needs_citation_unlike_measured_S4():
+    # Unlike `measured`, `derived` is NOT citation-exempt: the dichotomy theorem must be cited (gate 3).
+    cc = {"theorem": "T", "condition": "c", "side": "#P-complete"}
+    e = _entry({"counting": _cell("counting", "#P-complete", status="derived",
+                                  prov={"condition_check": cc})})
+    assert any("gate 3" in s for s in atlas.validate(e))
+
+
 def test_snapshot_gate_R10():
     e = _entry({"decision": _cell("decision", "NPC", prov={"url": "http://x"})})
     errs = atlas.validate(e)
