@@ -1,0 +1,21 @@
+{
+  "sensitivity_floor": true,
+  "canon_like_missingness": 0.657,
+  "planted_k": 3,
+  "n": 114,
+  "n_seeds": 8,
+  "recovery_frac_by_separation": {
+    "0.9": 1.0,
+    "0.7": 1.0,
+    "0.5": 1.0,
+    "0.4": 0.75,
+    "0.3": 0.375,
+    "0.2": 0.75,
+    "0.15": 0.125,
+    "0.1": 0.25,
+    "0.05": 0.75,
+    "0.0": 0.5
+  },
+  "reliable_recovery_floor_modal_p": 0.5,
+  "note": "modal_p = the excess probability a cell shows its class's modal level (0 = indistinguishable classes). The floor is the WEAKEST separation the LCM recovers k*>=2 in >=80% of seeds at canon n + missingness. k*=1 on the canon => any real latent structure sits below this detectable-effect floor; recovery falling to ~0 by modal_p=0 confirms the estimator is not trivially always-detecting."
+}

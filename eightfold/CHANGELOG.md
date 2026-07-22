@@ -310,3 +310,14 @@
   model was NOT the reason for k\*=1, and the frontier sparsity is not masking core structure. A second
   independent confirmation that MCA-16 is artifactual; v7's k\*=1 stands as the primary. 71 tests (2 new
   low-rank); a3/crucible byte-identical. **Next: resume the plan — Sprint 2 (Marx oracle + N3 gen-1).**
+- **Post-verdict riders R-iv/R-v — the negative is fully reported + power-calibrated** (`Factors-v1.md`).
+  **R-iv:** the prereg_v7 secondary (excess-over-null) number is stated — real gain over k=1 = 0.000, inside the
+  envelope (p=1.0), degenerate at k\*=1; the low-rank null-correction is the non-degenerate version (k\*=0, no rank
+  beats the independence null); reconciled with Crucible S1 — the approx⟷param **pairwise** gradient *does* beat
+  its null, so the real structure is pairwise/local, not a global basis that any k captures. **R-v:** a
+  **detectable-effect floor** (`factors_sensitivity.json`, `--sensitivity`) — at canon n=114 + 66% missingness the
+  LCM reliably recovers a planted 3-class structure down to modal separation **≈0.5**, so k\*=1 means "no basis of
+  separation ≥0.5," not "basis below the lamp." (Low-separation recovery is noisy and modal_p=0 false-positives
+  under uniform marginals — an artifact absent on the canon's skewed marginals, where k\*=1 was decisive.) 72
+  tests. Also **foundry prereg_v2** (R-vi) reframes P3 to same-verdict-both-worlds; the plan flags Sprint 6's Ω⁻
+  redesign (R-vii). **Next: Sprint 2.1 (Marx weakly-separable oracle) resumes.**

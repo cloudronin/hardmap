@@ -97,6 +97,15 @@ def test_lowrank_is_null_corrected():
         assert "beats_null" in cell and "null_gain_p97.5" in cell
 
 
+def test_sensitivity_floor_smoke():
+    # R-v power calibration runs and returns the recovery curve + floor (tiny budget; miss_p given, no atlas load)
+    out = F.sensitivity_floor(n=30, planted_k=2, n_seeds=2, separations=(0.9, 0.0),
+                              miss_p=0.5, repeats=3, restarts=2, max_iters=30)
+    assert out["sensitivity_floor"] is True
+    assert set(out["recovery_frac_by_separation"]) == {0.9, 0.0}
+    assert out["reliable_recovery_floor_modal_p"] in (0.9, 0.0, None)
+
+
 def test_estimate_is_spec_portable():
     # the estimator reads levels through the spec (not eightfold module constants) — Foundry can reuse it
     r = F.estimate_rows(F._planted_factor_table(2, n_per=20, seed=F.SEED), spec=C.EIGHTFOLD_SPEC,

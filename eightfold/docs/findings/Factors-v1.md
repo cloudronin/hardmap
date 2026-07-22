@@ -68,6 +68,47 @@ NPC, counting #P-complete, parameterized FPT, proof_size exp, … — is just th
 | **Excess-over-null** (M=150 S1 nulls) | real acc-gain of k\* over k=1 = **0.0**, inside the null envelope → **no structure beyond typing** (degenerate once k\*=1: the primary already found none) |
 | **MCA sensitivity (DISQUALIFIED)** | 16 dims — the S1-inflated count Factors was built to replace. **MCA 16 vs held-out prediction 1** is the headline contrast. |
 
+## The secondary estimator (excess-over-null) — and the one thing that DOES beat a null
+
+The prereg_v7 secondary places k\*'s predictive gain over k=1 against the S1 null envelope. **The number: real
+gain = 0.000, inside the null envelope (one-sided p = 1.0).** At k\*=1 this is degenerate by construction (the
+gain of k\* over k=1 is zero), so on its own it is uninformative — but the **low-rank v1.1 null-correction is the
+non-degenerate version**, and it is unambiguous: **no rank beats the independence null** (every rank's held-out
+gain sits inside the column-permutation envelope; k\*=0). So the apparent dimensional "compression" that MCA and
+Crucible S1 surfaced **does not replicate as held-out predictive gain** — no latent dimension pays its way.
+
+This does not contradict Crucible S1; it sharpens it. S1's surviving result was the **approx⟷parameterized
+pairwise gradient**, a Cramér's V that *did* exceed its null, and it is still there. What Factors adds is that
+**no k captures it**: a single pairwise coupling does not lift the *global* predictive dimensionality above the
+marginals. The one-sentence synthesis — *the atlas's real structure is pairwise and local (the gradient), not a
+global latent basis; the predictive-dimensionality excess-over-null is zero even though the pairwise
+excess-over-null (S1) is not.*
+
+## Power calibration — what the estimator CAN see (R-v)
+
+A negative is only as strong as the lamp it was read under. At **canon-like n=114 and 66% missingness**, a known
+3-class structure was planted and its **separation** swept (modal_p = the excess probability a cell shows its
+class's modal level), 8 seeds each. Machine output:
+[`factors_sensitivity.json`](../../eightfold/results/atlas/factors_sensitivity.json).
+
+| separation modal_p | recover k≥2 (8 seeds) |
+|---|---|
+| 0.9 / 0.7 / 0.5 | **100%** |
+| 0.4 | 75% |
+| 0.3 / 0.2 / 0.15 / 0.1 / 0.05 | 12–75% (noisy) |
+| 0.0 (no separation) | 50% (uniform-marginal false-positive) |
+
+**Detectable-effect floor: modal_p ≈ 0.5** — the LCM reliably (100%) recovers a planted 3-class structure down to
+a *moderate* separation at canon n. So **k\*=1 on the canon means: no latent basis of separation ≥ 0.5 exists** —
+the lamp reaches moderate structure and finds none.
+
+Honest read of the low end: below 0.5 recovery degrades into noise, and at modal_p=0 the LCM spuriously reads
+k≥2 in ~50% of seeds. That false-positive is an artifact of the **uniform** synthetic marginals at zero
+separation (a weak k=1 baseline); the real canon's marginals are strongly skewed (modal probs 0.44–0.81), a
+strong k=1 baseline where it does not arise — evidenced by the **decisive** real k\*=1 (k=1 beats every k≥2 by
+>1 SE, not a borderline call) and by the uniform-null selftest reading k\*=1 at n=90. The canon verdict sits
+comfortably outside the ambiguous regime: **"no basis," not "basis below the lamp."**
+
 ## Honest caveats (named, per the house standard)
 
 1. **Power at n≈114 — the load-bearing caveat.** The selftest validated recovery of **strong, well-separated**
@@ -138,5 +179,7 @@ path is unchanged: revising k\*=1 requires Foundry-scale data, not model-switchi
 
 ## Caveats index
 
-power-at-n114 · low-rank-arm-not-triggered-no-post-hoc-swap · prediction-is-a-demanding-instrument ·
-does-not-overturn-A3/Crucible · excess-over-null-degenerate-once-k\*=1 · MCA-16-disqualified.
+power-at-n114 · detectable-effect-floor-modal-p≈0.5 (R-v) · low-end-uniform-marginal-false-positive ·
+low-rank-arm-not-triggered-no-post-hoc-swap · prediction-is-a-demanding-instrument · does-not-overturn-A3/Crucible ·
+excess-over-null-degenerate-once-k\*=1-but-low-rank-null-correction-and-S1-pairwise-are-the-real-story (R-iv) ·
+MCA-16-disqualified.

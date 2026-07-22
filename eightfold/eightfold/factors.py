@@ -662,12 +662,59 @@ def followup_verdict(entries, spec=C.EIGHTFOLD_SPEC, *, budget=None):
     }
 
 
+# ── sensitivity / power annex (R-v): what CAN the estimator see at canon n + missingness? ──────────────────
+def _canon_real_fraction(spec=C.EIGHTFOLD_SPEC, path=None):
+    """Fraction of the dedup'd canon's cells that carry a real value (the rest are sentinels) — used to give the
+    power-calibration planted tables canon-like missingness."""
+    from eightfold.atlas import load_atlas
+    entries = [e for e in load_atlas(path) if e.problem_id not in X._S2_DROP]
+    _, _, rows = S._grid(entries)
+    tot = real = 0
+    for r in rows:
+        for ch in spec.charges:
+            tot += 1
+            real += int(r[ch] in spec.charge_real_values[ch])
+    return real / tot if tot else 0.0
+
+
+def sensitivity_floor(spec=C.EIGHTFOLD_SPEC, *, n=114, planted_k=3, n_seeds=8,
+                      separations=(0.9, 0.7, 0.5, 0.4, 0.3, 0.2, 0.15, 0.1, 0.05, 0.0), miss_p=None,
+                      repeats=15, restarts=5, max_iters=100, path=None):
+    """Power-calibrate the k*=1 NEGATIVE. At canon-like n and missingness, sweep the planted class SEPARATION
+    (modal_p = the excess probability a cell shows its class's modal level; 0 = no separation = indistinguishable
+    classes) and report, per separation, the fraction of seeds where the LCM recovers k*>=2. The detectable-effect
+    FLOOR = the WEAKEST separation still recovered in >=80% of seeds. k*=1 on the canon then means: any real latent
+    structure has separation below this floor — 'no basis' is distinguished from 'basis below our lamp'."""
+    if miss_p is None:
+        miss_p = round(1.0 - _canon_real_fraction(spec, path), 3)
+    curve = {}
+    for sep in separations:
+        rec = 0
+        for s in range(n_seeds):
+            rows = _planted_factor_table(planted_k, n_per=max(1, n // planted_k), spec=spec,
+                                         modal_p=sep, miss_p=miss_p, seed=SEED + 101 * s)
+            r = estimate_rows(rows, spec, ks=range(1, 6), repeats=repeats, restarts=restarts,
+                              max_iters=max_iters, loadings=False, seed=SEED)
+            rec += int(r["k_hat_1se"] >= 2)
+        curve[round(sep, 3)] = round(rec / n_seeds, 3)
+    recovered = [round(sep, 3) for sep in separations if curve[round(sep, 3)] >= 0.8]
+    floor = min(recovered) if recovered else None
+    return {"sensitivity_floor": True, "canon_like_missingness": miss_p, "planted_k": planted_k, "n": n,
+            "n_seeds": n_seeds, "recovery_frac_by_separation": curve, "reliable_recovery_floor_modal_p": floor,
+            "note": ("modal_p = the excess probability a cell shows its class's modal level (0 = indistinguishable "
+                     "classes). The floor is the WEAKEST separation the LCM recovers k*>=2 in >=80% of seeds at "
+                     "canon n + missingness. k*=1 on the canon => any real latent structure sits below this "
+                     "detectable-effect floor; recovery falling to ~0 by modal_p=0 confirms the estimator is not "
+                     "trivially always-detecting.")}
+
+
 # ── CLI ────────────────────────────────────────────────────────────────────────────────────────────────────
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="eightfold.factors")
     ap.add_argument("--selftest", action="store_true", help="F-1 gate: planted-k recovery + pure-null quiet")
     ap.add_argument("--selftest-lowrank", action="store_true", help="prereg_v8 gate: low-rank planted-rank recovery + null quiet")
     ap.add_argument("--followup", action="store_true", help="F-4c: prereg_v8 k*=1 triangulation (low-rank + core-4)")
+    ap.add_argument("--sensitivity", action="store_true", help="R-v: power-calibrate the k*=1 negative (detectable-effect floor)")
     ap.add_argument("--factors", action="store_true", help="F-2 verdict run on the dedup'd 114-class canon")
     ap.add_argument("--raw", action="store_true", help="sensitivity: use the raw 118 as the primary roster")
     ap.add_argument("--drop-measured", action="store_true", help="R9 ablation: exclude the measured cells")
@@ -681,6 +728,18 @@ def main(argv=None):
 
     if args.selftest_lowrank:
         return selftest_lowrank()
+
+    if args.sensitivity:
+        from eightfold.atlas import DEFAULT_PATH
+        out = sensitivity_floor(path=args.path)
+        out_path = args.out or (DEFAULT_PATH.parent / "factors_sensitivity.json")
+        out_path.write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+        print(f"Factors sensitivity floor (R-v) -> {out_path}")
+        print(f"  canon-like missingness={out['canon_like_missingness']}, planted k={out['planted_k']}, n={out['n']}, seeds={out['n_seeds']}")
+        for sep, frac in out["recovery_frac_by_separation"].items():
+            print(f"    modal_p={sep}: recover k>=2 in {frac:.0%} of seeds")
+        print(f"  detectable-effect floor (>=80% recovery): modal_p={out['reliable_recovery_floor_modal_p']}")
+        return 0
 
     if args.followup:
         from eightfold.atlas import DEFAULT_PATH, load_atlas
