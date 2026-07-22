@@ -132,10 +132,14 @@ comfortably outside the ambiguous regime: **"no basis," not "basis below the lam
 
 The charge atlas is, to the resolution of held-out prediction at n≈114, **predictively one-dimensional**:
 knowing a problem's inferred latent class does not help predict its hardness on a held-out charge beyond that
-charge's marginal frequency. The "hardness is a vector" intuition — true as a *statement about MCA variance
-directions* — does **not** cash out as *predictive* multi-dimensionality. The single robust cross-charge signal
-the program has found (the approx⟷param gradient, S1/S2/S3/S5-survived) is a local axis that does not lift the
-global predictive dimensionality above 1.
+charge's marginal frequency. **Hardness remains a vector in the theorem sense** — the charges are provably
+distinct and non-collapsing (the reversal witnesses: 2-SAT's counting split, VC/CLIQUE's approximation+parameterized
+double flip) — **but the vector is predictively incompressible**: its components share no latent basis that pays
+for itself in held-out prediction. Vectorhood never rested on MCA (which is disqualified); it rests on those
+theorem-grade reversals, and no predictive analysis can touch them. What Factors killed is the *compression*
+story — that the distinct quantities share latent common causes. The single robust cross-charge signal the
+program has found (the approx⟷param gradient, S1/S2/S3/S5-survived) is a local axis that does not lift the global
+predictive dimensionality above 1.
 
 ## Forward
 
