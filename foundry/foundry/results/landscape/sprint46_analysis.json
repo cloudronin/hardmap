@@ -1,0 +1,67 @@
+{
+  "A": {
+    "experiment": "A_rigidity_retest",
+    "verdict": "PARTIAL (rank3 < rank2 in the predicted direction, but weak/overlapping)",
+    "per_rank_spread": {
+      "3": {
+        "mean_spread": 0.274,
+        "n_strata": 4,
+        "vals": [
+          0.181,
+          0.35,
+          0.402,
+          0.161
+        ]
+      },
+      "2": {
+        "mean_spread": 0.353,
+        "n_strata": 4,
+        "vals": [
+          0.285,
+          0.309,
+          0.493,
+          0.324
+        ]
+      }
+    },
+    "corr_rank_spread_core": -0.389,
+    "n_strata_with_ge5_reps": 8,
+    "rank4_separate": "already firm (Sprint 4.5: 0.039); affine strata rare (<5 reps) by construction",
+    "note": "0/1-valid edge EXCLUDED as pre-registered (non-Taylor). corr negative = prediction direction."
+  },
+  "B": {
+    "experiment": "B_terrain_prediction",
+    "verdict": "SUPPORTED",
+    "n": 77,
+    "n_coclones": 16,
+    "roster_floor_ok(>=6 coclones x>=5)": true,
+    "in_sample_R2": 0.59,
+    "multivariate_coefficient_signs": {
+      "density": "+",
+      "arity": "+",
+      "tuple_dispersion": "+"
+    },
+    "sealed_signs": {
+      "density": "NEGATIVE",
+      "arity": "two-sided",
+      "tuple_dispersion": "POSITIVE"
+    },
+    "marginal_corr_each_feature": {
+      "density": 0.255,
+      "arity": -0.16,
+      "tuple_dispersion": 0.742
+    },
+    "carried_by": "tuple_dispersion (sealed POSITIVE, marginal 0.74)",
+    "density_sealed_sign_FAILED": true,
+    "density_note": "the sealed density mechanism (sparse->rugged, NEGATIVE) is WRONG: density's marginal corr is +0.26 (denser weakly MORE rugged). The physics density->clustering mechanism does NOT transpose to relation-density in the sealed direction. SUPPORTED rests on tuple_dispersion, not density.",
+    "sign_match_via": "tuple_dispersion",
+    "permutation_p": 0.0002,
+    "heldout_by_coclone": {
+      "held_mse": 0.1016,
+      "baseline_mse": 0.226,
+      "held_beats_baseline": true
+    },
+    "note": "held-out by co-clone is PRIMARY; in-sample R2 is sensitivity only. tuple_dispersion (relation tuple-geometry) is relation-level (varies within a co-clone), so it reaches where clone invariants provably cannot. Density mechanism is physics prior art AND failed here."
+  },
+  "bridge_hunt": "density->clustering mechanism is prior art (random-CSP statistical physics: cavity method RS/1RSB clustering, condensation, freezing vs constraint density)."
+}

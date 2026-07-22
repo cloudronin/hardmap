@@ -189,3 +189,27 @@
   `results/landscape/{confirm_v7,confound_check,sprint45_within_coclone}.json`. 44 foundry + 72 eightfold tests
   green; no oracle cell touched; eightfold byte-identical. **Next: relation-level solution-geometry study (gated
   in); Sprints 5–6 (construction + charge-9/Ω⁻) unaffected.**
+
+## 0.1.7 (unreleased) — the clone-invariant impossibility + Sprint 4.6 (resolution decomposition)
+
+- **Structural result: the clone-invariant impossibility.** A co-clone is the set of relations sharing a
+  polymorphism clone, so every language-level algebraic invariant (tractability, connectivity, rigidity rank) is
+  constant on the co-clone by construction and cannot explain within-co-clone terrain variation. The connectivity
+  test (prereg_v9, GKMP OR-free/NAND-free/componentwise-bijunctive) came back **NOT_PREDICTIVE** — one instance of
+  the impossibility; framed as worst-case-structural ≠ typical-case-sampled, with the GKMP–Schwerdtfeger
+  convergent prior art credited (they built finer relation-level classes because Schaefer can't classify
+  geometry). The rigidity-envelope test (prereg_v10) came back **PARTIAL** with a named mechanism: **Maltsev
+  (affine) rigidity forces near-zero within-co-clone spread (0.039)** — the theory-grounded reason the affine
+  strata are where geometry factors through the algebra.
+- **Sprint 4.6 (prereg_v11): the hardness vector at two resolutions.** Expanded roster (arity-3 full + arity-4
+  sampled, 77 relations). **A (rigidity middle-rank retest): PARTIAL** — the Sprint-4.5 3≈2 tie resolves into a
+  weak ordering in the predicted direction (rank 3 spread 0.274 < rank 2 0.353, corr −0.389); thin-strata, not a
+  real absence. **B (relation-level terrain prediction): SUPPORTED** — a relation-level feature predicts terrain
+  and beats the marginal baseline **held-out by co-clone** (MSE 0.10 vs 0.23; perm p=0.0002). Carried by
+  **tuple_dispersion** (relation tuple-geometry, sealed +, marginal +0.74) — the **sealed density mechanism FAILED**
+  (marginal +0.26, opposite the sealed −; the physics density→clustering law does not transpose to relation-
+  density). Headline: **complexity is a clone-level property; terrain is a relation-level one** — two components of
+  the hardness vector at different resolutions of the same object. `connectivity.py`, `rigidity.py`,
+  `relfeatures.py`; findings `Sprint4-connectivity-test.md`, `Sprint4-rigidity-envelope.md`,
+  `Sprint4.6-resolution-decomposition.md`. 56 foundry + 72 eightfold tests green; eightfold byte-identical.
+  **Next: Sprint 5 program writeup.**

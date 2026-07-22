@@ -1,0 +1,3972 @@
+{
+  "n": 77,
+  "rows": [
+    {
+      "profile": "bij+aff",
+      "rank": 4,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.667,
+      "ruggedness": 1.0,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "profile": "bij+aff",
+      "rank": 4,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.667,
+      "ruggedness": 1.0,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "profile": "bij+aff",
+      "rank": 4,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.667,
+      "ruggedness": 0.998,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+horn+dhorn+bij+aff",
+      "rank": 4,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.444,
+      "ruggedness": 0.405,
+      "alpha_struct": 1.2,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+horn+dhorn+bij+aff",
+      "rank": 4,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.444,
+      "ruggedness": 0.435,
+      "alpha_struct": 1.2,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+horn+dhorn+bij+aff",
+      "rank": 4,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.444,
+      "ruggedness": 0.392,
+      "alpha_struct": 1.2,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+horn+dhorn+bij+aff",
+      "rank": 4,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.667,
+      "ruggedness": 0.994,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+horn+dhorn+bij+aff",
+      "rank": 4,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.667,
+      "ruggedness": 0.999,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+horn+dhorn+bij+aff",
+      "rank": 4,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.667,
+      "ruggedness": 0.998,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v+horn+dhorn+bij+aff",
+      "rank": 4,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.444,
+      "ruggedness": 0.392,
+      "alpha_struct": 1.2,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v+horn+dhorn+bij+aff",
+      "rank": 4,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.444,
+      "ruggedness": 0.431,
+      "alpha_struct": 1.2,
+      "relation": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v+horn+dhorn+bij+aff",
+      "rank": 4,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.444,
+      "ruggedness": 0.407,
+      "alpha_struct": 1.2,
+      "relation": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+aff",
+      "rank": 4,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.667,
+      "ruggedness": 0.917,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "profile": "0v+aff",
+      "rank": 4,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 8,
+      "density": 0.5,
+      "tuple_dispersion": 0.571,
+      "ruggedness": 0.867,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.556,
+      "ruggedness": 0.475,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 5,
+      "density": 0.312,
+      "tuple_dispersion": 0.5,
+      "ruggedness": 0.373,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 5,
+      "density": 0.312,
+      "tuple_dispersion": 0.5,
+      "ruggedness": 0.353,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 5,
+      "density": 0.312,
+      "tuple_dispersion": 0.5,
+      "ruggedness": 0.321,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "profile": "bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 6,
+      "density": 0.375,
+      "tuple_dispersion": 0.483,
+      "ruggedness": 0.361,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 6,
+      "density": 0.375,
+      "tuple_dispersion": 0.55,
+      "ruggedness": 0.502,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v+dhorn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.5,
+      "ruggedness": 0.381,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v+dhorn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 5,
+      "density": 0.625,
+      "tuple_dispersion": 0.533,
+      "ruggedness": 0.545,
+      "alpha_struct": 1.5,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v+dhorn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 5,
+      "density": 0.312,
+      "tuple_dispersion": 0.5,
+      "ruggedness": 0.423,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v+dhorn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 6,
+      "density": 0.375,
+      "tuple_dispersion": 0.567,
+      "ruggedness": 0.724,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v+dhorn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 6,
+      "density": 0.375,
+      "tuple_dispersion": 0.417,
+      "ruggedness": 0.451,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v+dhorn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 7,
+      "density": 0.438,
+      "tuple_dispersion": 0.476,
+      "ruggedness": 0.374,
+      "alpha_struct": 1.2,
+      "relation": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+horn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.5,
+      "ruggedness": 0.397,
+      "alpha_struct": 4.2,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "profile": "0v+horn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 5,
+      "density": 0.625,
+      "tuple_dispersion": 0.533,
+      "ruggedness": 0.487,
+      "alpha_struct": 4.2,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+horn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 5,
+      "density": 0.312,
+      "tuple_dispersion": 0.45,
+      "ruggedness": 0.242,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+horn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 6,
+      "density": 0.75,
+      "tuple_dispersion": 0.556,
+      "ruggedness": 0.644,
+      "alpha_struct": 4.2,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "profile": "0v+horn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 6,
+      "density": 0.375,
+      "tuple_dispersion": 0.467,
+      "ruggedness": 0.386,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "profile": "0v+horn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 7,
+      "density": 0.438,
+      "tuple_dispersion": 0.452,
+      "ruggedness": 0.523,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+horn+dhorn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.556,
+      "ruggedness": 0.812,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+horn+dhorn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 5,
+      "density": 0.625,
+      "tuple_dispersion": 0.533,
+      "ruggedness": 0.684,
+      "alpha_struct": 1.2,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+horn+dhorn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 5,
+      "density": 0.312,
+      "tuple_dispersion": 0.5,
+      "ruggedness": 0.676,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+horn+dhorn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 5,
+      "density": 0.312,
+      "tuple_dispersion": 0.55,
+      "ruggedness": 0.837,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+horn+dhorn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 6,
+      "density": 0.75,
+      "tuple_dispersion": 0.556,
+      "ruggedness": 0.788,
+      "alpha_struct": 1.8,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+horn+dhorn+bij",
+      "rank": 3,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 7,
+      "density": 0.438,
+      "tuple_dispersion": 0.476,
+      "ruggedness": 0.735,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+horn",
+      "rank": 2,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.611,
+      "ruggedness": 0.547,
+      "alpha_struct": 1.2,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+horn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 6,
+      "density": 0.375,
+      "tuple_dispersion": 0.483,
+      "ruggedness": 0.784,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+horn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 8,
+      "density": 0.5,
+      "tuple_dispersion": 0.491,
+      "ruggedness": 0.545,
+      "alpha_struct": 1.2,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+horn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 9,
+      "density": 0.562,
+      "tuple_dispersion": 0.514,
+      "ruggedness": 0.665,
+      "alpha_struct": 1.5,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+horn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 11,
+      "density": 0.688,
+      "tuple_dispersion": 0.509,
+      "ruggedness": 0.83,
+      "alpha_struct": 1.8,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+horn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 12,
+      "density": 0.75,
+      "tuple_dispersion": 0.53,
+      "ruggedness": 0.587,
+      "alpha_struct": 4.2,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+dhorn",
+      "rank": 2,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.611,
+      "ruggedness": 0.591,
+      "alpha_struct": 1.2,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+dhorn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 6,
+      "density": 0.375,
+      "tuple_dispersion": 0.583,
+      "ruggedness": 0.886,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+dhorn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 7,
+      "density": 0.438,
+      "tuple_dispersion": 0.524,
+      "ruggedness": 0.885,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+dhorn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 9,
+      "density": 0.562,
+      "tuple_dispersion": 0.514,
+      "ruggedness": 0.577,
+      "alpha_struct": 1.5,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+dhorn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 11,
+      "density": 0.688,
+      "tuple_dispersion": 0.536,
+      "ruggedness": 0.577,
+      "alpha_struct": 4.2,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v+dhorn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 12,
+      "density": 0.75,
+      "tuple_dispersion": 0.534,
+      "ruggedness": 0.666,
+      "alpha_struct": 4.2,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v+dhorn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 5,
+      "density": 0.312,
+      "tuple_dispersion": 0.5,
+      "ruggedness": 0.459,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v+dhorn",
+      "rank": 2,
+      "edge": false,
+      "arity": 3,
+      "n_tuples": 7,
+      "density": 0.875,
+      "tuple_dispersion": 0.571,
+      "ruggedness": 0.879,
+      "alpha_struct": 4.2,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v+dhorn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 8,
+      "density": 0.5,
+      "tuple_dispersion": 0.509,
+      "ruggedness": 0.386,
+      "alpha_struct": 3.9,
+      "relation": [
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v+dhorn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 10,
+      "density": 0.625,
+      "tuple_dispersion": 0.517,
+      "ruggedness": 0.419,
+      "alpha_struct": 1.8,
+      "relation": [
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v+dhorn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 11,
+      "density": 0.688,
+      "tuple_dispersion": 0.518,
+      "ruggedness": 0.514,
+      "alpha_struct": 4.2,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v+dhorn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 12,
+      "density": 0.75,
+      "tuple_dispersion": 0.523,
+      "ruggedness": 0.68,
+      "alpha_struct": 4.2,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+horn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 5,
+      "density": 0.312,
+      "tuple_dispersion": 0.45,
+      "ruggedness": 0.38,
+      "alpha_struct": 1.2,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+horn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 6,
+      "density": 0.375,
+      "tuple_dispersion": 0.517,
+      "ruggedness": 0.388,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+horn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 8,
+      "density": 0.5,
+      "tuple_dispersion": 0.491,
+      "ruggedness": 0.337,
+      "alpha_struct": 1.5,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+horn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 9,
+      "density": 0.562,
+      "tuple_dispersion": 0.514,
+      "ruggedness": 0.435,
+      "alpha_struct": 4.2,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "profile": "0v+horn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 10,
+      "density": 0.625,
+      "tuple_dispersion": 0.517,
+      "ruggedness": 0.419,
+      "alpha_struct": 1.8,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+horn",
+      "rank": 2,
+      "edge": false,
+      "arity": 4,
+      "n_tuples": 12,
+      "density": 0.75,
+      "tuple_dispersion": 0.523,
+      "ruggedness": 0.661,
+      "alpha_struct": 4.2,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v",
+      "rank": 0,
+      "edge": true,
+      "arity": 4,
+      "n_tuples": 5,
+      "density": 0.312,
+      "tuple_dispersion": 0.6,
+      "ruggedness": 0.936,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v",
+      "rank": 0,
+      "edge": true,
+      "arity": 4,
+      "n_tuples": 9,
+      "density": 0.562,
+      "tuple_dispersion": 0.542,
+      "ruggedness": 0.476,
+      "alpha_struct": 3.0,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v",
+      "rank": 0,
+      "edge": true,
+      "arity": 4,
+      "n_tuples": 10,
+      "density": 0.625,
+      "tuple_dispersion": 0.544,
+      "ruggedness": 0.942,
+      "alpha_struct": 1.5,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v",
+      "rank": 0,
+      "edge": true,
+      "arity": 4,
+      "n_tuples": 11,
+      "density": 0.688,
+      "tuple_dispersion": 0.527,
+      "ruggedness": 0.753,
+      "alpha_struct": 1.5,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v+1v",
+      "rank": 0,
+      "edge": true,
+      "arity": 4,
+      "n_tuples": 12,
+      "density": 0.75,
+      "tuple_dispersion": 0.542,
+      "ruggedness": 0.822,
+      "alpha_struct": 2.1,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v",
+      "rank": 0,
+      "edge": true,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.611,
+      "ruggedness": 0.66,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "profile": "0v",
+      "rank": 0,
+      "edge": true,
+      "arity": 4,
+      "n_tuples": 6,
+      "density": 0.375,
+      "tuple_dispersion": 0.583,
+      "ruggedness": 0.768,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v",
+      "rank": 0,
+      "edge": true,
+      "arity": 4,
+      "n_tuples": 8,
+      "density": 0.5,
+      "tuple_dispersion": 0.5,
+      "ruggedness": 0.508,
+      "alpha_struct": 1.2,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "profile": "0v",
+      "rank": 0,
+      "edge": true,
+      "arity": 4,
+      "n_tuples": 9,
+      "density": 0.562,
+      "tuple_dispersion": 0.542,
+      "ruggedness": 0.635,
+      "alpha_struct": 1.2,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "0v",
+      "rank": 0,
+      "edge": true,
+      "arity": 4,
+      "n_tuples": 11,
+      "density": 0.688,
+      "tuple_dispersion": 0.545,
+      "ruggedness": 0.835,
+      "alpha_struct": 1.5,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "profile": "1v",
+      "rank": 0,
+      "edge": true,
+      "arity": 3,
+      "n_tuples": 4,
+      "density": 0.5,
+      "tuple_dispersion": 0.611,
+      "ruggedness": 0.568,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v",
+      "rank": 0,
+      "edge": true,
+      "arity": 4,
+      "n_tuples": 6,
+      "density": 0.375,
+      "tuple_dispersion": 0.55,
+      "ruggedness": 0.669,
+      "alpha_struct": 0.6,
+      "relation": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v",
+      "rank": 0,
+      "edge": true,
+      "arity": 4,
+      "n_tuples": 8,
+      "density": 0.5,
+      "tuple_dispersion": 0.527,
+      "ruggedness": 0.524,
+      "alpha_struct": 0.9,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v",
+      "rank": 0,
+      "edge": true,
+      "arity": 4,
+      "n_tuples": 9,
+      "density": 0.562,
+      "tuple_dispersion": 0.528,
+      "ruggedness": 0.628,
+      "alpha_struct": 1.2,
+      "relation": [
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "profile": "1v",
+      "rank": 0,
+      "edge": true,
+      "arity": 4,
+      "n_tuples": 11,
+      "density": 0.688,
+      "tuple_dispersion": 0.545,
+      "ruggedness": 0.81,
+      "alpha_struct": 1.5,
+      "relation": [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    }
+  ]
+}
