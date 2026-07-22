@@ -1,0 +1,54 @@
+{
+  "prereg_version": "v14",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Pebble",
+  "role": "Sprint 6 P0 ADDENDUM 2 — the SCALARIZATION TEST. The sharpest, most decision-relevant form of the structural bet: does a relation compress to ONE number for propagation purposes (an attenuation factor), so that a model of (graph geometry + one per-relation scalar) reconstructs measured ξ without sampling? Committed BEFORE any ξ measurement and before the scalarization model is fit.",
+  "extends": "v13 (sealed at commit 3ec3617), whose four structural features are factor (i) of this model; and v12 (sealed at f8c8cf7). Both untouched. This addendum adds ONLY the scalarization prediction + its sealed scoring rule + three pre-labelled outcomes.",
+  "committed_before_analysis": true,
+  "committed_before_any_xi_or_scalarization_measurement": true,
+  "why_a_new_version_not_an_edit_of_v13": "v13 is committed. Rewriting a sealed prereg mid-flight is the move the discipline forbids. v14 seals the scalarization test as a dated addendum before the measurement it governs (P4) has run.",
+
+  "the_claim_in_one_sentence": "Constraints are RELATIONS, not weights, and for satisfiability that distinction is exactly why the field's classification theorems are algebraic (Schaefer / the dichotomy) rather than arithmetic — but for PROPAGATION specifically, a relation may compress to a single number: how much a marginal shift survives one hop through it, an ATTENUATION FACTOR. If it does, the constraint network behaves as a WEIGHTED GRAPH for propagation purposes even though it is not one for satisfiability purposes, and reach ξ becomes computable WITHOUT sampling.",
+
+  "sealed_prediction": {
+    "functional_form": "reach ≈ f(graph geometry, per-relation attenuation scalar).",
+    "operational": "a model built from (i) the structural features already sealed in v13 (spectral_gap, degree mean/var, treewidth_ub, expansion_proxy) and (ii) ONE per-relation scalar predicts MEASURED ξ AS WELL AS ξ predicts itself, across HELD-OUT families.",
+    "factor_ii_declared_now_no_swap": "the per-relation scalar (ii) is DECLARED here as tuple_dispersion (relfeatures.tuple_dispersion — mean pairwise normalized Hamming among the relation's satisfying tuples). It is the standing candidate because it already predicted terrain OUT-OF-SAMPLE in Sprint 4.6 (experiment B). The choice is fixed in P0 and NOT swapped after seeing results.",
+    "interpretation_and_phase2_note": "tuple_dispersion stands in for 'how much a marginal shift disperses through the relation in one hop'. A mechanistically-DIRECT one-hop attenuation (computed from the relation's tuple structure) is a phase-2 refinement of the SAME slot (ii), never a v1 swap of it.",
+    "why_this_outranks_the_earlier_product_form": "same structural bet, cleaner statement, and directly DECISION-RELEVANT. If scalarization holds, the sampled instrument becomes OPTIONAL for propagation and reach becomes computable on anything with a constraint graph and identifiable constraint relations — INCLUDING the canon's gradient-carrying rows (vertex cover, clique, Steiner), where sampling does not reach and where the phase-2 engineering lift was the blocker. That is the single largest possible payoff in this sprint."
+  },
+
+  "evaluation": {
+    "protocol": "fit the scalarized model on a SUBSET of families; predict ξ on HELD-OUT families. Must beat the marginal baseline AND beat a permutation null (relfeatures.perm_null_p). Report DENSITY-RESOLVED (v13 prediction P1: geometry dominates at high density, the solution set dominates near the satisfiability threshold).",
+    "primary_comparison_is_against_the_ceiling_not_the_null": "the PRIMARY metric is the scalarized model's held-out prediction of ξ measured against DIRECTLY-MEASURED ξ — i.e. against ξ's own self-prediction ceiling R* (how well ξ predicts itself), NOT against a null alone. The permutation null and marginal baseline are FLOORS the model must clear; R* is the TARGET it is scored against.",
+    "the_self_prediction_ceiling_R_star": "R* = ξ's own measurement reliability, established in P3 as the cross-sampler (dpll vs walksat) and/or cross-seed / split-half agreement of ξ on the same instances (the two-sampler concordance already required by P2). The scalarized model cannot be expected to beat ξ's own noise; R* is the bar.",
+    "sealed_numeric_rule": {
+      "rho": "rho = (held-out predictive correlation of the scalarized model with measured ξ) / R*, the fraction of the reliability ceiling reached, computed per density band.",
+      "scalarizable": "rho >= 0.90 AND the model's held-out CI overlaps R* AND it clears both floors (marginal baseline, permutation null) — the two-factor model reaches ξ's own reliability.",
+      "partially": "0.50 <= rho < 0.90, OR rho >= 0.90 overall but with SYSTEMATIC per-family residuals — trend captured, identifiable families resist; report WHICH families.",
+      "not_scalarizable": "rho < 0.50 OR the model fails a floor — ξ carries reliable structure no graph+scalar model reproduces.",
+      "note": "cuts (0.90 / 0.50) are sealed here in the R-1 spirit; scored density-resolved, declared before the fit."
+    }
+  },
+
+  "three_outcomes_all_pre_labelled": {
+    "1_scalarizable": "the two-factor model tracks ξ (reaches R*). Propagation is a WEIGHTED-GRAPH phenomenon; the sampler is OPTIONAL for reach; the canon extension is unblocked cheaply. State plainly, even though it retires the expensive instrument for this purpose.",
+    "2_partially": "the model captures the trend but misses SYSTEMATICALLY on identifiable families. Report which families resist — that residue is where relations REFUSE to scalarize, and it is the interesting population (the phase-2 target).",
+    "3_not_scalarizable": "ξ sees what no graph-plus-scalar model reproduces. The sampled instrument EARNS its cost, and the finding is that constraint relations resist scalar summary for PROPAGATION as they do for satisfiability."
+  },
+
+  "framing_note_sealed_now_so_no_outcome_reads_as_defeat": "outcome 1 is a COST-SAVING POSITIVE, not a failure of the instrument — the instrument is what ESTABLISHED THE GROUND TRUTH the cheap proxy is measured against. Sealed in the prereg now, not written into the findings later.",
+
+  "reuse_no_new_module": "no new code required in v1: the scalarized model is relfeatures.fit_r2 / perm_null_p over [structural.structural_features(inst) ..., relfeatures.tuple_dispersion(relation)] against measured ξ; ξ + R* come from P2/P3. Executed in P4 as the PRIMARY structural-bet scoring. selftest coverage = relfeatures.selftest_perm (already in CI).",
+
+  "scope_and_typing": "defined exactly where ξ and the v13 structural features are (CSP-shaped instances with an identifiable constraint relation per constraint). n.a.-by-typing elsewhere. Same v1-is-CSP-only scope; the whole point of a positive outcome is that it REMOVES this scope limit for phase 2.",
+
+  "standing_discipline_additions": [
+    "factor (ii) scalar declared in P0 (= tuple_dispersion); no swap after results",
+    "primary comparison against ξ's self-prediction ceiling R*, not a null alone",
+    "beat marginal baseline AND permutation null as floors; density-resolved",
+    "three outcomes pre-labelled; outcome-1 pre-framed as a cost-saving positive",
+    "held-out by family; the resisting-family residue reported under outcome 2",
+    "eightfold byte-identical (foundry-side only)"
+  ]
+}
