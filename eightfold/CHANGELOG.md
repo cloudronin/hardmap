@@ -298,3 +298,15 @@
   post-hoc. No prior verdict argued back; `a3_structure.json`/`crucible_results.json` byte-identical. **Next:
   Sprint 2 — the Marx weakly-separable oracle (foundry `parameterized` column) + N3 gen-1; then Sprint 3.3 P3
   inherits this k\*=1 canon fit.**
+- **F-4 (Factors v1.1, `prereg_v8`) — k\*=1 CONFIRMED ROBUST across model class + charge sparsity**
+  ([`factors_v1_1.json`](eightfold/results/atlas/factors_v1_1.json), sha `c96fb8a5…`). Owner-chosen follow-up
+  (not a post-hoc swap): a NULL-CORRECTED low-rank categorical PCA arm (soft-impute truncated-SVD of the one-hot
+  indicators — which inherits the MCA compositional artifact, so a rank is credited only if it beats an
+  independence column-permutation null; k\* = the parsimonious real plateau credited iff every rank 1..plateau
+  beats the null, contiguous from rank 1). Selftest green (planted rank r=2 recovered exactly; skewed
+  independent null quiet). **Triangulation: low-rank full-8 k\*=0 (the marginal is the single best predictor —
+  every rank is WORSE), low-rank core-4 k\*=0, LCM core-4 k\*=1 (n=16, underpowered/flat) → every arm k\*≤1.**
+  A continuous-factor model, properly null-corrected, is even more decisive than the LCM: the discrete-class
+  model was NOT the reason for k\*=1, and the frontier sparsity is not masking core structure. A second
+  independent confirmation that MCA-16 is artifactual; v7's k\*=1 stands as the primary. 71 tests (2 new
+  low-rank); a3/crucible byte-identical. **Next: resume the plan — Sprint 2 (Marx oracle + N3 gen-1).**

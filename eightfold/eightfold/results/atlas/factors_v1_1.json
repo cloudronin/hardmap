@@ -1,0 +1,183 @@
+{
+  "factors_followup": true,
+  "prereg": "prereg_v8",
+  "supersedes": null,
+  "reference_verdict_v7": {
+    "model": "lcm",
+    "roster": "dedup-114 all-8",
+    "k_hat_1se": 1,
+    "interval": [
+      1
+    ]
+  },
+  "arms": {
+    "lowrank_full_8": {
+      "roster": "dedup-114 all-8",
+      "model": "lowrank-catpca-null-corrected",
+      "k_star_excess": 0,
+      "k_plateau_real": 0,
+      "structure_beats_null": false,
+      "interval": [
+        0
+      ],
+      "best_acc": 0.6656,
+      "m_null": 60,
+      "curve": {
+        "0": {
+          "acc_mean": 0.6656,
+          "acc_se": 0.0161,
+          "gain_over_k0": 0.0,
+          "null_gain_p97.5": 0.0,
+          "beats_null": false
+        },
+        "1": {
+          "acc_mean": 0.6108,
+          "acc_se": 0.0143,
+          "gain_over_k0": -0.0548,
+          "null_gain_p97.5": 0.0123,
+          "beats_null": false
+        },
+        "2": {
+          "acc_mean": 0.6452,
+          "acc_se": 0.0152,
+          "gain_over_k0": -0.0204,
+          "null_gain_p97.5": -0.0081,
+          "beats_null": false
+        },
+        "3": {
+          "acc_mean": 0.6462,
+          "acc_se": 0.0164,
+          "gain_over_k0": -0.0194,
+          "null_gain_p97.5": -0.02,
+          "beats_null": true
+        },
+        "4": {
+          "acc_mean": 0.6355,
+          "acc_se": 0.0161,
+          "gain_over_k0": -0.0301,
+          "null_gain_p97.5": -0.0196,
+          "beats_null": false
+        },
+        "5": {
+          "acc_mean": 0.6452,
+          "acc_se": 0.0145,
+          "gain_over_k0": -0.0204,
+          "null_gain_p97.5": -0.0238,
+          "beats_null": true
+        }
+      },
+      "n_rows": 114,
+      "loadings": null
+    },
+    "lowrank_core_4": {
+      "roster": "complete-case on ['decision', 'counting', 'approximation', 'parameterized']",
+      "model": "lowrank-catpca-null-corrected",
+      "k_star_excess": 0,
+      "k_plateau_real": 4,
+      "structure_beats_null": false,
+      "interval": [
+        0
+      ],
+      "best_acc": 0.9,
+      "curve": {
+        "0": {
+          "acc_mean": 0.8611,
+          "acc_se": 0.0241,
+          "gain_over_k0": 0.0,
+          "null_gain_p97.5": 0.0,
+          "beats_null": false
+        },
+        "1": {
+          "acc_mean": 0.8111,
+          "acc_se": 0.0317,
+          "gain_over_k0": -0.05,
+          "null_gain_p97.5": 0.0,
+          "beats_null": false
+        },
+        "2": {
+          "acc_mean": 0.85,
+          "acc_se": 0.0292,
+          "gain_over_k0": -0.0111,
+          "null_gain_p97.5": 0.0219,
+          "beats_null": false
+        },
+        "3": {
+          "acc_mean": 0.8667,
+          "acc_se": 0.027,
+          "gain_over_k0": 0.0056,
+          "null_gain_p97.5": 0.0,
+          "beats_null": true
+        },
+        "4": {
+          "acc_mean": 0.8944,
+          "acc_se": 0.0246,
+          "gain_over_k0": 0.0333,
+          "null_gain_p97.5": 0.0,
+          "beats_null": true
+        },
+        "5": {
+          "acc_mean": 0.9,
+          "acc_se": 0.022,
+          "gain_over_k0": 0.0389,
+          "null_gain_p97.5": 0.0219,
+          "beats_null": true
+        }
+      },
+      "n_rows": 16
+    },
+    "lcm_core_4": {
+      "roster": "complete-case on ['decision', 'counting', 'approximation', 'parameterized']",
+      "model": "lcm",
+      "k_hat_1se": 1,
+      "interval": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "best_acc": 0.8611,
+      "curve": {
+        "1": {
+          "acc_mean": 0.8611,
+          "acc_se": 0.0241,
+          "ll_mean": -0.5896
+        },
+        "2": {
+          "acc_mean": 0.8611,
+          "acc_se": 0.0241,
+          "ll_mean": -0.4923
+        },
+        "3": {
+          "acc_mean": 0.8611,
+          "acc_se": 0.0241,
+          "ll_mean": -0.4899
+        },
+        "4": {
+          "acc_mean": 0.8611,
+          "acc_se": 0.0241,
+          "ll_mean": -0.4931
+        },
+        "5": {
+          "acc_mean": 0.8611,
+          "acc_se": 0.0241,
+          "ll_mean": -0.4943
+        },
+        "6": {
+          "acc_mean": 0.8611,
+          "acc_se": 0.0241,
+          "ll_mean": -0.4968
+        }
+      },
+      "n_rows": 16
+    }
+  },
+  "triangulation": {
+    "v7_lcm_full_k1": true,
+    "lowrank_full_agrees_k_le_1": true,
+    "core4_lowrank_k_le_1": true,
+    "core4_lcm_k_le_1": true,
+    "note": "k*=1 is CONFIRMED robust iff every arm gives k*<=1. A single arm with k*>1 is a methodological finding (model class or charge-sparsity was the limiting factor), reported at size; it refines, and does NOT argue back, v7's primary k*=1. Core-4 carries an n-underpower caveat (small complete-case block)."
+  }
+}

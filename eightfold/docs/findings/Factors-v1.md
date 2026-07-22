@@ -107,6 +107,35 @@ global predictive dimensionality above 1.
 - The MCA-16 vs prediction-1 gap is itself a finding — a clean second data point (after S1) that eigenvalue
   dimensionality on a charge atlas is marginal-driven.
 
+## Factors v1.1 follow-up (prereg_v8) — k\* = 1 is confirmed robust
+
+The v7 verdict was triangulated along two axes — a **new** pre-registered analysis
+([`prereg_v8.json`](../../eightfold/results/prereg/prereg_v8.json), owner-chosen, **not** a post-hoc swap; v7
+stands as the primary). Machine output: [`factors_v1_1.json`](../../eightfold/results/atlas/factors_v1_1.json)
+(sha `c96fb8a5…`, `python -m eightfold.factors --followup`).
+
+| Arm | Axis tested | k\* | note |
+|---|---|---|---|
+| v7 LCM, all-8 | reference | **1** | marginal baseline 0.666; no k≥2 improves |
+| **low-rank, all-8** (null-corrected) | model class | **0** | marginal 0.666 is best; *every* rank is worse and none beats the independence null |
+| low-rank, core-4 | charge sparsity | **0** | n=16 complete-case; no structure |
+| LCM, core-4 | charge sparsity | **1** | n=16, flat interval [1..6] — underpowered, consistent |
+
+**Every arm gives k\* ≤ 1 → k\*=1 CONFIRMED ROBUST.** Two conclusions:
+
+1. **Model class is not the reason.** A continuous-factor model (low-rank categorical PCA) finds k\*=0 — *more*
+   decisive than the LCM: the marginal baseline is the single best predictor and adding any factor makes held-out
+   accuracy worse. The k\*=1 verdict is not an artifact of the LCM's discrete classes.
+2. **Charge sparsity is not masking it.** Restricting to the well-populated core-4 reveals no structure (low-rank
+   k\*=0). The LCM core-4 gives k\*=1 but at n=16 with a flat interval — underpowered, so weak-but-consistent (the
+   pre-registered caveat).
+
+The low-rank arm needed a **null correction to be valid at all**: a raw SVD rank on the one-hot indicators
+inherits the very compositional inflation that disqualifies MCA. Crediting a rank only when it beats an
+independence (column-permutation) null removes the artifact — and once it does, the continuous-factor model finds
+nothing. This is a **second, independent confirmation that the MCA-16 dimensionality is artifactual.** The forward
+path is unchanged: revising k\*=1 requires Foundry-scale data, not model-switching.
+
 ## Caveats index
 
 power-at-n114 · low-rank-arm-not-triggered-no-post-hoc-swap · prediction-is-a-demanding-instrument ·

@@ -635,14 +635,17 @@ def followup_verdict(entries, spec=C.EIGHTFOLD_SPEC, *, budget=None):
         "factors_followup": True, "prereg": "prereg_v8", "supersedes": None,
         "reference_verdict_v7": {"model": "lcm", "roster": "dedup-114 all-8", "k_hat_1se": 1, "interval": [1]},
         "arms": {
-            "lowrank_full_8": {"roster": "dedup-114 all-8", "model": "lowrank-catpca",
-                               "k_hat_1se": lr_full["k_hat_1se"], "k_argmax": lr_full["k_argmax"],
+            "lowrank_full_8": {"roster": "dedup-114 all-8", "model": lr_full["model"],
+                               "k_star_excess": lr_full["k_star_excess"], "k_plateau_real": lr_full["k_plateau_real"],
+                               "structure_beats_null": lr_full["structure_contiguous_beats_null"],
                                "interval": lr_full["interval"], "best_acc": lr_full["best_acc"],
-                               "curve": lr_full["curve"], "n_rows": lr_full["n_rows"],
+                               "m_null": lr_full["m_null"], "curve": lr_full["curve"], "n_rows": lr_full["n_rows"],
                                "loadings": lr_full.get("loadings")},
-            "lowrank_core_4": {"roster": f"complete-case on {cc_charges}", "model": "lowrank-catpca",
-                               "k_hat_1se": lr_core["k_hat_1se"], "interval": lr_core["interval"],
-                               "best_acc": lr_core["best_acc"], "curve": lr_core["curve"], "n_rows": lr_core["n_rows"]},
+            "lowrank_core_4": {"roster": f"complete-case on {cc_charges}", "model": lr_core["model"],
+                               "k_star_excess": lr_core["k_star_excess"], "k_plateau_real": lr_core["k_plateau_real"],
+                               "structure_beats_null": lr_core["structure_contiguous_beats_null"],
+                               "interval": lr_core["interval"], "best_acc": lr_core["best_acc"],
+                               "curve": lr_core["curve"], "n_rows": lr_core["n_rows"]},
             "lcm_core_4": {"roster": f"complete-case on {cc_charges}", "model": "lcm",
                            "k_hat_1se": lcm_core["k_hat_1se"], "interval": lcm_core["interval"],
                            "best_acc": lcm_core["best_acc"], "curve": lcm_core["curve"], "n_rows": lcm_core["n_rows"]},
@@ -687,9 +690,9 @@ def main(argv=None):
         a = out["arms"]
         print(f"Factors v1.1 follow-up (prereg_v8) -> {out_path}")
         print(f"  reference: v7 LCM full-8 k*=1")
-        print(f"  low-rank full-8 : k*={a['lowrank_full_8']['k_hat_1se']} interval={a['lowrank_full_8']['interval']} "
-              f"(best acc={a['lowrank_full_8']['best_acc']}, n={a['lowrank_full_8']['n_rows']})")
-        print(f"  low-rank core-4 : k*={a['lowrank_core_4']['k_hat_1se']} interval={a['lowrank_core_4']['interval']} "
+        print(f"  low-rank full-8 : k*={a['lowrank_full_8']['k_star_excess']} beats-null-at={a['lowrank_full_8']['interval']} "
+              f"(plateau={a['lowrank_full_8']['k_plateau_real']}, best acc={a['lowrank_full_8']['best_acc']}, n={a['lowrank_full_8']['n_rows']})")
+        print(f"  low-rank core-4 : k*={a['lowrank_core_4']['k_star_excess']} beats-null-at={a['lowrank_core_4']['interval']} "
               f"(n={a['lowrank_core_4']['n_rows']})")
         print(f"  LCM      core-4 : k*={a['lcm_core_4']['k_hat_1se']} interval={a['lcm_core_4']['interval']} "
               f"(n={a['lcm_core_4']['n_rows']})")
