@@ -1,0 +1,123 @@
+{
+  "census": "boolean-coclone(7) + general-domain-|D|=3(6) = 13 rows",
+  "noise_floor": {
+    "deterministic_tiers_exempt": [
+      "boolean-coclone",
+      "general-domain-curated"
+    ],
+    "sampled_explorer_generations": [
+      {
+        "['median-majority']": 0.153,
+        "['max-semilattice', 'median-majority', 'min-semilattice']": 0.19,
+        "['max-semilattice']": 0.087,
+        "[]": 0.337,
+        "['max-semilattice', 'median-majority']": 0.08,
+        "['median-majority', 'min-semilattice']": 0.057,
+        "['min-semilattice']": 0.09,
+        "['affine-maltsev-Z3']": 0.007
+      },
+      {
+        "[]": 0.42,
+        "['max-semilattice', 'median-majority', 'min-semilattice']": 0.163,
+        "['max-semilattice', 'median-majority']": 0.057,
+        "['median-majority', 'min-semilattice']": 0.08,
+        "['max-semilattice']": 0.103,
+        "['min-semilattice']": 0.063,
+        "['median-majority']": 0.103,
+        "['affine-maltsev-Z3', 'max-semilattice', 'median-majority', 'min-semilattice']": 0.007,
+        "['affine-maltsev-Z3']": 0.003
+      },
+      {
+        "[]": 0.377,
+        "['max-semilattice', 'median-majority', 'min-semilattice']": 0.197,
+        "['median-majority']": 0.11,
+        "['max-semilattice']": 0.073,
+        "['min-semilattice']": 0.107,
+        "['max-semilattice', 'median-majority']": 0.073,
+        "['median-majority', 'min-semilattice']": 0.06,
+        "['affine-maltsev-Z3', 'max-semilattice', 'median-majority', 'min-semilattice']": 0.003
+      }
+    ],
+    "n_profiles": 9,
+    "max_between_generation_drift": 0.083,
+    "note": "Curated census rows are deterministic (generations-exempt). The drift is the sampled explorer's profile-share instability across G generations — the floor a finding must clear."
+  },
+  "P2": {
+    "attack": "P2_gradient_census",
+    "n_both_real": 7,
+    "both_real_pairs": [
+      [
+        "APX-complete",
+        "W[1]"
+      ],
+      [
+        "inapprox",
+        "FPT"
+      ]
+    ],
+    "gradient_v": 1.0,
+    "perm_p": 0.0002,
+    "n_perm": 20000,
+    "s1_null_envelope": {
+      "real": 1.0,
+      "null_mean": 0.217,
+      "null_p2.5": 0.0,
+      "null_p97.5": 1.0,
+      "real_above_p97_5": true,
+      "real_outside_95": true,
+      "one_sided_p_ge": 0.0
+    },
+    "beats_null": true,
+    "decoupling_witness": {
+      "xor-sat": {
+        "approximation": "inapprox",
+        "parameterized": "FPT"
+      }
+    },
+    "rule": "SURVIVES iff the census approx|param V beats its S1 null (one-sided) AND permutation p<0.05. At the v1 census n this is expected to be underpowered/inconclusive (a pre-registered K2 outcome). The DIRECTION is the finding: the affine/XOR decoupling (hard-approx + easy-param) runs opposite to the canon's positive gradient."
+  },
+  "P3": {
+    "attack": "P3_factors_census",
+    "n_rows": 13,
+    "n_distinct_profiles": 7,
+    "census_k_hat_1se": 3,
+    "census_interval": [
+      3,
+      4,
+      5
+    ],
+    "census_curve": {
+      "1": {
+        "acc_mean": 0.67,
+        "acc_se": 0.0363,
+        "ll_mean": -0.6243
+      },
+      "2": {
+        "acc_mean": 0.62,
+        "acc_se": 0.0521,
+        "ll_mean": -0.6235
+      },
+      "3": {
+        "acc_mean": 0.75,
+        "acc_se": 0.05,
+        "ll_mean": -0.5032
+      },
+      "4": {
+        "acc_mean": 0.75,
+        "acc_se": 0.05,
+        "ll_mean": -0.5113
+      },
+      "5": {
+        "acc_mean": 0.75,
+        "acc_se": 0.05,
+        "ll_mean": -0.5196
+      }
+    },
+    "reference_canon": {
+      "k_hat_1se": 1,
+      "note": "canon read k*=1 (Factors v1/v1.1)"
+    },
+    "same_world": false,
+    "rule": "prereg_v2 P3a: SAME-WORLD iff census k*_hat <= 1 (both universes carry no global latent dimensionality beyond marginals). At n=13 this is underpowered — a small census is mechanically low-dimensional; the meaningful comparison needs Foundry-scale data."
+  }
+}

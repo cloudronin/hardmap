@@ -1,0 +1,57 @@
+"""N3 general-domain tier + Sprint 3 analysis — the RULES (verified dichotomies), not the science verdicts.
+
+Tests that the polymorphism test agrees with the textbook complexity of the curated domain-3 languages
+(Bulatov/Zhuk decision, Barto-Kozik localization), that the domain-3 rows fill only the verified general-domain
+charges, that the full census still passes P1, and that the P2/P3 harness returns well-formed structure.
+"""
+from eightfold import atlas
+
+from foundry import analysis as A
+from foundry import domain3 as D
+from foundry.charges import FOUNDRY_SPEC
+
+
+def test_curated_d3_classifications_verified():
+    # the polymorphism test must agree with each language's textbook-certain complexity (R20 cross-check)
+    for lang in D.CURATED_D3:
+        assert D.verify(lang) == [], (lang.id, D.verify(lang))
+
+
+def test_bulatov_zhuk_decision_and_barto_kozik_width():
+    C = {l.id: D.classify(l) for l in D.CURATED_D3}
+    # decision (Bulatov/Zhuk): WNU polymorphism → P; ≠_3 / NAE-3 have none → NPC
+    assert C["3-coloring"]["decision"] == "NPC" and C["nae-3dom"]["decision"] == "NPC"
+    assert C["lin-eq-z3"]["decision"] == "P" and C["order-3"]["decision"] == "P"
+    # localization (Barto-Kozik): affine is tractable but UNBOUNDED width (the |D|=3 XOR analogue); order is bounded
+    assert C["lin-eq-z3"]["localization"] == "unbounded-width"
+    assert C["order-3"]["localization"] == "bounded-width"
+
+
+def test_d3_census_rows_validate_and_honest_scope():
+    for r in D.build_d3_census():
+        assert atlas.validate(r, FOUNDRY_SPEC) == [], (r.problem_id, atlas.validate(r, FOUNDRY_SPEC))
+        vals = {c.charge: c.value for c in r.charges}
+        assert vals["decision"] in ("P", "NPC")
+        assert vals["localization"] in ("bounded-width", "unbounded-width")
+        # the Boolean-specific-dichotomy charges are honestly `open` for domain-3 (theorems don't transfer)
+        for ch in ("counting", "approximation", "parameterized"):
+            assert vals[ch] == "open", (r.problem_id, ch, vals[ch])
+
+
+def test_full_census_p1_calibration_holds():
+    # P1: no NPI-candidate row (Schaefer/Bulatov-Zhuk: CSP decision is P or NPC, never NP-intermediate)
+    npi = [r.problem_id for r in A.full_census()
+           if next(c.value for c in r.charges if c.charge == "decision") == "NPI-candidate"]
+    assert npi == []
+
+
+def test_p2_decoupling_witness_present():
+    # the affine/XOR row is the deceptive-terrain DECOUPLING: hard-approx (inapprox) + easy-param (FPT)
+    p2 = A.p2_gradient(m=40, n_perm=200)
+    assert p2["decoupling_witness"]["xor-sat"] == {"approximation": "inapprox", "parameterized": "FPT"}
+    assert p2["n_both_real"] == 7  # only the Boolean tier fills both approx and parameterized
+
+
+def test_p3_factors_harness_runs():
+    p3 = A.p3_factors(budget=dict(repeats=4, restarts=3, max_iters=40, ks=range(1, 4)))
+    assert isinstance(p3["census_k_hat_1se"], int) and isinstance(p3["same_world"], bool)
