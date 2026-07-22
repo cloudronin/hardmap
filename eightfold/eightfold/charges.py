@@ -361,3 +361,93 @@ def theorem_forbidden_by(assignment: dict[str, str]) -> list[str]:
                 hits.append(r.name)
                 break
     return hits
+
+
+# ── ChargeSpec: the atlas kernel (Foundry Phase K) ────────────────────────────────────────────────────────
+# Everything above is Eightfold's specific charge vocabulary. `ChargeSpec` bundles a vocabulary so the shared
+# validator (atlas.py) and Crucible-hardened harness (structure.py, crucible.py) can serve *any* charge atlas
+# — Eightfold's eight hardness charges (EIGHTFOLD_SPEC below) or Foundry's CSP charges — from one code path.
+# The universal pieces (SENTINELS, the status ladder, EXPERIMENT_KEYS/CONDITION_CHECK_KEYS/CITATION_KEYS,
+# EntailmentRule) stay module-level and are shared by all specs. Backward compatibility: EIGHTFOLD_SPEC is
+# built from the exact literals above, and every existing module-level name is unchanged — so Eightfold's own
+# call sites (which pass no spec) behave identically.
+@dataclass(frozen=True)
+class ChargeSpec:
+    """A charge vocabulary + its entailment layer — the parameter the shared validator/harness take."""
+    name: str
+    charges: list[str]
+    charge_real_values: dict[str, frozenset[str]]
+    entailment_layer: list[EntailmentRule]
+    charge_titles: dict[str, str] = field(default_factory=dict)
+    sentinels: frozenset[str] = SENTINELS
+    ordinal: dict[str, list[str]] = field(default_factory=dict)
+    decision_partial_order: list[tuple[str, str]] = field(default_factory=list)
+    measured_allowed: frozenset[str] = frozenset()
+    measured_scaling_allowed: frozenset[str] = frozenset()
+    derived_allowed: frozenset[str] = frozenset()
+    perspective_required: frozenset[str] = frozenset()
+    problem_families: frozenset[str] = frozenset()
+
+    def allowed_values(self, charge: str) -> frozenset[str]:
+        """Every value a cell for `charge` may carry: its real-value vocab plus the universal sentinels."""
+        return self.charge_real_values[charge] | self.sentinels
+
+    def theorem_forbidden_by(self, assignment: dict[str, str]) -> list[str]:
+        """Names of the column-expressible entailment rules this (partial) assignment trips (R5 triage)."""
+        hits: list[str] = []
+        for r in self.entailment_layer:
+            if r.forbids is None:
+                continue
+            if not all(assignment.get(c) in vs for c, vs in r.antecedent.items()):
+                continue
+            for charge, badvals in r.forbids.items():
+                if assignment.get(charge) in badvals:
+                    hits.append(r.name)
+                    break
+        return hits
+
+    def validate_entailment_layer(self, rules: list[EntailmentRule] | None = None) -> list[str]:
+        """R6 consistency: every rule states preconditions + citation; every charge/value is in this vocab."""
+        rules = self.entailment_layer if rules is None else rules
+        errs: list[str] = []
+        seen: set[str] = set()
+        for r in rules:
+            tag = r.name or "<unnamed>"
+            if not r.name:
+                errs.append("a rule is missing `name`")
+            if r.name in seen:
+                errs.append(f"{tag}: duplicate rule name")
+            seen.add(r.name)
+            if not r.preconditions or len(r.preconditions.strip()) < 20:
+                errs.append(f"{tag}: missing/'too-thin' preconditions (R6 — every rule states exact hypotheses)")
+            if not r.citation or len(r.citation.strip()) < 5:
+                errs.append(f"{tag}: missing citation (R6)")
+            for role, block in (("antecedent", r.antecedent), ("forbids", r.forbids or {})):
+                for charge, values in block.items():
+                    if charge not in self.charges:
+                        errs.append(f"{tag}: {role} names unknown charge {charge!r}")
+                        continue
+                    bad = set(values) - set(self.allowed_values(charge))
+                    if bad:
+                        errs.append(f"{tag}: {role} charge {charge!r} has values {sorted(bad)} not in its vocab")
+            if not r.antecedent:
+                errs.append(f"{tag}: empty antecedent")
+        return errs
+
+
+# Eightfold's own spec, assembled from the exact literals above (behavior-preserving — the default everywhere).
+EIGHTFOLD_SPEC = ChargeSpec(
+    name="eightfold",
+    charges=CHARGES,
+    charge_real_values=CHARGE_REAL_VALUES,
+    entailment_layer=ENTAILMENT_LAYER,
+    charge_titles=CHARGE_TITLES,
+    sentinels=SENTINELS,
+    ordinal=ORDINAL,
+    decision_partial_order=DECISION_PARTIAL_ORDER,
+    measured_allowed=MEASURED_ALLOWED,
+    measured_scaling_allowed=MEASURED_SCALING_ALLOWED,
+    derived_allowed=DERIVED_ALLOWED,
+    perspective_required=PERSPECTIVE_REQUIRED,
+    problem_families=PROBLEM_FAMILIES,
+)

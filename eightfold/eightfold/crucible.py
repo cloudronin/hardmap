@@ -28,13 +28,13 @@ S1_THIN = 500             # swap steps between recorded samples
 
 
 # ── entailment-valid, marginal-preserving null (S1) ──────────────────────────────────────────────────────
-def _row_valid(row):
+def _row_valid(row, spec=C.EIGHTFOLD_SPEC):
     """A row is entailment-valid iff its real-valued cells trip no column-forbidding rule (E1, E2)."""
-    assign = {c: v for c, v in row.items() if c in C.CHARGES and v not in C.SENTINELS}
-    return not C.theorem_forbidden_by(assign)
+    assign = {c: v for c, v in row.items() if c in spec.charges and v not in C.SENTINELS}
+    return not spec.theorem_forbidden_by(assign)
 
 
-def _null_chain(base_rows, rng, burn, thin, m):
+def _null_chain(base_rows, rng, burn, thin, m, spec=C.EIGHTFOLD_SPEC):
     """Swap-chain MCMC over the space of entailment-valid tables that PRESERVE every per-charge marginal
     exactly and hold each row's `n.a.` typing fixed (R1). A proposal swaps two applicable cells within one
     charge and is accepted iff both affected rows stay valid — so marginals never change and E1/E2 always
@@ -42,8 +42,8 @@ def _null_chain(base_rows, rng, burn, thin, m):
     which is why the spec's I1 fallback — per-charge swap-chains — is the primary sampler. Yields m tables.
     """
     state = [dict(r) for r in base_rows]
-    applic = {ch: [i for i, r in enumerate(state) if r[ch] != "n.a."] for ch in C.CHARGES}
-    swappable = [ch for ch in C.CHARGES if len(applic[ch]) >= 2]
+    applic = {ch: [i for i, r in enumerate(state) if r[ch] != "n.a."] for ch in spec.charges}
+    swappable = [ch for ch in spec.charges if len(applic[ch]) >= 2]
 
     def step():
         ch = swappable[int(rng.integers(len(swappable)))]
@@ -51,7 +51,7 @@ def _null_chain(base_rows, rng, burn, thin, m):
         if state[a][ch] == state[b][ch]:
             return
         state[a][ch], state[b][ch] = state[b][ch], state[a][ch]
-        if not (_row_valid(state[a]) and _row_valid(state[b])):
+        if not (_row_valid(state[a], spec) and _row_valid(state[b], spec)):
             state[a][ch], state[b][ch] = state[b][ch], state[a][ch]  # reject → revert
 
     for _ in range(burn):
@@ -63,10 +63,10 @@ def _null_chain(base_rows, rng, burn, thin, m):
 
 
 # ── the battery (identical stats on the real atlas and each null) ────────────────────────────────────────
-def _both_real_v(rows, ca, cb):
+def _both_real_v(rows, ca, cb, spec=C.EIGHTFOLD_SPEC):
     """Cramér's V over rows where BOTH charges carry a real value (the R25 both-real convention)."""
     xs = [(r[ca], r[cb]) for r in rows
-          if r[ca] in C.CHARGE_REAL_VALUES[ca] and r[cb] in C.CHARGE_REAL_VALUES[cb]]
+          if r[ca] in spec.charge_real_values[ca] and r[cb] in spec.charge_real_values[cb]]
     if len(xs) < 4:
         return float("nan")
     return S.cramers_v([x for x, _ in xs], [y for _, y in xs])

@@ -96,8 +96,12 @@ def _has_citation(prov: dict) -> bool:
     return isinstance(prov, dict) and any(prov.get(k) for k in C.CITATION_KEYS)
 
 
-def validate(entry: ProblemEntry) -> list[str]:
+def validate(entry: ProblemEntry, spec: C.ChargeSpec = C.EIGHTFOLD_SPEC) -> list[str]:
     """Return a list of human-readable error strings; empty = the entry is valid.
+
+    `spec` (default the eight hardness charges) supplies the vocabulary + entailment layer, so this one gate
+    stack validates any charge atlas — Eightfold's or Foundry's. Universal pieces (sentinels, the status
+    ladder, the experiment/condition-check/citation key sets) stay module-level.
 
     Gates:
       1. Vocab — charge ∈ CHARGES; value ∈ allowed_values(charge); status coherent with value type.
@@ -119,26 +123,26 @@ def validate(entry: ProblemEntry) -> list[str]:
         errs.append(f"{pid}: problem_id must be a lowercase slug (no spaces)")
     if not entry.problem_name:
         errs.append(f"{pid}: problem_name missing")
-    if entry.problem_family not in C.PROBLEM_FAMILIES:
-        errs.append(f"{pid}: problem_family {entry.problem_family!r} not in {sorted(C.PROBLEM_FAMILIES)}")
+    if entry.problem_family not in spec.problem_families:
+        errs.append(f"{pid}: problem_family {entry.problem_family!r} not in {sorted(spec.problem_families)}")
     if not entry.canonical_encoding:
         errs.append(f"{pid}: canonical_encoding missing (I3 — fix one encoding per problem)")
 
     # Shape: exactly one cell per charge, names match CHARGES.
     charge_names = [c.charge for c in entry.charges]
-    if sorted(charge_names) != sorted(C.CHARGES):
+    if sorted(charge_names) != sorted(spec.charges):
         errs.append(
-            f"{pid}: charges must be exactly one cell per charge {C.CHARGES}; "
+            f"{pid}: charges must be exactly one cell per charge {spec.charges}; "
             f"got {charge_names}"
         )
 
     for cell in entry.charges:
         tag = f"{pid}/{cell.charge}"
         # Gate 1a: known charge
-        if cell.charge not in C.CHARGES:
+        if cell.charge not in spec.charges:
             errs.append(f"{tag}: unknown charge")
             continue
-        allowed = C.allowed_values(cell.charge)
+        allowed = spec.allowed_values(cell.charge)
         # Gate 1b: value in vocab
         if cell.value not in allowed:
             errs.append(f"{tag}: value {cell.value!r} not in vocab {sorted(allowed)}")
@@ -168,19 +172,19 @@ def validate(entry: ProblemEntry) -> list[str]:
             if not _has_citation(cell.provenance):
                 errs.append(f"{tag}: confirmed requires a citation key {C.CITATION_KEYS}")
         # Gate 5: perspective for proof_size / parameterized real values
-        if cell.charge in C.PERSPECTIVE_REQUIRED and not is_sentinel and not cell.perspective:
+        if cell.charge in spec.perspective_required and not is_sentinel and not cell.perspective:
             errs.append(f"{tag}: real value on a perspective-dependent charge needs `perspective` "
                         f"(proof system / parameter) — R1/§3.2")
         # Gate 5b (R22): a PH-complete decision cell must name its level in `perspective` (e.g. Sigma_2^p).
         if cell.charge == "decision" and cell.value == "PH-complete" and not cell.perspective:
             errs.append(f"{tag}: decision=PH-complete needs the PH level in `perspective` (e.g. Sigma_2^p) (R22)")
         # Gate 6: measured quarantine (R9)
-        if cell.status == C.STATUS_MEASURED and cell.charge not in C.MEASURED_ALLOWED:
-            errs.append(f"{tag}: status 'measured' is allowed only on charges {sorted(C.MEASURED_ALLOWED)} "
+        if cell.status == C.STATUS_MEASURED and cell.charge not in spec.measured_allowed:
+            errs.append(f"{tag}: status 'measured' is allowed only on charges {sorted(spec.measured_allowed)} "
                         f"(R9 — self-generated values are quarantined; rejected on charges 1–5)")
-        if cell.status == C.STATUS_MEASURED_SCALING and cell.charge not in C.MEASURED_SCALING_ALLOWED:
+        if cell.status == C.STATUS_MEASURED_SCALING and cell.charge not in spec.measured_scaling_allowed:
             errs.append(f"{tag}: status 'measured-scaling' is allowed only on charge(s) "
-                        f"{sorted(C.MEASURED_SCALING_ALLOWED)} (R9)")
+                        f"{sorted(spec.measured_scaling_allowed)} (R9)")
         if cell.status in (C.STATUS_MEASURED, C.STATUS_MEASURED_SCALING):
             exp = cell.provenance.get("experiment")
             if not isinstance(exp, dict) or any(not exp.get(k) for k in C.EXPERIMENT_KEYS):
@@ -190,8 +194,8 @@ def validate(entry: ProblemEntry) -> list[str]:
         # and must log a per-problem condition_check whose `side` equals the cell's own value. Citation is NOT
         # exempted (see gate 3) — the dichotomy theorem must be cited too.
         if cell.status == C.STATUS_DERIVED:
-            if cell.charge not in C.DERIVED_ALLOWED:
-                errs.append(f"{tag}: status 'derived' is allowed only on charge(s) {sorted(C.DERIVED_ALLOWED)} "
+            if cell.charge not in spec.derived_allowed:
+                errs.append(f"{tag}: status 'derived' is allowed only on charge(s) {sorted(spec.derived_allowed)} "
                             f"(Crucible S4 — dichotomy-derived values are quarantined)")
             cc = cell.provenance.get("condition_check")
             if not isinstance(cc, dict) or any(not cc.get(k) for k in C.CONDITION_CHECK_KEYS):
@@ -245,18 +249,18 @@ def validate(entry: ProblemEntry) -> list[str]:
     # Data-vs-theorem consistency: the entry's real charge values must not violate a known entailment rule
     # (a violation is a data-entry bug — or a refutation of a theorem, which is not something we assert here).
     assignment = {c.charge: c.value for c in entry.charges if c.value not in C.SENTINELS}
-    for rule_name in C.theorem_forbidden_by(assignment):
+    for rule_name in spec.theorem_forbidden_by(assignment):
         errs.append(f"{pid}: charge values violate entailment rule {rule_name!r} "
                     f"(R5 — a theorem-forbidden combination in the data is a bug; fix or document)")
 
     return errs
 
 
-def validate_corpus(entries: list[ProblemEntry]) -> dict[str, list[str]]:
+def validate_corpus(entries: list[ProblemEntry], spec: C.ChargeSpec = C.EIGHTFOLD_SPEC) -> dict[str, list[str]]:
     """Per-entry errors keyed by problem_id, plus '__corpus__' (unique ids) and '__entailment__' (R6 layer)."""
     out: dict[str, list[str]] = {}
     for e in entries:
-        errs = validate(e)
+        errs = validate(e, spec)
         if errs:
             out[e.problem_id or "<no problem_id>"] = errs
     # Unique problem_id
@@ -267,7 +271,7 @@ def validate_corpus(entries: list[ProblemEntry]) -> dict[str, list[str]]:
     if dups:
         out.setdefault("__corpus__", []).append(f"duplicate problem_id values: {sorted(dups)}")
     # Entailment-layer internal consistency (R6) — enforced in CI alongside the data.
-    layer_errs = C.validate_entailment_layer()
+    layer_errs = spec.validate_entailment_layer()
     if layer_errs:
         out["__entailment__"] = layer_errs
     return out

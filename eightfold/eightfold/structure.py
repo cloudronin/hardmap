@@ -306,13 +306,14 @@ def leave_one_charge_out(entries):
     return out
 
 
-def gap_list(entries):
+def gap_list(entries, spec=C.EIGHTFOLD_SPEC, triples=None):
     """H3 deliverable: over the locked triples' 2-D projections (real values only), classify each EMPTY cell as
     theorem-forbidden (an entailment rule fires) or a GAP — a falsifiable 'a natural problem with (…) should
-    exist; none is known' claim."""
+    exist; none is known' claim. `spec`/`triples` default to Eightfold's; Foundry passes its own."""
+    triples = LOCKED_TRIPLES if triples is None else triples
     _, _, rows = _grid(entries)
     gaps, forbidden, seen = [], [], set()
-    for triple in LOCKED_TRIPLES:
+    for triple in triples:
         for a, b in itertools.combinations(triple, 2):
             if (a, b) in seen:
                 continue
@@ -324,7 +325,7 @@ def gap_list(entries):
                 for y in vb:
                     if (x, y) in occ:
                         continue
-                    hits = C.theorem_forbidden_by({a: x, b: y})
+                    hits = spec.theorem_forbidden_by({a: x, b: y})
                     if hits:
                         forbidden.append({"cell": f"{a}={x} & {b}={y}", "rules": hits})
                     else:

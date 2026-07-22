@@ -246,3 +246,18 @@
   no-p-values, sociology) are now *tested*, not open. **Rider A** provenance: §8 numbers labelled
   frozen-118 vs augmented-119, and A3-structure.md gets a header note pointing to §8 (frozen sha256). No
   RESIZED verdict argued back to SURVIVES. **Crucible v1.1 complete — nothing shipped until this existed.**
+
+## 0.1.2 (unreleased) — atlas kernel (ChargeSpec); Foundry Phase K
+
+- **Kernel extraction — the shared, spec-parametrized validator + harness (enables Foundry).** `charges.py`
+  gains a frozen **`ChargeSpec`** (charges, real-value vocab, entailment layer, measured/derived-allowed,
+  perspective-required, ordinal/partial-order, problem-families + methods `allowed_values` /
+  `theorem_forbidden_by` / `validate_entailment_layer`) and **`EIGHTFOLD_SPEC`** built from the exact existing
+  literals; every module-level name is unchanged. `atlas.validate` / `validate_corpus` and the reusable harness
+  primitives (`crucible._row_valid` / `_null_chain` / `_both_real_v`, `structure.gap_list`) now take
+  `spec=EIGHTFOLD_SPEC`, so one code path validates + analyses **any** charge atlas (Eightfold's eight hardness
+  charges, or Foundry's CSP charges). The universal pieces (sentinels, the status ladder,
+  experiment/condition-check/citation key sets) stay module-level. **Backward-compatibility gate MET:** 61
+  tests pass unchanged, and `a3_structure.json` (sha `9a5ec8e0…`) + `crucible_results.json` (sha `5349b8bf…`)
+  regenerate **byte-identical** — the science did not move. Eightfold now freezes as Foundry's library
+  dependency; from here it is not modified to suit Foundry (Foundry Phase K, R-A).
