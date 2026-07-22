@@ -1,0 +1,70 @@
+{
+  "prereg_version": "v6",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "committed_before_analysis": true,
+  "committed_before_confirmation_run": true,
+  "supersedes": "v5 (owner ruling at the Sprint-4 calibration gate). v5's sealed I6 (binary) stands and is scored at face value; v6 ADDS the sealed exploratory->confirmatory hypothesis H_I6b, the relative-density protocol, and the R25-in-spirit novelty-netting. Committed BEFORE the confirmation measurement run (fresh instance draws).",
+  "label": "Sprint 4 — I6 scored at face value + H_I6b (polymorphism ruggedness ordering), confirmed on fresh data",
+
+  "calibration_disclosure": "The calibration gate (Task 1c, docs/findings/Sprint4-calibration-gate.md) used n=12-16 and specific seeds (base 200). Those data SUGGESTED H_I6b; per owner ruling, calibration data may suggest but only FRESH data confirms. All verdicts below run on fresh instance draws (disjoint seeds) at densities pinned here in advance.",
+
+  "H_I6a_binary_at_face_value": {
+    "status": "the SEALED I6 from prereg_v4/v5, scored EXACTLY as posed — no refinement, no rescue.",
+    "hypothesis": "the bounded-width (localization) oracle predicts smoother measured solution-space terrain: bounded-width-P rows read smoother than affine-unbounded-P rows.",
+    "contrast": "9 bounded-width-P vs 5 affine-unbounded-P (all decision-P; deconfounded).",
+    "decision_rule": "direction = sign(mean ruggedness of affine arm - mean ruggedness of bounded arm); permutation p over the both-real (localization, ruggedness) rows with the fixed harness (permute localization labels among both-real rows; hand-count selftest in CI); floor >= 12 concordant rows.",
+    "verdict": {"SUPPORTED": "direction bounded-smoother AND p<0.05 AND floor met AND instrument qualified",
+                "NOT_SUPPORTED": "floor met + instrument qualified, but direction null/reversed or p>=0.05",
+                "INSUFFICIENT_RESOLUTION": "floor not met", "INSTRUMENT_NOT_QUALIFIED": "Vega fails (it does NOT — it passed)"},
+    "owner_expectation_on_record": "the calibration +0.11 separation with the wide bounded-arm spread (0.83-0.93) will likely read NOT SUPPORTED or weakly-directional. Report AT SIZE; no rescue. 'Width-as-a-binary predicts terrain' appears wrong in its strong form — this goes in the F1 predictions ledger next to the k in {3,4} miss.",
+    "ledger": "record H_I6a's verdict in the F1 canon-or-computation ledger as a scored prediction (hit/miss), like P1-P4 and the Factors k-prediction."
+  },
+
+  "H_I6b_polymorphism_ordering": {
+    "status": "NEW sealed hypothesis (Mendeleev-gallery treatment): calibration-SUGGESTED, confirmed here on FRESH data at pre-pinned densities. Exploratory in origin, sealed before the confirmation run.",
+    "hypothesis": "measured solution-space ruggedness is ORDERED by the tractability-giving polymorphism, not by the width bit: semilattice(Horn/min-max) < majority(2-SAT/bijunctive) < order/median <= affine. I.e. localization-as-specific-polymorphism structures terrain where localization-as-width does not.",
+    "arms": {"semilattice": ["horn-sat", "dual-horn", "zerovalid-horn", "onevalid-dualhorn"],
+              "majority": ["2-sat", "zerovalid-bijunctive", "onevalid-bijunctive"],
+              "order_median_d3": ["order-3", "median-3"],
+              "affine": ["xor-sat", "zerovalid-affine", "onevalid-affine", "lin-eq-z3", "lin-eq-z3-b"]},
+    "decision_rule": "on FRESH draws (disjoint seeds), at BOTH pinned densities (0.7*alpha_c and 0.9*alpha_c per family), compute each arm's mean ruggedness with both samplers (concordant). CONFIRMED iff the arm-mean ordering semilattice < majority < order/median <= affine holds (strict where stated) AND is STABLE across both density points AND both samplers. Report the per-arm means + a rank statistic.",
+    "verdict": {"CONFIRMED": "ordering holds and is stable across both densities + both samplers",
+                "PARTIAL": "ordering holds at one density or up to one adjacent-arm swap",
+                "NOT_CONFIRMED": "ordering does not hold on fresh data"},
+    "the_anomaly_is_the_headline": "the finding-shaped object is NOT the gradient per se but the ANOMALY: order-3/median-3 are BOUNDED-WIDTH yet read affine-rugged. The sealed sub-claim: bounded-width families SPLIT into smooth and rugged sub-populations by polymorphism type. Confirm the split (Horn-family smooth vs order/median rugged) on fresh data."
+  },
+
+  "density_protocol": {
+    "matched_density_definition": "RELATIVE, not absolute: per family, empirically locate the satisfiability threshold alpha_c (the density where random instances transition SAT->UNSAT), THEN measure at 0.7*alpha_c and 0.9*alpha_c. Cross-family comparison is at matched fraction-of-threshold.",
+    "alpha_c_location": "a pre-run bisection/scan per family estimates alpha_c (fraction of satisfiable instances crossing 0.5); logged per family before the confirmation run.",
+    "robustness_requirement": "an ordering/verdict counts as confirmed ONLY if stable across BOTH 0.7 and 0.9 fraction-of-threshold points. This converts the density-sensitivity caveat into a robustness gate."
+  },
+
+  "R25_in_spirit_novelty_netting": {
+    "rule": "before claiming novelty, net the theory-ANTICIPATED component. Document what prior structure theory predicts and subtract it; report only the residual as the finding.",
+    "anticipated": ["Horn solution sets are lattices (closed under min) -> connectivity/consensus expected -> smooth is NOT novel",
+                     "affine solution sets are cosets of a linear subspace -> dispersion/spread expected -> rugged is NOT novel"],
+    "residual_novelty": ["the QUANTITATIVE ordering across bounded-width polymorphisms",
+                          "ABOVE ALL the ANOMALY: order-3/median-3 bounded-width yet affine-rugged — no folklore hands you 'bounded-width splits into smooth and rugged sub-populations by polymorphism type'"],
+    "writeup_frame": "frame Sprint 4's landscape finding around the ANOMALY, not the gradient."
+  },
+
+  "builder_default_decisions": {
+    "note": "owner deferred these to builder defaults, logged here for review at the findings stage.",
+    "proof_side_task_1d": "the proof-side proof_size run on the 5 NP-hard rows (3-sat, nae-sat, one-in-three-sat, 3-coloring, nae-3dom) proceeds IN PARALLEL, reusing the Proof-Census apparatus, framed as a Ben-Sasson-Wigderson consistency check (R-e).",
+    "instance_size": "the confirmation run uses larger instances than calibration (n ~= 24 Boolean / ~= 18 domain-3) for tighter readings — still seconds/family.",
+    "samplers": "both structurally-different samplers (dpll + walksat) required concordant; affine-exact ground-truth reported on the affine arm."
+  },
+
+  "unchanged_from_v5": "the measured-column protocol (Gate-6 manifests, glitch/concordance, noise-floor-before-findings, budget + kill-3, sampled-population provenance R-d) and all standing discipline stand. No oracle column is touched.",
+
+  "standing_discipline": [
+    "prereg before analysis (v6 committed before the confirmation run on fresh draws)",
+    "calibration data suggests; only fresh data confirms (H_I6b)",
+    "score sealed hypotheses at face value; no mid-review rescue (H_I6a)",
+    "relative-density robustness gate (stable across 0.7 and 0.9 fraction-of-threshold)",
+    "net the theory-anticipated component before claiming novelty (R25-in-spirit)",
+    "the permutation harness hand-count selftest stays in CI",
+    "eightfold byte-identical; no oracle cell touched; measured never silently upgraded; RESIZED never argued back"
+  ]
+}
