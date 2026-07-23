@@ -129,7 +129,7 @@ def fit_decay(dist_mean: dict):
     r2, beta = RF.fit_r2(ds, ys)
     slope = beta[1]
     lam = (-1.0 / slope) if slope < -1e-9 else float("inf")
-    return {"reach_length": ("inf" if lam == float("inf") else round(lam, 3)),
+    return {"reach_length": ("inf" if lam == float("inf") else round(float(lam), 3)),
             "r2": round(float(r2), 3), "slope": round(float(slope), 4), "n_points": len(pts)}
 
 
@@ -176,6 +176,36 @@ def measure_reach(rels, domain, n, alpha, observable="corr", sampler="dpll", n_i
             "cross_component_shift": round(mean.get(None, 0.0), 4),
             "reach_score": round(reach_score(mean), 4), "reach_fit": fit_decay(mean),
             "per_instance_scores": [round(s, 4) for s in per_inst_scores], "n_profiles": len(all_profiles)}
+
+
+ENUM_N_MAX = 18                       # brute-force enumerate solutions when n <= this (2^18 feasible) -> exact ξ
+
+
+def enumerate_solutions(inst):
+    """ALL solutions (exact). Only call for n <= ENUM_N_MAX."""
+    return _solutions(inst, "exact", 0, 0)
+
+
+def reach_corr_from_sols(inst, sols, max_sources=10, sources=None):
+    """ξ (corr) reach_score + decay fit from a GIVEN solution set (exact OR sampled) — samples nothing itself, so
+    P3 samples/enumerates ONCE per instance and reads ξ off it. Sources default to connected vars (capped);
+    pass an explicit `sources` list for the drop-point/source-degree sensitivity diagnostic."""
+    dom, n = inst.domain, inst.n_vars
+    adj = variable_graph(inst)
+    if sources is None:
+        sources = [v for v in range(n) if adj[v]][:max_sources]
+    profs = []
+    for v in sources:
+        dist = bfs_distances(adj, v)
+        prof = {}
+        for u in range(n):
+            if u != v:
+                prof.setdefault(dist.get(u), []).append(connected_corr(sols, v, u, dom))
+        profs.append(prof)
+    mean = aggregate(profs)
+    return {"reach_score": round(reach_score(mean), 4), "reach_fit": fit_decay(mean),
+            "profile": {("inf" if d is None else d): round(s, 4)
+                        for d, s in sorted(mean.items(), key=lambda kv: (kv[0] is None, kv[0]))}}
 
 
 # ── the three sealed poles (prereg_v17) + the ordering calibration ───────────────────────────────────────────

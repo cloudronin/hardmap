@@ -1,0 +1,64 @@
+{
+  "prereg": "v20",
+  "n": 16,
+  "alpha": 0.6,
+  "medium_pole": 0.074,
+  "results": {
+    "3-XOR (parity)": {
+      "name": "3-XOR (parity)",
+      "reach_score": 0.0263,
+      "per_instance": [
+        0.0287,
+        0.011,
+        0.0217,
+        0.0285,
+        0.0855,
+        0.0096,
+        0.0156,
+        0.01
+      ],
+      "median_coset": 64,
+      "n_instances": 8
+    },
+    "4-XOR (parity)": {
+      "name": "4-XOR (parity)",
+      "reach_score": 0.03,
+      "per_instance": [
+        0.0455,
+        0.0035,
+        0.0112,
+        0.0,
+        0.0082,
+        0.0476,
+        0.0833,
+        0.0403
+      ],
+      "median_coset": 64,
+      "n_instances": 8
+    },
+    "2-affine reference": {
+      "name": "2-affine reference",
+      "reach_score": 0.5,
+      "per_instance": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "median_coset": 96,
+      "n_instances": 8
+    }
+  },
+  "parity_max_reach": 0.03,
+  "reference_reach": 0.5,
+  "poles_at_alpha_1.4": {
+    "short": 0.0,
+    "medium": 0.074,
+    "long": 0.5
+  },
+  "VERDICT": "DISQUALIFIED"
+}
