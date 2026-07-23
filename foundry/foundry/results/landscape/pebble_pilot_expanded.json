@@ -1,0 +1,1887 @@
+{
+  "prereg": "v12",
+  "roster": "expanded (sprint46; arity 3+4)",
+  "size_bands": [
+    8,
+    12,
+    16,
+    20
+  ],
+  "n_folds": 16,
+  "per_band": {
+    "8": {
+      "held_out_power": 0.692,
+      "n_rows": 77,
+      "n_folds": 16
+    },
+    "12": {
+      "held_out_power": 0.664,
+      "n_rows": 76,
+      "n_folds": 16
+    },
+    "16": {
+      "held_out_power": 0.736,
+      "n_rows": 76,
+      "n_folds": 16
+    },
+    "20": {
+      "held_out_power": 0.637,
+      "n_rows": 76,
+      "n_folds": 16
+    }
+  },
+  "held_out_power_smallest": 0.692,
+  "held_out_power_largest": 0.637,
+  "relative_drop": 0.079,
+  "drop_threshold": 0.3,
+  "bootstrap_ci_smallest": [
+    0.538,
+    0.784
+  ],
+  "bootstrap_ci_largest": [
+    0.405,
+    0.768
+  ],
+  "within_noise_band": true,
+  "verdict": "INCONCLUSIVE (trend within bootstrap noise band)",
+  "per_relation_rows": {
+    "8": [
+      {
+        "coclone": "bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.646,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.589,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.617,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.617,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.589,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.645,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 0.983,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+aff",
+        "tuple_dispersion": 0.571,
+        "ruggedness": 0.983,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.556,
+        "ruggedness": 0.705,
+        "arity": 3
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.801,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.764,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.847,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.483,
+        "ruggedness": 0.498,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.55,
+        "ruggedness": 0.767,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.648,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.533,
+        "ruggedness": 0.705,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.75,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.567,
+        "ruggedness": 0.796,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.417,
+        "ruggedness": 0.568,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.476,
+        "ruggedness": 0.563,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.716,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.533,
+        "ruggedness": 0.73,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.45,
+        "ruggedness": 0.738,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.556,
+        "ruggedness": 0.772,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.467,
+        "ruggedness": 0.503,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.452,
+        "ruggedness": 0.657,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.556,
+        "ruggedness": 0.801,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.533,
+        "ruggedness": 0.819,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.857,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.55,
+        "ruggedness": 0.903,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.556,
+        "ruggedness": 0.892,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.476,
+        "ruggedness": 0.865,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.611,
+        "ruggedness": 0.815,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.483,
+        "ruggedness": 0.881,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.491,
+        "ruggedness": 0.707,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.514,
+        "ruggedness": 0.855,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.509,
+        "ruggedness": 0.873,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.53,
+        "ruggedness": 0.82,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.611,
+        "ruggedness": 0.822,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.583,
+        "ruggedness": 0.991,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.524,
+        "ruggedness": 0.936,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.514,
+        "ruggedness": 0.837,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.536,
+        "ruggedness": 0.802,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.534,
+        "ruggedness": 0.786,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.709,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.571,
+        "ruggedness": 0.908,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.509,
+        "ruggedness": 0.772,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.517,
+        "ruggedness": 0.86,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.518,
+        "ruggedness": 0.778,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.523,
+        "ruggedness": 0.756,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.45,
+        "ruggedness": 0.72,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.517,
+        "ruggedness": 0.683,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.491,
+        "ruggedness": 0.786,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.514,
+        "ruggedness": 0.776,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.517,
+        "ruggedness": 0.862,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.523,
+        "ruggedness": 0.766,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.6,
+        "ruggedness": 0.963,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.542,
+        "ruggedness": 0.923,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.544,
+        "ruggedness": 0.963,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.527,
+        "ruggedness": 0.893,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.542,
+        "ruggedness": 0.941,
+        "arity": 4
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.611,
+        "ruggedness": 0.837,
+        "arity": 3
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.583,
+        "ruggedness": 0.979,
+        "arity": 4
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.776,
+        "arity": 4
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.542,
+        "ruggedness": 0.909,
+        "arity": 4
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.545,
+        "ruggedness": 0.95,
+        "arity": 4
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.611,
+        "ruggedness": 0.845,
+        "arity": 3
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.55,
+        "ruggedness": 0.509,
+        "arity": 4
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.527,
+        "ruggedness": 0.85,
+        "arity": 4
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.528,
+        "ruggedness": 0.909,
+        "arity": 4
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.545,
+        "ruggedness": 0.991,
+        "arity": 4
+      }
+    ],
+    "12": [
+      {
+        "coclone": "bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 0.999,
+        "arity": 3
+      },
+      {
+        "coclone": "bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.413,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.43,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.547,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 0.995,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.547,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.43,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.414,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 0.984,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+aff",
+        "tuple_dispersion": 0.571,
+        "ruggedness": 0.942,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.556,
+        "ruggedness": 0.524,
+        "arity": 3
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.825,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.278,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.483,
+        "ruggedness": 0.358,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.55,
+        "ruggedness": 0.802,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.586,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.533,
+        "ruggedness": 0.561,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.374,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.567,
+        "ruggedness": 0.598,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.417,
+        "ruggedness": 0.384,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.476,
+        "ruggedness": 0.455,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.522,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.533,
+        "ruggedness": 0.53,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.45,
+        "ruggedness": 0.786,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.556,
+        "ruggedness": 0.617,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.467,
+        "ruggedness": 0.397,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.452,
+        "ruggedness": 0.304,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.556,
+        "ruggedness": 0.89,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.533,
+        "ruggedness": 0.634,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.763,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.55,
+        "ruggedness": 0.898,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.556,
+        "ruggedness": 0.726,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.476,
+        "ruggedness": 0.784,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.611,
+        "ruggedness": 0.629,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.483,
+        "ruggedness": 0.842,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.491,
+        "ruggedness": 0.558,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.514,
+        "ruggedness": 0.677,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.509,
+        "ruggedness": 0.922,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.53,
+        "ruggedness": 0.609,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.611,
+        "ruggedness": 0.614,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.583,
+        "ruggedness": 0.968,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.524,
+        "ruggedness": 0.846,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.514,
+        "ruggedness": 0.676,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.536,
+        "ruggedness": 0.585,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.534,
+        "ruggedness": 0.674,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.454,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.571,
+        "ruggedness": 0.88,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.509,
+        "ruggedness": 0.559,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.517,
+        "ruggedness": 0.591,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.518,
+        "ruggedness": 0.565,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.523,
+        "ruggedness": 0.643,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.45,
+        "ruggedness": 0.523,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.517,
+        "ruggedness": 0.482,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.491,
+        "ruggedness": 0.526,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.514,
+        "ruggedness": 0.504,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.517,
+        "ruggedness": 0.59,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.523,
+        "ruggedness": 0.651,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.6,
+        "ruggedness": 0.886,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.542,
+        "ruggedness": 0.667,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.544,
+        "ruggedness": 0.919,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.527,
+        "ruggedness": 0.727,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.542,
+        "ruggedness": 0.897,
+        "arity": 4
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.611,
+        "ruggedness": 0.812,
+        "arity": 3
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.583,
+        "ruggedness": 0.821,
+        "arity": 4
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.456,
+        "arity": 4
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.542,
+        "ruggedness": 0.825,
+        "arity": 4
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.545,
+        "ruggedness": 0.873,
+        "arity": 4
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.611,
+        "ruggedness": 0.445,
+        "arity": 3
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.55,
+        "ruggedness": 0.595,
+        "arity": 4
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.527,
+        "ruggedness": 0.611,
+        "arity": 4
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.528,
+        "ruggedness": 0.689,
+        "arity": 4
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.545,
+        "ruggedness": 0.827,
+        "arity": 4
+      }
+    ],
+    "16": [
+      {
+        "coclone": "bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.353,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.24,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.268,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.268,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.24,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.354,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 0.857,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+aff",
+        "tuple_dispersion": 0.571,
+        "ruggedness": 0.967,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.556,
+        "ruggedness": 0.85,
+        "arity": 3
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.38,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.214,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.483,
+        "ruggedness": 0.402,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.55,
+        "ruggedness": 0.587,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.416,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.533,
+        "ruggedness": 0.365,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.395,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.567,
+        "ruggedness": 0.547,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.417,
+        "ruggedness": 0.354,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.476,
+        "ruggedness": 0.376,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.382,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.533,
+        "ruggedness": 0.456,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.45,
+        "ruggedness": 0.19,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.556,
+        "ruggedness": 0.607,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.467,
+        "ruggedness": 0.497,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.452,
+        "ruggedness": 0.433,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.556,
+        "ruggedness": 0.792,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.533,
+        "ruggedness": 0.674,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.645,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.55,
+        "ruggedness": 0.806,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.556,
+        "ruggedness": 0.861,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.476,
+        "ruggedness": 0.746,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.611,
+        "ruggedness": 0.49,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.483,
+        "ruggedness": 0.746,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.491,
+        "ruggedness": 0.461,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.514,
+        "ruggedness": 0.642,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.509,
+        "ruggedness": 0.73,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.53,
+        "ruggedness": 0.568,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.611,
+        "ruggedness": 0.622,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.583,
+        "ruggedness": 0.857,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.524,
+        "ruggedness": 0.908,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.514,
+        "ruggedness": 0.576,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.536,
+        "ruggedness": 0.547,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.534,
+        "ruggedness": 0.659,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.244,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.571,
+        "ruggedness": 0.867,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.509,
+        "ruggedness": 0.377,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.517,
+        "ruggedness": 0.39,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.518,
+        "ruggedness": 0.506,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.523,
+        "ruggedness": 0.623,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.45,
+        "ruggedness": 0.376,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.517,
+        "ruggedness": 0.283,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.491,
+        "ruggedness": 0.455,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.514,
+        "ruggedness": 0.408,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.517,
+        "ruggedness": 0.391,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.523,
+        "ruggedness": 0.641,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.6,
+        "ruggedness": 0.847,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.542,
+        "ruggedness": 0.451,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.544,
+        "ruggedness": 0.855,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.527,
+        "ruggedness": 0.742,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.542,
+        "ruggedness": 0.766,
+        "arity": 4
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.611,
+        "ruggedness": 0.573,
+        "arity": 3
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.583,
+        "ruggedness": 0.791,
+        "arity": 4
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.671,
+        "arity": 4
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.542,
+        "ruggedness": 0.801,
+        "arity": 4
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.545,
+        "ruggedness": 0.817,
+        "arity": 4
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.611,
+        "ruggedness": 0.653,
+        "arity": 3
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.55,
+        "ruggedness": 0.58,
+        "arity": 4
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.527,
+        "ruggedness": 0.47,
+        "arity": 4
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.528,
+        "ruggedness": 0.534,
+        "arity": 4
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.545,
+        "ruggedness": 0.696,
+        "arity": 4
+      }
+    ],
+    "20": [
+      {
+        "coclone": "bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 0.994,
+        "arity": 3
+      },
+      {
+        "coclone": "bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.235,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.305,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.317,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 0.997,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 1.0,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.316,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.306,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+horn+dhorn+bij+aff",
+        "tuple_dispersion": 0.444,
+        "ruggedness": 0.235,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+aff",
+        "tuple_dispersion": 0.667,
+        "ruggedness": 0.751,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+aff",
+        "tuple_dispersion": 0.571,
+        "ruggedness": 0.834,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.556,
+        "ruggedness": 0.367,
+        "arity": 3
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.31,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.215,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.483,
+        "ruggedness": 0.392,
+        "arity": 4
+      },
+      {
+        "coclone": "bij",
+        "tuple_dispersion": 0.55,
+        "ruggedness": 0.519,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.409,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.533,
+        "ruggedness": 0.207,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.351,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.567,
+        "ruggedness": 0.303,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.417,
+        "ruggedness": 0.333,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn+bij",
+        "tuple_dispersion": 0.476,
+        "ruggedness": 0.347,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.369,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.533,
+        "ruggedness": 0.463,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.45,
+        "ruggedness": 0.219,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.556,
+        "ruggedness": 0.61,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.467,
+        "ruggedness": 0.302,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn+bij",
+        "tuple_dispersion": 0.452,
+        "ruggedness": 0.296,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.556,
+        "ruggedness": 0.873,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.533,
+        "ruggedness": 0.485,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.533,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.55,
+        "ruggedness": 0.871,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.556,
+        "ruggedness": 0.899,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn+dhorn+bij",
+        "tuple_dispersion": 0.476,
+        "ruggedness": 0.74,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.611,
+        "ruggedness": 0.38,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.483,
+        "ruggedness": 0.805,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.491,
+        "ruggedness": 0.379,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.514,
+        "ruggedness": 0.57,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.509,
+        "ruggedness": 0.81,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+horn",
+        "tuple_dispersion": 0.53,
+        "ruggedness": 0.56,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.611,
+        "ruggedness": 0.462,
+        "arity": 3
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.583,
+        "ruggedness": 0.831,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.524,
+        "ruggedness": 0.756,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.514,
+        "ruggedness": 0.427,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.536,
+        "ruggedness": 0.511,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v+dhorn",
+        "tuple_dispersion": 0.534,
+        "ruggedness": 0.636,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.282,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.571,
+        "ruggedness": 0.853,
+        "arity": 3
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.509,
+        "ruggedness": 0.325,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.517,
+        "ruggedness": 0.438,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.518,
+        "ruggedness": 0.47,
+        "arity": 4
+      },
+      {
+        "coclone": "1v+dhorn",
+        "tuple_dispersion": 0.523,
+        "ruggedness": 0.645,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.45,
+        "ruggedness": 0.264,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.517,
+        "ruggedness": 0.272,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.491,
+        "ruggedness": 0.288,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.514,
+        "ruggedness": 0.402,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.517,
+        "ruggedness": 0.441,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+horn",
+        "tuple_dispersion": 0.523,
+        "ruggedness": 0.644,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.6,
+        "ruggedness": 0.944,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.542,
+        "ruggedness": 0.385,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.544,
+        "ruggedness": 0.95,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.527,
+        "ruggedness": 0.647,
+        "arity": 4
+      },
+      {
+        "coclone": "0v+1v",
+        "tuple_dispersion": 0.542,
+        "ruggedness": 0.849,
+        "arity": 4
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.611,
+        "ruggedness": 0.403,
+        "arity": 3
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.583,
+        "ruggedness": 0.792,
+        "arity": 4
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.5,
+        "ruggedness": 0.573,
+        "arity": 4
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.542,
+        "ruggedness": 0.422,
+        "arity": 4
+      },
+      {
+        "coclone": "0v",
+        "tuple_dispersion": 0.545,
+        "ruggedness": 0.856,
+        "arity": 4
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.611,
+        "ruggedness": 0.432,
+        "arity": 3
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.55,
+        "ruggedness": 0.315,
+        "arity": 4
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.527,
+        "ruggedness": 0.392,
+        "arity": 4
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.528,
+        "ruggedness": 0.534,
+        "arity": 4
+      },
+      {
+        "coclone": "1v",
+        "tuple_dispersion": 0.545,
+        "ruggedness": 0.629,
+        "arity": 4
+      }
+    ]
+  }
+}
