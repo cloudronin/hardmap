@@ -1,0 +1,4071 @@
+{
+  "prereg": "v32",
+  "n_symmetry_classes": 90,
+  "npi_calibration_pred1": {
+    "decision_values": [
+      "NPC",
+      "P"
+    ],
+    "passed": true
+  },
+  "v3_reproduction_gate": {
+    "approx_param_V_on_both_real_rows": 0.2555,
+    "n_both_real_rows": 166,
+    "target": 0.256,
+    "passed": true
+  },
+  "marginals": {
+    "decision": {
+      "P": 83,
+      "NPC": 7
+    },
+    "counting": {
+      "FP": 28,
+      "#P-complete": 62
+    },
+    "localization": {
+      "bounded-width": 83,
+      "unbounded-width": 7
+    },
+    "parallelization": {
+      "NC": 71,
+      "n.a.": 7,
+      "P-complete": 12
+    },
+    "approx_counting": {
+      "FP": 28,
+      "#SAT-equivalent": 53,
+      "#BIS-equivalent": 9
+    },
+    "parameterized": {
+      "FPT": 40,
+      "W[1]": 43,
+      "open": 7
+    },
+    "approx_maxones": {
+      "PO": 63,
+      "poly-APX-complete": 14,
+      "feasibility-hard": 7,
+      "decidable-not-approximable": 5,
+      "APX-complete": 1
+    },
+    "approx_minones": {
+      "PO": 63,
+      "APX-complete": 14,
+      "feasibility-hard": 7,
+      "poly-APX-complete": 5,
+      "Nearest-Codeword-complete": 1
+    }
+  },
+  "distinct_profile_counts": {
+    "full_per_relation_profile": 7,
+    "per_column": {
+      "decision": 2,
+      "counting": 2,
+      "localization": 2,
+      "parallelization": 3,
+      "approx_counting": 3,
+      "parameterized": 3,
+      "approx_maxones": 5,
+      "approx_minones": 5
+    }
+  },
+  "class_sizes": {
+    "total_raw_relations": 270,
+    "n_classes": 90,
+    "size_distribution": {
+      "1": 22,
+      "2": 4,
+      "3": 48,
+      "6": 16
+    }
+  },
+  "charge_table": [
+    {
+      "arity": 1,
+      "relation": [
+        [
+          0
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 1,
+      "relation": [
+        [
+          1
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 2,
+      "relation": [
+        [
+          0,
+          0
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 2,
+      "relation": [
+        [
+          0,
+          1
+        ]
+      ],
+      "class_size": 2,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 2,
+      "relation": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "class_size": 2,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 2,
+      "relation": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 2,
+      "relation": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "poly-APX-complete",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": true,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 2,
+      "relation": [
+        [
+          1,
+          1
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 2,
+      "relation": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 2,
+      "relation": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "class_size": 2,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 2,
+      "relation": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "class_size": 2,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#BIS-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 2,
+      "relation": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "poly-APX-complete",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "class_size": 6,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "class_size": 6,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#BIS-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "class_size": 1,
+      "decision": "NPC",
+      "counting": "#P-complete",
+      "localization": "unbounded-width",
+      "parallelization": "n.a.",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "open",
+      "approx_maxones": "feasibility-hard",
+      "approx_minones": "feasibility-hard",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "poly-APX-complete",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": true,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "poly-APX-complete",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "class_size": 6,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "FPT",
+      "approx_maxones": "poly-APX-complete",
+      "approx_minones": "APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "class_size": 6,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "poly-APX-complete",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "class_size": 3,
+      "decision": "NPC",
+      "counting": "#P-complete",
+      "localization": "unbounded-width",
+      "parallelization": "n.a.",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "open",
+      "approx_maxones": "feasibility-hard",
+      "approx_minones": "feasibility-hard",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "poly-APX-complete",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": true,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "FPT",
+      "approx_maxones": "decidable-not-approximable",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "poly-APX-complete",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "poly-APX-complete",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "class_size": 6,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "FPT",
+      "approx_maxones": "poly-APX-complete",
+      "approx_minones": "APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "class_size": 6,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "decidable-not-approximable",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "class_size": 6,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "poly-APX-complete",
+      "approx_minones": "APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "class_size": 6,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "poly-APX-complete",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "decidable-not-approximable",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "NPC",
+      "counting": "#P-complete",
+      "localization": "unbounded-width",
+      "parallelization": "n.a.",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "open",
+      "approx_maxones": "feasibility-hard",
+      "approx_minones": "feasibility-hard",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "poly-APX-complete",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": false,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": true,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "class_size": 1,
+      "decision": "NPC",
+      "counting": "#P-complete",
+      "localization": "unbounded-width",
+      "parallelization": "n.a.",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "open",
+      "approx_maxones": "feasibility-hard",
+      "approx_minones": "feasibility-hard",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "APX-complete",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": true,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "class_size": 3,
+      "decision": "NPC",
+      "counting": "#P-complete",
+      "localization": "unbounded-width",
+      "parallelization": "n.a.",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "open",
+      "approx_maxones": "feasibility-hard",
+      "approx_minones": "feasibility-hard",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "decidable-not-approximable",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "class_size": 3,
+      "decision": "NPC",
+      "counting": "#P-complete",
+      "localization": "unbounded-width",
+      "parallelization": "n.a.",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "open",
+      "approx_maxones": "feasibility-hard",
+      "approx_minones": "feasibility-hard",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "decidable-not-approximable",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "class_size": 1,
+      "decision": "NPC",
+      "counting": "#P-complete",
+      "localization": "unbounded-width",
+      "parallelization": "n.a.",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "open",
+      "approx_maxones": "feasibility-hard",
+      "approx_minones": "feasibility-hard",
+      "flags": {
+        "0valid": false,
+        "1valid": false,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "P-complete",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "poly-APX-complete",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": false,
+        "horn": true,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": true,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#BIS-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "poly-APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "P-complete",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#BIS-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 6,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#BIS-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 6,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#BIS-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#BIS-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "Nearest-Codeword-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": true,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "P-complete",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": true,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 6,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "poly-APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 6,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "P-complete",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "poly-APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "P-complete",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": true,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "P-complete",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": true,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "FP",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "FP",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": true,
+        "width2affine": true,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#BIS-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 6,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 6,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "P-complete",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": true,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 6,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 6,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#BIS-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "poly-APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "poly-APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "P-complete",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": true,
+        "dualhorn": false,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": true,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "P-complete",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": true,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "P-complete",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": true,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "NC",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": true,
+        "bijunctive": true,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 3,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "P-complete",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "W[1]",
+      "approx_maxones": "PO",
+      "approx_minones": "PO",
+      "flags": {
+        "0valid": true,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": true,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": false,
+        "general_wsep": false
+      }
+    },
+    {
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "class_size": 1,
+      "decision": "P",
+      "counting": "#P-complete",
+      "localization": "bounded-width",
+      "parallelization": "P-complete",
+      "approx_counting": "#SAT-equivalent",
+      "parameterized": "FPT",
+      "approx_maxones": "PO",
+      "approx_minones": "APX-complete",
+      "flags": {
+        "0valid": false,
+        "1valid": true,
+        "horn": false,
+        "dualhorn": true,
+        "bijunctive": false,
+        "affine": false,
+        "width2affine": false,
+        "strongly0valid": false,
+        "IHSB": true,
+        "general_wsep": true
+      }
+    }
+  ]
+}
