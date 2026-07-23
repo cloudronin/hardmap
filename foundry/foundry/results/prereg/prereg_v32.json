@@ -1,0 +1,71 @@
+{
+  "prereg_version": "v32",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Prism v1 — multi-charge analysis of the natural Boolean roster",
+  "role": "Prism charges the Lattice v3 natural roster (270 arity<=3 Boolean relations -> 90 symmetry classes -> 166 both-real objective rows) with every oracle-derivable charge, computes the full pairwise Cramer's V matrix, nets each cell against what the dichotomy theorems force, and tests whether bounded-width absorbs the approx<->param coupling (I6). $0 compute; the theorems are the instrument. ONLY netted residuals are findings.",
+  "extends": "docs/findings/Lattice-v3-findings.md; prereg_v31; lattice_v3_occupancy.json",
+  "committed_before_analysis": true,
+  "committed_before_any_oracle_column_computed_on_the_roster": true,
+  "R0_sourcing_complete": "I1/I2/I3 all IMPLEMENTABLE, no column drops to open. Verdicts + corrections in I_phase_verdicts below; folded into charge_table.",
+
+  "I_phase_verdicts": {
+    "I1_ABISV_parallelization": "Allender-Bauland-Immerman-Schnoor-Vollmer, JCSS 75 (2009), Thm 3.1: complete within-P lattice {trivial/coNLOGTIME, L, NL, parityL(oplus-L), P-complete} + NP-complete outside P, for EVERY finite Boolean Gamma. IMPLEMENTABLE from tuples but NOT a pure co-clone/polymorphism invariant: the [S02,R2] boundary L-vs-coNLOGTIME needs tuple inspection (their Ex 2.4). Prism builds the CO-CLONE-LEVEL column (matches oracles.py); the one tuple-boundary refinement is a documented simplification (affects only trivial R2 relations).",
+    "I2_DGJ_approx_counting": "Dyer-Goldberg-Jerrum, JCSS 76 (2010) (arXiv:0710.4272), Thm 3 (verbatim): affine -> FP; else all relations in IM2 -> =ap #BIS (#RHPi1-complete); else =ap #SAT (no FPRAS unless NP=RP). IM2 = Inv({and,or}) = min-closed AND max-closed = Horn AND dual-Horn (agent verified min&max = IM2 exhaustively at arity<=3, 0 disagreements). Precedence: affine first. IMPLEMENTABLE, new column {FP, #BIS-equivalent, #SAT-equivalent}.",
+    "I3_bounded_width_CORRECTED": "Barto-Kozik JACM 61 (2014) + Larose-Zadori + Feder-Vardi. CORRECT per-single-relation predicate: BW(R) = (0-valid OR 1-valid) OR Horn OR dual-Horn OR bijunctive — TRIVIAL-SATISFIABILITY FIRST. finer.classify_boolean's naive (horn v dual-horn v bijunctive) is WRONG: misclassifies 39 arity-3 relations that are 0/1-valid-but-not-Schaefer-tractable as not-BW (witness R={000,011,110}, 0-valid hence BW, but naive says not-BW). Affine obstruction (XOR unbounded-width) is REAL at language level but VACUOUS at arity<=3 single-relation (smallest witness is arity 4). Prism builds the CORRECTED is_bounded_width; the changed marginal is the right one for prediction 4."
+  },
+  "prereg_sources": [
+    "ABISV, JCSS 75 (2009) 245-254 (Immerman PDF)", "Dyer-Goldberg-Jerrum, JCSS 76 (2010), arXiv:0710.4272",
+    "Barto-Kozik, JACM 61 (2014) art. 3", "Larose-Zadori, Algebra Universalis 56 (2007)", "Feder-Vardi, SICOMP 28 (1998)"
+  ],
+
+  "SEALED_PREDICTIONS": {
+    "1_NPI_calibration": "decision column contains no intermediate value (Schaefer dichotomy: P or NPC only). Violation => pipeline failure, HALT.",
+    "2_identity_bet": "decision<->counting nets to residual ~ 0 within the per-pair shared predicates (theorem-identity; confirms the netting detects identities).",
+    "3a_localization_identity_descriptive": "bounded-width<->approximation associates at V >= 0.4 PRE-netting; its NETTED residual is 0, logged as an ENTAILMENT FINDING with derivation (KSTW's inputs contain bounded-width's determinants {horn, dual-horn, bijunctive}). Joins prediction 2 as a SECOND identity-class confirmation, NOT a miss.",
+    "3b_localization_coupling_the_real_bet": "bounded-width<->PARAMETERIZED has a NONZERO netted residual — the only bounded-width pairing that can vary after netting (general weak-separability is orthogonal to the classical fingerprint). Underwrites prediction 4.",
+    "4_localization_absorption_the_I6_headline": "conditioning approx<->param on bounded-width shrinks V from 0.256 by >= HALF. Stratification, not netting (bounded-width varies across the population), legal as written.",
+    "4_SEALED_FINDINGS_NOTE": "because bounded-width is a function of KSTW's inputs, any absorption found means 'the coupling is carried by localness structure the approximation classification already encodes' — a constituent claim with the entailment ACKNOWLEDGED IN THE SENTENCE, not left for a referee to discover.",
+    "5_outlier_persistence": "no other charge pair's netted residual exceeds approx<->param's netted residual — the coupling stays the outlier even in the natural universe. Structural expectation: survivors are exactly the parameterized-involving pairs (param is the only charge with a determinant orthogonal to the classical fingerprint).",
+    "6_v3_addendum_Cai_Chen": "netting the Cai-Chen-forced affine off-diagonal (APX-complete, FPT) raises monotonicity (netted Spearman > 0.019) while V stays within its CI (0.13, 0.398). CONTAMINATION DISCLOSED: v3's raw occupancy was already seen before sealing this (same posture as v3 disclosing v2's marginal)."
+  },
+
+  "the_netting_design": {
+    "stratum_is_PER_PAIR": "the intersection of the predicate sets the two oracles read — NOT the full _bool_profile. The full profile makes every classical charge constant in every stratum, mechanically zeroing classical x Lattice pairs and auto-failing prediction 3 / vacating prediction 5 (owner fix). Reuse r25._cramers_v + the within-stratum pooling pattern (census_residual_audit, r25.py:128-139) with the stratum = the shared predicates.",
+    "a_pair_nets_to_0_iff": "one charge is a function of the shared predicates (constant within the strata).",
+    "classical_x_classical": "share the full determining fingerprint -> residual 0 (pred 2).",
+    "classical_x_approximation": "KSTW approximation reads the ENTIRE classical fingerprint {0valid,1valid,horn,dual-horn,bijunctive,affine} + finer predicates, so every classical charge's determinants are a SUBSET of approximation's inputs -> classical constant within the shared strata -> nets to 0, incl. bounded-width<->approx (= prediction 3a).",
+    "classical_x_parameterized": "general weak-separability reads is_weakly_separable_general, ORTHOGONAL to the classical fingerprint -> shared ~ empty -> raw association is (mostly) the residual -> CAN survive (bounded-width<->param = prediction 3b).",
+    "Lattice_x_Lattice": "approx x approx, approx x param, param x param survive; approx<->param is v3's coupling.",
+    "named_cross_charge_bridges_on_top": "entailment layer — counting=FP=>decision=P; bounded-width=>decision=P; parallel-only-within-P; Cai-Chen approx in MAX-SNP => FPT + EPTAS<->FPT on the approx<->param cell (the folded-in v3 netting: remove the forced (APX-complete,FPT) affine rows, recompute V AND Spearman = pred 6). Each cell logs its derivation (theorem, entailed structure, subtraction).",
+    "secondary_lens": "full-fingerprint conditioning (all predicates any oracle reads) zeros EVERY cell — the census wall at full strength — reported as the strong-form check.",
+    "structural_headline": "approximation SUBSUMES the classical Schaefer fingerprint; the ONLY charge reading an orthogonal determinant is general weak-separability. That is WHY parameterized is special and approx<->param is the outlier — a structural expectation, not just an empirical bet."
+  },
+
+  "charge_table": {
+    "decision": {"source": "finer.classify_boolean", "granularity": "per-relation", "status": "derived"},
+    "counting": {"source": "finer.classify_boolean", "granularity": "per-relation", "status": "derived"},
+    "localization_bounded_width": {"source": "CORRECTED prism predicate (NOT finer)", "granularity": "per-relation", "status": "derived — BW = (0valid OR 1valid) OR Horn OR dual-Horn OR bijunctive (I3: trivial-satisfiability FIRST; finer's naive formula misclassifies 39 arity-3 rels)"},
+    "parallelization": {"source": "co-clone-level (prism, matches oracles.py)", "granularity": "per-relation", "status": "derived — Horn/dual-Horn->P-complete; affine->parityL(NC); bijunctive->NL(NC); 0/1-valid->trivial/NC; NP-hard->n.a. I1 CAVEAT: not a pure invariant at the ABISV R2 boundary (documented simplification)"},
+    "approx_counting": {"source": "new prism (DGJ)", "granularity": "per-relation", "status": "derived — affine->FP; else (Horn AND dual-Horn = IM2)->#BIS-equivalent; else->#SAT-equivalent"},
+    "approximation": {"source": "objective_oracles.approximation", "granularity": "per-(relation,objective) -> two columns approx_maxones/approx_minones", "status": "derived, CI-locked"},
+    "parameterized": {"source": "objective_oracles.parameterized", "granularity": "per-relation", "status": "derived, CI-locked"},
+    "NOTE": "do NOT reuse finer.classify_boolean's own approximation (Max-CSP) or parameterized (0-valid weak-sep) — wrong oracles for this roster; take those two from objective_oracles."
+  },
+
+  "procedure_locked_with_the_predictions": [
+    "marginals + distinct-profile counts read BEFORE any V (v2 lesson)",
+    "bootstrap CIs sized to the 90 symmetry classes / per-stratum class counts, NEVER the 270 rows (effective-n, binding)",
+    "netting applied to every cell before any residual is read; NPI check runs first",
+    "no metric substituted after seeing results",
+    "the affine class traced explicitly through every pairing (broke the tautology blocker once; the off-diagonal that flattened v3's trend)",
+    "raw AND netted numbers always paired in the writeup; a monotonic netted residual means 'matches the canon's direction AFTER removing what theorems force', NOT 'the gradient reproduces' — the theorem-forced affine anti-gradient is part of the answer, not noise",
+    "v3 approx<->param headline on the 166 rows must reproduce V=0.256 pre-netting (sanity gate)",
+    "is_weakly_separable + oracles.py + eightfold untouched; finer.classify_boolean imported read-only"
+  ],
+
+  "kill_criteria": {
+    "1_oracle_verification": "any of I1-I3 failing -> that column drops to open; fewer than TWO new verified columns beyond v3's pair -> Prism collapses to the conditioning analysis alone (pred 4 independently worth the box).",
+    "2_marginal_degeneracy": "any column near-degenerate on this population -> its pairs scored UNTESTABLE (v2 precedent), never forced.",
+    "3_box": "$0 compute; if any single oracle column exceeds ~4h to implement/verify it drops to open, matrix proceeds without it (documented, not silent)."
+  }
+}
