@@ -116,6 +116,20 @@ program's own tests can encode the second before anyone reads it. Both were caug
   than by measurement.** It amends the lesson above ("neither by review"): the I-phase sourcing gate the program now
   runs before every build made its first catch, at zero measurement cost, before the wrong predicate was written. A
   specification error is cheapest when the source that refutes it is consulted before the build, not after the run.
+- **Owner specification defect #4 — the `affine ⇒ weakly-separable` bridge the per-pair netting didn't consult**
+  (Prism / R2, prereg_v32, `0a9bf31`, 2026-07-23). The prereg's structural headline asserted that general
+  weak-separability (the *parameterized* charge's determinant) is **orthogonal** to the classical Schaefer fingerprint,
+  and its per-pair netting conditioned on the **literal** predicate each oracle reads. Both missed **affine ⇒
+  weakly-separable ⇒ FPT** (Marx Ex 2.4): `counting` and `approx_counting` read `affine`, so `affine=FP` *forces*
+  `param=FPT` — a theorem-identity. Because the two predicates carry different names (`affine` vs `general_wsep`), the
+  literal-intersection netting never conditioned on `affine`, so the identity survived as a spurious **0.74 "residual"**,
+  making prediction 5 a spurious MISS and refuting the sealed orthogonality claim. **The metadata was already in the
+  entailment catalog** — `affine⇒FPT` is the *same affine off-diagonal* that broke the tautology blocker (G1) and
+  flattened v3's trend — the inference simply wasn't drawn by a netting keyed on predicate *names* rather than logical
+  content: **metadata recorded, inference not drawn**, the program's characteristic failure mode once more. **Caught by
+  the R2 gate** (the spurious survivors) *before anything shipped* — the third of the four now caught by a gate rather
+  than by a downstream surprise. Completed per the sealed named-bridge layer (the bridge belongs to a layer the prereg
+  already defined); both residual sets reported permanently; the orthogonality claim scored as a dated sealed-claim miss.
 
 ## Program status (against the test map)
 
