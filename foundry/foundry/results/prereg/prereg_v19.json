@@ -1,0 +1,43 @@
+{
+  "prereg_version": "v19",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Pebble",
+  "role": "v18 COMPLETION — two sampler-provenance items + one free ground-truth check, sealed BEFORE P3. v18 is committed (3e6e0c2); per the standing mechanic (don't rewrite sealed preregs) these ride as v19, which completes v18's item_2.",
+  "extends": "v18 (P3 sampler discipline) and v17 (qualified observable = corr).",
+  "committed_before_analysis": true,
+  "committed_before_P3": true,
+
+  "item_1_exact_vs_sampled_provenance_per_cell": {
+    "rule": "EVERY P3 ξ measurement carries a boolean `exact`: an instance with solution_count <= K is an ENUMERATION, not a sample — it carries ZERO sampling error. This is a provenance distinction as real as derived-vs-measured in the atlas, and it changes how the cell is READ.",
+    "consequence": "exact cells need NO concordance check (there is no sampling to concord); sampled cells (solution_count > K) DO. The findings state coverage per epistemic situation — exact vs sampled — NOT one uniform caveat across both.",
+    "reported": "per family × size: the `exact` flag, the solution_count, and K, so the exact/sampled split is auditable. Aggregate: fraction of cells exact vs sampled, per family."
+  },
+
+  "item_2_concordance_is_a_GATE_with_a_floor": {
+    "the_problem_it_closes": "'P3 exercises concordance at genuine-subsampling sizes' as an aspiration lets the sweep run entirely in the small-instance (exact) regime, and we would rediscover the P2 vacuity at P4. So it is a GATE with a stated floor.",
+    "materially_exceeds_K": "solution_count >= 4*K (the sampler sees <= 25% of solutions) — the bar for 'genuine subsampling'.",
+    "floor": "at least M_MIN = 5 distinct families must have >= 1 genuinely-subsampled measurement (solution_count >= 4*K). At every such subsampled measurement, the dpll-vs-walksat reach_score |Δ| is recorded.",
+    "delta_threshold": "the sampler-robustness discipline PASSES iff (>= 5 families subsampled) AND (median |Δ_dpll_walksat| <= 0.10 across all subsampled measurements AND 90th-percentile <= 0.20). ",
+    "outcomes_pre_labelled": {
+      "verified": ">=5 families subsampled and Δ within threshold -> sampled cells' sampler-robustness guard is VERIFIED.",
+      "untested": "<5 families reach the subsampling regime -> the guard is UNVERIFIED; every sampled cell is FLAGGED unverified-guard in the findings (not silently trusted).",
+      "discordant": "Δ exceeds threshold -> a sampler artifact is present on the real observable; investigate before P4 uses the sampled cells."
+    }
+  },
+
+  "item_3_boundary_ground_truth_bias_free": {
+    "insight": "at sizes where enumeration is feasible, ξ has GROUND TRUTH available, so the sampled-vs-exact comparison at the BOUNDARY (instances with K < solution_count <= the enumeration ceiling) is a FREE, DIRECT measurement of sampler bias ON THE REAL OBSERVABLE and the ACTUAL ROSTER — strictly better than the affine-exact check (one special family, and vacuous when enumerated), which it REPLACES as the primary sampler-bias check.",
+    "operation": "P3 enumerates solutions exactly whenever n <= ENUM_N_MAX = 20 (brute force over 2^n is feasible). At such instances: if solution_count <= K the cell is EXACT (sampler trivially enumerates; bias 0 by definition). If solution_count > K the sampler genuinely subsamples, and bias = |ξ_sampled(corr) − ξ_exact(corr)| on that instance is a direct roster-real sampler-bias datum.",
+    "reported": "per family, the distribution of boundary biases where available; this is the PRIMARY sampler-bias check. The old affine-exact check is retained only as a secondary, and only where it is non-vacuous (affine instance with solution_count > K).",
+    "enumeration_ceiling": "n <= 20 -> brute-force enumerate (2^20 assignments, feasible). n > 20 -> purely sampled; those cells rely on the item-2 concordance gate for their guard."
+  },
+
+  "standing_discipline": [
+    "prereg (this v19) sealed before P3",
+    "per-cell exact/sampled boolean; concordance claimed only on sampled cells",
+    "concordance is a GATE: >=5 families at solution_count>=4K, median Δ<=0.10 (else sampled cells flagged unverified)",
+    "boundary exact-vs-sampled bias (n<=20, sols>K) is the primary sampler-bias check, on the real roster",
+    "findings state coverage per epistemic situation (exact vs sampled), not one uniform caveat",
+    "eightfold byte-identical (foundry-side only)"
+  ]
+}
