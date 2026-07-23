@@ -96,11 +96,14 @@ Min-Ones-**APX-complete** relations are mostly **FPT** (10:4), Min-Ones-**PO** r
 off-diagonal was not merely *inflating* the signal; it was **distorting its shape**: underneath it sits a moderately
 strong, *anti-canon* coupling. The theorem-forced structure hid both a stronger magnitude and the opposite sign.
 
-The two objectives split, and honesty requires stating it: the **Max-Ones** non-affine residual is near-degenerate
-(within-stratum V ≈ 0) and weakly canon-*aligned* (Spearman +0.331), so the **pooled** non-affine direction is only
-weakly negative (**Spearman −0.142**). The anti-canon reversal is a **Min-Ones phenomenon**, not a uniform flip — which
-is exactly why the aggregate direction reads as *unresolved*, and why the Min-Ones cell, not a pooled average, is the
-object worth naming.
+**All three Spearmans in this section are post-hoc descriptive** — computed *after* seeing the bridge-completed table,
+carrying **no prereg standing** (the sealed direction bet, prediction 6, already missed). With that caveat, the split
+between the objectives is **not a tension — it is strong-vs-empty.** The Min-Ones residual carries a strong anti-canon
+coupling; the **Max-Ones** residual carries **essentially nothing** — within-stratum V ≈ 0, so its Spearman +0.331 is a
+direction reading on a near-degenerate association (noise on nothing), **not** canon-aligned evidence to be set against
+Min-Ones. Pooling the two gives Spearman −0.142, which is why the *aggregate* direction reads as unresolved. The honest
+one-line summary is not "the objectives disagree" but: **one objective carries a strong anti-canon residual, the other
+carries essentially nothing.**
 
 ## 5. Implications — the decomposition (owner-ruled 2026-07-23), and the direction it does *not* recover
 
@@ -116,6 +119,21 @@ residual does not recover the canon's positive gradient; if anything its strong 
 an open question, not a recovered claim.** The honest gloss for v3's "weak, non-monotonic coupling": *partly
 theorem-forced; the non-affine residual is the real object, magnitude 0.286 (Min-Ones 0.459), direction unresolved —
 anti-canon on the load-bearing Min-Ones side.*
+
+**What this does to the canon-vs-computation verdict — register it, it is not small.** The decomposition is no longer
+"a faint version of the canon's positive pattern plus theorem-forced noise." The structure is sharper and stranger:
+*the theorems force one anti-gradient structure* — the affine off-diagonal, approx-hard/param-easy — *and underneath
+it the free (non-affine) residual is also anti-canon on its strong side* (Min-Ones −0.428). So **the strongest netted
+coupling in the natural Boolean universe runs opposite the canon's direction.** Hedged to this population (arity ≤3
+Boolean single relations) and this objective (Min-Ones), the reading moves from *"the natural universe carries a faint
+version of the gradient"* to *"the natural universe carries an **anti**-gradient where it carries anything at all"*:
+whatever produces the canon's clean positive approx⟷param gradient, the natural universe not only fails to reproduce it,
+its residual leans the other way. **This is the single most surprising number the program now owns, and the preprint's
+decomposition section should carry it as a sentence, with the hedge.**
+
+**Open, parked (one line, no commitment).** The Min-Ones anti-canon pattern — *inapproximability co-occurring with
+FPT* — is a mechanism question Pebble had closed and the canon never posed (the canon never showed the pattern): why, in
+nature, would hard-to-approximate Min-Ones relations tend to be *easier* to parameterize? Reopened here, left open.
 
 **The arity-4 experiment, authorized.** The I6 localization headline (3b/4) is untestable at arity ≤3 because
 bounded-width ⟺ tractability there (the affine obstruction is vacuous below arity 4). An arity-4 roster is where a
