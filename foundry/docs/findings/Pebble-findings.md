@@ -149,6 +149,27 @@ program's own tests can encode the second before anyone reads it. Both were caug
   re-scoped to its one clean prize (the anti-canon Min-Ones replication, pred 5); the sharpened statement — I6 is
   unaskable in the Boolean single-relation domain at *any* arity, domain ≥3 its smallest well-posed home — banked, not
   specced.
+- **Construct-validity error #2 — the tie-ignoring Spearman** (Prism v2 run, prereg_v33, 2026-07-23). The sealed
+  direction statistic `_spearman` computed `argsort(argsort(·))`, assigning tied values *consecutive* ranks by array
+  position — not Spearman's ρ on tied data. On the heavily-tied (approx-class × binary-param) roster it partly measured
+  array order; the tell was that the arity-4 point estimate fell **outside its own bootstrap CI** (and the buggy
+  Max-Ones arity-4 value was +0.750 where the correct value is +0.023). Corrected to tie-averaged ranks (verified vs
+  `scipy.stats.spearmanr`). **This is the second member of the construct-validity species** — the first was the pairwise
+  blindness above; same shape, *the machinery named the right concept and computed a different one*. The pairwise
+  blindness sat inside a **qualified instrument**; this sat inside a **sealed metric**. The class now has **two members,
+  which upgrades it from incident to pattern.** The new information this instance adds: **the defect propagated into an
+  owner ruling before it was caught** — the "monotonicity did not return / direction does not come back" decomposition
+  sentence was ruled on the buggy value (dated-corrected in `Prism-v1-findings.md` §5, the four-wall note, and the
+  preprint-bound statement). *Instrument defects contaminate downstream **judgment**, not just downstream numbers* — the
+  cost that makes catching them at the scoring gate worth the interruption. It flipped two scored verdicts on
+  re-computation: Prism v2 pred 5 (buggy REFUTED → corrected REPLICATES-attenuated) and v1 pred 6 (buggy MISS → corrected
+  HIT); both numbers kept permanently wherever scored (owner ruling — the seal said "Spearman"; tie-corrected is its
+  faithful implementation).
+- **Delegation protocol, recorded (2026-07-23).** The ripple from this correction stopped being mechanical the moment it
+  flipped a scored verdict. The execution distinguished *"recompute the numbers per the ruling"* (mechanical, proceed)
+  from *"revise narrative substance"* (a scored MISS→HIT, and the withdrawal of an owner sentence) and **escalated the
+  second to the owner before writing it into any doc.** That boundary — recompute silently, but surface anything that
+  reverses a verdict or an owner ruling — is the delegation protocol working, and earns its line here.
 
 ## Program status (against the test map)
 

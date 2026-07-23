@@ -492,7 +492,7 @@
   },
   "approx_param_headline": {
     "raw_v": 0.256,
-    "raw_spearman": 0.019,
+    "raw_spearman": 0.128,
     "n_rows": 166,
     "boot_ci95_sized_to_classes": [
       0.148,
@@ -503,7 +503,7 @@
     "cai_chen_netted": {
       "removed_APX_complete_FPT_rows": 11,
       "netted_v": 0.255,
-      "netted_spearman": -0.005
+      "netted_spearman": 0.261
     }
   },
   "scored_predictions": {
@@ -542,15 +542,15 @@
       }
     },
     "pred_6_cai_chen": {
-      "raw_spearman": 0.019,
-      "netted_spearman": -0.005,
+      "raw_spearman": 0.128,
+      "netted_spearman": 0.261,
       "raw_v": 0.256,
       "netted_v": 0.255,
       "ci": [
         0.148,
         0.38
       ],
-      "verdict": "MISS (Spearman did not rise; V within CI)"
+      "verdict": "HIT"
     },
     "SEALED_STRUCTURAL_CLAIM_MISS": {
       "claim": "general weak-separability is orthogonal to the classical fingerprint (prereg_v32 structural_headline)",

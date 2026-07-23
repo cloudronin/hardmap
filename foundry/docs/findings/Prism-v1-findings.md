@@ -16,11 +16,22 @@ of theorem-identity from residual, one untestable headline, and one methods catc
 | 3b | bounded-width⟷parameterized nonzero netted residual | **UNTESTABLE** — see §2 |
 | 4 | conditioning approx⟷param on bounded-width shrinks V ≥ half (the I6 headline) | **UNTESTABLE** — see §2 |
 | 5 | approx⟷param is the outlier survivor | **MISS (literal) → HIT (bridge-completed)** — see §3 |
-| 6 | Cai–Chen netting raises monotonicity, V in CI (v3 addendum) | **MISS** — V in CI (0.255), but Spearman 0.019 → **−0.005** |
+| 6 | Cai–Chen netting raises monotonicity, V in CI (v3 addendum) | **MISS → HIT** (re-scored 2026-07-23, corrected metric) — V=0.255 in CI ✓; Spearman rose **0.128 → 0.261** (sealed-buggy: 0.019 → −0.005). See correction note. |
 | — | *sealed structural claim:* general weak-separability is orthogonal to the classical fingerprint | **MISS (dated 2026-07-23)** — see §3 |
 
 Gates: NPI passed; the **v3-reproduction sanity gate passed** (approx⟷param V = **0.2555** on the 166 both-real rows,
 reproducing v3 exactly — Prism reads the identical roster).
+
+> **⚠️ Dated correction (2026-07-23) — construct-validity error #2 (methods thread), all Spearman/direction numbers.**
+> Every Spearman in §3–§5 was computed with a defective statistic (`argsort(argsort(·))`, which gives tied values
+> consecutive ranks by array position — not Spearman's ρ on tied data; caught at Prism v2's arity-4 scoring, where the
+> point estimate fell outside its own CI). Corrected to a tie-corrected Spearman (verified vs `scipy`). **The
+> conclusions mostly strengthen, but two things change substantively: (i) prediction 6 re-scores MISS → HIT** (raw
+> 0.128, netted 0.261 — monotonicity *does* rise under Cai–Chen netting); **(ii) the pooled direction is revealed to be
+> cut-dependent** (§5). Corrected values, this note's authority: Min-Ones non-affine residual **−0.428 → −0.564**,
+> pooled **−0.142 → −0.184**, Max-Ones **+0.331 → +0.098**. Both numbers (sealed-buggy + corrected) are kept
+> everywhere, per the owner ruling; the seal said "Spearman" and the tie-corrected form is its faithful implementation.
+> Full re-analysis: `Prism-v2-findings.md` §3.
 
 ## 1. What the netting cleanly zeroes — the theorem-identities
 
@@ -75,9 +86,13 @@ the *only* charge with a determinant orthogonal to the classical fingerprint —
 of param via the theorem), scored as a dated sealed-claim miss with the same standing as v3's direction miss. The
 approx⟷param coupling survives because its *non-affine residual* is strongest, not because param is orthogonal.
 
-**Prediction 6 (Cai–Chen)** is a genuine, contamination-disclosed miss: removing the 11 forced `(APX-complete, FPT)`
-rows left V = 0.255 (within CI (0.148, 0.38) ✓) but Spearman went 0.019 → **−0.005** — netting the affine Max-Ones
-off-diagonal did *not* raise monotonicity. The other off-diagonal cells (poly-APX/FPT, Nearest-Codeword/FPT) remain.
+**Prediction 6 (Cai–Chen) — originally scored MISS, re-scored HIT on 2026-07-23 (corrected metric; see the correction
+note above).** Removing the 11 forced `(APX-complete, FPT)` rows leaves V = 0.255 (within CI (0.148, 0.38) ✓); under the
+**tie-corrected** Spearman the pooled monotonicity **rises 0.128 → 0.261** — netting the affine off-diagonal *does* raise
+monotonicity, the sealed bet's HIT condition. The original MISS was an artifact of the defective statistic (sealed-buggy
+Spearman 0.019 → −0.005). This does **not** mean "the gradient reproduces": the rise is a *pooled, cut-specific* result
+(remove these 11 rows and monotonicity goes up; remove *all* affine and it goes anti-canon — §5), and it coexists with
+the anti-canon Min-Ones residual (§4). Both numbers kept, per the owner ruling.
 
 ## 4. The affine trace — and the sharpest number Prism produced
 
@@ -90,57 +105,74 @@ third time.
 **The Min-Ones residual is the sharpest single number Prism produced.** Netting the affine off-diagonal raises the
 `approx_minones⟷param` residual to **V = 0.459** pooled (**0.692** within the non-affine stratum alone) — *higher* than
 the raw approx⟷param (0.256) — and its direction (post-hoc descriptive, computed on the bridge-completed residual set,
-not sealed; effective-n = 55 non-affine param-real classes) is **Spearman −0.428**. The cross-tab is explicit:
+not sealed; effective-n = 55 non-affine param-real classes) is **Spearman −0.564** (tie-corrected; sealed-buggy value was
+−0.428, corrected 2026-07-23 — see the correction note). The cross-tab is explicit:
 Min-Ones-**APX-complete** relations are mostly **FPT** (10:4), Min-Ones-**PO** relations mostly **W[1]** (1:35) —
 *harder to approximate ⟷ easier to parameterize*, the **opposite** of the canon's positive gradient. So the affine
 off-diagonal was not merely *inflating* the signal; it was **distorting its shape**: underneath it sits a moderately
 strong, *anti-canon* coupling. The theorem-forced structure hid both a stronger magnitude and the opposite sign.
 
 **All three Spearmans in this section are post-hoc descriptive** — computed *after* seeing the bridge-completed table,
-carrying **no prereg standing** (the sealed direction bet, prediction 6, already missed). With that caveat, the split
-between the objectives is **not a tension — it is strong-vs-empty.** The Min-Ones residual carries a strong anti-canon
-coupling; the **Max-Ones** residual carries **essentially nothing** — within-stratum V ≈ 0, so its Spearman +0.331 is a
-direction reading on a near-degenerate association (noise on nothing), **not** canon-aligned evidence to be set against
-Min-Ones. Pooling the two gives Spearman −0.142, which is why the *aggregate* direction reads as unresolved. The honest
-one-line summary is not "the objectives disagree" but: **one objective carries a strong anti-canon residual, the other
-carries essentially nothing.**
+carrying **no prereg standing** — and all three are now the **tie-corrected** values (sealed-buggy −0.428 / +0.331 /
+−0.142 kept in the correction note). With that caveat, the split between the objectives is **not a tension — it is
+strong-vs-empty.** The Min-Ones residual carries a strong anti-canon coupling (**−0.564**); the **Max-Ones** residual
+carries **essentially nothing** — within-stratum V ≈ 0, so its Spearman **+0.098** is a direction reading on a
+near-degenerate association (noise on nothing), **not** canon-aligned evidence to be set against Min-Ones. Pooling the
+two gives Spearman **−0.184** — but the pooled direction is **cut-dependent** (§5): remove a *different* theorem-forced
+structure and its sign flips, so **no aggregate direction claim is made.** The honest one-line summary is not "the
+objectives disagree" but: **one objective (Min-Ones) carries a strong anti-canon residual, the other carries essentially
+nothing.**
 
 ## 5. Implications — the decomposition (owner-ruled 2026-07-23), and the direction it does *not* recover
 
 **The decomposition, adopted.** The natural approx⟷param coupling splits into a **theorem-forced part** — the affine
-off-diagonal (`affine ⟹ weakly-separable ⟹ FPT`, Marx Ex 2.4), netted away — and a **non-affine residual** (pooled
-V **0.286**, Min-Ones V **0.459**) that survives netting everything the theorems force. The residual is *stronger* than
-the raw number (0.256) suggested; **the affine off-diagonal was masking it, not producing it.** There is no
-direction-match clause: the earlier careful phrasing ("matches the canon's direction after removing what theorems
-force") is **contradicted by the one direction test that ran.** Prediction 6 missed — removing the theorem-forced
-affine rows left Spearman at −0.005, monotonicity did not return — and the post-hoc bridge-completed direction (§4)
-confirms it: pooled Spearman **−0.142**, and the load-bearing Min-Ones side runs *anti-canon* at **−0.428**. The
-residual does not recover the canon's positive gradient; if anything its strong side runs against it. **Direction stays
-an open question, not a recovered claim.** The honest gloss for v3's "weak, non-monotonic coupling": *partly
-theorem-forced; the non-affine residual is the real object, magnitude 0.286 (Min-Ones 0.459), direction unresolved —
-anti-canon on the load-bearing Min-Ones side.*
+off-diagonal (`affine ⟹ weakly-separable ⟹ FPT`, Marx Ex 2.4) — and a **non-affine residual** (pooled V **0.286**,
+Min-Ones V **0.459**) that survives netting everything the theorems force. The residual is *stronger* than the raw
+number (0.256) suggested; **the affine off-diagonal was masking it, not producing it.**
 
-**What this does to the canon-vs-computation verdict — register it, it is not small.** The decomposition is no longer
-"a faint version of the canon's positive pattern plus theorem-forced noise." The structure is sharper and stranger:
-*the theorems force one anti-gradient structure* — the affine off-diagonal, approx-hard/param-easy — *and underneath
-it the free (non-affine) residual is also anti-canon on its strong side* (Min-Ones −0.428). So **the strongest netted
-coupling in the natural Boolean universe runs opposite the canon's direction.** Hedged to this population (arity ≤3
-Boolean single relations) and this objective (Min-Ones), the reading moves from *"the natural universe carries a faint
-version of the gradient"* to *"the natural universe carries an **anti**-gradient where it carries anything at all"*:
-whatever produces the canon's clean positive approx⟷param gradient, the natural universe not only fails to reproduce it,
-its residual leans the other way. **This is the single most surprising number the program now owns, and the preprint's
-decomposition section should carry it as a sentence, with the hedge.**
+> **Dated correction (2026-07-23) — owner error, named as such.** This paragraph originally read *"Prediction 6 missed —
+> removing the theorem-forced affine rows left Spearman at −0.005, monotonicity did not return … Direction stays an open
+> question."* That was an owner sentence, **ruled into the decomposition on the sealed-implementation Spearman**
+> (construct-validity error #2, the buggy `argsort` statistic). Revised on the corrected metric: **prediction 6
+> re-scores HIT** — pooled monotonicity *rises* **0.128 → 0.261** under Cai–Chen netting. The "direction does not come
+> back" framing built on that MISS is **withdrawn**, and replaced by the cut-dependence finding below. Owner errors are
+> recorded as owner errors; that discipline does not bend because the error was downstream of an instrument bug.
+
+**The pooled direction is cut-dependent — that is the pooled-level finding, not a nuisance.** On the same population,
+two theorem-motivated subtractions give **opposite signs**: the **Cai–Chen cut** (remove the 11 forced (APX-complete,
+FPT) rows) → **+0.261** (canon-positive); the **bridge cut** (remove *all* affine) → **−0.184** (anti-canon). The
+aggregate direction is **not a stable property of the population — it is a property of which theorem-forced structure
+you remove.** No aggregate direction claim is made.
+
+**The one robust directional finding** — the only claim holding across **both arities, both cuts, with the CI excluding
+zero everywhere** — is the **Min-Ones non-affine residual, anti-canon**: **−0.564** at v1 (arity ≤3), **−0.140** at
+arity 4 (`Prism-v2-findings.md`; replicated but strongly attenuated). Gloss for v3's "weak, non-monotonic coupling":
+*partly theorem-forced; the non-affine residual is the real object (Min-Ones V 0.459), its one robust directional signal
+(Min-Ones) runs anti-canon; the pooled direction is sign-unstable under cut choice and is not identified.*
+
+**What this does to the canon-vs-computation verdict — register it, it is not small.** The natural universe's **one
+robust directional signal runs opposite the canon's** — on the **Min-Ones** objective, at **two sizes** (−0.564 at
+arity ≤3, −0.140 at arity 4, both with the CI excluding zero). That is the sharp, referee-proof claim, and it is
+deliberately **not** an aggregate one: the pooled direction is cut-dependent (above), so "the natural universe carries
+an anti-gradient" holds specifically for the **Min-Ones residual**, not for the population in aggregate. Hedged that way
+the reading still moves decisively past *"a faint version of the gradient survives outside the canon"* — whatever
+produces the canon's clean positive approx⟷param gradient, the natural universe's one robust directional residual leans
+the **other** way. **The preprint's decomposition section leads with this Min-Ones finding and demotes the pooled
+direction to a cut-dependence exhibit** — both cuts (+0.261 Cai–Chen, −0.184 bridge) shown side by side, the pooled sign
+explicitly *not identified*, no aggregate direction claim. The strong sentence the paper keeps: *the natural universe's
+one robust directional signal runs opposite the canon's, on the Min-Ones objective, at two sizes.*
 
 **Open, parked (one line, no commitment).** The Min-Ones anti-canon pattern — *inapproximability co-occurring with
 FPT* — is a mechanism question Pebble had closed and the canon never posed (the canon never showed the pattern): why, in
 nature, would hard-to-approximate Min-Ones relations tend to be *easier* to parameterize? Reopened here, left open.
 
-**The arity-4 experiment, authorized.** The I6 localization headline (3b/4) is untestable at arity ≤3 because
-bounded-width ⟺ tractability there (the affine obstruction is vacuous below arity 4). An arity-4 roster is where a
-genuinely unbounded-width tractable relation first exists, so localization-absorption becomes testable. The spec is
-written — `docs/specs/Absorption-arity4-spec.md` — and **runs after the preprint** (owner ruling: spec now, execute
-later). Its I-phase must bound the symmetry-class count before committing to full charging (2^16 relations is a real
-enumeration lift), with a sampled fallback if enumeration exceeds its timebox.
+**The arity-4 experiment — ran as Prism v2 (`Prism-v2-findings.md`, prereg_v33; update 2026-07-23).** The I6
+localization headline (3b/4) is untestable at arity ≤3 because bounded-width ⟺ tractability there. At arity 4 a genuinely
+unbounded-width tractable relation first exists — but on review the localization *absorption* test turned out **still not
+askable**: on the param-real rows `unbounded-width = purely-affine` (Schaefer), which the affine bridge nets out, so the
+arm was **dropped from the seal** (the Prism v2 spec supersedes the earlier `Absorption-arity4-spec.md`). Prism v2 was
+re-scoped to the **anti-canon Min-Ones replication**, which is what the −0.140 arity-4 value above reports:
+**REPLICATED but strongly attenuated.**
 
 ## Discipline honored
 

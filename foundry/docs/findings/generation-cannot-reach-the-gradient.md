@@ -41,33 +41,42 @@ outside — and why that fact, once you see it, is itself a result.
 > non-affine residual** that survives netting everything the theorems force, and is **stronger than the raw number
 > suggested**: pooled Cramér's V **0.286**, and on the **Min-Ones** objective **0.459** (0.692 within the non-affine
 > stratum alone). The affine off-diagonal was **masking** this residual, not producing it — so the theorem-forced
-> structure was not merely inflating the signal, it was **distorting its shape.** **Direction does not come back.** The
-> sealed prediction that netting the affine rows would restore monotonicity (prereg_v32 pred 6) **missed** — netted
-> Spearman went 0.019 → −0.005 — and the post-hoc bridge-completed residual runs *anti-canon* where it is strongest:
-> pooled Spearman **−0.142**, Min-Ones **−0.428** (Min-Ones-APX-complete relations are mostly FPT, Min-Ones-PO mostly
-> W[1] — *harder-approx ⟷ easier-param*, the reverse of the canon's positive gradient; Max-Ones carries essentially
-> nothing, within-stratum V ≈ 0, so its +0.331 is a direction reading on a near-degenerate table, not a canon-aligned
-> signal — the split is strong-vs-empty, not a tension, and the aggregate is unresolved). All three Spearmans are
-> **post-hoc descriptive**, no prereg standing (the sealed direction bet, pred 6, already missed). **There is no
-> "matches the canon's direction after removing what theorems force" claim** — the one direction test that ran
-> contradicts it. **Updated gloss for v3's "weak, non-monotonic coupling":** *partly theorem-forced; the non-affine
-> residual is the real object, magnitude 0.286 (Min-Ones 0.459), direction unresolved — anti-canon on the load-bearing
-> Min-Ones side.*
+> structure was not merely inflating the signal, it was **distorting its shape.**
 >
-> **The upstream consequence, registered: outside the canon the residual carries an *anti*-gradient where it carries
-> anything at all.** The decomposition is not "a faint copy of the canon's positive pattern plus theorem-forced noise."
-> It is sharper: *the theorems force one anti-gradient* (the affine off-diagonal, approx-hard/param-easy) *and the free
-> residual underneath is also anti-canon on its strong side* (Min-Ones −0.428). So **the strongest netted coupling in
-> the natural Boolean universe runs opposite the canon's direction.** Hedged to this population (arity ≤3 Boolean single
-> relations) and objective (Min-Ones), the canon-vs-computation reading moves from *"a faint version of the gradient
-> survives outside the canon"* to *"outside the canon the residual leans the other way"*: whatever produces the canon's
-> clean positive gradient, generation not only fails to reproduce it — its residual runs against it. This is the single
-> most surprising number the program owns; the preprint's decomposition section carries it, with the hedge. (It does
+> **The one robust directional finding: the Min-Ones non-affine residual runs anti-canon, at two sizes** — Spearman
+> **−0.564** at arity ≤3 (v1) and **−0.140** at arity 4 (Prism v2, `Prism-v2-findings.md`; *replicated but strongly
+> attenuated*, CI excluding zero at both). Harder-to-approximate Min-Ones relations tend to be *easier* to parameterize,
+> the reverse of the canon's positive gradient. This is the sharp claim, and it is **not** an aggregate one: **the
+> pooled direction is cut-dependent.** Two theorem-motivated subtractions on the same rows give opposite signs — remove
+> the 11 Cai–Chen-forced `(APX-complete, FPT)` rows → pooled Spearman **+0.261** (canon-positive); remove *all* affine
+> (the bridge) → **−0.184** (anti-canon). The aggregate direction is a property of *which* theorem-forced structure you
+> remove, so **no aggregate direction claim is made**; Max-Ones carries essentially nothing (Spearman +0.098). **Gloss
+> for v3's "weak, non-monotonic coupling":** *partly theorem-forced; the non-affine residual is the real object (Min-Ones
+> V 0.459), its one robust directional signal (Min-Ones) runs anti-canon at two sizes; the pooled direction is
+> sign-unstable under cut choice and is not identified.*
+>
+> > **Dated correction (2026-07-23) — construct-validity error #2.** The first version of this amendment reported
+> > Min-Ones **−0.428**, pooled **−0.142**, Max-Ones **+0.331**, and *"prediction 6 missed — monotonicity did not come
+> > back"* — all computed with a tie-ignoring `argsort` statistic (not Spearman's ρ on tied data; caught at Prism v2's
+> > arity-4 scoring). **Withdrawn.** Corrected (tie-averaged ranks): the values above; and **prediction 6 re-scores
+> > HIT** — pooled monotonicity *rises* 0.128 → 0.261 under Cai–Chen netting. The "direction does not come back"
+> > sentence was an **owner** ruling on the buggy value; recorded as an owner error, downstream of the instrument bug,
+> > which propagated into a ruling before it was caught (methods thread).
+>
+> **The upstream consequence, registered: the natural universe's one robust directional signal runs opposite the
+> canon's — on the Min-Ones objective, at two sizes.** That is the sharp, referee-proof claim (−0.564 at arity ≤3,
+> −0.140 at arity 4, CI excluding zero at both), and it is deliberately **not** an aggregate one: the pooled direction
+> is cut-dependent, so the anti-gradient reading holds for the Min-Ones *residual*, not the population in aggregate.
+> Hedged that way, the canon-vs-computation reading still moves decisively past *"a faint version of the gradient
+> survives outside the canon"*: whatever produces the canon's clean positive gradient, the natural universe's one robust
+> directional residual leans the **other** way. The preprint's decomposition section **leads with this Min-Ones finding
+> and demotes the pooled direction to a cut-dependence exhibit** (both cuts shown; pooled sign not identified). (It does
 > **not** overturn the two-sided v3 result — a weak coupling still survives outside the canon, so the gradient is not
-> purely a selection effect — it sharpens what that surviving coupling *is*.) Prism also found the
-> localization-absorption headline (does bounded-width absorb the coupling, Foundry I6) **untestable at arity ≤3**
-> (bounded-width ⟺ tractability there); the arity-4 experiment that *can* test it is specced (`docs/specs/
-> Absorption-arity4-spec.md`) and deferred behind the preprint.
+> purely a selection effect — it sharpens *what* survives.) Prism also confirmed the localization-absorption headline
+> (does bounded-width absorb the coupling, Foundry I6) is **unaskable in the Boolean single-relation domain at *any*
+> arity** — on the param-real rows `unbounded-width = purely-affine` (Schaefer), netted by the affine bridge, so at
+> arity 4 (Prism v2) the arm was **dropped from the seal**, not merely deferred; domain ≥3 is its smallest well-posed
+> home (`Prism-v2-findings.md`).
 
 "Bias-free rostering" — generating problems from a formal scheme rather than curating the ones people happened to find
 interesting — is the gold standard for ruling out a selection effect. The question the gradient has always faced is

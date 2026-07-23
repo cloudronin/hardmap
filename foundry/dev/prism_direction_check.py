@@ -13,11 +13,31 @@ from foundry import prism
 APX_RANK = {v: i for i, v in enumerate(prism.OO.APPROX_ORDER)}
 
 
+def _avg_rank(a):
+    """Fractional (tie-averaged) ranks — the correct ranking for Spearman on tied ordinal data."""
+    order = sorted(range(len(a)), key=lambda i: a[i])
+    r = [0.0] * len(a)
+    i = 0
+    while i < len(a):
+        j = i
+        while j + 1 < len(a) and a[order[j + 1]] == a[order[i]]:
+            j += 1
+        avg = (i + j) / 2.0
+        for k in range(i, j + 1):
+            r[order[k]] = avg
+        i = j + 1
+    return r
+
+
 def _spearman(x, y):
+    """Tie-corrected Spearman (average ranks). The earlier argsort(argsort(.)) form was a construct-validity
+    defect (tied values got consecutive ranks by array position); corrected per owner ruling 2026-07-23.
+    Recomputing the v1 direction numbers with this fix: Min-Ones -0.428 -> -0.564, pooled -0.142 -> -0.184,
+    Max-Ones +0.331 -> +0.098."""
     if len(x) < 3 or len(set(x)) < 2 or len(set(y)) < 2:
         return None
-    rx, ry = np.argsort(np.argsort(x)), np.argsort(np.argsort(y))
-    return round(float(np.corrcoef(rx, ry)[0, 1]), 3)
+    v = np.corrcoef(_avg_rank(list(x)), _avg_rank(list(y)))[0, 1]
+    return round(float(v), 3) if v == v else None
 
 
 def _v(xs, ys):

@@ -1,0 +1,223 @@
+{
+  "prereg": "v33",
+  "matrix": {
+    "decision x counting": {
+      "raw_v": 0.072,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 4072
+    },
+    "decision x localization": {
+      "raw_v": 0.997,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 4072
+    },
+    "decision x parallelization": {
+      "raw_v": null,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 3182
+    },
+    "decision x approx_counting": {
+      "raw_v": 0.093,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 4072
+    },
+    "decision x approx_maxones": {
+      "raw_v": 1.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 4072
+    },
+    "decision x approx_minones": {
+      "raw_v": 1.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 4072
+    },
+    "decision x parameterized": {
+      "raw_v": null,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 3182
+    },
+    "counting x localization": {
+      "raw_v": 0.054,
+      "netted_literal": 0.054,
+      "netted_bridge_completed": 0.054,
+      "n_both_real": 4072
+    },
+    "counting x parallelization": {
+      "raw_v": 0.061,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 3182
+    },
+    "counting x approx_counting": {
+      "raw_v": 1.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 4072
+    },
+    "counting x approx_maxones": {
+      "raw_v": 0.34,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 4072
+    },
+    "counting x approx_minones": {
+      "raw_v": 0.34,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 4072
+    },
+    "counting x parameterized": {
+      "raw_v": 0.641,
+      "netted_literal": 0.641,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 3182
+    },
+    "localization x parallelization": {
+      "raw_v": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 3182
+    },
+    "localization x approx_counting": {
+      "raw_v": 0.08,
+      "netted_literal": 0.021,
+      "netted_bridge_completed": 0.021,
+      "n_both_real": 4072
+    },
+    "localization x approx_maxones": {
+      "raw_v": 0.998,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 4072
+    },
+    "localization x approx_minones": {
+      "raw_v": 0.998,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 4072
+    },
+    "localization x parameterized": {
+      "raw_v": 0.143,
+      "netted_literal": 0.143,
+      "netted_bridge_completed": 0.143,
+      "n_both_real": 3182
+    },
+    "parallelization x approx_counting": {
+      "raw_v": 0.08,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 3182
+    },
+    "parallelization x approx_maxones": {
+      "raw_v": 0.252,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 3182
+    },
+    "parallelization x approx_minones": {
+      "raw_v": 0.411,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 3182
+    },
+    "parallelization x parameterized": {
+      "raw_v": 0.046,
+      "netted_literal": 0.046,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 3182
+    },
+    "approx_counting x approx_maxones": {
+      "raw_v": 0.252,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 4072
+    },
+    "approx_counting x approx_minones": {
+      "raw_v": 0.252,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 4072
+    },
+    "approx_counting x parameterized": {
+      "raw_v": 0.641,
+      "netted_literal": 0.641,
+      "netted_bridge_completed": 0.016,
+      "n_both_real": 3182
+    },
+    "approx_maxones x approx_minones": {
+      "raw_v": 0.617,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
+      "n_both_real": 4072
+    },
+    "approx_maxones x parameterized": {
+      "raw_v": 0.229,
+      "netted_literal": 0.229,
+      "netted_bridge_completed": 0.103,
+      "n_both_real": 3182
+    },
+    "approx_minones x parameterized": {
+      "raw_v": 0.425,
+      "netted_literal": 0.425,
+      "netted_bridge_completed": 0.504,
+      "n_both_real": 3182
+    }
+  },
+  "pred6_outlier_persistence": {
+    "pooled_approx_param_bridge_completed": 0.352,
+    "per_objective": {
+      "approx_maxones_x_param": 0.103,
+      "approx_minones_x_param": 0.504
+    },
+    "largest_other_non_approx_pair": {
+      "pair": "localization x parameterized",
+      "residual": 0.143
+    },
+    "verdict": "HIT (approx-involving pair is the max)"
+  },
+  "pred5_anti_canon": {
+    "min_ones": {
+      "label": "min-ones non-affine (THE headline)",
+      "n_classes": 3105,
+      "V": 0.516,
+      "spearman_point_corrected": -0.14,
+      "spearman_point_sealed_impl_buggy": -0.071,
+      "boot_ci95_classes_corrected": [
+        -0.165,
+        -0.114
+      ]
+    },
+    "max_ones": {
+      "label": "max-ones non-affine (report alongside)",
+      "n_classes": 3105,
+      "V": 0.106,
+      "spearman_point_corrected": 0.023,
+      "spearman_point_sealed_impl_buggy": 0.75,
+      "boot_ci95_classes_corrected": [
+        -0.008,
+        0.053
+      ]
+    },
+    "v1_anchor_sealed_impl_buggy": -0.428,
+    "v1_anchor_corrected": -0.564,
+    "VERDICT_min_ones": "REPLICATES (CI entirely < 0)",
+    "verdict_sentence": "REPLICATED but STRONGLY ATTENUATED \u2014 direction holds (corrected Spearman -0.14, CI (-0.165, -0.114) excludes 0), but the magnitude fell from v1's corrected -0.564 to -0.14; Cramer's V rose to 0.516 (v1 0.459), so the association strengthened while the monotone component weakened.",
+    "both_numbers_permanent": {
+      "sealed_impl_buggy_point": -0.071,
+      "corrected_point": -0.14,
+      "corrected_ci95": [
+        -0.165,
+        -0.114
+      ]
+    },
+    "open_question_one_line": "whether the attenuation is a size/arity trend is a new open question (no commitment).",
+    "note": "pred 5 is Min-Ones-specific (per-objective before pooled); Max-Ones reported alongside. The bridge nets the affine off-diagonal; the residual set is the NON-AFFINE param-real classes. Scored on the tie-corrected metric (construct-validity defect #2, methods thread); both numbers permanent."
+  }
+}
