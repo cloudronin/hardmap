@@ -1,0 +1,26 @@
+{
+  "prereg": "v29",
+  "roster": "co-clone representatives + finer tier (SEALED)",
+  "n_distinct_relations": 11,
+  "n_rows": 22,
+  "n_both_real": 18,
+  "n_distinct_profiles": 5,
+  "floor_profiles": 6,
+  "floor_rows": 15,
+  "verdict_on_composition": "INSUFFICIENT RESOLUTION",
+  "occupancy": {
+    "APX-complete x FPT": 3,
+    "Nearest-Codeword-complete x FPT": 1,
+    "PO x FPT": 10,
+    "PO x W[1]": 2,
+    "poly-APX-complete x W[1]": 2
+  },
+  "secondary_cramers_v": 0.5529950916857865,
+  "empty_strata_note": "3 KSTW approx strata carry NO row from these representatives; see findings.",
+  "feasibility_hard_rows": [
+    "NAE3",
+    "NAE3",
+    "1in3",
+    "1in3"
+  ]
+}
