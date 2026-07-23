@@ -65,12 +65,13 @@ exists) and a `derived`/`judged` `pin_provenance` on any real (non-`none`) pin.
    is populated ⇒ the optimization version demonstrably exists). **No cell is `derived` on the strength of a word
    like "plainly."** Anything without a sibling witness goes to the review list — a longer review list beats a
    category assigned by adjective.
-   **Witness map** (the operationalization of "establishes the object", faithful to the rule — NOT merely same-level,
-   which would over-judge `counting`): `counting` ← `decision` real (the #-version is well-defined once the decision
-   problem is — that is counting's own definition); `parallelization` ← `decision` real (an `open` cell already
-   implies decision∈P by E2); `approximation` ↔ `parameterized` (the objective pair, R-1's own example); `landscape`
-   ← `average_case` real (the ensemble exists; samplability is the residual). `average_case` and `proof_size` have
-   **no** structural sibling → they stay `judged`.
+   **Witness map — [dated operationalization of R-1, 2026-07-23; moved 49 `counting` cells judged→derived, recorded
+   here so a reader can see the decision and disagree].** Faithful to "a sibling establishes the object", NOT merely
+   same-level (which over-judged `counting`): `counting` ← `decision` real (the #-version is well-defined once the
+   decision problem is — that is counting's own definition); `parallelization` ← `decision` real (an `open` cell
+   already implies decision∈P by E2); `approximation` ↔ `parameterized` (the objective pair, R-1's own example);
+   `landscape` ← `average_case` real (the ensemble exists; samplability is the residual). `average_case` and
+   `proof_size` have **no** structural sibling → they stay `judged`.
 
 ### Objective + parameterization (3.3)
 - **objective** from the approximation `canonical_task` prefix: `MAX-<CSP>` (MAX-SAT/3SAT/2SAT/Horn/3-LIN)→`Max-CSP`;
@@ -98,3 +99,45 @@ exists) and a `derived`/`judged` `pin_provenance` on any real (non-`none`) pin.
 - **Every new field carries provenance** (`derived` from existing text vs `judged` by the owner), so the metadata
   layer is auditable to the same standard as the values.
 - **Scope resistance:** no charge 9, no roster expansion, no cell fixes. Aggregation, not accumulation.
+
+## 4. S3 owner rulings (dated 2026-07-23) — sealed before the resolution pass
+
+Applied to the S2 judged list; each is recorded so a reader can see and disagree.
+
+- **Cat 1 — `average_case` `open`:** default **`defined-informative`**, with one exception applied first: rows whose
+  input has **no natural random distribution** — the pure `algebraic`/`number-theoretic` rows (factoring, discrete
+  log, primality-style) — get **`ambiguous`**, reason *"no canonical ensemble; a random instance there is a
+  distribution-over-integers modeling decision, not a given."*
+- **Cat 2 — graph-parameterized:** **all stay `ambiguous`.** vertex-cover / clique / independent-set are NOT
+  downgraded: they are the gradient's witnesses and **the charge value flips with the parameterization** (VC is FPT
+  by solution-size *and* by treewidth; IS is W[1] by solution-size but FPT by treewidth), so under a treewidth
+  framing the witness pair stops being a witness. `ambiguous` with the competing framings + the value-flip recorded
+  is exactly the load-bearing metadata Strata exists to surface; downgrading would erase the program's own caveat.
+- **Cat 3 — objective TYPE second pass (rules sealed here; flag, never default, what the rules can't resolve):**
+  match the full `canonical_task` (the `MIN-/MAX-` lead names the *problem*, not the objective TYPE):
+  - `MAX-{SAT,2SAT,3SAT,HORN-SAT,NAE-SAT,CUT,DICUT,3-LIN,1-IN-3-SAT,CIRCUIT-SAT,k-SAT}` → **Max-CSP** (maximise
+    satisfied constraints);
+  - `MIN-{VC,DOMINATING-SET,SET-COVER,HITTING-SET,FVS,CONNECTED-VC,EDS,ODD-CYCLE-TRANSVERSAL,independent-dominating}`
+    → **Min-Ones** (minimise a selected set count);
+  - `MAX-{CLIQUE,IS,INDEPENDENT-SET,LEAF,k-SET-PACKING}` → **Max-Ones** (maximise a selected set count);
+  - numeric geometry/scheduling/width objectives (TSP tour, CHROMATIC number, STEINER weight, DISCREPANCY,
+    BANDWIDTH, MAKESPAN, BIN-PACKING count, k-CENTER radius, TREEWIDTH/TREEDEPTH, BISECTION, MULTIWAY-CUT, LONGEST-PATH
+    length) → **global-numeric**;
+  - value/weight-parametrised (KNAPSACK, SUBSET-SUM, weighted-X) → **weighted**;
+  - anything else → **flag `judged`, do not default.**
+  - **`weighted` requires the OBJECTIVE to be a weight sum** (knapsack: maximise value), not merely weighted *input*
+    (number-partitioning: minimise a derived numeric imbalance → `global-numeric`). So `weighted` is checked LAST and
+    narrowed to KNAPSACK/SUBSET-SUM; a recognised numeric objective wins.
+  - **The 30 rows the lexicon flagged were owner-assigned (2026-07-23), `judged`, reasons recorded:** Min-Ones (the
+    vertex-cover/hitting-set/transversal/deletion/editing variants), global-numeric (steiner variants, k-median,
+    job-shop, quadratic-assignment, kemeny, feedback-arc-tournament, SCS, dnf-min, bin-covering, the two lattice
+    norms, edge-coloring = chromatic quantity), Max-Ones (3DM, and max-coverage/densest-k-subgraph). Two reason tags:
+    **"structural-parameter objective"** (treewidth, cutwidth, minimum-fill-in, min-bisection — the quantity is a
+    property of the decomposition, not a selected set) and **"constrained-cardinality variant"** (max-coverage,
+    densest-k-subgraph — maximise s.t. |S|≤k).
+- **Cat 4 — parameterization:** single named parameter → **`other` [derived]** (owner-confirmed). The three with no
+  perspective are owner-assigned **[judged]**: number-partitioning → `solution size`; exact-cover → `solution size`;
+  k-center → `solution size` (k = number of centers).
+- **Cat 5 — `landscape`/`proof_size` `open`:** default **`defined-informative`** where the object exists; **`n.a.`
+  for `proof_size` on any row that is not an unsat instance family** (per the level table's `requires` — the row must
+  be a propositional refutation object).

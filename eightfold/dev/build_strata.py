@@ -16,11 +16,46 @@ from eightfold import atlas, strata
 
 SENTINELS = {"open", "unmeasured", "n.a."}
 
-# crisp objective lexicon from the approximation canonical_task lead (only the unambiguous cases derive)
-_MAX_CSP = re.compile(r"^\s*MAX-(SAT|2SAT|3SAT|HORN-SAT|NAE-SAT|DICUT|CUT|3-LIN|1-IN-3-SAT|CIRCUIT-SAT|K-SAT)\b", re.I)
-_MIN_ONES = re.compile(r"^\s*MIN-VC\b", re.I)                              # minimise the vertex set = Min-Ones
-_MAX_ONES = re.compile(r"^\s*MAX-(CLIQUE|IS|INDEPENDENT-SET)\b", re.I)     # maximise the selected set = Max-Ones
+# Cat-3 objective-TYPE lexicon (sealed in Strata-SCHEMA.md §4); match the FULL canonical_task — the MIN-/MAX- lead
+# names the PROBLEM, not the objective TYPE. Order matters (Max-CSP before the numeric CUT-family).
+# Order matters: a recognised numeric/structural objective wins over `weighted` — S3 fix, weighted requires the
+# OBJECTIVE to be a weight sum (knapsack: maximise value), not merely weighted INPUT (partitioning: min discrepancy,
+# a derived numeric imbalance → global-numeric). So `weighted` is last and narrowed to KNAPSACK/SUBSET-SUM.
+_OBJ_RULES = [
+    ("Max-CSP",        re.compile(r"\bMAX-(SAT|2SAT|3SAT|HORN-SAT|NAE-SAT|DICUT|CUT|3-LIN|1-IN-3-SAT|CIRCUIT-SAT|K-SAT)\b", re.I)),
+    ("Min-Ones",       re.compile(r"\bMIN-(VC|DOMINATING-SET|SET-COVER|HITTING-SET|FVS|CONNECTED-VC|EDS|ODD-CYCLE-TRANSVERSAL|INDEPENDENT-DOMINATING)\b", re.I)),
+    ("Max-Ones",       re.compile(r"\bMAX-(CLIQUE|IS|INDEPENDENT-SET|LEAF|K-SET-PACKING)\b", re.I)),
+    ("global-numeric", re.compile(r"\b(TSP|CHROMATIC|STEINER|DISCREPANCY|BANDWIDTH|MAKESPAN|BIN-PACKING|K-CENTER|TREEWIDTH|TREEDEPTH|BISECTION|MULTIWAY-CUT|LONGEST-PATH)\b", re.I)),
+    ("weighted",       re.compile(r"\b(KNAPSACK|SUBSET-SUM)\b", re.I)),
+]
+
+# S3 Cat-3 owner assignments for the rows the lexicon flagged (never defaulted). Reasons recorded per the owner ruling.
+_OBJ_OWNER = {
+    "capacitated-vertex-cover": "Min-Ones", "partial-vertex-cover": "Min-Ones", "planar-vertex-cover": "Min-Ones",
+    "d-hitting-set": "Min-Ones", "odd-cycle-transversal": "Min-Ones", "directed-feedback-vertex-set": "Min-Ones",
+    "cluster-vertex-deletion": "Min-Ones", "cluster-editing": "Min-Ones", "planar-dominating-set": "Min-Ones",
+    "multiway-cut": "global-numeric", "group-steiner-tree": "global-numeric", "directed-steiner-tree": "global-numeric",
+    "k-median": "global-numeric", "job-shop-scheduling": "global-numeric", "quadratic-assignment": "global-numeric",
+    "kemeny-rank-aggregation": "global-numeric", "feedback-arc-set-tournament": "global-numeric",
+    "shortest-common-superstring": "global-numeric", "dnf-minimization": "global-numeric", "bin-covering": "global-numeric",
+    "shortest-vector-svp": "global-numeric", "closest-vector-cvp": "global-numeric", "edge-coloring": "global-numeric",
+    "treewidth": "global-numeric", "cutwidth": "global-numeric", "minimum-fill-in": "global-numeric", "min-bisection": "global-numeric",
+    "three-dimensional-matching": "Max-Ones", "max-coverage": "Max-Ones", "densest-k-subgraph": "Max-Ones",
+}
+_OBJ_OWNER_REASON = {
+    "treewidth": "structural-parameter objective", "cutwidth": "structural-parameter objective", "min-bisection": "structural-parameter objective",
+    "minimum-fill-in": "structural-parameter objective (minimises added fill edges, but the quantity is a property of the decomposition, not a selected set)",
+    "edge-coloring": "chromatic quantity (# colors), parallel to chromatic",
+    "max-coverage": "constrained-cardinality variant (maximise coverage s.t. |S|<=k)",
+    "densest-k-subgraph": "constrained-cardinality variant (maximise density s.t. |S|=k)",
+}
 _DEGENERACY = re.compile(r"\b(trivial|degenerate|0-valid|1-valid|vacuous)\b", re.I)
+
+_ALGEBRAIC_NT = {"algebraic", "number-theoretic"}                 # Cat 1: no canonical random ensemble
+_REFUTATION_FAMILIES = {"logic-proof", "sat-csp"}                 # Cat 5: rows that can be an unsat instance family
+_GRADIENT_WITNESSES = {"vertex-cover", "clique", "independent-set"}   # Cat 2: charge flips with parameterization
+_NOPERSP_PARAM = {"number-partitioning": "solution size", "exact-cover-x3c": "solution size",
+                  "k-center": "solution size"}                   # Cat 4: owner-assigned (k-center: k = # centers)
 
 
 def _cell(row, ch):
@@ -47,50 +82,61 @@ def _object_witness(row, charge):
 
 
 def derive_applicability(row, cell):
-    """-> (applicability, reason, provenance). Sealed rules; judged where not crisp."""
+    """-> (applicability, reason, provenance). Sealed S1 rules + S3 owner rulings (Strata-SCHEMA §4)."""
     ch, v, t, p = cell["charge"], cell["value"], cell.get("canonical_task") or "", cell.get("perspective")
-    fam = row.get("problem_family")
+    fam, pid = row.get("problem_family"), row["problem_id"]
     if v == "n.a.":
         return "n.a.", t, "derived"
     if v in ("open", "unmeasured"):
+        if ch == "average_case" and fam in _ALGEBRAIC_NT:                                    # Cat 1 exception
+            return "ambiguous", f"no canonical ensemble: a random {fam} instance is a distribution-over-integers modeling decision, not a given (S3 Cat 1)", "judged"
+        if ch == "proof_size" and fam not in _REFUTATION_FAMILIES:                           # Cat 5: not a refutation object
+            return "n.a.", f"not a propositional refutation object (family {fam!r}); proof_size requires an unsat instance family (S3 Cat 5)", "judged"
         sib = _object_witness(row, ch)
         if sib:
             return "defined-informative", f"object existence witnessed by populated {sib!r} (R-1 structural sibling); value {v}", "derived"
-        return "defined-informative", f"value {v}; no structural sibling witnesses the object — owner confirm (R-1)", "judged"
+        return "defined-informative", f"value {v}; object exists (S3 owner default for average_case/landscape/proof_size)", "judged"
     # real value
     if _DEGENERACY.search(t):
         return "defined-trivial", f"degeneracy signal in canonical_task: {t[:60]!r}", "judged"
-    if ch == "parameterized" and fam == "graph":
-        return "ambiguous", f"graph-family parameterization (treewidth vs solution-size competes); perspective={p!r}", "judged"
+    if ch == "parameterized" and fam == "graph":                                            # Cat 2: all graph-param ambiguous
+        if pid in _GRADIENT_WITNESSES:
+            return "ambiguous", f"GRADIENT WITNESS — charge value flips with parameterization (solution-size vs treewidth); recorded not downgraded (S3 Cat 2); perspective={p!r}", "judged"
+        return "ambiguous", f"graph-family parameterization: treewidth vs solution-size competes; perspective={p!r} (S3 Cat 2)", "judged"
     if p and (";" in p or " vs " in p.lower()):
         return "ambiguous", f"perspective names competing framings: {p!r}", "judged"
     return "defined-informative", f"real value {v}; single natural framing", "derived"
 
 
 def derive_objective(row):
-    """-> (objective, reason, provenance) from the approximation canonical_task lead. Only crisp cases derive."""
+    """-> (objective, reason, provenance) from the FULL approximation canonical_task (Cat-3 lexicon; flag, never default)."""
     ap = _cell(row, "approximation")
     if ap["value"] == "n.a.":
         return "none", ap.get("canonical_task") or "approximation n.a.", "derived"
     t = ap.get("canonical_task") or ""
-    if _MAX_CSP.search(t):
-        return "Max-CSP", f"MAX-CSP objective from {t[:40]!r}", "derived"
-    if _MIN_ONES.search(t):
-        return "Min-Ones", f"MIN-VC = minimise selected set from {t[:40]!r}", "derived"
-    if _MAX_ONES.search(t):
-        return "Max-Ones", f"MAX-CLIQUE/IS = maximise selected set from {t[:40]!r}", "derived"
-    return None, f"objective not crisply extractable from prose lead: {t[:60]!r}", "judged"
+    for obj, rx in _OBJ_RULES:
+        m = rx.search(t)
+        if m:
+            return obj, f"{obj} from {m.group(0)!r} in canonical_task", "derived"
+    pid = row["problem_id"]
+    if pid in _OBJ_OWNER:                                       # S3 Cat 3 owner assignment (lexicon flagged it)
+        obj = _OBJ_OWNER[pid]
+        return obj, f"owner-assigned (S3 Cat 3): {obj}" + (f" — {_OBJ_OWNER_REASON[pid]}" if pid in _OBJ_OWNER_REASON else ""), "judged"
+    return None, f"objective type not resolvable by the sealed lexicon: {t[:60]!r} — owner assigns (S3 Cat 3)", "judged"
 
 
 def derive_parameterization(row):
-    """-> (parameterization, pin_theorem, reason, provenance) from the parameterized perspective. Crisp only."""
+    """-> (parameterization, pin_theorem, reason, provenance) from the parameterized perspective (S1 rules + S3 Cat 4)."""
     pm = _cell(row, "parameterized")
+    pid = row["problem_id"]
     if pm["value"] == "n.a.":
         return "none", None, pm.get("canonical_task") or "parameterized n.a.", "derived"
     p = pm.get("perspective")
     theorem = (pm.get("provenance") or {}).get("citation")
     if not p:
-        return None, theorem, "parameterized real value without a perspective", "judged"
+        if pid in _NOPERSP_PARAM:                                                            # Cat 4: owner-assigned
+            return _NOPERSP_PARAM[pid], theorem, f"owner-assigned (S3 Cat 4): {_NOPERSP_PARAM[pid]}; perspective absent", "judged"
+        return None, theorem, "parameterized value without a perspective — owner assigns", "judged"
     pl = p.lower()
     if ";" in p or " vs " in pl:
         return "other", theorem, f"competing parameterizations named: {p!r}", "judged"
@@ -98,7 +144,7 @@ def derive_parameterization(row):
         return "solution size", theorem, f"perspective={p!r}", "derived"
     if "treewidth" in pl:
         return "treewidth", theorem, f"perspective={p!r}", "derived"
-    return "other", theorem, f"single named parameter {p!r} (mapping to 'other' — owner confirm)", "judged"
+    return "other", theorem, f"single named parameter {p!r} -> other (S3 Cat 4, owner-confirmed derived)", "derived"
 
 
 def main():
