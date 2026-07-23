@@ -1,0 +1,43 @@
+{
+  "prereg": "v12",
+  "size_bands": [
+    12,
+    18,
+    24,
+    30
+  ],
+  "per_band": {
+    "12": {
+      "held_out_power": 0.226,
+      "n_rows": 48
+    },
+    "18": {
+      "held_out_power": 0.124,
+      "n_rows": 46
+    },
+    "24": {
+      "held_out_power": -0.366,
+      "n_rows": 46
+    },
+    "30": {
+      "held_out_power": -0.604,
+      "n_rows": 44
+    }
+  },
+  "held_out_power_smallest": 0.226,
+  "held_out_power_largest": -0.604,
+  "relative_drop": 3.673,
+  "drop_threshold": 0.3,
+  "bootstrap_ci_smallest": [
+    -0.44,
+    0.551
+  ],
+  "bootstrap_ci_largest": [
+    -0.779,
+    -0.013
+  ],
+  "within_noise_band": true,
+  "verdict": "INCONCLUSIVE (trend within bootstrap noise band)",
+  "verdict_note": "Measurement numbers (per_band powers + CIs) UNCHANGED from the completed run. Verdict LABEL corrected from a verdict-logic bug: the original code gated the INCONCLUSIVE branch on an extra 'drop<30%' condition absent from the sealed R-1 rule, so a within-noise case with a large drop mislabelled as UNDIMINISHED. Sealed R-1 makes INCONCLUSIVE depend only on 'trend within the bootstrap noise band' (true here). Correction is toward the MORE conservative verdict.",
+  "verdict_original_code_label": "UNDIMINISHED (compositional inheritance \u2014 reframe the reach instrument as construction)"
+}
