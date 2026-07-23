@@ -1,0 +1,37 @@
+{
+  "prereg_version": "v23",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Pebble",
+  "role": "Point-to-set calibration criterion CORRECTED + P3 re-open on the qualified point-to-set observable. Records the v22 QUALIFIED ruling (by owner criterion-withdrawal — POST-RESULT, dated, flagged; full reasoning in docs/findings/Pebble-P2b-pointset.md) and seals the honest criterion form + the dichotomy expectation for any FUTURE point-to-set run.",
+  "extends": "v21 (point-to-set instrument), v22 (redesign #1). The v22 run stands; this corrects the criterion and re-opens P3.",
+
+  "v22_verdict_ruling": {
+    "verdict": "QUALIFIED (redesign #1). The point-to-set instrument recovers the reach dichotomy corr inverted: affine/parity HIGH (0.35-0.38) vs bounded-width LOW (0.18-0.21), non-overlapping; parity moved from the corr floor (0.03) to the top group.",
+    "criterion_withdrawal_provenance": "the v22 strict-single-max clause ('parity THE top') is WITHDRAWN as an owner SPECIFICATION ERROR — POST-RESULT (after run de64f4f, 2026-07-22 19:56), dated and flagged so a reader can judge it. Reason: 2-affine is also affine/globally-rigid/point-to-set-long — the same class as parity — and was sealed as the co-long CONSISTENCY REFERENCE before measurement (prereg_v22, cc8bc14). The literal criterion demanded parity outrank its own class-mate, which no physical mechanism produces; the 0.02 gap sits inside overlapping intervals. The bar was written to test the corr INVERSION (which it does); the strict within-class rank is an artifact it should not have carried. NOT a 'nearly met, call it met' — a corrected specification.",
+    "not_a_precedent_for_loosening": "this withdrawal is a documented owner spec-error correction with dated pre-result evidence, not a license to relax sealed thresholds after seeing data. RESIZED/refuted verdicts elsewhere stand."
+  },
+
+  "corrected_criterion_sealed_for_future_runs": {
+    "form": "affine-class HIGH vs bounded-width LOW, NON-OVERLAPPING bootstrap intervals between the groups; SAME-CLASS CO-TOP PERMITTED (a co-long class-mate — e.g. 2-affine — reading at or above parity does NOT fail the instrument).",
+    "reach_score": "point-to-set signal at the fixed radius r=2 (prereg_v22, pinned; largest-valid-radius retired as finite-size-collapsed). Sensitivity metrics (persistence ratio, AUC) reported, never substituted.",
+    "poles": "affine/parity (3-XOR, 2-affine) as the HIGH class; bounded-width (2-SAT at >=2 connected densities) as the LOW class. All poles CONNECTED (the low-density small-component confound is retired)."
+  },
+
+  "dichotomy_expectation_sealed_before_P3": {
+    "claim": "point-to-set reach on Boolean CSP families may be DICHOTOMOUS — affine-class long, bounded-width short, with NO meaningful middle level — tracking the Schaefer/algebraic dichotomy. The four calibration poles landed in exactly two groups with a clean gap and nothing between.",
+    "P3_tests_it": "P3 (re-opened on the point-to-set observable) measures the census families and tests whether the two-level structure holds across the roster, or whether an intermediate level appears.",
+    "phase_2_consequence": "IF the dichotomy holds, the sealed differential prediction (prereg_v12/v13, framed as a strong/moderate/weak/none GRADIENT) should expect TWO LEVELS rather than a gradient on the point-to-set observable. The sealed table is NOT rewritten; the dichotomy is the expectation to TEST, sealed here before P3 re-opens."
+  },
+
+  "P3_reopens": {
+    "observable": "measure_pointset (foundry/foundry/pointset.py), reach_score = signal at r=2, the QUALIFIED point-to-set instrument. The disqualified corr instrument (reach.py) is NOT used for reach; it stays on the record at its rescoped pairwise size.",
+    "carried": "exact/sampled provenance + POP_CAP/TARGET_CAP caps (v19/v21); the bucket-population floor (MIN_SOLUTIONS=16, MIN_BUCKETS=4) as a pre-fit gate; the R-2 arity diagnostic; scaling across sizes; the two-level (dichotomy) expectation as the sealed prediction."
+  },
+
+  "standing_discipline": [
+    "the criterion withdrawal is POST-RESULT, dated + flagged; it corrects a spec error, it does not loosen a threshold after data",
+    "corrected criterion (same-class co-top permitted) sealed here BEFORE any future point-to-set run",
+    "dichotomy is the sealed expectation P3 tests, not a post-hoc story",
+    "eightfold byte-identical (foundry-side only)"
+  ]
+}
