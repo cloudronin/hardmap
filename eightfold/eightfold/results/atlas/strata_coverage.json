@@ -1,0 +1,108 @@
+{
+  "source": "atlas_v2.jsonl",
+  "n_rows": 118,
+  "per_charge_applicability": {
+    "decision": {
+      "defined-informative": 114,
+      "n.a.": 4
+    },
+    "counting": {
+      "defined-informative": 86,
+      "n.a.": 32
+    },
+    "approximation": {
+      "defined-informative": 70,
+      "n.a.": 48
+    },
+    "parameterized": {
+      "defined-informative": 28,
+      "ambiguous": 40,
+      "n.a.": 50
+    },
+    "parallelization": {
+      "defined-informative": 37,
+      "n.a.": 81
+    },
+    "proof_size": {
+      "defined-informative": 15,
+      "n.a.": 103
+    },
+    "average_case": {
+      "defined-informative": 89,
+      "ambiguous": 4,
+      "n.a.": 25
+    },
+    "landscape": {
+      "defined-informative": 28,
+      "n.a.": 90
+    }
+  },
+  "gradient_drilldown": {
+    "L1_all_rows": 118,
+    "L2_both_charges_defined": {
+      "n": 59,
+      "drop": 59,
+      "drop_reason": "approximation or parameterized is n.a. — not an optimization/parameterized problem"
+    },
+    "L3_both_defined_informative": {
+      "n": 25,
+      "drop": 34,
+      "drop_reason": "one charge is ambiguous/trivial — ALL of it the graph parameterization ambiguity (treewidth vs solution-size)",
+      "witnesses_lost_to_ambiguity": [
+        "vertex-cover",
+        "clique",
+        "independent-set"
+      ]
+    },
+    "L4_defensible_local_relation": {
+      "n": 21,
+      "drop": 4,
+      "drop_reason": "objective or parameterization pin not cleanly identified",
+      "rows": [
+        "bin-covering",
+        "bin-packing",
+        "d-hitting-set",
+        "group-steiner-tree",
+        "hitting-set",
+        "k-center",
+        "k-set-packing",
+        "kemeny-rank-aggregation",
+        "knapsack",
+        "makespan-scheduling",
+        "max-2lin",
+        "metric-tsp",
+        "nae-sat",
+        "number-partitioning",
+        "one-in-three-sat",
+        "prize-collecting-steiner-tree",
+        "sat",
+        "sat-3",
+        "set-cover",
+        "subset-sum",
+        "tsp"
+      ]
+    },
+    "reads_as": "118 -> 59 -> 25 -> 21",
+    "historical_handcount": "118 -> 47 -> 16 (three sprints, three hand-counts, never written as a category)"
+  },
+  "objective_construction": {
+    "crisp_lexicon_S2": {
+      "derived": 61,
+      "judged": 57,
+      "pct_human": 48
+    },
+    "fuller_lexicon_S3": {
+      "derived": 88,
+      "judged": 30,
+      "pct_human": 25
+    },
+    "interpretation": "the atlas recorded objectives in prose a schema-blind reader can resolve ~3/4 of the time; the residual 25% measures how much objective structure was implicit in our own writing"
+  },
+  "level_coupling": {
+    "objective_level_charges": [
+      "approximation",
+      "parameterized"
+    ],
+    "finding": "the two objective-level charges (approximation, parameterized) are EXACTLY the coupled pair; every other level holds multiple charges with no strong coupling"
+  }
+}

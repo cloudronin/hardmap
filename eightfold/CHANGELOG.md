@@ -321,3 +321,12 @@
   under uniform marginals — an artifact absent on the canon's skewed marginals, where k\*=1 was decisive.) 72
   tests. Also **foundry prereg_v2** (R-vi) reframes P3 to same-verdict-both-worlds; the plan flags Sprint 6's Ω⁻
   redesign (R-vii). **Next: Sprint 2.1 (Marx weakly-separable oracle) resumes.**
+- **Strata (Eightfold v2 — additive metadata layer).** A separate `strata.py` layer over the frozen atlas (zero
+  eightfold edits — the `test_loader` round-trip *structurally* enforces additive-only, so the layer is the only
+  design that satisfies the spec). Three additions promoted from prose to fields — charge **levels**, per-cell
+  **applicability** (`defined-informative`/`defined-trivial`/`ambiguous`/`n.a.` + mandatory reason +
+  `derived`/`judged` provenance), per-row **objective/parameterization** pins — merged into **`atlas_v2.jsonl`**
+  (sha256 `784f4739360f1d7b4a3308e1f548c37ecbafeb3842878bc64d82fc6c4dd9c567`); the frozen `atlas.jsonl` is untouched.
+  Derivation split (S2→S3): applicability 15% / objective 25% / parameterization 7% judged; 175-entry owner-reviewed
+  list; S3 rulings sealed in `results/atlas/Strata-SCHEMA.md`. **NB: "Strata v2" (this metadata layer) is a distinct
+  axis from the queued "charge-9 v2" (fine-grained complexity) — do not conflate.** Frozen suite unchanged (78 tests).
