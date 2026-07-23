@@ -1,0 +1,49 @@
+{
+  "prereg_version": "v30",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Lattice v2 (G2)",
+  "role": "Lattice v2 — a SEPARATE experiment from v1. v1 (prereg_v29) banked INSUFFICIENT RESOLUTION: the census's Schaefer representatives are too coarse (5 profiles < floor 6), but the witness gate PASSED (the pipeline works) and the single-relation Boolean UNIVERSE was not shown too coarse. v2 tests the universe directly with a PURPOSE-BUILT, STRATUM-SPANNING, correlation-blind roster: one generated Boolean relation per KSTW approximation stratum x objective, selected mechanically, committed before the parameterized charge or the joint is computed.",
+  "extends": "docs/findings/Lattice-v1-findings.md; prereg_v29; docs/findings/Lattice-I-phase.md (incl. §9)",
+  "committed_before_analysis": true,
+  "committed_before_measurement": true,
+  "this_is_not_a_v1_retrofit": "v1's verdict is sealed at its own size (Lattice-v1-findings.md). v2 is a new design with its own selection rule, kill, and caveat. Spanning-the-strata is orthogonal to the correlation's sign/strength, so it is NOT goalpost-moving; it fixes a roster too coarse to see anything, then measures the association honestly.",
+
+  "the_sealed_selection_rule": {
+    "statement": "MECHANICAL and CORRELATION-BLIND. (1) Enumerate every non-empty, non-full Boolean relation of arity <= 3, deduped as a set of tuples, in a fixed CANONICAL ORDER: arity ascending, then the sorted tuple-set encoded as an integer bitmask over {0,1}^arity ascending. (2) For each of the 7 KSTW approximation strata S in {PO, APX-complete, poly-APX-complete, Nearest-Codeword-complete, Min-Horn-Deletion-complete, decidable-not-approximable, feasibility-hard} and each objective O in {min-ones, max-ones}: SELECT the FIRST relation R in canonical order with approximation_O(R) == S, if one exists (else the (S,O) cell is EMPTY and reported). (3) The roster = the deduped union of the selected (R, O) rows.",
+    "blindness": "Selection consults ONLY the approximation charge (the stratification axis). The parameterized charge is NEVER consulted in selection. The parameterized charge and the joint occupancy are computed ONLY AFTER the roster is committed.",
+    "enforceability_not_intention": "the discipline is HASH-CHECKABLE, not asserted: dev/lattice_v2_select.py applies the rule and writes results/lattice/lattice_v2_roster.json (the selected (relation, objective, approximation) rows, NO parameterized charge). That roster file is COMMITTED FIRST. dev/lattice_v2_analyze.py then computes the parameterized charge + joint occupancy in a LATER commit. The roster commit hash predates the analysis commit -> a reader can verify the roster was fixed before either charge-of-interest was jointly computed. Same discipline as prereg-before-analysis, applied to roster construction.",
+    "arity_bound": "arity <= 3 is a stated SCOPE LIMIT. A KSTW stratum unreachable by any arity-<=3 relation is reported EMPTY (a fact about the reachable universe up to arity 3), never back-filled by hand or by raising the arity after seeing the count."
+  },
+
+  "stratified_sampling_caveat_SEALED": "the roster is, by construction, STRATIFIED SAMPLING ON THE APPROXIMATION AXIS (deliberately uniform approximation coverage). This is legitimate and necessary to populate the strata, but it CHANGES WHAT THE STATISTIC MEANS: the resulting association measures the coupling GIVEN deliberately uniform approximation coverage, which is NOT the association in a natural population. The canon's 0.73 came from a curated-but-not-stratified population; v2's number comes from a deliberately stratified one. The two are NOT directly comparable as magnitudes even though both are Cramer's V. This caveat is carried verbatim into the v2 finding.",
+
+  "analysis": {
+    "primary": "the (approximation x parameterized) OCCUPANCY cross-tab over the selected both-real rows — which cells occupied, per-cell counts, and which KSTW strata came back EMPTY at arity <= 3.",
+    "secondary_association": "both-real Cramer's V (structure.cramers_v) reported WITH the stratified-sampling caveat above; NOT magnitude-compared to 0.73. Per-objective (min vs max) as well as pooled.",
+    "no_sampling_null": "as v1: exhaustive/deterministic given the roster, so the occupancy is the object; any type-respecting envelope is comparability-only, not sampling inference."
+  },
+
+  "profile_floor_and_kill": {
+    "min_distinct_both_real_profiles": 6,
+    "require_both_param_values_present": true,
+    "below_floor_or_degenerate_param": "the generated Boolean universe (up to arity 3), even when deliberately stratum-spanned, is too coarse to exhibit the gradient -> a STRONGER finding than v1 (it would move Wall 3 from 'open' back to 'confirmed', now about the universe not the representatives).",
+    "at_or_above_floor": "the association given uniform approximation coverage is READABLE and reported (with the caveat) -> Wall 3 is BREACHED: the generated Boolean universe CAN exhibit the gradient; the census representatives were the only thing too coarse."
+  },
+
+  "sealed_predictions": {
+    "1_universe_spans": "the stratum-spanning roster reaches >= 6 distinct profiles (the single-relation Boolean universe is rich enough; v1's poverty was the representatives).",
+    "2_both_param_values_present": "FPT and W[1] both appear (the negative-clause / Horn relations carry W[1]).",
+    "3_some_strata_empty_at_arity3": "at least one of {Min-Horn-Deletion-complete, decidable-not-approximable} may still be empty at arity <= 3 and is reported as such, not back-filled.",
+    "4_stratified_V_not_comparable": "whatever Cramer's V results is NOT magnitude-comparable to 0.73 (uniform-coverage vs natural population); reported as association-given-stratification only.",
+    "5_owner_prior": "unstated by owner for v2; builder prior: the universe spans (floor met) with ~70% confidence; the association-given-uniform-coverage is genuinely uncertain in sign-strength."
+  },
+
+  "standing_discipline": [
+    "prereg sealed before selection or measurement",
+    "selection rule mechanical + correlation-blind (parameterized charge never consulted in selection); roster committed BEFORE the parameterized/joint charge is computed (hash-checkable)",
+    "stratified-sampling caveat sealed here and carried verbatim into the finding; v2's V NOT magnitude-compared to 0.73",
+    "occupancy primary; empty strata (incl. any unreachable at arity <= 3) reported, never back-filled or arity-raised after the count",
+    "is_weakly_separable + oracles.py untouched (census/eightfold byte-identical); v2 is additive",
+    "sealed predictions scored as they land, including misses; v1's banked verdict is not disturbed"
+  ]
+}
