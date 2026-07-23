@@ -1,0 +1,37 @@
+{
+  "prereg_version": "v18",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Pebble",
+  "role": "P2 FOLLOW-THROUGH + P3 SAMPLER DISCIPLINE. Two items surfaced by the P2 calibration review, sealed BEFORE P3 runs: (1) a genuinely-NONZERO short pole re-calibration that RIDES ALONGSIDE P3 (does not gate it); (2) the requirement that P3 exercise the two-sampler concordance + affine-exact bias checks at GENUINE-SUBSAMPLING sizes, because the P2 calibration's were vacuous.",
+  "extends": "v17 (three-pole calibration). The P2 verdict QUALIFIED stands; these are the documented limitations + their fixes.",
+  "committed_before_analysis": true,
+  "committed_before_P3": true,
+
+  "item_1_nonzero_short_pole": {
+    "the_problem": "P2's short pole (a decoupled matching) read reach_score EXACTLY 0.0 — BY CONSTRUCTION: a matching has no distance-≥2 pairs at all, so it is a STRUCTURAL ABSENCE of the quantity being measured, not a measurement of small correlation. The demonstrated capability is therefore that `corr` distinguishes 0.074 (2-SAT) from 0.5 (2-affine): a TWO-point separation with a floor anchor, NOT a three-point ordering. The three-pole framing overstates it.",
+    "the_fix": "a genuinely-nonzero short pole = a BOUNDED-WIDTH family at LOW density, where sub-critical sparsity gives an intrinsically short but NONZERO correlation reach. Concretely: R_IMP (2-SAT, bounded-width) at alpha_low = 0.6 (vs the medium pole's 1.4), n=16, observable=corr — the same qualified observable.",
+    "rides_alongside_not_before": "measured DURING P3 (cheap; one extra ensemble), NOT gating the sweep. Reasoning: P3's per-family values are interpreted against the instrument ordering correctly at the LOW end, exactly where P2 is blind; measuring the nonzero short pole alongside either confirms three genuine points or reveals a low-end resolution limit while P3's low readings are being interpreted, not after.",
+    "sealed_criterion": {
+      "three_genuine_points": "reach(short_nonzero) resolvably in (0, medium): its bootstrap interval is above 0 AND below the medium interval, non-overlapping -> the ordering is upgraded to a true three-point rank.",
+      "low_end_floor": "short_nonzero unresolvable from 0 (interval includes ~0) -> the instrument cannot resolve small-but-nonzero correlation; a FLOOR to carry into interpreting P3's low-reading families.",
+      "low_end_saturation": "short_nonzero unresolvable from medium (interval overlaps medium) -> the instrument cannot separate short from medium at the low end."
+    },
+    "no_pole_shopping": "a NEW sealed pole with a stated mechanism (bounded-width at low density -> intrinsically short reach), sealed before measurement, not chosen to fix a number."
+  },
+
+  "item_2_genuine_concordance_in_P3": {
+    "the_finding": "P2's two-sampler concordance (dpll vs walksat, delta≈0) AND the affine-exact bias check (0.0) were VACUOUS: the n=16 calibration instances have <=42 solutions <= the sample cap K=80, so BOTH samplers FULLY ENUMERATE the solution set -> identical sets -> trivially concordant, trivially zero bias. The reach values there are EXACT (which is why the ordering is clean), but sampler agreement under SUBSAMPLING was never tested.",
+    "the_requirement": "P3 must run the concordance + affine-exact bias checks at instance sizes where the solution count EXCEEDS K (genuine subsampling). Per family, P3 REPORTS the sampling regime: |solutions| > K (genuine subsampling — concordance is a real test) vs |solutions| <= K (exact enumeration — reach is exact, concordance vacuous, reported as EXACT not as 'concordant'). Concordance and affine-bias are only claimed where sampling genuinely subsamples.",
+    "why_it_matters": "concordance + affine-bias are the two checks standing between P3's numbers and sampler artifacts (R-c/R-d). If they are vacuous, P3's reach values are unguarded against sampler bias. This makes them real."
+  },
+
+  "findings_language_sealed": "until item 1 rides in during P3, the P2 result is stated as: 'corr distinguishes 2-SAT (0.074) from 2-affine (0.5) — a two-point separation with a floor anchor', NEVER as a demonstrated three-point ordering, and NEVER as 'calibrated across its range' (v17 scope discipline).",
+
+  "standing_discipline": [
+    "prereg (this v18) sealed before P3",
+    "nonzero short pole is a new SEALED pole (mechanism stated), not a post-hoc reshaped one",
+    "P3 reports the per-family sampling regime; concordance/affine-bias claimed only under genuine subsampling",
+    "two-point-with-floor-anchor language for P2 until the nonzero short pole resolves",
+    "eightfold byte-identical (foundry-side only)"
+  ]
+}
