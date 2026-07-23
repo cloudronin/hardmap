@@ -41,7 +41,10 @@ def reach_of(R, n, alpha, base_seed):
     return PS.measure_pointset((R,), (0, 1), n, alpha, n_instances=NINST, base_seed=base_seed, reach_radius=RADIUS)["reach_score"]
 
 
-def heldout_R(rows, feats):
+def heldout_R(rows, feats, clip=True):
+    """Leave-one-co-clone-out held-out corr of an OLS model (v14 fit_r2) on `feats`. Predictions clipped to the
+    training reach range (reach is bounded; this is a robustness measure against class-level extrapolation blowup,
+    NOT a model change). clip=False returns the raw (unclipped) version for the sensitivity report."""
     ccs = sorted({r["coclone"] for r in rows})
     preds, acts = [], []
     for cc in ccs:
@@ -52,8 +55,10 @@ def heldout_R(rows, feats):
         X = np.array([[r[f] for f in feats] for r in tr], float)
         y = np.array([r["reach"] for r in tr], float)
         _, beta = RF.fit_r2(X, y)
+        lo, hi = float(y.min()), float(y.max())
         for r in te:
-            preds.append(beta[0] + sum(beta[i + 1] * r[f] for i, f in enumerate(feats)))
+            p = beta[0] + sum(beta[i + 1] * r[f] for i, f in enumerate(feats))
+            preds.append(min(max(p, lo), hi) if clip else p)
             acts.append(r["reach"])
     if len(set(preds)) < 2 or len(set(acts)) < 2:
         return None
@@ -83,6 +88,7 @@ def main():
         R_star = float(np.corrcoef([r["reach_A"] for r in rows], [r["reach_B"] for r in rows])[0, 1])
         ho_scalar = heldout_R(rows, SCALAR)
         ho_full = heldout_R(rows, FULL)
+        ho_full_raw = heldout_R(rows, FULL, clip=False)     # sensitivity: unclipped (shows extrapolation instability)
         ho_struct = heldout_R(rows, FEATS_STRUCT)
         rho = round(ho_full / R_star, 3) if (ho_full is not None and R_star) else None
         increment = round(ho_full - ho_scalar, 4) if (ho_full is not None and ho_scalar is not None) else None
@@ -100,6 +106,7 @@ def main():
         per_density[dfrac] = {"n_rows": len(rows), "R_star_split_half": round(R_star, 3),
                               "ho_scalar_only": round(ho_scalar, 4) if ho_scalar is not None else None,
                               "ho_full_scalar_plus_structural": round(ho_full, 4) if ho_full is not None else None,
+                              "ho_full_unclipped_sensitivity": round(ho_full_raw, 4) if ho_full_raw is not None else None,
                               "ho_structural_only_T1_3": round(ho_struct, 4) if ho_struct is not None else None,
                               "rho_vs_ceiling": rho, "increment_geometry_over_scalar": increment,
                               "perm_p": p_val,
