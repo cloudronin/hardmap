@@ -1,0 +1,46 @@
+{
+  "prereg_version": "v20",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Pebble",
+  "role": "P3 HELD — the parity diagnostic. The I-SP memo's §4 point-to-set-vs-point-to-point flag is ESCALATED by owner ruling from 'logged, not acted on' to a decisive disqualification test of ξ-as-built. Sealed BEFORE the diagnostic runs.",
+  "extends": "v17 (three-pole calibration, QUALIFIED corr). Supersedes ONLY the I-SP memo §4 disposition ('logged, not acted on'); the I-SP memo itself stands as written.",
+  "committed_before_analysis": true,
+  "committed_before_the_diagnostic": true,
+
+  "escalation_provenance": {
+    "flag": "I-SP memo (Pebble-ISP-susceptibility.md) §4: reach is formally the POINT-TO-SET correlation length, not the POINT-TO-POINT (pairwise) one; ξ-as-built (both observables) computes a pairwise object.",
+    "escalated_by": "owner ruling (this v20), with reason.",
+    "reason": "Montanari-Semerjian (cond-mat/0603018), quoted in the I-SP memo: the relevant length is defined by point-to-set, not point-to-point, correlations; the pairwise length can stay FINITE while the point-to-set length DIVERGES, and pure >=3-ary PARITY is the extreme case — ZERO pairwise correlation, FULL point-to-set correlation. Parity is our long pole's family.",
+    "why_the_P2_calibration_could_not_catch_it": "the long pole was 2-ARY affine, where pairwise and point-to-set COINCIDE (corr = 0.5, deterministic). The instrument's blind spot is invisible exactly there. The build chose 2-affine BECAUSE 3-XOR read zero (locked in test_parity_blind_but_2affine_visible) and MISCLASSIFIED that as a pole-selection technicality rather than a disqualifying scope fact. The parallel I-SP investigation surfaced what the main line's calibration structurally concealed."
+  },
+
+  "the_diagnostic": {
+    "run_before_anything_else": "cheap, existing rig; nothing else in P3 runs until this returns.",
+    "measure": "corr reach_score on a PURE 3-ary parity family (3-XOR) and a PURE 4-ary parity family (4-XOR), via the same corr rig the calibration used.",
+    "density_adaptation_declared": "3-XOR is UNSAT at the calibration density alpha=1.4 (above its ~0.918 satisfiability threshold), so parity is measured in its SATISFIABLE regime (alpha=0.6, n=16) where the affine coset is rich (~2^6 solutions). Because pairwise blindness to parity is DENSITY-INDEPENDENT (a 3-way relation has ~0 pairwise correlation at any SAT density), the diagnostic is robust to this. A same-density (alpha=0.6, n=16) 2-affine reference (R_EQ) is measured alongside to CONTROL for density: the reference is pairwise-visible and should read high at the same density.",
+    "solutions": "exact — enumerate the coset at n=16 (2^16 feasible), so no sampler noise contaminates the verdict.",
+    "if_free_4ary": "4-XOR point included (it is cheap)."
+  },
+
+  "sealed_prediction_from_literature_not_our_data": "near-zero corr reach_score for 3-XOR and 4-XOR DESPITE maximal (global, affine) point-to-set propagation — XOR-SAT solution cosets are globally rigid (a spanning set of variables determines all others by parity), so point-to-set reach spans the connected component while the pairwise correlation is ~0. Predicted from Montanari-Semerjian, sealed before measurement.",
+
+  "outcomes_pre_labelled": {
+    "DISQUALIFIED": {
+      "trigger": "max(3-XOR, 4-XOR reach_score) < the medium pole (0.074) AND << the same-density 2-affine reference — i.e. globally-rigid parity reaches LESS than a bounded-width 2-SAT family, the disqualifying inversion.",
+      "consequence": "ξ-as-built is DISQUALIFIED for the substrate hypothesis, NOT merely limited. The P2 PASS STANDS but is RESCOPED: the instrument correctly orders PAIRWISE correlation — a real quantity, and NOT the one 'reach' means. P3's sweep would systematically MISPLACE every parity-flavored family, so it does NOT run in this form.",
+      "design_fork_gets_its_own_decision": "either (a) build a POINT-TO-SET instrument (condition on a far BOUNDARY SET, not a single variable — MS Eq. 6 / MRT reconstruction give the definition) — a NEW instrument with its OWN prereg, poles, and qualification; or (b) stop the propagation line and write Pebble up as an instrument-development chapter with a located design flaw (a legitimate outcome, NOT a failure). Owner decides; NO silent redesign."
+    },
+    "PROCEEDS_WITH_CAVEAT": {
+      "trigger": "parity reach_score >= the medium pole (0.074) — the blind spot does not materially bite on our roster's parity families at these sizes.",
+      "consequence": "document WHY (finite-size effect / our specific ensembles), and P3 proceeds with the pairwise-vs-point-to-set distinction stated as a LIVE caveat rather than a resolved one."
+    }
+  },
+
+  "standing_discipline": [
+    "prereg (this v20) sealed before the diagnostic; prediction taken from the literature, not our data",
+    "P3 sweep HELD until the diagnostic returns",
+    "if DISQUALIFIED, a point-to-set instrument is a NEW instrument (own prereg/poles/qualification) — no silent redesign; the write-up-as-instrument-development outcome is legitimate",
+    "escalation logged here so the provenance chain shows why P3 stopped; the I-SP memo stands unaltered",
+    "eightfold byte-identical (foundry-side only)"
+  ]
+}
