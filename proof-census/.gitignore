@@ -11,3 +11,6 @@ results/figures/
 
 # Local venv.
 .venv/
+
+# C3 run logs (regenerable; the committable artifacts are checkpoint.jsonl + c3_summary.json)
+*.log

@@ -35,8 +35,14 @@ python -m pytest tests -q
 python -m proofcensus.cli sample --n 20 --alpha 4.5 --sampler s1 --k 20
 ```
 
-## Status
+## Status — C3 complete, positive H1–H3 verdict
 
-C1 in progress (the two verifier-gated samplers). CPU-only, $20 ceiling. See [AGENTS.md](AGENTS.md) for the
-invariants (verifier-gate everything; sampler-relative claims; H3 = trends not levels; S2 regression is
-soundness-critical).
+Full sweep done (1000 instances, K=200/sampler, ~400k verified proofs). **The refutation set is plural
+(H1), and its geometry shifts systematically toward the sat threshold (H2): a proof backbone strengthens
+(S2 n=60: 1→273 clauses) and proofs lengthen (S2 n=60: 315→6976 steps), replicated across both samplers and
+all four sizes (H3, 11/12 trend-agreements).** The lone divergence (n=60 overlap) is mechanistically
+explained by tree-proof size explosion, not sampler noise. Neither kill criterion fired. Verdict:
+[`docs/findings/C3-verdict.md`](docs/findings/C3-verdict.md); figures + summary in `proofcensus/results/c3/`.
+
+See [AGENTS.md](AGENTS.md) for the invariants (verifier-gate everything; sampler-relative claims; H3 =
+trends not levels; S2 regression is soundness-critical).

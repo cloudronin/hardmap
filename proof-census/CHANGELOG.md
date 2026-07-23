@@ -27,4 +27,12 @@
   correctly flagged a sampler artifact per H3/R1. Province separation grows toward threshold (0.05→0.11).
   Neither kill criterion fires. Findings: `docs/findings/C2-mini-sweep.md`. Fixed an α-orientation sign bug
   in the trend/plot helpers (hard = low α = left). 20 tests green.
-- Remaining: **C3** full parallel sweep (all n, 50 instances/cell, K=200) + the firm H1–H3 verdict.
+- **C3 COMPLETE — positive H1–H3 verdict.** Full parallel sweep (`c3.py`, `sweep.py` shared executor):
+  1000 instances (n∈{20,30,40,60} × α∈{4.5,5,6,8,10}, 50/cell, K=200/sampler), ~400k verified proofs,
+  resumable + caffeinated (~57h wall-clock incl. one BrokenProcessPool crash recovered from checkpoint with
+  zero loss; added in-flight memory cap + self-healing executor). **H1 plurality confirmed** (median Jaccard
+  0.04–0.16). **H2 confirmed:** backbone strengthens (S2 n60 1→273) and proofs lengthen (S2 n60 315→6976)
+  toward threshold in both samplers, all sizes. **H3 supported:** trend agreement in 11/12 metric×size cells;
+  the lone n60-overlap divergence is mechanistically explained (tree-proof size explosion), not artifact.
+  Coverage 998/1000 (2 S1 instances at 49/50, flagged). Figures + `c3_summary.json` in `results/c3/`;
+  verdict in `docs/findings/C3-verdict.md`. Neither kill criterion fired.
