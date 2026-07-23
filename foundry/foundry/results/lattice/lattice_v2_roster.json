@@ -1,0 +1,236 @@
+{
+  "prereg": "v30",
+  "selection": "canonical-first per (KSTW approx stratum x objective); approximation-ONLY",
+  "arity_bound": 3,
+  "n_rows": 10,
+  "n_empty_cells": 4,
+  "empty_cells_at_arity3": [
+    "Nearest-Codeword-complete x max-ones",
+    "Min-Horn-Deletion-complete x max-ones",
+    "Min-Horn-Deletion-complete x min-ones",
+    "decidable-not-approximable x min-ones"
+  ],
+  "rows": [
+    {
+      "stratum": "PO",
+      "objective": "max-ones",
+      "arity": 1,
+      "bitmask": 1,
+      "relation": [
+        [
+          0
+        ]
+      ],
+      "name": "rel_a1_m1"
+    },
+    {
+      "stratum": "PO",
+      "objective": "min-ones",
+      "arity": 1,
+      "bitmask": 1,
+      "relation": [
+        [
+          0
+        ]
+      ],
+      "name": "rel_a1_m1"
+    },
+    {
+      "stratum": "APX-complete",
+      "objective": "max-ones",
+      "arity": 3,
+      "bitmask": 105,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "name": "XOR3(=0)"
+    },
+    {
+      "stratum": "APX-complete",
+      "objective": "min-ones",
+      "arity": 2,
+      "bitmask": 14,
+      "relation": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "name": "OR2(x\u2228y)"
+    },
+    {
+      "stratum": "poly-APX-complete",
+      "objective": "max-ones",
+      "arity": 2,
+      "bitmask": 7,
+      "relation": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "name": "NAND(\u00acx\u2228\u00acy)"
+    },
+    {
+      "stratum": "poly-APX-complete",
+      "objective": "min-ones",
+      "arity": 3,
+      "bitmask": 134,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "name": "rel_a3_m134"
+    },
+    {
+      "stratum": "Nearest-Codeword-complete",
+      "objective": "min-ones",
+      "arity": 3,
+      "bitmask": 150,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "name": "XOR3(=1)"
+    },
+    {
+      "stratum": "decidable-not-approximable",
+      "objective": "max-ones",
+      "arity": 3,
+      "bitmask": 41,
+      "relation": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "name": "rel_a3_m41"
+    },
+    {
+      "stratum": "feasibility-hard",
+      "objective": "max-ones",
+      "arity": 3,
+      "bitmask": 22,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "name": "rel_a3_m22"
+    },
+    {
+      "stratum": "feasibility-hard",
+      "objective": "min-ones",
+      "arity": 3,
+      "bitmask": 22,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "name": "rel_a3_m22"
+    }
+  ],
+  "NOTE": "parameterized charge and joint occupancy are NOT here \u2014 computed by lattice_v2_analyze.py in a LATER commit."
+}
