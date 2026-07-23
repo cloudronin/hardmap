@@ -1,0 +1,47 @@
+{
+  "prereg_version": "v28",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Ferry",
+  "role": "Ferry F1–F4 — CONFIRMATORY SCORING, not adjudication. The I-phase (docs/findings/Ferry-I-phase.md) ALREADY established DEFINITIONALLY that tuple_dispersion is orthogonal to the canon's approx/param charges: vertex-cover and independent-set have the IDENTICAL relation (edge, disp 0.667) and OPPOSITE charges on both gradient axes (APX-complete/FPT vs inapprox/W[1]); the modal dispersion value 0.667 (9 of 16 rows) spans PTAS -> APX-complete -> inapprox and both FPT/W[1]. No correlation number can rescue or worsen that. F1–F4 put a formally-scored, held-out, entailment-netted, permutation-tested number on a fact settled by construction. Sealed before the (\$0) confirmatory measurement.",
+  "extends": "the Ferry spec + the I-phase memo. This is the F-phase.",
+  "committed_before_analysis": true,
+  "committed_before_measurement": true,
+
+  "HONEST_STATUS_the_measurement_does_not_decide_what_the_definition_settled": "the I-phase established orthogonality DEFINITIONALLY (measured counterexamples, not a correlation). F1–F4 are CONFIRMATORY SCORING so a reviewer who doubts the counterexamples can be handed a permutation-tested correlation instead of a table. The record must NOT read as though the measurement decided something the definition had already settled.",
+
+  "THE_HEADLINE_is_the_31_not_the_kill": "31 of 47 gradient-carrying canon rows have NO defensible local relation (Steiner, TSP, knapsack, set-cover, feedback sets, dominating-set, …). That is NOT a coverage gap — it is a STRUCTURAL FACT about where the canon's gradient lives: on GLOBAL and NUMERIC problems whose hardness no local constraint relation encodes. This is why the whole substrate program was reaching for something the canon's interesting rows do not have. The findings lead with the 31; orthogonality is second; the kill is third.",
+
+  "roster": "the 16 CSP-local gradient rows (defensible relation, from ferry_iphase_coverage.json), each carrying tuple_dispersion + the atlas's approximation/parameterized/landscape charges. The 31 n.a. rows are reported as the coverage HEADLINE (informative absence), NOT entered into the correlation.",
+
+  "F1_F4": {
+    "F1": "disp -> landscape (clustered vs not) — the nearest census analogue; confirmation not news.",
+    "F2_the_point": "disp -> approximation AND parameterized (ordinalized). NOT solution-set summaries -> the P4 near-circularity does not apply -> the first non-circular test in the line. The I-phase predicts NULL.",
+    "F3_flagship": "does conditioning on disp shrink the approx<->param association? Partial correlation of approx,param controlling for disp. The I-phase predicts ~unchanged (disp explains ~nothing).",
+    "F4_discriminator": "is disp's prediction DIFFERENTIAL (sealed: strong landscape/average_case, moderate approx/param, none parallelization), UNIFORM (generic-difficulty proxy), or ORTHOGONAL (no signal)? The I-phase predicts ORTHOGONAL — not even uniform."
+  },
+
+  "sealed_F4_differential_table_from_the_substrate_hypothesis": {
+    "landscape": "strong", "average_case": "strong", "approximation": "moderate", "parameterized": "moderate",
+    "proof_size": "weak", "counting": "weak", "parallelization": "none",
+    "note": "this is the pattern the substrate hypothesis predicts; F4 scores the MEASURED pattern against it. The competing null is UNIFORM (predicts everything equally = generic proxy = NOT SUPPORTED). The I-phase predicts NEITHER — orthogonal."
+  },
+
+  "design_discipline": [
+    "confirmatory NOT adjudicative (the I-phase already settled it definitionally)",
+    "held out by problem FAMILY, not by row (canon families correlated; row splits leak). NB only 2 families among the 16 CSP-local (graph 12, sat-csp 4) -> the WITHIN-graph correlation is the real test (disp 0.667 carries both APX/FPT and inapprox/W[1] within one family)",
+    "permutation null on each correlation; report p",
+    "entailment netting (R25) noted — approx<->param carry known bridges (EPTAS<->FPT, Cai-Chen) — but a NULL result is not 'surprising', so netting is a formality here",
+    "charges ordinalized easy->hard: approximation FPTAS<EPTAS<PTAS<APX<APX-complete<log-APX<poly-APX<inapprox; parameterized FPT<XP<W[1]<W[2]+<para-NP-hard; landscape clustered vs not",
+    "the 31 n.a. rows reported as the headline coverage result, not averaged into anything"
+  ],
+
+  "pre_labelled_outcomes": {
+    "orthogonal_null_PREDICTED": "disp does not predict the charges (held-out ~0, permutation-consistent) -> substrate-via-this-proxy NOT SUPPORTED at the canon, CONFIRMING the I-phase definitionally. Expected.",
+    "uniform": "disp predicts all charges equally -> generic-difficulty proxy, also NOT SUPPORTED (would contradict the I-phase's orthogonality — would be a surprise requiring investigation).",
+    "differential_as_sealed": "would contradict the I-phase counterexamples outright — treat as a measurement error to run down, not a substrate confirmation."
+  },
+
+  "what_this_completes": "Sprint 4.6 established DEFINITIONALLY+by-measurement that complexity lives ABOVE the relation level in the CENSUS (clone-invariant impossibility; terrain is relation-level). Ferry establishes the SAME at CANON scale, with the vertex-cover/independent-set counterexample pair being the very witnesses that carry the atlas's FLAGSHIP approx<->param gradient. A consistent, TWICE-MEASURED structural claim — more durable than the substrate hypothesis it kills.",
+
+  "honest_resting_position": "propagation-via-this-proxy does not explain the charges; the approx<->param gradient remains UNEXPLAINED; and the reason it remains unexplained is now BETTER CHARACTERIZED than before — it lives on global/numeric structure no local relation encodes."
+}
