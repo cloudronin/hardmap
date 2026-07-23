@@ -1,0 +1,42 @@
+{
+  "prereg_version": "v27",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Pebble",
+  "role": "Tier-3 CANON EXTENSION route — SEALED and UNAUTHORIZED, NOT STARTED. T1.4 collapsed reach to reach ≈ f(tuple_dispersion), a pure relation-level probe (no graph, no instances, no sampling, no solution sets). That makes the canon's gradient-carrying rows measurable for the reach proxy for the first time. This prereg SEALS the route so it is on the record; running it requires a SEPARATE greenlight.",
+  "status": "SEALED, UNAUTHORIZED, NOT STARTED. Logged as the next step, not begun. No canon measurement has been made.",
+  "extends": "v14/v26 (tuple_dispersion is the cheap probe that carries forward) + the substrate program map (T3.1 canon extension, prerequisite for T2.1/T2.2).",
+  "committed_before_analysis": true,
+
+  "why_it_is_cheap_now": "T1.4 showed the graph-geometry term is superfluous: reach ≈ f(tuple_dispersion). tuple_dispersion = mean pairwise normalized Hamming among a relation's satisfying tuples — a property of the CONSTRAINT RELATION alone, needing NO sampling, NO instances, NO solution sets. The canon's gradient-carrying rows (vertex cover, clique, Steiner) have identifiable constraint relations, so the reach PROXY is computable there — where the pointsampled instrument cannot reach and where every prior deferral has been parked.",
+
+  "mandatory_known_answer_check_before_any_canon_reading": {
+    "the_six_anchors": "the six canon∩census rows — 3-SAT, 2-SAT, XOR-SAT, Horn-SAT, NAE-SAT, 1-in-3-SAT — are the ONLY place BOTH a canon charge AND a census reading exist. They are the natural calibration (the two-pole-equivalent for this extension).",
+    "what_must_pass": "tuple_dispersion computed on the canon-relation form must agree with its census-relation form on the six anchors, AND its established relationship to the census point-to-set reach (rho ~ 0.86-0.89, T1.4) must hold on them. Failure on the anchors => the proxy does not transport to canon-shaped relations; STOP before any unknown canon row.",
+    "discipline": "known-answer calibration before unknown sky, the same gate every Pebble instrument faced."
+  },
+
+  "explicit_license_statement": {
+    "what_a_positive_WOULD_license": "the reach proxy (tuple_dispersion) becomes measurable on the canon's gradient-carrying rows -> the Tier-2 DIFFERENTIAL test (does the reach proxy predict the charges at the sealed differential strengths, vs the uniform null?) becomes ADJUDICABLE on the canon, where the approx<->param gradient actually lives. This is the route to the substrate hypothesis's actual test.",
+    "what_it_would_NOT_license": [
+      "it is a PROXY extension, NOT an instrument extension: the point-to-set reach INSTRUMENT does not reach the canon (sampling doesn't); only its cheap proxy does. Canon readings are proxy-reach, not measured-reach.",
+      "the proxy tracks reach at rho ~ 0.86-0.89 (T1.4), not 1.0 — a stated fidelity gap on every canon reading.",
+      "tuple_dispersion -> terrain is only MODEST (P4, +0.096); the differential test on the DISCRIMINATING (non-geometry) charges is the un-circular test, but its POWER depends on the proxy's fidelity for THOSE charges, which is UNestablished (v1 measured only landscape/terrain).",
+      "a canon differential result would NOT settle the two-level-vs-gradient question by itself — that is sealed separately (v23) and must be scored on the canon charges' own structure."
+    ]
+  },
+
+  "prerequisites_before_running_needs_greenlight": [
+    "a separate greenlight (this prereg is a seal, not an authorization)",
+    "its own measurement prereg sealed before any canon measurement",
+    "the six-anchor known-answer calibration passing first",
+    "R20 citation discipline for the canon relations (correct-and-cited; unverified -> open, never guessed)"
+  ],
+
+  "standing_discipline": [
+    "SEALED and UNAUTHORIZED — the route is recorded, not begun",
+    "known-answer (six anchors) before any canon sky",
+    "the proxy caveat (rho ~0.86-0.89, not measured-reach) stated on every canon reading",
+    "prereg before measurement; sealed predictions scored including misses",
+    "eightfold byte-identical (foundry-side only)"
+  ]
+}
