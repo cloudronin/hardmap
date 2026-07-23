@@ -6,6 +6,7 @@ predictive power for ruggedness DECAY as instance size grows (local geometry pro
 Run: PYTHONPATH=... python foundry/dev/pebble_pilot.py
 """
 import json
+import os
 import random
 from collections import Counter
 from itertools import combinations, product
@@ -48,7 +49,18 @@ def _select_arity3(reps_per=6):
                         "tuple_dispersion": RF.tuple_dispersion(R)})
     return sel
 
-SIZE_BANDS = [12, 18, 24, 30]                     # smallest .. largest; bands fixed here (prereg_v12 R-1)
+
+def _load_roster():
+    """The EXPANDED roster (Sprint 4.6, prereg_v11): 77 relations across 16 co-clone profiles (arity 3 + 4) — DOUBLE
+    the arity-3-only pilot's 8 folds, the power fix the P1 INCONCLUSIVE demanded. Relations + tuple_dispersion are
+    data-in-hand from sprint46_roster.json; ruggedness is re-measured across the size ladder here (leave-one-
+    profile-out then runs over 16 folds, not 8)."""
+    rows = json.load(open("foundry/foundry/results/landscape/sprint46_roster.json"))["rows"]
+    return [{"profile": r["profile"], "tuple_dispersion": r["tuple_dispersion"],
+             "relation": r["relation"], "arity": r["arity"]} for r in rows]
+
+
+SIZE_BANDS = [int(x) for x in os.environ.get("PEBBLE_BANDS", "12,18,24,30").split(",")]   # env-overridable ladder
 COARSE = [round(0.3 + 0.3 * i, 2) for i in range(14)]
 DROP_THRESHOLD = 0.30                             # sealed: attenuating iff held-out power drops >= 30% (relative)
 
@@ -109,22 +121,25 @@ def decide_verdict(p_small, p_large, rel_drop, within_noise):
 
 
 def main():
-    sel = _select_arity3(reps_per=6)
-    n_cc = len(set(r["profile"] for r in sel))
-    print(f"pilot: {len(sel)} arity-3 relations across {n_cc} co-clones; size bands {SIZE_BANDS}")
+    sel = _load_roster()
+    folds = sorted(set(r["profile"] for r in sel))
+    print(f"expanded pilot: {len(sel)} relations across {len(folds)} co-clone folds "
+          f"(arity {sorted(set(r['arity'] for r in sel))}); size bands {SIZE_BANDS}", flush=True)
 
-    per_band = {}
-    band_rows = {}
+    per_band, band_rows = {}, {}
     for n in SIZE_BANDS:
         rows = []
         for r in sel:
             R = frozenset(tuple(t) for t in r["relation"])
             rug = measure_rug(R, n)
             if rug is not None:
-                rows.append({"coclone": r["profile"], "tuple_dispersion": r["tuple_dispersion"], "ruggedness": rug})
+                rows.append({"coclone": r["profile"], "tuple_dispersion": r["tuple_dispersion"],
+                             "ruggedness": rug, "arity": r["arity"]})
         band_rows[n] = rows
-        per_band[n] = {"held_out_power": heldout_power(rows), "n_rows": len(rows)}
-        print(f"  n={n}: held_out_power={per_band[n]['held_out_power']} (rows={per_band[n]['n_rows']})")
+        per_band[n] = {"held_out_power": heldout_power(rows), "n_rows": len(rows),
+                       "n_folds": len(set(x["coclone"] for x in rows))}
+        print(f"  n={n}: held_out_power={per_band[n]['held_out_power']} "
+              f"(rows={per_band[n]['n_rows']}, folds={per_band[n]['n_folds']})", flush=True)
 
     smallest, largest = SIZE_BANDS[0], SIZE_BANDS[-1]
     p_small = per_band[smallest]["held_out_power"]
@@ -136,12 +151,14 @@ def main():
     within_noise = (ci_small and ci_large and ci_large[1] >= ci_small[0])
     verdict = decide_verdict(p_small, p_large, rel_drop, bool(within_noise))
 
-    out = {"prereg": "v12", "size_bands": SIZE_BANDS, "per_band": per_band,
+    out = {"prereg": "v12", "roster": "expanded (sprint46; arity 3+4)", "size_bands": SIZE_BANDS,
+           "n_folds": len(folds), "per_band": per_band,
            "held_out_power_smallest": p_small, "held_out_power_largest": p_large,
            "relative_drop": rel_drop, "drop_threshold": DROP_THRESHOLD,
            "bootstrap_ci_smallest": ci_small, "bootstrap_ci_largest": ci_large,
-           "within_noise_band": bool(within_noise), "verdict": verdict}
-    json.dump(out, open("foundry/foundry/results/landscape/pebble_pilot.json", "w"), indent=2)
+           "within_noise_band": bool(within_noise), "verdict": verdict,
+           "per_relation_rows": band_rows}          # persisted for reuse (the lesson from P1-initial)
+    json.dump(out, open("foundry/foundry/results/landscape/pebble_pilot_expanded.json", "w"), indent=2)
     print(f"\nrelative drop {p_small}->{p_large} = {rel_drop} (threshold {DROP_THRESHOLD}); "
           f"CIs small={ci_small} large={ci_large} within_noise={within_noise}")
     print(f"VERDICT: {verdict}")

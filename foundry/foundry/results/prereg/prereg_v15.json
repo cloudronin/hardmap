@@ -1,0 +1,48 @@
+{
+  "prereg_version": "v15",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Pebble",
+  "role": "P1 EXPANDED-ROSTER RE-RUN — records the roster + size-ladder change for the pilot's real (well-powered) run, sealed BEFORE any verdict on the expanded roster is observed. The arity-3 8-fold run (committed 5a69f82) was INCONCLUSIVE with CIs spanning zero — underpowered. This seals the power fix (16 folds) and the compute-driven ladder change, and re-states the sealed R-1 rule in ladder-agnostic terms so it transfers cleanly rather than being reinterpreted after the fact.",
+  "extends": "v12 (the pilot prereg + sealed R-1 rule). v13/v14 (structural race / scalarization) untouched. v12's R-1 rule is UNCHANGED in substance; only its band VALUES move, and this addendum states it ladder-agnostically.",
+  "committed_before_analysis": true,
+  "committed_before_any_verdict_on_the_expanded_roster": true,
+
+  "change_1_roster": {
+    "from": "arity-3-only selection, 8 co-clone profiles (folds), 48 relations.",
+    "to": "the full Sprint 4.6 roster (sprint46_roster.json): 77 relations across 16 co-clone profiles (27 arity-3 + 50 arity-4).",
+    "reason": "the P1-initial pilot was INCONCLUSIVE at 8 folds — the n=12 held-out CI (−0.44,+0.55) already spanned zero. 16 folds (double) is the power fix (owner ruling): leave-one-co-clone-out now runs over 16 folds, not 8, tightening the pooled held-out CI. The extra 8 folds come from co-clone profiles only arity-4 relations populate.",
+    "relations_are_data_in_hand": "the relations + tuple_dispersion are reused verbatim from sprint46_roster.json; only ruggedness is re-measured across the size ladder. Per-relation rows are persisted this run (the reuse lesson from P1-initial, which saved only per-band aggregates)."
+  },
+
+  "change_2_size_ladder": {
+    "from": "[12, 18, 24, 30]",
+    "to": "[8, 12, 16, 20]",
+    "reason_compute_feasibility": "arity-4 relations — which SUPPLY the 8 extra folds — cost 149s (n=24) and 157s (n=30) per relation versus 26s at n=18: a ~6x cliff above n≈20. The full [12,18,24,30] ladder on 77 relations projects to ~5.3 HOURS. [8,12,16,20] keeps arity-4 in its affordable range (Sprint 4.6 measured arity-4 at n=16) at ~1.5 hours, while still spanning a 2.5x size gradient over the range where the arity-3 run already showed the trend emerging (n=12–18).",
+    "no_fishing": "committed BEFORE any verdict on the expanded roster is observed. The arity-3 [12,18,24,30] result is already committed as INCONCLUSIVE (5a69f82) and is immutable; the ladder is being changed for COMPUTE, on a roster whose expanded verdict is unseen — not to move a verdict."
+  },
+
+  "change_3_no_cross_run_size_comparison": {
+    "statement": "the expanded run differs from P1-initial in BOTH the roster (8 → 16 folds) AND the size ladder ([12,18,24,30] → [8,12,16,20]). It is therefore NOT a controlled fold-effect experiment, and NO cross-run size comparison is valid — e.g. one must not compare 'held-out power at n=12' between the two runs, because the rosters differ too.",
+    "each_run_stands_alone": "P1-initial is the underpowered arity-3 probe that exposed the power problem. The expanded run is the well-powered pilot and IS P1's real result. Neither is a size-controlled version of the other. Recorded here so the comparison is not made later by accident."
+  },
+
+  "R1_restated_ladder_agnostic": {
+    "principle": "the sealed R-1 rule is defined on the FIRST-BAND-to-LAST-BAND relative drop of held-out power, NOT on hardcoded n values. It was written with bands [12,18,24,30]; the SAME rule applies mechanically to [8,12,16,20] with first band = 8, last band = 20.",
+    "code_confirms_this": "pebble_pilot.py computes p_small = per_band[SIZE_BANDS[0]], p_large = per_band[SIZE_BANDS[-1]], rel_drop = (p_small − p_large)/p_small — first-to-last band, ladder-agnostic. No n value is hardcoded in the decision.",
+    "rule_verbatim_transferable": {
+      "attenuating": "held-out power's first-band→last-band relative drop >= 30% AND the drop exceeds the bootstrap noise band -> finite propagation range.",
+      "undiminished": "the drop is < 30% AND the trend is flat outside the noise band -> compositional inheritance.",
+      "INCONCLUSIVE": "the trend is within the bootstrap noise band -> declared on measurement quality (depends ONLY on within-noise; no drop-size qualifier — the P1-initial bug that added one is fixed in decide_verdict)."
+    },
+    "decision_priority": "within-noise -> INCONCLUSIVE; else drop>=30% -> ATTENUATING; else UNDIMINISHED (decide_verdict, faithful to the seal)."
+  },
+
+  "output": "foundry/foundry/results/landscape/pebble_pilot_expanded.json (separate file; P1-initial's pebble_pilot.json is left intact as the immutable arity-3 record). Findings note updated with the expanded verdict when it lands.",
+  "standing_discipline": [
+    "prereg (this v15) sealed before the expanded run's verdict is observed",
+    "R-1 stated ladder-agnostically (first→last band); not reinterpreted post hoc",
+    "no cross-run size comparison (roster AND ladder both differ)",
+    "per-relation rows persisted for reuse",
+    "if the well-powered pilot is STILL INCONCLUSIVE, that is an effect-size finding about the phenomenon, not a roster artifact (owner framing)"
+  ]
+}
