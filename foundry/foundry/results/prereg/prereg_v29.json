@@ -1,0 +1,82 @@
+{
+  "prereg_version": "v29",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Lattice (G2)",
+  "role": "Lattice — the first outside-the-canon test of the approx<->param gradient, on a GENERATED roster of single-relation (Boolean relation, objective) pairs. Approximation charge from KSTW Max-Ones/Min-Ones; parameterized charge from Marx Exact-Ones (Def 2.1, general form). Sealed AFTER the L1 KSTW sourcing memo, its §9 parameterized-axis sourcing, and owner sign-off of the four §7 decisions + both granularity/oracle rulings. Authorized by G1 (BUILDABLE). G3 closed the VCSP alternative (Lattice is the BEST outside-canon test).",
+  "extends": "docs/findings/G1-buildability.md, docs/findings/Lattice-I-phase.md (incl. §9)",
+  "committed_before_analysis": true,
+  "committed_before_measurement": true,
+  "committed_before_the_build_of_the_oracle": false,
+  "note_on_build_order": "The predicates + oracles are the INSTRUMENT (built + validated against ground truth in L1 §9 / scratch), not measurement. This prereg seals the DESIGN + CRITERIA before any ROSTER-WIDE number. The witness gate (L4) runs before anything roster-wide.",
+
+  "population_binding_on_every_claim": {
+    "reachable_universe": "SINGLE-RELATION, Boolean, CSP-objective (Max-Ones / Min-Ones over one generated Boolean relation), NOT canon.",
+    "positive_licenses": "the approx<->param coupling is computational over the CSP-objective sub-universe.",
+    "null_licenses": "a selection effect WITHIN the reachable population; does NOT establish the canon's gradient is sociological (the canon's gradient rows are largely outside this population).",
+    "neither_claims_the_canon": "any generalization to 'problems in general' is out of scope by construction.",
+    "why_single_relation": "owner ruling (a): the witness (VC/IS) must be a ROSTER ROW or the calibration tests a different object than the roster (the construct-validity failure that disqualified corr); relation-level parameterized charge is the notion that matches the canon (comparability); co-clone-basis alternative reproduces the census's class-level charge = the Task-0 tautology (charges per co-clone cannot co-vary within a co-clone). The census's class-level approach is CORRECT for the census and wrong here — a scope difference, not an error."
+  },
+
+  "the_four_rulings_from_the_G2_review": {
+    "1_netting": "RULE-BASED, not provenance. Provenance netting (r25) deletes every both-derived row -> the Task-0 trap. Use the eightfold cai_chen-style rule-based netting: subtract ONLY what specific named theorems force (EPTAS<->FPT bridge; Cai-Chen syntactic line) applied as EntailmentRules with preconditions; rows STAY in, only theorem-forced implications come out; residual = the association that survives. FALLBACK: raw association + explicit 'netting unimplemented' with the bridge list as a known unaccounted-for component.",
+    "2_objectives": "Max-Ones + Min-Ones ONLY. Max-CSP is a documented exclusion (solution-size oracle silent on 'maximize satisfied constraints'). Weighted variants out of v1.",
+    "3_oracle": "FULL KSTW stratification (Max-Ones 5 classes; Min-Ones 6 classes), ordered, no coarse-binary collapse. Empty strata are facts to report, never pre-merged.",
+    "4_framing": "OCCUPANCY primary, association secondary. Exhaustive enumeration, not a sample -> the honest statistic is the (approx x param) occupancy cross-tab, NOT a p-value against a sampling null. Association V is secondary (comparability to canon 0.73), resolution limits stated. Kill #2 (profile floor) still applies; a tiny distinct-profile count means the reachable universe is too small to exhibit a gradient — itself an answer."
+  },
+
+  "the_four_L1_decisions": {
+    "1_vocab": "KSTW-NATIVE approximation vocab: {PO, APX-complete, poly-APX-complete, Nearest-Codeword-complete, Min-Horn-Deletion-complete, decidable-not-approximable, feasibility-hard}. NOT eightfold's FPTAS..inapprox (cannot name Nearest-Codeword/Min-Horn-Deletion). RECORD EXPLICITLY: this vocab does NOT correspond to eightfold's 8-value set; a reader must not assume a mapping. Comparability to 0.73 survives because Cramer's V is nominal/normalized.",
+    "2_ordinalization": "sealed only for a SECONDARY rank statistic (the primary occupancy grid needs none): PO < APX-complete < Min-Horn-Deletion-complete < Nearest-Codeword-complete < poly-APX-complete < decidable-not-approximable < feasibility-hard. CAVEAT (must TRAVEL with any rank stat that uses it, not just sit here): the ordinal placement of the two named completeness classes is a judgment (thresholds ~log-ish and 2^{log^{1-eps}n}). Parameterized order: FPT < W[1].",
+    "3_netting_applicability": "under the native vocab, Cai-Chen fires ONLY on APX-complete rows (its antecedent approximation in {FPTAS,EPTAS,PTAS,APX,APX-complete} overlaps the native vocab only at APX-complete); EPTAS<->FPT never fires (no EPTAS rows). Netting is therefore NEARLY INERT here — to be noted in the findings as a small vindication of decision 1 (native vocab).",
+    "4_feasibility_hard": "rows whose approximation = feasibility-hard (the decision problem is NP-hard, no findable feasible solution) carry parameterized = OPEN (n.a.-by-typing; cannot parameterize a search you cannot perform). They enter the OCCUPANCY grid as a documented corner but NOT the both-real association."
+  },
+
+  "the_parameterized_axis_L1_section_9": {
+    "definition": "Marx 2005 Definition 2.1 (GENERAL weak separability): (1) GUARDED union — for satisfying x1,x2 with (x1 & x2) satisfying, (x1 | x2) satisfying; (2) difference — for satisfying x1 c x2 c x3 (proper chain), x1 ^ x2 ^ x3 satisfying. Does NOT require/imply 0-validity. Exact-Ones({R}) FPT iff R weakly separable, else W[1] (Marx Thm 3.2). Parameterization: exactly-k ones (BM14 OCSP).",
+    "distinct_from_the_census_function": "postlattice.is_weakly_separable implements the 0-VALID form (Marx Lemma 2.2 / BM14 Def 3.2, unconditional disjoint-union) — correct for the census (class-level), wrong for 0-invalid single relations. Lattice adds is_weakly_separable_general (Def 2.1); the census function is UNTOUCHED (eightfold + census frozen).",
+    "armed_ground_truth_rule": "the implementation follows the source's definition; VC=FPT / IS=W[1] / affine->FPT are CHECKS never inputs; a disagreement would STOP-and-report as a finding about our reading, never tune the predicate. OUTCOME: ARMED, DID NOT FIRE — all 7 ground-truth-checked verdicts reproduced with no tuning (OR2->FPT, NAND->W[1], x!=y->FPT, XOR3->FPT, OR3->FPT [BM14 d-Hitting-Set], units->FPT).",
+    "guard_is_real": "CI unit test (test_lattice.py): on x!=y, guarded (Def 2.1) -> weakly-separable=True while unguarded (0-valid form) -> False; the two disagree and the implementation returns the guarded value — proving it is not the unconditional check in disguise.",
+    "OR3_dualHorn_compatibility": "single-relation OR3 -> FPT (BM14 3-Hitting-Set); dual-Horn CO-CLONE -> W[1] (census; the implication x->y in the co-clone fails Def 2.1's difference condition). COMPATIBLE, not contradictory — different objects. Recorded so it is not rediscovered."
+  },
+
+  "roster": "the distinct relations appearing in the Boolean co-clone plain bases (postlattice.BOOLEAN_COCLONES + the finer tier), each paired with objective in {Min-Ones, Max-Ones}. One (relation, objective) = one row. A row enters only if BOTH charges are assignable from source; feasibility-hard rows carry parameterized=open (occupancy only).",
+
+  "analysis": {
+    "primary": "the (approximation x parameterized) OCCUPANCY cross-tabulation over both-real rows — which cells occupied, per-cell (relation,objective) counts. Leads the findings.",
+    "secondary_association": "both-real Cramer's V via crucible._both_real_v(rows,'approximation','parameterized',spec=LATTICE_SPEC) (comparable-as-a-statistic to the canon's 0.73); the S1 type-respecting envelope via crucible._null_chain (spec-threaded, factors.excess_over_null template) reported as COMPARABILITY ONLY, explicitly NOT a sampling-inference null; rule-based netted residual (decision 3) or the sealed fallback.",
+    "structure": "per-objective-family (Min-Ones vs Max-Ones) as well as pooled; effective-n = distinct-profile count reported beside row count, with resolution limits."
+  },
+
+  "witness_gate_L4_pass_criterion": {
+    "must_reproduce": "VC = Min-Ones(OR2) = (approximation APX-complete, parameterized FPT); IS = Max-Ones(NAND) = (approximation poly-APX-complete, parameterized W[1]).",
+    "pass": "opposite corners on BOTH axes -> the generation-plus-oracle pipeline can produce the phenomenon it measures; L5 proceeds.",
+    "fail": "PIPELINE NOT QUALIFIED — write the negative note, stop. Nothing roster-wide runs unless this passes.",
+    "status_at_seal": "approximation half already confirmed in scratch (VC->APX-complete via Min-Ones line 2 IHS-B+; IS->poly-APX-complete via Max-Ones line 3 strongly-0-valid); parameterized half confirmed via is_weakly_separable_general (OR2->FPT, NAND->W[1]). The gate re-runs the full pipeline end-to-end in CI before any roster-wide number."
+  },
+
+  "profile_poverty_floor_set_before_any_count": {
+    "min_distinct_both_real_profiles": 6,
+    "min_both_real_rows": 15,
+    "below_floor": "INSUFFICIENT RESOLUTION on roster composition, declared before the association is read (kills #2/#3) -> verdict 'the reachable universe is too small to exhibit a gradient', itself an answer.",
+    "expectation_on_record": "the Max-Ones/Min-Ones DUALITY (Horn Max-hard/Min-easy; dual-Horn reverse) spreads the approximation charge across up to 7 values as the objective flips -> the grid is expected well-populated; the floor is the honest guard, not a prediction of failure."
+  },
+
+  "sealed_predictions": {
+    "1_witness_gate_passes": "if not, the oracles are misapplied, not the phenomenon absent.",
+    "2_coupling_appears_weaker_than_0.73": "the generated population includes deliberately awkward (relation,objective) pairs the literature never studied.",
+    "3_affine_rows_are_the_visible_violators": "approx-hard / param-easy (the G1 off-diagonal); the coupling survives their inclusion.",
+    "4_owner_prior": "~50%. Genuinely uncertain, stated now to be scored either way."
+  },
+
+  "standing_discipline": [
+    "prereg sealed before any roster-wide number; population statement binding + repeated in findings",
+    "witness gate before roster-wide; occupancy primary / association secondary",
+    "rule-based netting (named theorems only) before any novelty language; the (relation,objective) framing bridge-hunted (Creignou-Khanna-Sudan may tabulate it) before any 'new' claim",
+    "effective-n + resolution limits reported; empty strata reported not merged",
+    "the armed ground-truth rule: implementation follows the source; known values are checks not inputs; disagreement stops-and-reports",
+    "hand-count / hand-value selftest on every predicate + oracle + the guard discriminator, CI-asserted == 0/green",
+    "n.a./open-by-typing where an oracle is silent (feasibility-hard rows), never guessed",
+    "eightfold + census byte-identical (foundry-side only; is_weakly_separable and oracles.py UNTOUCHED; new code is additive)",
+    "sealed predictions scored as they land, including misses"
+  ]
+}

@@ -165,6 +165,47 @@ calibration that this direction handling is correct.
   Problems*, SIAM Monographs 7, 2001 (the tabulated cross-reference; not read interior — not cited as a pin).
 - Parameterized side pins: Marx 2005 / Bulatov–Marx 2014 (arXiv:1206.4854), per `G1-buildability.md`.
 
-**Nothing is built and no measurement runs on this memo.** On owner sign-off (and any changes to §7's four decisions),
-L2 seals `prereg_v29` and L3 builds `is_width2affine` / `is_strongly_0valid` / `is_IHSB` + the two objective oracles,
-gated by the L4 witness test.
+## 9. Parameterized-axis sourcing (post-review) — the corrected relation-level oracle + the armed ground-truth rule
+
+Sourcing that followed the owner's rulings (single-relation languages; **ground-truth rule: the implementation follows
+the source's definition; the known values are a CHECK, never an input; a disagreement is a finding to stop-and-report,
+not a predicate to tune**).
+
+**The definition (Marx 2005, Definition 2.1 — general, no 0-validity):** *R is weakly separable if (1) [guarded union]
+whenever x₁, x₂ are satisfying **such that their intersection is satisfying**, their union is satisfying; and (2)
+[difference] whenever x₁ ⊊ x₂ ⊊ x₃ are satisfying, x₁ ⊕ x₂ ⊕ x₃ is satisfying.* The union condition is **guarded**, so
+it does **not** require or imply 0-validity. The existing `postlattice.is_weakly_separable` implements the **0-valid
+simplified form** (Marx Lemma 2.2 / Bulatov–Marx Def 3.2), whose *unconditional* disjoint-union test is valid **only on
+0-valid relations** — correct for the census (class-level, 0-valid-normalized co-clones), wrong for Lattice's 0-invalid
+single relations. Lattice adds a distinct `is_weakly_separable_general` (Def 2.1); the census's function is untouched.
+
+**The armed ground-truth rule — OUTCOME: ARMED, DID NOT FIRE.** The definition was pinned from source *before* the check;
+every ground-truth-checked single-relation verdict reproduced with **no tuning**. The `scope` column is load-bearing —
+record it so a future reader does not re-derive the OR₃ confusion:
+
+| relation | Exact-Ones({R}) | source | **scope of the source value** |
+|---|---|---|---|
+| OR₂ (pos-2-clause) | **FPT** | BM14 Ex 6.1 — VC = OCSP(OR₂) | single-relation |
+| NAND (neg-2-clause) | **W[1]** | BM14 Ex 6.1 — IS = OCSP(NAND) | single-relation |
+| x≠y (width-2 affine) | **FPT** | Marx Ex 2.4 — affine ⇒ weakly separable, *per-relation* | single-relation |
+| x⊕y⊕z=0 (affine) | **FPT** | Marx Ex 2.4 | single-relation |
+| OR₃ (pos-3-clause) | **FPT** | BM14 — d-Hitting-Set is FPT (d=3) | **single-relation** |
+| dual-Horn *co-clone* | **W[1]** | census `oracles.py` — implication x→y in the co-clone fails Def 2.1 | **co-clone / class-level** |
+
+**OR₃ / dual-Horn are compatible, not contradictory** (different objects): OR₃ *alone* is 3-Hitting-Set (FPT). The
+dual-Horn *co-clone* additionally contains the implication x→y = {00,01,11}, which is **not** weakly separable —
+the chain (00)⊊(01)⊊(11) gives (00)⊕(01)⊕(11) = (10) ∉ R, so the difference condition fails — making the co-clone
+*language* W[1]. The census charges the co-clone (right for the census); Lattice charges the single relation (right for
+Lattice). This is precisely the scope distinction that motivated the single-relation ruling.
+
+**The guard is real (CI unit test, not just a passing run).** The union guard is the exact conditional the old code
+dropped. Hand-constructed discriminator: on **x≠y**, guarded (Def 2.1) → weakly-separable = **True**, unguarded (0-valid
+form) → **False** — they disagree, and the implementation returns the guarded value. Asserted in `test_lattice.py`, so
+the new oracle cannot silently regress to the unconditional check.
+
+**Parameterization: exactly-k ones** (BM14 OCSP); equivalent to the textbook ≤k / ≥k forms up to padding, so the
+FPT/W[1] status is unaffected.
+
+**Nothing roster-wide runs on this memo.** With §7's four decisions signed off and §9's oracle validated against ground
+truth, L2 seals `prereg_v29` and L3 builds the predicates + both objective oracles + `is_weakly_separable_general`,
+gated by the L4 witness test (VC and IS on opposite corners of **both** axes).
