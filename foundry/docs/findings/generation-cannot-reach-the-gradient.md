@@ -31,7 +31,7 @@ Four routes to a generated roster have now been probed, each hitting a distinct,
 |---|---|---|---|---|
 | 1 | **Census** | Boolean constraint *languages* (co-clones), fixed objective | Both charges read off **one polymorphism fingerprint** ⇒ their association is an *identity*, not a measurement | **Measured** (Task 0: entailment-netted residual = 0) |
 | 2 | **Ferry** | (canon carried to a relation-level scalar) | The canon's gradient rows have **no local constraint relation** to generate from — 31 of 47 are global/numeric | **Measured** (`Ferry-findings.md`: 31/47 `n.a.`) |
-| 3 | **Lattice** | (language, objective) pairs, crisp CSP | Both charges exist *and provably disagree*, but the **reachable population is ~30 rows** — an exhaustive census of a tiny universe | **Feasibility-pinned** (G1 BUILDABLE-but-small) |
+| 3 | **Lattice** | (language, objective) pairs, crisp CSP | ~~the reachable population is ~30 rows and too coarse~~ **[DOWNGRADED 2026-07-23 — see amendment below]**: the census *representatives* gave 5 profiles < floor (INSUFFICIENT RESOLUTION), but the *universe* question is **open**, v2 pending | **Provisional** (v1 measured; v2 open) |
 | 4 | **VCSP** | valued objectives (cost functions) | Population is vast, but the **parameterized axis has no classification** (open frontier) and the approximation axis only *dichotomizes* | **Feasibility-pinned** (G3 NOT BUILDABLE) |
 
 Each wall is different, and that is the point — this is not one obstacle met four times, it is four independent
@@ -56,6 +56,19 @@ oracle. This is real, and Lattice will run it. But the reachable universe is **~
 a deterministic table of ~30 rows — a *complete census of a small universe*, not a sample of a large one. It may simply
 be too coarse to exhibit a gradient; if so, the honest verdict is "the reachable universe is too small," itself an
 answer.
+
+> **Amendment (2026-07-23) — Wall 3 DOWNGRADED, and now partly measured.** Lattice v1 ran
+> (`Lattice-v1-findings.md`, prereg_v29). The **witness gate passed** — the generate-and-charge pipeline reproduces
+> vertex-cover and independent-set on opposite corners of both axes, so the instrument works. But the sealed roster
+> (the census's Schaefer representatives) realized only **5 distinct profiles < the floor of 6 → INSUFFICIENT
+> RESOLUTION.** Crucially, the honest verdict is **narrower** than this section first predicted: it is the census's
+> *representatives* that are too coarse (they are 0-valid / 1-valid / width-2-affine / IHS-B, collapsing to PO), **not**
+> the single-relation Boolean *universe* — whose empty strata are inhabited by relations the census never used
+> (`x⊕y⊕z=1` → Nearest-Codeword-complete, the only reason the count was 5 not 4). So Wall 3 as written — "the reachable
+> population is ~30 rows and too coarse" — **is not established.** Whether the generated Boolean universe is too coarse
+> is now an **open question**, tested by v2 (`prereg_v30`), a purpose-built, stratum-spanning, correlation-blind roster.
+> The wall may not be a wall; the representatives were. This finding's Wall-3 leg is therefore **provisional pending
+> v2**, and a reader should treat the four-wall claim as three measured walls plus one open question, not four.
 
 **Wall 4 — classification-less (VCSP).** Valued CSP looked like the census with room: the cost function *is* the
 generated object, and the population is a continuum. But (G3) the approximation charge for valued languages only
@@ -101,9 +114,12 @@ programs that could otherwise generate a bias-free roster.**
   is a statement about instruments, not about the phenomenon. The gradient's within-canon support (V ≈ 0.73, surviving
   five attacks) is its evidence; this note only explains the *shape of the remaining uncertainty* — that it cannot, at
   present, be reduced by a generated roster.
-- **Lattice still runs.** This note is written *before* Lattice's result, not after. Lattice is the best available
-  probe of Wall 3, and its outcome — positive, null, or resolution-limited — becomes this finding's fifth data point,
-  refining "too coarse" into a measured verdict rather than a predicted one.
+- **Lattice has now run (v1), and moved Wall 3.** Update (2026-07-23): v1's witness gate passed (the pipeline works)
+  but its sealed roster hit INSUFFICIENT RESOLUTION — *on the census representatives, not the universe*. That refined
+  "too coarse" from a prediction about the population into a **measured fact about the representatives** and an **open
+  question about the universe**. Wall 3 is now provisional; v2 (a stratum-spanning roster) is the actual test of whether
+  the generated Boolean universe can exhibit the gradient. Until v2, read this finding as **three measured walls plus
+  one open question.**
 
 ## Provenance
 
