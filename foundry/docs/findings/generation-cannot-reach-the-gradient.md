@@ -17,6 +17,23 @@ outside — and why that fact, once you see it, is itself a result.
 > sources. Every bias-free generated alternative is, provably, one of: theorem-tautological, structurally mismatched,
 > too coarse, or classification-less on one axis.
 
+> **Amendment (2026-07-23) — the thesis is quantitatively corrected by the program's own next experiment; original
+> kept visible.** Lattice v3 (`Lattice-v3-findings.md`, prereg_v31) did what this note said could not be done: it
+> attacked the gradient **from outside the canon**, on the natural, unselected generated Boolean population (90
+> symmetry classes, no selection at all). It found a **weak, non-monotonic coupling** — Cramér's V = **0.256**,
+> bootstrap CI₉₅ **(0.13, 0.398)**, which **excludes 0**. So "cannot be attacked from outside" is **partly falsified**:
+> it *can* be attacked, and a weak signal survives with no human choosing the problems — the gradient is therefore
+> **not purely a selection effect.** But it is also **not the canon's gradient reproduced**: 0.256 is a quarter of the
+> canon's 0.73, and v3's coupling is *nominal* (Spearman ≈ 0) whereas the canon's is *monotonic*, so what v3 found
+> **may be a related-but-different coupling shape**, not the same gradient at lower volume — v3 cannot tell which. The
+> 0.73-vs-0.256 gap is attributable to **curation** (humans chose the canon's rows) **and/or population composition**
+> (the canon contains the global-objective problems no generated roster reaches) — two confounded differences v3
+> **cannot separate; the gap is not yet decomposed.** (This note does *not* claim the canon "amplifies" the signal —
+> that would assert a curation mechanism v3 did not isolate.) The Wall-3 "open question" from the earlier amendment is
+> now answered: the single-relation Boolean *universe* is **not** too coarse — it spans the strata (v2) and carries a
+> weak coupling (v3). **Net: three measured walls, plus a weak non-monotonic coupling that does survive outside the
+> canon.** The original thesis is left standing above so the movement of this program-defining claim stays on record.
+
 "Bias-free rostering" — generating problems from a formal scheme rather than curating the ones people happened to find
 interesting — is the gold standard for ruling out a selection effect. The question the gradient has always faced is
 whether it reflects computation or sociology: are approximability and parameterizability coupled *in the mathematics*,

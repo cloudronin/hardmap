@@ -73,9 +73,14 @@ This is the finding the whole Lattice arc was built to reach, and it is genuinel
   clean gradient is **not reproduced** on the generated proxy. Its strength owes to something the generated Boolean
   universe lacks — the curated global-objective problems (Ferry's 31 `n.a.` rows), or the specific curated set.
 
-The honest synthesis: **a weak computational coupling, strongly amplified by the canon's population.** The gradient is
-neither a pure artifact of curation nor a clean law of computation — it is a faint real signal that curation (and the
-global-objective problems generation cannot reach) turns into the atlas's flagship 0.73.
+The honest synthesis: **a weak, non-monotonic coupling exists in the natural generated universe** — not purely a
+selection effect, and not the canon's gradient either. The 0.73-vs-0.256 gap is attributable to **curation** (humans
+chose the canon's rows) and/or **population composition** (the canon contains global-objective problems no generated
+roster reaches) — two confounded differences v3 **cannot separate**, so the gap is **not yet decomposed** (not "the
+canon amplifies it 4×", which would assert a curation mechanism v3 did not isolate). And because v3's coupling is
+*nominal* (Spearman ≈ 0) while the canon's is *monotonic*, what v3 found may be a **related-but-different coupling
+shape**, not the same gradient at lower volume. Both the decomposition (curation vs population composition) and the
+shape question (same gradient weaker, vs different coupling) stay **open**.
 
 ## 5. Scope (sealed, carried from the prereg)
 
@@ -89,9 +94,10 @@ stay population-scoped (0.73 = curated-not-stratified canon; 0.256 = generated-n
 
 **v1** — the census *representatives* are too coarse (5 profiles, INSUFFICIENT RESOLUTION); the pipeline works (witness
 gate passes). **v2** — the Boolean *universe spans* the strata (6 profiles), refuting Wall 3's coarseness claim; but a
-stratum-spanning selection is FPT-biased and cannot measure the coupling. **v3** — on the *natural* population, a **weak
-coupling is present (V=0.256, CI (0.13, 0.398))** but far below the canon's 0.73 and non-monotonic. The gradient is
-partly computational, mostly canon-amplified.
+stratum-spanning selection is FPT-biased and cannot measure the coupling. **v3** — on the *natural* population, a **weak,
+non-monotonic coupling is present (V=0.256, CI (0.13, 0.398))** but far below the canon's 0.73. Not purely curation,
+not the canon's gradient either; the 0.73-vs-0.256 gap (curation and/or population composition) and the shape question
+(same gradient weaker, vs different coupling) stay open.
 
 ## Discipline honored
 
