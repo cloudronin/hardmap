@@ -1,0 +1,67 @@
+{
+  "prereg_version": "v21",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Pebble",
+  "role": "P2b — the POINT-TO-SET reach instrument. A NEW instrument (its own poles, its own qualification), built after ξ-as-built was DISQUALIFIED (prereg_v20). Supersedes ξ-as-built for measuring reach; amends NO sealed prereg. Committed before any measurement. Box: one weekend block, hard kill inside.",
+  "extends": "supersedes the pairwise ξ instrument (reach.py) for reach-proper. reach.py stays untouched on the record — its corr results remain valid at their rescoped size (they order PAIRWISE correlation, a real quantity, not the one reach means).",
+  "committed_before_analysis": true,
+  "committed_before_any_measurement": true,
+
+  "why": "prereg_v20 returned DISQUALIFIED: corr reads 3-XOR at 0.026 / 4-XOR at 0.030 against a same-density pairwise-visible reference at 0.500 — globally rigid media reading BELOW the bounded-width medium pole. Per Montanari-Semerjian, reach is the POINT-TO-SET length: how far a partial solution (a boundary SET, not a single variable) biases a distant target. Both prior observables (corr, forcing) are pairwise; the pairwise length can stay finite while the point-to-set length diverges (parity is the canonical gap).",
+
+  "the_observable": {
+    "operation": "for target variable i and radius r: (1) harvest solutions (exact-enumerate when |sols|<=POP_CAP, else sample); (2) BFS distances from i; (3) boundary shell B_r = variables at distance >= r from i (unreachable = infinity, INCLUDED); (4) group solutions into BUCKETS keyed by their restriction to B_r; (5) signal(r) = bucket-weighted mean TV(conditional dist of x_i, baseline dist of x_i); (6) sweep r outward.",
+    "implementation": "harvest ONCE per instance, group many: one BFS + one solution set serve every radius and every target; bucketing is a dict pass. Net-new is only the boundary-shell bucketing (foundry/foundry/pointset.py).",
+    "hand_count_anchor": "3-var parity x0⊕x1⊕x2=0, solutions {000,011,101,110}, target x2, boundary {x0,x1}: baseline 0.5, every boundary realization pins x2 -> signal 0.5 (maximal); the identical system reads 0.0 pairwise. Locked in test_pointset.py."
+  },
+
+  "R3_reach_score_PINNED_before_any_data": {
+    "primary": "reach_score = the point-to-set signal at the LARGEST VALID radius (far-boundary persistence: does the FAR boundary still determine the target?). Chosen because 'reach' is far-persistence; parity stays maximal at every radius, a decoupled family decays to 0.",
+    "sensitivity_only_never_substituted": "area-under-the-curve, a fitted decay length lambda, and last-radius-above-threshold MAY be reported as sensitivity, but the PRIMARY reach_score is fixed here and is NOT swapped after seeing results (the Sprint 4 amplification-bias door stays shut).",
+    "largest_valid_radius": "the largest r whose cell clears the resolution floor (>= MIN_BUCKETS buckets and the cell >= MIN_SOLUTIONS)."
+  },
+
+  "resolution_floor_population_gate": {
+    "floor_on_totals_not_per_bucket": "MIN_SOLUTIONS = 16 total solutions per cell AND MIN_BUCKETS = 4 distinct boundary realizations. The floor is on TOTAL solutions + bucket COUNT, NOT on per-bucket population — for parity the buckets are SINGLETONS by construction and the singletons are exactly where the signal lives; a per-bucket-population floor would wrongly disqualify the long pole.",
+    "reported_before_any_fit": "per (family, size, radius) cell: n_buckets, min_pop, median_pop. Cells below floor are declared UNMEASURABLE before interpretation, never caveated afterward. B1's population report is committed BEFORE any decay curve is fitted.",
+    "protects_against": "set-conditioning shattering + few total solutions (the failure that killed forcing at the 2-affine long pole: 4 solutions total)."
+  },
+
+  "R2_cost_model_and_sampling_policy": {
+    "per_instance_cost": "O(|sols_used| * n_targets * n_radii). n_radii <= graph diameter (small); the harvest is shared.",
+    "caps_sealed": "POP_CAP = 1000 solutions used for the estimate (uniform subsample if |sols| > POP_CAP; exact iff |sols| <= POP_CAP). TARGET_CAP = 8 target variables sampled per instance (fixed rng) rather than all n. Declared now, not improvised mid-run.",
+    "exact_vs_sampled_provenance": "carried from prereg_v18: |solutions| <= POP_CAP => EXACT (no sampling error, no concordance needed); otherwise sampled, and two-sampler concordance applies."
+  },
+
+  "poles_calibration_is_a_known_answer_test_in_the_opposite_direction": {
+    "long": "3-XOR PARITY — must read MAXIMAL point-to-set at every radius, AT THE TOP. The exact inversion of what corr produced (parity at the floor). If parity does not read maximal, the instrument fails immediately.",
+    "consistency": "the same-density 2-affine reference (read 0.500 pairwise) — globally rigid pairwise AND point-to-set; a consistency check reading high.",
+    "medium": "2-SAT at moderate density — intermediate point-to-set reach.",
+    "short": "the NONZERO low-density bounded-width family sealed in prereg_v18 — genuinely short point-to-set reach, a MEASUREMENT not a structural absence.",
+    "pass_criterion": "ordering short < medium < parity, NON-OVERLAPPING bootstrap intervals, and PARITY AT THE TOP. Else redesign (budget 2), else INSTRUMENT NOT QUALIFIED."
+  },
+
+  "kill_and_if_it_fails": {
+    "kill": "poles not separated after two redesigns, OR bucket populations below the floor across the roster -> INSTRUMENT NOT QUALIFIED.",
+    "then_the_propagation_line_stops": "Pebble writes up as an instrument-development chapter with the located flaws (the pairwise/point-to-set construct-validity failure; and, if it lands, the statistical-resolution limit of set-conditioning at small n). A legitimate ending and a real methods contribution — NOT a failure. Fine-grained/reach returns to the column queue."
+  },
+
+  "methods_lesson_sealed_here_not_saved_for_the_writeup": "test_parity_blind_but_2affine_visible entered the suite on 2026-07-22 (commit 166eec4) and encoded the pairwise blindness — it survived P2 QUALIFICATION and the start of the P3 harness build before the disqualifying conclusion was drawn (via the parallel I-SP investigation). It was filed as a pole-SELECTION technicality, not a CONSTRUCT-VALIDITY failure. 'Which media do I calibrate against' and 'does this observable measure the target construct' look adjacent and are not. The flaw sat in our own tests before we read it correctly.",
+
+  "milestones": {
+    "B0": "prereg_v21 + hand-count unit test (parity 0.5 point-to-set vs 0.0 pairwise; AND the R-1 negative: disconnected far boundary reads 0.0). Committed before any measurement; test green in CI.",
+    "B1": "instrument (measure_pointset with the caps) + bucket-population report across the roster. Population report committed BEFORE any decay fitting.",
+    "B2": "three-pole calibration — parity top, ordering, non-overlapping, or NOT QUALIFIED.",
+    "B3": "verdict + findings note (methods lesson included); if qualified, P3 re-opens on the new observable."
+  },
+
+  "standing_discipline": [
+    "prereg before measurement; hand-count known-answer test before any roster run",
+    "population report is a PRE-FIT gate, not a diagnostic afterthought",
+    "reach_score pinned before data (R-3); alternatives are sensitivity-only, never substituted",
+    "target + solution caps declared before the run (R-2)",
+    "exact/sampled provenance per cell",
+    "no silent redesign — a new instrument faces the same gates as the old one; disqualified corr stays on record at its rescoped size",
+    "eightfold byte-identical (foundry-side only)"
+  ]
+}
