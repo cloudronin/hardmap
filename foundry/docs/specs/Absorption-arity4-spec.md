@@ -1,9 +1,17 @@
 # Absorption (arity-4) — does bounded-width structural tractability absorb the approx⟷param coupling?
 
+> **⚠️ SUPERSEDED (2026-07-23) by [`Prism-v2-arity4-spec.md`](Prism-v2-arity4-spec.md) (sealed `prereg_v33`).** Review of
+> the successor spec found this draft's central premise — that arity 4 makes the I6 localization-absorption test
+> *askable* — **provably false**: on the param-real rows, unbounded-width-tractable = purely-affine (Schaefer), which the
+> affine bridge nets out, so absorption is either untestable (one stratum) or non-independent (= the affine netting).
+> This draft shared that blind spot with the owner's independently-drafted Prism v2, and its 4 h charging timebox +
+> sampled fallback over-specced a cost that is actually seconds. The arity-4 experiment survives, **re-scoped** to the
+> anti-canon Min-Ones replication (its sole sealed prize). Kept for provenance; do not execute from this file.
+
 **Codename:** Absorption
-**Status:** BANKED (authorized 2026-07-23, owner Q2 ruling) — **spec now, execute after the preprint.** Predictions seal
-in a dedicated prereg (`prereg_v33`) **after owner review of the predictions and the I0 sizing verdict**, before any
-charge is computed on the roster. Nothing runs without owner greenlight.
+**Status:** **SUPERSEDED** by Prism v2 — see banner above. (Originally: BANKED 2026-07-23, owner Q2 ruling.) Predictions
+seal in a dedicated prereg (`prereg_v33`) **after owner review**, before any charge is computed on the roster. Nothing
+runs without owner greenlight.
 **Owner:** Vishnu
 **Relation:** the arity-4 continuation of **Prism** (`Prism-v1-findings.md`, prereg_v32). Prism found the Foundry **I6
 localization-absorption** headline **untestable at arity ≤3** because *bounded-width ⟺ tractability* there (the affine

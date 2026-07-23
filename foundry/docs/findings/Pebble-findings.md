@@ -130,6 +130,25 @@ program's own tests can encode the second before anyone reads it. Both were caug
   the R2 gate** (the spurious survivors) *before anything shipped* — the third of the four now caught by a gate rather
   than by a downstream surprise. Completed per the sealed named-bridge layer (the bridge belongs to a layer the prereg
   already defined); both residual sets reported permanently; the orthogonality claim scored as a dated sealed-claim miss.
+- **Owner specification defect #5 — a prediction framed as "the gate that makes I6 askable" when the question is
+  unaskable in the domain** (Prism v2 review, prereg_v33, 2026-07-23). Prism v2 carried the I6 localization-absorption
+  test to arity 4 on the premise that bounded-width — *constant* on the param-real rows at arity ≤3, which is exactly why
+  v1 scored absorption UNTESTABLE — would *vary* at arity 4 and thereby make absorption measurable; pred 2 was drafted as
+  precisely that enabling gate. The inference not drawn: in the Boolean single-relation domain, unbounded-width-tractable
+  = **purely-affine** (Schaefer), and the affine-implies-weakly-separable-implies-FPT bridge (the *same off-diagonal* as
+  defect #4) **nets affine out** — so conditioning the bridge-completed residual on bounded-width is conditioning on a
+  *constant* (one stratum, UNTESTABLE again), and conditioning the raw residual is *re-deriving the bridge*. Arity 4 does
+  not make I6 askable; it relocates v1's degeneracy into an affine **confound**. **Metadata recorded, inference not
+  drawn** — Schaefer's classification and the bridge were both on the table — the characteristic failure mode once more,
+  now at the level of *which question the design can answer at all*. **Caught at the plan stage by review of the
+  successor spec, before `prereg_v33` sealed and before any oracle or roster: the cheapest catch point in the ledger.**
+  The sharper fact the owner named: the confound sat *independently* in **two** drafts — the owner's Prism v2 and
+  Claude's own banked `Absorption-arity4-spec.md` — caught by **neither author**, only by the review pass over the
+  successor. The corpus-question check is a property of *review*, not of care at drafting time, and cannot be delegated
+  to the drafting party — either of them. Resolution: preds 3 & 4 dropped from the seal; the arity-4 experiment
+  re-scoped to its one clean prize (the anti-canon Min-Ones replication, pred 5); the sharpened statement — I6 is
+  unaskable in the Boolean single-relation domain at *any* arity, domain ≥3 its smallest well-posed home — banked, not
+  specced.
 
 ## Program status (against the test map)
 

@@ -1,0 +1,76 @@
+{
+  "prereg_version": "v33",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Prism v2 — arity-<=4 anti-canon replication (localization arm dropped)",
+  "role": "Prism v2 builds the arity-<=4 Boolean single-relation roster (enumerated, symmetry-deduped by coordinate permutation only; 2^16 arity-4 relations -> 3984 arity-4 classes + 90 arity-<=3 classes = 4074 classes), charges it with the Prism v1 oracle set (defect-#4 affine=>WS bridge netting baked in from the start), and resolves ONE question under seal: does the Min-Ones anti-canon residual (v1 post-hoc netted V 0.459, Spearman -0.428) REPLICATE on the natural population one size up? $0 compute (charging is seconds; is_weakly_separable_general is O(|R|^3 n) over <=16 tuples). ONLY netted residuals are findings.",
+  "extends": "docs/findings/Prism-v1-findings.md; prereg_v32; prism_charges.json; prism_matrix.json",
+  "committed_before_analysis": true,
+  "committed_before_any_oracle_column_computed_on_the_arity4_roster": true,
+  "seal_now_run_after_preprint": "This prereg is SEALED/BANKED now (discipline = seal predictions before the run). The RUN (build roster, charge, score) is deferred behind the preprint per owner ruling. Nothing measured at seal time.",
+
+  "review_verdict_before_seal": {
+    "process": "Prism v2 was drafted by the owner and reviewed against the live code (two Explore agents) before sealing. Four items adjudicated:",
+    "sizing_CORRECT": "spec's '$0, minutes' holds. is_weakly_separable_general (postlattice.py:173) enumerates the relation's tuples (<=16 at arity 4), O(|R|^3 n) => seconds across 4074 classes; roster canonicalization (65534 rels x 4! perms) dominates, still seconds-to-low-minutes. The earlier Absorption-arity4-spec.md 4h-timebox + sampled fallback was over-specced; dropped.",
+    "oracles_arity_general_CONFIRMED": "build_roster(4), all four postlattice predicates (is_weakly_separable_general/is_width2affine/is_strongly_0valid/is_IHSB), both objective_oracles dispatchers, and the whole prism_matrix netting/CI machinery run unchanged at arity 4. Only build_roster(3)->(4) and stale arity-3 comment/label strings need touching.",
+    "symmetry_group_DEFECT_CORRECTED": "the draft said 'permutation +/- complementation'. CORRECTED to permutation-only S_n (canonical, prism.py:32, iterates permutations(range(a)) only). Complementation is NOT charge-invariant: it swaps horn<->dual-horn, 0-valid<->1-valid, and Max-Ones<->Min-Ones; adding it would fold the Min-Ones anti-canon headline into Max-Ones. Class count stays 3984 (arity 4) + 90 (arity<=3) = 4074.",
+    "bounded_width_bug_RETRACTED": "an interim review flag ('the 0/1-valid guard mislabels 0/1-valid affine as bounded-width') is RETRACTED. The predicate BW = 0valid OR 1valid OR horn OR dualhorn OR bijunctive is CORRECT for single-relation bounded width: a 0/1-valid single relation has a CONSTANT polymorphism => its CSP is trivially satisfiable => genuinely bounded width. even-parity-4 (contains 0000/1111) is correctly bounded; odd-parity-4 (constant-free, majority-free, semilattice-free = PURELY affine) is correctly unbounded. Verified by enumeration; matches v1 I3/§2 ('smallest affine-unbounded witness is arity 4'). The flag applied the LANGUAGE-level 'affine=>unbounded' to single relations. NO predicate change."
+  },
+
+  "the_dropped_localization_arm": {
+    "what_dropped": "predictions 3 (bounded-width<->parameterized survival, formerly 3b) and 4 (localization absorption, the I6 headline) are OUT OF THE SEAL.",
+    "why_provably_confounded": "In the Boolean single-relation domain, unbounded-width-tractable = PURELY-AFFINE (Schaefer: the tractable classes are exactly horn/dual-horn/bijunctive/affine, and BW = tractable-minus-purely-affine). NP-hard relations are param-open (v1 marginal: 7 unbounded = 7 NPC = 7 param-open), so among PARAM-REAL rows the only unbounded-width relations are purely-affine (odd-parity-like), which are param-FPT (affine=>WS=>FPT). But the affine=>WS bridge NETS AFFINE OUT. Therefore: conditioning the BRIDGE-COMPLETED residual on bounded-width = conditioning on a CONSTANT (one stratum, UNTESTABLE, exactly v1's degeneracy relocated); conditioning the RAW residual on bounded-width = RE-DERIVING the affine netting (non-independent). Arity 4 removes v1's marginal degeneracy but replaces it with an affine CONFOUND. This is provable from theorems already on the table; measuring it would fail the program's 'do not measure what you can prove' standard.",
+    "owner_ruling": "Option 1 (2026-07-23): drop 3 & 4 from the seal; pred 5 is the headline; preds 1 & 6 stay as gates; pred 2 demoted to a descriptive marginal.",
+    "sharpened_I6_statement_banked_not_specced": "Localization absorption is UNASKABLE in the Boolean single-relation domain at ANY arity, because on the param-real/tractable rows unbounded-width = purely-affine, so BW-variation there IS the affine flag. The smallest well-posed home is domain >= 3 (Mal'tsev-but-not-bounded-width languages exist, so BW and affine separate), BUT the Sprint 3.5 flag that the domain-3 approximation charge may be thin/absent means that needs its own I-phase before commit. No domain-3 spec authorized (queue inflation)."
+  },
+
+  "SEALED_PREDICTIONS": {
+    "1_reproduction_gate_known_answer": "the arity-<=3 subset of the roster (build_roster(3)'s 90 classes) reproduces v1's approx<->param raw V = 0.256 (+/- 0.01) and empty NPI row (decision in {P, NPC}). Violation => pipeline failure, HALT.",
+    "2_bounded_width_marginal_DESCRIPTIVE_not_a_bet": "report the bounded-width marginal on the EXISTING (correct) predicate; the arity-4 tractable-unbounded classes are the PURELY-AFFINE ones (odd-parity-4 = x1^x2^x3^x4=1 and its S4-orbit; even-parity-4 is bounded via its constant polymorphism). DESCRIPTIVE ONLY — explicitly NOT a gate that makes 3/4 askable (they are dropped), because BW-variation among tractable rows IS the affine flag (the confound).",
+    "3_localization_coupling_DROPPED": "DROPPED from the seal — provably confounded (see the_dropped_localization_arm). Recorded, not scored.",
+    "4_localization_absorption_DROPPED": "DROPPED from the seal — same affine confound: after netting affine the bounded-width<->param residual is 0 by construction, and absorption on the bridge-completed residual has one stratum. Recorded, not scored.",
+    "5_anti_canon_replication_THE_HEADLINE": "the Min-Ones BRIDGE-COMPLETED NON-AFFINE residual is anti-canon: netted Spearman < 0 with a bootstrap CI (sized to symmetry classes) excluding 0. Promotes v1's post-hoc -0.428 to a sealed bet. Report Max-Ones and Min-Ones SEPARATELY before any pooled number (v1 lesson: pooling masked the split, and Max-Ones was noise on a V~0 table).",
+    "5_THREE_OUTCOME_SCORING": {
+      "REPLICATES": "CI entirely < 0.",
+      "REFUTED": "CI entirely > 0, OR centered on 0 with the v1 point estimate (-0.428) EXCLUDED.",
+      "INSUFFICIENT_RESOLUTION": "CI includes BOTH 0 AND -0.428 (too wide to separate the claim from null) => declared on INTERVAL WIDTH, per the standing rule, NOT scored as a miss. With ~4074 classes this almost certainly never fires, but declared before, not argued after."
+    },
+    "6_outlier_persistence_gate": "approx<->param remains the LARGEST bridge-completed netted residual among all charge pairs on the new roster. PINNED (owner clause): 'largest' = the POOLED (166-row analog, both-objectives) approx<->param residual, with the PER-OBJECTIVE maxima reported alongside (per-objective-before-pooled). v1's Min-Ones/pooled split means the unpinned phrasing is two-ways-arguable; sealed as pooled settles it."
+  },
+
+  "the_netting_design": {
+    "inherited_from_v32": "per-pair shared-input netting (stratum = intersection of the predicate sets the two oracles read; r25 within-stratum pooling), PLUS the named-bridge layer INCLUDING affine=>weakly-separable=>FPT (Marx Ex 2.4) FROM THE START — defect-#4's fix is initial design here, not a correction. Both residual sets (literal + bridge-completed) reported paired anyway, as the standing check the bridge layer is complete.",
+    "classical_x_classical": "share the full determining fingerprint -> residual 0.",
+    "classical_x_approximation": "KSTW reads the entire classical fingerprint + finer predicates -> classical constant within shared strata -> nets to 0 (entailment identity).",
+    "affine_bridge": "counting/approx_counting read affine, and affine=>WS=>FPT links them to parameterized; the bridge nets those spurious literal survivors to 0. The anti-canon residual is the NON-AFFINE remainder after this bridge.",
+    "affine_traced": "the affine class traced explicitly through every pairing (tautology-breaker; the off-diagonal masking the anti-canon residual)."
+  },
+
+  "symmetry_group": {
+    "group": "coordinate permutation only, S_n (n = arity). NO complementation.",
+    "reason": "charges are permutation-invariant but NOT complementation-invariant: complementation swaps horn<->dual-horn, 0-valid<->1-valid, and Max-Ones<->Min-Ones. Deduping by complementation would merge distinct charge profiles and fold the Min-Ones anti-canon headline (pred 5) into Max-Ones.",
+    "class_count": "arity 4: exactly 3984 orbits (Burnside over the 24 permutations; verified). arity <=4 total: 3984 + 90 = 4074 classes. Roster build enumerates 65534 arity-4 relations x 24 perms; seconds-to-low-minutes."
+  },
+
+  "charge_table": {
+    "note": "identical oracle set to Prism v1 (prereg_v32), all arity-general (confirmed by review). decision/counting (finer.classify_boolean, read-only); localization = CORRECTED prism predicate BW = (0valid OR 1valid) OR Horn OR dual-Horn OR bijunctive (single-relation bounded width, retraction confirmed correct); parallelization (co-clone-level); approx_counting (DGJ); approx_maxones/approx_minones (objective_oracles KSTW); parameterized (objective_oracles general weak-separability). NO reuse of finer's own approximation/parameterized."
+  },
+
+  "procedure_locked_with_the_predictions": [
+    "marginals + distinct-profile counts read BEFORE any V",
+    "bootstrap CIs sized to the 4074 symmetry classes / per-stratum class counts, NEVER the raw relations (effective-n, binding)",
+    "per-pair shared-input netting + the affine=>WS=>FPT named bridge applied before any residual is read; NPI check first",
+    "no metric substituted after seeing results",
+    "the affine class traced explicitly through every pairing",
+    "Max-Ones and Min-Ones reported SEPARATELY before any pooled number (v1 lesson: pooling masked the split)",
+    "raw, literal-netted, and bridge-netted numbers always paired in the writeup",
+    "reproduction gate: arity-<=3 subset must reproduce approx<->param V=0.256 pre-netting before any arity-4 analysis is read",
+    "is_weakly_separable + oracles.py + eightfold untouched; finer.classify_boolean imported read-only; existing 83 tests stay green"
+  ],
+
+  "kill_criteria": {
+    "1_reproduction_gate_or_NPI_fails": "pred 1 failing (arity-<=3 subset does not reproduce 0.256, or NPI has an intermediate value) => pipeline failure, HALT; no analysis ships on an unvalidated roster.",
+    "2_marginal_degeneracy": "any column near-degenerate on this population -> its pairs scored UNTESTABLE (v2 precedent), never forced.",
+    "3_pred5_underpowered": "if the pred-5 CI includes both 0 and -0.428 => INSUFFICIENT RESOLUTION on interval width (not a miss).",
+    "4_box": "$0 compute; charging is seconds (no timebox / sampled fallback needed — the Absorption-spec contingency machinery is retired); generated roster, no frozen-artifact contact."
+  }
+}
