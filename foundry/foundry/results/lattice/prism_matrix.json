@@ -3,31 +3,46 @@
   "matrix": {
     "decision x counting": {
       "raw_v": 0.165,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 90,
-      "shared_inputs": [
+      "shared_literal": [
         "affine"
       ],
-      "derivation": "one charge is a function of the shared inputs ['affine'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "affine"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['affine'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "decision x localization": {
       "raw_v": 1.0,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 90,
-      "shared_inputs": [
+      "shared_literal": [
         "0valid",
         "1valid",
         "bijunctive",
         "dualhorn",
         "horn"
       ],
-      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "0valid",
+        "1valid",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['0valid', '1valid', 'bijunctive', 'dualhorn', 'horn'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "decision x parallelization": {
       "raw_v": null,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 83,
-      "shared_inputs": [
+      "shared_literal": [
         "0valid",
         "1valid",
         "affine",
@@ -35,24 +50,41 @@
         "dualhorn",
         "horn"
       ],
-      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'affine', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "0valid",
+        "1valid",
+        "affine",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['0valid', '1valid', 'affine', 'bijunctive', 'dualhorn', 'horn'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "decision x approx_counting": {
       "raw_v": 0.192,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 90,
-      "shared_inputs": [
+      "shared_literal": [
         "affine",
         "dualhorn",
         "horn"
       ],
-      "derivation": "one charge is a function of the shared inputs ['affine', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "affine",
+        "dualhorn",
+        "horn"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['affine', 'dualhorn', 'horn'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "decision x approx_maxones": {
       "raw_v": 0.983,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 90,
-      "shared_inputs": [
+      "shared_literal": [
         "0valid",
         "1valid",
         "affine",
@@ -60,13 +92,23 @@
         "dualhorn",
         "horn"
       ],
-      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'affine', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "0valid",
+        "1valid",
+        "affine",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['0valid', '1valid', 'affine', 'bijunctive', 'dualhorn', 'horn'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "decision x approx_minones": {
       "raw_v": 0.983,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 90,
-      "shared_inputs": [
+      "shared_literal": [
         "0valid",
         "1valid",
         "affine",
@@ -74,137 +116,223 @@
         "dualhorn",
         "horn"
       ],
-      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'affine', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "0valid",
+        "1valid",
+        "affine",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['0valid', '1valid', 'affine', 'bijunctive', 'dualhorn', 'horn'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "decision x parameterized": {
       "raw_v": null,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 83,
-      "shared_inputs": [],
-      "derivation": "one charge is a function of the shared inputs [] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_literal": [],
+      "shared_bridge_completed": [
+        "affine"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['affine'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "counting x localization": {
       "raw_v": 0.165,
-      "netted_residual": 0.165,
+      "netted_literal": 0.165,
+      "netted_bridge_completed": 0.165,
       "n_both_real": 90,
-      "shared_inputs": [],
-      "derivation": "conditioned on shared inputs []; residual is the association not forced by them"
+      "shared_literal": [],
+      "shared_bridge_completed": [],
+      "affine_bridge_changed_it": false,
+      "derivation": "conditioned on []; residual = association not theorem-forced"
     },
     "counting x parallelization": {
       "raw_v": 0.273,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 83,
-      "shared_inputs": [
+      "shared_literal": [
         "affine"
       ],
-      "derivation": "one charge is a function of the shared inputs ['affine'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "affine"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['affine'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "counting x approx_counting": {
       "raw_v": 0.994,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 90,
-      "shared_inputs": [
+      "shared_literal": [
         "affine"
       ],
-      "derivation": "one charge is a function of the shared inputs ['affine'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "affine"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['affine'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "counting x approx_maxones": {
       "raw_v": 0.396,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 90,
-      "shared_inputs": [
+      "shared_literal": [
         "affine"
       ],
-      "derivation": "one charge is a function of the shared inputs ['affine'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "affine"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['affine'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "counting x approx_minones": {
       "raw_v": 0.396,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 90,
-      "shared_inputs": [
+      "shared_literal": [
         "affine"
       ],
-      "derivation": "one charge is a function of the shared inputs ['affine'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "affine"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['affine'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "counting x parameterized": {
       "raw_v": 0.736,
-      "netted_residual": 0.736,
+      "netted_literal": 0.736,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 83,
-      "shared_inputs": [],
-      "derivation": "conditioned on shared inputs []; residual is the association not forced by them"
+      "shared_literal": [],
+      "shared_bridge_completed": [
+        "affine"
+      ],
+      "affine_bridge_changed_it": true,
+      "derivation": "function of shared inputs ['affine'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "localization x parallelization": {
       "raw_v": null,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 83,
-      "shared_inputs": [
+      "shared_literal": [
         "0valid",
         "1valid",
         "bijunctive",
         "dualhorn",
         "horn"
       ],
-      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "0valid",
+        "1valid",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['0valid', '1valid', 'bijunctive', 'dualhorn', 'horn'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "localization x approx_counting": {
       "raw_v": 0.192,
-      "netted_residual": 0.086,
+      "netted_literal": 0.086,
+      "netted_bridge_completed": 0.086,
       "n_both_real": 90,
-      "shared_inputs": [
+      "shared_literal": [
         "dualhorn",
         "horn"
       ],
-      "derivation": "conditioned on shared inputs ['dualhorn', 'horn']; residual is the association not forced by them"
+      "shared_bridge_completed": [
+        "dualhorn",
+        "horn"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "conditioned on ['dualhorn', 'horn']; residual = association not theorem-forced"
     },
     "localization x approx_maxones": {
       "raw_v": 0.983,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 90,
-      "shared_inputs": [
+      "shared_literal": [
         "0valid",
         "1valid",
         "bijunctive",
         "dualhorn",
         "horn"
       ],
-      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "0valid",
+        "1valid",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['0valid', '1valid', 'bijunctive', 'dualhorn', 'horn'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "localization x approx_minones": {
       "raw_v": 0.983,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 90,
-      "shared_inputs": [
+      "shared_literal": [
         "0valid",
         "1valid",
         "bijunctive",
         "dualhorn",
         "horn"
       ],
-      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "0valid",
+        "1valid",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['0valid', '1valid', 'bijunctive', 'dualhorn', 'horn'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "localization x parameterized": {
       "raw_v": null,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 83,
-      "shared_inputs": [],
-      "derivation": "one charge is a function of the shared inputs [] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_literal": [],
+      "shared_bridge_completed": [],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs [] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "parallelization x approx_counting": {
       "raw_v": 0.336,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 83,
-      "shared_inputs": [
+      "shared_literal": [
         "affine",
         "dualhorn",
         "horn"
       ],
-      "derivation": "one charge is a function of the shared inputs ['affine', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "affine",
+        "dualhorn",
+        "horn"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['affine', 'dualhorn', 'horn'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "parallelization x approx_maxones": {
       "raw_v": 0.0,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 83,
-      "shared_inputs": [
+      "shared_literal": [
         "0valid",
         "1valid",
         "affine",
@@ -212,13 +340,23 @@
         "dualhorn",
         "horn"
       ],
-      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'affine', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "0valid",
+        "1valid",
+        "affine",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['0valid', '1valid', 'affine', 'bijunctive', 'dualhorn', 'horn'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "parallelization x approx_minones": {
       "raw_v": 0.0,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 83,
-      "shared_inputs": [
+      "shared_literal": [
         "0valid",
         "1valid",
         "affine",
@@ -226,49 +364,83 @@
         "dualhorn",
         "horn"
       ],
-      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'affine', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "0valid",
+        "1valid",
+        "affine",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['0valid', '1valid', 'affine', 'bijunctive', 'dualhorn', 'horn'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "parallelization x parameterized": {
       "raw_v": 0.311,
-      "netted_residual": 0.311,
+      "netted_literal": 0.311,
+      "netted_bridge_completed": 0.071,
       "n_both_real": 83,
-      "shared_inputs": [],
-      "derivation": "conditioned on shared inputs []; residual is the association not forced by them"
+      "shared_literal": [],
+      "shared_bridge_completed": [
+        "affine"
+      ],
+      "affine_bridge_changed_it": true,
+      "derivation": "conditioned on ['affine']; residual = association not theorem-forced"
     },
     "approx_counting x approx_maxones": {
       "raw_v": 0.328,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 90,
-      "shared_inputs": [
+      "shared_literal": [
         "affine",
         "dualhorn",
         "horn"
       ],
-      "derivation": "one charge is a function of the shared inputs ['affine', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "affine",
+        "dualhorn",
+        "horn"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['affine', 'dualhorn', 'horn'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "approx_counting x approx_minones": {
       "raw_v": 0.328,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 90,
-      "shared_inputs": [
+      "shared_literal": [
         "affine",
         "dualhorn",
         "horn"
       ],
-      "derivation": "one charge is a function of the shared inputs ['affine', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "affine",
+        "dualhorn",
+        "horn"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['affine', 'dualhorn', 'horn'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "approx_counting x parameterized": {
       "raw_v": 0.745,
-      "netted_residual": 0.745,
+      "netted_literal": 0.745,
+      "netted_bridge_completed": 0.127,
       "n_both_real": 83,
-      "shared_inputs": [],
-      "derivation": "conditioned on shared inputs []; residual is the association not forced by them"
+      "shared_literal": [],
+      "shared_bridge_completed": [
+        "affine"
+      ],
+      "affine_bridge_changed_it": true,
+      "derivation": "conditioned on ['affine']; residual = association not theorem-forced"
     },
     "approx_maxones x approx_minones": {
       "raw_v": 0.476,
-      "netted_residual": 0.0,
+      "netted_literal": 0.0,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 90,
-      "shared_inputs": [
+      "shared_literal": [
         "0valid",
         "1valid",
         "IHSB",
@@ -279,21 +451,43 @@
         "strongly0valid",
         "width2affine"
       ],
-      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'IHSB', 'affine', 'bijunctive', 'dualhorn', 'horn', 'strongly0valid', 'width2affine'] -> constant within every stratum -> residual 0 (theorem-identity)"
+      "shared_bridge_completed": [
+        "0valid",
+        "1valid",
+        "IHSB",
+        "affine",
+        "bijunctive",
+        "dualhorn",
+        "horn",
+        "strongly0valid",
+        "width2affine"
+      ],
+      "affine_bridge_changed_it": false,
+      "derivation": "function of shared inputs ['0valid', '1valid', 'IHSB', 'affine', 'bijunctive', 'dualhorn', 'horn', 'strongly0valid', 'width2affine'] -> constant within stratum -> residual 0 (theorem-identity; affine=>WS bridge applies)"
     },
     "approx_maxones x parameterized": {
       "raw_v": 0.314,
-      "netted_residual": 0.314,
+      "netted_literal": 0.314,
+      "netted_bridge_completed": 0.0,
       "n_both_real": 83,
-      "shared_inputs": [],
-      "derivation": "conditioned on shared inputs []; residual is the association not forced by them"
+      "shared_literal": [],
+      "shared_bridge_completed": [
+        "affine"
+      ],
+      "affine_bridge_changed_it": true,
+      "derivation": "conditioned on ['affine']; residual = association not theorem-forced"
     },
     "approx_minones x parameterized": {
       "raw_v": 0.192,
-      "netted_residual": 0.192,
+      "netted_literal": 0.192,
+      "netted_bridge_completed": 0.459,
       "n_both_real": 83,
-      "shared_inputs": [],
-      "derivation": "conditioned on shared inputs []; residual is the association not forced by them"
+      "shared_literal": [],
+      "shared_bridge_completed": [
+        "affine"
+      ],
+      "affine_bridge_changed_it": true,
+      "derivation": "conditioned on ['affine']; residual = association not theorem-forced"
     }
   },
   "approx_param_headline": {
@@ -304,6 +498,8 @@
       0.148,
       0.38
     ],
+    "netted_literal_shared_input": 0.256,
+    "netted_bridge_completed_affine": 0.286,
     "cai_chen_netted": {
       "removed_APX_complete_FPT_rows": 11,
       "netted_v": 0.255,
@@ -330,9 +526,20 @@
     "pred_3b_bw_param": "UNTESTABLE \u2014 bounded-width constant on the param-real subset (R1 marginal degeneracy)",
     "pred_4_absorption": "UNTESTABLE \u2014 all both-real rows are bounded-width; one stratum (R1 marginal degeneracy). Needs arity>=4.",
     "pred_5_outlier_persistence": {
-      "approx_param_netted": 0.256,
-      "max_other_pair_netted": 0.736,
-      "verdict": "MISS"
+      "LITERAL": {
+        "counting_x_param": 0.736,
+        "approx_counting_x_param": 0.745,
+        "approx_param_ref": 0.314,
+        "max_other_non_approx_pair": 0.736,
+        "verdict": "MISS (spurious \u2014 theorem-forced survivors not yet netted)"
+      },
+      "BRIDGE_COMPLETED": {
+        "counting_x_param": 0.0,
+        "approx_counting_x_param": 0.127,
+        "approx_param_ref": 0.459,
+        "max_other_non_approx_pair": 0.165,
+        "verdict": "HIT"
+      }
     },
     "pred_6_cai_chen": {
       "raw_spearman": 0.019,
@@ -343,7 +550,13 @@
         0.148,
         0.38
       ],
-      "verdict": "see values"
+      "verdict": "MISS (Spearman did not rise; V within CI)"
+    },
+    "SEALED_STRUCTURAL_CLAIM_MISS": {
+      "claim": "general weak-separability is orthogonal to the classical fingerprint (prereg_v32 structural_headline)",
+      "refuted_by": "affine => weakly-separable => FPT (Marx Ex 2.4): counting/approx_counting read affine, so they are NOT orthogonal to param",
+      "date": "2026-07-23",
+      "standing": "sealed-claim miss, same as v3's direction miss"
     }
   },
   "affine_trace": {
@@ -363,5 +576,6 @@
       "FPT"
     ],
     "note": "affine -> counting FP, param FPT (off-diagonal), approx varies; the tautology-breaker."
-  }
+  },
+  "netting_note": "netted_literal = per-pair LITERAL shared-input (sealed procedure as first executed). netted_bridge_completed = + affine=>weakly-separable=>FPT named bridge (Marx Ex 2.4; completing the sealed named-bridge layer, owner ruling; spec-defect #4). Both reported."
 }
