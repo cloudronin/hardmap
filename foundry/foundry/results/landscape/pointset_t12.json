@@ -1,0 +1,13 @@
+{
+  "map_row": "T1.2",
+  "n_rows": 64,
+  "corr_reach_vs_tupledisp_full_with_anchors": 0.781,
+  "corr_bounded_width_only": 0.753,
+  "anchors": {
+    "LONG_mean_reach": 0.371,
+    "LONG_mean_tupledisp": 0.619,
+    "SHORT_mean_reach": 0.105,
+    "SHORT_mean_tupledisp": 0.524
+  },
+  "READING": "PROXY (high corr \u2014 tuple_dispersion is a cheap proxy for reach)"
+}
