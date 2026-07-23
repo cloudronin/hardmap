@@ -79,26 +79,50 @@ approx⟷param coupling survives because its *non-affine residual* is strongest,
 rows left V = 0.255 (within CI (0.148, 0.38) ✓) but Spearman went 0.019 → **−0.005** — netting the affine Max-Ones
 off-diagonal did *not* raise monotonicity. The other off-diagonal cells (poly-APX/FPT, Nearest-Codeword/FPT) remain.
 
-## 4. The affine trace
+## 4. The affine trace — and the sharpest number Prism produced
 
 The affine class is the throughline: **affine → counting=FP, param=FPT** (the off-diagonal — approx-hard/param-easy that
 broke the tautology blocker in G1 and flattened v3's trend), with approx = APX-complete (Max-Ones) / Nearest-Codeword-
 complete (Min-Ones). It is exactly this cell that (a) *is* the theorem-forced `affine⟹FPT` link the literal netting
-missed (§3), and (b) when netted, *raises* the Min-Ones residual to 0.459 — the affine off-diagonal was masking a real
-non-affine coupling. The same cell, load-bearing a third time.
+missed (§3), and (b) when netted, *unmasks* the strongest coupling in the whole roster. The same cell, load-bearing a
+third time.
 
-## 5. Implications — posed as questions for ruling, not rewrites
+**The Min-Ones residual is the sharpest single number Prism produced.** Netting the affine off-diagonal raises the
+`approx_minones⟷param` residual to **V = 0.459** pooled (**0.692** within the non-affine stratum alone) — *higher* than
+the raw approx⟷param (0.256) — and its direction (post-hoc descriptive, computed on the bridge-completed residual set,
+not sealed; effective-n = 55 non-affine param-real classes) is **Spearman −0.428**. The cross-tab is explicit:
+Min-Ones-**APX-complete** relations are mostly **FPT** (10:4), Min-Ones-**PO** relations mostly **W[1]** (1:35) —
+*harder to approximate ⟷ easier to parameterize*, the **opposite** of the canon's positive gradient. So the affine
+off-diagonal was not merely *inflating* the signal; it was **distorting its shape**: underneath it sits a moderately
+strong, *anti-canon* coupling. The theorem-forced structure hid both a stronger magnitude and the opposite sign.
 
-- **For the v3 decomposition / four-wall note:** the approx⟷param coupling now decomposes into a **theorem-forced part**
-  (the affine off-diagonal, `affine⟹FPT`) and a **residual part** (the non-affine coupling, 0.286 pooled / 0.459
-  Min-Ones) that survives netting what the theorems force. Does this update v3's "weak, non-monotonic coupling" claim to
-  "a weak coupling that is *partly theorem-forced and partly residual*", with the residual matching the canon's
-  direction only after the theorem-forced anti-gradient is removed? (This is the careful claim you flagged: "matches
-  the canon's direction after removing what theorems force," not "the gradient reproduces.")
-- **For the I6 program:** the localization headline is untestable at arity ≤3; an arity-4 roster is the natural next
-  experiment. Authorize a spec, or leave localization-absorption as an open question?
+The two objectives split, and honesty requires stating it: the **Max-Ones** non-affine residual is near-degenerate
+(within-stratum V ≈ 0) and weakly canon-*aligned* (Spearman +0.331), so the **pooled** non-affine direction is only
+weakly negative (**Spearman −0.142**). The anti-canon reversal is a **Min-Ones phenomenon**, not a uniform flip — which
+is exactly why the aggregate direction reads as *unresolved*, and why the Min-Ones cell, not a pooled average, is the
+object worth naming.
 
-Neither is rewritten here.
+## 5. Implications — the decomposition (owner-ruled 2026-07-23), and the direction it does *not* recover
+
+**The decomposition, adopted.** The natural approx⟷param coupling splits into a **theorem-forced part** — the affine
+off-diagonal (`affine ⟹ weakly-separable ⟹ FPT`, Marx Ex 2.4), netted away — and a **non-affine residual** (pooled
+V **0.286**, Min-Ones V **0.459**) that survives netting everything the theorems force. The residual is *stronger* than
+the raw number (0.256) suggested; **the affine off-diagonal was masking it, not producing it.** There is no
+direction-match clause: the earlier careful phrasing ("matches the canon's direction after removing what theorems
+force") is **contradicted by the one direction test that ran.** Prediction 6 missed — removing the theorem-forced
+affine rows left Spearman at −0.005, monotonicity did not return — and the post-hoc bridge-completed direction (§4)
+confirms it: pooled Spearman **−0.142**, and the load-bearing Min-Ones side runs *anti-canon* at **−0.428**. The
+residual does not recover the canon's positive gradient; if anything its strong side runs against it. **Direction stays
+an open question, not a recovered claim.** The honest gloss for v3's "weak, non-monotonic coupling": *partly
+theorem-forced; the non-affine residual is the real object, magnitude 0.286 (Min-Ones 0.459), direction unresolved —
+anti-canon on the load-bearing Min-Ones side.*
+
+**The arity-4 experiment, authorized.** The I6 localization headline (3b/4) is untestable at arity ≤3 because
+bounded-width ⟺ tractability there (the affine obstruction is vacuous below arity 4). An arity-4 roster is where a
+genuinely unbounded-width tractable relation first exists, so localization-absorption becomes testable. The spec is
+written — `docs/specs/Absorption-arity4-spec.md` — and **runs after the preprint** (owner ruling: spec now, execute
+later). Its I-phase must bound the symmetry-class count before committing to full charging (2^16 relations is a real
+enumeration lift), with a sampled fallback if enumeration exceeds its timebox.
 
 ## Discipline honored
 

@@ -34,6 +34,26 @@ outside — and why that fact, once you see it, is itself a result.
 > weak coupling (v3). **Net: three measured walls, plus a weak non-monotonic coupling that does survive outside the
 > canon.** The original thesis is left standing above so the movement of this program-defining claim stays on record.
 
+> **Amendment (2026-07-23, Prism) — the "weak, non-monotonic coupling" is now decomposed; the residual, not the raw
+> number, is the object.** Prism (`Prism-v1-findings.md`, prereg_v32) charged the *same* 90-class roster with every
+> oracle-derivable charge and netted each pair against what the theorems force. It splits v3's 0.256 into two parts.
+> **(i) A theorem-forced part** — the affine off-diagonal, `affine ⟹ weakly-separable ⟹ FPT` (Marx Ex 2.4). **(ii) A
+> non-affine residual** that survives netting everything the theorems force, and is **stronger than the raw number
+> suggested**: pooled Cramér's V **0.286**, and on the **Min-Ones** objective **0.459** (0.692 within the non-affine
+> stratum alone). The affine off-diagonal was **masking** this residual, not producing it — so the theorem-forced
+> structure was not merely inflating the signal, it was **distorting its shape.** **Direction does not come back.** The
+> sealed prediction that netting the affine rows would restore monotonicity (prereg_v32 pred 6) **missed** — netted
+> Spearman went 0.019 → −0.005 — and the post-hoc bridge-completed residual runs *anti-canon* where it is strongest:
+> pooled Spearman **−0.142**, Min-Ones **−0.428** (Min-Ones-APX-complete relations are mostly FPT, Min-Ones-PO mostly
+> W[1] — *harder-approx ⟷ easier-param*, the reverse of the canon's positive gradient; Max-Ones is near-degenerate and
+> weakly the other way, so the aggregate is unresolved). **There is no "matches the canon's direction after removing
+> what theorems force" claim** — the one direction test that ran contradicts it. **Updated gloss for v3's "weak,
+> non-monotonic coupling":** *partly theorem-forced; the non-affine residual is the real object, magnitude 0.286
+> (Min-Ones 0.459), direction unresolved — anti-canon on the load-bearing Min-Ones side.* Prism also found the
+> localization-absorption headline (does bounded-width absorb the coupling, Foundry I6) **untestable at arity ≤3**
+> (bounded-width ⟺ tractability there); the arity-4 experiment that *can* test it is specced (`docs/specs/
+> Absorption-arity4-spec.md`) and deferred behind the preprint.
+
 "Bias-free rostering" — generating problems from a formal scheme rather than curating the ones people happened to find
 interesting — is the gold standard for ruling out a selection effect. The question the gradient has always faced is
 whether it reflects computation or sociology: are approximability and parameterizability coupled *in the mathematics*,
