@@ -1,0 +1,51 @@
+{
+  "prereg_version": "v24",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Pebble",
+  "role": "P3 (re-opened) — the FULL point-to-set sweep on the qualified instrument. Tests not just WHETHER the reach dichotomy holds but WHY: within-co-clone replication discriminates algebra-echo from below-the-algebra; the size ladder discriminates a real dichotomy from a finite-size artifact. Sealed before launch.",
+  "extends": "v23 (qualified point-to-set instrument; corrected criterion; dichotomy expectation).",
+  "committed_before_analysis": true,
+  "committed_before_the_sweep": true,
+
+  "observable": "measure_pointset (foundry/foundry/pointset.py), reach_score = point-to-set signal at fixed radius r=2 (the QUALIFIED instrument). corr (disqualified for reach) is NOT used.",
+
+  "design": {
+    "roster_within_co_clone_replication": "the Sprint 4.6 roster (sprint46_roster.json), grouped by 6-flag co-clone PROFILE; profiles with >= 3 representatives; up to 4 reps per profile. Multiple reps per co-clone is what lets us ask: does reach VARY between representatives of the same co-clone, or is it CONSTANT?",
+    "algebraic_class_per_profile": "each profile classified LONG (unbounded-width / affine: has 'aff', none of horn/dhorn/bij) vs SHORT (bounded-width: has horn/dhorn/bij) — the Schaefer/algebraic dichotomy the reach dichotomy is tested against.",
+    "size_ladder": "n in {12, 15, 18} (all <= ENUM_N_MAX=18, EXACT coset enumeration). Density held CONSTANT across the ladder (0.6 * the relation's alpha_struct) so SIZE is the only varying factor — the finite-size discriminator.",
+    "density": "0.6 * alpha_struct per relation (from the roster) — rich cosets, affine families SAT; anchored per relation (the washout lesson).",
+    "per_cell": "reach_score @ r=2, plus the full per-radius signal, the bucket-population report (n_buckets, min/median pop), and the exact/sampled provenance."
+  },
+
+  "provenance_and_population_BEFORE_interpretation": {
+    "rule": "report the exact/sampled provenance per cell AND the bucket-population gate results (n_buckets vs MIN_BUCKETS=4; solutions vs MIN_SOLUTIONS=16) for EVERY cell BEFORE any of the three readings is scored. Thin cells are declared UNMEASURABLE, not quietly averaged in.",
+    "why": "this is the discipline that caught the vacuous concordance; it keeps a long sweep honest. A reading is scored only over measurable cells."
+  },
+
+  "three_readings_sealed_scored_not_argued": {
+    "a_algebra_echo": {
+      "signature": "within-co-clone reach SD < 0.25 * the between-class gap for ALL measurable profiles, AND the LONG (affine) and SHORT (bounded-width) classes separate (non-overlapping), AND this is stable across n.",
+      "meaning": "the instrument re-expresses the Schaefer/algebraic dichotomy through a slower (solution-geometry) channel. DEFLATIONARY and EXPECTED — reach is an echo of the algebra."
+    },
+    "b_below_the_algebra": {
+      "signature": "within-co-clone reach SD >= 0.25 * the between-class gap for >= 1 measurable profile (reach varies between reps of the SAME co-clone), OR >= 1 relation reads on the WRONG side of its algebraic class (the dichotomy cuts across the classes).",
+      "meaning": "the phenomenon lives BELOW the algebra — reach carries relation-level structure the co-clone does not fix. Rhymes with Sprint 4.6's relation-level terrain result (complexity is clone-level, terrain is relation-level). The INTERESTING outcome."
+    },
+    "c_finite_size_artifact": {
+      "signature": "the between-class gap changes by >= 30% (relative) from the smallest to the largest n, OR within-co-clone SD grows systematically with n (the two levels SPREAD or FILL IN as n grows).",
+      "meaning": "the small-n dichotomy is a FINITE-SIZE artifact (the collapse that killed the first calibration is a live worry). The sealed dichotomy expectation (v23) RESIZES accordingly."
+    },
+    "not_mutually_exclusive": "report the numbers for all three signatures + the dominant reading; whichever lands is scored, not argued. (a) and (c) can co-occur; (b) is the discriminating positive."
+  },
+
+  "phase_2_consequence_carried": "if (a) or (b) holds (real dichotomy), the sealed differential prediction (prereg_v12/v13 gradient) should expect TWO LEVELS on the point-to-set observable; if (c), the dichotomy expectation resizes. The sealed table is not rewritten — this is the expectation being tested.",
+
+  "standing_discipline": [
+    "prereg (this v24) sealed before the sweep",
+    "provenance + population gate reported BEFORE any reading is scored; thin cells unmeasurable not averaged",
+    "three readings pre-labelled; scored on the measured signatures, not argued",
+    "density anchored per relation; size ladder at constant density isolates finite-size",
+    "exact coset enumeration (n<=18); the disqualified corr is retired for reach",
+    "eightfold byte-identical (foundry-side only)"
+  ]
+}
