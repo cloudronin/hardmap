@@ -2,7 +2,7 @@
   "prereg_version": "v28",
   "project": "Foundry — synthetic census (proof-space line, project 5)",
   "codename": "Ferry",
-  "role": "Ferry F1–F4 — CONFIRMATORY SCORING, not adjudication. The I-phase (docs/findings/Ferry-I-phase.md) ALREADY established DEFINITIONALLY that tuple_dispersion is orthogonal to the canon's approx/param charges: vertex-cover and independent-set have the IDENTICAL relation (edge, disp 0.667) and OPPOSITE charges on both gradient axes (APX-complete/FPT vs inapprox/W[1]); the modal dispersion value 0.667 (9 of 16 rows) spans PTAS -> APX-complete -> inapprox and both FPT/W[1]. No correlation number can rescue or worsen that. F1–F4 put a formally-scored, held-out, entailment-netted, permutation-tested number on a fact settled by construction. Sealed before the (\$0) confirmatory measurement.",
+  "role": "Ferry F1–F4 — CONFIRMATORY SCORING, not adjudication. The I-phase (docs/findings/Ferry-I-phase.md) ALREADY established DEFINITIONALLY that tuple_dispersion is orthogonal to the canon's approx/param charges: vertex-cover and independent-set have the IDENTICAL relation (edge, disp 0.667) and OPPOSITE charges on both gradient axes (APX-complete/FPT vs inapprox/W[1]); the modal dispersion value 0.667 (9 of 16 rows) spans PTAS -> APX-complete -> inapprox and both FPT/W[1]. No correlation number can rescue or worsen that. F1–F4 put a formally-scored, held-out, entailment-netted, permutation-tested number on a fact settled by construction. Sealed before the ($0) confirmatory measurement.",
   "extends": "the Ferry spec + the I-phase memo. This is the F-phase.",
   "committed_before_analysis": true,
   "committed_before_measurement": true,

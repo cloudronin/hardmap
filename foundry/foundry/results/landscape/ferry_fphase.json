@@ -1,0 +1,36 @@
+{
+  "prereg": "v28",
+  "status": "CONFIRMATORY (I-phase settled orthogonality by construction)",
+  "headline_coverage": {
+    "n_gradient": 47,
+    "n_csp_local": 16,
+    "n_na_by_typing": 31,
+    "fraction_no_local_relation": 0.66
+  },
+  "F": {
+    "landscape": {
+      "spearman_disp_vs_charge": -0.3,
+      "perm_p": 0.4948,
+      "within_graph_spearman": -0.035,
+      "n_graph": 12
+    },
+    "approximation": {
+      "spearman_disp_vs_charge": 0.035,
+      "perm_p": 0.926,
+      "within_graph_spearman": -0.133,
+      "n_graph": 12
+    },
+    "parameterized": {
+      "spearman_disp_vs_charge": 0.162,
+      "perm_p": 0.8622,
+      "within_graph_spearman": -0.196,
+      "n_graph": 12
+    }
+  },
+  "F3_flagship": {
+    "approx_param_raw_corr": 0.276,
+    "approx_param_partial_given_disp": 0.585,
+    "shrinkage": -0.309
+  },
+  "F4_verdict": "ORTHOGONAL \u2014 disp carries no charge signal (all |rho| small; permutation-consistent)"
+}
