@@ -1,0 +1,36 @@
+{
+  "prereg_version": "v16",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Pebble",
+  "role": "P4 BASELINE-TO-BEAT — sharpens the within-co-clone ξ→measured test in light of the P1 result. P1 established (by replication) a strong, stable static local→global predictor: tuple_dispersion → ruggedness, held-out ~0.64–0.74 across n=8–20. That predictor is now the BASELINE ξ must beat. Sealed BEFORE the ξ instrument (P2) is built.",
+  "extends": "v12/v15 (the pilot) and v14 (scalarization). v13 (structural race) untouched. This does not change any earlier rule; it sharpens P4's baseline from a generic marginal baseline to the specific, now-established tuple_dispersion baseline.",
+  "committed_before_analysis": true,
+  "committed_before_P2_instrument": true,
+
+  "motivating_result_P1": {
+    "what_P1_established": "tuple_dispersion predicts ruggedness OUT-OF-SAMPLE, strongly (~0.64–0.74) and stably across n=8–20, replicating Sprint 4.6's +0.74 on an independent 16-fold arity-4 roster.",
+    "what_P1_did_NOT_establish": "propagation. A flat static predictor is compatible with plain compositional inheritance; the substrate hypothesis is untested, not supported. So the static predictor stands as a strong BASELINE, and the open question is whether ξ adds anything ON TOP of it."
+  },
+
+  "sealed_requirement_P4_within_co_clone": {
+    "primary_metric_is_INCREMENTAL_not_marginal": "the P4 within-co-clone ξ→measured (ruggedness/landscape) test is PASSED on INCREMENTAL held-out predictive power of ξ OVER the tuple_dispersion baseline — NOT on ξ's standalone predictive power. Operationally: fit a tuple_dispersion-only baseline; test whether ADDING ξ improves held-out (leave-one-co-clone-out) prediction of terrain, scored as ΔR² (or Δ held-out correlation) beyond a permutation null and the bootstrap noise band.",
+    "why": "P1 already established a strong, free static predictor. If ξ merely predicts terrain at its own level but adds nothing over tuple_dispersion, ξ is measuring EXACTLY WHAT THE FREE SCALAR ALREADY CAPTURES — the scalarization question (prereg_v14) arriving early. Standalone ξ predictive power would look successful while being redundant; the incremental test is the honest one.",
+    "what_is_still_reported": "ξ's standalone (marginal) held-out predictive power IS reported for context, but it is NOT the pass criterion. The pass criterion is incremental-over-tuple_dispersion."
+  },
+
+  "three_outcomes_pre_labelled": {
+    "incremental": "ξ adds held-out predictive power over tuple_dispersion beyond the permutation/noise band → ξ sees something the free local scalar does not; the strongest v1 justification for the sampling cost.",
+    "not_incremental_redundant": "ξ adds ~nothing over tuple_dispersion → ξ is redundant with the free scalar for terrain; the scalarization answer arrives early (a NOT-supported-for-this-purpose result for the expensive instrument, honestly reported). NOT a v1 failure of the substrate hypothesis — a statement about ξ-vs-the-free-baseline.",
+    "inconclusive": "the incremental ΔR² is within the bootstrap noise band → declared on measurement quality (same discipline as P1)."
+  },
+
+  "relation_to_v14_scalarization": "v14 asks whether (graph geometry + one per-relation scalar) RECONSTRUCTS ξ. v16 asks whether ξ adds over tuple_dispersion for TERRAIN. A 'not_incremental_redundant' P4 outcome is the terrain-side shadow of a scalarizable v14 outcome: the free scalar already carries ξ's terrain-relevant content. Reported together in P6.",
+
+  "scope": "within-co-clone, row unit — the real v1 test (prereg_v12 regime split). Between-co-clone and anchor remain descriptive, no verdict. n.a.-by-typing where ξ is undefined.",
+  "standing_discipline": [
+    "prereg (this v16) sealed before the P2 instrument is built",
+    "P4 pass criterion = INCREMENTAL over tuple_dispersion, held-out by co-clone, over a permutation null; standalone ξ reported but not the criterion",
+    "three outcomes pre-labelled; 'redundant' is honestly a real (negative-for-the-instrument) result, not a substrate-hypothesis failure",
+    "eightfold byte-identical (foundry-side only)"
+  ]
+}
