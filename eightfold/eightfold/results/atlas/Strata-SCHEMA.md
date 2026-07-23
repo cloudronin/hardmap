@@ -65,6 +65,12 @@ exists) and a `derived`/`judged` `pin_provenance` on any real (non-`none`) pin.
    is populated ⇒ the optimization version demonstrably exists). **No cell is `derived` on the strength of a word
    like "plainly."** Anything without a sibling witness goes to the review list — a longer review list beats a
    category assigned by adjective.
+   **Witness map** (the operationalization of "establishes the object", faithful to the rule — NOT merely same-level,
+   which would over-judge `counting`): `counting` ← `decision` real (the #-version is well-defined once the decision
+   problem is — that is counting's own definition); `parallelization` ← `decision` real (an `open` cell already
+   implies decision∈P by E2); `approximation` ↔ `parameterized` (the objective pair, R-1's own example); `landscape`
+   ← `average_case` real (the ensemble exists; samplability is the residual). `average_case` and `proof_size` have
+   **no** structural sibling → they stay `judged`.
 
 ### Objective + parameterization (3.3)
 - **objective** from the approximation `canonical_task` prefix: `MAX-<CSP>` (MAX-SAT/3SAT/2SAT/Horn/3-LIN)→`Max-CSP`;
