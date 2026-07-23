@@ -1,0 +1,50 @@
+{
+  "prereg_version": "v17",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Pebble",
+  "role": "P2 THREE-POLE CALIBRATION — adds a MEDIUM pole so the calibration tests ORDERING, not merely separation. Sealed BEFORE any calibration run.",
+  "extends": "v12 (the ξ instrument operation + two-pole design) and v16 (P4 baseline). Everything else in P2 unchanged.",
+  "committed_before_analysis": true,
+  "committed_before_any_calibration_run": true,
+
+  "why_three_poles": "two poles verify the instrument detects a CONTRAST; they never verify it can RANK. P3's entire output is a family ORDERING by reach, so the calibration must test ordering, not just separation. Three known points is the minimum for that — standard measuring-science practice.",
+
+  "the_three_poles": {
+    "short": {"family": "decoupled / trivially-local", "prior": "near-zero reach beyond d=1"},
+    "medium": {
+      "family": "2-SAT / bijunctive",
+      "prior": "genuinely INTERMEDIATE reach, derived from the constraint's structure, not from measurement.",
+      "mechanism": "implication chains propagate (that is what unit propagation does), but they ATTENUATE where parity does not: an implication can be satisfied by its consequent being true regardless of the antecedent, so information LEAKS out of the chain; parity has no such escape and transmits at full strength."
+    },
+    "long": {"family": "parity / affine (XOR)", "prior": "full-strength transmission; no escape, no attenuation"}
+  },
+
+  "sealed_pass_criterion_ORDERING_not_values": {
+    "criterion": "short pole  <  2-SAT  <  parity/affine — correct ORDERING with NON-OVERLAPPING intervals at the chosen density = calibration PASS.",
+    "do_not_seal_values": "the criterion is the ORDERING; NO specific ξ values are sealed, because nothing in theory fixes them."
+  },
+
+  "observable_selection_by_calibration": {
+    "note": "the ordering short<2-SAT<parity is a statement about how far INFORMATION about a partial solution reaches. prereg_v12's specced operation is conditioning MARGINAL-shift (forcing reach). Marginal-shift is BLIND to parity: conditioning one XOR variable leaves every other one-variable marginal at 1/2 (parity moves CORRELATIONS, not marginals), so under marginal-shift parity would read at the SHORT extreme, inverting the ordering.",
+    "primary": "conditioning marginal-shift (prereg_v12 operation) = FORCING reach.",
+    "preregistered_redesign_candidate": "base-ensemble two-point CONNECTED CORRELATION binned by graph distance = CORRELATION reach — the cavity-method correlation length the substrate hypothesis actually names.",
+    "rule": "the calibration reports the three-pole ordering under BOTH observables; the observable that recovers the sealed ordering against the KNOWN poles is FIXED before any unknown reading (P3). Selecting an instrument parameter to match GROUND TRUTH on known media, fixed before unknowns, is standard calibration — NOT fishing (the poles and their theoretical order are sealed here in advance)."
+  },
+
+  "failure_clauses_pre_labelled": {
+    "medium_reads_at_an_extreme": "2-SAT reads at either extreme rather than between -> INFORMATIVE about the instrument's DYNAMIC RANGE (it dichotomizes but does not rank); reported as such. This is NOT a license to shop for a different middle family — pole selection after seeing results is the metric-swap the discipline forbids.",
+    "poles_fail_to_separate": "before concluding INSTRUMENT NOT QUALIFIED, run the POLE-BEHAVIOR DIAGNOSTIC first: do the poles behave as theory predicts at the chosen density? (a) parity propagates globally in a chain but may look different in a dense looped instance; (b) a 'trivially-local' family may be less decoupled than its definition suggests at some densities; (c) an observable may be BLIND to a pole's reach (marginal-shift is blind to parity's balanced marginals) -> the pre-registered correlation-observable redesign. Density-regime failure, observable-blindness, and instrument failure are DIFFERENT diagnoses and must be distinguished before the kill fires.",
+    "redesign_budget": "two redesigns before INSTRUMENT NOT QUALIFIED (prereg_v12). The marginal->correlation observable switch, if triggered by the diagnostic, is redesign #1."
+  },
+
+  "scope_discipline_findings_language": "three ordered points is an ORDERING check, NOT a linearity check. A successful three-pole calibration licenses 'the instrument correctly orders three known media', NEVER 'the instrument is calibrated across its range'. This sentence is sealed here so the stronger claim cannot creep into the writeup later.",
+
+  "unchanged_P2_discipline": [
+    "two-sampler concordance within the glitch floor",
+    "affine-exact ground-truth bias check on the affine arm",
+    "BFS distance unit test on a hand-computed instance",
+    "density anchoring stated per pole before measurement (the washout-regime lesson)",
+    "full manifests / seeds / commit",
+    "eightfold byte-identical (foundry-side only)"
+  ]
+}
