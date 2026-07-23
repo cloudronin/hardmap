@@ -1,0 +1,35 @@
+{
+  "prereg_version": "v26",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Pebble",
+  "role": "T1.4 (scalarization, prereg_v14) + T1.3 (structural race, prereg_v13) — GREENLIT, run together (same feature set, same run). This is a RUN RECORD + a REPORTING ADDITION, NOT a threshold amendment: v14's rho>=0.90 ceiling rule and v13's predictions stay EXACTLY as sealed. The addition is a second reported number (the incremental contribution of graph geometry over the tuple_dispersion scalar), because T1.2 (proxy, corr 0.78) changed what a sub-ceiling result means. Sealed before the run.",
+  "extends": "v14 (scalarization, sealed/unchanged) + v13 (structural race, sealed/unchanged) + v24 (the qualified point-to-set reach is the measured target).",
+  "committed_before_analysis": true,
+  "committed_before_the_run": true,
+
+  "the_qualified_target": "measured xi = POINT-TO-SET reach (r=2), the qualified instrument (NOT the disqualified corr). The v14 model predicts THIS.",
+
+  "the_two_numbers": {
+    "1_sealed_ceiling_verdict_v14_UNCHANGED": "rho = held-out-R( [structural features + tuple_dispersion] -> xi ) / R*  (self-reliability ceiling). SCALARIZABLE iff rho >= 0.90 AND the held-out CI overlaps R* AND it clears the floors (permutation null, held-out-by-co-clone); PARTIAL iff 0.50 <= rho < 0.90 or a systematic per-family residual; NOT-SCALARIZABLE iff rho < 0.50 or a floor fails. Threshold NOT amended.",
+    "2_incremental_ADDED_reported_quantity": "held-out-R( [tuple_dispersion ONLY] -> xi ) = the T1.2-established scalar-alone baseline (~0.78), stated ALONGSIDE held-out-R( [tuple_dispersion + structural] -> xi ). Delta = the graph-geometry contribution. A model at ~0.80 that FAILS the 0.90 ceiling while Delta ~ 0 means graph features add ESSENTIALLY NOTHING — a completely different finding from failing at 0.50, which the sealed verdict alone cannot distinguish. Reported, not a threshold."
+  },
+
+  "T1_3_structural_race_v13_folded_in": "same 4 features (spectral_gap, sampled-min expansion, degree mean/var, min-degree treewidth-UB), same run. structural -> xi reported DENSITY-RESOLVED as sealed (v13 prediction: structural predicts xi well at high density where graph geometry dominates, poorly near the satisfiability threshold where the solution set dominates).",
+
+  "self_reliability_ceiling_R_star": "point-to-set reach is measured by EXACT enumeration (no solver noise), so R* is the ENSEMBLE split-half reliability: reach measured on two INDEPENDENT instance sets (seeds A, B) per relation; R* = corr(reach_A, reach_B) across relations, per density. The model cannot be expected to beat reach's own ensemble noise; R* is the bar.",
+
+  "owner_odds_on_record_score_them": "~35% scalarizable at the sealed threshold. Owner reasoning: graph features are CLASS-level and terrain proved RELATION-level, so geometry may add little beyond what the scalar already carries; but T1.2's 0.78 means the remaining gap to the ceiling is small enough that a modest graph contribution could close it.",
+
+  "stakes_on_record": "a POSITIVE (scalarizable) means reach becomes computable from a constraint graph + identifiable relations — NO sampling, NO solution sets. That makes the canon's gradient-carrying rows measurable for the first time (vertex cover, clique, Steiner — where the approx<->param gradient actually lives). Every 'deferred to phase 2, structural not a failure' in the last three sprints traces to sampling not reaching there. This is the card that unblocks it.",
+
+  "bridge_hunt_rider": "IF the graph features carry real weight (Delta materially positive), that is a claim about CONSTRAINT GEOMETRY predicting PROPAGATION — which the physics literature may well own (spectral gap / expander mixing / treewidth vs correlation length). Hunt it (dated trail) before any novelty language.",
+
+  "standing_discipline": [
+    "prereg as sealed — NO threshold amendment (v14 rho>=0.90, v13 predictions unchanged)",
+    "the incremental number is a REPORTED quantity with the scalar-alone 0.78 baseline stated alongside",
+    "density-resolved reporting (T1.3); permutation null + held-out-by-co-clone splits",
+    "exact/sampled provenance + bucket-population gates before interpretation",
+    "bridge hunt before any novelty language if graph features weigh",
+    "owner odds (35%) scored as they land; eightfold byte-identical (foundry-side only)"
+  ]
+}
