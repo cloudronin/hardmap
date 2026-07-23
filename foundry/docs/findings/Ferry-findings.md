@@ -75,3 +75,49 @@ substrate; it found, and measured twice, why a relation-level substrate cannot b
   states the I-phase settled orthogonality definitionally; anchors transport (calibration passed); held-out by
   family; permutation-tested; `n.a.`-by-typing first-class; $0 compute. The kill is scored by measurement *and* by
   definition, and the two agree.
+
+## 6. The methodological lesson (the most useful sentence Ferry produced)
+
+Why did three sprints go into relation-level instruments? Because the **census was chosen precisely because local
+structure is decisive there.** Schaefer and Bulatov–Zhuk say it by theorem: on a fixed constraint language, the
+constraint language *determines* the decision complexity. We picked that world for being bias-free and fully
+classifiable — and **the very property that made it a good roster (local determinism) made it unrepresentative for
+this question.** Generalizing from a domain *selected for local determinism* to a domain where the **objective is a
+separate object** from the constraints is the actual methodological error.
+
+And it was visible in our own oracle columns the whole time. The census's **approximation** charge did **not** fall
+out of Schaefer — `oracles.py` derives it from **"KSTW 2001 / Håstad 2001"** (Max-CSP hardness-of-approximation),
+and canon-side the same charge cites Håstad, Dinur–Safra, Goemans–Williamson, and Khot's UGC. The decision charge
+comes from the algebraic dichotomy; the approximation charge needed an **entirely separate body of gap-based
+machinery.** That divergence — one charge from the constraint algebra, another from PCP/UGC — was the tell that the
+objective is not a function of the constraints, and we did not read it until Ferry forced it. This paragraph is
+worth more to a future reader than the kill.
+
+## 7. The cheapest calibration standard: vertex-cover / independent-set
+
+The witness pair is now the program's **first gate on any future candidate measure.** Same constraints
+(complementary edge relations), *complementary objectives*, **opposite charges on both axes** (APX-complete/FPT vs
+inapprox/W[1]). **Any measure that assigns those two the same value is dead before implementation** — exactly as
+`tuple_dispersion` was (both 0.667). It is a ten-second test that would have saved a spec cycle, and it should be run
+on anything proposed next *before* it is built.
+
+## 8. Where the search goes, if it continues (unauthorized — specs required)
+
+The kill is specific: a *relation-only* or *objective-only* measure cannot work; what could is a measure of
+**objective-and-constraints jointly.** Two candidates have real theory behind them and both **pass the §7 gate by
+construction** (they see the objective, which is what separates the witness pair):
+
+- **Objective decomposability over the constraint structure** — whether the objective is a separable sum through
+  globally-coupled conditions, or is itself globally coupled. Distinguishes vertex-cover (cover-all-edges, a global
+  covering objective) from a local-satisfaction objective.
+- **Gap behavior under complementation** — the mechanism that *actually* separates the witness pair, and the reason
+  the field needed **gap-preserving reductions as separate machinery** (§6's Håstad/UGC tell). This is the
+  physically-right candidate.
+
+Both are computable from definitions ($0), both have prior art in the **MAX-SNP / syntactic-approximation-class**
+line (Papadimitriou–Yannakakis, Khanna–Motwani–Sudan–Vazirani) that a bridge hunt must clear *before* any novelty
+language, and **both are unauthorized until specced.** Nothing here runs on the strength of this finding.
+
+**Ferry rests.** The approx⟷param gradient stays unexplained — and for the first time we can say precisely what
+*kind* of thing could explain it: not a property of the constraints, and not a property of the objective, but a
+property of how the objective sits on the constraints.
