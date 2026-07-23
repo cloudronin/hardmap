@@ -81,7 +81,8 @@ def _harvest(inst, base_seed, i, sampler, K):
     return S.SAMPLERS[sampler](inst, base_seed + i, K=K), False, None
 
 
-def measure_pointset(rels, domain, n, alpha, n_instances=6, base_seed=880000, sampler="dpll", K=80, instance_fn=None):
+def measure_pointset(rels, domain, n, alpha, n_instances=6, base_seed=880000, sampler="dpll", K=80,
+                     instance_fn=None, reach_radius=None):
     """Point-to-set ξ for an ensemble. Harvest once per instance; sweep TARGET_CAP sampled targets over all radii;
     aggregate the per-radius signal + the BUCKET-POPULATION REPORT (the pre-fit resolution gate). reach_score
     (pinned) = signal at the largest MEASURABLE radius. B1 commits the population report; B2 reads reach_score."""
@@ -99,9 +100,14 @@ def measure_pointset(rels, domain, n, alpha, n_instances=6, base_seed=880000, sa
         rng = E.rng_for("ps-tgt", base_seed, i)
         for tgt in rng.sample(conn, min(TARGET_CAP, len(conn))):
             prof = pointset_profile(inst, sols, tgt)
-            valid = [(r, c) for r, c in prof.items() if c["n_buckets"] >= MIN_BUCKETS]
-            if valid:                                            # per-unit reach = signal at this unit's largest valid r
-                per_unit_reach.append(max(valid, key=lambda rc: rc[0])[1]["signal"])
+            if reach_radius is not None:                          # pinned-radius reach (v22: r=2)
+                c = prof.get(reach_radius)
+                if c and c["n_buckets"] >= MIN_BUCKETS:
+                    per_unit_reach.append(c["signal"])
+            else:                                                # largest-valid-radius reach (v21)
+                valid = [(r, cc) for r, cc in prof.items() if cc["n_buckets"] >= MIN_BUCKETS]
+                if valid:
+                    per_unit_reach.append(max(valid, key=lambda rc: rc[0])[1]["signal"])
             for r, cell in prof.items():
                 pr = per_r.setdefault(r, {"sig": [], "nb": [], "minp": [], "medp": []})
                 pr["sig"].append(cell["signal"]); pr["nb"].append(cell["n_buckets"])
@@ -114,11 +120,15 @@ def measure_pointset(rels, domain, n, alpha, n_instances=6, base_seed=880000, sa
                     "n_obs": len(pr["sig"]), "measurable": bool(measurable)}
     meas = [r for r, c in radii.items() if c["measurable"]]
     rmax = max(meas) if meas else None
+    if reach_radius is not None:
+        rs = radii[reach_radius]["signal"] if (reach_radius in radii and radii[reach_radius]["measurable"]) else None
+    else:
+        rs = radii[rmax]["signal"] if rmax else None
     return {"n": n, "alpha": alpha, "n_instances_used": len(exacts),
             "exact_fraction": round(sum(exacts) / len(exacts), 3) if exacts else None,
             "median_coset": int(st.median(ncoset)) if ncoset else None,
-            "radii": radii, "largest_valid_radius": rmax,
-            "reach_score": radii[rmax]["signal"] if rmax else None,           # PINNED: signal at largest valid radius
+            "radii": radii, "largest_valid_radius": rmax, "reach_radius": reach_radius,
+            "reach_score": rs,           # PINNED: signal at reach_radius (v22: r=2) or largest valid radius (v21)
             "per_unit_reach": [round(x, 4) for x in per_unit_reach],
             "auc_sensitivity": round(st.mean([c["signal"] for c in radii.values() if c["measurable"]]), 4) if meas else None}
 
