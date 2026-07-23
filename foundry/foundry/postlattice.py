@@ -12,7 +12,7 @@ registration anchors. Finer co-clones (0-/1-valid, the S0^k/S1^k threshold chain
 charge profile and are a documented v1.1 extension — never silently dropped.
 """
 from dataclasses import dataclass
-from itertools import product
+from itertools import combinations, product
 
 # Schaefer classes (the declared identity of a co-clone; the oracle verifies it holds)
 AFFINE, HORN, DUAL_HORN, BIJUNCTIVE, NP_HARD = "affine", "horn", "dual-horn", "bijunctive", "np-hard"
@@ -87,6 +87,151 @@ def is_weakly_separable(relations):
                 if _disjoint(t1, t2) and _union(t1, t2) in rel and t1 not in rel:
                     return False
     return True
+
+
+# ── Lattice (G2): relation-level predicates for the KSTW Max-Ones / Min-Ones oracle (L1 §3-6) ──────────────
+# Lattice rows are SINGLE-relation languages, so these classify a single relation (a language = every relation
+# has the property). is_width2affine / is_IHSB are CUT-OUT tests: R has property P iff the conjunction of the
+# P-clauses satisfied by every tuple of R cuts out exactly R. NB `is_2monotone` is deliberately NOT here — it
+# is the Max-CSP/Min-CSP PO condition, not a Max-Ones/Min-Ones one (owner spec-defect #3, Pebble methods thread).
+def _inter(a, b):
+    return tuple(x & y for x, y in zip(a, b))
+
+
+def _cutout(rel, clause_gens):
+    rows = list(rel)
+    n = len(rows[0])
+    held = [fn for _, fn in clause_gens(n) if all(fn(t) for t in rows)]
+    return frozenset(t for t in product((0, 1), repeat=n) if all(fn(t) for fn in held)) == rel
+
+
+def _w2affine_clauses(n):
+    for i in range(n):
+        for c in (0, 1):
+            yield (("u", i, c), (lambda t, i=i, c=c: t[i] == c))
+    for i in range(n):
+        for j in range(i + 1, n):
+            for c in (0, 1):
+                yield (("b", i, j, c), (lambda t, i=i, j=j, c=c: (t[i] ^ t[j]) == c))
+
+
+def is_width2affine(relations):
+    """KSTW PO condition (both axes): every relation cut out by <=2-variable GF(2) equations (x_i=c, x_i^x_j=c)."""
+    return all(_cutout(r, _w2affine_clauses) for r in relations)
+
+
+def is_strongly_0valid(relations):
+    """KSTW Max-Ones poly-APX condition: every relation satisfied by ALL weight-<=1 assignments (0 + every e_i)."""
+    for rel in relations:
+        n = len(next(iter(rel)))
+        if tuple(0 for _ in range(n)) not in rel:
+            return False
+        if any(tuple(1 if j == i else 0 for j in range(n)) not in rel for i in range(n)):
+            return False
+    return True
+
+
+def _ihsb_plus_clauses(n):
+    for r in range(1, n + 1):                                   # positive clauses OR(S), width <= n (= B, finite)
+        for S in combinations(range(n), r):
+            yield (("pos", S), (lambda t, S=S: any(t[i] == 1 for i in S)))
+    for i in range(n):                                          # implications ¬x_i ∨ x_j
+        for j in range(n):
+            if i != j:
+                yield (("imp", i, j), (lambda t, i=i, j=j: t[i] == 0 or t[j] == 1))
+    for i in range(n):                                          # negative units ¬x_i
+        yield (("neg", i), (lambda t, i=i: t[i] == 0))
+
+
+def _is_ihsb_plus(rel):
+    return _cutout(rel, _ihsb_plus_clauses)
+
+
+def _is_ihsb_minus(rel):
+    return _is_ihsb_plus(frozenset(tuple(1 - x for x in t) for t in rel))   # IHS-B- iff complement is IHS-B+
+
+
+def is_IHSB(relations):
+    """KSTW Min-Ones APX condition: the language is uniformly IHS-B+ (all rels) or uniformly IHS-B- (all rels)."""
+    return all(_is_ihsb_plus(r) for r in relations) or all(_is_ihsb_minus(r) for r in relations)
+
+
+# ── Marx Def 2.1 general weak separability (relation-level; faithful on 0-INVALID relations) ────────────────
+# Marx, Comput. Complexity 14 (2005), Definition 2.1 — the GENERAL form. Distinct from is_weakly_separable
+# above, which is the 0-VALID simplified form (Marx Lemma 2.2 / Bulatov-Marx Def 3.2). The census uses the
+# 0-valid form at the CLASS level (correct there); Lattice's SINGLE relations are 0-invalid, so it needs the
+# general Def 2.1. The UNION condition is GUARDED (fires only when the intersection is satisfying) -> does not
+# require or imply 0-validity. Exact-Ones({R}) is FPT iff R is weakly separable (Marx Thm 3.2), else W[1].
+def _xor3(a, b, c):
+    return tuple(x ^ y ^ z for x, y, z in zip(a, b, c))
+
+
+def _proper_subset(a, b):
+    return a != b and all(x <= y for x, y in zip(a, b))
+
+
+def is_weakly_separable_general(relations):
+    """Marx 2005 Def 2.1 (general): (1) guarded union — (x1&x2)∈R ⇒ (x1|x2)∈R; (2) difference — x1⊊x2⊊x3 ⇒
+    (x1^x2^x3)∈R. Language weakly separable iff every relation is. Faithful on 0-invalid relations."""
+    for rel in relations:
+        rows = list(rel)
+        for a in rows:                                          # (1) GUARDED union
+            for b in rows:
+                if _inter(a, b) in rel and _union(a, b) not in rel:
+                    return False
+        for x1 in rows:                                         # (2) difference over proper 3-chains
+            for x2 in rows:
+                if not _proper_subset(x1, x2):
+                    continue
+                for x3 in rows:
+                    if _proper_subset(x2, x3) and _xor3(x1, x2, x3) not in rel:
+                        return False
+    return True
+
+
+def _wsep_unguarded_0valid(relations):
+    """The 0-valid form's UNCONDITIONAL disjoint-union — used ONLY by the guard-discriminator selftest, to prove
+    is_weakly_separable_general is not the unconditional check in disguise."""
+    for rel in relations:
+        rows = list(rel)
+        for a in rows:
+            for b in rows:
+                if _disjoint(a, b) and _union(a, b) not in rel:
+                    return False
+    return True
+
+
+def selftest_lattice_predicates(verbose=False):
+    """Hand-value CI gate for the Lattice relation-level predicates + the guard discriminator. 0 = pass."""
+    OR2 = frozenset({(0, 1), (1, 0), (1, 1)}); NAND = frozenset({(0, 0), (0, 1), (1, 0)})
+    XNE = frozenset({(0, 1), (1, 0)})                            # x≠y, width-2 affine (the diagnostic)
+    XOR3 = frozenset({(0, 0, 0), (0, 1, 1), (1, 0, 1), (1, 1, 0)})
+    OR3 = frozenset(t for t in product((0, 1), repeat=3) if t != (0, 0, 0))
+    UNIT0 = frozenset({(0,)})
+    checks = [
+        ("width2affine XNE", is_width2affine([XNE]), True),
+        ("width2affine XOR3", is_width2affine([XOR3]), False),
+        ("width2affine UNIT0", is_width2affine([UNIT0]), True),
+        ("strongly0valid NAND", is_strongly_0valid([NAND]), True),
+        ("strongly0valid OR2", is_strongly_0valid([OR2]), False),
+        ("IHSB OR2 (+)", is_IHSB([OR2]), True),
+        ("IHSB NAND (-)", is_IHSB([NAND]), True),
+        ("IHSB XOR3", is_IHSB([XOR3]), False),
+        # weak separability (Marx Def 2.1) — ground-truth-checked (BM14 Ex 6.1 / Marx Ex 2.4 / BM14 d-Hitting-Set)
+        ("wsep OR2->FPT", is_weakly_separable_general([OR2]), True),
+        ("wsep NAND->W[1]", is_weakly_separable_general([NAND]), False),
+        ("wsep XNE->FPT", is_weakly_separable_general([XNE]), True),
+        ("wsep XOR3->FPT", is_weakly_separable_general([XOR3]), True),
+        ("wsep OR3->FPT", is_weakly_separable_general([OR3]), True),
+        # GUARD DISCRIMINATOR: on x≠y guarded and unguarded MUST disagree; impl returns the guarded value
+        ("guard XNE guarded=True", is_weakly_separable_general([XNE]), True),
+        ("guard XNE unguarded=False", _wsep_unguarded_0valid([XNE]), False),
+    ]
+    bad = [(n, g, e) for n, g, e in checks if g != e]
+    if verbose or bad:
+        for n, g, e in checks:
+            print(f"  {'ok ' if g == e else 'BAD'} {n}: got={g} exp={e}")
+    return 1 if bad else 0
 
 
 # ── canonical relations (each a frozenset of same-arity tuples) ───────────────────────────────────────────
