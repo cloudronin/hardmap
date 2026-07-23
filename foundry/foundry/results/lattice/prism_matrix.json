@@ -1,0 +1,367 @@
+{
+  "prereg": "v32",
+  "matrix": {
+    "decision x counting": {
+      "raw_v": 0.165,
+      "netted_residual": 0.0,
+      "n_both_real": 90,
+      "shared_inputs": [
+        "affine"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['affine'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "decision x localization": {
+      "raw_v": 1.0,
+      "netted_residual": 0.0,
+      "n_both_real": 90,
+      "shared_inputs": [
+        "0valid",
+        "1valid",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "decision x parallelization": {
+      "raw_v": null,
+      "netted_residual": 0.0,
+      "n_both_real": 83,
+      "shared_inputs": [
+        "0valid",
+        "1valid",
+        "affine",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'affine', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "decision x approx_counting": {
+      "raw_v": 0.192,
+      "netted_residual": 0.0,
+      "n_both_real": 90,
+      "shared_inputs": [
+        "affine",
+        "dualhorn",
+        "horn"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['affine', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "decision x approx_maxones": {
+      "raw_v": 0.983,
+      "netted_residual": 0.0,
+      "n_both_real": 90,
+      "shared_inputs": [
+        "0valid",
+        "1valid",
+        "affine",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'affine', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "decision x approx_minones": {
+      "raw_v": 0.983,
+      "netted_residual": 0.0,
+      "n_both_real": 90,
+      "shared_inputs": [
+        "0valid",
+        "1valid",
+        "affine",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'affine', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "decision x parameterized": {
+      "raw_v": null,
+      "netted_residual": 0.0,
+      "n_both_real": 83,
+      "shared_inputs": [],
+      "derivation": "one charge is a function of the shared inputs [] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "counting x localization": {
+      "raw_v": 0.165,
+      "netted_residual": 0.165,
+      "n_both_real": 90,
+      "shared_inputs": [],
+      "derivation": "conditioned on shared inputs []; residual is the association not forced by them"
+    },
+    "counting x parallelization": {
+      "raw_v": 0.273,
+      "netted_residual": 0.0,
+      "n_both_real": 83,
+      "shared_inputs": [
+        "affine"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['affine'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "counting x approx_counting": {
+      "raw_v": 0.994,
+      "netted_residual": 0.0,
+      "n_both_real": 90,
+      "shared_inputs": [
+        "affine"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['affine'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "counting x approx_maxones": {
+      "raw_v": 0.396,
+      "netted_residual": 0.0,
+      "n_both_real": 90,
+      "shared_inputs": [
+        "affine"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['affine'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "counting x approx_minones": {
+      "raw_v": 0.396,
+      "netted_residual": 0.0,
+      "n_both_real": 90,
+      "shared_inputs": [
+        "affine"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['affine'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "counting x parameterized": {
+      "raw_v": 0.736,
+      "netted_residual": 0.736,
+      "n_both_real": 83,
+      "shared_inputs": [],
+      "derivation": "conditioned on shared inputs []; residual is the association not forced by them"
+    },
+    "localization x parallelization": {
+      "raw_v": null,
+      "netted_residual": 0.0,
+      "n_both_real": 83,
+      "shared_inputs": [
+        "0valid",
+        "1valid",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "localization x approx_counting": {
+      "raw_v": 0.192,
+      "netted_residual": 0.086,
+      "n_both_real": 90,
+      "shared_inputs": [
+        "dualhorn",
+        "horn"
+      ],
+      "derivation": "conditioned on shared inputs ['dualhorn', 'horn']; residual is the association not forced by them"
+    },
+    "localization x approx_maxones": {
+      "raw_v": 0.983,
+      "netted_residual": 0.0,
+      "n_both_real": 90,
+      "shared_inputs": [
+        "0valid",
+        "1valid",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "localization x approx_minones": {
+      "raw_v": 0.983,
+      "netted_residual": 0.0,
+      "n_both_real": 90,
+      "shared_inputs": [
+        "0valid",
+        "1valid",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "localization x parameterized": {
+      "raw_v": null,
+      "netted_residual": 0.0,
+      "n_both_real": 83,
+      "shared_inputs": [],
+      "derivation": "one charge is a function of the shared inputs [] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "parallelization x approx_counting": {
+      "raw_v": 0.336,
+      "netted_residual": 0.0,
+      "n_both_real": 83,
+      "shared_inputs": [
+        "affine",
+        "dualhorn",
+        "horn"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['affine', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "parallelization x approx_maxones": {
+      "raw_v": 0.0,
+      "netted_residual": 0.0,
+      "n_both_real": 83,
+      "shared_inputs": [
+        "0valid",
+        "1valid",
+        "affine",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'affine', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "parallelization x approx_minones": {
+      "raw_v": 0.0,
+      "netted_residual": 0.0,
+      "n_both_real": 83,
+      "shared_inputs": [
+        "0valid",
+        "1valid",
+        "affine",
+        "bijunctive",
+        "dualhorn",
+        "horn"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'affine', 'bijunctive', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "parallelization x parameterized": {
+      "raw_v": 0.311,
+      "netted_residual": 0.311,
+      "n_both_real": 83,
+      "shared_inputs": [],
+      "derivation": "conditioned on shared inputs []; residual is the association not forced by them"
+    },
+    "approx_counting x approx_maxones": {
+      "raw_v": 0.328,
+      "netted_residual": 0.0,
+      "n_both_real": 90,
+      "shared_inputs": [
+        "affine",
+        "dualhorn",
+        "horn"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['affine', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "approx_counting x approx_minones": {
+      "raw_v": 0.328,
+      "netted_residual": 0.0,
+      "n_both_real": 90,
+      "shared_inputs": [
+        "affine",
+        "dualhorn",
+        "horn"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['affine', 'dualhorn', 'horn'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "approx_counting x parameterized": {
+      "raw_v": 0.745,
+      "netted_residual": 0.745,
+      "n_both_real": 83,
+      "shared_inputs": [],
+      "derivation": "conditioned on shared inputs []; residual is the association not forced by them"
+    },
+    "approx_maxones x approx_minones": {
+      "raw_v": 0.476,
+      "netted_residual": 0.0,
+      "n_both_real": 90,
+      "shared_inputs": [
+        "0valid",
+        "1valid",
+        "IHSB",
+        "affine",
+        "bijunctive",
+        "dualhorn",
+        "horn",
+        "strongly0valid",
+        "width2affine"
+      ],
+      "derivation": "one charge is a function of the shared inputs ['0valid', '1valid', 'IHSB', 'affine', 'bijunctive', 'dualhorn', 'horn', 'strongly0valid', 'width2affine'] -> constant within every stratum -> residual 0 (theorem-identity)"
+    },
+    "approx_maxones x parameterized": {
+      "raw_v": 0.314,
+      "netted_residual": 0.314,
+      "n_both_real": 83,
+      "shared_inputs": [],
+      "derivation": "conditioned on shared inputs []; residual is the association not forced by them"
+    },
+    "approx_minones x parameterized": {
+      "raw_v": 0.192,
+      "netted_residual": 0.192,
+      "n_both_real": 83,
+      "shared_inputs": [],
+      "derivation": "conditioned on shared inputs []; residual is the association not forced by them"
+    }
+  },
+  "approx_param_headline": {
+    "raw_v": 0.256,
+    "raw_spearman": 0.019,
+    "n_rows": 166,
+    "boot_ci95_sized_to_classes": [
+      0.148,
+      0.38
+    ],
+    "cai_chen_netted": {
+      "removed_APX_complete_FPT_rows": 11,
+      "netted_v": 0.255,
+      "netted_spearman": -0.005
+    }
+  },
+  "scored_predictions": {
+    "pred_1_NPI": "PASSED (R1)",
+    "pred_2_identity_decision_counting": {
+      "raw_v": 0.165,
+      "netted": 0.0,
+      "verdict": "HIT"
+    },
+    "pred_3a_localization_identity": {
+      "pair": [
+        "localization x approx_counting",
+        "localization x approx_maxones",
+        "localization x approx_minones"
+      ],
+      "bw_x_approx_raw_v": 0.983,
+      "netted": 0.0,
+      "verdict": "HIT (raw>=0.4 & netted~0, entailment finding)"
+    },
+    "pred_3b_bw_param": "UNTESTABLE \u2014 bounded-width constant on the param-real subset (R1 marginal degeneracy)",
+    "pred_4_absorption": "UNTESTABLE \u2014 all both-real rows are bounded-width; one stratum (R1 marginal degeneracy). Needs arity>=4.",
+    "pred_5_outlier_persistence": {
+      "approx_param_netted": 0.256,
+      "max_other_pair_netted": 0.736,
+      "verdict": "MISS"
+    },
+    "pred_6_cai_chen": {
+      "raw_spearman": 0.019,
+      "netted_spearman": -0.005,
+      "raw_v": 0.256,
+      "netted_v": 0.255,
+      "ci": [
+        0.148,
+        0.38
+      ],
+      "verdict": "see values"
+    }
+  },
+  "affine_trace": {
+    "n_affine_classes": 28,
+    "counting": [
+      "FP"
+    ],
+    "approx_maxones": [
+      "APX-complete",
+      "PO"
+    ],
+    "approx_minones": [
+      "Nearest-Codeword-complete",
+      "PO"
+    ],
+    "parameterized": [
+      "FPT"
+    ],
+    "note": "affine -> counting FP, param FPT (off-diagonal), approx varies; the tautology-breaker."
+  }
+}
