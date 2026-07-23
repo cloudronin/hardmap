@@ -1,0 +1,28 @@
+{
+  "prereg": "v25",
+  "n": 18,
+  "n_rows": 60,
+  "n_coclones": 12,
+  "heldout_corr": {
+    "tuple_dispersion_baseline": 0.7448,
+    "plus_reach": 0.8409,
+    "reach_only_standalone": 0.8248
+  },
+  "increment_reach_over_tupledisp": 0.0961,
+  "permutation_p": 0.0,
+  "concentration_per_coclone_reach_vs_ruggedness_residual": {
+    "0v+1v+dhorn": 0.792,
+    "0v+1v+horn": 0.86,
+    "0v+1v+horn+dhorn+bij": 0.301,
+    "0v+1v+horn+dhorn+bij+aff": -1.0,
+    "0v+horn": -0.505,
+    "0v+horn+bij": 0.667,
+    "0v+horn+dhorn+bij+aff": 0.987,
+    "1v+dhorn": 0.469,
+    "1v+dhorn+bij": 0.485,
+    "1v+horn+dhorn+bij+aff": -0.115,
+    "bij": 0.473,
+    "bij+aff": -0.076
+  },
+  "VERDICT": "INCREMENTAL"
+}
