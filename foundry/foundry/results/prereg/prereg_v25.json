@@ -1,0 +1,33 @@
+{
+  "prereg_version": "v25",
+  "project": "Foundry — synthetic census (proof-space line, project 5)",
+  "codename": "Pebble",
+  "role": "P4 — is the point-to-set reach residue TERRAIN-RELEVANT? Tests whether reach predicts measured terrain (ruggedness) INCREMENTALLY over the free tuple_dispersion scalar, held out by co-clone. This is the only part of P3 that could be NEWS rather than confirmation: if reach adds nothing over the free scalar, the honest sprint headline is 'we built a qualified instrument and it tells us what a free relation feature already told us' — a legitimate clean negative. Sealed before measurement.",
+  "extends": "v16 (baseline-to-beat = tuple_dispersion, incremental over it, held out by co-clone) and v24 (the P3 dichotomy + the 0.45 below-algebra residue). v16's principle now applies to the QUALIFIED point-to-set reach, not the disqualified corr.",
+  "committed_before_analysis": true,
+  "committed_before_any_P4_measurement": true,
+
+  "the_test": {
+    "relations": "the bounded-width roster relations (the 44 SHORT reps across the co-clones) — where the P3 within-class residue lives. The affine anchors carry no roster terrain and are out of scope for the incremental test.",
+    "common_density_and_size": "reach (point-to-set r=2) AND ruggedness (solscape landscape_reading) measured at the SAME density (0.6*alpha_struct) and size (n=18), so the two are comparable; tuple_dispersion is a density-free relation property.",
+    "primary_metric_INCREMENTAL": "leave-one-co-clone-out held-out predictive power of reach OVER a tuple_dispersion-only baseline for ruggedness: does adding reach improve held-out prediction (delta-R^2 or delta held-out correlation) beyond a permutation null and the bootstrap noise band? Standalone reach->ruggedness is REPORTED for context but is NOT the pass criterion (v16).",
+    "concentration_check": "does the increment CONCENTRATE in the co-clones with high within-class reach variation (the P3 residue)? Reported per co-clone."
+  },
+
+  "owner_expectation_on_record_sealed_before_running": "reach adds SOMETHING but MODESTLY, and the increment CONCENTRATES in exactly the bounded-width co-clones where the within-class variation lives. Sealed here so it is scored, including if it misses.",
+
+  "outcomes_pre_labelled": {
+    "incremental": "reach adds held-out predictive power over tuple_dispersion beyond the floors -> the below-algebra residue is TERRAIN-RELEVANT; the expensive point-to-set instrument earned its build.",
+    "not_incremental": "reach adds ~nothing over tuple_dispersion -> reach is a SLOWER ROUTE to information the free scalar already carries. The honest headline: a qualified instrument that re-derives what a free relation feature already told us. A legitimate, clean, useful NEGATIVE.",
+    "inconclusive": "the increment is within the bootstrap noise band -> declared on measurement quality (the P1 discipline)."
+  },
+
+  "standing_discipline": [
+    "prereg (this v25) sealed before P4 measurement",
+    "pass criterion = INCREMENTAL over tuple_dispersion, held out by co-clone, over a permutation null; standalone reported not the criterion",
+    "reach + ruggedness at a common density/size for comparability; tuple_dispersion is density-free",
+    "owner expectation (modest increment, concentrated in bounded-width) sealed before running; scored including a miss",
+    "three outcomes pre-labelled; not-incremental is an honest positive-for-the-program negative-for-the-instrument, not a failure",
+    "eightfold byte-identical (foundry-side only)"
+  ]
+}
