@@ -1,0 +1,33 @@
+{
+  "prereg": "v31",
+  "n_raw_relations": 270,
+  "n_symmetry_classes": 90,
+  "n_rows": 180,
+  "n_both_real": 166,
+  "n_distinct_profiles": 9,
+  "param_marginal": {
+    "FPT": 80,
+    "W[1]": 86
+  },
+  "occupancy": {
+    "APX-complete x FPT": 11,
+    "APX-complete x W[1]": 4,
+    "Nearest-Codeword-complete x FPT": 1,
+    "PO x FPT": 64,
+    "PO x W[1]": 62,
+    "decidable-not-approximable x FPT": 1,
+    "decidable-not-approximable x W[1]": 4,
+    "poly-APX-complete x FPT": 3,
+    "poly-APX-complete x W[1]": 16
+  },
+  "cramers_v": 0.25550620869237944,
+  "cramers_v_boot_ci95_sized_to_classes": [
+    0.13,
+    0.398
+  ],
+  "spearman_direction": 0.019,
+  "verdict": "COUPLING PRESENT over the natural generated Boolean proxy universe",
+  "effective_n_note": "V's CI is bootstrapped over the 166 symmetry-class both-real rows (independent observations), NOT the 270 raw arity<=3 relations.",
+  "scope": "natural coupling over the reachable PROXY universe (single-relation Boolean, 2 objectives); population-scoped; comparable to 0.73 on the curated-vs-generated axis only.",
+  "SEALED_PREDICTION_was": "present+positive, weaker than 0.73 (V~0.15-0.35), ~55% conf"
+}
