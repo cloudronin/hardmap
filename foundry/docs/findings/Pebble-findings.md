@@ -105,6 +105,18 @@ instrument doesn't measure the target construct) are different species. The firs
 measurement's verdict; the second is caught by asking whether the measurement measures the thing at all — and the
 program's own tests can encode the second before anyone reads it. Both were caught by measurement, neither by review.
 
+**Running thread — post-Pebble additions.**
+- **Owner specification defect #3 — the `is_2monotone` predicate-list error** (Lattice / G2, L1 sourcing memo
+  `3773b6f`, 2026-07-23). The G2 build plan's predicate list named `is_2monotone` as "the single most load-bearing new
+  classifier," but 2-monotone is the PO condition for **Max-CSP / Min-CSP** (KSTW Thm 2.11 / 2.13), *not* for the
+  **Max-Ones / Min-Ones** objectives Lattice actually uses (Thm 2.12 / 2.14). Building it would have produced a
+  classifier that **never fires** on this roster; the predicates the theorems require are `is_width2affine`,
+  `is_strongly_0valid`, and `is_IHSB`. **This one was caught by the L1 R20 sourcing gate — pinning the classification
+  from the primary source before writing a line of oracle — and so is the first of the three caught by *review* rather
+  than by measurement.** It amends the lesson above ("neither by review"): the I-phase sourcing gate the program now
+  runs before every build made its first catch, at zero measurement cost, before the wrong predicate was written. A
+  specification error is cheapest when the source that refutes it is consulted before the build, not after the run.
+
 ## Program status (against the test map)
 
 - **Tier 1 (does the expensive instrument earn its existence?)** — **answered.** Qualified and characterized; earns a
