@@ -38,7 +38,7 @@ def main():
             key = (s, obj)
             if key not in selected:
                 selected[key] = {"stratum": s, "objective": obj, "arity": a, "bitmask": mask,
-                                 "relation": sorted(sorted(t) for t in rel),
+                                 "relation": [list(t) for t in sorted(rel)],   # sort tuples lex; do NOT sort within
                                  "name": KNOWN.get(rel, f"rel_a{a}_m{mask}")}
 
     rows = [selected[(s, o)] for s in STRATA for o in (OO.MAX_ONES, OO.MIN_ONES) if (s, o) in selected]

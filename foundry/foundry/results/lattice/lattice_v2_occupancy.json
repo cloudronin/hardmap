@@ -1,0 +1,92 @@
+{
+  "prereg": "v30",
+  "roster_committed_first": "lattice_v2_roster.json (prior commit)",
+  "n_rows": 10,
+  "n_both_real": 8,
+  "n_distinct_profiles": 6,
+  "floor_profiles": 6,
+  "both_param_values_present": [
+    "FPT",
+    "W[1]"
+  ],
+  "empty_cells_at_arity3": [
+    "Nearest-Codeword-complete x max-ones",
+    "Min-Horn-Deletion-complete x max-ones",
+    "Min-Horn-Deletion-complete x min-ones",
+    "decidable-not-approximable x min-ones"
+  ],
+  "verdict": "RESOLVED \u2014 Wall 3 breached: the generated Boolean universe CAN exhibit the gradient (association given uniform approx coverage is readable)",
+  "resolved": true,
+  "occupancy": {
+    "APX-complete x FPT": 2,
+    "Nearest-Codeword-complete x FPT": 1,
+    "PO x FPT": 2,
+    "decidable-not-approximable x FPT": 1,
+    "poly-APX-complete x FPT": 1,
+    "poly-APX-complete x W[1]": 1
+  },
+  "rows": [
+    {
+      "name": "rel_a1_m1",
+      "objective": "max-ones",
+      "approximation": "PO",
+      "parameterized": "FPT"
+    },
+    {
+      "name": "rel_a1_m1",
+      "objective": "min-ones",
+      "approximation": "PO",
+      "parameterized": "FPT"
+    },
+    {
+      "name": "XOR3(=0)",
+      "objective": "max-ones",
+      "approximation": "APX-complete",
+      "parameterized": "FPT"
+    },
+    {
+      "name": "OR2(x\u2228y)",
+      "objective": "min-ones",
+      "approximation": "APX-complete",
+      "parameterized": "FPT"
+    },
+    {
+      "name": "NAND(\u00acx\u2228\u00acy)",
+      "objective": "max-ones",
+      "approximation": "poly-APX-complete",
+      "parameterized": "W[1]"
+    },
+    {
+      "name": "rel_a3_m134",
+      "objective": "min-ones",
+      "approximation": "poly-APX-complete",
+      "parameterized": "FPT"
+    },
+    {
+      "name": "XOR3(=1)",
+      "objective": "min-ones",
+      "approximation": "Nearest-Codeword-complete",
+      "parameterized": "FPT"
+    },
+    {
+      "name": "rel_a3_m41",
+      "objective": "max-ones",
+      "approximation": "decidable-not-approximable",
+      "parameterized": "FPT"
+    },
+    {
+      "name": "rel_a3_m22",
+      "objective": "max-ones",
+      "approximation": "feasibility-hard",
+      "parameterized": "open"
+    },
+    {
+      "name": "rel_a3_m22",
+      "objective": "min-ones",
+      "approximation": "feasibility-hard",
+      "parameterized": "open"
+    }
+  ],
+  "secondary_cramers_v": 0.0,
+  "cramers_v_caveat": "STRATIFIED SAMPLING on the approximation axis: this V measures association GIVEN deliberately uniform approximation coverage, NOT a natural-population association. NOT magnitude-comparable to the canon's 0.73 (curated-but-not-stratified). Both are Cramer's V; the numbers are not comparable as magnitudes."
+}
