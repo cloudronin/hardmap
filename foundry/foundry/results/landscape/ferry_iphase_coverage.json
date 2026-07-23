@@ -1,0 +1,152 @@
+{
+  "n_gradient": 47,
+  "n_csp_local": 16,
+  "n_na": 31,
+  "csp": [
+    {
+      "row": "sat-3",
+      "relation": "OR-3",
+      "disp": 0.571,
+      "approx": "APX-complete",
+      "param": "FPT"
+    },
+    {
+      "row": "vertex-cover",
+      "relation": "OR-2",
+      "disp": 0.667,
+      "approx": "APX-complete",
+      "param": "FPT"
+    },
+    {
+      "row": "clique",
+      "relation": "NAND-2",
+      "disp": 0.667,
+      "approx": "inapprox",
+      "param": "W[1]"
+    },
+    {
+      "row": "independent-set",
+      "relation": "NAND-2",
+      "disp": 0.667,
+      "approx": "inapprox",
+      "param": "W[1]"
+    },
+    {
+      "row": "graph-3-coloring",
+      "relation": "neq-3",
+      "disp": 0.8,
+      "approx": "inapprox",
+      "param": "FPT"
+    },
+    {
+      "row": "max-cut",
+      "relation": "XOR-2",
+      "disp": 1.0,
+      "approx": "APX-complete",
+      "param": "FPT"
+    },
+    {
+      "row": "nae-sat",
+      "relation": "NAE-3",
+      "disp": 0.6,
+      "approx": "APX-complete",
+      "param": "FPT"
+    },
+    {
+      "row": "one-in-three-sat",
+      "relation": "1-in-3",
+      "disp": 0.667,
+      "approx": "APX-complete",
+      "param": "FPT"
+    },
+    {
+      "row": "max-2lin",
+      "relation": "2-affine",
+      "disp": 1.0,
+      "approx": "APX-complete",
+      "param": "FPT"
+    },
+    {
+      "row": "planar-3-coloring",
+      "relation": "neq-3",
+      "disp": 0.8,
+      "approx": "APX",
+      "param": "FPT"
+    },
+    {
+      "row": "connected-vertex-cover",
+      "relation": "OR-2",
+      "disp": 0.667,
+      "approx": "APX-complete",
+      "param": "FPT"
+    },
+    {
+      "row": "capacitated-vertex-cover",
+      "relation": "OR-2",
+      "disp": 0.667,
+      "approx": "APX-complete",
+      "param": "FPT"
+    },
+    {
+      "row": "partial-vertex-cover",
+      "relation": "OR-2",
+      "disp": 0.667,
+      "approx": "APX-complete",
+      "param": "W[1]"
+    },
+    {
+      "row": "max-directed-cut",
+      "relation": "XOR-2",
+      "disp": 1.0,
+      "approx": "APX-complete",
+      "param": "FPT"
+    },
+    {
+      "row": "planar-vertex-cover",
+      "relation": "OR-2",
+      "disp": 0.667,
+      "approx": "PTAS",
+      "param": "FPT"
+    },
+    {
+      "row": "planar-independent-set",
+      "relation": "NAND-2",
+      "disp": 0.667,
+      "approx": "PTAS",
+      "param": "FPT"
+    }
+  ],
+  "na_rows": [
+    "sat",
+    "tsp",
+    "knapsack",
+    "set-cover",
+    "dominating-set",
+    "feedback-vertex-set",
+    "steiner-tree",
+    "longest-path",
+    "subset-sum",
+    "bin-packing",
+    "makespan-scheduling",
+    "metric-tsp",
+    "edge-coloring",
+    "multiway-cut",
+    "three-dimensional-matching",
+    "cluster-editing",
+    "maximum-common-subgraph",
+    "edge-dominating-set",
+    "hitting-set",
+    "maximum-leaf-spanning-tree",
+    "prize-collecting-steiner-tree",
+    "feedback-arc-set-tournament",
+    "kemeny-rank-aggregation",
+    "k-set-packing",
+    "group-steiner-tree",
+    "treedepth",
+    "densest-k-subgraph",
+    "cluster-vertex-deletion",
+    "d-hitting-set",
+    "bin-covering",
+    "planar-dominating-set"
+  ]
+}
