@@ -1,0 +1,44 @@
+{
+  "prereg": "v14/v13/v26",
+  "n": 15,
+  "densities": [
+    0.5,
+    0.7
+  ],
+  "ceiling": 0.9,
+  "scalar_declared": "tuple_dispersion",
+  "structural_features": [
+    "spectral_gap",
+    "expansion_proxy",
+    "degree_mean",
+    "degree_var",
+    "treewidth_ub"
+  ],
+  "per_density": {
+    "0.5": {
+      "n_rows": 48,
+      "R_star_split_half": 0.898,
+      "ho_scalar_only": 0.8001,
+      "ho_full_scalar_plus_structural": 0.8231,
+      "ho_full_unclipped_sensitivity": 0.8218,
+      "ho_structural_only_T1_3": -0.0056,
+      "rho_vs_ceiling": 0.917,
+      "increment_geometry_over_scalar": 0.023,
+      "perm_p": 0.0,
+      "sealed_verdict": "SCALARIZABLE"
+    },
+    "0.7": {
+      "n_rows": 46,
+      "R_star_split_half": 0.939,
+      "ho_scalar_only": 0.8089,
+      "ho_full_scalar_plus_structural": 0.8116,
+      "ho_full_unclipped_sensitivity": 0.7929,
+      "ho_structural_only_T1_3": 0.114,
+      "rho_vs_ceiling": 0.865,
+      "increment_geometry_over_scalar": 0.0028,
+      "perm_p": 0.0,
+      "sealed_verdict": "PARTIAL"
+    }
+  },
+  "owner_odds_scalarizable": 0.35
+}
