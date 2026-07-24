@@ -59,3 +59,14 @@ The frozen `atlas.jsonl` carries `code_commit: uofa-lab@55c7df5` (preserved byte
 | desert-map | prereg_v1.json | `55c7df5ae` | `3581db30a` | 2026-07-20 | ok |
 
 **43 sealed preregs; 43 resolve to a public commit, 0 pruned.**
+
+## Native hardmap seals (post-migration)
+
+Specs and preregs authored directly in `hardmap` — *after* the `uofa-lab` extraction —
+were never in `uofa-lab`, so no old→new hash resolution applies: the seal **is** the
+hardmap commit SHA that introduced the artifact, committed before any analysis ran
+against it (`sealed-before-measured`).
+
+| investigation | artifact | sealed (hardmap) | date | status |
+|---|---|---|---|---|
+| Quarry v1 | `eightfold/docs/specs/quarry-v1-row-expansion-spec.md` | `f74023ac4` | 2026-07-23 | ok — sealed before K1 analysis (spec sha256 `6fd3626b…`) |
