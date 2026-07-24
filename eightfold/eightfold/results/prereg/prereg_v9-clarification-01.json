@@ -1,0 +1,31 @@
+{
+  "clarification_of": "prereg_v9",
+  "clarification_id": "01",
+  "date": "2026-07-24",
+  "kind": "definitional clarification — NOT an amendment; no bet text in prereg_v9 is edited, added, or removed",
+  "owner_ruling": true,
+  "note": "prereg_v9 kill_thresholds.funnel_poisoning_V2 says a source funnel whose confirm shows 'error > 15%' is quarantined. The V2 confirm-pass (2026-07-23) surfaced that the outcome flips entirely on what counts as an error: counting citation-completeness misses (CITE) as errors quarantines 5 of 6 funnels; counting only wrong-value verdicts quarantines none. The term was undefined at seal time. This companion note fixes the definition; it does not change the threshold, the bets, or any decision rule.",
+
+  "definition": {
+    "error_for_kill_criterion_1": "FIX + OPEN only — a verdict that the drafted VALUE is wrong (FIX) or cannot be established at all (OPEN).",
+    "excluded": "CITE — the value is correct but the cited work does not establish it (wrong/one-sided/mis-attributed citation).",
+    "rationale": "The quarantine exists to stop a funnel that supplies WRONG FACTS. A right value with an incomplete citation is debt, not poison; it is mechanically repairable (add the hardness-side reference, split a merged citation) without re-deriving the fact."
+  },
+
+  "companion_rule_freeze_gate": {
+    "rule": "NO cell enters the V3 freeze with an unresolved CITE.",
+    "rationale": "Check-9 is the atlas's identity. At freeze time a value whose citation does not establish it is indistinguishable from uncited folklore with extra steps. CITE debt therefore does not kill funnels, but it MUST be cleared before freeze.",
+    "enforcement": "V3 finalizer gate, alongside the existing 'no cells still `claimed`' gate."
+  },
+
+  "applied_to_the_2026_07_23_confirm_pass": {
+    "cells_confirmed": 272,
+    "verdicts": {"OK": 212, "CITE": 47, "FIX": 9, "OPEN": 4},
+    "value_error_rate_overall": "4.8% (13/272)",
+    "per_funnel_value_error_rate": {"ck": "2.6%", "df": "8.3%", "dh": "14.3%", "ghr": "0.0%", "rn": "5.3%", "su": "0.0%"},
+    "quarantine_outcome": "NO funnel exceeds the 15% line; worst is dh at 14.3%. Broad scope stands, kill-criterion 1 intact and now precisely defined.",
+    "cite_debt_outstanding": "47 cells — must be cleared before V3 per the companion rule above."
+  },
+
+  "unchanged": "Every bet (B1-B6), decision rule, population definition, and the other kill thresholds in prereg_v9 stand verbatim. The frozen atlas.jsonl (6d53a4f1...) and atlas_v2.jsonl (784f4739...) remain byte-identical. Locking rule still holds: a changed PREDICTION would require prereg_v10, never an edit; this note changes no prediction."
+}

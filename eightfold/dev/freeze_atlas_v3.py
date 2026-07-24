@@ -47,6 +47,36 @@ def main():
         print("(Use --dry-run --allow-claimed to rehearse the freeze.)", file=sys.stderr)
         return 2
 
+    # --- CITE-debt gate (prereg_v9-clarification-01, 2026-07-24) ---
+    # No cell enters the freeze with an unresolved CITE: Check-9 is the atlas's identity, and at
+    # freeze time a value whose citation does not establish it is folklore with extra steps.
+    cdir = os.path.join(ATLAS_DIR, "v3-confirm")
+    cites = []
+    if os.path.isdir(cdir):
+        cur = {}
+        for l in v3:
+            r = json.loads(l)
+            for c in r["charges"]:
+                cur[(r["problem_id"], c["charge"])] = (c.get("provenance") or {}).get("citation", "")
+        for fn in sorted(os.listdir(cdir)):
+            if not fn.startswith("verdicts"):
+                continue
+            for v in json.load(open(os.path.join(cdir, fn))):
+                if v.get("verdict", "").upper() != "CITE":
+                    continue
+                key = (v["problem_id"], v["charge"])
+                want = (v.get("corrected_citation") or "").strip()
+                if want and want[:40] not in (cur.get(key) or ""):
+                    cites.append(f"{v['problem_id']}/{v['charge']}")
+    if cites and not a.allow_claimed:
+        print(f"\nREFUSING TO FREEZE: {len(cites)} unresolved CITE cells (citation does not establish "
+              f"the value).", file=sys.stderr)
+        print("  " + ", ".join(sorted(cites)[:8]) + (" ..." if len(cites) > 8 else ""), file=sys.stderr)
+        print("Apply the corrected citations from results/atlas/v3-confirm/ first.", file=sys.stderr)
+        return 4
+    if cites:
+        print(f"[dry run] {len(cites)} CITE cells still unresolved (would block a real freeze)")
+
     # --- dedup guard: kernel ids must not collide with v3-new ids ---
     kids = {json.loads(l)["problem_id"] for l in kernel}
     vids = [json.loads(l)["problem_id"] for l in v3]

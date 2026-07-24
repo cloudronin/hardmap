@@ -60,11 +60,24 @@ single_charge). The battery reads this sidecar to decompose any v2→v3 statisti
 All cells enter `claimed`. Before freeze, an **owner** tiered confirm-pass, sized to the measured
 per-column error model:
 
+> **AMENDED 2026-07-24 (owner ruling) — sampling retired.** The V2 confirm-pass measured error rates
+> that are **flat across tiers**: reliable 22.2%, judgment-heavy 22.1%, dear 21.4%. The "reliable"
+> tier was an artifact of the K3 pilot's n=6, not a real property of those columns. Sampling is
+> therefore retired: **every cited cell gets a full second pass.** The measured confirm cost
+> (~28.6 s/cell) makes full coverage affordable. The tier table below is retained for *sequencing and
+> QC intensity* — it still says which columns are dear — but no longer gates coverage.
+
 | Tier | Columns | Confirm requirement before freeze |
 |---|---|---|
-| **Reliable** (0 corrections in the K3 pilot) | `decision` (NP-level), `parallelization` | **Sampled:** owner hand-checks a sealed random 15% per source funnel; if sample error > 5%, that funnel escalates to full confirm |
-| **Judgment-heavy** | `approximation` (currency + UGC-conditional), beyond-NP `decision` (the Σ₂ᵖ↔Π₂ᵖ trap) | **Full owner confirm** of every cell |
-| **Dear** | `counting` (F-1 per-problem bar) | **Full owner confirm**; `open` downgrades expected and unlamented |
+| **Reliable** (measured 22.2% err — the label is historical) | `decision` (NP-level), `parallelization` | ~~Sampled 15%~~ → **Full second pass** (amended 2026-07-24) |
+| **Judgment-heavy** (22.1% err) | `approximation` (currency + UGC-conditional), beyond-NP `decision` (the Σ₂ᵖ↔Π₂ᵖ trap) | **Full confirm** of every cell |
+| **Dear** (21.4% err, but 0 value errors — F-1 held) | `counting` (F-1 per-problem bar) | **Full confirm**; `open` downgrades expected and unlamented |
+
+**Kill-criterion 1 error definition (clarified 2026-07-24, `prereg_v9-clarification-01.json`):** only
+`FIX` + `OPEN` (wrong or unestablishable VALUE) count toward the 15% quarantine line; `CITE`
+(citation doesn't establish a correct value) does not. **But no cell enters the V3 freeze with an
+unresolved CITE** — Check-9 is the atlas's identity, and at freeze time an unestablished value is
+folklore with extra steps.
 
 Confirm **wall-clock logged per sitting** (the measurement K4 declined to invent, taken here on the
 real work). Surviving cells flip to `confirmed`; failing cells are corrected or opened, the error
