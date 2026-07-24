@@ -112,5 +112,6 @@
     "vocabulary gap": "no value in the vocab was correct — resolved by extension, not by forcing a rung (2 cells)",
     "object drift": "canonical_task drifted away from the problem_id; neither value was verified against the right object (1 cell)",
     "citation insufficient": "value right, warrant below the pin (1 cell, discharged)"
-  }
+  },
+  "why_this_file_matters": "The atlas records what THE FIELD established. The errata records what CHECKING establishes — including against ourselves. E1: eight of nine defective cells from one unexamined inference (a lower bound read as ruling out the upper side), caught by machinery built AFTER the artifact shipped, corrected forward, frozen bytes untouched. When the writeup happens, in whatever form, this file is the methods argument made physical."
 }

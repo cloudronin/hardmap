@@ -50,6 +50,37 @@ itself**, fanning one defect into many rows in minutes. Automation multiplies a 
 assertion by the fan-out width. The mitigation is not less fan-out but a gate on what enters a prompt:
 see the Instance-6 lesson.
 
+## Instance 8 — 2026-07-24 — a *written* constraint under-read (the inverse of 1–7), caught by the suite
+
+**What happened.** The owner ruled: add a `superpoly-APX` rung *"in the **v3** vocabulary."* The agent
+added it to the **shared kernel** vocabulary (`charges.py`). The frozen suite went **79 passed → 3
+failed** (`test_factors::test_planted_recovered_null_quiet_rule_wellformed`,
+`::test_null_parsimony_quiet_even_when_argmax_noisy`, +1). Reverted; suite green, `atlas.jsonl`
+`6d53a4f1…` untouched. Correct design recorded in `prereg_v9-clarification-02`.
+
+**Why it is the inverse of instances 1–7.** Those were *constraints supplied where none was written* —
+an invented verification budget, a row-count cap, a narrowing recommendation, a resurrected preprint
+gate, a prompt hint asserted as fact. This one is the mirror image: **a constraint that WAS written,
+under-read.** "v3 vocabulary" scoped the change explicitly; the implementer widened it. Both failure
+directions have the same remedy — read the scope that is written, and supply none that isn't.
+
+**What the failure taught, independent of the error.** **The vocabulary is not metadata; it is part of
+the instrument.** The factors estimators size their one-hot indicator matrix from the charge
+vocabulary, so a vocabulary edit *is* an instrument edit. A kernel vocab change would have silently
+perturbed the **v2** instrument and confounded the very v2-vs-v3 comparison clarification-02 exists to
+protect. The v3-scoped `ChargeSpec` is therefore not a workaround but the architecturally correct
+design: v2's instrument frozen in the kernel, v3's scoped beside it, comparisons always dual-coded.
+
+**The catch is the other half of the entry, and it is not a near-miss.** The frozen test suite did its
+one job. The additive invariant exists precisely because implementers — human or agent — will
+sometimes read "v3 vocabulary" as "the vocabulary." **The test suite is the Check-9 of code changes.**
+
+**Instructive pair with instance 6.** Instance 6 was a defect that reached four rows because *no gate
+existed on drafting prompts*. Instance 8 was a defect that reached zero rows because *a gate existed on
+code*. Same class of error, opposite outcomes, and the difference is entirely whether a mechanical
+check stood between the assertion and the artifact. The remedy for instance 6 is to build the missing
+gate, not to try harder.
+
 ---
 
 ## Delegation protocol — the authority boundary held under pressure (2026-07-24)
