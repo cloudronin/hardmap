@@ -20,21 +20,64 @@ deterministic) · **result:** `results/atlas/atlas_v3_bets_v4.json`.
 | **B5** folklore gap | ✓ holds | published-proof fraction **0.18** vs v2's 0.31 — gap widened |
 | **B6** funnel homogeneity | ✓ holds (weak) | no rn outlier; rn-present **0.39** > rn-absent **0.10** |
 
-## B1 — the gradient is substantially roster-composition (the prereg's payoff)
+## B1 — the gradient does not reproduce out-of-sample (the prereg's payoff)
 
-The v2 hardness gradient — the approximation↔parameterized coupling at **Cramér's V = 0.73** that has been
-a headline structural finding — **does not reproduce on the broad expansion.** On v3-new's 42 both-real
-pairs the association is **V = 0.31 uncorrected, 0.0 after the Bergsma sparse-table correction** — both
-below v2's 95% bootstrap CI lower bound of 0.53, under both the v3 9-rung and v2-collapsed 8-rung codings
-(clarification-02; identical here). The bet named this outcome acceptable in advance: *"movement outside
-the CI ⇒ the v2 gradient was partly roster-composition, decomposed by funnel (B6) — a finding either way."*
+> **Revised 2026-07-24 (owner ruling, post-commit).** The original section committed at `794c43d` read
+> the falsification as roster-composition simpliciter ("not a universal law"). That reading survives but
+> is under-determined: it is confounded with a *recruitment-composition* alternative, and both must sit on
+> the record. The scorecard does not move — B1 is falsified either way. The interpretation gains the
+> composition table and the three-population arc below.
 
-**This is the out-of-sample prereg doing its job.** A sealed bet, scored on rows drawn after it was
-committed, **falsified a comfortable prior finding.** The gradient is not a universal law of the hardness
-landscape; it is concentrated in the canonical-problem roster v2 sampled. B6 localizes it: the in-network
-(rn-present) rows retain **V = 0.39**, the broad remainder only **0.10**. The value of B1 not holding is
-higher than if it had — it converts "hardness charges couple" from an assumed law into a
-roster-conditional observation with a measured decomposition.
+The v2 hardness gradient — the approximation↔parameterized coupling at **Cramér's V = 0.73**, a headline
+structural finding — **does not reproduce on the broad expansion.** On v3-new's 42 both-real pairs the
+association is **V = 0.31 uncorrected, 0.0 after the Bergsma sparse-table correction** — both below v2's
+95% bootstrap CI lower bound of 0.53, under both the v3 9-rung and v2-collapsed 8-rung codings
+(clarification-02; identical here). The bet named this acceptable in advance: *"movement outside the CI ⇒
+the v2 gradient was partly roster-composition, decomposed by funnel — a finding either way."* A sealed bet,
+scored on rows drawn after it was committed, falsified a comfortable prior. **v3 is `roster-conditional`.**
+
+### Two readings, both live
+
+The drop admits two explanations, and the data does not yet separate them:
+
+- **Roster-composition** — the expansion *problems* genuinely couple approximation and parameterized more
+  weakly than the canonical core did. The gradient was a property of *which problems* v2 sampled.
+- **Recruitment-composition** — the low V is (partly) an artifact of *which cells* happen to carry both a
+  real approximation AND a real parameterized value. The both-real subset is not a random sample of the
+  population; the expansion recruited a compositionally different 42.
+
+The composition table shows the recruitment genuinely differs — this is not a tie-breaker for either
+reading, it is the reason both stay live:
+
+| | v2 both-real (n=47) | v3-new both-real (n=42) |
+|---|---|---|
+| top approx value | **APX-complete 49%** (tight) | poly-APX 31% (spread; no value > 31%) |
+| top param value | **FPT 79%** (tight) | FPT 48% (spread) |
+| param categories | FPT / W[1] / W[2]+ | **+ para-NP-hard (5)** — absent from v2's both-real |
+
+v2's both-real is a concentrated APX-complete×FPT block, and a concentrated joint distribution *mechanically*
+produces high Cramér's V; v3-new's is dispersed across the grid with a new para-NP-hard column. So "the
+gradient washed out" is entangled with "the both-real recruitment de-concentrated." Separating them needs a
+recruitment-controlled resample (v3.1 work), not another bet.
+
+### The three-population arc — coupling concentrates with canon-proximity
+
+Placing v2, v3-new's two rn strata, and the generated-universe baseline on one axis, the coupling tracks
+**proximity to the canonical core**:
+
+| stratum | approx↔param V | canon-proximity |
+|---|---|---|
+| canon core (v2 full) | **0.73** | highest |
+| in-network (v3-new, rn-present) | **0.39** | high |
+| natural universe (`natural.v3.v`, generated) | **0.26** | baseline |
+| periphery (v3-new, rn-absent) | **0.10** | lowest |
+
+The periphery sits *below* the natural-universe baseline: the broad expansion's non-canonical rows couple
+these two charges less than a randomly generated universe does. This is a gradient-of-the-gradient — the
+coupling is not absent from the landscape, it **concentrates as you approach the canonical core**. That is
+a stronger and more specific statement than "roster-conditional," and it is what the falsification buys:
+"hardness charges couple" was never a universal law; it is a canon-proximity effect, measured on four
+populations. **"Not a universal law" now sits next to its confound, not in front of it.**
 
 ## B2 — incompressibility survives at scale
 
@@ -83,9 +126,10 @@ pooled association is weak (B1), so the "homogeneity" holds over not-much-signal
 ## What V4 establishes
 
 The expansion **held four structural findings** (incompressibility, NPI calibration, forbidden-cell
-integrity, the folklore gap) and **falsified one** (the hardness gradient is roster-conditional, not
-universal). One bet (B6) holds only weakly, as a consequence of the one that failed. That is a healthy
-out-of-sample result: the atlas's *invariants* (k*=1, the entailment layer, the folklore gap) are robust
-to a 3× roster change, while its *contingent* structure (the approx↔param gradient) is correctly exposed
-as roster-dependent. Every number is reproducible via `hardmap repro` (manifest claims `canon.*.v3new`);
+integrity, the folklore gap) and **falsified one** (the approx↔param gradient is a canon-proximity effect,
+not a universal law — with the roster-vs-recruitment confound and the four-population arc kept live on the
+record, per the 2026-07-24 revision). One bet (B6) holds only weakly, as a consequence of the one that
+failed. That is a healthy out-of-sample result: the atlas's *invariants* (k*=1, the entailment layer, the
+folklore gap) are robust to a 3× roster change, while its *contingent* structure (the approx↔param
+gradient) is correctly exposed as concentrating with canonical-proximity rather than holding universally. Every number is reproducible via `hardmap repro` (manifest claims `canon.*.v3new`);
 none is owner-confirmed, and the trust-label line travels with each.

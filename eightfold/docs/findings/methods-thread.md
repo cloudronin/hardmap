@@ -256,6 +256,48 @@ promotion becomes a rolling v3.1 spot-check, never a freeze blocker; if it surfa
 they ride the errata protocol. The per-version trust-label distribution is published so no reader
 mistakes `frozen` for `owner-confirmed` (see `trust-labels.md`). Recorded in `freeze_atlas_v3.py`.
 
+## Instance 13 — 2026-07-24 — a correction issued at the wrong SCOPE (over-refuting a sound claim)
+
+**What happened.** In the H4 exchange the owner said: *landscape cells are `measured`, so they audit as
+manifests (seeds/hashes/instrument qualification) rather than theorems* — prompted by the worksheet's one
+uncited cell, which turned out to be exactly the single `measured` cell in the frozen kernel
+(`random-3sat-refutation`). The agent checked the column, found 9 of 10 landscape cells are `claimed` with
+literature citations, and reported this as *"a framing claim of yours that didn't hold against the data."*
+
+**Why that characterization was itself wrong, and scoping is the lesson.** The owner's *protocol logic* was
+sound and remains correct per cell status: a `measured` cell audits as a manifest, a cited cell audits by
+Check-9. The only thing off was the empirical premise that the *whole column* is `measured` — and even
+that was a reasonable inference, since the one uncited cell the agent surfaced first was the measured one.
+The correct correction is narrow: **the landscape column also contains cited, theorem-grade cells** (XOR-SAT's
+OGP result and kin), so the column is mixed, not uniformly measured. The audit-split is untouched. Reporting
+this as "the framing didn't hold" refuted the sound part along with the narrow empirical slip.
+
+**Lesson.** When correcting a claim, cut the correction to exactly what is wrong. A claim of the form "X,
+therefore Y" can have a true implication (Y-per-case) and a false premise (X-for-all); refute the premise
+at its actual scope, not the whole sentence. Over-refutation discards correct structure and misattributes
+error. (The mirror of instance 12, where a constraint was *under*-inspected; here a claim was *over*-refuted.)
+
+## Self-catch latency — 2026-07-24 — two scorer errors died PRE-REPORT (the positive pattern)
+
+Recorded because the thread has been a ledger of defects, and this is the trend line bending the right way.
+
+Building the V4 bet-scorer, the agent shipped two bugs and **caught both before reporting them to the owner**:
+- **B5's denominator** — computed cited/resolved (14/14 = 1.0) when the folklore-gap metric is
+  resolved/applicable (14/77 = 0.18). Caught by noticing 1.0 was not a plausible "fraction with a published
+  proof" and re-deriving the denominator from the bet text.
+- **B4's vacuous parser** — the cell-format parser returned nothing for all 123 gap cells and all 16
+  theorem-forbidden cells, so *"0 violations"* was checking **nothing**. Caught by treating a suspiciously
+  clean result as a **bug hypothesis first**: "0 of 123 classified" is the most dangerous shape of green —
+  a pass that passed because the test never ran.
+
+**Why it belongs in the thread.** Instances 6–11 were defects that reached rows, reports, or published
+Limitations sections before anything caught them. These two died at the workbench. The self-catch latency
+— the gap between committing an instance-class error and killing it — is dropping: pre-publication in the
+early instances, **pre-report** here. The two mechanical habits that did it are cheap and general:
+*a computed number that lands on a suspiciously round or extreme value is a bug hypothesis until re-derived*,
+and *a clean result from a check you cannot see execute is assumed vacuous until proven live*. The B4 habit
+is the one the program has paid most for all month: **a green light you didn't watch turn green is red.**
+
 ---
 
 ## Delegation protocol — the authority boundary held under pressure (2026-07-24)
