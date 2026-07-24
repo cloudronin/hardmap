@@ -2,12 +2,13 @@
 """Atlas v3 freeze finalizer (V3) — merges the read-only frozen kernel + the v3 rows into
 `atlas_v3.jsonl`, emits its sha256, and validates. Models dev/build_strata.py::write_atlas_v2.
 
-GATE: refuses to freeze while any v3 cell is still `claimed` (the owner confirm-pass, V2, must have
-run) unless `--allow-claimed` is passed for a DRY RUN. Freeze waits on confirm-complete, full stop —
-no other gate.
+GATES (owner ruling 2026-07-24): v3 freezes on CITE-clean + kill-criterion 1 — the conditions v1 was
+actually held to. `confirmed` status is NOT a freeze condition (frozen v1 shipped 2/331 confirmed), so
+`claimed` cells freeze; the prior zero-`claimed` gate was an over-construction and is corrected in
+docs/findings/methods-thread.md. Owner-`confirmed` promotion is a rolling v3.1 spot-check, not a blocker.
 
-  python dev/freeze_atlas_v3.py --dry-run --allow-claimed   # rehearse: build, hash, validate, discard
-  python dev/freeze_atlas_v3.py                             # the real freeze (post-confirm)
+  python dev/freeze_atlas_v3.py --dry-run   # rehearse: build, hash, validate, discard
+  python dev/freeze_atlas_v3.py             # the real freeze (CITE-clean + kill-criterion enforced)
 
 The frozen v1 `atlas.jsonl` is read-only here and is never rewritten.
 """
@@ -25,7 +26,7 @@ WAVES = ("w1", "w2", "w3", "w4")
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="build + hash + validate, then discard")
-    ap.add_argument("--allow-claimed", action="store_true", help="bypass the confirm gate (dry run only)")
+    ap.add_argument("--allow-claimed", action="store_true", help="DEPRECATED no-op; `claimed` no longer gates")
     a = ap.parse_args()
 
     kernel = [l for l in open(KERNEL) if l.strip()]
@@ -37,40 +38,46 @@ def main():
     if not v3:
         print("no v3 wave rows found", file=sys.stderr); return 1
 
-    # --- confirm gate (V2 must have run) ---
-    claimed = sum(1 for l in v3 for c in json.loads(l)["charges"] if c["status"] == "claimed")
-    confirmed = sum(1 for l in v3 for c in json.loads(l)["charges"] if c["status"] == "confirmed")
-    print(f"v3 cells: claimed={claimed}  confirmed={confirmed}")
-    if claimed and not a.allow_claimed:
-        print(f"\nREFUSING TO FREEZE: {claimed} cells are still `claimed`.", file=sys.stderr)
-        print("The owner confirm-pass (V2) must complete first — see dev/confirm_harness.py.", file=sys.stderr)
-        print("(Use --dry-run --allow-claimed to rehearse the freeze.)", file=sys.stderr)
-        return 2
+    # --- freeze semantics (owner ruling 2026-07-24, correcting the prior zero-`claimed` gate) ---
+    # v3 freezes on CITE-clean + kill-criterion — the conditions v1 was ACTUALLY held to. `confirmed`
+    # status is NOT a freeze condition: the frozen v1 kernel shipped with 2 of 331 real cells confirmed
+    # and 329 `claimed`, so an all-confirmed gate would hold v3 to a standard v1 never met. v3's
+    # `claimed` cells are double-agent-passed at full Check-9 with full-text evidence, swept three ways
+    # (F-2, decision-membership, prose-vs-value), and recursively CITE-gated — more verification than v1
+    # had at freeze. Owner-`confirmed` promotion is a rolling v3.1 spot-check, never a freeze blocker.
+    # The superseded "426-cell sitting before freeze" ruling is corrected in docs/findings/methods-thread.md.
+    from collections import Counter
+    st = Counter(c["status"] for l in v3 for c in json.loads(l)["charges"])
+    real = st.get("claimed", 0) + st.get("confirmed", 0) + st.get("measured", 0)
+    print(f"v3 cells: claimed={st.get('claimed',0)} confirmed={st.get('confirmed',0)} "
+          f"structural={st.get('structural',0)} measured={st.get('measured',0)}")
+    print(f"trust label: {st.get('confirmed',0)}/{real} owner-confirmed; the rest agent-double-passed "
+          f"(v3 standard = agent-double-passed, owner-unconfirmed)")
+    # NOTE: --allow-claimed is retained only as an accepted no-op; `claimed` no longer blocks a freeze.
 
-    # --- CITE-debt gate (prereg_v9-clarification-01, 2026-07-24) ---
-    # No cell enters the freeze with an unresolved CITE: Check-9 is the atlas's identity, and at
-    # freeze time a value whose citation does not establish it is folklore with extra steps.
+    # Verdict files feed both the CITE gate and the kill-criterion gate; enumerate once, RECURSIVELY
+    # (verdicts live at the top level (V2) and under pass2/ (the second pass)).
     cdir = os.path.join(ATLAS_DIR, "v3-confirm")
+    vfiles = ([os.path.join(dp, fn) for dp, _, fns in os.walk(cdir)
+               for fn in sorted(fns) if fn.startswith("verdicts") and fn.endswith(".json")]
+              if os.path.isdir(cdir) else [])
+
+    # --- CITE-debt gate (prereg_v9-clarification-01): no cell freezes with an unresolved CITE ---
+    cur = {}
+    for l in v3:
+        r = json.loads(l)
+        for c in r["charges"]:
+            cur[(r["problem_id"], c["charge"])] = (c.get("provenance") or {}).get("citation", "")
     cites = []
-    if os.path.isdir(cdir):
-        cur = {}
-        for l in v3:
-            r = json.loads(l)
-            for c in r["charges"]:
-                cur[(r["problem_id"], c["charge"])] = (c.get("provenance") or {}).get("citation", "")
-        # walk RECURSIVELY: verdicts live at the top level (V2) and under pass2/ (the second pass).
-        # A non-recursive listdir silently exempted every second-pass CITE from this gate.
-        vfiles = [os.path.join(dp, fn) for dp, _, fns in os.walk(cdir)
-                  for fn in sorted(fns) if fn.startswith("verdicts") and fn.endswith(".json")]
-        for fn in sorted(vfiles):
-            for v in json.load(open(fn)):
-                if v.get("verdict", "").upper() != "CITE":
-                    continue
-                key = (v["problem_id"], v["charge"])
-                want = (v.get("corrected_citation") or "").strip()
-                if want and want[:40] not in (cur.get(key) or ""):
-                    cites.append(f"{v['problem_id']}/{v['charge']}")
-    if cites and not a.allow_claimed:
+    for fn in sorted(vfiles):
+        for v in json.load(open(fn)):
+            if v.get("verdict", "").upper() != "CITE":
+                continue
+            key = (v["problem_id"], v["charge"])
+            want = (v.get("corrected_citation") or "").strip()
+            if want and want[:40] not in (cur.get(key) or ""):
+                cites.append(f"{v['problem_id']}/{v['charge']}")
+    if cites and not a.dry_run:                      # a real freeze refuses; a dry run warns
         print(f"\nREFUSING TO FREEZE: {len(cites)} unresolved CITE cells (citation does not establish "
               f"the value).", file=sys.stderr)
         print("  " + ", ".join(sorted(cites)[:8]) + (" ..." if len(cites) > 8 else ""), file=sys.stderr)
@@ -78,6 +85,24 @@ def main():
         return 4
     if cites:
         print(f"[dry run] {len(cites)} CITE cells still unresolved (would block a real freeze)")
+
+    # --- kill-criterion 1 gate (spec §7; prereg clarification-01: VALUE errors only, CITE excluded) ---
+    # The corpus is inadmissible if its confirmed value-error rate exceeds 15%. This is the real
+    # quality bar that replaces the zero-`claimed` gate.
+    fo = tv = 0
+    for fn in sorted(vfiles):
+        for v in json.load(open(fn)):
+            vd = v.get("verdict", "").upper()
+            if vd in ("OK", "CITE", "FIX", "OPEN"):
+                tv += 1
+                fo += vd in ("FIX", "OPEN")
+    if tv:
+        ve = 100.0 * fo / tv
+        print(f"kill-criterion 1: value-error {fo}/{tv} = {ve:.1f}%  "
+              + ("clears (< 15%)" if ve <= 15 else "EXCEEDS 15% — corpus inadmissible"))
+        if ve > 15 and not a.dry_run:
+            print("\nREFUSING TO FREEZE: kill-criterion 1 tripped (value-error > 15%).", file=sys.stderr)
+            return 5
 
     # --- dedup guard: kernel ids must not collide with v3-new ids ---
     kids = {json.loads(l)["problem_id"] for l in kernel}
