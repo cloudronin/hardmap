@@ -60,10 +60,47 @@ def check_netted_le_raw() -> list[str]:
     return bad
 
 
+def check_estimates_in_cis() -> list[str]:
+    """Point estimates lie inside their own reported bootstrap CIs."""
+    import foundry
+    lat_dir = Path(foundry.__file__).resolve().parent / "results" / "lattice"
+    bad = []
+    lat = _load(lat_dir / "lattice_v3_occupancy.json")
+    v = lat["cramers_v"]
+    lo, hi = lat["cramers_v_boot_ci95_sized_to_classes"]
+    if not lo <= v <= hi:
+        bad.append(f"lattice_v3 V {v:.4f} not in CI [{lo}, {hi}]")
+    mo = _load(lat_dir / "prism_v2_matrix.json")["pred5_anti_canon"]["min_ones"]
+    pt = mo["spearman_point_corrected"]
+    clo, chi = mo["boot_ci95_classes_corrected"]
+    if not clo <= pt <= chi:
+        bad.append(f"prism_v2 corrected Spearman {pt} not in CI [{clo}, {chi}]")
+    return bad
+
+
+def check_census_jaccard_sane() -> list[str]:
+    """Every committed median Jaccard lies in [0,1] and below the 0.95 plurality line."""
+    import proofcensus
+    c3 = _load(Path(proofcensus.__file__).resolve().parent / "results" / "c3" / "c3_summary.json")
+    bad = []
+    for nkey, trend in c3.get("trends", {}).items():
+        for series in ("s1", "s2"):
+            for j in trend.get("mean_jaccard", {}).get(series, []):
+                if j is None:
+                    continue
+                if not 0.0 <= j <= 1.0:
+                    bad.append(f"{nkey} mean_jaccard.{series} {j} outside [0,1]")
+                elif j >= 0.95:
+                    bad.append(f"{nkey} mean_jaccard.{series} {j} >= 0.95 (would imply plurality)")
+    return bad
+
+
 CHECKS = [
     ("Cramér's V in [0,1]", check_cramers_v_range),
     ("Factors k* inside verdict interval", check_factors_kstar_interval),
     ("Netted association <= raw (Cai-Chen)", check_netted_le_raw),
+    ("Point estimates inside their CIs", check_estimates_in_cis),
+    ("Census Jaccard in [0,1] and below plurality line", check_census_jaccard_sane),
 ]
 
 

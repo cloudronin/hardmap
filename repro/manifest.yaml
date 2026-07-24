@@ -4,9 +4,6 @@
 #
 # tolerance: "exact" (whole claim) or per-field {abs|rel|max|min|range}.
 # tier: fast (recompute from committed artifacts) | full (regenerate from scratch).
-#
-# NOTE: eightfold claims are wired; foundry (lattice/prism) and proof-census
-# (backbone/plurality) rows are added in the next H3 increment.
 
 claims:
   - id: canon.gradient.v
@@ -45,3 +42,73 @@ claims:
       k_star: 1
     tolerance:
       k_star: {abs: 0}
+
+  # --- foundry: the oracle line (read the committed verified matrices) ---
+  - id: natural.v3.v
+    description: "Generated-universe coupling Cramér's V with bootstrap CI (Lattice v3)"
+    tier: fast
+    fast: "hardmap.claims.foundry_claims:natural_v3_v"
+    artifact: foundry/foundry/results/lattice/lattice_v3_occupancy.json
+    expected:
+      v: 0.2555
+      ci_lo: 0.13
+      ci_hi: 0.398
+    tolerance:
+      v: {abs: 0.005}
+      ci_lo: {abs: 0.01}
+      ci_hi: {abs: 0.01}
+
+  - id: natural.prism.residuals
+    description: "Prism bridge-completed Min-Ones residual: 0.459 (v1) and 0.516 (v2 arity-4 V)"
+    tier: fast
+    fast: "hardmap.claims.foundry_claims:prism_residuals"
+    artifact: foundry/foundry/results/lattice/prism_v2_matrix.json
+    expected:
+      v1_minones_bridge: 0.459
+      v2_minones_V: 0.516
+    tolerance:
+      v1_minones_bridge: {abs: 0.002}
+      v2_minones_V: {abs: 0.002}
+
+  - id: natural.direction.corrected
+    description: "Corrected Spearman: -0.564 (v1 anchor), -0.140 arity-4, CI (-0.166, -0.114)"
+    tier: fast
+    fast: "hardmap.claims.foundry_claims:direction_corrected"
+    artifact: foundry/foundry/results/lattice/prism_v2_matrix.json
+    expected:
+      v1_anchor: -0.564
+      arity4_point: -0.140
+      ci_lo: -0.166
+      ci_hi: -0.114
+    tolerance:
+      v1_anchor: {abs: 0.002}
+      arity4_point: {abs: 0.005}
+      ci_lo: {abs: 0.005}
+      ci_hi: {abs: 0.005}
+
+  # --- proof-census: recompute the C3 aggregate from the committed checkpoint ---
+  - id: census.backbone
+    description: "S2 mean backbone at n=60: ~1 (over-constrained) to ~273 (near threshold)"
+    tier: fast
+    fast: "hardmap.claims.census_claims:backbone"
+    artifact: proof-census/proofcensus/results/c3/c3_summary.json
+    expected:
+      backbone_n60_near_threshold: 272.6
+      backbone_n60_over_constrained: 1.0
+    tolerance:
+      backbone_n60_near_threshold: {abs: 0.5}
+      backbone_n60_over_constrained: {abs: 0.1}
+
+  - id: census.plurality
+    description: "Median proof-Jaccard band 0.04-0.16, far below the 0.95 no-plurality kill line"
+    tier: fast
+    fast: "hardmap.claims.census_claims:plurality"
+    artifact: proof-census/proofcensus/results/c3/c3_summary.json
+    expected:
+      jaccard_min: 0.044
+      jaccard_max: 0.16
+      below_plurality_line: true
+    tolerance:
+      jaccard_min: {range: [0.03, 0.06]}
+      jaccard_max: {range: [0.13, 0.18]}
+      below_plurality_line: exact

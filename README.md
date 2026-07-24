@@ -8,10 +8,10 @@ committed, verified artifacts (fast tier, seconds–minutes) or from scratch
 evidence: the seal chain, the ledgers, and the numbers, checkable without
 trusting the author.
 
-> **Status: pre-release.** Migration (H1), scrub + licensing (H2) complete.
-> The unified `hardmap` CLI and the `repro/manifest.yaml` claim map land next
-> (H3), followed by the sealed verification pass (H4) and public release (H5).
-> Today, every sub-package installs and its test suite passes; see *Reproducing*.
+> **Status: pre-release.** Migration (H1), scrub + licensing (H2), and the CLI +
+> claim manifest (H3) are complete: `hardmap repro --all` reproduces all eight
+> paper-cited numbers and `hardmap verify` passes. The sealed verification pass
+> (H4) and public release (H5) remain.
 
 ## Provenance & the seal chain
 
@@ -54,21 +54,19 @@ pip install -e ".[full]"  # + torch, for full-tier resampling (desert-map / cens
 
 ## Reproducing
 
-Once the CLI lands (H3):
-
 ```bash
 hardmap repro --all       # recompute every fast-tier number, diff vs expected within tolerance
-hardmap repro --full      # regenerate from scratch (wall-clock documented per claim)
-hardmap verify            # internal-coherence sweep (estimates in CIs, marginals, V in [0,1], netted <= raw)
-hardmap atlas             # dump the frozen atlas (jsonl / csv) with schema docs
+hardmap repro --claim canon.gradient.v   # a single claim
+hardmap repro --full      # full tier: regenerate from scratch where available (wall-clock per claim)
+hardmap repro --list      # list every claim id
+hardmap verify            # coherence sweep: estimates in CIs, V in [0,1], netted <= raw, no plurality
+hardmap atlas             # dump the frozen atlas (jsonl byte-identical, or --format csv)
 ```
 
-Today, the same evidence is reachable directly:
-
-```bash
-python -m pytest eightfold/tests foundry/tests proof-census/tests desert-map/tests
-python -c "from eightfold.atlas import load_atlas; print(len(load_atlas()))"
-```
+`repro --all` recomputes the eightfold statistics from the frozen atlas and the
+census aggregate from the committed proof checkpoint, and reads the verified
+oracle matrices; it exits nonzero on any mismatch. The per-number map (entrypoint,
+expected value, tolerance, tier) is [`repro/manifest.yaml`](repro/manifest.yaml).
 
 ## License
 
