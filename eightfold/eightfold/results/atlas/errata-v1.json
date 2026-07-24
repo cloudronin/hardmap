@@ -120,5 +120,47 @@
     "object drift": "canonical_task drifted away from the problem_id; neither value was verified against the right object (1 cell)",
     "citation insufficient": "value right, warrant below the pin (1 cell, discharged)"
   },
-  "why_this_file_matters": "The atlas records what THE FIELD established. The errata records what CHECKING establishes — including against ourselves. E1: eight of nine defective cells from one unexamined inference (a lower bound read as ruling out the upper side), caught by machinery built AFTER the artifact shipped, corrected forward, frozen bytes untouched. When the writeup happens, in whatever form, this file is the methods argument made physical."
+  "why_this_file_matters": "The atlas records what THE FIELD established. The errata records what CHECKING establishes — including against ourselves. E1: eight of nine defective cells from one unexamined inference (a lower bound read as ruling out the upper side), caught by machinery built AFTER the artifact shipped, corrected forward, frozen bytes untouched. When the writeup happens, in whatever form, this file is the methods argument made physical.",
+  "candidates_pending_owner_ruling": [
+    {
+      "id": "E2-candidate",
+      "problem_id": "shortest-vector-svp",
+      "charge": "decision",
+      "date_found": "2026-07-24",
+      "in": "the FROZEN kernel (atlas.jsonl)",
+      "status": "NOT APPLIED — owner ruling required. Recorded, not acted on.",
+      "value_now": "NPC",
+      "defect_class": "value overclaims relative to its OWN canonical_task (prose-vs-value disagreement)",
+      "finding": "The cell asserts `NPC` — NP-completeness, which requires NP-hardness under deterministic many-one reductions. The row's own canonical_task reads 'SVP is NP-hard (UNDER RANDOMIZED REDUCTIONS)'. The established L2 result (Ajtai, STOC 1998) is NP-hardness under randomized reductions; the deterministic case is open. Membership in NP is not at issue — a short vector is a certificate. The overclaim is in the HARDNESS direction, which is why the decision-membership sweep did not catch it: that sweep hunted open MEMBERSHIP.",
+      "how_found": "Mechanical prose-vs-value sweep over all 396 definite-completeness cells in kernel+v3, after the decision-membership sweep flagged the same shape on `euclidean-tsp`. 4 raw hits, 3 false positives on inspection ('not a folklore stamp'; 'posed as an open problem in 1979', since resolved; 'resolving the conjecture'). This is the only true positive.",
+      "same_vocabulary_gap": "This is the DECISION-column vocabulary gap in its second manifestation. The gap now has two distinct shapes: (a) hard, MEMBERSHIP open — minimum-weight-triangulation, euclidean-tsp; (b) hard only under RANDOMIZED reductions — this cell. Neither is expressible in the 7-rung decision vocabulary, all of whose completeness values assert deterministic hardness AND membership.",
+      "repair_options": {
+        "extend_vocabulary": "a rung for hardness-under-randomized-reductions (and/or hard-membership-open). The SVP/CVP precedent: 'extend the vocabulary, don't force a wrong rung.'",
+        "repin_task": "none available — there is no nearby object for which deterministic NP-completeness of SVP is established. Unlike MWT, the repin escape does not exist here.",
+        "downgrade": "`open`, which is honest but loses the real and strong hardness result the row correctly cites."
+      },
+      "note": "Flagged by the sweep agent as out of its remit and NOT acted on. v1 bytes stay frozen regardless; any correction rides in the v3 kernel copy under the erratum protocol, as E1 did."
+    }
+  ],
+  "sweeps_run": [
+    {
+      "date": "2026-07-24",
+      "sweep": "decision-column membership (sum-of-radicals family)",
+      "scanned": 264,
+      "hits": 2,
+      "clean": 262,
+      "kernel_result": "CLEAN — no frozen-kernel row has open NP membership",
+      "hits_detail": "minimum-weight-triangulation (already repaired to `open` by the second pass); euclidean-tsp (OUTSTANDING — same fork as MWT)",
+      "artifact": "decision-membership-sweep.json"
+    },
+    {
+      "date": "2026-07-24",
+      "sweep": "prose-vs-value disagreement (all definite-completeness cells)",
+      "scanned": 396,
+      "raw_hits": 4,
+      "true_positives": 1,
+      "false_positives": 3,
+      "result": "shortest-vector-svp/decision — recorded as E2-candidate above"
+    }
+  ]
 }

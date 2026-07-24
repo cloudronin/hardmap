@@ -1,0 +1,72 @@
+{
+  "swept": 264,
+  "date": "2026-07-24",
+  "scope": {
+    "files": [
+      "atlas.jsonl (frozen 118-row kernel; READ ONLY, not modified)",
+      "quarry-v3-w1.jsonl",
+      "quarry-v3-w2.jsonl",
+      "quarry-v3-w3.jsonl",
+      "quarry-v3-w4.jsonl"
+    ],
+    "rows_total": 345,
+    "criterion": "every decision charge whose value asserts MEMBERSHIP in a class: NPC, coNP-complete, PH-complete, PSPACE-complete",
+    "breakdown_by_value": {"NPC": 200, "PH-complete": 45, "PSPACE-complete": 17, "coNP-complete": 2},
+    "breakdown_by_file": {"kernel": 78, "v3": 186},
+    "snapshot": "counts are as of commit de6fd53 / first read at 2026-07-24 10:41. A concurrent process rewrote quarry-v3-w1/w3/w4.jsonl at 10:48; exactly one decision cell changed (minimum-weight-triangulation NPC -> open). Post-change the sweep set is 263 cells."
+  },
+  "hits": [
+    {
+      "problem_id": "euclidean-tsp",
+      "in": "v3",
+      "file": "quarry-v3-w3.jsonl",
+      "canonical_task": "Euclidean TSP decision: a tour of length <= L?",
+      "canonical_encoding": "n points in the Euclidean plane R^2 (fixed dimension d=2); objective = minimum-length closed tour visiting all points, distances = Euclidean (L2)",
+      "value_now": "NPC",
+      "membership_status": "open -- the tour length is a sum of radicals (sums of Euclidean distances, i.e. square roots of integers) compared against a rational threshold L; no polynomial-time procedure for that comparison is known, so the natural certificate (the tour) is not known to be poly-time verifiable",
+      "hardness_established": true,
+      "hardness_citation": "Papadimitriou, The Euclidean traveling salesman problem is NP-complete, Theoret. Comput. Sci. 4 (1977) 237-244; independently Garey, Graham & Johnson, Some NP-complete geometric problems, Proc. 8th ACM Symp. Theory of Computing (STOC) 1976, 10-22. Strong NP-hardness (integer coordinates of polynomially bounded magnitude) is attributed to both in Balaji & Datta, USSR is in P/poly, arXiv:2310.19335 (2023), Sec. 1 'Our work'.",
+      "membership_citation": "Garey, Graham & Johnson, Some NP-complete geometric problems, STOC 1976, 10-22, abstract: 'Our proofs indicate that the problems are NP-hard if the distance measure is the (unmodified) Euclidean metric. However, there is some question as to whether these problems, or even the well-solved MINIMUM SPANNING TREE problem, are in NP when the distance measure is the Euclidean metric.' Restated verbatim-with-quotation in Balaji & Datta, USSR is in P/poly, arXiv:2310.19335 (2023), Sec. 1: the sum-of-square-roots problem 'was first explicitly posed in an influential paper of Garey, Graham and Johnson [GGJ76] on NP-hardness of geometric problems such as Euclidean TSP and Euclidean Steiner tree. They remark that while such geometric problems are NP-hard \"it is not at all apparent that this ... is in NP\", since comparing two given tours is reducible to SSR, which is not known to be in NP.' Also named as the canonical instance of the defect in Mulzer & Rote, Minimum-weight triangulation is NP-hard, J. ACM 55(2) (2008) Art. 11, Sec. 1: 'This problem is common to many geometric optimization problems, like, perhaps most famously, the Euclidean Traveling Salesperson Problem.'",
+      "repair_options": {
+        "repin_task": "Either (a) the discretized Euclidean TSP -- distances rounded to integers ('a natural discretized version of the Euclidean metric'); or (b) the rectilinear / L1 (Manhattan) TSP on integer-coordinate points. Both keep tour-length comparison in exact rational arithmetic, so both are cleanly in NP; GGJ 1976 proves NP-completeness for each.",
+        "repin_citation": "Garey, Graham & Johnson, Some NP-complete geometric problems, STOC 1976, 10-22, abstract: 'We show that the STEINER TREE problem and TRAVELING SALESMAN problem for points in the plane are NP-complete when distances are measured either by the rectilinear (Manhattan) metric or by a natural discretized version of the Euclidean metric.'"
+      },
+      "row_already_flags_it": true,
+      "row_flag_text": "The row's decision charge already carries contested_note: 'NP-membership is subtle: comparing two Euclidean tour lengths is the sum-of-square-roots problem, not known to be in P or NP; strictly Euclidean TSP is NP-HARD with NP-membership open (the discretized / L1 version is cleanly NP-complete). Coded NPC following the standard (Papadimitriou) usage'. The prose is correct; the VALUE still asserts membership."
+    },
+    {
+      "problem_id": "minimum-weight-triangulation",
+      "in": "v3",
+      "file": "quarry-v3-w3.jsonl",
+      "canonical_task": "MWT decision: a triangulation of total length <= L?",
+      "canonical_encoding": "a finite set of points in the Euclidean plane; objective = a triangulation (maximal set of non-crossing edges) minimizing the total edge length",
+      "value_now": "open -- was NPC at commit de6fd53 and at sweep read (2026-07-24 10:41); a concurrent process changed the on-disk value to 'open' at 10:48, mid-sweep. Recorded here because it is the seed defect and because the verified repair options below were not previously on file.",
+      "membership_status": "open -- the triangulation weight is a sum of radicals (Euclidean edge lengths) compared against a rational threshold L; comparing sums of radicals in polynomial time is an open problem",
+      "hardness_established": true,
+      "hardness_citation": "Mulzer & Rote, Minimum-weight triangulation is NP-hard, J. ACM 55(2) (2008) Art. 11 (arXiv:cs/0601002v3), Theorem 8.1: 'Minimum-weight triangulation is strongly NP-hard.' Reduction from POSITIVE PLANAR 1-IN-3-SAT.",
+      "membership_citation": "Same paper, Sec. 1 (abstract/intro): 'Note that it is not known whether the MWT problem is in NP, because it is an open problem whether sums of radicals (namely, Euclidean distances) can be compared in polynomial time [Bloemer 1991].' Repeated in Sec. 9.3 Open Problems: 'it is not known whether the MWT problem is in NP, since it is not known how to compare sums of Euclidean lengths in polynomial time [Bloemer 1991], but this difficulty is more of an algebraic nature.' The cited source is J. Bloemer, Computing sums of radicals in polynomial time, Proc. 32nd FOCS (1991) 670-677.",
+      "repair_options": {
+        "repin_task": "MWT with the weight of an edge e taken as the rounded value ceil(||e||_2) (Euclidean length rounded up to an integer) -- the variant the authors name explicitly as being in NP.",
+        "repin_citation": "Mulzer & Rote, J. ACM 55(2) (2008) Art. 11, Sec. 9.3: 'To define a variant of MWT which is in NP, one can take the weight of an edge e as the rounded value ceil(||e||_2). With appropriate scaling, our proof also establishes NP-completeness for this variant.' (Same sentence in the abstract, phrased 'Our proof also shows that this variant is NP-complete.')"
+      },
+      "row_already_flags_it": false
+    }
+  ],
+  "clean": 262,
+  "near_misses_checked_and_cleared": [
+    {"problem_id": "geometric-disk-cover", "why_clean": "objective is CARDINALITY (fewest unit disks), not a sum of distances. Verification of 'these points fit in one unit disk' is a minimum-enclosing-circle radius test; squared MEC radius is rational in the point coordinates, so the test is exact rational arithmetic. NP-completeness asserted in the title of Fowler, Paterson & Tanimoto, Optimal packing and covering in the plane are NP-complete, IPL 12 (1981) 133-137."},
+    {"problem_id": "geometric-independent-set", "why_clean": "unit-disk adjacency is a single squared-distance comparison (d^2 vs 4), exact in rationals. Clark, Colbourn & Johnson, Unit disk graphs, Discrete Math. 86 (1990)."},
+    {"problem_id": "map-labeling", "why_clean": "axis-parallel square labels in the fixed-position model; overlap tests and the candidate sigma values are rational differences of coordinates (L-infinity, no radicals). Formann & Wagner, SoCG 1991."},
+    {"problem_id": "rectilinear-steiner-tree", "why_clean": "row is pinned to the L1 metric; lengths are sums of |dx|+|dy|, exactly rational. This is precisely the object GGJ used BECAUSE the Euclidean one was not known to be in NP. Garey & Johnson, SIAM J. Appl. Math. 32 (1977) 826-834."},
+    {"problem_id": "art-gallery", "why_clean": "row is deliberately pinned to VERTEX guards ('Vertex-guard variant pinned (keeps the decision in NP)'), a cardinality objective with rational visibility tests. The free-point-guard variant is the one with open NP membership (it is ExistsR-complete, Abrahamsen-Adamaszek-Miltzow, STOC 2018), and the row excludes it."},
+    {"problem_id": "crossing-number", "why_clean": "pinned to the topological crossing number (a count), NP-complete per Garey & Johnson 1983. The RECTILINEAR crossing number is the ExistsR-complete cousin, and the row's own note excludes it."},
+    {"problem_id": "max-dispersion", "why_clean": "encoding pins 'complete graph on n points with edge weights satisfying the triangle inequality' -- an explicitly given rational distance matrix, not a Euclidean point set. Sum of given rationals. (The Euclidean max-sum-dispersion variant WOULD be a hit.)"},
+    {"problem_id": "metric-tsp / k-median / k-center / facility-location / capacitated-facility-location / minimum-latency / orienteering / stacker-crane / vehicle-routing / min-communication-cost-spanning-tree / 3-dimensional-assignment", "why_clean": "every one of these is pinned to an ABSTRACT metric given as a distance matrix or edge-weighted complete graph with rational weights, never to a Euclidean point set. Their objectives sum given rationals. The Euclidean instantiations of k-median, facility location, minimum latency, orienteering, stacker crane and VRP would all be hits; the rows as written are not."},
+    {"problem_id": "tsp (kernel)", "why_clean": "'complete graph with arbitrary nonnegative edge weights' -- not geometric."},
+    {"problem_id": "steiner-tree / steiner-forest / group-steiner-tree / directed-steiner-tree / prize-collecting-steiner-tree / survivable-network-design (kernel)", "why_clean": "all pinned to edge-weighted GRAPHS, not to points in the plane. Euclidean Steiner tree -- the other problem GGJ 1976 flagged -- does not appear anywhere in the atlas."},
+    {"problem_id": "ultrametric-tree-fitting", "why_clean": "L-infinity error against a rational input distance matrix; for a fixed tree topology the optimal edge weights are an LP optimum with polynomial bit-size, so the certificate (topology + rational weights) verifies exactly."},
+    {"problem_id": "geometric-bin-packing / strip-packing / vector-bin-packing / rectangle-tiling / minimum-sum-of-squares", "why_clean": "rational dimensions/sizes combined additively or by squaring; no radicals."},
+    {"problem_id": "closest-vector-cvp", "why_clean": "certificate verified by ||v-t||^2 <= d^2 over integers -- a single squaring, not a sum of radicals. Deterministic NP-hardness (van Emde Boas 1981)."}
+  ],
+  "notes": "CONCURRENCY: quarry-v3-w1/w3/w4.jsonl were rewritten by another process at 2026-07-24 10:48, mid-sweep. I diffed every decision charge against HEAD (de6fd53): exactly one changed, minimum-weight-triangulation NPC -> open. No other decision value or canonical_task moved, so the sweep result is unaffected. No atlas file was modified by me. || KERNEL IS CLEAN on this defect: all 78 membership-asserting decision cells in the frozen atlas.jsonl survive. Its two TSP rows pin arbitrary and abstract-metric edge weights respectively, and no kernel row is pinned to a Euclidean point set. Both hits are in quarry-v3-w3.jsonl. || FAMILY BOUNDARY: I enumerated every row in all five files whose encoding or decision task mentions a plane / point set / Euclidean metric. There are exactly ten; eight are cleared above, two are the hits. The distinguishing test is whether the objective SUMS radicals before comparing to a rational threshold. A single radical compared to a rational (unit-disk adjacency, k-center's max distance, MEC radius, CVP/SVP norms, nearest-facility ties) is always squarable and therefore fine; only a SUM is not. || ADJACENT DEFECT, DIFFERENT FAMILY, NOT COUNTED AS A HIT: atlas.jsonl row 'shortest-vector-svp' carries decision=NPC with canonical_task 'SVP is NP-hard (under randomized reductions)'. Its NP MEMBERSHIP is fine (verify ||v||^2 <= d^2 over integers), so it is not a sum-of-radicals case and is outside this sweep's remit. But the value overclaims in the HARDNESS direction: NP-hardness of exact SVP in L2 is known only under randomized reductions (Ajtai, STOC 1998; Micciancio's deterministic reduction is conditional on a number-theoretic conjecture), and whether SVP_2 is NP-hard under deterministic reductions is still open -- so 'NP-complete' is not established. The row's own canonical_task already says 'NP-hard (under randomized reductions)', so the prose and the value disagree, the same shape of defect as euclidean-tsp. Flagging for the owner; I did not act on it. || COULD NOT FULLY VERIFY: I could not obtain the full text of Garey, Graham & Johnson, STOC 1976 (ACM DL returns 403 and the Semantic Scholar abstract is elided by the publisher). The abstract sentences quoted above were confirmed from two independent secondary reproductions plus the verbatim inline quotation in Balaji & Datta (arXiv:2310.19335), whose full text I did read. The Mulzer & Rote quotations are from the full arXiv:cs/0601002v3 PDF, which I read directly, including a font-size check on the rounded-value expression confirming the subscript reads ceil(||e||_2) -- the L2 norm rounded up, NOT the squared length. || NO REPAIR PROPOSED. Both options are recorded per hit for the owner to choose between. Adding a 'hard-for-C, membership-open' rung to the decision vocabulary would be a third option and is an owner-only decision."
+}
