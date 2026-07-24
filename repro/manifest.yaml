@@ -1,0 +1,47 @@
+# hardmap repro manifest -- every paper-cited number, its regenerator, and its
+# expected value + tolerance. `hardmap repro --all` recomputes each fast-tier
+# statistic from the frozen committed artifacts and diffs within tolerance.
+#
+# tolerance: "exact" (whole claim) or per-field {abs|rel|max|min|range}.
+# tier: fast (recompute from committed artifacts) | full (regenerate from scratch).
+#
+# NOTE: eightfold claims are wired; foundry (lattice/prism) and proof-census
+# (backbone/plurality) rows are added in the next H3 increment.
+
+claims:
+  - id: canon.gradient.v
+    description: "Hardness-gradient Cramér's V (approx->param), full and dedup rosters"
+    tier: fast
+    fast: "hardmap.claims.eightfold_claims:gradient_v"
+    artifact: eightfold/eightfold/results/atlas/crucible_results.json
+    expected:
+      full_v: 0.7293
+      dedup_v: 0.6807
+      perm_p: 0.0001
+    tolerance:
+      full_v: {abs: 0.001}
+      dedup_v: {abs: 0.001}
+      perm_p: {max: 0.0005}
+
+  - id: canon.crucible.verdicts
+    description: "Crucible S1/S2/S3/S5 verdicts (S4 deferred)"
+    tier: fast
+    fast: "hardmap.claims.eightfold_claims:crucible_verdicts"
+    artifact: eightfold/eightfold/results/atlas/crucible_results.json
+    tolerance: exact
+    expected:
+      S1: RESIZED
+      S2: SURVIVES
+      S3: SURVIVES
+      S5: SURVIVES
+
+  - id: factors.kstar
+    description: "Effective dimensionality k* of the charge atlas (LCM 1-SE estimator)"
+    tier: fast
+    fast: "hardmap.claims.eightfold_claims:factors_kstar_fast"
+    full: "hardmap.claims.eightfold_claims:factors_kstar_full"
+    artifact: eightfold/eightfold/results/atlas/factors_v1.json
+    expected:
+      k_star: 1
+    tolerance:
+      k_star: {abs: 0}

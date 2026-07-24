@@ -1,0 +1,83 @@
+"""`hardmap verify` -- the H4 internal-coherence sweep (spec section 3.5, check 2).
+
+One script over the persisted results asserting invariants that must hold
+regardless of the numbers: Cramér's V in [0,1], point estimates inside their CIs,
+marginals summing to n, netted <= raw where a theorem forces it. Grows a check per
+artifact family; exits nonzero on any violation. This ships as a permanent command.
+"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+import eightfold
+
+
+def _eightfold_atlas() -> Path:
+    return Path(eightfold.__file__).resolve().parent / "results" / "atlas"
+
+
+def _load(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def check_cramers_v_range() -> list[str]:
+    """Every reported Cramér's V lies in [0, 1]."""
+    bad = []
+    a3 = _load(_eightfold_atlas() / "a3_structure.json")
+    for pair, v in a3.get("cramers_v", {}).items():
+        if not 0.0 <= float(v) <= 1.0:
+            bad.append(f"a3 cramers_v[{pair}] = {v} outside [0,1]")
+    cr = _load(_eightfold_atlas() / "crucible_results.json")
+    for key in ("gradient_full_v", "gradient_dedup_v"):
+        v = cr.get("S2", {}).get(key)
+        if v is not None and not 0.0 <= float(v) <= 1.0:
+            bad.append(f"crucible S2.{key} = {v} outside [0,1]")
+    return bad
+
+
+def check_factors_kstar_interval() -> list[str]:
+    """k* point estimate sits inside its own reported verdict interval and is >= 1."""
+    bad = []
+    ks = _load(_eightfold_atlas() / "factors_v1.json")["k_star"]
+    if ks["k_hat_1se"] not in ks["verdict_interval"]:
+        bad.append(f"factors k_hat_1se {ks['k_hat_1se']} not in verdict_interval {ks['verdict_interval']}")
+    if ks["k_hat_1se"] < 1:
+        bad.append(f"factors k_hat_1se {ks['k_hat_1se']} < 1")
+    return bad
+
+
+def check_netted_le_raw() -> list[str]:
+    """Cai-Chen residual audit: netted association <= raw where the theorem forces it."""
+    bad = []
+    a3 = _load(_eightfold_atlas() / "a3_structure.json")
+    audit = a3.get("H2_multiplets", {}).get("cai_chen_bridge_audit_R25", {})
+    raw = audit.get("raw", {}).get("v")
+    for level in ("conservative", "aggressive", "extreme_floor_delete_whole_cell"):
+        netted = audit.get(level, {}).get("v")
+        if raw is not None and netted is not None and float(netted) > float(raw) + 1e-9:
+            bad.append(f"netted[{level}] {netted} > raw {raw}")
+    return bad
+
+
+CHECKS = [
+    ("Cramér's V in [0,1]", check_cramers_v_range),
+    ("Factors k* inside verdict interval", check_factors_kstar_interval),
+    ("Netted association <= raw (Cai-Chen)", check_netted_le_raw),
+]
+
+
+def run() -> int:
+    n_fail = 0
+    for name, fn in CHECKS:
+        try:
+            problems = fn()
+        except Exception as exc:  # noqa: BLE001
+            problems = [f"{type(exc).__name__}: {exc}"]
+        ok = not problems
+        n_fail += not ok
+        print(f"[{'PASS' if ok else 'FAIL'}] {name}")
+        for p in problems:
+            print(f"        {p}")
+    print(f"\n{len(CHECKS) - n_fail}/{len(CHECKS)} coherence checks passed")
+    return 1 if n_fail else 0

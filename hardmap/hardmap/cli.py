@@ -1,31 +1,46 @@
-"""hardmap command-line entry point.
-
-Scaffolding only: the repro/verify/atlas subcommands are implemented in the
-CLI+manifest milestone (H3), driven by repro/manifest.yaml. Until then this
-prints the current status so `hardmap` is a valid, installed console script.
-"""
+"""hardmap command-line entry point: repro / verify / atlas."""
 from __future__ import annotations
 
 import argparse
 import sys
 
-_PENDING = (
-    "hardmap CLI scaffolding is in place; the repro/verify/atlas subcommands "
-    "land in the CLI+manifest milestone (H3).\n"
-    "Today you can: `pip install -e .`, run each folder's pytest, or load the "
-    "frozen atlas via `eightfold.atlas.load_atlas`."
-)
+from . import atlas as atlas_cmd
+from . import repro as repro_cmd
+from . import verify as verify_cmd
+
+
+def build_parser() -> argparse.ArgumentParser:
+    p = argparse.ArgumentParser(
+        prog="hardmap",
+        description="Reproduce the paper-cited numbers and check internal coherence.",
+    )
+    sub = p.add_subparsers(dest="command")
+
+    pr = sub.add_parser("repro", help="regenerate paper-cited numbers from the manifest")
+    pr.add_argument("--claim", action="append", metavar="ID", help="run specific claim id(s)")
+    pr.add_argument("--all", action="store_true", help="run every claim (default)")
+    pr.add_argument("--full", action="store_true", help="full tier: regenerate from scratch where available")
+    pr.add_argument("--list", action="store_true", help="list claim ids and exit")
+
+    sub.add_parser("verify", help="run the internal-coherence sweep")
+
+    pa = sub.add_parser("atlas", help="dump the frozen charge atlas")
+    pa.add_argument("--format", choices=["jsonl", "csv"], default="jsonl")
+
+    return p
 
 
 def main(argv: list[str] | None = None) -> int:
     argv = sys.argv[1:] if argv is None else argv
-    parser = argparse.ArgumentParser(prog="hardmap", description=__doc__)
-    sub = parser.add_subparsers(dest="command")
-    sub.add_parser("repro", help="regenerate paper-cited numbers from the manifest (H3)")
-    sub.add_parser("verify", help="run the H4 internal-coherence sweep (H3/H4)")
-    sub.add_parser("atlas", help="dump the frozen charge atlas (H3)")
-    parser.parse_args(argv)
-    print(_PENDING)
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    if args.command == "repro":
+        return repro_cmd.run(claim_ids=args.claim, full=args.full, list_only=args.list)
+    if args.command == "verify":
+        return verify_cmd.run()
+    if args.command == "atlas":
+        return atlas_cmd.run(fmt=args.format)
+    parser.print_help()
     return 0
 
 
