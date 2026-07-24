@@ -112,3 +112,59 @@ claims:
       jaccard_min: {range: [0.03, 0.06]}
       jaccard_max: {range: [0.13, 0.18]}
       below_plurality_line: exact
+
+  # --- quarry V4: the six sealed prereg_v9 bets, recomputed from frozen atlas_v3.jsonl ---
+  # QC: v3 cells are agent-double-passed, owner-unconfirmed (trust-labels.md). 5 hold; B1 falsified.
+  - id: bets.b1.gradient.v3new
+    description: "B1 gradient robustness -- v3-new approx<->param V (FALSIFIED: 0.0, below v2 CI [0.53,0.92])"
+    tier: fast
+    fast: "hardmap.claims.bets_claims:gradient_v3new"
+    artifact: eightfold/eightfold/results/atlas/atlas_v3_bets_v4.json
+    expected: {v3new_V_corrected: 0.0}
+    tolerance: {v3new_V_corrected: {abs: 0.001}}
+
+  - id: bets.b2.kstar.v3new
+    description: "B2 incompressibility -- k* on v3-new (HOLDS: 1, no second dimension at 3x roster)"
+    tier: fast
+    fast: "hardmap.claims.bets_claims:kstar_v3new_fast"
+    full: "hardmap.claims.bets_claims:kstar_v3new_full"
+    artifact: eightfold/eightfold/results/atlas/atlas_v3_bets_v4.json
+    expected: {k_star: 1}
+    tolerance: {k_star: {abs: 0}}
+
+  - id: bets.b3.npi.v3new
+    description: "B3 NPI calibration -- count of v3-new NPI-candidate rows (HOLDS: 0, no inflation)"
+    tier: fast
+    fast: "hardmap.claims.bets_claims:npi_v3new"
+    artifact: eightfold/eightfold/results/atlas/atlas_v3.jsonl
+    expected: {n_npi: 0}
+    tolerance: {n_npi: {abs: 0}}
+
+  - id: bets.b4.occupancy.v3new
+    description: "B4 occupancy -- PH×FPT inhabited, 0 forbidden violations, 6 gap cells newly filled (HOLDS)"
+    tier: fast
+    fast: "hardmap.claims.bets_claims:occupancy_v3new"
+    artifact: eightfold/eightfold/results/atlas/atlas_v3.jsonl
+    expected: {ph_fpt_inhabited: true, forbidden_violations: 0, gap_cells_newly_inhabited: 6}
+    tolerance:
+      ph_fpt_inhabited: exact
+      forbidden_violations: {abs: 0}
+      gap_cells_newly_inhabited: {abs: 0}
+
+  - id: bets.b5.folklore.v3new
+    description: "B5 folklore gap -- v3-new counting published-proof fraction (HOLDS: 0.18 vs v2 0.31, widened)"
+    tier: fast
+    fast: "hardmap.claims.bets_claims:folklore_v3new"
+    artifact: eightfold/eightfold/results/atlas/atlas_v3.jsonl
+    expected: {published_proof_fraction: 0.182}
+    tolerance: {published_proof_fraction: {abs: 0.005}}
+
+  - id: bets.b6.funnel.rn.v3new
+    description: "B6 funnel homogeneity on rn_membership (HOLDS weakly: present 0.39 > absent 0.10, no outlier)"
+    tier: fast
+    fast: "hardmap.claims.bets_claims:funnel_rn_v3new"
+    artifact: eightfold/eightfold/results/atlas/atlas_v3_provenance.jsonl
+    expected: {V_rn_present: 0.3887, V_rn_absent: 0.1043}
+    tolerance:
+      V_rn_present: {abs: 0.005}
+      V_rn_absent: {abs: 0.005}
