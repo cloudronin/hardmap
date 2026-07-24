@@ -92,6 +92,121 @@
       "kind": "citation",
       "reason": "VALUE STANDS but the WARRANT IS WRONG. Sahni-Gonzalez Thm 3.1 defines eps-approximate for a CONSTANT eps (Burkard-Cela's QAP survey quotes it as 'for an arbitrary eps>0') — APX-hardness only, matching the row's own 'no constant-factor' task text, which is below the pin.",
       "citation": "REPLACE WITH: Queyranne (1986), who proves QAP is not approximable within ANY FINITE RATIO."
+    },
+    {
+      "problem_id": "group-steiner-tree",
+      "charge": "decision",
+      "batch": "H4-check3",
+      "date": "2026-07-24",
+      "kind": "warrant",
+      "value_unchanged": "NPC",
+      "reason": "Karp 1972 contains graph Steiner Tree but NOT Group Steiner (a 1990 object). Origin citation corrected; hardness follows by singleton-group specialization to graph Steiner Tree.",
+      "source_read": "secondary",
+      "citation": "Reich & Widmayer, Beyond Steiner's problem: a VLSI oriented generalization, WG 1989, Springer LNCS 411 (1990) 196-210 [origin of Group Steiner Tree]; NP-hardness by specialization to graph Steiner Tree (Karp, Reducibility among combinatorial problems, 1972)"
+    },
+    {
+      "problem_id": "max-directed-cut",
+      "charge": "decision",
+      "batch": "H4-check3",
+      "date": "2026-07-24",
+      "kind": "warrant",
+      "value_unchanged": "NPC",
+      "reason": "Karp 1972 lists only UNDIRECTED max cut. The directed-cut warrant is the anti-parallel-arc reduction, now stated explicitly.",
+      "source_read": "secondary",
+      "citation": "MAX-CUT NP-complete (Karp 1972; simple/unweighted case Garey-Johnson-Stockmeyer, Some simplified NP-complete graph problems, TCS 1 (1976) 237-267); MAX-DICUT by anti-parallel-arc reduction from MAX-CUT",
+      "derivation_note": "Replace each undirected edge {u,v} with the anti-parallel arc pair (u,v),(v,u). For every bipartition (S,V\\S) the directed-cut value equals the undirected cut value (each cut edge contributes exactly one S->complement arc, each non-cut edge zero). Hence MAX-DICUT >= k is NP-complete."
+    },
+    {
+      "problem_id": "max-2lin",
+      "charge": "decision",
+      "batch": "H4-check3",
+      "date": "2026-07-24",
+      "kind": "object-repin",
+      "value_unchanged": "NPC",
+      "reason": "OBJECT FIX (owner-flagged judgment call). The drafted 'MAX-2LIN gap decision' is a post-PCP promise problem G&J 1979 cannot establish, and a gap problem is NP-hard not NP-complete -- inconsistent with NPC. Repinned to the non-gap threshold decision, genuinely NP-complete via MAX-CUT. The alternative (keep the gap object, cite Hastad 2001) does not fit NPC and is left to the owner if the gap object was truly intended.",
+      "source_read": "secondary",
+      "citation": "Garey & Johnson 1979 via MAX CUT [ND16] -- the special case where every equation is x_u + x_v = 1 (mod 2); MAX CUT NP-complete (Karp 1972 / GJS 1976)",
+      "corrected_canonical_task": "MAX-2-LIN(2) threshold decision: given a system of GF(2) linear equations each over 2 variables and integer k, are at least k of them simultaneously satisfiable?",
+      "owner_judgment_call": true
+    },
+    {
+      "problem_id": "set-cover",
+      "charge": "approximation",
+      "batch": "H4-check3",
+      "date": "2026-07-24",
+      "kind": "warrant",
+      "value_unchanged": "log-APX",
+      "reason": "log-APX was half-warranted: Feige 1998 gives the (1-o(1))ln n hardness only. Greedy ln n membership co-cite added.",
+      "source_read": "secondary",
+      "add_citation": "Johnson, JCSS 9 (1974) 256-278 / Lovasz, Discrete Math. 13 (1975) 383-390 / Chvatal, Math. Oper. Res. 4(3) (1979) 233-235 [greedy ln n membership]"
+    },
+    {
+      "problem_id": "hitting-set",
+      "charge": "approximation",
+      "batch": "H4-check3",
+      "date": "2026-07-24",
+      "kind": "warrant",
+      "value_unchanged": "log-APX",
+      "reason": "log-APX: Feige 1998 hardness only; greedy membership co-cite added. Hitting Set = Set Cover with elements/sets transposed, so both bounds transfer.",
+      "source_read": "secondary",
+      "add_citation": "Johnson 1974 / Lovasz 1975 / Chvatal 1979 [greedy ln n membership; transfers by set-cover<->hitting-set duality]"
+    },
+    {
+      "problem_id": "dominating-set",
+      "charge": "approximation",
+      "batch": "H4-check3",
+      "date": "2026-07-24",
+      "kind": "warrant",
+      "value_unchanged": "log-APX",
+      "reason": "log-APX: added greedy membership co-cite AND the Set-Cover equivalence that transfers Feige's hardness.",
+      "source_read": "secondary",
+      "add_citation": "Johnson 1974 / Lovasz 1975 / Chvatal 1979 [greedy ln n membership]",
+      "derivation_note": "Dominating Set <-> Set Cover approximation-preserving equivalence (Kann, On the Approximability of NP-complete Optimization Problems, PhD thesis KTH 1992): (DS->SC) universe V, sets N[v] closed neighborhoods -- a dominating set is exactly a set cover; (SC->DS) standard gadget. Feige's (1-o(1))ln n hardness and the greedy ln n upper bound both transfer."
+    },
+    {
+      "problem_id": "edge-coloring",
+      "charge": "approximation",
+      "batch": "H4-check3",
+      "date": "2026-07-24",
+      "kind": "warrant",
+      "value_unchanged": "APX",
+      "reason": "APX (per owner directive): Vizing 1964 gives only the Delta+1 upper side; the task invokes NP-hardness with no warrant. Holyer 1981 added as the hardness co-cite. True APX-completeness NOT claimed.",
+      "source_read": "secondary",
+      "add_citation": "Holyer, The NP-completeness of edge-colouring, SIAM J. Comput. 10(4) (1981) 718-720 [3- vs 4-edge-colorability NP-complete on cubic graphs; 4/3 barrier]"
+    },
+    {
+      "problem_id": "prize-collecting-steiner-tree",
+      "charge": "parameterized",
+      "batch": "H4-check3",
+      "date": "2026-07-24",
+      "kind": "object-repin",
+      "value_unchanged": "FPT",
+      "reason": "OBJECT FIX (full-text confirmed). PCST has no fixed terminal set, so 'FPT in number of terminals' is not a valid parameter. Correct parameter is the number of proper potential terminals |T^+_p| (positive-prize vertices). Value FPT stands under the corrected parameter.",
+      "source_read": "full-text",
+      "citation": "Rehfeldt & Koch, On the exact solution of prize-collecting Steiner tree problems, ZIB-Report 20-11 (2020) / INFORMS J. Comput. 34(4) (2022) 2078-2091 [FPT in |T^+_p|]; Steiner-tree FPT DP machinery: Cygan et al., Parameterized Algorithms (2015) ch. 6",
+      "corrected_canonical_task": "FPT parameterized by the number of proper potential terminals |T^+_p| (positive-prize vertices), via reduction to Steiner Tree in Graphs with |T^+_p|+1 terminals."
+    },
+    {
+      "problem_id": "sat-2",
+      "charge": "proof_size",
+      "batch": "H4-check3",
+      "date": "2026-07-24",
+      "kind": "warrant",
+      "value_unchanged": "poly",
+      "reason": "poly stands, but Aspvall-Plass-Tarjan gives the DECISION algorithm, not a proof-size bound. Derivation note attaches the resolution argument that actually warrants the proof_size value.",
+      "source_read": "secondary",
+      "derivation_note": "2-UNSAT has poly-size resolution refutations two ways: (i) the APT implication-graph contradiction cycle x~>~x, ~x~>x is itself an O(n)-size resolution refutation (resolve input 2-clauses along each path to derive (~x) and (x), then the empty clause); (ii) every width-<=2 resolvent stays width<=2 and there are only O(n^2) such clauses. APT 1979 retained as certificate source. General principle: Ben-Sasson & Wigderson, Short proofs are narrow, JACM 48(2) (2001) 149-169."
+    },
+    {
+      "problem_id": "tsp",
+      "charge": "average_case",
+      "batch": "H4-check3",
+      "date": "2026-07-24",
+      "kind": "warrant",
+      "value_unchanged": "easy-on-average",
+      "reason": "easy-on-average: BHH 1959 is a concentration result, not an algorithm. Karp 1977 added as the algorithmic warrant.",
+      "source_read": "secondary",
+      "add_citation": "Karp, Probabilistic analysis of partitioning algorithms for the TSP in the plane, Math. Oper. Res. 2(3) (1977) 209-224 [poly-time heuristic a.s. within 1+o(1) of optimum]"
     }
   ],
   "holds": [
@@ -162,5 +277,13 @@
       "false_positives": 3,
       "result": "shortest-vector-svp/decision — recorded as E2-candidate above"
     }
-  ]
+  ],
+  "h4_check3_batch": {
+    "date": "2026-07-24",
+    "source": "H4 oracle spot-check check 3 (agent-run QC)",
+    "protocol": "MATERIAL warrant corrections to frozen-kernel cells; v1 bytes frozen; v3 kernel copy carries them tagged erratum_v1",
+    "decision_approx_applied": 10,
+    "verified_by": "full-text/canonical bibliographic confirmation before entry",
+    "still_pending": "counting (6, incl. the Valiant-list question), Arora-Barak sweep (34 cells), Cygan sweep (36 cells)"
+  }
 }
