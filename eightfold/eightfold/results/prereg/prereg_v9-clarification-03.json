@@ -7,16 +7,24 @@
   "subject": "bet B6 (funnel homogeneity) and the variable it stratifies on",
   "the_defect": {
     "finding": "B6 stratifies on `source_funnel`. For the `rn` (reductions.network) funnel that field was never derived from source data: the site and its GitLab repo were unreachable, so membership was inferred topically at ingestion ('this is a canonical NP problem, so it is probably in the compendium'). The inference was disclosed four times in prose (K1, K2, K2b, the V2 report) and consumed as ground truth by three artifacts anyway. See methods-thread instance 9.",
-    "magnitude": "Re-derivation from source (2026-07-24) found 12 of 227 candidates present in the three networks — against 57 rows carrying `source_funnel: rn`. The labels were wrong in both directions: `min-sat`, `efficient-domination` (Perfect Code), `minimum-k-cut` (Graph k-Cut), `firefighter` (Saving k Vertices), `independent-dominating-set` (Kernel) are IN the networks and carried `ck`/`df`."
+    "magnitude": "Re-derivation from the AUTHORITATIVE source (2026-07-24) found 16 of 227 candidates present, against 57 rows carrying `source_funnel: rn`. Labels were wrong in both directions: `min-sat`, `efficient-domination` (the source's `Perfect Code`), `minimum-k-cut` (`Graph k-Cut`), `firefighter` (`Saving k Vertices`), `independent-dominating-set` (`Kernel`) are IN the networks and carried `ck`/`df`."
   },
   "re_derivation": {
     "date": "2026-07-24",
-    "classic_network": "57 vertices, owner-supplied screenshot of Figure 1, verified programmatically",
-    "approximation_network": "23 vertices, owner-supplied screenshot",
-    "parameterized_network": "29 problems with W[1]/W[2] classification, Faour thesis recovered via the Wayback Machine (the live repo is unreachable from this environment)",
-    "total_source_problems_checked": 109,
-    "result": "12 PRESENT, 215 absent",
-    "new_field": "`rn_membership: present | absent` with `rn_evidence` naming the network and that network's own label for the problem; `provenance_status: derived-rn-component`."
+    "SUPERSEDES": "An earlier screenshot/Wayback-based pass on this same date, which checked 109 problems and found 12. That pass was built on a FALSE PREMISE -- that reductions.network and its GitLab repo were unreachable. Both return HTTP 200. See methods-thread instance 11: the premise is the root cause of instance 9, and the inference the whole defect rests on was never necessary.",
+    "authoritative_source": "reductions.network GitLab repo, one Markdown file per network vertex, synchronised to the live site",
+    "pinned_commit": "8089fb4f3b0d674550ce00449d41533b0d7e3404 (2025-12-13)",
+    "corroboration": "the Verma thesis (68pp, source of the classic network) and the Faour thesis (99pp, parameterized). Faour independently confirms the parameterized network as exactly 12 W[1]-complete + 5 W[1]-hard + 12 W[2]-complete = 29.",
+    "vertices": {
+      "classic": 58,
+      "approximation": 23,
+      "parameterized": 29,
+      "total": 110
+    },
+    "note_on_counts": "110, not the 109 the screenshots showed: Figure 1 renders only 57 legible classic labels because two distinct vertices both abbreviate to `MLST` (Maximum/Minimum Leaf Spanning Tree) and `EXACT COVER` is drawn occluded behind the 3-Dimensional Matching node. A figure is a rendering of the data, not the data.",
+    "join": "SET UNION on maps_to, NOT 1:1: 87 covered vertices resolve to 48 distinct atlas rows (`vertex-cover` alone is reached by 6 vertices; 9 labels appear in more than one network). 32 of the 118 kernel rows are present; 16 of the 227 v3 candidates are.",
+    "result": "87 covered / 23 missed; 16 v3 candidates PRESENT / 211 absent",
+    "new_fields": "`rn_membership: present|absent`, `rn_route: direct|merge|cell`, `rn_evidence` (the network's own label), `rn_flagged` (10 entries the screening pass flagged rather than asserted), `provenance_status: derived`."
   },
   "what_can_and_cannot_be_scored": {
     "scorable": "rn_membership homogeneity — BINARY (in-network vs not), on source-derived labels. This is what B6's intent survives as.",
@@ -26,7 +34,7 @@
   "why_re_sealing_is_legitimate": {
     "timeline": "NO funnel-stratified v3 battery statistic has run. The v3 artifact is not frozen; V4 has not fired; no gradient, MCA, occupancy or factors number exists on any funnel split. The re-derivation is therefore genuinely pre-analysis for every prereg bet.",
     "independence": "The re-derivation consumed NO v3 outcome data. Network membership is a property of three external documents, fixed before this program began, and was determined by set membership against them — it cannot have been tuned to a v3 result.",
-    "contamination_disclosed": "One statistic IS post-hoc and is labelled so: the V2 confirm-pass error-by-funnel table was recomputed on the derived labels AFTER the 272 verdicts existed. That table is QC, not a prereg bet, and it was always post-hoc — the re-scoring changes its strata, not its epistemic status. Result on true labels: rn-present n=24, value-error 8.3%; rn-absent n=248, value-error 4.4%; total 13/272 = 4.8% (invariant under relabeling, as predicted). NO stratum exceeds the 15% quarantine line, so kill-criterion 1 clears on source-derived labels rather than on inferred ones."
+    "contamination_disclosed": "One statistic IS post-hoc and is labelled so: the error-by-funnel table was recomputed on the derived labels AFTER the verdicts existed. It is QC, not a prereg bet, and was always post-hoc -- re-scoring changes its strata, not its epistemic status. Result on AUTHORITATIVE labels across all 426 confirmed cells (272 V2 + 154 second pass): rn-present n=44, value-error 6.8%; rn-absent n=382, value-error 3.4%; total 16/426 = 3.8%. NO stratum approaches the 15% quarantine line, so kill-criterion 1 clears on source-derived labels."
   },
   "structural_fix_already_landed": "All 227 provenance records carry machine-readable `provenance_status`. The battery MUST refuse to stratify on `source_funnel` while its status is not `derived`. A prose caveat cannot bind a consumer; a field can.",
   "unchanged": "No bet in prereg_v9 is edited, added, or removed; B1-B6 stand verbatim. B6's SCORING SURFACE is narrowed by this note to the variable that has source provenance. The frozen atlas.jsonl (6d53a4f1...) and atlas_v2.jsonl (784f4739...) remain byte-identical."

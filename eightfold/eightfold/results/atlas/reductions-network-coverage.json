@@ -1,0 +1,871 @@
+{
+ "commit": "8089fb4f3b0d674550ce00449d41533b0d7e3404",
+ "total_vertices": 110,
+ "coverage_routes": {
+  "direct": 58,
+  "merge": 27,
+  "cell": 2
+ },
+ "covered": [
+  {
+   "vertex": "SATISFIABILITY",
+   "network": "classic",
+   "maps_to": "sat",
+   "where": "kernel",
+   "basis": "exact name - 'SATISFIABILITY' = atlas 'Boolean Satisfiability (CNF-SAT)'",
+   "via": "direct"
+  },
+  {
+   "vertex": "3-SATISFIABILITY",
+   "network": "classic",
+   "maps_to": "sat-3",
+   "where": "kernel",
+   "basis": "exact name (case/format only); source alternativeNames list '3-Sat','3Sat'",
+   "via": "direct"
+  },
+  {
+   "vertex": "1-in-3-Satisfiability",
+   "network": "classic",
+   "maps_to": "one-in-three-sat",
+   "where": "kernel",
+   "basis": "exact name; source alternativeNames lists 'Exactly-One-3-Sat'",
+   "via": "direct"
+  },
+  {
+   "vertex": "CLIQUE",
+   "network": "classic",
+   "maps_to": "clique",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "INDEPENDENT SET",
+   "network": "classic",
+   "maps_to": "independent-set",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "VERTEX COVER",
+   "network": "classic",
+   "maps_to": "vertex-cover",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Planar Vertex Cover",
+   "network": "classic",
+   "maps_to": "planar-vertex-cover",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "DOMINATING SET",
+   "network": "classic",
+   "maps_to": "dominating-set",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Edge Dominating Set",
+   "network": "classic",
+   "maps_to": "edge-dominating-set",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "HITTING SET",
+   "network": "classic",
+   "maps_to": "hitting-set",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "SET COVER",
+   "network": "classic",
+   "maps_to": "set-cover",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "FEEDBACK VERTEX SET",
+   "network": "classic",
+   "maps_to": "feedback-vertex-set",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "FEEDBACK ARC SET",
+   "network": "classic",
+   "maps_to": "feedback-arc-set",
+   "where": "candidate",
+   "basis": "exact name - quarry row 'Minimum Feedback Arc Set (general directed)'",
+   "via": "direct"
+  },
+  {
+   "vertex": "STEINER TREE",
+   "network": "classic",
+   "maps_to": "steiner-tree",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "KNAPSACK",
+   "network": "classic",
+   "maps_to": "knapsack",
+   "where": "kernel",
+   "basis": "exact name - atlas '0/1 Knapsack (decision)'",
+   "via": "direct"
+  },
+  {
+   "vertex": "SUBSET SUM",
+   "network": "classic",
+   "maps_to": "subset-sum",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Maximum Cut",
+   "network": "classic",
+   "maps_to": "max-cut",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Maximum 2Sat",
+   "network": "classic",
+   "maps_to": "max-2sat",
+   "where": "candidate",
+   "basis": "exact name; source alternativeNames lists 'Max 2Sat'",
+   "via": "direct"
+  },
+  {
+   "vertex": "Longest Common Subsequence",
+   "network": "classic",
+   "maps_to": "longest-common-subsequence",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Maximum Leaf Spanning Tree",
+   "network": "classic",
+   "maps_to": "maximum-leaf-spanning-tree",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "TRAVELING SALESPERSON",
+   "network": "classic",
+   "maps_to": "tsp",
+   "where": "kernel",
+   "basis": "alias - 'Salesperson'/'Salesman' naming of the same problem",
+   "via": "direct"
+  },
+  {
+   "vertex": "PARTITION",
+   "network": "classic",
+   "maps_to": "number-partitioning",
+   "where": "kernel",
+   "basis": "alias - atlas row is literally named 'Number Partitioning (PARTITION)'",
+   "via": "direct"
+  },
+  {
+   "vertex": "3-DIMENSIONAL MATCHING",
+   "network": "classic",
+   "maps_to": "three-dimensional-matching",
+   "where": "kernel",
+   "basis": "exact name; source alternativeNames list '3DM','3-DM'",
+   "via": "direct"
+  },
+  {
+   "vertex": "Exact 3-Cover",
+   "network": "classic",
+   "maps_to": "exact-cover-x3c",
+   "where": "kernel",
+   "basis": "alias - source alternativeNames lists 'Exact Cover by 3-Sets', which is the atlas row's name verbatim",
+   "via": "direct"
+  },
+  {
+   "vertex": "p-CENTER",
+   "network": "classic",
+   "maps_to": "k-center",
+   "where": "kernel",
+   "basis": "synonym - p-center and k-center are the same facility-location problem under two naming traditions (p = k)",
+   "via": "direct"
+  },
+  {
+   "vertex": "p-MEDIAN",
+   "network": "classic",
+   "maps_to": "k-median",
+   "where": "kernel",
+   "basis": "synonym - p-median = k-median, same naming traditions",
+   "via": "direct"
+  },
+  {
+   "vertex": "UNDIRECTED HAMILTONIAN CYCLE",
+   "network": "classic",
+   "maps_to": "hamiltonian-cycle",
+   "where": "kernel",
+   "basis": "exact name - atlas row's canonical encoding is the undirected graph",
+   "via": "direct"
+  },
+  {
+   "vertex": "Constraint Shortest Path",
+   "network": "classic",
+   "maps_to": "constrained-shortest-path",
+   "where": "candidate",
+   "basis": "synonym - source alternativeNames lists 'Length Constraint Shortest Path'; quarry row is 'Resource-Constrained Shortest Path'. Same object: shortest s-t path subject to a second additive budget",
+   "via": "direct"
+  },
+  {
+   "vertex": "UNCAPACITATED FACILITY LOCATION",
+   "network": "classic",
+   "maps_to": "facility-location",
+   "where": "candidate",
+   "basis": "synonym - quarry row is named 'Uncapacitated Facility Location (metric)'",
+   "via": "direct",
+   "flagged": true,
+   "flag_note": "quarry row is METRIC-restricted; the reductions.network vertex states no metric assumption. Same problem family, but the kernel row is the narrower object."
+  },
+  {
+   "vertex": "Degree Constrained Spanning Tree",
+   "network": "classic",
+   "maps_to": "min-degree-spanning-tree",
+   "where": "candidate",
+   "basis": "synonym - source asks for a spanning tree of max degree <= k; quarry row 'Minimum Degree Spanning Tree' minimises that same max degree",
+   "via": "direct",
+   "flagged": true,
+   "flag_note": "decision-vs-optimization pairing, not a literal identity. Confident these are the same object, but a reviewer wanting strict decision/optimization separation would split them."
+  },
+  {
+   "vertex": "DIRECTED HAMILTONIAN CYCLE",
+   "network": "classic",
+   "maps_to": "hamiltonian-cycle",
+   "where": "kernel",
+   "basis": "synonym - directed orientation of the atlas Hamiltonicity row",
+   "via": "direct",
+   "flagged": true,
+   "flag_note": "ORIENTATION. The atlas row's canonical_encoding is explicitly 'simple undirected graph'. The atlas keeps one Hamiltonicity row, but keeps orientation-distinct rows elsewhere (feedback-vertex-set vs directed-feedback-vertex-set, steiner-tree vs directed-steiner-tree, max-cut vs max-directed-cut). If that convention is applied here, this vertex needs its own row."
+  },
+  {
+   "vertex": "DIRECTED k-VERTEX DISJOINT PATH",
+   "network": "classic",
+   "maps_to": "disjoint-paths",
+   "where": "kernel",
+   "basis": "synonym - atlas row 'Vertex-Disjoint Paths'",
+   "via": "direct",
+   "flagged": true,
+   "flag_note": "ORIENTATION + arity: atlas row is undirected and unparameterised in the name. Directed k-disjoint-paths is NP-complete while undirected k-disjoint-paths is FPT (Robertson-Seymour), so a reviewer may well want these separated."
+  },
+  {
+   "vertex": "DIRECTED TWO VERTEX DISJOINT PATH",
+   "network": "classic",
+   "maps_to": "disjoint-paths",
+   "where": "kernel",
+   "basis": "synonym - the k=2 case of the same atlas row",
+   "via": "direct",
+   "flagged": true,
+   "flag_note": "SECOND vertex mapping onto the same row (with DIRECTED k-VERTEX DISJOINT PATH). Same orientation caveat applies."
+  },
+  {
+   "vertex": "SET PACKING",
+   "network": "classic",
+   "maps_to": "k-set-packing",
+   "where": "kernel",
+   "basis": "synonym - atlas row 'k-Set Packing'",
+   "via": "direct",
+   "flagged": true,
+   "flag_note": "The reductions.network vertex places NO bound on set size; the atlas row's canonical_encoding is 'family of sets each of size <= k'. Closest existing row, but the general problem is strictly broader."
+  },
+  {
+   "vertex": "GRAPH COLORING",
+   "network": "classic",
+   "maps_to": "chromatic-number",
+   "where": "candidate",
+   "basis": "synonym - source instances are 'Graph G=(V,E), number k', i.e. k-colourability decision, whose optimisation form is the chromatic number",
+   "via": "direct",
+   "flagged": true,
+   "flag_note": "Two defensible targets. Mapped to quarry chromatic-number (k part of the input). The kernel alternative atlas graph-3-coloring is the fixed k=3 special case. Pick per whichever convention the provenance field uses."
+  },
+  {
+   "vertex": "Not-All-Equal 4SAT",
+   "network": "classic",
+   "maps_to": "nae-sat",
+   "where": "kernel",
+   "basis": "synonym - atlas row 'Not-All-Equal SAT'",
+   "via": "direct",
+   "flagged": true,
+   "flag_note": "ARITY. The atlas row's canonical_task is 'NAE-3SAT decision'; this vertex is arity 4. Compounding this, the reductions.network entry is an unfilled 'todo' stub, so the object is underspecified at source."
+  },
+  {
+   "vertex": "TWO MACHINE SCHEDULING",
+   "network": "classic",
+   "maps_to": "makespan-scheduling",
+   "where": "kernel",
+   "basis": "synonym - the m=2 case of P||Cmax",
+   "via": "direct",
+   "flagged": true,
+   "flag_note": "Two defensible targets. The source definition (partition jobs so BOTH machines finish by T, with t_n forced into J_1) is literally a 2-way balanced partition, so atlas number-partitioning is an equally good and arguably closer target than makespan-scheduling."
+  },
+  {
+   "vertex": "Satisfiability problem",
+   "network": "approximation",
+   "maps_to": "sat",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Clique",
+   "network": "approximation",
+   "maps_to": "clique",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Vertex Cover",
+   "network": "approximation",
+   "maps_to": "vertex-cover",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Dominating Set",
+   "network": "approximation",
+   "maps_to": "dominating-set",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Set Cover",
+   "network": "approximation",
+   "maps_to": "set-cover",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Steiner Tree",
+   "network": "approximation",
+   "maps_to": "steiner-tree",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Maximum Cut",
+   "network": "approximation",
+   "maps_to": "max-cut",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Label Cover",
+   "network": "approximation",
+   "maps_to": "label-cover",
+   "where": "candidate",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "MULTICUT",
+   "network": "approximation",
+   "maps_to": "multicut",
+   "where": "candidate",
+   "basis": "exact name - quarry row 'Minimum Multicut (with terminal pairs)'; source instances match (graph + k terminal pairs)",
+   "via": "direct"
+  },
+  {
+   "vertex": "Min-Sat",
+   "network": "approximation",
+   "maps_to": "min-sat",
+   "where": "candidate",
+   "basis": "alias - quarry row 'Minimum Satisfiability'",
+   "via": "direct"
+  },
+  {
+   "vertex": "Maximum Satisfiability with two literals pro clause",
+   "network": "approximation",
+   "maps_to": "max-2sat",
+   "where": "candidate",
+   "basis": "synonym - abbreviation field reads 'Max-2Sat'; 'pro clause' is this source's German-influenced phrasing for 'per clause'",
+   "via": "direct"
+  },
+  {
+   "vertex": "Maximum Satisfiability with three literals pro clause",
+   "network": "approximation",
+   "maps_to": "max-e3-sat",
+   "where": "candidate",
+   "basis": "synonym - abbreviation field reads 'Max-3sat'",
+   "via": "direct",
+   "flagged": true,
+   "flag_note": "MAX-3SAT (at most 3 literals per clause) vs the quarry row MAX-E3-SAT (EXACTLY 3). Standard in the PCP literature to conflate, and the approximation thresholds coincide, but they are not literally the same instance class."
+  },
+  {
+   "vertex": "Clique",
+   "network": "parameterized",
+   "maps_to": "clique",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Independent Set",
+   "network": "parameterized",
+   "maps_to": "independent-set",
+   "where": "kernel",
+   "basis": "exact name; source alternativeNames lists 'Stable Set'",
+   "via": "direct"
+  },
+  {
+   "vertex": "Dominating Set",
+   "network": "parameterized",
+   "maps_to": "dominating-set",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Hitting Set",
+   "network": "parameterized",
+   "maps_to": "hitting-set",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Set Cover",
+   "network": "parameterized",
+   "maps_to": "set-cover",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Steiner Tree",
+   "network": "parameterized",
+   "maps_to": "steiner-tree",
+   "where": "kernel",
+   "basis": "exact name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Graph k-Cut",
+   "network": "parameterized",
+   "maps_to": "minimum-k-cut",
+   "where": "candidate",
+   "basis": "synonym - source alternativeNames field lists 'Minimum k-Cut' verbatim, which is the quarry row's name",
+   "via": "direct"
+  },
+  {
+   "vertex": "Kernel",
+   "network": "parameterized",
+   "maps_to": "independent-dominating-set",
+   "where": "candidate",
+   "basis": "synonym - source alternativeNames field lists 'Independent Dominating Set' verbatim; 'kernel' is the graph-theory term for an independent dominating set",
+   "via": "direct"
+  },
+  {
+   "vertex": "Perfect Code",
+   "network": "parameterized",
+   "maps_to": "efficient-domination",
+   "where": "candidate",
+   "basis": "synonym - quarry row is literally named 'Efficient Domination (Perfect Code)'",
+   "via": "direct"
+  },
+  {
+   "vertex": "0-1-INTEGER PROGRAMMING",
+   "network": "classic",
+   "maps_to": "integer-programming",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "1+3-Dimensional Matching",
+   "network": "classic",
+   "maps_to": "three-dimensional-matching",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "3-DIMENSIONAL EXACT MATCHING",
+   "network": "classic",
+   "maps_to": "three-dimensional-matching",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "COMBINATORIAL AUCTION",
+   "network": "classic",
+   "maps_to": "k-set-packing",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "DIRECTED HAMILTONIAN PATH",
+   "network": "classic",
+   "maps_to": "hamiltonian-cycle",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "UNDIRECTED HAMILTONIAN PATH",
+   "network": "classic",
+   "maps_to": "hamiltonian-cycle",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "EXACT COVER",
+   "network": "classic",
+   "maps_to": "exact-cover-x3c",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Minimal Maximal Matching",
+   "network": "classic",
+   "maps_to": "edge-dominating-set",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "s-t-Max Cut",
+   "network": "classic",
+   "maps_to": "max-cut",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Simple Network Design Problem",
+   "network": "classic",
+   "maps_to": "min-communication-cost-spanning-tree",
+   "where": "candidate",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Vertex Cover on Cubic Graph",
+   "network": "classic",
+   "maps_to": "vertex-cover",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Vertex Cover with One Fixed Vertex",
+   "network": "classic",
+   "maps_to": "vertex-cover",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "d-regular Label Cover",
+   "network": "approximation",
+   "maps_to": "label-cover",
+   "where": "candidate",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Maximum k-Function Satisfiability",
+   "network": "approximation",
+   "maps_to": "maximum-csp",
+   "where": "candidate",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Maximum Satisfiability with three literals pro clause(5)",
+   "network": "approximation",
+   "maps_to": "max-e3-sat",
+   "where": "candidate",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Maximum Satisfiability with three literals pro clause(k)",
+   "network": "approximation",
+   "maps_to": "max-e3-sat",
+   "where": "candidate",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Vertex Cover with k+1 maximum degree",
+   "network": "approximation",
+   "maps_to": "vertex-cover",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Weighted Maximum Cut",
+   "network": "approximation",
+   "maps_to": "max-cut",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Weighted Maximum Satisfiability with two literals pro clause",
+   "network": "approximation",
+   "maps_to": "max-2sat",
+   "where": "candidate",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Weighted  Vertex Cover",
+   "network": "approximation",
+   "maps_to": "vertex-cover",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Multicoloured Clique",
+   "network": "parameterized",
+   "maps_to": "clique",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Saving k Vertices",
+   "network": "parameterized",
+   "maps_to": "firefighter",
+   "where": "candidate",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Sized Subset Sum",
+   "network": "parameterized",
+   "maps_to": "subset-sum",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Weighted CNF Satisfiability",
+   "network": "parameterized",
+   "maps_to": "sat",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Weighted Binary Integer Programming",
+   "network": "parameterized",
+   "maps_to": "integer-programming",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Weighted Circuit Satisfiability (1,h,s)",
+   "network": "parameterized",
+   "maps_to": "circuit-sat",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Weighted Circuit Satisfiability 2,h,s)",
+   "network": "parameterized",
+   "maps_to": "circuit-sat",
+   "where": "kernel",
+   "basis": "restriction/re-encoding of an existing row - adjudicated in quarry-candidates-rn-miss.jsonl (verdict MERGE); see that row's `reason` for the argument",
+   "via": "merge"
+  },
+  {
+   "vertex": "Maximum Linear Equation with three literals pro equation, assigning binary number",
+   "network": "approximation",
+   "maps_to": "xor-sat",
+   "where": "kernel",
+   "basis": "MAX-X variant = this row's approximation CELL, which is already filled with exactly this content - adjudicated in quarry-candidates-rn-miss.jsonl (verdict REJECT)",
+   "via": "cell"
+  },
+  {
+   "vertex": "Maximum Not-All-Equal Satisfiability with three literals pro clause",
+   "network": "approximation",
+   "maps_to": "nae-sat",
+   "where": "kernel",
+   "basis": "MAX-X variant = this row's approximation CELL, which is already filled with exactly this content - adjudicated in quarry-candidates-rn-miss.jsonl (verdict REJECT)",
+   "via": "cell"
+  }
+ ],
+ "covered_count": 87,
+ "missed": 23,
+ "missed_vertices": [
+  {
+   "vertex": "Capacitated Minimum Spanning Tree",
+   "network": "classic",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "capacitated-minimum-spanning-tree"
+  },
+  {
+   "vertex": "Connected Dominating Set",
+   "network": "classic",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "connected-dominating-set"
+  },
+  {
+   "vertex": "Minimum k-Connected Subgraph",
+   "network": "classic",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "minimum-k-connected-subgraph"
+  },
+  {
+   "vertex": "Minimum Leaf Spanning Tree",
+   "network": "classic",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "minimum-leaf-spanning-tree"
+  },
+  {
+   "vertex": "Network Design Problem",
+   "network": "classic",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "network-design-problem"
+  },
+  {
+   "vertex": "Path with Forbidden Pairs",
+   "network": "classic",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "path-with-forbidden-pairs"
+  },
+  {
+   "vertex": "Undirected Rural Postman",
+   "network": "classic",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "rural-postman-undirected"
+  },
+  {
+   "vertex": "Directed Rural Postman",
+   "network": "classic",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "rural-postman-directed"
+  },
+  {
+   "vertex": "Chinese Postman",
+   "network": "classic",
+   "verdict": "REJECT",
+   "proposed_problem_id": "chinese-postman"
+  },
+  {
+   "vertex": "Unique Label Cover",
+   "network": "approximation",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "unique-label-cover"
+  },
+  {
+   "vertex": "Antimonotone s-CNF Weighted Satisfiability",
+   "network": "parameterized",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "antimonotone-s-cnf-weighted-sat"
+  },
+  {
+   "vertex": "s-CNF Weighted Satisfiability",
+   "network": "parameterized",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "s-cnf-weighted-sat"
+  },
+  {
+   "vertex": "Monotone Weighted CNF Satisfiability",
+   "network": "parameterized",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "monotone-weighted-cnf-sat"
+  },
+  {
+   "vertex": "Irredundant Set",
+   "network": "parameterized",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "irredundant-set"
+  },
+  {
+   "vertex": "s-Red-Blue Nonblocker",
+   "network": "parameterized",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "s-red-blue-nonblocker"
+  },
+  {
+   "vertex": "Monotone Query Non-Emptiness",
+   "network": "parameterized",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "monotone-query-non-emptiness"
+  },
+  {
+   "vertex": "Monotone Prenex CNF Query Non-Emptiness",
+   "network": "parameterized",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "monotone-prenex-cnf-query-non-emptiness"
+  },
+  {
+   "vertex": "Dominating Clique",
+   "network": "parameterized",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "dominating-clique"
+  },
+  {
+   "vertex": "Threshold Dominating Set",
+   "network": "parameterized",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "threshold-dominating-set"
+  },
+  {
+   "vertex": "Short Turing Machine Acceptance",
+   "network": "parameterized",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "short-turing-machine-acceptance"
+  },
+  {
+   "vertex": "Short Multi-Tape NTM",
+   "network": "parameterized",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "short-multi-tape-ntm"
+  },
+  {
+   "vertex": "Cutting k Vertices from a Graph",
+   "network": "parameterized",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "cutting-k-vertices"
+  },
+  {
+   "vertex": "Short Exact Tour",
+   "network": "parameterized",
+   "verdict": "ADMIT",
+   "proposed_problem_id": "short-exact-tour"
+  }
+ ],
+ "flagged_count": 10,
+ "unmatched_notes": "Every one of the 110 vertices is placed; none was left unplaced. Coverage is recorded by three routes: `direct` (58) = the vertex is an existing kernel or candidate row under a different label; `merge` (27) = the vertex is a restriction/re-encoding adjudicated MERGE in quarry-candidates-rn-miss.jsonl, which is still coverage of the target row; `cell` (2) = the vertex is a MAX-X variant occupying an existing row's already-filled approximation cell. 10 entries carry `flagged: true` - these are judgment calls, not identities, and each states what a reviewer might decide differently. The three highest-risk are the two DIRECTED disjoint-path vertices and DIRECTED HAMILTONIAN CYCLE, all of which turn on whether the atlas applies its usual orientation-splitting convention. Of the 23 uncovered vertices, 22 are ADMIT (genuinely new rows) and 1 is REJECT (Chinese Postman - an unfilled 'todo' stub at source; note its MIXED variant is separately present as quarry candidate mixed-chinese-postman, but plain Chinese Postman is not that problem and is not claimed NP-hard by this source). NOTE: several kernel rows are reached by more than one vertex (e.g. vertex-cover by 5, hamiltonian-cycle by 3, max-cut by 3), and one vertex label appears in more than one network (Clique, Dominating Set, Set Cover, Steiner Tree, Hitting Set, Independent Set, Vertex Cover, Maximum Cut, Set Cover). A per-row `rn_membership` field should therefore be computed as a SET UNION over these entries keyed on `maps_to`, not as a 1:1 join."
+}
