@@ -35,6 +35,25 @@ standard is a different, unmeasured quantity — and remains the owner's to meas
 
 ## Error by funnel — and a kill-criterion ambiguity that needs an owner ruling
 
+> ### ⚠ CORRECTION NOTE — 2026-07-24: this table was computed on UNVERIFIED strata
+>
+> The `source_funnel` field this table stratifies on was **never derived from source data**. For the
+> `rn` funnel it was *inferred* ("this is a canonical NP problem, so it is probably in the
+> compendium") because reductions.network and its repo were unreachable. Owner-supplied screenshots of
+> the three actual networks (2026-07-24) showed **~6 of 58 `rn`-labelled candidates are confirmed
+> present**, and that labels are wrong in both directions (`Min-Sat`, `Perfect Code`, `Graph k-Cut`
+> are in the networks but carry `ck`/`df`).
+>
+> **The rows below are therefore provisional.** The *totals* are unaffected — 272 cells, OK 212 /
+> CITE 47 / FIX 9 / OPEN 4, value-error 13/272 = 4.8% — because relabeling moves cells **between**
+> strata without changing the count. The per-funnel split is what is in doubt.
+>
+> **Ruling (a)'s "no funnel quarantines" verdict is expected to survive** (no plausible reshuffle
+> concentrates 15% value-error into one funnel), **but that is now to be recomputed, not asserted**:
+> after the funnel field is re-derived from source, this table is rebuilt on true labels and
+> kill-criterion 1 re-scored. A published table computed on fabricated strata does not stand silently
+> even when its verdict survives. See methods-thread instance 9; prereg clarification-03 covers B6.
+
 | funnel | cells | FIX | OPEN | CITE | all-error % | **value-error %** |
 |---|---|---|---|---|---|---|
 | ck | 77 | 1 | 1 | 11 | 16.9% | 2.6% |

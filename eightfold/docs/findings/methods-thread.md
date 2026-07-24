@@ -81,6 +81,39 @@ code*. Same class of error, opposite outcomes, and the difference is entirely wh
 check stood between the assertion and the artifact. The remedy for instance 6 is to build the missing
 gate, not to try harder.
 
+## Instance 9 — 2026-07-24 — a provenance field inferred at ingestion, flagged every time, consumed as ground truth anyway
+
+**A new species.** Instances 1–8 were assertions that were wrong. This one was an assertion that was
+*correctly labelled uncertain* — and the label protected nothing.
+
+**What happened.** Every v3 row carries `source_funnel`. For the `rn` (reductions.network) funnel the
+field was never derived from anything: the live site and its GitLab repo were unreachable, so
+membership was **inferred** from the paper's documented coverage ("this is a canonical NP problem, so
+it is probably in the compendium"). That inference was disclosed in K1, in K2, in K2b, and in the V2
+report — four times, in writing. Then the owner supplied screenshots of the three actual networks.
+Of 58 `rn`-labelled candidates, **~6 are confirmed present**. The labels are also wrong in the other
+direction: `Min-Sat`, `Perfect Code` (= `efficient-domination`), `Graph k-Cut` (= `minimum-k-cut`) are
+in the networks but carry `ck`/`df` labels.
+
+**Why the flag failed.** Three artifacts consumed the field **as data**: the V2 error-by-funnel table,
+kill-criterion 1 (defined per-funnel), and sealed prereg bet **B6** (funnel homogeneity). Not one of
+them consumed the caveat. **Downstream consumers read the field, not the prose next to it.** The
+metadata *was* aggregated; the uncertainty wasn't. That is the house failure mode — metadata recorded,
+inference not drawn — with the twist that here the inference was *published repeatedly* and still lost,
+because it lived in sentences rather than in the data.
+
+**Structural fix — schema, not prose.** A caveat that only exists in prose cannot bind a consumer.
+Therefore: **inferred-status fields carry a machine-readable `provenance_status: inferred | derived`,
+and the battery REFUSES to stratify on `inferred`.** Cheap, and it closes the class — no future
+stratification can silently rest on a guess, no matter how loudly the guess was disclosed.
+
+**Blast radius, to be verified rather than assumed.** The quarantine verdict of ruling (a) is *probably*
+robust — relabeling moves cells between strata but the value-error total (13/272) is invariant, and no
+plausible reshuffle concentrates 15% into one funnel. But "probably robust" is now something to
+**recompute**, not assert: after the funnel field is re-derived from source, the error-by-funnel table
+is rebuilt on true labels and kill-criterion 1 re-scored. A published table computed on fabricated
+strata does not get to stand silently even if its verdict survives.
+
 ---
 
 ## Delegation protocol — the authority boundary held under pressure (2026-07-24)
