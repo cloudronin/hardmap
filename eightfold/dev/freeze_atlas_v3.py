@@ -89,7 +89,8 @@ def main():
     # --- apply errata-v1 to the KERNEL COPY carried into v3 (owner ruling 2026-07-24) ---
     # v1 bytes stay frozen on disk; v3 carries the CORRECTED values. Each corrected cell is tagged
     # `erratum_v1` so the v2->v3 delta decomposition books it as ERRATUM, not drift.
-    VOCAB_OK = {"poly-APX", "APX-complete", "APX", "log-APX", "PTAS", "inapprox"}
+    # `superpoly-APX` is a V3_SPEC rung (not in the kernel vocab) — see dev/quarry_v3_spec.py
+    VOCAB_OK = {"poly-APX", "superpoly-APX", "APX-complete", "APX", "log-APX", "PTAS", "inapprox"}
     epath = os.path.join(ATLAS_DIR, "errata-v1.json")
     n_err, deferred = 0, []
     if os.path.exists(epath):
@@ -104,6 +105,8 @@ def main():
                     continue
                 if e["now"] in VOCAB_OK and e["now"] != c["value"]:
                     c["value"] = e["now"]; touched = True; n_err += 1
+                    if e.get("corrected_canonical_task"):      # object drift / re-derivation
+                        c["canonical_task"] = e["corrected_canonical_task"]
                 elif e["now"] not in VOCAB_OK:
                     deferred.append(f"{r['problem_id']}/{c['charge']}")
                     continue
@@ -132,9 +135,16 @@ def main():
             f.write(open(PROV_SRC).read())
         print(f"provenance sidecar -> {os.path.basename(PROV_DEST)}")
 
-    r = subprocess.run([sys.executable, "-m", "eightfold.atlas", "validate", "--path", dest],
-                       cwd=os.path.join(ATLAS_DIR, "..", "..", ".."), capture_output=True, text=True)
-    print("\n" + (r.stdout or r.stderr).strip().splitlines()[0])
+    # validate against the V3 INSTRUMENT (V3_SPEC), not the kernel spec — v3 carries `superpoly-APX`,
+    # which the frozen kernel vocabulary deliberately does not contain (prereg_v9-clarification-02).
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    sys.path.insert(0, os.path.normpath(os.path.join(ATLAS_DIR, "..", "..", "..")))
+    from eightfold import atlas as _atlas
+    import quarry_v3_spec as _v3
+    _entries = _atlas.load_atlas(dest)
+    _errs = _v3.validate_v3(_entries)
+    print(f"\nV3_SPEC validation: {len(_entries)} rows, "
+          + ("CLEAN" if not _errs else f"{len(_errs)} rows with errors: {list(_errs)[:5]}"))
 
     # the kernel must be untouched
     assert hashlib.sha256(open(KERNEL, "rb").read()).hexdigest() == \

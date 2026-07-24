@@ -27,17 +27,20 @@
       "problem_id": "graph-3-coloring",
       "charge": "approximation",
       "was": "inapprox",
-      "now": "PENDING-REDERIVATION",
+      "now": "poly-APX",
       "kind": "value",
       "reason": "Using n colors is an n-approximation (chi >= 1); Halldorsson (IPL 1993) achieves O(n(loglog n)^2/(log n)^3). Zuckerman's n^(1-eps) is below the achieved polynomial factor.",
-      "citation": "Halldorsson, A still better performance guarantee for approximate graph coloring, IPL 45 (1993) [upper]; Zuckerman, Theory of Computing 3 (2007) [lower]",
+      "citation": "Kawarabayashi, Thorup & Yoneda, Better coloring of 3-colorable graphs, STOC 2024 [Otilde(n^0.19747) colours]; Barto, Bulin, Krokhin & Opral, Algebraic approach to promise CSP, JACM 68(4) Art.28 (2021) [NP-hard to 5-colour a 3-colourable graph]; predecessors Khanna-Linial-Safra (2000), Guruswami-Khanna (2004) [4-colour hardness]",
       "additional_defect": "OBJECT MISMATCH: problem_id is 3-COLORING but canonical_task states CHROMATIC NUMBER. Under the 3-colorable promise the best known algorithm uses ~O(n^0.19747) colors — an n^eps-approximation, which the F-2 pin names verbatim as disqualifying. The row needs an owner ruling on which object it is.",
       "defect_class": "F-2 vocabulary error AND object drift (two distinct defects in one cell)",
       "object_drift": {
         "ruling": "2026-07-24 — THE ID IS THE OBJECT. The row is 3-COLORING (the promise problem); the canonical_task drifted to CHROMATIC NUMBER. chromatic-number now exists as its own v3 row, so the drifted content has a home.",
         "action": "repin canonical_task to the promise problem, then RE-DERIVE the approximation cell from the promise-version literature at full R20. Do NOT port either old value — the object mismatch means neither was ever verified against the right problem.",
-        "status": "QUEUED — re-derivation pending"
-      }
+        "status": "RESOLVED — task repinned to the promise object and the cell RE-DERIVED from promise-version literature; neither old value ported."
+      },
+      "corrected_canonical_task": "PROMISE 3-COLORING (input promised 3-colorable; output a proper colouring with as few colours as possible; ratio vs OPT <= 3): poly-time achieves ~n^0.198 colours; NP-hard to 5-colour, so no ratio <= 5/3",
+      "derived_2026_07_24": "Re-derived at full R20 by independent adjudication 2026-07-24; value + canonical_task + citations above are the establishing set.",
+      "note_for_row": "APX membership is an OPEN problem (no O(1)-colour algorithm known; hardness for every constant known only under d-to-1/UG-type assumptions). R20 therefore forces the weaker established rung, poly-APX. Record the openness in the row note."
     },
     {
       "problem_id": "maximum-common-subgraph",
@@ -65,7 +68,9 @@
       "kind": "vocabulary-gap",
       "reason": "Micciancio proves NP-hardness only within SOME CONSTANT (sqrt2-eps) and only under RANDOMIZED reductions (NP not-subset RP, not P!=NP) — the pin rejects both constant-factor and conditional-only hardness. Poly-factor NP-hardness is barred anyway: O(sqrt n)-GapSVP is in coNP (Aharonov-Regev, JACM 2005), which would collapse PH. VOCABULARY GAP: best poly-time factor is 2^O(n loglog n/log n) — SUPERPOLYNOMIAL — so it cannot be demoted to poly-APX either. NO v1 rung is correct.",
       "resolution": "RESOLVED 2026-07-24 by owner ruling: schema EXTENDED with a superpoly-APX rung between poly-APX and inapprox (prereg_v9-clarification-02). v1 recorded these as vocabulary-gap defects — no correct value was EXPRESSIBLE in v1 vocab. v3 carries superpoly-APX with the lattice-approximation citations at R20.",
-      "citation": "Lenstra-Lenstra-Lovasz (1982) / Schnorr BKZ / slide reduction: 2^O(n loglog n/log n) [SVP upper]; Babai (1986) nearest-plane 2^(n/2) [CVP upper]; Micciancio, SICOMP [constant-factor hardness, randomized]; Aharonov-Regev JACM 2005 [O(sqrt n)-Gap in coNP: poly-factor NP-hardness would collapse PH]"
+      "citation": "Schnorr, TCS 53 (1987) [2^O(n(loglog n)^2/log n)]; Gama & Nguyen, STOC 2008 (slide reduction); Bennett, SIGACT News 54(1) 2023 §2.1 [states the current 2^O(n loglog n/log n) factor]; Aharonov & Regev, JACM 52(5) 2005 [GapSVP_c-sqrt(n) in NP cap coNP => poly-factor NP-hardness collapses PH]; Micciancio, SICOMP 30(6) 2001 + Khot, JACM 52(5) 2005 [achieved hardness, randomized]",
+      "corrected_canonical_task": "gamma-approximate SVP in ell_2 (integer basis; gamma measured in lattice rank n): poly-time achieves gamma = 2^O(n loglog n/log n); no poly(n)-factor algorithm known, and poly-factor NP-hardness is barred (GapSVP_sqrt(n) in NP cap coNP)",
+      "derived_2026_07_24": "Re-derived at full R20 by independent adjudication 2026-07-24; value + canonical_task + citations above are the establishing set."
     },
     {
       "problem_id": "closest-vector-cvp",
@@ -75,7 +80,9 @@
       "kind": "vocabulary-gap",
       "reason": "Dinur-Kindler-Raz-Safra prove hardness only within n^(c/loglog n) = 2^(log^(1-eps) n), which is n^o(1) — SUB-polynomial, precisely the 'almost-polynomial' case the pin excludes (the row's own task text says so). Same Aharonov-Regev/Goldreich-Goldwasser sqrt(n) barrier. Best poly-time factor 2^(n/2) (Babai) is superpolynomial, so poly-APX is also wrong.",
       "resolution": "RESOLVED 2026-07-24 by owner ruling: schema EXTENDED with a superpoly-APX rung between poly-APX and inapprox (prereg_v9-clarification-02). v1 recorded these as vocabulary-gap defects — no correct value was EXPRESSIBLE in v1 vocab. v3 carries superpoly-APX with the lattice-approximation citations at R20.",
-      "citation": "Lenstra-Lenstra-Lovasz (1982) / Schnorr BKZ / slide reduction: 2^O(n loglog n/log n) [SVP upper]; Babai (1986) nearest-plane 2^(n/2) [CVP upper]; Dinur-Kindler-Raz-Safra [n^(c/loglog n) hardness]; Aharonov-Regev JACM 2005 [O(sqrt n)-Gap in coNP: poly-factor NP-hardness would collapse PH]"
+      "citation": "Babai, Combinatorica 6(1) 1986 [2^(n/2) nearest plane]; Aharonov & Regev, JACM 52(5) 2005 [2^O(n loglog n/log n) stated for BOTH problems; NP cap coNP barrier]; Dinur, Kindler, Raz & Safra, Combinatorica 23(2) 2003 [n^(c/loglog n) NP-hard, DETERMINISTIC reductions]",
+      "corrected_canonical_task": "gamma-approximate CVP in ell_2 (integer basis + target; gamma measured in lattice rank n): poly-time achieves gamma = 2^(n/2) (Babai nearest plane), improved to 2^O(n loglog n/log n) by block reduction; no poly(n)-factor algorithm known, and poly-factor NP-hardness is barred (GapCVP_sqrt(n) in NP cap coNP)",
+      "derived_2026_07_24": "Re-derived at full R20 by independent adjudication 2026-07-24; value + canonical_task + citations above are the establishing set."
     },
     {
       "problem_id": "quadratic-assignment",
