@@ -1,0 +1,184 @@
+[
+ {
+  "problem_id": "context-free-membership",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "Value P is right, but Jones & Laaser (TCS 3, 1976) is a LOWER-bound paper: it proves CFG emptiness, infiniteness and membership are log-space complete for P. It is the correct citation for this row's PARALLELIZATION charge (and is already used there for context-free-emptiness), not for the decision/P upper bound. The canonical_task names CYK recognition at O(n^3); Jones & Laaser give no such algorithm or bound. Using a P-completeness paper to establish a P-membership algorithm is exactly the interpretive charity Check 9 forbids.",
+  "corrected_citation": "D. H. Younger, Recognition and parsing of context-free languages in time n^3, Information and Control 10(2) (1967) 189-208 (the O(n^3) CYK recognition algorithm for arbitrary CFGs; independently T. Kasami, An efficient recognition and syntax-analysis algorithm for context-free languages, Sci. Rep. AFCRL-65-758, Air Force Cambridge Research Lab, 1965)"
+ },
+ {
+  "problem_id": "high-degree-subgraph",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Anderson & Mayr (Stanford CS tech report STAN-CS-84-1014, 1984) is the paper that introduces the High Degree Subgraph problem (given G and k, find the maximum induced subgraph in which every vertex has degree >= k) and proves it P-complete for k >= 3. Membership in P — via exactly the iterated deletion of vertices of degree < k named in canonical_task — is established there as the upper-bound half of the completeness result. Same object, same value.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "datalog-evaluation",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "Value P (data complexity) is right, but Dantsin-Eiter-Gottlob-Voronkov is an ACM Computing Surveys article — a survey that tabulates and repeats the PTIME data-complexity result rather than originating it. Check 9 explicitly excludes surveys that repeat a claim. The result is due to the fixpoint/Horn-clause query literature of the early 1980s.",
+  "corrected_citation": "M. Y. Vardi, The complexity of relational query languages, STOC 1982, 137-146 (data complexity of fixpoint queries is PTIME-complete); N. Immerman, Relational queries computable in polynomial time, Information and Control 68 (1986) 86-104; for Datalog/Horn-clause queries specifically, A. Chandra & D. Harel, Horn clause queries and generalizations, Journal of Logic Programming 2(1) (1985) 1-15"
+ },
+ {
+  "problem_id": "gaussian-elimination-pivoting",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified: S. A. Vavasis, Gaussian Elimination with Pivoting is P-Complete, SIAM J. Discrete Math. 2(3) (1989), DOI 10.1137/0402037 — the cell's title is the paper's exact title. The paper shows GE with partial (and with complete) pivoting is log-space complete for P; the P upper bound for running GE with partial pivoting is the membership half of that result. Same object (partial pivoting), same value.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "breadth-depth-search",
+  "charge": "parallelization",
+  "verdict": "OK",
+  "reason": "Verified: R. Greenlaw, Breadth-Depth Search is P-Complete, Parallel Processing Letters 3 (1993) 209-222. It proves that deciding whether u is visited before v by a breadth-depth search from s (i.e. the BDS ordering) is P-complete, for directed and undirected graphs, resolving the Kindervater-Lenstra question. Exactly the canonical_task and value; GHR (1995) is a corroborating compendium entry, not the load-bearing source.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "context-free-emptiness",
+  "charge": "parallelization",
+  "verdict": "OK",
+  "reason": "Verified: N. D. Jones & W. T. Laaser, Complete problems for deterministic polynomial time, TCS 3(1) (1976) 105-117 shows a family of problems complete for P including context-free grammar emptiness (and infiniteness, and membership). This is the right charge for this citation — emptiness/productivity is one of the paper's own headline P-complete problems.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "metric-dimension",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Garey & Johnson [GT61] is the origin of the NP-completeness listing for Metric Dimension (resolving set of size <= k), not a downstream repetition; the literature uniformly credits GJ79 [GT61] for general graphs. The note additionally carries Khuller, Raghavachari & Rosenfeld, Landmarks in graphs, Discrete Appl. Math. 70 (1996) 217-229, which contains a published NP-hardness proof plus the (2 ln n + O(1)) approximation. Value and object both correct; suggest promoting KRR 1996 into the citation field so the published proof is the primary reference.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "acyclic-coloring",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified: Ochem, Negative results on acyclic improper colorings, EuroComb '05, DMTCS Proc. AE (2005) 357-362, proves NP-completeness of 3-ACYCLIC COLORABILITY on bipartite planar graphs of maximum degree 4 (and 4-acyclic colorability on bipartite planar Delta<=8). A hardness result on a restricted subclass establishes NPC for the unrestricted canonical_task a fortiori; membership in NP is immediate. Kostochka (1978, Novosibirsk thesis) is the historical credit for planar graphs and is corroborated by Angelini & Frati (J. Comb. Optim. 2012), which attributes acyclic 3-colorability NP-completeness to Kostochka and its sharpening to Ochem. No object drift, no charity.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "biclique-cover",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified despite the clique-flavoured title: Orlin, Contentment in graph theory: covering graphs with cliques, Indag. Math. 39(5) = KNAW Proc. Ser. A 80(5) (1977) 406-424, proves NP-completeness of deciding, for a bipartite graph G and integer k, whether the EDGES of G can be covered by at most k complete bipartite subgraphs. That is exactly the biclique cover (bipartite dimension) decision problem. Orlin only conjectured the PARTITION variant hard, and the note already keeps that distinct.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "closest-substring",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified: Lanctot, Li, Ma, Wang & Zhang, Distinguishing string selection problems, Inform. Comput. 185(1) (2003) 41-55 (prelim. SODA 1999, 633-642) proves NP-hardness of the Closest Substring problem (as well as Closest String and Farthest String) — the same object as canonical_task: a length-L center within Hamming distance d of some substring of each input string.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "dissociation-number",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified: Orlovich, Dolgui, Finke, Gordon & Werner, The complexity of dissociation set problems in graphs, Discrete Appl. Math. 159(13) (2011) 1352-1366 proves the maximum dissociation set problem NP-hard, even for bipartite graphs and for planar line graphs of planar bipartite graphs. Maximum dissociation set and minimum 3-path vertex cover are exact complements (dissociation number >= n-k iff a P3-hitting set of size <= k exists), so the canonical_task is the same object.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "flow-shop-scheduling",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified: Garey, Johnson & Sethi, The complexity of flowshop and jobshop scheduling, Mathematics of Operations Research 1(2) (1976) 117-129 proves the shortest-length m-machine flowshop schedule problem NP-complete for every m >= 3 (and gives the m=2 polynomial case), and the paper explicitly notes the results hold whether size is measured in tasks, bits, or the sum of task lengths — i.e. strong NP-completeness. Exactly F3||Cmax and the decoupling threshold in the note.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "graph-genus",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified: C. Thomassen, The graph genus problem is NP-complete, Journal of Algorithms 10(4) (1989) 568-576, establishes that deciding whether a given graph has orientable genus at most k is NP-complete. Title, venue, volume and pages all check out and the theorem is the canonical_task verbatim.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "job-interval-selection",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified: Spieksma, On the approximability of an interval scheduling problem, Journal of Scheduling 2(5) (1999) 215-227 proves JISP APX-hard (even when each job has only 2 candidate intervals) and gives the matching greedy 1/2-approximation. APX-hardness entails NP-hardness of the decision version 'schedule >= k jobs'; membership in NP is immediate. Nakajima & Hakimi 1982 is correctly credited only for introducing the problem.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "max-e3-sat",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "Value NPC is right, but Hastad 2001 is an inapproximability paper — the cell's own note concedes the decision NP-completeness comes from Cook-Levin/3-SAT, not from Hastad. Hastad belongs on this row's APPROXIMATION charge (the 7/8 + eps threshold), and reusing it for the decision charge is precisely the survey-of-convenience pattern Check 9 rejects; the establishing source is the classical 3-SAT reduction.",
+  "corrected_citation": "R. M. Karp, Reducibility among combinatorial problems, in: Miller & Thatcher (eds.), Complexity of Computer Computations, Plenum (1972) 85-103 (3-SAT NP-complete); for the exact-3-literal form, Garey & Johnson, Computers and Intractability (1979), problem [LO2] 3-SATISFIABILITY, which remains NP-complete when every clause has exactly three distinct literals. MAX-E3-SAT decision contains E3-SAT at k = m."
+ },
+ {
+  "problem_id": "min-communication-cost-spanning-tree",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified by reading the paper (Johnson, Lenstra & Rinnooy Kan, The complexity of the network design problem, Networks 8 (1978) 279-285). Theorem 2 proves SNDP NP-complete — NDP with all edge weights equal to 1 and budget B = |V|-1, so the feasible subgraphs are exactly spanning trees and the criterion is the sum of all-pairs shortest-path weights, i.e. routing cost. That is MRCT. The paper also states explicitly, of Hu's optimum communication spanning tree, that 'for the case where all requirements are equal, NP-completeness follows easily as a corollary to Theorem 2'. No object drift between OCT and MRCT here: the uniform-requirement case is covered in the source itself.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "minimum-decision-tree",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified: Hyafil & Rivest, Constructing optimal binary decision trees is NP-complete, Information Processing Letters 5(1) (1976) 15-17 (reference independently confirmed in the JLRK 1978 bibliography). The problem proved NP-complete is the identification-tree problem — build a binary decision tree of minimum testing cost that identifies each object — matching canonical_task's 'identification tree of cost <= B'.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "minimum-test-cover",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified: the Test Cover / Test Set problem is Garey & Johnson [SP6], and the literature (e.g. the Test Cover parameterized-complexity and approximation papers) credits GJ79 [SP6] as the source of its NP-completeness rather than a later paper. Same object: a subfamily of <= k tests that pairwise distinguishes all items. GJ is the origin here, not a repetition.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "orienteering",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified by reading the SICOMP version. Section 7 is a hardness section, and Theorem 7.2 states ORIENTEERING is NP-hard to approximate to within 1481/1480, proved by an explicit reduction from TSP on {1,2}-metrics using Engebretsen & Karpinski's 741/740 bound. The paper also states outright that all its problems are NP-hard as generalizations of TSP. A proved APX-hardness theorem establishes NP-hardness of the 'walk of length <= B collecting reward >= R' decision problem; membership in NP is immediate. Not a mere assertion-with-citation.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "precedence-constrained-scheduling",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified: J. D. Ullman, NP-complete scheduling problems, JCSS 10(3) (1975) 384-393 proves the optimal-schedule problem NP-complete under precedence constraints, including the restricted case in which all jobs have unit execution time and the number of identical machines m is part of the input, and the case of 1-or-2 unit jobs on two processors. Exactly P|prec|Cmax and the note's 'NP-hard even with unit processing times'.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "red-blue-set-cover",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified: Carr, Doddi, Konjevod & Marathe, On the red-blue set cover problem, SODA 2000, 345-353, define the problem exactly as canonical_task does and prove hardness — unless P=NP it cannot be approximated within O(2^{log^{1-delta} n}) even when each set contains one blue and two red elements. That hardness proof establishes NP-hardness of the decision version 'cover all blue while covering <= k red'; membership in NP is immediate. (Flagging for the row's approximation charge: this 2^{log^{1-delta} n} bound is the F-2 trap — it is poly-APX, not inapprox.)",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "sorting-by-reversals",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified: Caprara, Sorting permutations by reversals and Eulerian cycle decompositions, SIAM J. Discrete Math. 12(1) (1999) 91-110 — journal version of 'Sorting by reversals is difficult', RECOMB 1997 — proves that sorting an (unsigned) permutation by the minimum number of reversals is NP-hard, via the maximum edge-disjoint alternating cycle decomposition of the associated bicolored graph. The note correctly quarantines the signed version (Hannenhalli & Pevzner 1995, in P) as a separate object.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "subset-product",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified: SUBSET PRODUCT is Garey & Johnson [SP14], NP-complete by reduction from Exact Cover by 3-Sets (GJ credit Yao, private communication) — so the GJ entry is the origin of the result, not a downstream repetition. Same object as canonical_task: a subset whose product equals the target P.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "unrelated-machine-scheduling",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified: Lenstra, Shmoys & Tardos, Approximation algorithms for scheduling unrelated parallel machines, Math. Programming 46 (1990) 259-271 contains not only the 2-approximation but a proved hardness theorem — no polynomial algorithm has worst-case ratio below 3/2 unless P=NP, already for the restricted-assignment case p_ij in {p_j, infinity}. That 3/2 gap is obtained by proving it NP-hard to decide whether a makespan-<=T schedule exists, which is exactly the canonical_task decision problem.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "sharp-antichains",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Fulkerson, Note on Dilworth's decomposition theorem for partially ordered sets, Proc. AMS 7 (1956) 701-702 gives the constructive proof of Dilworth's theorem via Koenig's bipartite matching theorem, and that construction is precisely the algorithm: a maximum antichain and a minimum chain cover are read off a maximum bipartite matching and its Koenig vertex cover. The reduction, not a later paper, is what makes the decision/optimization version polynomial, so the citation carries the value rather than merely being adjacent to it. Predating the formal class P is not charity here — the reduction target (bipartite matching) is unconditionally polynomial.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "sharp-spanning-trees",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Tarjan, Depth-first search and linear graph algorithms, SIAM J. Comput. 1(2) (1972) 146-160 gives the linear-time DFS and the linear-time connectivity/biconnectivity algorithms. Spanning-tree existence is exactly connectivity, and DFS returns the spanning tree itself, so the citation establishes the P (indeed O(n+m)) value for the stated canonical_task. Correctly kept distinct from the #P-complete counting charge on the same row.",
+  "corrected_citation": null
+ }
+]

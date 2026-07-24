@@ -1,0 +1,1298 @@
+{
+ "retrieved": "2026-07-24",
+ "paper": "arXiv:2511.04308",
+ "paper_title": "A Compendium of Reductions: reductions.network (Christoph Grune, Femke Pfaue)",
+ "primary_source": {
+  "repo": "https://git.rwth-aachen.de/reductioncompendium/data",
+  "commit": "8089fb4f3b0d674550ce00449d41533b0d7e3404",
+  "commit_date": "2025-12-13T18:41:43+01:00",
+  "why_authoritative": "arXiv:2511.04308 Sec. 3.1 'The Data Repository' states the data for each problem is stored in a separate Markdown file in this Git repository, with top-level folders 'approximation', 'classic', and 'parameterized', each containing 'problems' and 'reductions' subfolders; Sec. 3.2 states the backend is synchronised from this repository. The per-file `# name` field is the vertex label rendered by the site.",
+  "reachability_note": "Contrary to the prior pass's premise, https://git.rwth-aachen.de/reductioncompendium/data and https://reductions.network both returned HTTP 200 from this environment on 2026-07-24, and the GitLab REST API was fully readable anonymously. No Wayback Machine fallback was needed."
+ },
+ "networks": {
+  "classic": {
+   "source": "RWTH GitLab data repository https://git.rwth-aachen.de/reductioncompendium/data (the repo the paper designates in Sec. 3.1 / Sec. 4 as the authoritative store synchronised to the live site), path `classic/problems/*.md`, one Markdown file per network vertex; commit 8089fb4f3b0d674550ce00449d41533b0d7e3404 (2025-12-13). Enumerated via GitLab REST API tree listing (x-total=59); each name read from that file's `# name` field. Corroborated against Figure 1 ('The classical network') of arXiv:2511.04308, read from the figure bitmap at https://arxiv.org/html/2511.04308v1/src/img/classical-network.png.",
+   "reachable": true,
+   "count": 58,
+   "problems": [
+    "0-1-INTEGER PROGRAMMING",
+    "1+3-Dimensional Matching",
+    "1-in-3-Satisfiability",
+    "3-DIMENSIONAL EXACT MATCHING",
+    "3-DIMENSIONAL MATCHING",
+    "3-SATISFIABILITY",
+    "Capacitated Minimum Spanning Tree",
+    "Chinese Postman",
+    "CLIQUE",
+    "COMBINATORIAL AUCTION",
+    "Connected Dominating Set",
+    "Constraint Shortest Path",
+    "Degree Constrained Spanning Tree",
+    "DIRECTED HAMILTONIAN CYCLE",
+    "DIRECTED HAMILTONIAN PATH",
+    "DIRECTED k-VERTEX DISJOINT PATH",
+    "Directed Rural Postman",
+    "DIRECTED TWO VERTEX DISJOINT PATH",
+    "DOMINATING SET",
+    "Edge Dominating Set",
+    "Exact 3-Cover",
+    "EXACT COVER",
+    "FEEDBACK ARC SET",
+    "FEEDBACK VERTEX SET",
+    "GRAPH COLORING",
+    "HITTING SET",
+    "INDEPENDENT SET",
+    "KNAPSACK",
+    "Longest Common Subsequence",
+    "Maximum 2Sat",
+    "Maximum Cut",
+    "Maximum Leaf Spanning Tree",
+    "Minimal Maximal Matching",
+    "Minimum k-Connected Subgraph",
+    "Minimum Leaf Spanning Tree",
+    "Network Design Problem",
+    "Not-All-Equal 4SAT",
+    "p-CENTER",
+    "p-MEDIAN",
+    "PARTITION",
+    "Path with Forbidden Pairs",
+    "Planar Vertex Cover",
+    "s-t-Max Cut",
+    "SATISFIABILITY",
+    "SET COVER",
+    "SET PACKING",
+    "Simple Network Design Problem",
+    "STEINER TREE",
+    "SUBSET SUM",
+    "TRAVELING SALESPERSON",
+    "TWO MACHINE SCHEDULING",
+    "UNCAPACITATED FACILITY LOCATION",
+    "UNDIRECTED HAMILTONIAN CYCLE",
+    "UNDIRECTED HAMILTONIAN PATH",
+    "Undirected Rural Postman",
+    "VERTEX COVER",
+    "Vertex Cover on Cubic Graph",
+    "Vertex Cover with One Fixed Vertex"
+   ],
+   "problems_detail": [
+    {
+     "file": "0-1-integer_programming.md",
+     "name": "0-1-INTEGER PROGRAMMING",
+     "abbreviation": "0-1-INTEGER",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "1+3-dimensional_matching.md",
+     "name": "1+3-Dimensional Matching",
+     "abbreviation": "1+3DM",
+     "alternative_names": [
+      "1+3DM",
+      "1+3-DM"
+     ],
+     "completeness": [
+      "NP",
+      "#P",
+      "SSP-NP",
+      "SSP-#P"
+     ],
+     "stub": false
+    },
+    {
+     "file": "1-in-3-satisfiability.md",
+     "name": "1-in-3-Satisfiability",
+     "abbreviation": "1-in-3-SAT",
+     "alternative_names": [
+      "Exactly-One-3-Sat"
+     ],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "3-dimensional_exact_matching.md",
+     "name": "3-DIMENSIONAL EXACT MATCHING",
+     "abbreviation": "3-Dim E-Matching",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "3-dimensional_matching.md",
+     "name": "3-DIMENSIONAL MATCHING",
+     "abbreviation": "3-Dim Matching",
+     "alternative_names": [
+      "3DM",
+      "3-DM"
+     ],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "3-satisfiability.md",
+     "name": "3-SATISFIABILITY",
+     "abbreviation": "3-SAT",
+     "alternative_names": [
+      "3-Sat",
+      "3Sat"
+     ],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "capacitated_minimum_spanning_tree.md",
+     "name": "Capacitated Minimum Spanning Tree",
+     "abbreviation": "CMST",
+     "alternative_names": [
+      "Capacitated Spanning Tree"
+     ],
+     "completeness": [
+      "NP",
+      "#P",
+      "SSP-NP",
+      "SSP-#P"
+     ],
+     "stub": false
+    },
+    {
+     "file": "chinese_postman.md",
+     "name": "Chinese Postman",
+     "abbreviation": "Chinese Postman",
+     "alternative_names": [],
+     "completeness": [],
+     "stub": true
+    },
+    {
+     "file": "clique.md",
+     "name": "CLIQUE",
+     "abbreviation": "CLIQUE",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "combinatorial_auction.md",
+     "name": "COMBINATORIAL AUCTION",
+     "abbreviation": "Comb Auction",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "connected_dominating_set.md",
+     "name": "Connected Dominating Set",
+     "abbreviation": "CDS",
+     "alternative_names": [
+      "Minimum Connected Dominating Set"
+     ],
+     "completeness": [
+      "NP",
+      "#P",
+      "SSP-NP",
+      "SSP-#P"
+     ],
+     "stub": false
+    },
+    {
+     "file": "constraint_shortest_path.md",
+     "name": "Constraint Shortest Path",
+     "abbreviation": "CSP",
+     "alternative_names": [
+      "Length Constraint Shortest Path"
+     ],
+     "completeness": [
+      "NP",
+      "#P",
+      "SSP-NP",
+      "SSP-#P"
+     ],
+     "stub": false
+    },
+    {
+     "file": "degree_constrained_spanning_tree.md",
+     "name": "Degree Constrained Spanning Tree",
+     "abbreviation": "DCST",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "#P",
+      "SSP-NP",
+      "SSP-#P"
+     ],
+     "stub": false
+    },
+    {
+     "file": "directed_hamiltonian_cycle.md",
+     "name": "DIRECTED HAMILTONIAN CYCLE",
+     "abbreviation": "DirHamCyc",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "directed_hamiltonian_path.md",
+     "name": "DIRECTED HAMILTONIAN PATH",
+     "abbreviation": "DirHamPath",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "directed_k-vertex_disjoint_path.md",
+     "name": "DIRECTED k-VERTEX DISJOINT PATH",
+     "abbreviation": "Dir k-Vertex Path",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "directed_rural_postman.md",
+     "name": "Directed Rural Postman",
+     "abbreviation": "Dir Rural Postman",
+     "alternative_names": [],
+     "completeness": [],
+     "stub": true
+    },
+    {
+     "file": "directed_two_vertex_disjoint_path.md",
+     "name": "DIRECTED TWO VERTEX DISJOINT PATH",
+     "abbreviation": "Dir 2-Vertex Path",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "dominating_set.md",
+     "name": "DOMINATING SET",
+     "abbreviation": "DOM-SET",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "edge_dominating_set.md",
+     "name": "Edge Dominating Set",
+     "abbreviation": "EDS",
+     "alternative_names": [],
+     "completeness": [],
+     "stub": true
+    },
+    {
+     "file": "exact_3-cover.md",
+     "name": "Exact 3-Cover",
+     "abbreviation": "X3C",
+     "alternative_names": [
+      "Exact Cover by 3-Sets"
+     ],
+     "completeness": [
+      "NP",
+      "#P",
+      "SSP-NP",
+      "SSP-#P"
+     ],
+     "stub": false
+    },
+    {
+     "file": "exact_cover.md",
+     "name": "EXACT COVER",
+     "abbreviation": "EC",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "feedback_arc_set.md",
+     "name": "FEEDBACK ARC SET",
+     "abbreviation": "FAS",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "feedback_vertex_set.md",
+     "name": "FEEDBACK VERTEX SET",
+     "abbreviation": "FVS",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "graph_coloring.md",
+     "name": "GRAPH COLORING",
+     "abbreviation": "Coloring",
+     "alternative_names": [],
+     "completeness": [
+      "NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "hitting_set.md",
+     "name": "HITTING SET",
+     "abbreviation": "HS",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "independent_set.md",
+     "name": "INDEPENDENT SET",
+     "abbreviation": "IS",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "knapsack.md",
+     "name": "KNAPSACK",
+     "abbreviation": "KNAPSACK",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "longest_common_subsequence.md",
+     "name": "Longest Common Subsequence",
+     "abbreviation": "LCS",
+     "alternative_names": [],
+     "completeness": [],
+     "stub": true
+    },
+    {
+     "file": "maximum_2sat.md",
+     "name": "Maximum 2Sat",
+     "abbreviation": "Max2Sat",
+     "alternative_names": [
+      "Max 2Sat"
+     ],
+     "completeness": [
+      "NP",
+      "#P",
+      "SSP-NP",
+      "SSP-#P"
+     ],
+     "stub": false
+    },
+    {
+     "file": "maximum_cut.md",
+     "name": "Maximum Cut",
+     "abbreviation": "Max Cut",
+     "alternative_names": [],
+     "completeness": [
+      "NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "maximum_leaf_spanning_tree.md",
+     "name": "Maximum Leaf Spanning Tree",
+     "abbreviation": "MLST",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "#P",
+      "SSP-NP",
+      "SSP-#P"
+     ],
+     "stub": false
+    },
+    {
+     "file": "minimal_maximal_matching.md",
+     "name": "Minimal Maximal Matching",
+     "abbreviation": "Min Max Matching",
+     "alternative_names": [],
+     "completeness": [],
+     "stub": true
+    },
+    {
+     "file": "minimum_k-connected_subgraph.md",
+     "name": "Minimum k-Connected Subgraph",
+     "abbreviation": "MinConSubgraph",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "#P",
+      "SSP-NP",
+      "SSP-#P"
+     ],
+     "stub": false
+    },
+    {
+     "file": "minimum_leaf_spanning_tree.md",
+     "name": "Minimum Leaf Spanning Tree",
+     "abbreviation": "MLST",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "#P",
+      "SSP-NP",
+      "SSP-#P"
+     ],
+     "stub": false
+    },
+    {
+     "file": "network_design_problem.md",
+     "name": "Network Design Problem",
+     "abbreviation": "NDP",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "#P",
+      "SSP-NP",
+      "SSP-#P"
+     ],
+     "stub": false
+    },
+    {
+     "file": "not-all-equal_4sat.md",
+     "name": "Not-All-Equal 4SAT",
+     "abbreviation": "NAE4SAT",
+     "alternative_names": [],
+     "completeness": [],
+     "stub": true
+    },
+    {
+     "file": "p-center.md",
+     "name": "p-CENTER",
+     "abbreviation": "p-CENTER",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "p-median.md",
+     "name": "p-MEDIAN",
+     "abbreviation": "p-MEDIAN",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "partition.md",
+     "name": "PARTITION",
+     "abbreviation": "PARTITION",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "path_with_forbidden_pairs.md",
+     "name": "Path with Forbidden Pairs",
+     "abbreviation": "PathWFP",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "#P",
+      "SSP-NP",
+      "SSP-#P"
+     ],
+     "stub": false
+    },
+    {
+     "file": "planar_vertex_cover.md",
+     "name": "Planar Vertex Cover",
+     "abbreviation": "Planar VC",
+     "alternative_names": [],
+     "completeness": [],
+     "stub": true
+    },
+    {
+     "file": "s-t-max_cut.md",
+     "name": "s-t-Max Cut",
+     "abbreviation": "s-t-Max Cut",
+     "alternative_names": [],
+     "completeness": [],
+     "stub": true
+    },
+    {
+     "file": "satisfiability.md",
+     "name": "SATISFIABILITY",
+     "abbreviation": "SAT",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "set_cover.md",
+     "name": "SET COVER",
+     "abbreviation": "SC",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "set_packing.md",
+     "name": "SET PACKING",
+     "abbreviation": "SP",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "simple_network_design_problem.md",
+     "name": "Simple Network Design Problem",
+     "abbreviation": "SNDP",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "#P",
+      "SSP-NP",
+      "SSP-#P"
+     ],
+     "stub": false
+    },
+    {
+     "file": "steiner_tree.md",
+     "name": "STEINER TREE",
+     "abbreviation": "STEINER",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "subset_sum.md",
+     "name": "SUBSET SUM",
+     "abbreviation": "SubSum",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "traveling_salesperson.md",
+     "name": "TRAVELING SALESPERSON",
+     "abbreviation": "TSP",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "two_machine_scheduling.md",
+     "name": "TWO MACHINE SCHEDULING",
+     "abbreviation": "SCHEDULING",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "uncapacitated_facility_location.md",
+     "name": "UNCAPACITATED FACILITY LOCATION",
+     "abbreviation": "UFL",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "undirected_hamiltonian_cycle.md",
+     "name": "UNDIRECTED HAMILTONIAN CYCLE",
+     "abbreviation": "UndirHamCyc",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "undirected_hamiltonian_path.md",
+     "name": "UNDIRECTED HAMILTONIAN PATH",
+     "abbreviation": "UndirHamPath",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "undirected_rural_postman.md",
+     "name": "Undirected Rural Postman",
+     "abbreviation": "Undir Rural Postman",
+     "alternative_names": [],
+     "completeness": [],
+     "stub": true
+    },
+    {
+     "file": "vertex_cover.md",
+     "name": "VERTEX COVER",
+     "abbreviation": "VERTEX COVER",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "SSP-NP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "vertex_cover_on_cubic_graph.md",
+     "name": "Vertex Cover on Cubic Graph",
+     "abbreviation": "VC - Cubic",
+     "alternative_names": [],
+     "completeness": [],
+     "stub": true
+    },
+    {
+     "file": "vertex_cover_with_one_fixed_vertex.md",
+     "name": "Vertex Cover with One Fixed Vertex",
+     "abbreviation": "VCV",
+     "alternative_names": [],
+     "completeness": [
+      "NP",
+      "#P",
+      "SSP-NP",
+      "SSP-#P"
+     ],
+     "stub": false
+    }
+   ]
+  },
+  "approximation": {
+   "source": "RWTH GitLab data repository https://git.rwth-aachen.de/reductioncompendium/data (the repo the paper designates in Sec. 3.1 / Sec. 4 as the authoritative store synchronised to the live site), path `approximation/problems/*.md`, one Markdown file per network vertex; commit 8089fb4f3b0d674550ce00449d41533b0d7e3404 (2025-12-13). Enumerated via GitLab REST API tree listing (x-total=25); each name read from that file's `# name` field. The paper publishes no figure of this network, so the repo listing is the sole source. `dominating_set_TEST.md` was excluded: it is byte-identical to `dominating_set.md` and is a test artifact, not a distinct vertex (25 tree entries = 23 problems + .gitkeep + the duplicate).",
+   "reachable": true,
+   "count": 23,
+   "problems": [
+    "Clique",
+    "d-regular Label Cover",
+    "Dominating Set",
+    "Label Cover",
+    "Maximum Cut",
+    "Maximum k-Function Satisfiability",
+    "Maximum Linear Equation with three literals pro equation, assigning binary number",
+    "Maximum Not-All-Equal Satisfiability with three literals pro clause",
+    "Maximum Satisfiability with three literals pro clause(5)",
+    "Maximum Satisfiability with three literals pro clause(k)",
+    "Maximum Satisfiability with three literals pro clause",
+    "Maximum Satisfiability with two literals pro clause",
+    "Min-Sat",
+    "MULTICUT",
+    "Satisfiability problem",
+    "Set Cover",
+    "Steiner Tree",
+    "Unique Label Cover",
+    "Vertex Cover",
+    "Vertex Cover with k+1 maximum degree",
+    "Weighted Maximum Cut",
+    "Weighted Maximum Satisfiability with two literals pro clause",
+    "Weighted  Vertex Cover"
+   ],
+   "problems_detail": [
+    {
+     "file": "clique.md",
+     "name": "Clique",
+     "abbreviation": "Clique",
+     "alternative_names": [],
+     "completeness": [
+      "PCP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "d-regular_label_cover.md",
+     "name": "d-regular Label Cover",
+     "abbreviation": "Label Cover(d)",
+     "alternative_names": [],
+     "completeness": [
+      "PCP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "dominating_set.md",
+     "name": "Dominating Set",
+     "abbreviation": "Dominating Set",
+     "alternative_names": [],
+     "completeness": [
+      "PCP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "label_cover.md",
+     "name": "Label Cover",
+     "abbreviation": "Label Cover",
+     "alternative_names": [],
+     "completeness": [
+      "PCP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "maximum_cut.md",
+     "name": "Maximum Cut",
+     "abbreviation": "Max-Cut",
+     "alternative_names": [],
+     "completeness": [
+      "PCP",
+      "UGC"
+     ],
+     "stub": false
+    },
+    {
+     "file": "maximum_k-function_satisfiability.md",
+     "name": "Maximum k-Function Satisfiability",
+     "abbreviation": "Max k-Func Sat",
+     "alternative_names": [],
+     "completeness": [
+      "PCP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "maximum_linear_equation_with_three_literals_pro_equation,_assigning_binary_number.md",
+     "name": "Maximum Linear Equation with three literals pro equation, assigning binary number",
+     "abbreviation": "Max-3lin2",
+     "alternative_names": [],
+     "completeness": [
+      "PCP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "maximum_not-all-equal_satisfiability_with_three_literals_pro_clause.md",
+     "name": "Maximum Not-All-Equal Satisfiability with three literals pro clause",
+     "abbreviation": "Max-Nae3sat",
+     "alternative_names": [],
+     "completeness": [
+      "PCP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "maximum_satisfiability_with_three_literals_pro_clause(5).md",
+     "name": "Maximum Satisfiability with three literals pro clause(5)",
+     "abbreviation": "Max-3sat(5)",
+     "alternative_names": [],
+     "completeness": [
+      "PCP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "maximum_satisfiability_with_three_literals_pro_clause(k).md",
+     "name": "Maximum Satisfiability with three literals pro clause(k)",
+     "abbreviation": "Max-3sat(k)",
+     "alternative_names": [],
+     "completeness": [
+      "PCP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "maximum_satisfiability_with_three_literals_pro_clause.md",
+     "name": "Maximum Satisfiability with three literals pro clause",
+     "abbreviation": "Max-3sat",
+     "alternative_names": [],
+     "completeness": [
+      "PCP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "maximum_satisfiability_with_two_literals_pro_clause.md",
+     "name": "Maximum Satisfiability with two literals pro clause",
+     "abbreviation": "Max-2Sat",
+     "alternative_names": [],
+     "completeness": [
+      "PCP",
+      "UGC"
+     ],
+     "stub": false
+    },
+    {
+     "file": "min-sat.md",
+     "name": "Min-Sat",
+     "abbreviation": "Min-Sat",
+     "alternative_names": [],
+     "completeness": [
+      "PCP",
+      "UGC"
+     ],
+     "stub": false
+    },
+    {
+     "file": "multicut.md",
+     "name": "MULTICUT",
+     "abbreviation": "MULTICUT",
+     "alternative_names": [],
+     "completeness": [
+      "UGC"
+     ],
+     "stub": false
+    },
+    {
+     "file": "satisfiability_problem.md",
+     "name": "Satisfiability problem",
+     "abbreviation": "Sat",
+     "alternative_names": [],
+     "completeness": [
+      "PCP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "set_cover.md",
+     "name": "Set Cover",
+     "abbreviation": "Set Cover",
+     "alternative_names": [],
+     "completeness": [
+      "PCP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "steiner_tree.md",
+     "name": "Steiner Tree",
+     "abbreviation": "Steiner Tree",
+     "alternative_names": [],
+     "completeness": [
+      "PCP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "unique_label_cover.md",
+     "name": "Unique Label Cover",
+     "abbreviation": "Unique Label Cover",
+     "alternative_names": [],
+     "completeness": [
+      "UGC"
+     ],
+     "stub": false
+    },
+    {
+     "file": "vertex_cover.md",
+     "name": "Vertex Cover",
+     "abbreviation": "Vertex Cover",
+     "alternative_names": [],
+     "completeness": [
+      "PCP",
+      "UGC"
+     ],
+     "stub": false
+    },
+    {
+     "file": "vertex_cover_with_k+1_maximum_degree.md",
+     "name": "Vertex Cover with k+1 maximum degree",
+     "abbreviation": "Vertex Cover(k+1)",
+     "alternative_names": [],
+     "completeness": [
+      "PCP"
+     ],
+     "stub": false
+    },
+    {
+     "file": "weighted_maximum_cut.md",
+     "name": "Weighted Maximum Cut",
+     "abbreviation": "Weighted Max-Cut",
+     "alternative_names": [],
+     "completeness": [
+      "PCP",
+      "UGC"
+     ],
+     "stub": false
+    },
+    {
+     "file": "weighted_maximum_satisfiability_with_two_literals_pro_clause.md",
+     "name": "Weighted Maximum Satisfiability with two literals pro clause",
+     "abbreviation": "Weighted Max-2sat",
+     "alternative_names": [],
+     "completeness": [
+      "PCP",
+      "UGC"
+     ],
+     "stub": false
+    },
+    {
+     "file": "weighted_vertex_cover.md",
+     "name": "Weighted  Vertex Cover",
+     "abbreviation": "Weighted  Vertex Cover",
+     "alternative_names": [],
+     "completeness": [
+      "PCP",
+      "UGC"
+     ],
+     "stub": false
+    }
+   ]
+  },
+  "parameterized": {
+   "source": "RWTH GitLab data repository https://git.rwth-aachen.de/reductioncompendium/data (the repo the paper designates in Sec. 3.1 / Sec. 4 as the authoritative store synchronised to the live site), path `parameterized/problems/*.md`, one Markdown file per network vertex; commit 8089fb4f3b0d674550ce00449d41533b0d7e3404 (2025-12-13). Enumerated via GitLab REST API tree listing (x-total=30); each name read from that file's `# name` field. Class values are read from each file's `# completeness` field. The paper attributes this network to the Faour thesis ('Extending Reductions Network: A Survey of Parameterized Complexity'); the thesis PDF itself was NOT retrieved (see gaps) - every name and class below comes from the data repository, not from the thesis.",
+   "reachable": true,
+   "count": 29,
+   "problems": [
+    {
+     "name": "Antimonotone s-CNF Weighted Satisfiability",
+     "class": "W[1]",
+     "completeness_raw": [
+      "W[1]",
+      "W[1]-hard"
+     ],
+     "abbreviation": "AM sCNF WSat",
+     "file": "antimonotone_s-cnf_weighted_satisfiability.md"
+    },
+    {
+     "name": "Clique",
+     "class": "W[1]",
+     "completeness_raw": [
+      "W[1]",
+      "W[1]-hard"
+     ],
+     "abbreviation": "Clique",
+     "file": "clique.md"
+    },
+    {
+     "name": "Cutting k Vertices from a Graph",
+     "class": "W[1]-hard",
+     "completeness_raw": [
+      "W[1]-hard"
+     ],
+     "abbreviation": "Cutting k Vertices",
+     "file": "cutting_k_vertices_from_a_graph.md"
+    },
+    {
+     "name": "Dominating Clique",
+     "class": "W[2]",
+     "completeness_raw": [
+      "W[1]-hard",
+      "W[2]"
+     ],
+     "abbreviation": "D-Clique",
+     "file": "dominating_clique.md"
+    },
+    {
+     "name": "Dominating Set",
+     "class": "W[2]",
+     "completeness_raw": [
+      "W[1]-hard",
+      "W[2]"
+     ],
+     "abbreviation": "DS",
+     "file": "dominating_set.md"
+    },
+    {
+     "name": "Graph k-Cut",
+     "class": "W[1]-hard",
+     "completeness_raw": [
+      "W[1]-hard"
+     ],
+     "abbreviation": "Graph k-Cut",
+     "file": "graph_k-cut.md"
+    },
+    {
+     "name": "Hitting Set",
+     "class": "W[2]",
+     "completeness_raw": [
+      "W[1]-hard",
+      "W[2]"
+     ],
+     "abbreviation": "HS",
+     "file": "hitting_set.md"
+    },
+    {
+     "name": "Independent Set",
+     "class": "W[1]",
+     "completeness_raw": [
+      "W[1]",
+      "W[1]-hard"
+     ],
+     "abbreviation": "IS",
+     "file": "independent_set.md"
+    },
+    {
+     "name": "Irredundant Set",
+     "class": "W[1]",
+     "completeness_raw": [
+      "W[1]",
+      "W[1]-hard"
+     ],
+     "abbreviation": "Irredundant Set",
+     "file": "irredundant_set.md"
+    },
+    {
+     "name": "Kernel",
+     "class": "W[2]",
+     "completeness_raw": [
+      "W[1]-hard",
+      "W[2]"
+     ],
+     "abbreviation": "Kernel",
+     "file": "kernel.md"
+    },
+    {
+     "name": "Monotone Prenex CNF Query Non-Emptiness",
+     "class": "W[2]",
+     "completeness_raw": [
+      "W[1]-hard",
+      "W[2]"
+     ],
+     "abbreviation": "Mon. CNF MQNE",
+     "file": "monotone_prenex_cnf_query_non-emptiness.md"
+    },
+    {
+     "name": "Monotone Query Non-Emptiness",
+     "class": "W[1]",
+     "completeness_raw": [
+      "W[1]",
+      "W[1]-hard"
+     ],
+     "abbreviation": "Mon. QNE",
+     "file": "monotone_query_non-emptiness.md"
+    },
+    {
+     "name": "Monotone Weighted CNF Satisfiability",
+     "class": "W[2]",
+     "completeness_raw": [
+      "W[1]-hard",
+      "W[2]"
+     ],
+     "abbreviation": "CNF MWSat",
+     "file": "monotone_weighted_cnf_satisfiability.md"
+    },
+    {
+     "name": "Multicoloured Clique",
+     "class": "W[1]",
+     "completeness_raw": [
+      "W[1]",
+      "W[1]-hard"
+     ],
+     "abbreviation": "Multicoloured Clique",
+     "file": "multicoloured_clique.md"
+    },
+    {
+     "name": "Perfect Code",
+     "class": "W[1]",
+     "completeness_raw": [
+      "W[1]",
+      "W[1]-hard"
+     ],
+     "abbreviation": "Perfect Code",
+     "file": "perfect_code.md"
+    },
+    {
+     "name": "s-CNF Weighted Satisfiability",
+     "class": "W[1]",
+     "completeness_raw": [
+      "W[1]",
+      "W[1]-hard"
+     ],
+     "abbreviation": "sCNF WSat",
+     "file": "s-cnf_weighted_satisfiability.md"
+    },
+    {
+     "name": "s-Red-Blue Nonblocker",
+     "class": "W[1]",
+     "completeness_raw": [
+      "W[1]",
+      "W[1]-hard"
+     ],
+     "abbreviation": "s-R-B Nonblocker",
+     "file": "s-red_blue_nonblocker.md"
+    },
+    {
+     "name": "Saving k Vertices",
+     "class": "W[1]-hard",
+     "completeness_raw": [
+      "W[1]-hard"
+     ],
+     "abbreviation": "Saving k Vertices",
+     "file": "saving_k_vertices.md"
+    },
+    {
+     "name": "Set Cover",
+     "class": "W[2]",
+     "completeness_raw": [
+      "W[1]-hard",
+      "W[2]"
+     ],
+     "abbreviation": "SC",
+     "file": "set_cover.md"
+    },
+    {
+     "name": "Short Exact Tour",
+     "class": "W[1]-hard",
+     "completeness_raw": [
+      "W[1]-hard"
+     ],
+     "abbreviation": "Short Exact Tour",
+     "file": "short_exact_tour.md"
+    },
+    {
+     "name": "Short Multi-Tape NTM",
+     "class": "W[2]",
+     "completeness_raw": [
+      "W[1]-hard",
+      "W[2]"
+     ],
+     "abbreviation": "Short Multi-Tape NTM",
+     "file": "short_multi-tape_ntm.md"
+    },
+    {
+     "name": "Short Turing Machine Acceptance",
+     "class": "W[1]",
+     "completeness_raw": [
+      "W[1]",
+      "W[1]-hard"
+     ],
+     "abbreviation": "Short TM Acceptance",
+     "file": "short_turing_machine_acceptance.md"
+    },
+    {
+     "name": "Sized Subset Sum",
+     "class": "W[1]-hard",
+     "completeness_raw": [
+      "W[1]-hard"
+     ],
+     "abbreviation": "Sized Subset Sum",
+     "file": "sized_subset_sum.md"
+    },
+    {
+     "name": "Steiner Tree",
+     "class": "W[2]",
+     "completeness_raw": [
+      "W[1]-hard",
+      "W[2]"
+     ],
+     "abbreviation": "ST",
+     "file": "steiner_tree.md"
+    },
+    {
+     "name": "Threshold Dominating Set",
+     "class": "W[2]",
+     "completeness_raw": [
+      "W[1]-hard",
+      "W[2]"
+     ],
+     "abbreviation": "Threshold DS",
+     "file": "threshold_dominating_set.md"
+    },
+    {
+     "name": "Weighted Binary Integer Programming",
+     "class": "W[2]",
+     "completeness_raw": [
+      "W[1]-hard",
+      "W[2]"
+     ],
+     "abbreviation": "Weighted 0-1-IP",
+     "file": "weighted_binary_integer_programming.md"
+    },
+    {
+     "name": "Weighted Circuit Satisfiability (1,h,s)",
+     "class": "W[1]",
+     "completeness_raw": [
+      "W[1]",
+      "W[1]-hard"
+     ],
+     "abbreviation": "WCS(1,h,s)",
+     "file": "weighted_circuit_satisfiability_(1,h,s).md"
+    },
+    {
+     "name": "Weighted Circuit Satisfiability 2,h,s)",
+     "class": "W[2]",
+     "completeness_raw": [
+      "W[1]-hard",
+      "W[2]"
+     ],
+     "abbreviation": "WCS(2,h,s)",
+     "file": "weighted_circuit_satisfiability_(2,h,s).md"
+    },
+    {
+     "name": "Weighted CNF Satisfiability",
+     "class": "W[2]",
+     "completeness_raw": [
+      "W[1]-hard",
+      "W[2]"
+     ],
+     "abbreviation": "CNF WSat",
+     "file": "weighted_cnf_satisfiability.md"
+    }
+   ]
+  }
+ },
+ "gaps": "1) The Faour thesis itself was not retrieved. The paper cites it as https://reductions.network/papers/faour_extending_reductions_network_a_survey_of_parameterized_complexity. It was not needed for the enumeration - the parameterized vertex list and its W-classes were taken from the live data repository, which is what the site actually renders - but no independent cross-check of the 29 names against the thesis text was performed. 2) The `# completeness` field records set membership and hardness as separate tokens. 'W[1]'+'W[1]-hard' is read here as W[1]-complete. For the 11 problems tagged 'W[2]'+'W[1]-hard', the repo asserts membership in W[2] but only W[1]-hardness, NOT W[2]-hardness; several of these are W[2]-complete in the literature, but that stronger claim is not made by this source and is not asserted here. `completeness_raw` preserves the exact tokens. 3) Six classic entries are unfilled stubs in the repo (instances/solutions/citations literally 'todo', empty completeness): Chinese Postman, Directed Rural Postman, Undirected Rural Postman, Minimal Maximal Matching, s-t-Max Cut, and (partially) several others with empty completeness - Edge Dominating Set, Longest Common Subsequence, Not-All-Equal 4SAT, Planar Vertex Cover, Vertex Cover on Cubic Graph, Maximum Cut(classic, has citation). They are genuine vertices of the network but the repo establishes no complexity value for them. 4) Counts differ slightly from the ~57/~23/~29 figures in the tasking: classic is 58 (not 57). Figure 1 renders 57 legible labels because two distinct vertices both abbreviate to 'MLST' (Maximum Leaf Spanning Tree and Minimum Leaf Spanning Tree) and 'EXACT COVER' (EC) is drawn occluded behind the '3-Dim Matching' node; GRAPH COLORING is present in the repo but was not located in the figure. The repo listing (58) is taken as authoritative over the figure. 5) Vertex counts are as of commit 8089fb4f3b0d674550ce00449d41533b0d7e3404 (2025-12-13); the live site may have drifted since."
+}

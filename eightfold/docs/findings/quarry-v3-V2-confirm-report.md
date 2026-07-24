@@ -140,10 +140,19 @@ undercuts the premise that the "reliable" tier needs only sampling — it errs a
 ## Limitations
 
 Agent-not-independent (the standing caveat). Three verifiers exhausted their 200-call search budget
-near the end of their batch and adjudicated the last few cells from gathered evidence. No local PDF
-rendering (no poppler), so PDF-only sources were checked via HTML/abstract/snippet — except where a
-verifier fetched full text directly (batch 8 read the GHR book and Jerrum's paper; batch 7 extracted
-the Nayak–Sinclair–Zwick text).
+near the end of their batch and adjudicated the last few cells from gathered evidence.
+
+> **⚠ CORRECTED 2026-07-24 — this section previously stated a false constraint.** It read: *"No local
+> PDF rendering (no poppler), so PDF-only sources were checked via HTML/abstract/snippet."* **The second
+> clause does not follow from the first and is wrong.** `pdftoppm` is absent, so PDF pages cannot be
+> rendered as images — but `fitz`, `pypdf` and `pdfplumber` are all installed, and full-text extraction
+> was available throughout. The constraint was asserted in every verifier prompt and never tested.
+>
+> **All 272 cells were therefore verified under an artificial evidence ceiling.** The 60 corrections
+> stand — they were found despite the ceiling, and thinner evidence produces false `OK`s rather than
+> false errors — but an unknown number of `OK`/`CITE` verdicts rest on abstracts where full text was
+> reachable. The second pass runs without the ceiling, and where it re-touches a V2 cell its verdict
+> supersedes. See methods-thread instance 10.
 
 ## What I did not do
 

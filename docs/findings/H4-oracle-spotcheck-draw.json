@@ -1,0 +1,562 @@
+[
+ {
+  "charge": "decision",
+  "problem_id": "one-in-three-sat",
+  "value": "NPC",
+  "citation": "Schaefer, The complexity of satisfiability problems, STOC 1978",
+  "canonical_task": "1-in-3-SAT decision"
+ },
+ {
+  "charge": "decision",
+  "problem_id": "stable-matching",
+  "value": "P",
+  "citation": "Gale & Shapley, College admissions and the stability of marriage, Amer. Math. Monthly 69 (1962)",
+  "canonical_task": "a stable matching always exists and is found by Gale-Shapley (poly-time)"
+ },
+ {
+  "charge": "decision",
+  "problem_id": "planar-3-coloring",
+  "value": "NPC",
+  "citation": "Garey, Johnson & Stockmeyer, Some simplified NP-complete graph problems, TCS 1 (1976) [planar 3-coloring]",
+  "canonical_task": "planar 3-coloring is NP-complete"
+ },
+ {
+  "charge": "decision",
+  "problem_id": "sat-2",
+  "value": "P",
+  "citation": "Aspvall, Plass & Tarjan, A linear-time algorithm for testing certain QBFs (2-SAT), IPL 8 (1979)",
+  "canonical_task": "2-SAT decision (NL-complete, in P)"
+ },
+ {
+  "charge": "decision",
+  "problem_id": "group-steiner-tree",
+  "value": "NPC",
+  "citation": "Karp, Reducibility among combinatorial problems (1972)",
+  "canonical_task": "Group Steiner Tree decision"
+ },
+ {
+  "charge": "decision",
+  "problem_id": "directed-feedback-vertex-set",
+  "value": "NPC",
+  "citation": "Karp, Reducibility among combinatorial problems (1972)",
+  "canonical_task": "directed FVS decision"
+ },
+ {
+  "charge": "decision",
+  "problem_id": "tautology",
+  "value": "coNP-complete",
+  "citation": "Arora & Barak, Computational Complexity: A Modern Approach (2009)",
+  "canonical_task": "TAUT is coNP-complete -- a SIBLING of NPC, not above it (NP vs coNP open)"
+ },
+ {
+  "charge": "decision",
+  "problem_id": "steiner-tree",
+  "value": "NPC",
+  "citation": "Karp, Reducibility among combinatorial problems (1972)",
+  "canonical_task": "STEINER-TREE decision"
+ },
+ {
+  "charge": "decision",
+  "problem_id": "max-directed-cut",
+  "value": "NPC",
+  "citation": "Karp, Reducibility among combinatorial problems (1972)",
+  "canonical_task": "Maximum Directed Cut decision"
+ },
+ {
+  "charge": "decision",
+  "problem_id": "max-2lin",
+  "value": "NPC",
+  "citation": "Garey & Johnson, Computers and Intractability (1979)",
+  "canonical_task": "MAX-2LIN gap decision"
+ },
+ {
+  "charge": "counting",
+  "problem_id": "number-partitioning",
+  "value": "#P-complete",
+  "citation": "Valiant, The complexity of enumeration and reliability problems, SIAM J. Comput. 8 (1979) 410-421",
+  "canonical_task": "#balanced partitions"
+ },
+ {
+  "charge": "counting",
+  "problem_id": "longest-path",
+  "value": "#P-complete",
+  "citation": "Valiant, The complexity of enumeration and reliability problems, SIAM J. Comput. 8 (1979) 410-421",
+  "canonical_task": "#long paths"
+ },
+ {
+  "charge": "counting",
+  "problem_id": "sat-3",
+  "value": "#P-complete",
+  "citation": "Creignou & Hermann, Complexity of generalized satisfiability counting problems, Inf. Comput. 125 (1996)",
+  "canonical_task": "#3-SAT"
+ },
+ {
+  "charge": "counting",
+  "problem_id": "knapsack",
+  "value": "#P-complete",
+  "citation": "Dyer, Approximate counting by dynamic programming [#knapsack FPRAS], STOC 2003",
+  "canonical_task": "#knapsack solutions"
+ },
+ {
+  "charge": "counting",
+  "problem_id": "weighted-interval-scheduling",
+  "value": "FP",
+  "citation": "Arora & Barak, Computational Complexity: A Modern Approach (2009)",
+  "canonical_task": "#optimal selections computable in poly time (DP)"
+ },
+ {
+  "charge": "counting",
+  "problem_id": "bipartiteness",
+  "value": "FP",
+  "citation": "Arora & Barak, Computational Complexity: A Modern Approach (2009)",
+  "canonical_task": "#2-colorings = 2^(#connected components) if bipartite, else 0"
+ },
+ {
+  "charge": "counting",
+  "problem_id": "subset-sum",
+  "value": "#P-complete",
+  "citation": "Valiant, The complexity of enumeration and reliability problems, SIAM J. Comput. 8 (1979) 410-421",
+  "canonical_task": "#subsets hitting the target"
+ },
+ {
+  "charge": "counting",
+  "problem_id": "tutte-polynomial",
+  "value": "#P-complete",
+  "citation": "Jaeger, Vertigan & Welsh, Computational complexity of the Jones and Tutte polynomials, Math. Proc. Camb. Phil. Soc. 108 (1990)",
+  "canonical_task": "evaluating the Tutte polynomial (most points) is #P-hard"
+ },
+ {
+  "charge": "counting",
+  "problem_id": "determinant",
+  "value": "FP",
+  "citation": "Arora & Barak, Computational Complexity: A Modern Approach (2009)",
+  "canonical_task": "evaluate the determinant (in FP / GapL)"
+ },
+ {
+  "charge": "counting",
+  "problem_id": "permanent",
+  "value": "#P-complete",
+  "citation": "Valiant, The complexity of computing the permanent, TCS 8 (1979) 189-201",
+  "canonical_task": "compute the permanent (= count perfect matchings)"
+ },
+ {
+  "charge": "approximation",
+  "problem_id": "set-cover",
+  "value": "log-APX",
+  "citation": "Feige, A threshold of ln n for approximating set cover, JACM 45 (1998) 634-652",
+  "canonical_task": "MIN-SET-COVER: (1-o(1)) ln n tight"
+ },
+ {
+  "charge": "approximation",
+  "problem_id": "planar-vertex-cover",
+  "value": "PTAS",
+  "citation": "Baker, Approximation algorithms for NP-complete problems on planar graphs, JACM 41 (1994) [planar PTAS]",
+  "canonical_task": "planar VC: PTAS (Baker's technique)"
+ },
+ {
+  "charge": "approximation",
+  "problem_id": "k-set-packing",
+  "value": "APX-complete",
+  "citation": "Ausiello, Crescenzi, Gambosi, Kann, Marchetti-Spaccamela & Protasi, Complexity and Approximation (1999)",
+  "canonical_task": "MAX-k-SET-PACKING: constant-factor + APX-hard (for fixed k)"
+ },
+ {
+  "charge": "approximation",
+  "problem_id": "kemeny-rank-aggregation",
+  "value": "PTAS",
+  "citation": "Kenyon-Mathieu & Schudy, How to rank with few errors, STOC 2007 [feedback-arc / Kemeny PTAS]",
+  "canonical_task": "Kemeny consensus: PTAS (Kenyon-Mathieu-Schudy)"
+ },
+ {
+  "charge": "approximation",
+  "problem_id": "bin-packing",
+  "value": "APX",
+  "citation": "Karmarkar & Karp, An efficient approximation scheme for one-dimensional bin-packing, FOCS 1982 [AFPTAS]",
+  "canonical_task": "bin-packing: 3/2 ABSOLUTE-ratio hardness (from PARTITION) but an asymptotic FPTAS (AFPTAS); APX membership, not completeness (R19)"
+ },
+ {
+  "charge": "approximation",
+  "problem_id": "hitting-set",
+  "value": "log-APX",
+  "citation": "Feige, A threshold of ln n for approximating set cover, JACM 45 (1998) 634-652",
+  "canonical_task": "MIN-HITTING-SET: ln n greedy + hardness (set-cover dual)"
+ },
+ {
+  "charge": "approximation",
+  "problem_id": "knapsack",
+  "value": "FPTAS",
+  "citation": "Ibarra & Kim, Fast approximation algorithms for the knapsack..., JACM 22 (1975) 463-468",
+  "canonical_task": "MAX-KNAPSACK: FPTAS"
+ },
+ {
+  "charge": "approximation",
+  "problem_id": "dominating-set",
+  "value": "log-APX",
+  "citation": "Feige, A threshold of ln n for approximating set cover, JACM 45 (1998) 634-652",
+  "canonical_task": "MIN-DOMINATING-SET: ln n greedy + (1-o(1)) ln n hardness (set-cover equivalent)"
+ },
+ {
+  "charge": "approximation",
+  "problem_id": "edge-coloring",
+  "value": "APX",
+  "citation": "Vizing, On an estimate of the chromatic class of a p-graph (1964) [Delta+1 edge-coloring]",
+  "canonical_task": "edge-coloring: constant-factor (Vizing's Delta+1 <= 4/3 Delta) but NP-hard to beat 4/3 on cubic graphs (Holyer)"
+ },
+ {
+  "charge": "approximation",
+  "problem_id": "longest-path",
+  "value": "poly-APX",
+  "citation": "Karger, Motwani & Ramkumar, On approximating the longest path in a graph, Algorithmica 18 (1997)",
+  "canonical_task": "MAX-LONGEST-PATH: no constant-factor approx (n^(1-eps) hard); poly-factor approximable"
+ },
+ {
+  "charge": "parameterized",
+  "problem_id": "maximum-common-subgraph",
+  "value": "W[1]",
+  "citation": "Downey & Fellows, Fixed-parameter tractability and completeness II (W[1]), TCS 141 (1995)",
+  "canonical_task": "W[1]-hard (contains subgraph isomorphism by pattern size)"
+ },
+ {
+  "charge": "parameterized",
+  "problem_id": "set-cover",
+  "value": "W[2]+",
+  "citation": "Downey & Fellows, Parameterized Complexity (1999)",
+  "canonical_task": "k-SET-COVER: W[2]-complete"
+ },
+ {
+  "charge": "parameterized",
+  "problem_id": "integer-programming",
+  "value": "FPT",
+  "citation": "H.W. Lenstra Jr., Integer programming with a fixed number of variables, Math. Oper. Res. 8 (1983)",
+  "canonical_task": "ILP is FPT in the number of variables (Lenstra)"
+ },
+ {
+  "charge": "parameterized",
+  "problem_id": "prize-collecting-steiner-tree",
+  "value": "FPT",
+  "citation": "Cygan et al., Parameterized Algorithms (2015)",
+  "canonical_task": "FPT in number of terminals"
+ },
+ {
+  "charge": "parameterized",
+  "problem_id": "max-cut",
+  "value": "FPT",
+  "citation": "Cygan et al., Parameterized Algorithms (2015)",
+  "canonical_task": "MAX-CUT above the m/2 guarantee: FPT"
+ },
+ {
+  "charge": "parameterized",
+  "problem_id": "tsp",
+  "value": "FPT",
+  "citation": "Cygan et al., Parameterized Algorithms (2015)",
+  "canonical_task": "TSP parameterized by treewidth"
+ },
+ {
+  "charge": "parameterized",
+  "problem_id": "kemeny-rank-aggregation",
+  "value": "FPT",
+  "citation": "Cygan et al., Parameterized Algorithms (2015)",
+  "canonical_task": "FPT in the optimal Kemeny score"
+ },
+ {
+  "charge": "parameterized",
+  "problem_id": "cluster-editing",
+  "value": "FPT",
+  "citation": "Gramm, Guo, Huffner & Niedermeier, FPT algorithms for cluster editing, Theory Comput. Syst. 38 (2005)",
+  "canonical_task": "cluster editing is FPT in the edit budget"
+ },
+ {
+  "charge": "parameterized",
+  "problem_id": "vertex-cover",
+  "value": "FPT",
+  "citation": "Downey & Fellows, Parameterized Complexity (1999)",
+  "canonical_task": "VC parameterized by solution size k"
+ },
+ {
+  "charge": "parameterized",
+  "problem_id": "induced-subgraph-isomorphism",
+  "value": "W[1]",
+  "citation": "Downey & Fellows, Fixed-parameter tractability and completeness II (W[1]), TCS 141 (1995)",
+  "canonical_task": "W[1]-hard in pattern size (contains k-CLIQUE)"
+ },
+ {
+  "charge": "parallelization",
+  "problem_id": "circuit-value-problem",
+  "value": "P-complete",
+  "citation": "Ladner, The circuit value problem is log-space complete for P, SIGACT News 7 (1975)",
+  "canonical_task": "CVP is the canonical P-complete problem"
+ },
+ {
+  "charge": "parallelization",
+  "problem_id": "bipartiteness",
+  "value": "NC",
+  "citation": "Arora & Barak, Computational Complexity: A Modern Approach (2009)",
+  "canonical_task": "2-coloring / connectivity in NC (in fact SL=L)"
+ },
+ {
+  "charge": "parallelization",
+  "problem_id": "min-spanning-tree",
+  "value": "NC",
+  "citation": "Arora & Barak, Computational Complexity: A Modern Approach (2009)",
+  "canonical_task": "MST in NC (Boruvka-style parallel contraction)"
+ },
+ {
+  "charge": "parallelization",
+  "problem_id": "max-flow",
+  "value": "P-complete",
+  "citation": "Goldschlager, Shaw & Staples, The maximum flow problem is log-space complete for P, TCS 21 (1982)",
+  "canonical_task": "MAX-FLOW is P-complete"
+ },
+ {
+  "charge": "parallelization",
+  "problem_id": "monotone-circuit-value",
+  "value": "P-complete",
+  "citation": "Greenlaw, Hoover & Ruzzo, Limits to Parallel Computation (1995)",
+  "canonical_task": "monotone CVP is P-complete"
+ },
+ {
+  "charge": "parallelization",
+  "problem_id": "sat-2",
+  "value": "NC",
+  "citation": "Arora & Barak, Computational Complexity: A Modern Approach (2009)",
+  "canonical_task": "2-SAT is NL-complete, and NL subset of NC^2"
+ },
+ {
+  "charge": "parallelization",
+  "problem_id": "xor-sat",
+  "value": "NC",
+  "citation": "Borodin, von zur Gathen & Hopcroft, Fast parallel matrix and GCD computations, Inf. Control 52 (1982)",
+  "canonical_task": "linear algebra over GF(2) in NC^2"
+ },
+ {
+  "charge": "parallelization",
+  "problem_id": "reachability-stcon",
+  "value": "NC",
+  "citation": "Arora & Barak, Computational Complexity: A Modern Approach (2009)",
+  "canonical_task": "STCON is NL-complete and NL subset of NC^2"
+ },
+ {
+  "charge": "parallelization",
+  "problem_id": "all-pairs-shortest-path",
+  "value": "NC",
+  "citation": "Arora & Barak, Computational Complexity: A Modern Approach (2009)",
+  "canonical_task": "APSP via O(log n) rounds of min-plus (tropical) matrix squaring"
+ },
+ {
+  "charge": "parallelization",
+  "problem_id": "planarity",
+  "value": "NC",
+  "citation": "Arora & Barak, Computational Complexity: A Modern Approach (2009)",
+  "canonical_task": "planarity testing is in NC (AC^1)"
+ },
+ {
+  "charge": "proof_size",
+  "problem_id": "tautology",
+  "value": "exp",
+  "citation": "Haken, The intractability of resolution, TCS 39 (1985) 297-308",
+  "canonical_task": "the canonical proof-complexity object; hard tautologies (PHP/Tseitin) are Resolution-exponential"
+ },
+ {
+  "charge": "proof_size",
+  "problem_id": "sat-3",
+  "value": "exp",
+  "citation": "Chvatal & Szemeredi, Many hard examples for resolution, JACM 35 (1988) 759-768",
+  "canonical_task": "random unsat 3-SAT Resolution refutation size"
+ },
+ {
+  "charge": "proof_size",
+  "problem_id": "tseitin",
+  "value": "exp",
+  "citation": "Urquhart, Hard examples for resolution, JACM 34 (1987) 209-219",
+  "canonical_task": "Tseitin on bounded-degree expanders: Resolution size 2^Omega(n)"
+ },
+ {
+  "charge": "proof_size",
+  "problem_id": "sat-2",
+  "value": "poly",
+  "citation": "Aspvall, Plass & Tarjan, A linear-time algorithm for testing certain QBFs (2-SAT), IPL 8 (1979)",
+  "canonical_task": "2-UNSAT: poly Resolution refutation via the implication graph"
+ },
+ {
+  "charge": "proof_size",
+  "problem_id": "random-3sat-refutation",
+  "value": "exp",
+  "citation": "Chvatal & Szemeredi, Many hard examples for resolution, JACM 35 (1988) 759-768",
+  "canonical_task": "random unsat 3-SAT Resolution refutation size: exponential"
+ },
+ {
+  "charge": "proof_size",
+  "problem_id": "tqbf",
+  "value": "exp",
+  "citation": "Beyersdorff, Chew & Janota, Proof complexity of resolution-based QBF calculi, STACS 2015",
+  "canonical_task": "false-QBF refutation in Q-resolution: exp lower bounds"
+ },
+ {
+  "charge": "proof_size",
+  "problem_id": "xor-sat",
+  "value": "exp",
+  "citation": "Urquhart, Hard examples for resolution, JACM 34 (1987) 209-219",
+  "canonical_task": "Tseitin/XOR formulas on expanders: Resolution size 2^Omega(n)"
+ },
+ {
+  "charge": "proof_size",
+  "problem_id": "horn-sat",
+  "value": "poly",
+  "citation": "Dowling & Gallier, Linear-time algorithms for testing satisfiability of Horn formulae, J. Logic Prog. 1 (1984)",
+  "canonical_task": "Horn-UNSAT: poly unit-resolution refutation"
+ },
+ {
+  "charge": "proof_size",
+  "problem_id": "sat",
+  "value": "exp",
+  "citation": "Haken, The intractability of resolution, TCS 39 (1985) 297-308",
+  "canonical_task": "hardest unsat CNF families (PHP/Tseitin) refuted in Resolution"
+ },
+ {
+  "charge": "proof_size",
+  "problem_id": "php",
+  "value": "exp",
+  "citation": "Haken, The intractability of resolution, TCS 39 (1985) 297-308",
+  "canonical_task": "PHP^{n+1}_n Resolution refutation: 2^Omega(n) lower bound"
+ },
+ {
+  "charge": "average_case",
+  "problem_id": "sat-3",
+  "value": "hard-on-average-conjectured",
+  "citation": "Achlioptas & Coja-Oghlan, Algorithmic barriers from phase transitions, FOCS 2008",
+  "canonical_task": "random 3-SAT near threshold: conjectured hard in the clustered regime"
+ },
+ {
+  "charge": "average_case",
+  "problem_id": "tsp",
+  "value": "easy-on-average",
+  "citation": "Beardwood, Halton & Hammersley, The shortest path through many points, Proc. Camb. Phil. Soc. 55 (1959)",
+  "canonical_task": "random Euclidean TSP: BHH concentration; PTAS (Arora)"
+ },
+ {
+  "charge": "average_case",
+  "problem_id": "sis",
+  "value": "hard-on-average-provable",
+  "citation": "Ajtai, Generating hard instances of lattice problems, STOC 1996 [worst-case to average-case]",
+  "canonical_task": "average-case SIS is provably hard from worst-case approx lattice problems (Ajtai)"
+ },
+ {
+  "charge": "average_case",
+  "problem_id": "matching",
+  "value": "easy-on-average",
+  "citation": "Karp & Sipser, Maximum matchings in sparse random graphs, FOCS 1981",
+  "canonical_task": "maximum matching on sparse random graphs: Karp-Sipser greedy near-optimal"
+ },
+ {
+  "charge": "average_case",
+  "problem_id": "primality",
+  "value": "easy-on-average",
+  "citation": "Agrawal, Kayal & Saxena, PRIMES is in P, Ann. of Math. 160 (2004)",
+  "canonical_task": "primality is in P, hence easy on average"
+ },
+ {
+  "charge": "average_case",
+  "problem_id": "graph-isomorphism",
+  "value": "easy-on-average",
+  "citation": "Babai, Erdos & Selkow, Random graph isomorphism, SIAM J. Comput. 9 (1980)",
+  "canonical_task": "random graphs G(n,1/2) canonizable in linear expected time"
+ },
+ {
+  "charge": "average_case",
+  "problem_id": "hamiltonian-cycle",
+  "value": "easy-on-average",
+  "citation": "Bollobas, Fenner & Frieze, An algorithm for finding Hamilton paths and cycles in random graphs, Combinatorica 7 (1987)",
+  "canonical_task": "Hamilton cycles found a.a.s. at the Komlos-Szemeredi threshold"
+ },
+ {
+  "charge": "average_case",
+  "problem_id": "xor-sat",
+  "value": "easy-on-average",
+  "citation": "Dubois & Mandler, The 3-XORSAT threshold, FOCS 2002",
+  "canonical_task": "random k-XORSAT: in P (Gaussian elimination), easy on average"
+ },
+ {
+  "charge": "average_case",
+  "problem_id": "lwe",
+  "value": "hard-on-average-provable",
+  "citation": "Regev, On lattices, learning with errors, random linear codes, and cryptography, JACM 56 (2009)",
+  "canonical_task": "average-case LWE provably hard from worst-case lattice problems (Regev)"
+ },
+ {
+  "charge": "average_case",
+  "problem_id": "factoring",
+  "value": "hard-on-average-crypto",
+  "citation": "Rivest, Shamir & Adleman, A method for obtaining digital signatures..., CACM 21 (1978) [factoring assumption]",
+  "canonical_task": "random RSA semiprimes: factoring assumption"
+ },
+ {
+  "charge": "landscape",
+  "problem_id": "nae-sat",
+  "value": "clustering-physics",
+  "citation": "Achlioptas & Moore, Random k-SAT: two moments suffice to cross a sharp threshold, SIAM J. Comput. 36 (2006) [NAE-SAT]",
+  "canonical_task": "random NAE-SAT solution space: clustering (cavity; symmetric CSP)"
+ },
+ {
+  "charge": "landscape",
+  "problem_id": "graph-3-coloring",
+  "value": "clustering-physics",
+  "citation": "Krzakala, Montanari, Ricci-Tersenghi, Semerjian & Zdeborova, Gibbs states and the set of solutions of random CSPs, PNAS 104 (2007)",
+  "canonical_task": "random graph colorings: clustering/freezing (cavity/replica, Zdeborova-Krzakala)"
+ },
+ {
+  "charge": "landscape",
+  "problem_id": "vertex-cover",
+  "value": "clustering-proven",
+  "citation": "Gamarnik & Sudan, Limits of local algorithms over sparse random graphs, ITCS 2014",
+  "canonical_task": "max-independent-set (VC complement) on sparse G(n,c/n): OGP (rigorous, via IS complementation)"
+ },
+ {
+  "charge": "landscape",
+  "problem_id": "sat-3",
+  "value": "clustering-physics",
+  "citation": "Mezard, Mora & Zecchina, Clustering of solutions in the random satisfiability problem, PRL 94 (2005)",
+  "canonical_task": "random 3-SAT solution space: clustering/condensation near threshold (cavity/replica prediction)"
+ },
+ {
+  "charge": "landscape",
+  "problem_id": "random-3sat-refutation",
+  "value": "freezing-measured",
+  "citation": "(NO CITATION IN ATLAS)",
+  "canonical_task": "refutation-SET backbone/freezing of random unsat 3-SAT near threshold (proof-space landscape; R1: proofs, not solutions)"
+ },
+ {
+  "charge": "landscape",
+  "problem_id": "number-partitioning",
+  "value": "clustering-proven",
+  "citation": "Gamarnik & Kizildag, Algorithmic obstructions in the random number partitioning problem, Ann. Appl. Probab. 33 (2023)",
+  "canonical_task": "random number partitioning: OGP / algorithmic obstruction (rigorous)"
+ },
+ {
+  "charge": "landscape",
+  "problem_id": "xor-sat",
+  "value": "clustering-proven",
+  "citation": "Ibrahimi, Kanoria, Kraning & Montanari, The set of solutions of random XORSAT formulae, Ann. Appl. Probab. 25 (2015)",
+  "canonical_task": "random k-XORSAT solution space: frozen 1RSB clusters (rigorous)"
+ },
+ {
+  "charge": "landscape",
+  "problem_id": "max-cut",
+  "value": "clustering-proven",
+  "citation": "Chen, Gamarnik, Panchenko & Rahman, Suboptimality of local algorithms for a class of max-cut problems, Ann. Probab. 47 (2019) [spin-glass OGP]",
+  "canonical_task": "max-cut on random graphs: OGP (rigorous, spin-glass line)"
+ },
+ {
+  "charge": "landscape",
+  "problem_id": "independent-set",
+  "value": "clustering-proven",
+  "citation": "Gamarnik & Sudan, Limits of local algorithms over sparse random graphs, ITCS 2014",
+  "canonical_task": "max-independent-set on sparse random graphs: OGP (rigorous, Gamarnik-Sudan)"
+ },
+ {
+  "charge": "landscape",
+  "problem_id": "clique",
+  "value": "clustering-proven",
+  "citation": "Gamarnik & Zadik, The landscape of the planted clique problem: dense subgraphs and the overlap gap property (2019)",
+  "canonical_task": "planted-clique landscape: dense-subgraph overlap-gap property (rigorous)"
+ }
+]

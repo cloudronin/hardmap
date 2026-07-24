@@ -125,6 +125,49 @@ thesis the Wayback Machine had. What was missing was not access but the decision
 inference as a debt with a due date. A caveat repeated four times and never discharged is not caution,
 it is an IOU that everyone has agreed to stop reading.
 
+## Instance 10 — 2026-07-24 — a false *capability* constraint, asserted in a verifier prompt, by the author of instance 6
+
+**What happened.** Every V2 verifier prompt, and then every second-pass prompt, carried the line
+*"PDFs cannot be rendered locally (no poppler)."* Verifiers accordingly checked PDF-only sources through
+abstracts, HTML renderings and search snippets. A batch-2 verifier ignored the constraint, went looking,
+and found that **`fitz` (PyMuPDF), `pypdf` and `pdfplumber` are all installed** under
+`/Users/vishnu/miniconda3/bin/python3`. Confirmed directly. Full-text extraction was available the whole
+time.
+
+**The error is a conflation.** `pdftoppm` is genuinely absent, so PDF pages cannot be rendered *as
+images*. From that true fact the agent inferred that PDFs could not be *read* — two different
+capabilities sharing a word. The false half was never tested; it was simply repeated, prompt after
+prompt, until it became a standing fact of the program and reached the Limitations section of a
+published report.
+
+**Why this one stings.** It is **instance 6 exactly** — an unsourced factual assertion inside a prompt,
+treated by downstream agents as authority — committed by the same agent that had *already written up
+instance 6 and proposed its remedy*. Writing the lesson down did not transfer it. The instance-6 rule
+said "any factual claim in a drafting prompt must carry a source or be marked conjecture"; this claim
+was about the agent's own environment, felt like self-knowledge rather than a claim, and so was never
+run through the rule. **Claims about one's own capabilities are the ones least likely to be checked and
+most likely to be repeated.**
+
+**Blast radius.** All 272 V2 cells were verified under an artificial evidence ceiling, and the confirm
+report's Limitations section states the false constraint as fact. The 60 corrections stand — they were
+found *despite* the ceiling, and a weaker evidence base makes false OKs more likely, not false errors —
+but an unknown number of `OK`s and `CITE`s rest on abstracts where full text was reachable. The one
+measured data point: the batch-2 verifier converted two soft calls into hard OKs by reading full text,
+including killing an object-drift worry (Johnson–Lenstra–Rinnooy Kan Thm 2) that no abstract could
+settle.
+
+**Fix applied immediately, not deferred.** The five still-running verifiers were sent a correction
+mid-flight with the working command, and told to revisit anything resolved on partial evidence.
+
+**Lesson (extends instance 6).** *Capability constraints are factual claims and get the same gate as any
+other.* Before a limitation enters a prompt — or a report's Limitations section — it must be **tested
+once**, not inferred from an adjacent failure. A one-line probe would have cost seconds and would have
+raised the evidence quality of the entire confirm-pass. And the meta-lesson: **filing a lesson is not
+learning it.** Instance 6 had a written remedy and a named defect class, and the same agent walked into
+it eleven entries later. Only the mechanical gates in this program (the frozen test suite, Check-9,
+`provenance_status`) have actually held. Prose lessons have a perfect record of not binding anyone,
+which is the thread's own recurring finding turned on the thread itself.
+
 ---
 
 ## Delegation protocol — the authority boundary held under pressure (2026-07-24)
