@@ -1,0 +1,227 @@
+[
+ {
+  "problem_id": "dfs-lexicographic-ordering",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "computable in P by ordered DFS",
+  "citation": "Reif, Depth-first search is inherently sequential, Inf. Proc. Lett. 20 (1985)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "generability",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "GEN is P-complete (canonical monotone-closure problem)",
+  "citation": "Jones & Laaser (1976); GHR (1995)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "cellular-automaton-prediction",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "CA t-step prediction is P-complete",
+  "citation": "Greenlaw, Hoover & Ruzzo, Limits to Parallel Computation: P-Completeness Theory (1995)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "plane-sweep-triangulation",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "plane-sweep triangulation is P-complete",
+  "citation": "Atallah-Callahan-Goodrich (1993); GHR (1995)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "lex-first-delta-plus-one-coloring",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "greedy first-fit coloring, poly-time",
+  "citation": "GHR (1995)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "chromatic-number",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "k-Colorability decision (chi(G) <= k)",
+  "citation": "Karp, Reducibility among combinatorial problems, in Complexity of Computer Computations (1972) 85-103",
+  "note": "one of Karp's 21; 3-COL (graph-3-coloring) is the k=3 restriction, a separate row (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "3-dimensional-assignment",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "axial 3-index assignment decision: a set of n disjoint triples of total cost <= B?",
+  "citation": "Garey & Johnson, Computers and Intractability (1979) [3-Dimensional Matching, SP1]; via Karp, Reducibility among combinatorial problems (1972)",
+  "note": "NP-hardness by 3-Dimensional Matching (feasibility); the min-cost assignment generalizes it. Distinct from 3-dimensional matching (feasibility) and the planar 3-index assignment (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "balanced-connected-partition",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Balanced Connected q-Partition decision: a connected q-partition with min part-weight >= B?",
+  "citation": "Dyer & Frieze, On the complexity of partitioning graphs into connected subgraphs, Discrete Appl. Math. 10 (1985) 139-153",
+  "note": "NP-complete (strongly NP-hard, even on q-connected graphs). Distinct from graph bisection / edge-cut partitioning (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "capacitated-facility-location",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Capacitated Facility Location decision: a feasible open-set + assignment of total cost <= B?",
+  "citation": "generalizes metric Uncapacitated Facility Location, NP-hard via Set Cover (Cornuejols, Nemhauser & Wolsey 1990); Garey & Johnson 1979",
+  "note": "NP-hard (contains metric UFL). Distinct from uncapacitated facility location and from k-median (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "constrained-shortest-path",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Constrained Shortest Path decision: an s-t path of cost <= C and resource <= R?",
+  "citation": "Garey & Johnson, Computers and Intractability (1979) [Shortest Weight-Constrained Path, ND30]",
+  "note": "NP-complete (weakly — pseudo-polynomial by DP over the budget). Distinct from ordinary shortest path (poly-time) (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "euclidean-tsp",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Euclidean TSP decision: a tour of length <= L?",
+  "citation": "Papadimitriou, The Euclidean traveling salesman problem is NP-complete, Theoret. Comput. Sci. 4 (1977) 237-244",
+  "note": "NP-hard (Papadimitriou 1977). Distinct from metric TSP (general metric) and general (non-metric) TSP (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "geometric-disk-cover",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "unit-disk cover decision: cover P with <= k unit disks? NP-complete",
+  "citation": "Fowler, Paterson & Tanimoto, Optimal packing and covering in the plane are NP-complete, Information Processing Letters 12 (1981) 133-137",
+  "note": "planar geometric covering NP-complete",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "harmonious-coloring",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Harmonious Colouring decision: harmonious colouring with <= k colours? NP-complete (also NP-complete on trees)",
+  "citation": "Hopcroft & Krishnamoorthy, On the harmonious coloring of graphs, SIAM Journal on Algebraic and Discrete Methods 4 (1983) 306-311",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "list-coloring",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "List Colouring decision: proper colouring respecting the lists? NP-complete (k-colouring is the all-lists={1..k} case)",
+  "citation": "Karp, Reducibility among combinatorial problems, in Complexity of Computer Computations (1972) 85-103",
+  "note": "generalizes 3-colouring (a Karp NP-complete problem); NP-complete a fortiori",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "maximum-induced-matching",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Maximum Induced Matching decision: induced matching of size >= k? NP-complete (even on bipartite graphs)",
+  "citation": "Stockmeyer & Vazirani, NP-completeness of some generalizations of the maximum matching problem, Information Processing Letters 15 (1982) 14-19",
+  "note": "'risk-free' / induced matching NP-complete; also Cameron 1989",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "min-sum-set-cover",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Min-Sum Set Cover decision: an ordering of total cover time <= B?",
+  "citation": "Feige, Lovász & Tetali, Approximating min sum set cover, Algorithmica 40 (2004) 219-234",
+  "note": "NP-hard (Feige-Lovász-Tetali 2004)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "minimum-k-cut",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Minimum k-Cut decision (k part of input): edges of total weight <= W whose removal gives >= k components?",
+  "citation": "Goldschmidt & Hochbaum, A polynomial algorithm for the k-cut problem for fixed k, Math. Oper. Res. 19 (1994) 24-37",
+  "note": "NP-hard when k is part of the input; polynomial (n^O(k^2)) for every FIXED k",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "multidimensional-knapsack",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "d-Dimensional Knapsack decision: a feasible subset of profit >= P?",
+  "citation": "Garey & Johnson, Computers and Intractability (1979) [Knapsack, MP9]",
+  "note": "NP-hard (contains 0/1 Knapsack, d=1); strongly NP-hard for d part of the input (Chekuri-Khanna)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "planar-3sat",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Planar 3-SAT: is the planar 3-CNF formula satisfiable?",
+  "citation": "Lichtenstein, Planar formulae and their uses, SIAM J. Comput. 11 (1982) 329-343",
+  "note": "NP-complete (Lichtenstein 1982); the workhorse starting point for planar NP-hardness reductions",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "quadratic-knapsack",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "QKP decision: total quadratic profit >= V within capacity?",
+  "citation": "Gallo, Hammer & Simeone, Quadratic knapsack problems, Math. Programming Study 12 (1980) 132-149",
+  "note": "generalizes 0/1 knapsack (linear special case)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "roman-domination",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Roman Domination decision: Roman dominating function of weight <= k?",
+  "citation": "Cockayne, Dreyer, Hedetniemi & Hedetniemi, Roman domination in graphs, Discrete Math. 278 (2004) 11-22",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "stacker-crane",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Stacker Crane decision: a tour serving all arcs of length <= B?",
+  "citation": "Frederickson, Hecht & Kim, Approximation algorithms for some routing problems, SIAM J. Comput. 7 (1978) 178-193",
+  "note": "generalizes metric TSP (a degenerate arc set)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "total-dominating-set",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Total Dominating Set decision: total dominating set of size <= k?",
+  "citation": "Laskar, Pfaff, Hedetniemi & Hedetniemi, On the algorithmic complexity of total domination, SIAM J. Alg. Disc. Meth. 5 (1984) 420-425",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "vector-bin-packing",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Vector Bin Packing decision: pack into <= k bins?",
+  "citation": "Garey, Graham, Johnson & Yao, Resource constrained scheduling as generalized bin packing, JCTA 21 (1976) 257-298",
+  "note": "generalizes 1-D bin packing (d=1)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "sharp-linear-extensions",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "existence of a linear extension: every finite poset has one (order-extension principle); a witness is produced by topological sort in linear time — the decoupling witness",
+  "citation": "Szpilrajn, Sur l'extension de l'ordre partiel, Fund. Math. 16 (1930) 386-389",
+  "note": "every partial order extends to a total order (Szpilrajn 1930); constructive by topological sort. Existence is trivial",
+  "tier": "reliable"
+ }
+]

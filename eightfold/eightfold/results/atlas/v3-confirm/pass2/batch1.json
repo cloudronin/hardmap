@@ -1,0 +1,236 @@
+[
+ {
+  "problem_id": "and-or-graph-accessibility",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "AGAP is P-complete (canonical alternating-reachability)",
+  "citation": "Greenlaw, Hoover & Ruzzo, Limits to Parallel Computation: P-Completeness Theory (1995)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "lex-first-maximal-matching",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "LFMM is P-complete (edge object, distinct from LFMIS)",
+  "citation": "Miyano (1990); GHR (1995)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "unit-resolution",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "unit resolution / unit-clause propagation is P-complete",
+  "citation": "GHR (1995); cf. Jones & Laaser (1976)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "chip-firing-stabilization",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "sandpile prediction is P-complete in dimension >= 3",
+  "citation": "Moore & Nilsson, The computational complexity of sandpiles, J. Stat. Phys. 96 (1999)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "lz78-compression",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "LZ78 dictionary membership is P-complete",
+  "citation": "De Agostino & Storer (1996)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "context-free-emptiness",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "grammar productivity closure, poly-time",
+  "citation": "Jones & Laaser, Complete problems for deterministic polynomial time, TCS 3 (1976)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "feedback-arc-set",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "FAS decision: acyclic after removing <= k arcs?",
+  "citation": "Karp, Reducibility among combinatorial problems, in Complexity of Computer Computations (1972) 85-103",
+  "note": "one of Karp's 21. Distinct from feedback-arc-set-tournament (restriction, S2) and directed-feedback-vertex-set (arcs vs vertices, S2); Maximum Acyclic Subgraph is the complement -> MERGES here (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "achromatic-number",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Achromatic Number decision: psi(G) >= k?",
+  "citation": "Bodlaender, Achromatic number is NP-complete for cographs and interval graphs, Inform. Process. Lett. 31 (1989) 135-138; general graphs: Yannakakis & Gavril (1980); trees: Cairnie & Edwards (1997)",
+  "note": "NP-complete on cographs/interval graphs (Bodlaender 1989) establishes general NP-completeness; NP-complete even for trees (Cairnie-Edwards 1997)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "betweenness",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Betweenness decision: a total order realizing every betweenness triple?",
+  "citation": "Opatrny, Total ordering problem, SIAM J. Comput. 8 (1979) 111-114",
+  "note": "NP-complete (Opatrny 1979). Distinct from Cyclic Ordering (cyclic vs total) and from Max-Betweenness (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "closest-string",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Closest String decision: a center string within Hamming distance d of all inputs?",
+  "citation": "Frances & Litman, On covering problems of codes, Theory Comput. Syst. 30 (1997) 113-119; Lanctot, Li, Ma, Wang & Zhang (1999)",
+  "note": "NP-complete even over a binary alphabet (Frances-Litman 1997). Distinct from Closest Substring (substring vs full string) and Closest String with wildcards (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "cyclic-ordering",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Cyclic Ordering decision: a circular order realizing every ordered triple?",
+  "citation": "Galil & Megiddo, Cyclic ordering is NP-complete, Theoret. Comput. Sci. 5 (1977) 179-182",
+  "note": "NP-complete (Galil-Megiddo 1977). Distinct from Betweenness (total vs cyclic order) (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "firefighter",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Firefighter decision: can >= k vertices be saved? NP-complete even on trees of max degree 3",
+  "citation": "Finbow, King, MacGillivray & Rizzi, The firefighter problem for graphs of maximum degree three, Discrete Mathematics 307 (2007) 2094-2105",
+  "note": "NP-complete on trees; general graphs NP-hard a fortiori",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "graph-burning",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Graph Burning decision: b(G) <= k? NP-complete even on trees/forests and disjoint paths",
+  "citation": "Bessy, Bonato, Janssen, Rautenbach & Roshanbin, Burning a graph is hard, Discrete Applied Mathematics 232 (2017) 73-87",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "interval-completion",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Interval Completion decision: reach an interval graph by adding <= k edges? NP-complete",
+  "citation": "Garey & Johnson, Computers and Intractability (1979)",
+  "note": "minimum interval graph completion is NP-complete [GT35-adjacent]; related to profile/pathwidth minimization",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "max-dispersion",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "max-sum p-dispersion decision: p points with pairwise-distance sum >= D? NP-complete",
+  "citation": "Hassin, Rubinstein & Tamir, Approximation algorithms for maximum dispersion, Operations Research Letters 21 (1997) 133-137",
+  "note": "NP-hard (cf. Erkut, The discrete p-dispersion problem, EJOR 46 (1990) 48-60)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "maximum-planar-subgraph",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Maximum Planar Subgraph decision: a planar subgraph with >= k edges? NP-complete",
+  "citation": "Garey & Johnson, Computers and Intractability (1979)",
+  "note": "[GT27] Maximum Planar Subgraph; cf. Liu & Geldmacher 1979",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "minimum-consistent-dfa",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Minimum Consistent DFA decision: a consistent DFA with <= k states?",
+  "citation": "Gold, Complexity of automaton identification from given data, Information and Control 37 (1978) 302-320",
+  "note": "NP-complete (Gold 1978)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "minimum-sum-coloring",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Minimum Sum Coloring decision: a proper coloring of color-sum <= S?",
+  "citation": "Bar-Noy, Bellare, Halldórsson, Shachnai & Tamir, On chromatic sums and distributed resource allocation, Inform. Comput. 140 (1998) 183-202",
+  "note": "NP-hard on general graphs (chromatic sum; Kubicka-Schwenk 1989, Bar-Noy et al. 1998)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "node-multiway-cut",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Node Multiway Cut decision: <= k non-terminal vertices separating all terminals?",
+  "citation": "Dahlhaus, Johnson, Papadimitriou, Seymour & Yannakakis, The complexity of multiterminal cuts, SIAM J. Comput. 23 (1994) 864-894",
+  "note": "NP-hard for >= 3 terminals (poly for 2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "power-dominating-set",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Power Dominating Set decision: a set of <= k vertices observing all vertices?",
+  "citation": "Haynes, Hedetniemi, Hedetniemi & Henning, Domination in graphs applied to electric power networks, SIAM J. Discrete Math. 15 (2002) 519-529",
+  "note": "NP-complete (Haynes et al. 2002)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "rectilinear-steiner-tree",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "RSMT decision: rectilinear Steiner tree of length <= B?",
+  "citation": "Garey & Johnson, The rectilinear Steiner tree problem is NP-complete, SIAM J. Appl. Math. 32 (1977) 826-834",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "shortest-common-supersequence",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "SCS decision: common supersequence of length <= k?",
+  "citation": "Raiha & Ukkonen, The shortest common supersequence problem over binary alphabet is NP-complete, TCS 16 (1981) 187-198",
+  "note": "NP-complete even over a binary alphabet; distinct from shortest-common-superSTRING (substrings, S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "strip-packing",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Strip Packing decision: pack into height <= H?",
+  "citation": "Baker, Coffman & Rivest, Orthogonal packings in two dimensions, SIAM J. Comput. 9 (1980) 846-855",
+  "note": "NP-hard via 3-Partition",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "ultrametric-tree-fitting",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Tree-metric fitting decision: a tree metric with L-inf error <= e?",
+  "citation": "Agarwala, Bafna, Farach, Paterson & Thorup, On the approximability of numerical taxonomy (fitting distances by tree metrics), SIAM J. Comput. 28 (1998) 1073-1085",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "weighted-tardiness",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "1||sum w_j T_j decision: a sequence with total weighted tardiness <= V?",
+  "citation": "Lenstra, Rinnooy Kan & Brucker, Complexity of machine scheduling problems, Annals of Discrete Math. 1 (1977) 343-362",
+  "note": "strongly NP-hard (unlike unweighted 1||sum T_j, which is only ordinarily NP-hard with a pseudo-poly DP and an FPTAS)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "sharp-monotone-2sat",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "satisfiability of a monotone 2-CNF: trivially satisfiable by the all-true assignment; and 2-SAT is in P in general — a decoupling witness against the hard counting version (cf. #DNF)",
+  "citation": "Aspvall, Plass & Tarjan, A linear-time algorithm for testing the truth of certain quantified boolean formulas, Inf. Process. Lett. 8 (1979) 121-123",
+  "note": "2-SAT in linear time (APT 1979); the monotone case is trivially SAT (all-true)",
+  "tier": "reliable"
+ }
+]

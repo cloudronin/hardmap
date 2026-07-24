@@ -1,0 +1,236 @@
+[
+ {
+  "problem_id": "context-free-membership",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "CYK recognition, O(n^3)",
+  "citation": "Jones & Laaser, Complete problems for deterministic polynomial time, TCS 3 (1976)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "high-degree-subgraph",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "computable in P by iterated low-degree deletion",
+  "citation": "Anderson & Mayr, A P-complete problem and approximations to it (1984)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "datalog-evaluation",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "bottom-up fixpoint evaluation, poly-time in the data",
+  "citation": "Dantsin, Eiter, Gottlob & Voronkov, Complexity and expressive power of logic programming, ACM Comput. Surv. 33 (2001)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "gaussian-elimination-pivoting",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "run GE with partial pivoting, poly-time",
+  "citation": "Vavasis, Gaussian elimination with pivoting is P-complete, SIAM J. Discrete Math. 2 (1989)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "breadth-depth-search",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "breadth-depth search ordering is P-complete",
+  "citation": "Greenlaw (1993); GHR (1995)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "context-free-emptiness",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "CFG emptiness/productivity is P-complete",
+  "citation": "Jones & Laaser (1976); GHR (1995)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "metric-dimension",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Metric Dimension decision: resolving set of size <= k?",
+  "citation": "Garey & Johnson, Computers and Intractability (1979)",
+  "note": "GJ [GT61]; Khuller-Raghavachari-Rosenfeld 1996 (Khuller, Raghavachari & Rosenfeld, Landmarks in graphs, Discrete Appl. Math. 70 (1996) 217-229)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "acyclic-coloring",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Acyclic k-Colorability decision: a(G) <= k? (NP-complete already for k=3)",
+  "citation": "Kostochka, Upper bounds of chromatic functions of graphs (1978); acyclic 3-colouring NP-complete for planar bipartite max-degree-4 graphs: Ochem, Negative results on acyclic improper colorings, EuroComb 2005",
+  "note": "NP-complete for every fixed k>=3 (Kostochka 1978; Coleman-Cai); Ochem (2005) sharpens to planar bipartite Delta<=4. Distinct from proper colouring / star colouring (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "biclique-cover",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Biclique Cover decision: cover all edges with <= k bicliques?",
+  "citation": "Orlin, Contentment in graph theory: covering graphs with cliques, Indag. Math. 39 (1977) 406-424",
+  "note": "NP-complete (Orlin 1977). Distinct from biclique PARTITION and from Maximum Edge Biclique (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "closest-substring",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Closest Substring decision: a length-L center within distance d of some substring of each input?",
+  "citation": "Lanctot, Li, Ma, Wang & Zhang, Distinguishing string selection problems, Inform. Comput. 185 (2003) 41-55; Li, Ma & Wang, J. ACM 49 (2002)",
+  "note": "NP-complete; generalizes Closest String (L = full length). Distinct from Closest String (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "dissociation-number",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "3-Path Vertex Cover decision: a set of <= k vertices meeting every P3 (equivalently dissociation number >= n-k)?",
+  "citation": "Orlovich, Dolgui, Finke, Gordon & Werner, The complexity of dissociation set problems in graphs, Discrete Appl. Math. 159 (2011) 1352-1366; Yannakakis (1981, node-deletion)",
+  "note": "NP-hard to compute the dissociation number / minimum 3-path vertex cover. Distinct from Vertex Cover (P2 cover) and Independent Set (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "flow-shop-scheduling",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "F3||Cmax decision: makespan <= t? strongly NP-complete for 3 machines",
+  "citation": "Garey, Johnson & Sethi, The complexity of flowshop and jobshop scheduling, Mathematics of Operations Research 1 (1976) 117-129",
+  "note": "F2||Cmax is in P (Johnson's rule); F3||Cmax is strongly NP-complete -> a decoupling threshold",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "graph-genus",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Graph Genus decision: does G embed in the genus-g orientable surface? NP-complete",
+  "citation": "Thomassen, The graph genus problem is NP-complete, Journal of Algorithms 10 (1989) 568-576",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "job-interval-selection",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "JISP decision: schedule >= k jobs (<=1 disjoint interval each)? NP-complete",
+  "citation": "Spieksma, On the approximability of an interval scheduling problem, Journal of Scheduling 2 (1999) 215-227",
+  "note": "introduced by Nakajima & Hakimi 1982; NP-completeness/APX-hardness by Spieksma 1999",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "max-e3-sat",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "MAX-E3-SAT decision: satisfy >= k of the exact-3 clauses? NP-complete (contains 3-SAT)",
+  "citation": "Hastad, Some optimal inapproximability results, Journal of the ACM 48 (2001) 798-859",
+  "note": "decision NP-complete via 3-SAT (Cook-Levin); the tight approximation story is Hastad 2001",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "min-communication-cost-spanning-tree",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "MRCT decision: spanning tree of routing cost <= B?",
+  "citation": "Johnson, Lenstra & Rinnooy Kan, The complexity of the network design problem, Networks 8 (1978) 279-285",
+  "note": "OCT NP-hard (JLRK 1978); the uniform-requirement routing-cost version (MRCT) is also NP-hard",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "minimum-decision-tree",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Optimal Decision Tree decision: an identification tree of cost <= B?",
+  "citation": "Hyafil & Rivest, Constructing optimal binary decision trees is NP-complete, Inform. Process. Lett. 5 (1976) 15-17",
+  "note": "NP-complete (Hyafil-Rivest 1976)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "minimum-test-cover",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Test Cover decision: a distinguishing subfamily of <= k tests?",
+  "citation": "Garey & Johnson, Computers and Intractability (1979) [Minimum Test Set, SP6]",
+  "note": "NP-complete (Minimum Test Set/Collection)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "orienteering",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Orienteering decision: a walk of length <= B collecting reward >= R?",
+  "citation": "Blum, Chawla, Karger, Lane, Meyerson & Minkoff, Approximation algorithms for orienteering and discounted-reward TSP, SIAM J. Comput. 37 (2007) 653-670",
+  "note": "NP-hard / APX-hard (Blum et al. 2007)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "precedence-constrained-scheduling",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "P|prec|Cmax decision: a precedence-respecting schedule of makespan <= T?",
+  "citation": "Ullman, NP-complete scheduling problems, JCSS 10 (1975) 384-393",
+  "note": "NP-complete (Ullman 1975); NP-hard even with unit processing times",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "red-blue-set-cover",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Red-Blue Set Cover decision: cover all blue while covering <= k red?",
+  "citation": "Carr, Doddi, Konjevod & Marathe, On the red-blue set cover problem, SODA 2000, 345-353",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "sorting-by-reversals",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Unsigned reversal distance decision: sortable in <= k reversals?",
+  "citation": "Caprara, Sorting permutations by reversals and Eulerian cycle decompositions, SIAM J. Discrete Math. 12 (1999) 91-110",
+  "note": "UNSIGNED sorting by reversals is NP-hard (Caprara 1997/1999); the SIGNED version is in P (Hannenhalli & Pevzner 1995) — a separate object (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "subset-product",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Subset Product: a subset with product = P?",
+  "citation": "Garey & Johnson, Computers and Intractability (1979) [SP14]",
+  "note": "NP-complete (reduction from Exact Cover by 3-Sets); remains NP-hard with polynomially-bounded elements",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "unrelated-machine-scheduling",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "R||Cmax decision: an assignment with makespan <= T?",
+  "citation": "Lenstra, Shmoys & Tardos, Approximation algorithms for scheduling unrelated parallel machines, Math. Programming 46 (1990) 259-271",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "sharp-antichains",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "maximum antichain (poset width) >= k: in P via Dilworth's theorem realized as a bipartite matching / minimum chain cover — finding and optimizing antichains is poly, the decoupling witness against #P-complete counting",
+  "citation": "Fulkerson, Note on Dilworth's decomposition theorem for partially ordered sets, Proc. AMS 7 (1956) 701-702",
+  "note": "poly-time maximum antichain via bipartite matching (Fulkerson 1956), from Dilworth, Ann. of Math. 51 (1950) 161-166",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "sharp-spanning-trees",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "spanning-tree existence = connectivity of G; decided in linear time by DFS/BFS",
+  "citation": "Tarjan, Depth-first search and linear graph algorithms, SIAM J. Comput. 1(2) (1972) 146-160",
+  "note": "connectivity (hence spanning-tree existence) in linear time",
+  "tier": "reliable"
+ }
+]

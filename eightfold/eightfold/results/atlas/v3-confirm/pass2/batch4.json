@@ -1,0 +1,236 @@
+[
+ {
+  "problem_id": "unification",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "linear-time unification (Paterson-Wegman)",
+  "citation": "Paterson & Wegman, Linear unification, JCSS 16 (1978)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "generability",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "closure computation, poly-time",
+  "citation": "Jones & Laaser, Complete problems for deterministic polynomial time, TCS 3 (1976)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "cellular-automaton-prediction",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "simulate t steps, poly-time in (t, size)",
+  "citation": "GHR (1995); Berlekamp, Conway & Guy, Winning Ways (Game of Life universality)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "plane-sweep-triangulation",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "sweepline triangulation, poly-time",
+  "citation": "Atallah, Callahan & Goodrich, P-complete geometric problems, Int. J. Comput. Geom. Appl. 3 (1993)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "deadlock-detection",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "single-unit deadlock detection is P-complete (log-space complete for P)",
+  "citation": "Spirakis (1986); GHR (1995)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "type-inference-typability",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "simple-type typability is P-complete (log-space equiv. to unification; full ML let-polymorphism is DEXPTIME)",
+  "citation": "Dwork-Kanellakis-Mitchell (1984); GHR (1995)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "path-system-accessibility",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "Path System Accessibility is P-complete",
+  "citation": "Cook, An observation on time-storage trade-off, STOC 1973 / JCSS 9 (1974) [Path System Accessibility: first P-complete problem]; catalogued in Greenlaw-Hoover-Ruzzo (1995)",
+  "note": "Cook's original P-complete problem (1974); the historic anchor of P-completeness theory (GHR 1995)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "b-chromatic-number",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "b-Chromatic Number decision: b(G) >= k?",
+  "citation": "Irving & Manlove, The b-chromatic number of a graph, Discrete Appl. Math. 91 (1999) 127-141",
+  "note": "computing b(G) is NP-hard (Irving-Manlove 1999); NP-complete even for connected bipartite graphs (deciding b(G)=Delta+1)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "capacitated-dominating-set",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Capacitated Dominating Set decision: a capacitated dominating set of size <= k?",
+  "citation": "generalizes Dominating Set (Karp 1972; Garey & Johnson 1979 [GT2]) — set all capacities to n",
+  "note": "NP-complete (contains ordinary Dominating Set as the uncapacitated case). Distinct from ordinary/​connected dominating set (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "connectivity-augmentation",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Connectivity Augmentation decision: <= t links raising edge-connectivity to k+1?",
+  "citation": "Frederickson & Jaja, Approximation algorithms for several graph augmentation problems, SIAM J. Comput. 10 (1981) 270-283",
+  "note": "NP-hard even unweighted on trees of diameter 4 (Frederickson-Jaja 1981). Distinct from vertex-connectivity augmentation and from unweighted edge-connectivity increase without a link set (poly-time, Wa",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "efficient-domination",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Efficient Domination decision: does G have a perfect code?",
+  "citation": "Bange, Barkauskas & Slater, Efficient dominating sets in graphs (1988); NP-completeness also via Kratochvil",
+  "note": "NP-complete — not every graph has a perfect code, so this is an existence/feasibility problem. Distinct from ordinary Dominating Set (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "geometric-bin-packing",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "2D bin packing decision: pack into <= k unit bins? NP-complete (contains 1D bin packing = PARTITION)",
+  "citation": "Garey & Johnson, Computers and Intractability (1979)",
+  "note": "1D bin packing (a restriction) is NP-complete via PARTITION",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "grundy-number",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Grundy Number decision: Gamma(G) >= k? NP-complete",
+  "citation": "Bonnet, Foucaud, Kim & Sikora, Complexity of Grundy coloring and its variants, Discrete Applied Mathematics 262 (2019) 65-77",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "label-cover",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Label Cover decision (exists a total labelling satisfying all edges): NP-complete (generalizes graph colouring / 2-CSP)",
+  "citation": "Dinur & Safra, On the hardness of approximating label-cover, Information Processing Letters 89 (2004) 247-254",
+  "note": "the projection-game / PCP backbone; exact feasibility is an NP-complete CSP",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "maximum-feasible-linear-subsystem",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "MAX-FLS decision: a feasible subsystem of size >= k? NP-complete",
+  "citation": "Amaldi & Kann, The complexity and approximability of finding maximum feasible subsystems of linear relations, Theoretical Computer Science 147 (1995) 181-210",
+  "note": "NP-hard (cf. Johnson & Preparata, The densest hemisphere problem, TCS 6 (1978) 93-107)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "min-linear-arrangement",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "MinLA decision: a linear arrangement of total edge length <= B?",
+  "citation": "Garey, Johnson & Stockmeyer, Some simplified NP-complete graph problems, TCS 1 (1976) 237-267",
+  "note": "Optimal Linear Arrangement is NP-complete (GJS 1976)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "minimum-equivalent-digraph",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Minimum Equivalent Digraph decision: a reachability-preserving subgraph with <= k arcs?",
+  "citation": "Garey & Johnson, Computers and Intractability (1979) [Minimum Equivalent Digraph, GT34]",
+  "note": "NP-complete; generalizes Hamiltonian Cycle on strongly connected digraphs",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "mixed-chinese-postman",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Mixed Postman decision: a closed traversal walk of length <= L?",
+  "citation": "Papadimitriou, On the complexity of edge traversing, JACM 23 (1976) 544-554",
+  "note": "NP-complete on mixed graphs (poly for all-undirected or all-directed)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "pathwidth",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Pathwidth decision: pathwidth <= k?",
+  "citation": "Kashiwabara & Fujisawa, NP-completeness of the problem of finding a minimum-clique-number interval graph containing a given graph, Proc. ISCAS 1979, 657-660",
+  "note": "NP-complete (via interval-graph completion / vertex separation); cf. Arnborg, Corneil & Proskurowski, SIAM J. Algebraic Discrete Methods 8 (1987) 277-284 for treewidth",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "quadratic-congruences",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Quadratic Congruences: exists z<=c with z^2≡a (mod b)?",
+  "citation": "Manders & Adleman, NP-complete decision problems for binary quadratics, JCSS 16 (1978) 168-184",
+  "note": "reduction from 3-SAT; one of the few number-theoretic NP-complete problems not known to be in NP∩coNP",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "resource-constrained-scheduling",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Resource-constrained scheduling decision: schedule within makespan T?",
+  "citation": "Garey & Johnson, Complexity results for multiprocessor scheduling under resource constraints, SIAM J. Comput. 4 (1975) 397-411",
+  "note": "NP-complete even with a single resource",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "sparsest-cut",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Sparsest Cut decision: a cut of ratio <= r?",
+  "citation": "Matula & Shahrokhi, Sparsest cuts and bottlenecks in graphs, Discrete Appl. Math. 27 (1990) 113-123",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "thickness",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Thickness decision: does G have thickness <= 2?",
+  "citation": "Mansfield, Determining the thickness of graphs is NP-hard, Math. Proc. Camb. Phil. Soc. 93 (1983) 9-23",
+  "note": "NP-complete already for thickness two (reduction from Planar-3SAT)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "upper-domination",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Upper Domination decision: a minimal dominating set of size >= k?",
+  "citation": "Bazgan et al., The many facets of upper domination, Theoretical Computer Science 717 (2018) 2-25",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "sharp-eulerian-orientations",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "Eulerian-orientation existence: exists iff every vertex has even degree — orient the edges along an Euler tour; a poly (indeed trivial) decoupling witness",
+  "citation": "Euler, Solutio problematis ad geometriam situs pertinentis, Comment. Acad. Sci. Petropol. 8 (1736) 128-140",
+  "note": "even-degree characterization underlies existence; an Euler tour yields an Eulerian orientation in linear time",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "sharp-dnf",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "DNF satisfiability is trivially in P (a DNF is satisfiable unless every term is contradictory)",
+  "citation": "Garey & Johnson, Computers and Intractability (1979)",
+  "note": "the decision version is easy -> a decoupling witness against the hard counting version",
+  "tier": "reliable"
+ }
+]

@@ -1,0 +1,227 @@
+[
+ {
+  "problem_id": "lex-first-maximal-matching",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "computable in P by greedy edge selection",
+  "citation": "Miyano, The lexicographically first maximal subgraph problems, Int. J. Found. Comput. Sci. 1 (1990)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "unit-resolution",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "unit propagation to fixpoint, poly-time",
+  "citation": "Greenlaw, Hoover & Ruzzo, Limits to Parallel Computation: P-Completeness Theory (1995)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "chip-firing-stabilization",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "abelian stabilization is order-independent, poly-time",
+  "citation": "Bjorner, Lovasz & Shor, Chip-firing games on graphs, Eur. J. Combin. 12 (1991)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "lz78-compression",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "greedy LZ78 dictionary parse, poly-time",
+  "citation": "De Agostino & Storer, On-line versus off-line computation in dynamic text compression, Inf. Proc. Lett. 59 (1996)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "lex-first-delta-plus-one-coloring",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "lex-first greedy (Delta+1)-coloring is P-complete",
+  "citation": "Greenlaw, Hoover & Ruzzo, Limits to Parallel Computation: P-Completeness Theory (1995)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "subgraph-isomorphism",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Subgraph Isomorphism decision (H a subgraph of G)",
+  "citation": "Garey & Johnson, Computers and Intractability (1979)",
+  "note": "GJ [GT48]; generalizes CLIQUE and HAMILTONIAN-CYCLE. Distinct from induced-subgraph-isomorphism (induced) and graph-isomorphism (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "3-partition",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "3-Partition decision: a partition into m triples each summing to B?",
+  "citation": "Garey & Johnson, Complexity results for multiprocessor scheduling under resource constraints, SIAM J. Comput. 4 (1975) 397-411; Garey & Johnson (1979) [SP15]",
+  "note": "the canonical STRONGLY NP-complete problem: NP-hard even with all integers bounded by a polynomial in m (unary). Distinct from Partition (2-way, weakly NP-complete) and Numerical 3-Dimensional Matchin",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "bandwidth",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Bandwidth decision: is there a layout of bandwidth <= b?",
+  "citation": "Papadimitriou, The NP-completeness of the bandwidth minimization problem, Computing 16 (1976) 263-270",
+  "note": "NP-complete (Papadimitriou 1976), even for trees (Garey-Graham-Johnson-Knuth 1978). Distinct from cutwidth / minimum linear arrangement (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "clique-width",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Clique-width decision: cwd(G) <= k?",
+  "citation": "Fellows, Rosamond, Rotics & Szeider, Clique-width is NP-complete, SIAM J. Discrete Math. 23 (2009) 909-939 (STOC 2006)",
+  "note": "NP-complete (Fellows-Rosamond-Rotics-Szeider 2009), resolving a question open since clique-width was introduced. Distinct from treewidth / rank-width (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "crossing-number",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Crossing Number decision: a drawing with <= k crossings?",
+  "citation": "Garey & Johnson, Crossing number is NP-complete, SIAM J. Algebraic Discrete Methods 4 (1983) 312-316",
+  "note": "NP-complete (Garey-Johnson 1983). Distinct from planarity (crossing number 0, poly-time) and from the rectilinear crossing number (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "facility-location",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Metric UFL decision: an open-set + assignment of total cost <= B?",
+  "citation": "NP-hard via Set Cover / Dominating Set (Cornuejols, Nemhauser & Wolsey, The uncapacitated facility location problem, in Discrete Location Theory (1990)); Garey & Johnson 1979",
+  "note": "NP-hard (metric). Distinct from capacitated facility location and from k-median (no opening costs, cardinality bound) (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "geometric-independent-set",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "MIS on unit-disk graphs decision: independent set of size >= k? NP-complete",
+  "citation": "Clark, Colbourn & Johnson, Unit disk graphs, Discrete Mathematics 86 (1990) 165-177",
+  "note": "MIS is NP-complete on unit-disk graphs",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "independent-dominating-set",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Independent Dominating Set decision: independent dominating set of size <= k? NP-complete",
+  "citation": "Garey & Johnson, Computers and Intractability (1979)",
+  "note": "minimum maximal independent set / independent domination is NP-complete",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "map-labeling",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Map Labelling decision: common label size >= sigma achievable? NP-complete",
+  "citation": "Formann & Wagner, A packing problem with applications to lettering of maps, Proc. 7th ACM Symposium on Computational Geometry (SoCG) 1991, 281-288",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "maximum-minimal-vertex-cover",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "MMVC decision: a minimal vertex cover of size >= k? NP-complete",
+  "citation": "Boria, Della Croce & Paschos, On the max min vertex cover problem, Discrete Applied Mathematics 196 (2015) 62-71",
+  "note": "the maximization dual of minimum independent domination; NP-complete",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "minimum-common-string-partition",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "MCSP decision: a common partition into <= k blocks?",
+  "citation": "Goldstein, Kolman & Zheng, Minimum common string partition problem: hardness and approximations, Electron. J. Combin. 12 (2005) R50",
+  "note": "NP-hard, even when each letter occurs at most twice (2-MCSP)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "minimum-latency",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Minimum Latency decision: a tour with total latency <= L?",
+  "citation": "Blum, Chalasani, Coppersmith, Pulleyblank, Raghavan & Sudan, The minimum latency problem, STOC 1994, 163-171",
+  "note": "NP-hard on metric spaces (Blum et al. 1994)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "nearest-codeword",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Nearest Codeword decision: a codeword within Hamming distance d of y?",
+  "citation": "Berlekamp, McEliece & van Tilborg, On the inherent intractability of certain coding problems, IEEE Trans. Inform. Theory 24 (1978) 384-386",
+  "note": "maximum-likelihood decoding of a linear code is NP-complete (BMvT 1978)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "planar-vertex-deletion",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Planar Vertex Deletion decision: a set of <= k vertices whose removal yields a planar graph?",
+  "citation": "Lewis & Yannakakis, The node-deletion problem for hereditary properties is NP-complete, JCSS 20 (1980) 219-230",
+  "note": "vertex deletion to any nontrivial hereditary property (here planarity) is NP-complete",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "radio-coloring",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "L(2,1) span decision: is lambda(G) <= k?",
+  "citation": "Griggs & Yeh, Labelling graphs with a condition at distance 2, SIAM J. Discrete Math. 5 (1992) 586-595",
+  "note": "determining the L(2,1) span is NP-complete",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "set-splitting",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Set Splitting feasibility: a 2-coloring splitting every set (hypergraph 2-colorability)?",
+  "citation": "Garey & Johnson, Computers and Intractability (1979) [SP4]",
+  "note": "NP-complete even for sets of size 3 (Lovasz); equivalently hypergraph 2-colorability / Property B",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "string-folding",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "HP folding decision: a self-avoiding embedding with >= k H-H contacts?",
+  "citation": "Berger & Leighton, Protein folding in the hydrophobic-hydrophilic (HP) model is NP-complete, J. Comput. Biol. 5 (1998) 27-40",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "triangle-packing",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Triangle Packing decision: >= k vertex-disjoint triangles? (Partition into Triangles is the exact version)",
+  "citation": "Garey & Johnson, Computers and Intractability (1979) [GT11 Partition into Triangles]",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "weighted-completion-time-scheduling",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "P||sum w_j C_j decision: a schedule with weighted completion time <= V?",
+  "citation": "Bruno, Coffman & Sethi, Scheduling independent tasks to reduce mean finishing time, Comm. ACM 17 (1974) 382-387",
+  "note": "NP-hard already for m=2 (Partition); the single-machine 1||sum w_j C_j is in P (Smith's WSPT rule, S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "sharp-matchings",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "matching existence / maximum matching: a matching always exists (the empty set) and a maximum matching is found in poly time by the blossom algorithm — the decoupling witness (optimization easy, counting hard)",
+  "citation": "Edmonds, Paths, trees, and flowers, Canad. J. Math. 17 (1965) 449-467",
+  "note": "maximum matching in poly time (Edmonds 1965); existence is trivial",
+  "tier": "reliable"
+ }
+]

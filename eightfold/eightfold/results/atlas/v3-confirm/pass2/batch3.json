@@ -1,0 +1,236 @@
+[
+ {
+  "problem_id": "context-free-membership",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "CFL membership is P-complete",
+  "citation": "Jones & Laaser (1976); GHR (1995)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "high-degree-subgraph",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "k-HDS is P-complete for k>=3 (in NC for k<=2)",
+  "citation": "Anderson & Mayr (1984); GHR (1995)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "datalog-evaluation",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "Datalog data complexity is P-complete",
+  "citation": "Immerman/Vardi; Dantsin-Eiter-Gottlob-Voronkov (2001)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "gaussian-elimination-pivoting",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "canonical_task": "GE with partial pivoting is P-complete (unlike determinant/linear-equations, which are in NC)",
+  "citation": "Vavasis (1989)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "deadlock-detection",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "resource-graph reduction, poly-time",
+  "citation": "Spirakis, The parallel complexity of deadlock detection (1986); GHR (1995)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "type-inference-typability",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "constraint-based type inference via unification, poly-time (simply-typed)",
+  "citation": "O'Toole & Gifford; Dwork, Kanellakis & Mitchell (1984)",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "lex-first-maximal-independent-set",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "LFMIS membership: computable greedily in polynomial time",
+  "citation": "Cook, A taxonomy of problems with fast parallel algorithms, Information and Control 64 (1985); via Greenlaw, Hoover & Ruzzo, Limits to Parallel Computation (1995)",
+  "note": "in P (sequential greedy). Distinct from independent-set (lex-first selection object, S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "art-gallery",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Vertex-Guard decision: do k vertex guards cover the polygon?",
+  "citation": "Lee & Lin, Computational complexity of art gallery problems, IEEE Trans. Inform. Theory 32 (1986) 276-282",
+  "note": "vertex/edge-guard art gallery is NP-hard (Lee-Lin 1986). Vertex-guard variant is pinned to stay in NP",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "bounded-pcp",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Bounded PCP decision: a matching index sequence of length <= k?",
+  "citation": "Garey & Johnson, Computers and Intractability (1979) [Bounded PCP, SR11]; classical (Constable-Hunt-Sahni)",
+  "note": "the length-bounded PCP is NP-complete (unbounded PCP is undecidable). Distinct from the unbounded PCP (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "cluster-deletion",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Cluster Deletion decision: make G a cluster graph by deleting <= k edges?",
+  "citation": "Shamir, Sharan & Tsur, Cluster graph modification problems, Discrete Appl. Math. 144 (2004) 173-182",
+  "note": "NP-complete (Shamir-Sharan-Tsur 2004). Distinct from Cluster Editing (add+delete) and Cluster Vertex Deletion (delete vertices) (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "domatic-number",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Domatic Number decision: does V partition into >= k disjoint dominating sets?",
+  "citation": "Garey & Johnson, Computers and Intractability (1979) [Domatic Number, GT3]; Bonuccelli (1985)",
+  "note": "NP-complete (deciding domatic number >= 3). Distinct from Domination Number (S2)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "generalized-assignment",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Max-GAP decision: total profit >= t within capacities? NP-complete (generalizes 0/1 knapsack and bin packing)",
+  "citation": "Garey & Johnson, Computers and Intractability (1979)",
+  "note": "contains PARTITION/knapsack; NP-complete",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "graph-spanner",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Minimum t-Spanner decision (t=2): 2-spanner with <= k edges? NP-complete",
+  "citation": "Peleg & Schaffer, Graph spanners, Journal of Graph Theory 13 (1989) 99-116",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "k-edge-connected-subgraph",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "min-size k-ECSS decision: spanning k-edge-connected subgraph with <= t edges? NP-complete (2-ECSS contains Hamiltonicity)",
+  "citation": "Garey & Johnson, Computers and Intractability (1979)",
+  "note": "2-edge-connected spanning subgraph generalizes Hamiltonian cycle -> NP-complete",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "max-k-cut",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "MAX-k-CUT decision: a k-partition cutting >= t edges? NP-complete (k=2 is MAX-CUT)",
+  "citation": "Garey, Johnson & Stockmeyer, Some simplified NP-complete graph problems, Theoretical Computer Science 1 (1976) 237-267",
+  "note": "MAX-CUT (k=2) NP-complete; MAX-k-CUT generalizes it",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "min-degree-spanning-tree",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "minimum-max-degree spanning tree decision: spanning tree of max degree <= k? (k=2 is Hamiltonian Path)",
+  "citation": "Garey & Johnson, Computers and Intractability (1979) [Hamiltonian Path, ND1]",
+  "note": "k=2 restriction is Hamiltonian Path -> NP-complete",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "minimum-distance-code",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Minimum Distance decision: a nonzero codeword of weight <= d?",
+  "citation": "Vardy, The intractability of computing the minimum distance of a code, IEEE Trans. Inform. Theory 43 (1997) 1757-1766",
+  "note": "NP-hard (Vardy 1997), resolving the Berlekamp-McEliece-van Tilborg 1978 conjecture",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "minimum-weight-triangulation",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "MWT decision: a triangulation of total length <= L?",
+  "citation": "Mulzer & Rote, Minimum-weight triangulation is NP-hard, JACM 55(2) (2008) Art. 11 (arXiv:cs/0601002)",
+  "note": "NP-hard (Mulzer-Rote 2008), a long-standing open problem from Garey-Johnson (1979)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "pagenumber",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Book Thickness decision: a book embedding using <= k pages?",
+  "citation": "Chung, Leighton & Rosenberg, Embedding graphs in books: a layout problem with applications to VLSI design, SIAM J. Algebraic Discrete Methods 8 (1987) 33-58",
+  "note": "NP-complete; testing pagenumber <= 2 is already NP-complete (a graph has a 2-page embedding iff it is subhamiltonian)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "precoloring-extension",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Precoloring Extension decision: does the precoloring extend to a proper coloring with the given colors?",
+  "citation": "Biró, Hujter & Tuza, Precoloring extension. I. Interval graphs, Discrete Math. 100 (1992) 267-279",
+  "note": "NP-complete (even on interval graphs)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "register-sufficiency",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Register Sufficiency: DAG evaluable with <= k registers?",
+  "citation": "Sethi, Complete register allocation problems, SIAM J. Comput. 4 (1975) 226-248",
+  "note": "Sethi-Ullman labeling is optimal on trees; the general-DAG problem is NP-complete",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "sorting-by-transpositions",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Transposition distance decision: sortable in <= k transpositions?",
+  "citation": "Bulteau, Fertin & Rusu, Sorting by transpositions is difficult, SIAM J. Discrete Math. 26 (2012) 1148-1180",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "target-set-selection",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "Target Set Selection decision: a seed set of size <= k activating all vertices?",
+  "citation": "Chen, On the approximability of influence in social networks, SIAM J. Discrete Math. 23 (2009) 1400-1415",
+  "note": "",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "unsplittable-flow",
+  "charge": "decision",
+  "value": "NPC",
+  "canonical_task": "UFP decision: route a demand subset of total value >= V on single paths within capacities?",
+  "citation": "Kleinberg, Approximation algorithms for disjoint paths problems (PhD thesis, MIT 1996)",
+  "note": "generalizes edge-disjoint paths (unit demands/capacities), NP-complete (Karp)",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "sharp-contingency-tables",
+  "charge": "decision",
+  "value": "P",
+  "canonical_task": "existence of a contingency table with margins (r,c): feasible iff sum(r)=sum(c), and a witness is built in poly time by the northwest-corner rule — the (easy) transportation-feasibility decoupling witness",
+  "citation": "Dantzig, Linear Programming and Extensions, Princeton Univ. Press (1963)",
+  "note": "northwest-corner construction / transportation-polytope feasibility (sum(r)=sum(c)); existence is elementary",
+  "tier": "reliable"
+ },
+ {
+  "problem_id": "sharp-spanning-trees",
+  "charge": "parallelization",
+  "value": "NC",
+  "canonical_task": "#spanning-trees via the Matrix-Tree cofactor = a determinant, which is in NC",
+  "citation": "Csanky, Fast parallel matrix inversion algorithms, SIAM J. Comput. 5(4) (1976) 618-623",
+  "note": "the Laplacian cofactor is a determinant, in NC (Csanky 1976 / Berkowitz 1984) (F-4); mirrors planar-matching-count",
+  "tier": "reliable"
+ }
+]
