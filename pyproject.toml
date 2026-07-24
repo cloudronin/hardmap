@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hardmap"
-version = "0.1.0"
+version = "1.0.0"
 description = "Reproducible evidence for the charge-atlas / proof-space program: atlas, oracle line, proof census, and a single repro CLI."
 readme = "README.md"
 requires-python = ">=3.10"

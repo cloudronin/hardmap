@@ -8,10 +8,9 @@ committed, verified artifacts (fast tier, seconds–minutes) or from scratch
 evidence: the seal chain, the ledgers, and the numbers, checkable without
 trusting the author.
 
-> **Status: pre-release.** Migration (H1), scrub + licensing (H2), and the CLI +
-> claim manifest (H3) are complete: `hardmap repro --all` reproduces all eight
-> paper-cited numbers and `hardmap verify` passes. The sealed verification pass
-> (H4) and public release (H5) remain.
+> **v1.0.0.** `pip install hardmap && hardmap repro --all` reproduces all eight
+> paper-cited numbers, and `hardmap verify` passes the internal-coherence sweep.
+> The sealed verification pass is complete ([H4-verification.md](docs/findings/H4-verification.md)).
 
 ## Provenance & the seal chain
 
