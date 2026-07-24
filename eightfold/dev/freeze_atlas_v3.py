@@ -86,7 +86,39 @@ def main():
     if len(vids) != len(set(vids)):
         print("REFUSING: duplicate problem_id among v3 rows", file=sys.stderr); return 3
 
-    out = kernel + v3                      # kernel first, byte-identical lines, then v3-new
+    # --- apply errata-v1 to the KERNEL COPY carried into v3 (owner ruling 2026-07-24) ---
+    # v1 bytes stay frozen on disk; v3 carries the CORRECTED values. Each corrected cell is tagged
+    # `erratum_v1` so the v2->v3 delta decomposition books it as ERRATUM, not drift.
+    VOCAB_OK = {"poly-APX", "APX-complete", "APX", "log-APX", "PTAS", "inapprox"}
+    epath = os.path.join(ATLAS_DIR, "errata-v1.json")
+    n_err, deferred = 0, []
+    if os.path.exists(epath):
+        ent = {(e["problem_id"], e["charge"]): e for e in json.load(open(epath))["entries"]}
+        fixed = []
+        for line in kernel:
+            r = json.loads(line)
+            touched = False
+            for c in r["charges"]:
+                e = ent.get((r["problem_id"], c["charge"]))
+                if not e:
+                    continue
+                if e["now"] in VOCAB_OK and e["now"] != c["value"]:
+                    c["value"] = e["now"]; touched = True; n_err += 1
+                elif e["now"] not in VOCAB_OK:
+                    deferred.append(f"{r['problem_id']}/{c['charge']}")
+                    continue
+                prov = c.setdefault("provenance", {})
+                if e.get("citation"):
+                    prov["citation"] = e["citation"]
+                prov["note"] = (prov.get("note", "") + f" | [erratum_v1 2026-07-24] {e['reason'][:160]}").strip(" |")
+                prov["erratum_v1"] = True          # delta decomposition: erratum, NOT drift
+                touched = True
+            fixed.append(json.dumps(r, ensure_ascii=False) + "\n" if touched else line)
+        kernel = fixed
+        print(f"errata-v1 applied to the v3 kernel copy: {n_err} value corrections"
+              + (f"; {len(deferred)} DEFERRED (no valid rung — owner ruling): {', '.join(deferred)}" if deferred else ""))
+
+    out = kernel + v3                      # kernel (errata-corrected copy) first, then v3-new
     dest = DEST + (".dryrun" if a.dry_run else "")
     with open(dest, "w") as f:
         f.writelines(out)
