@@ -1,6 +1,6 @@
 # Eightfold v1.1 — Crucible Spec (Adversarial Self-Review)
 
-<!-- In-repo canonical copy of ~/Downloads/eightfold-v1-1-crucible-spec.md. Build plan (V1–V4 execution,
+<!-- In-repo canonical copy of the driving spec. Build plan (V1–V4 execution,
      the `derived` status, owner riders A/B) tracked separately; this file is the frozen spec of record. -->
 
 **Codename:** Crucible
@@ -94,4 +94,4 @@ Two weekend blocks. $0 compute (numpy on a laptop; 1000 nulls × the battery is 
 
 ## 7. Placement and sequencing
 
-Hobby bucket, subordinate to praxis (defense Oct 2026). Hard rule inherited from the objective: no arXiv, no note, no submission until V4 exists — convince ourselves first. Census C3 chase remains step zero of any session (unrelated dependency, one hour). If the two weekend blocks aren't available before September, Crucible waits; the finding doesn't decay, and an unhardened claim ships nowhere in the meantime.
+Independent hobby-research project. Hard rule inherited from the objective: no arXiv, no note, no submission until V4 exists — convince ourselves first. Census C3 chase remains step zero of any session (unrelated dependency, one hour). If the two weekend blocks aren't available before September, Crucible waits; the finding doesn't decay, and an unhardened claim ships nowhere in the meantime.

@@ -33,7 +33,7 @@
   through the shared kernel** with FOUNDRY_SPEC; **P1 NPI calibration passes** (zero NPI rows — Schaefer
   dichotomy); affine is the distinct deceptive-terrain control (P decision, FP counting, yet inapprox +
   unbounded-width). 16 foundry tests (test the dichotomy *rules*, not verdicts). **v1 = the distinct-profile
-  spine; finer/0-1-valid/chain co-clones are a documented v1.1 extension. Next (post-defense): N2 analysis
+  spine; finer/0-1-valid/chain co-clones are a documented v1.1 extension. Next (later phase): N2 analysis
   (predictions 1-2 on the census) + N3-N5.**
 
 ## 0.1.1 (unreleased) — Sprint 2.1 (Marx parameterized oracle)

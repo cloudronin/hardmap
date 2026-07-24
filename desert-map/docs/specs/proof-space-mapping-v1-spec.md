@@ -133,4 +133,4 @@ Fits in 2–3 weekend blocks plus weeknight checkpoint reviews. GPU wall-clock r
 
 ## 10. Placement
 
-Hobby-research bucket, subordinate to praxis work. Nothing here touches frozen praxis artifacts. Kill criteria above are the containment; no design partner, no users, no support surface.
+Independent hobby-research project. Kill criteria above are the containment; no design partner, no users, no support surface.

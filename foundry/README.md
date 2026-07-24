@@ -8,7 +8,7 @@ bias. It answers the canon-vs-computation question.
 
 **Status:** N0 scaffold. The atlas kernel (Eightfold Phase K) + `FOUNDRY_SPEC` + a hand-checked toy stratum
 exist and the shared validator/harness reuse is proven (`tests/test_kernel_reuse.py`). The generated Boolean
-census (N1), the dichotomy oracles, and the measured instrument columns (N4) are **post-defense** work.
+census (N1), the dichotomy oracles, and the measured instrument columns (N4) are **later-phase** work.
 
 ## Reuse (never rebuilt, never modified)
 

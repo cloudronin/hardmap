@@ -92,7 +92,7 @@ Same monorepo pattern, new sibling `proof-census/` or subpackage decision at Cla
 
 ## 9. Placement
 
-Hobby-research bucket, subordinate to praxis. Reuses banked Desert Map assets; produces population maps or a documented reason none exist. No users, no support surface, kill criteria as above.
+Independent hobby-research project. Reuses banked Desert Map assets; produces population maps or a documented reason none exist. No users, no support surface, kill criteria as above.
 
 ---
 

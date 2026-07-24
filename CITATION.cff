@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this software or its data, please cite the accompanying preprint (below) and, where relevant, this repository."
+title: "hardmap: reproducible evidence for the charge-atlas / proof-space program"
+abstract: >-
+  A history-preserving, scrubbed consolidation of four research projects
+  (desert-map, eightfold, foundry, proof-census) with a single CLI that
+  regenerates every statistic cited in the accompanying preprint, either from
+  committed verified artifacts (fast tier) or from scratch (full tier).
+type: software
+authors:
+  - family-names: Vettrivel
+    given-names: Vishnu
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # TODO: add before publication
+version: "0.1.0"
+date-released: "2026-07-23"
+license: Apache-2.0
+repository-code: "https://github.com/cloudronin/hardmap"
+url: "https://github.com/cloudronin/hardmap"
+keywords:
+  - computational complexity
+  - proof complexity
+  - reproducibility
+  - preregistration
+preferred-citation:
+  type: article
+  title: "TODO: preprint title"          # TODO: finalize on arXiv submission
+  authors:
+    - family-names: Vettrivel
+      given-names: Vishnu
+  year: 2026
+  # arxiv / doi pending — fill in on release:
+  # url: "https://arxiv.org/abs/XXXX.XXXXX"
+  # doi: "10.48550/arXiv.XXXX.XXXXX"

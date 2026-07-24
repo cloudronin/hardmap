@@ -1,0 +1,9 @@
+# License — data & prose (CC-BY-4.0)
+
+The datasets and result artifacts in this directory (including the frozen
+`atlas.jsonl`) are licensed under the Creative Commons Attribution 4.0
+International License (CC-BY-4.0) — full text at /LICENSES/CC-BY-4.0.txt.
+
+Attribution condition: cite the accompanying preprint (see /CITATION.cff).
+Source code elsewhere in this repository is licensed under Apache-2.0 (/LICENSE).
+See /NOTICE for the complete dual-license split.

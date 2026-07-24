@@ -2,7 +2,7 @@
 
 The program's epistemic argument rests on *sealed-before-measured*: each preregistration was sealed by the act of committing it (`committed_before_analysis: true`), so the seal **is** the commit SHA that introduced the prereg. Consolidation extracted the four in-scope folders with `git filter-repo`, which rewrites commit hashes. This table resolves every sealed prereg end to end -- *sealed at X (public: Y)* -- via `docs/hash-map.txt`.
 
-Source: `github.com/cloudronin/uofa-lab` (private). Commits: 130 rewritten, 329 pruned (out-of-scope only).
+Source: private predecessor monorepo `uofa-lab`. Commits: 130 rewritten, 329 pruned (out-of-scope only).
 
 ## Atlas provenance
 

@@ -236,7 +236,7 @@ The kill-gate did not fire; the map is real; the unasked questions are now enume
   R24 landscape evidence-grade split, both logged pre-analysis).
 - **Data:** `atlas.jsonl`, 118 problems, validator-clean (exit 0), **zero `uncited-folklore`**, core per-charge
   A2 gate PASS (decision 97 / approximation 89 / parameterized 90).
-- **Repo:** commit `e40ae78` (branch `cloudronin/charge-atlas-spec-review-55a58c`), 35 tests green.
+- **Repo:** 35 tests green at seal (pre-migration commit; resolves via docs/hash-map.txt).
 - **R25 audit:** the approx⟷param headline is subtracted against both the narrow EPTAS↔FPT bridge and the wide
   Cai–Chen MAX SNP / MIN F⁺Π₁ bridge (Cai & Chen, JCSS 54(3):465–474, 1997; Kratsch, STACS 2009); residual
   0.68–0.72 across conservative→extreme netting. Bridge added to `charges.py::ENTAILMENT_LAYER` as informational

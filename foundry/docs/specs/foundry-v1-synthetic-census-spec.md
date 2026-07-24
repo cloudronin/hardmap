@@ -1,12 +1,12 @@
 # Foundry v1 — Synthetic Census Spec (F1 hand-off)
 
-<!-- In-repo canonical copy of ~/Downloads/foundry-v1-synthetic-census-spec.md. Build plan (Phase K kernel,
+<!-- In-repo canonical copy of the driving spec. Build plan (Phase K kernel,
      N0-N5, owner riders A/B/C) tracked in the plan file; the F1 predictions are committed separately at
      docs/findings/F1-canon-or-computation-note.md (Rider C). This file is the frozen spec of record. -->
 
 
 **Codename:** Foundry
-**Status:** Draft for review — banked now, executed post-Crucible, post-defense (Oct 2026)
+**Status:** Draft for review — banked now, executed post-Crucible
 **Owner:** Vishnu
 **Relation:** executes F1 (`F1-canon-or-computation-note.md`) tiers 1–2. Fifth project in the line: Desert Map (killed, banked) → Proof Census (instrument, C3 pending) → Eightfold (canon atlas, Move One closed) → Crucible (hardening, in flight) → Foundry. Answers the canon-vs-computation question and builds the tall/wide/diverse/replicated table the latent-factor question requires. F1 travels with this spec; its framing and predictions are normative.
 
@@ -110,4 +110,4 @@ Largest project in the line; N1–N2 form a self-contained first campaign (~13�
 
 ## 8. Placement and sequencing
 
-Post-Crucible, post-defense (Oct 2026), per the standing pipeline: Crucible → Factors → **Foundry** → charge-9 test. Prediction 3 is the only Factors dependency; N1–N3 can run before Factors if calendar favors it, with prediction 3 held open. Inherits: Crucible S4 `derived` machinery, Eightfold schema/validator/R-series discipline, Proof-Census samplers and concordance protocol, prereg-before-analysis as law. Hobby bucket, subordinate to praxis until defense; nothing here decays by waiting.
+Post-Crucible, per the standing pipeline: Crucible → Factors → **Foundry** → charge-9 test. Prediction 3 is the only Factors dependency; N1–N3 can run before Factors if calendar favors it, with prediction 3 held open. Inherits: Crucible S4 `derived` machinery, Eightfold schema/validator/R-series discipline, Proof-Census samplers and concordance protocol, prereg-before-analysis as law. Independent hobby-research project; nothing here decays by waiting.

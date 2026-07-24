@@ -10,7 +10,7 @@ by classification theorems (oracle columns — `claimed` where the literature st
 `derived` where a dichotomy is *applied* with a logged condition-check) and by the Proof-Census instrument
 line (measured columns).
 
-I-phase caveat (N0, post-defense): the `parameterized` (Marx) and `parallelization` (ABISV) oracles await I1
+I-phase caveat (N0, deferred): the `parameterized` (Marx) and `parallelization` (ABISV) oracles await I1
 verification; the `localization` (Barto–Kozik) condition-check awaits I6. Until verified, those columns are
 filled `open`, not guessed — the width claim adjusts accordingly.
 """

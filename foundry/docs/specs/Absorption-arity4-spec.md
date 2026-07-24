@@ -152,7 +152,7 @@ new unbounded-width-tractable class — doubly load-bearing here).
 
 ## 8. Placement and sequencing
 
-Hobby bucket, subordinate to praxis; $0 compute; roster is generated, no curation contact. **Deferred behind the
+Independent hobby-research project; $0 compute; roster is generated, no curation contact. **Deferred behind the
 preprint** (owner ruling 2026-07-23): the preprint is unambiguously next, and nothing in the queue — this included —
 moves before it. Banked now while Prism context is hot so the arity-4 deltas (S₄ dedup, the 3 984 count, the arity-4
 oracle-validity items, the absorption capability) are captured accurately. Inherits every standing discipline; nothing

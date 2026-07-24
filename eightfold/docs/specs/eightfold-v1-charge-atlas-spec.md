@@ -1,4 +1,4 @@
-> Canonical in-repo copy of the driving spec (source: `~/Downloads/eightfold-v1-charge-atlas-spec.md`).
+> Canonical in-repo copy of the driving spec.
 > Body below is verbatim; approved refinements are recorded in the **Build addenda (R1–R8)** section
 > appended at the end — never by editing the body above.
 
@@ -104,7 +104,7 @@ Claude Code drafts rows with citations; every pilot row gets a verification pass
 
 ## 8. Placement and sequencing
 
-Hobby-research bucket, subordinate to praxis (defense Oct 2026). Starts after Census C3 writeup closes its box; Census's backbone result enters the atlas as charge 8's newest citation. No users, no support surface, $0 compute, kill criteria as above. Pre-registration discipline (I4) carried from the prior two projects.
+Independent hobby-research project. Starts after Census C3 writeup closes its box; Census's backbone result enters the atlas as charge 8's newest citation. No users, no support surface, $0 compute, kill criteria as above. Pre-registration discipline (I4) carried from the prior two projects.
 
 ---
 
