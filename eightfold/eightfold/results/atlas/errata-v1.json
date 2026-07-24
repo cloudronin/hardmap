@@ -4,48 +4,113 @@
   "protocol": "v1 BYTES STAY FROZEN FOREVER. These entries record defects found after the freeze. atlas_v3.jsonl CARRIES THE CORRECTED VALUES; the v2->v3 delta decomposition must mark these cells `erratum`, NOT `drift`, so the battery does not book a vocabulary fix as a population shift.",
   "origin": "V2 confirm-pass (2026-07-23) demoted chromatic-number's `inapprox` in v3; the same cell content sits in frozen v1. Owner ruling: run the F-2 test over EVERY frozen `inapprox` cell. Independent adjudication 2026-07-24: 9 cells swept, 1 HOLDS / 5 DEMOTE / 3 CITE-INSUFFICIENT.",
   "rule_applied": "SCHEMA.md F-2 pin: `inapprox` = NO poly-time f(n)-approximation for ANY polynomial f (unconditional unless P=NP). A problem with an n^eps-approx, a polylog gap, or conditional-only hardness is NOT `inapprox`.",
-
   "entries": [
-    {"problem_id": "clique", "charge": "approximation", "was": "inapprox", "now": "poly-APX",
-     "kind": "value", "reason": "A single vertex is already an n-approximation; Feige (SIDMA 2004) gives O(n(loglog n)^2/(log n)^3). An n^(1-eps) lower bound sits BELOW the achieved n-factor and cannot rule out polynomial factors.",
-     "citation": "Feige, Approximating maximum clique by removing subgraphs, SIAM J. Discrete Math. 18 (2004) [upper]; Hastad, Acta Math. 182 (1999) [lower]"},
-
-    {"problem_id": "independent-set", "charge": "approximation", "was": "inapprox", "now": "poly-APX",
-     "kind": "value", "reason": "MAX-IS is the textbook poly-APX-COMPLETE problem, which is incompatible with `inapprox`; trivial single-vertex n-approximation, improved to O(n(loglog n)^2/(log n)^3).",
-     "citation": "Boppana & Halldorsson (1992); Feige (2004) [upper]; Hastad (1999) [lower]"},
-
-    {"problem_id": "graph-3-coloring", "charge": "approximation", "was": "inapprox", "now": "poly-APX",
-     "kind": "value", "reason": "Using n colors is an n-approximation (chi >= 1); Halldorsson (IPL 1993) achieves O(n(loglog n)^2/(log n)^3). Zuckerman's n^(1-eps) is below the achieved polynomial factor.",
-     "citation": "Halldorsson, A still better performance guarantee for approximate graph coloring, IPL 45 (1993) [upper]; Zuckerman, Theory of Computing 3 (2007) [lower]",
-     "additional_defect": "OBJECT MISMATCH: problem_id is 3-COLORING but canonical_task states CHROMATIC NUMBER. Under the 3-colorable promise the best known algorithm uses ~O(n^0.19747) colors — an n^eps-approximation, which the F-2 pin names verbatim as disqualifying. The row needs an owner ruling on which object it is."},
-
-    {"problem_id": "maximum-common-subgraph", "charge": "approximation", "was": "inapprox", "now": "poly-APX",
-     "kind": "value", "reason": "A 1-vertex mapping is an n-approximation; Halldorsson gives O(sqrt(n)) for maximum common induced subgraph. Kann (STACS 1992) shows it is only AS HARD AS MAX-IS, which is itself poly-APX-complete.",
-     "citation": "Halldorsson [upper]; Kann, STACS 1992 [hardness transfer]"},
-
-    {"problem_id": "xor-sat", "charge": "approximation", "was": "inapprox", "now": "APX-complete",
-     "kind": "value", "reason": "A uniformly random assignment satisfies half the equations in expectation (derandomizable by conditional expectations) = a 2-approximation. Hastad's (1/2+eps) bound proves that CONSTANT is tight — i.e. APX-hardness, not the absence of any polynomial factor.",
-     "citation": "Hastad, Some optimal inapproximability results, JACM 48 (2001) [tight constant]; random-assignment/derandomization [upper]"},
-
-    {"problem_id": "shortest-vector-svp", "charge": "approximation", "was": "inapprox", "now": "OPEN-VOCAB-GAP",
-     "kind": "citation+vocabulary", "reason": "Micciancio proves NP-hardness only within SOME CONSTANT (sqrt2-eps) and only under RANDOMIZED reductions (NP not-subset RP, not P!=NP) — the pin rejects both constant-factor and conditional-only hardness. Poly-factor NP-hardness is barred anyway: O(sqrt n)-GapSVP is in coNP (Aharonov-Regev, JACM 2005), which would collapse PH. VOCABULARY GAP: best poly-time factor is 2^O(n loglog n/log n) — SUPERPOLYNOMIAL — so it cannot be demoted to poly-APX either. NO v1 rung is correct.",
-     "resolution": "owner ruling required — needs a v2 vocabulary rung (superpolynomial-but-not-inapprox) or an explicit `open` + note."},
-
-    {"problem_id": "closest-vector-cvp", "charge": "approximation", "was": "inapprox", "now": "OPEN-VOCAB-GAP",
-     "kind": "citation+vocabulary", "reason": "Dinur-Kindler-Raz-Safra prove hardness only within n^(c/loglog n) = 2^(log^(1-eps) n), which is n^o(1) — SUB-polynomial, precisely the 'almost-polynomial' case the pin excludes (the row's own task text says so). Same Aharonov-Regev/Goldreich-Goldwasser sqrt(n) barrier. Best poly-time factor 2^(n/2) (Babai) is superpolynomial, so poly-APX is also wrong.",
-     "resolution": "owner ruling required — same vocabulary gap as SVP."},
-
-    {"problem_id": "quadratic-assignment", "charge": "approximation", "was": "inapprox", "now": "inapprox",
-     "kind": "citation", "reason": "VALUE STANDS but the WARRANT IS WRONG. Sahni-Gonzalez Thm 3.1 defines eps-approximate for a CONSTANT eps (Burkard-Cela's QAP survey quotes it as 'for an arbitrary eps>0') — APX-hardness only, matching the row's own 'no constant-factor' task text, which is below the pin.",
-     "citation": "REPLACE WITH: Queyranne (1986), who proves QAP is not approximable within ANY FINITE RATIO."}
+    {
+      "problem_id": "clique",
+      "charge": "approximation",
+      "was": "inapprox",
+      "now": "poly-APX",
+      "kind": "value",
+      "reason": "A single vertex is already an n-approximation; Feige (SIDMA 2004) gives O(n(loglog n)^2/(log n)^3). An n^(1-eps) lower bound sits BELOW the achieved n-factor and cannot rule out polynomial factors.",
+      "citation": "Feige, Approximating maximum clique by removing subgraphs, SIAM J. Discrete Math. 18 (2004) [upper]; Hastad, Acta Math. 182 (1999) [lower]"
+    },
+    {
+      "problem_id": "independent-set",
+      "charge": "approximation",
+      "was": "inapprox",
+      "now": "poly-APX",
+      "kind": "value",
+      "reason": "MAX-IS is the textbook poly-APX-COMPLETE problem, which is incompatible with `inapprox`; trivial single-vertex n-approximation, improved to O(n(loglog n)^2/(log n)^3).",
+      "citation": "Boppana & Halldorsson (1992); Feige (2004) [upper]; Hastad (1999) [lower]"
+    },
+    {
+      "problem_id": "graph-3-coloring",
+      "charge": "approximation",
+      "was": "inapprox",
+      "now": "PENDING-REDERIVATION",
+      "kind": "value",
+      "reason": "Using n colors is an n-approximation (chi >= 1); Halldorsson (IPL 1993) achieves O(n(loglog n)^2/(log n)^3). Zuckerman's n^(1-eps) is below the achieved polynomial factor.",
+      "citation": "Halldorsson, A still better performance guarantee for approximate graph coloring, IPL 45 (1993) [upper]; Zuckerman, Theory of Computing 3 (2007) [lower]",
+      "additional_defect": "OBJECT MISMATCH: problem_id is 3-COLORING but canonical_task states CHROMATIC NUMBER. Under the 3-colorable promise the best known algorithm uses ~O(n^0.19747) colors — an n^eps-approximation, which the F-2 pin names verbatim as disqualifying. The row needs an owner ruling on which object it is.",
+      "defect_class": "F-2 vocabulary error AND object drift (two distinct defects in one cell)",
+      "object_drift": {
+        "ruling": "2026-07-24 — THE ID IS THE OBJECT. The row is 3-COLORING (the promise problem); the canonical_task drifted to CHROMATIC NUMBER. chromatic-number now exists as its own v3 row, so the drifted content has a home.",
+        "action": "repin canonical_task to the promise problem, then RE-DERIVE the approximation cell from the promise-version literature at full R20. Do NOT port either old value — the object mismatch means neither was ever verified against the right problem.",
+        "status": "QUEUED — re-derivation pending"
+      }
+    },
+    {
+      "problem_id": "maximum-common-subgraph",
+      "charge": "approximation",
+      "was": "inapprox",
+      "now": "poly-APX",
+      "kind": "value",
+      "reason": "A 1-vertex mapping is an n-approximation; Halldorsson gives O(sqrt(n)) for maximum common induced subgraph. Kann (STACS 1992) shows it is only AS HARD AS MAX-IS, which is itself poly-APX-complete.",
+      "citation": "Halldorsson [upper]; Kann, STACS 1992 [hardness transfer]"
+    },
+    {
+      "problem_id": "xor-sat",
+      "charge": "approximation",
+      "was": "inapprox",
+      "now": "APX-complete",
+      "kind": "value",
+      "reason": "A uniformly random assignment satisfies half the equations in expectation (derandomizable by conditional expectations) = a 2-approximation. Hastad's (1/2+eps) bound proves that CONSTANT is tight — i.e. APX-hardness, not the absence of any polynomial factor.",
+      "citation": "Hastad, Some optimal inapproximability results, JACM 48 (2001) [tight constant]; random-assignment/derandomization [upper]"
+    },
+    {
+      "problem_id": "shortest-vector-svp",
+      "charge": "approximation",
+      "was": "inapprox",
+      "now": "superpoly-APX",
+      "kind": "vocabulary-gap",
+      "reason": "Micciancio proves NP-hardness only within SOME CONSTANT (sqrt2-eps) and only under RANDOMIZED reductions (NP not-subset RP, not P!=NP) — the pin rejects both constant-factor and conditional-only hardness. Poly-factor NP-hardness is barred anyway: O(sqrt n)-GapSVP is in coNP (Aharonov-Regev, JACM 2005), which would collapse PH. VOCABULARY GAP: best poly-time factor is 2^O(n loglog n/log n) — SUPERPOLYNOMIAL — so it cannot be demoted to poly-APX either. NO v1 rung is correct.",
+      "resolution": "RESOLVED 2026-07-24 by owner ruling: schema EXTENDED with a superpoly-APX rung between poly-APX and inapprox (prereg_v9-clarification-02). v1 recorded these as vocabulary-gap defects — no correct value was EXPRESSIBLE in v1 vocab. v3 carries superpoly-APX with the lattice-approximation citations at R20.",
+      "citation": "Lenstra-Lenstra-Lovasz (1982) / Schnorr BKZ / slide reduction: 2^O(n loglog n/log n) [SVP upper]; Babai (1986) nearest-plane 2^(n/2) [CVP upper]; Micciancio, SICOMP [constant-factor hardness, randomized]; Aharonov-Regev JACM 2005 [O(sqrt n)-Gap in coNP: poly-factor NP-hardness would collapse PH]"
+    },
+    {
+      "problem_id": "closest-vector-cvp",
+      "charge": "approximation",
+      "was": "inapprox",
+      "now": "superpoly-APX",
+      "kind": "vocabulary-gap",
+      "reason": "Dinur-Kindler-Raz-Safra prove hardness only within n^(c/loglog n) = 2^(log^(1-eps) n), which is n^o(1) — SUB-polynomial, precisely the 'almost-polynomial' case the pin excludes (the row's own task text says so). Same Aharonov-Regev/Goldreich-Goldwasser sqrt(n) barrier. Best poly-time factor 2^(n/2) (Babai) is superpolynomial, so poly-APX is also wrong.",
+      "resolution": "RESOLVED 2026-07-24 by owner ruling: schema EXTENDED with a superpoly-APX rung between poly-APX and inapprox (prereg_v9-clarification-02). v1 recorded these as vocabulary-gap defects — no correct value was EXPRESSIBLE in v1 vocab. v3 carries superpoly-APX with the lattice-approximation citations at R20.",
+      "citation": "Lenstra-Lenstra-Lovasz (1982) / Schnorr BKZ / slide reduction: 2^O(n loglog n/log n) [SVP upper]; Babai (1986) nearest-plane 2^(n/2) [CVP upper]; Dinur-Kindler-Raz-Safra [n^(c/loglog n) hardness]; Aharonov-Regev JACM 2005 [O(sqrt n)-Gap in coNP: poly-factor NP-hardness would collapse PH]"
+    },
+    {
+      "problem_id": "quadratic-assignment",
+      "charge": "approximation",
+      "was": "inapprox",
+      "now": "inapprox",
+      "kind": "citation",
+      "reason": "VALUE STANDS but the WARRANT IS WRONG. Sahni-Gonzalez Thm 3.1 defines eps-approximate for a CONSTANT eps (Burkard-Cela's QAP survey quotes it as 'for an arbitrary eps>0') — APX-hardness only, matching the row's own 'no constant-factor' task text, which is below the pin.",
+      "citation": "REPLACE WITH: Queyranne (1986), who proves QAP is not approximable within ANY FINITE RATIO."
+    }
   ],
-
   "holds": [
-    {"problem_id": "tsp", "charge": "approximation", "value": "inapprox",
-     "reason": "Sahni-Gonzalez's gadget sets w=1 on edges and a FREE PARAMETER k on non-edges, so k = n*alpha(n)+2 rules out every poly-time-computable alpha(n). Johnson & McGeoch state it as 'no heuristic can guarantee A(I)/OPT(I) <= 2^p(N) for any fixed polynomial p'.",
-     "caveat": "Survives on the universally accepted reading of the free gadget parameter (Vazirani Thm 3.6; Johnson & McGeoch Thm A). Sahni-Gonzalez's LITERAL Thm 3.1 is stated for constant eps — under a strictly literal citation standard TSP would also be CITE-INSUFFICIENT. Owner call."}
+    {
+      "problem_id": "tsp",
+      "charge": "approximation",
+      "value": "inapprox",
+      "reason": "Sahni-Gonzalez's gadget sets w=1 on edges and a FREE PARAMETER k on non-edges, so k = n*alpha(n)+2 rules out every poly-time-computable alpha(n). Johnson & McGeoch state it as 'no heuristic can guarantee A(I)/OPT(I) <= 2^p(N) for any fixed polynomial p'.",
+      "caveat": "RESOLVED — the cell now passes LITERALLY on the supplementary citation; no reliance on a non-literal reading of Sahni-Gonzalez remains.",
+      "ruling_2026_07_24": "Check-9 STAYS LITERAL. Weakening the standard to admit interpretive charity reopens the door Check-9 exists to close, and one borderline cell is not worth a standards change. Discharged as ordinary CITE debt instead.",
+      "citation_added": "Vazirani, Approximation Algorithms (2001) Thm 3.6; Williamson & Shmoys, The Design of Approximation Algorithms (2011) — both state general-TSP inapproximability within any poly-computable factor EXPLICITLY"
+    }
   ],
-
-  "sweep_tally": {"swept": 9, "holds": 1, "demote": 5, "cite_insufficient": 3},
-  "systemic_note": "Four independent v3 drafters made the identical F-2 mistake, and the v1 drafting process was not structurally different — which is why the sweep was ordered. 8 of 9 frozen `inapprox` cells were defective. The failure mode is treating an n^(1-eps) or 2^(log^(1-eps) n) LOWER bound as if it established the absence of ANY polynomial-factor UPPER bound. The two are independent; the pin requires the upper-bound side."
+  "sweep_tally": {
+    "swept": 9,
+    "holds": 1,
+    "demote": 5,
+    "cite_insufficient": 3,
+    "resolved_2026_07_24": "SVP/CVP by vocab extension; TSP by supplementary citation; graph-3-coloring re-derivation QUEUED"
+  },
+  "systemic_note": "Four independent v3 drafters made the identical F-2 mistake, and the v1 drafting process was not structurally different — which is why the sweep was ordered. 8 of 9 frozen `inapprox` cells were defective. The failure mode is treating an n^(1-eps) or 2^(log^(1-eps) n) LOWER bound as if it established the absence of ANY polynomial-factor UPPER bound. The two are independent; the pin requires the upper-bound side.",
+  "general_rule_2026_07_24": "When a citation requires interpretive charity, the remedy is a BETTER CITATION, never a softer check.",
+  "defect_classes": {
+    "F-2 vocabulary error": "a lower bound read as establishing the absence of an upper bound (5 cells)",
+    "vocabulary gap": "no value in the vocab was correct — resolved by extension, not by forcing a rung (2 cells)",
+    "object drift": "canonical_task drifted away from the problem_id; neither value was verified against the right object (1 cell)",
+    "citation insufficient": "value right, warrant below the pin (1 cell, discharged)"
+  }
 }

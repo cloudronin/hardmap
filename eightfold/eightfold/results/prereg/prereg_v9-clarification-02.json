@@ -1,0 +1,26 @@
+{
+  "clarification_of": "prereg_v9",
+  "clarification_id": "02",
+  "date": "2026-07-24",
+  "kind": "declared measurement change — filed BEFORE the v3 battery runs, not discovered in the delta table",
+  "owner_ruling": true,
+  "note": "Owner ruling 2026-07-24: the SVP/CVP vocabulary gap (errata-v1 E1) is resolved by EXTENDING the schema, not by forcing a wrong rung. A new approximation value `superpoly-APX` is added between `poly-APX` and `inapprox`. The schema was declared extensible from day one and this is what extension is for. This note records the CONSEQUENCE for the battery, which must be on file before any v3 statistic is computed.",
+  "change": {
+    "vocabulary": "approximation gains `superpoly-APX` (approximable only within a superpolynomial factor; best known 2^O(n loglog n / log n) for SVP, 2^(n/2) for CVP via Babai). Neither poly-APX (no polynomial factor is achieved) nor inapprox (a factor IS achieved) was correct; v1 had no expressible value.",
+    "ordinal_coding": "The approximation column's ordinal scale GAINS ONE LEVEL: v2 coding has 8 rungs, v3 coding has 9. The v3 battery's approximation coding therefore DIFFERS FROM v2's BY CONSTRUCTION — this is a declared instrument change, not an empirical shift. NOTE: the 9-rung scale applies to the V3 SPEC ONLY; the kernel/v2 scale stays at 8 rungs by construction (see implementation_constraint_discovered_2026_07_24).",
+    "affected_statistics": "any v2-vs-v3 comparison whose estimator consumes the approximation column as an ordered factor: the approx<->param gradient (B1), MCA dimensions, the complete-case block, occupancy over approximation marginals."
+  },
+  "handling": {
+    "rule": "both-values-always — every table reports the v2 value and the v3 value side by side, and any approximation-column comparison additionally carries the coding-change flag.",
+    "requirement": "Where a v2-vs-v3 approximation delta is reported, it MUST be accompanied by a re-run under the v2 8-rung coding (collapsing superpoly-APX into its nearest v2 rung) so the reader can separate INSTRUMENT change from POPULATION change. Reporting only the 9-rung number would confound the two.",
+    "erratum_interaction": "The five errata-v1 value corrections (clique, independent-set, graph-3-coloring, maximum-common-subgraph, xor-sat) are tagged `erratum_v1` and are likewise excluded from drift accounting per clarification-01's protocol. Coding change and erratum are DISTINCT adjustments and must be reported separately, never netted."
+  },
+  "unchanged": "No bet in prereg_v9 is edited, added, or removed; B1-B6 and all decision rules stand verbatim. The frozen atlas.jsonl (6d53a4f1...) and atlas_v2.jsonl (784f4739...) remain byte-identical — the vocabulary extension is additive and no v1 cell carries the new value, so a3_structure.json / crucible_results.json / factors_v1.json regenerate byte-identical.",
+  "implementation_constraint_discovered_2026_07_24": {
+    "finding": "The rung MUST be implemented as a V3-SCOPED ChargeSpec, NOT by editing the shared kernel vocab (charges.py CHARGE_REAL_VALUES / the ordered list).",
+    "evidence": "A first attempt added superpoly-APX directly to the kernel vocab. The frozen suite went from 79 passed to 3 FAILED — tests/test_factors.py::test_planted_recovered_null_quiet_rule_wellformed, ::test_null_parsimony_quiet_even_when_argmax_noisy (+1). Cause: the factors estimators size their one-hot indicator matrix from the charge vocabulary, so adding a rung widens the synthetic planted tables and shifts the low-rank / null-quiet thresholds. Reverted; suite back to 79 passed, atlas.jsonl 6d53a4f1 untouched.",
+    "why_it_matters": "This is precisely the AGENTS.md additive invariant (\"changes no existing behavior; a3_structure.json / crucible_results.json regenerate byte-identical\"). A kernel vocab edit is NOT additive: it perturbs the v2 instrument itself, which would have silently changed v2 battery behaviour and confounded the very v2-vs-v3 comparison this clarification exists to protect.",
+    "correct_implementation": "Define V3_SPEC = ChargeSpec(...) copying EIGHTFOLD_SPEC (charges.py:439) with approximation extended by superpoly-APX, in a v3-scoped module (the Strata precedent: import the kernel read-only, never edit it). v3 rows validate against V3_SPEC via atlas.validate(entry, spec); EIGHTFOLD_SPEC and every v1/v2 code path stay byte-identical. The eightfold.atlas validate CLI needs a v3 spec option, or v3 validation runs through the v3 tool.",
+    "status": "REVERTED and QUEUED — the rung is RULED and specified here; the v3-scoped implementation is not yet built."
+  }
+}
