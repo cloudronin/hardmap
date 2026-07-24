@@ -58,10 +58,12 @@ def main():
             r = json.loads(l)
             for c in r["charges"]:
                 cur[(r["problem_id"], c["charge"])] = (c.get("provenance") or {}).get("citation", "")
-        for fn in sorted(os.listdir(cdir)):
-            if not fn.startswith("verdicts"):
-                continue
-            for v in json.load(open(os.path.join(cdir, fn))):
+        # walk RECURSIVELY: verdicts live at the top level (V2) and under pass2/ (the second pass).
+        # A non-recursive listdir silently exempted every second-pass CITE from this gate.
+        vfiles = [os.path.join(dp, fn) for dp, _, fns in os.walk(cdir)
+                  for fn in sorted(fns) if fn.startswith("verdicts") and fn.endswith(".json")]
+        for fn in sorted(vfiles):
+            for v in json.load(open(fn)):
                 if v.get("verdict", "").upper() != "CITE":
                     continue
                 key = (v["problem_id"], v["charge"])
