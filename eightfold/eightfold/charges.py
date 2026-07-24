@@ -146,7 +146,7 @@ CONDITION_CHECK_KEYS: tuple[str, ...] = ("theorem", "condition", "side")
 # Charges whose real value requires a `perspective` tag (R1 / §3.2): the proof system / the parameter.
 PERSPECTIVE_REQUIRED: frozenset[str] = frozenset({"proof_size", "parameterized"})
 
-# Provenance keys that count as a real citation (mirror physmap gate 7).
+# Provenance keys that count as a real citation (mirror sibling-project gate 7).
 CITATION_KEYS: tuple[str, ...] = ("citation", "doi", "page", "table", "figure", "url", "year")
 
 # ── coarse problem-family tags (traceability only; analysis clusters over CHARGES, not this) ───────────────

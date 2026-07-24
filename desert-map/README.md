@@ -5,7 +5,7 @@ refutations of small unsatisfiable random 3-SAT instances. Tests **H1**: as inst
 relaxed proof-search objective *shatters* (independent GD runs converge to distant optima; success
 rate collapses at a sharp boundary rather than degrading smoothly).
 
-Self-contained monorepo sibling product — **unrelated to PhysMAP**. v1 produces plots and a verdict on
+Self-contained monorepo sibling product. v1 produces plots and a verdict on
 H1; it proves no theorem. Spec: [`docs/specs/proof-space-mapping-v1-spec.md`](docs/specs/proof-space-mapping-v1-spec.md).
 Investigation findings (I1–I6): [`docs/findings/`](docs/findings/).
 

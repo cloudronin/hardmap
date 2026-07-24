@@ -92,7 +92,7 @@ the `results/atlas/SCHEMA.md` contract. The atlas is **curated in `dev/build_atl
 error-prone than hand-editing nested JSONL) and generated with `python dev/build_atlas.py`; atlas.jsonl is the
 loadable generated artifact (both committed). Edit the builder, regenerate, then `validate`. The spec's
 "parquet" is an optional export, not the source of truth (the repo standard is JSONL + a validator gate). Single-tier for v1;
-`resolve_atlas_path` carries a documented no-op seam for a later physmap-style seed/premium firewall — do not
+`resolve_atlas_path` carries a documented no-op seam for a later seed/premium firewall — do not
 wire the premium branch until there is a reason to split.
 
 Run tests from inside this product dir: `python -m pytest tests -q`.

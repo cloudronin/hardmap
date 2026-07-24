@@ -9,7 +9,7 @@ A1 done-gate is **MET** and the population-failure kill (spec §5.1 / prereg) do
 
 - **Product** `eightfold/` (fifth monorepo sibling): README, AGENTS.md (invariants), CHANGELOG, pyproject
   (stdlib-only core + `[analysis]` extra = numpy/scipy), CI leg.
-- **Schema + validator** `atlas.py` (retargets the physmap corpus validator): `ProblemEntry`/`ChargeCell`
+- **Schema + validator** `atlas.py` (retargets a sibling project's corpus validator): `ProblemEntry`/`ChargeCell`
   dataclasses, 8 QC gates, loader, coverage accounting, `validate`/`summary` CLI. `charges.py`: the eight
   charge vocabularies + the entailment layer. `SCHEMA.md`, `CORPUS_PR_REVIEW_GUIDE.md`.
 - **Pilot atlas** `results/atlas/atlas.jsonl` — 22 problems × 8 charges (176 cells), every real value a

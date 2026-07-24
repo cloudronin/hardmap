@@ -10,7 +10,7 @@ is the direct proof-object parameterization, not the instances or gradient desce
 `docs/findings/NEGATIVE-RESULT.md`. No paid compute used ($0 vs the $75 ceiling); kill at the local gate.
 
 **Shipped (the salvage):**
-- Phase 0: product scaffold mirroring the raitune sibling layout; v1 spec committed under `docs/specs/`;
+- Phase 0: product scaffold mirroring a sibling project's layout; v1 spec committed under `docs/specs/`;
   I1–I6 investigation (`docs/findings/I1-I6-investigation.md`).
 - M1 (gate passed): `instance.py` (random 3-SAT, planted refutations, C2 PHP/Tseitin hard negatives),
   `verify.py` (torch-free exact Resolution verifier — the trusted oracle), `fixtures.py` (versioned

@@ -1,4 +1,4 @@
-"""QC-gate unit tests for atlas.validate (retargets physmap's corpus-validator tests)."""
+"""QC-gate unit tests for atlas.validate (retargets a sibling project's corpus-validator tests)."""
 from eightfold import atlas, charges as C
 
 

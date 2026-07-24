@@ -11,7 +11,7 @@ authors = [{ name = "Vishnu Vettrivel" }]
 license = { text = "UNLICENSED — private" }
 
 # The core (atlas.py schema/validator/loader/CLI) is deliberately stdlib-only and torch-free, mirroring
-# physmap's calibration corpus: the data asset and its QC gates must import with no scientific stack, so the
+# A sibling project's calibration corpus: the data asset and its QC gates must import with no scientific stack, so the
 # citation discipline is enforceable anywhere. The categorical-statistics harness (structure.py: Cramér's V,
 # MCA, clustering) lives behind the [analysis] extra.
 dependencies = []
@@ -33,7 +33,7 @@ include = ["eightfold*"]
 
 [tool.setuptools.package-data]
 # Ship the atlas + its schema + the locked prereg as the committable deliverable (single-tier v1). A future
-# seed/premium firewall would exclude the premium atlas glob here, exactly as physmap excludes its corpus.
+# seed/premium firewall would exclude the premium atlas glob here, exactly as a sibling project excludes its corpus.
 eightfold = ["results/prereg/*.json", "results/atlas/*.jsonl", "results/atlas/*.md", "results/atlas/*.json"]
 
 [tool.pytest.ini_options]

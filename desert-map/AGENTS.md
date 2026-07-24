@@ -16,7 +16,7 @@ Desert Map builds the first empirical map of the loss landscape of *continuous (
 proof search* for **Resolution refutations** of small unsat random 3-SAT instances, and tests **H1**
 (shattering: independent GD runs converge to distant optima and success rate collapses at a sharp
 boundary as instances get harder). v1 produces plots and a verdict on H1 — it proves no theorem.
-Unrelated to PhysMAP; a self-contained monorepo sibling product. Sweeps run on HF Jobs.
+A self-contained monorepo sibling product. Sweeps run on HF Jobs.
 
 ## THE INVARIANTS (do not break)
 
@@ -72,7 +72,7 @@ desertmap/
   instance.py verify.py fixtures.py   # M1 oracle (torch-free)
   relax.py losses.py decode.py run.py # M2 relaxation (torch, [compute], lazy-imported)
   metrics.py hessian.py trajectories.py glitch.py plots.py  # M3 + E5 analysis
-  hf/ launcher.py launch.py entrypoint.py mirror.py         # HF Jobs (mirror raitune/hf)
+  hf/ launcher.py launch.py entrypoint.py mirror.py         # HF Jobs (sibling hf layout)
   config.py                           # env-overridable repo ids / flavors / image
   results/prereg/                     # committed pre-registration receipts
   fixtures/                           # versioned instances (data)

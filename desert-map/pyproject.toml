@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "desert-map"
 version = "0.1.0"
-description = "Proof-Space Cartography v1 (codename Desert Map): empirical map of the loss landscape of continuous (gradient-descent) proof search over Resolution refutations of small unsat random 3-SAT. Self-contained hobby-research product; runs sweeps on HF Jobs. Unrelated to PhysMAP."
+description = "Proof-Space Cartography v1 (codename Desert Map): empirical map of the loss landscape of continuous (gradient-descent) proof search over Resolution refutations of small unsat random 3-SAT. Self-contained hobby-research product; runs sweeps on HF Jobs."
 requires-python = ">=3.10"
 authors = [{ name = "Vishnu Vettrivel" }]
 license = { text = "UNLICENSED — private" }

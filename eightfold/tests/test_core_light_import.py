@@ -1,6 +1,6 @@
 """The core (atlas + charges) must import with no scientific stack — the citation gates run anywhere.
 
-Mirrors desert-map/raitune's light-core-import tests. The structure harness (numpy/scipy) is quarantined
+Mirrors desert-map's light-core-import tests. The structure harness (numpy/scipy) is quarantined
 behind the [analysis] extra and is NOT imported by the core.
 """
 import os

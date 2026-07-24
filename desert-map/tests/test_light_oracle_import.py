@@ -1,7 +1,7 @@
 """AGENTS.md invariant 1: the oracle path (instance / verify / fixtures) must import with NO ML stack.
 
 Enforced in a subprocess that installs a meta-path hook raising ImportError on any attempt to import
-torch; importing the oracle modules there must still succeed. (Mirrors raitune's
+torch; importing the oracle modules there must still succeed. (Mirrors a sibling project's
 test_no_heavy_core_import.)"""
 from __future__ import annotations
 

@@ -27,7 +27,7 @@ FLAVOR_CPU = os.environ.get("DESERTMAP_FLAVOR_CPU", "cpu-upgrade")      # M1 fix
 
 # Base image. Desert Map has NO vLLM — a plain pytorch runtime image ships torch preinstalled, so the
 # container bootstrap only pip-installs the light extras (numpy, python-sat, scipy, huggingface_hub,
-# pyarrow). Confirm the tag pulls reliably on HF runners at build time; the raitune note (pytorch
+# pyarrow). Confirm the tag pulls reliably on HF runners at build time; a sibling project's note (pytorch
 # *-devel ~7GB flaked with ErrImagePull) is why we pick the smaller -runtime image, not -devel.
 IMAGE = os.environ.get("DESERTMAP_IMAGE", "pytorch/pytorch:2.4.1-cuda12.1-cudnn9-runtime")
 
@@ -35,7 +35,7 @@ IMAGE = os.environ.get("DESERTMAP_IMAGE", "pytorch/pytorch:2.4.1-cuda12.1-cudnn9
 DEFAULT_TIMEOUT = int(os.environ.get("DESERTMAP_TIMEOUT", str(2 * 60 * 60)))
 
 # HF token location for a FUTURE launcher (v1 is killed at M2 — nothing here submits jobs yet). The token is
-# read from $HF_TOKEN or this file at submit time and never placed on the command line (raitune pattern); the
+# read from $HF_TOKEN or this file at submit time and never placed on the command line (sibling-project pattern); the
 # file lives outside the repo and its contents are never read into logs or committed. Default points at the
 # path the key was dropped at; override with DESERTMAP_HF_KEY_FILE.
 KEY_PATH = os.environ.get("DESERTMAP_HF_KEY_FILE", "/tmp/HUGGING_FACE_KEY.txt")

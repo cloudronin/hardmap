@@ -1,10 +1,10 @@
 """Charge atlas — schema (dataclasses + gates), loader, coverage accounting, and a validate/summary CLI.
 
 The data asset: a JSONL file, one problem per line (line-diffable), each problem carrying one cell per charge.
-Retargets the physmap calibration-corpus validator to the charge atlas. Torch-free, stdlib-only, so the
+Retargets a sibling project's calibration-corpus validator to the charge atlas. Torch-free, stdlib-only, so the
 citation discipline is enforceable anywhere (and in CI). Spec §3.2–§3.4; Build addenda R1–R9; gates below.
 
-Discipline (inherited from physmap): correct-and-partial beats complete-and-unverified. A real charge value
+Discipline (inherited from a sibling project): correct-and-partial beats complete-and-unverified. A real charge value
 carries a resolvable citation or the explicit `uncited-folklore` debt flag; `confirmed` requires a
 primary-source citation and is OWNER-promoted, never set by the agent (R8). Unknown ≠ zero: `open` /
 `unmeasured` / `n.a.` are explicit sentinels, never imputed (R2). `measured` values are quarantined to
@@ -44,7 +44,7 @@ def resolve_atlas_path() -> Path:
     """Resolve the active atlas path. Precedence: ``$EIGHTFOLD_ATLAS`` override → the bundled atlas.
 
     Single-tier for v1. A future open-core split would insert a premium-package probe here (exactly as
-    ``physmap.corpus.calibration.resolve_corpus_path`` does: env → premium → seed); the seam is deliberately a
+    a sibling project's corpus-path resolver does: env → premium → seed); the seam is deliberately a
     no-op until there is a reason to firewall a premium tier.
     """
     env = os.environ.get(EIGHTFOLD_ATLAS_ENV)

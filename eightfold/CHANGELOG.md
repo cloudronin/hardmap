@@ -9,7 +9,7 @@
   quantitative multi-charge problem atlas"; canonical encoding fixed per problem; ordinal/categorical coding
   pre-committed).
 - **A1 done-gate MET** (`docs/findings/A1-pilot.md`): `atlas.py` (schema + 8 QC gates + loader +
-  validate/summary CLI, retargeting the physmap corpus validator), `charges.py` (the eight charge
+  validate/summary CLI, retargeting a sibling project's corpus validator), `charges.py` (the eight charge
   vocabularies + the entailment layer with per-rule `preconditions`, R6), `results/atlas/SCHEMA.md`,
   `docs/CORPUS_PR_REVIEW_GUIDE.md`, `structure.py` (Cramér's V + in-house MCA + clustering + marginal
   occupancy/entailment triage + `--drop-measured` ablation), the **22-problem pilot atlas**

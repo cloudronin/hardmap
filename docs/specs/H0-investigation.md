@@ -11,14 +11,14 @@ hashes, this makes a hash-map mandatory:
 [`docs/hash-map.txt`](../hash-map.txt) (full old→new map) and
 [`docs/seal-chain.md`](../seal-chain.md) (every sealed prereg resolved). History
 was not entangled with the unrelated `praxis` product; the monorepo's bulk
-(~237 MB) was out-of-scope sibling projects (`physmap`, `raitune`) dropped by the
+(~237 MB) was out-of-scope sibling projects dropped by the
 filter — the extracted history is ~2 MB. The `foundry` branch (Prism) was
 fast-forwarded onto `main` before extraction so all cited numbers share one
 linear history.
 
 ## I2 — Shared-code inventory  → nothing to vendor; two internal edges
-The four folders import **zero** code from outside themselves — every `physmap`/
-`raitune`/`uofa` occurrence is prose or provenance, not an import. The only real
+The four folders import **zero** code from outside themselves — every sibling-project
+or `uofa` occurrence is prose or provenance, not an import. The only real
 cross-tree edges are internal:
 - `foundry` → `eightfold` (atlas, charges, crucible, factors, structure)
 - `proof-census` → `desertmap` (instance, verify, fixtures)
@@ -26,7 +26,7 @@ cross-tree edges are internal:
 `desert-map` and `eightfold` are standalone leaves. These edges are satisfied
 today only by editable co-install (not declared deps), so the consolidation ships
 all four in **one `hardmap` distribution** to resolve them by construction.
-`physmap`/`raitune` remain private in `uofa-lab` and are not carried over.
+Those sibling projects remain private in `uofa-lab` and are not carried over.
 
 ## I3 — Paper-number inventory  → 8 claims mapped to code + artifact
 Candidate claim-id set for `repro/manifest.yaml` (finalize against the draft):
