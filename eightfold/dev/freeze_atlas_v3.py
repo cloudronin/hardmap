@@ -89,12 +89,26 @@ def main():
         print("REFUSING: duplicate problem_id among v3 rows", file=sys.stderr); return 3
 
     # --- apply errata-v1 to the KERNEL COPY carried into v3 (owner ruling 2026-07-24) ---
-    # v1 bytes stay frozen on disk; v3 carries the CORRECTED values. Each corrected cell is tagged
-    # `erratum_v1` so the v2->v3 delta decomposition books it as ERRATUM, not drift.
-    # `superpoly-APX` is a V3_SPEC rung (not in the kernel vocab) — see dev/quarry_v3_spec.py
-    VOCAB_OK = {"poly-APX", "superpoly-APX", "APX-complete", "APX", "log-APX", "PTAS", "inapprox"}
+    # v1 bytes stay frozen on disk; v3 carries the CORRECTED values/citations. Each corrected cell is
+    # tagged `erratum_v1` so the v2->v3 delta decomposition books it as ERRATUM, not drift.
+    #
+    # Entry schema (problem_id/charge/reason required; the rest optional, any combination):
+    #   `now`                      corrected value — validated CHARGE-AWARE against V3_SPEC.allowed_values;
+    #                              an illegal value is DEFERRED (owner ruling), never half-applied. A
+    #                              sentinel value (open/n.a./unmeasured) also flips status -> structural.
+    #                              `superpoly-APX` is a V3_SPEC rung, so it validates here but not against
+    #                              the frozen kernel spec (dev/quarry_v3_spec.py).
+    #   `corrected_canonical_task` object repin (object drift / re-derivation).
+    #   `citation`                 REPLACES the cell citation.
+    #   `add_citation`             co-citation APPENDED (the "cited to one side" repair — e.g. add the
+    #                              membership half to a hardness-only citation).
+    #   `derivation_note`          a one-line derivation recorded where the value follows trivially.
+    # This block runs before the V3_SPEC validation below, so set up the import path here too.
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    sys.path.insert(0, os.path.normpath(os.path.join(ATLAS_DIR, "..", "..", "..")))
+    import quarry_v3_spec as _v3spec
     epath = os.path.join(ATLAS_DIR, "errata-v1.json")
-    n_err, deferred = 0, []
+    n_val, n_cite, deferred = 0, 0, []
     if os.path.exists(epath):
         ent = {(e["problem_id"], e["charge"]): e for e in json.load(open(epath))["entries"]}
         fixed = []
@@ -105,23 +119,33 @@ def main():
                 e = ent.get((r["problem_id"], c["charge"]))
                 if not e:
                     continue
-                if e["now"] in VOCAB_OK and e["now"] != c["value"]:
-                    c["value"] = e["now"]; touched = True; n_err += 1
-                    if e.get("corrected_canonical_task"):      # object drift / re-derivation
-                        c["canonical_task"] = e["corrected_canonical_task"]
-                elif e["now"] not in VOCAB_OK:
-                    deferred.append(f"{r['problem_id']}/{c['charge']}")
-                    continue
+                nv = e.get("now")
+                if nv is not None and nv != c["value"]:
+                    if nv not in _v3spec.V3_SPEC.allowed_values(c["charge"]):
+                        deferred.append(f"{r['problem_id']}/{c['charge']} -> {nv!r}")
+                        continue                       # never half-apply a value we cannot legally write
+                    c["value"] = nv; n_val += 1
+                    if nv in _v3spec.V3_SPEC.sentinels:
+                        c["status"] = "structural"     # sentinel cells carry the structural marker
                 prov = c.setdefault("provenance", {})
+                if e.get("corrected_canonical_task"):
+                    c["canonical_task"] = e["corrected_canonical_task"]
                 if e.get("citation"):
-                    prov["citation"] = e["citation"]
-                prov["note"] = (prov.get("note", "") + f" | [erratum_v1 2026-07-24] {e['reason'][:160]}").strip(" |")
-                prov["erratum_v1"] = True          # delta decomposition: erratum, NOT drift
+                    prov["citation"] = e["citation"]; n_cite += 1
+                if e.get("add_citation"):
+                    prov["citation"] = (prov.get("citation", "") + " + " + e["add_citation"]).strip(" +")
+                    n_cite += 1
+                if e.get("derivation_note"):
+                    prov["derivation_note"] = e["derivation_note"]
+                prov["note"] = (prov.get("note", "")
+                                + f" | [erratum_v1 {e.get('date', '2026-07-24')}] {e['reason'][:160]}").strip(" |")
+                prov["erratum_v1"] = True              # delta decomposition: erratum, NOT drift
                 touched = True
             fixed.append(json.dumps(r, ensure_ascii=False) + "\n" if touched else line)
         kernel = fixed
-        print(f"errata-v1 applied to the v3 kernel copy: {n_err} value corrections"
-              + (f"; {len(deferred)} DEFERRED (no valid rung — owner ruling): {', '.join(deferred)}" if deferred else ""))
+        print(f"errata-v1 applied to the v3 kernel copy: {n_val} value corrections, {n_cite} citation corrections"
+              + (f"; {len(deferred)} DEFERRED (value not a legal rung — owner ruling): {', '.join(deferred)}"
+                 if deferred else ""))
 
     out = kernel + v3                      # kernel (errata-corrected copy) first, then v3-new
     dest = DEST + (".dryrun" if a.dry_run else "")
