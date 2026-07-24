@@ -15,20 +15,30 @@ verdict re-touches a V2 cell, the second-pass verdict supersedes.
 | 1 | 26 | 17 | 8 | 0 | 1 | ~1050 |
 | 2 | 26 | 23 | 3 | 0 | 0 | ~400 |
 | 3 | 26 | 20 | 5 | 0 | 1 | ~1000 |
+| 4 | 26 | 18 | 7 | 1 | 0 | ~1200 |
 | 5 | 25 | 22 | 3 | 0 | 0 | ~1450 |
-| 4 | 26 | | | | | |
-| 6 | 25 | | | | | |
-| **so far** | **103** | **82** | **19** | **0** | **2** | |
+| 6 | 25 | 20 | 5 | 0 | 0 | ~1300 |
+| **COMPLETE** | **154** | **120** | **31** | **1** | **2** | **~6400** |
 
-**Value-error rate so far: 2/103 = 1.9%** — against 4.8% in V2. **Zero FIXes in 103 cells**: no drafted
-value has been outright wrong; both errors are overclaims that resolve to `open`. Consistent with the
-reliable tier being genuinely cleaner, but every batch so far is decision/parallelization-heavy and
-structurally immune to the F-2 approximation trap that drove V2's rate. Not yet a comparison.
+**Value-error 3/154 = 1.9%** (V2: 4.8%). **Citation-error 31/154 = 20.1%** (V2: 17.3%).
 
-**Citation-error rate is 19/103 = 18.4%**, statistically indistinguishable from V2's 17.3% — the tier
-that errs less on *values* errs identically on *citations*. This is the second independent confirmation
-that the reliable/judgment-heavy tiering does not predict citation quality, and therefore that retiring
-the sample was correct.
+The reliable tier errs **less than half as often on values** and **at least as often on citations**. That
+split is the headline: tiering predicts value quality and tells you nothing about citation quality.
+Retiring the sample was right — a 15% sample of this tier would have surfaced roughly 5 of the 31
+citation defects and, on the observed rate, neither of the two `open` downgrades.
+
+**Caveat on the value comparison.** Every second-pass batch was decision/parallelization-heavy — the
+reliable tier is *defined* by charges that are structurally immune to the F-2 approximation trap that
+drove V2's rate. The 1.9% is a real measurement of this tier, not evidence that the corpus improved.
+
+## The measured cost of removing the evidence ceiling
+
+**~6,400 agent-seconds / 154 cells = 41.6 s per cell**, against V2's **28.6 s/cell** — **+45%**. That
+delta is the price of full-text reading (methods-thread instance 10). What it bought, measured: the two
+`open` downgrades and the one `FIX` were **all three** only visible in full text, and two independent
+verifiers converged on the same one. So the ceiling cost roughly one corrected value per 50 cells, and
+lifting it costs about 13 extra seconds per cell. That is the first measured exchange rate between
+evidence depth and defect yield this program has.
 
 ## Value changes
 
@@ -36,6 +46,37 @@ the sample was correct.
 |---|---|---|---|
 | OPEN | `lex-first-maximal-matching` | parallelization | `P-complete` → **`open`** |
 | OPEN | `minimum-weight-triangulation` | decision | `NPC` → **`open`** |
+| FIX | `deadlock-detection` | parallelization | `P-complete` → **`NC`** as written |
+
+### `lex-first-maximal-matching` — found twice, independently
+
+Batches 1 and 6 caught this separately and agree. Batch 6 adds the decisive detail: **GHR list LFMM in
+their open-problems appendix as B.8.2** ("it is in CC"), and the cited Miyano paper is wrong on *both*
+axes — wrong venue (Math. Systems Theory 22, 1989, not IJFCS 1990) and wrong object (vertex-induced
+hereditary subgraphs, which GHR catalogue separately at A.2.16). The establishing work is Mayr &
+Subramanian, JCSS 44 (1992). Two verifiers reaching the same catch from different batches is the
+strongest signal in this pass.
+
+### `deadlock-detection` — the value contradicts its own citation's remark
+
+The cell claims single-unit deadlock detection is `P-complete`. GHR's entry A.12.2 shows the
+P-completeness reduction requires resources with **two** units, and the Remarks then state verbatim that
+the problem **is in NC** when there is one unit of each resource. The cell asserts P-completeness for
+precisely the case Spirakis proved is in NC. Recorded as `NC` for the task as written; the preferable
+repair is to retarget `canonical_task` to general multi-unit deadlock detection, which keeps
+`P-complete` on a cited object. (Citation year also corrected: Spirakis is TCS 52 (1987), not 1986.)
+
+### `type-inference-typability` — cited folklore, a subclass the folklore gate does not catch
+
+Batch 4 found that GHR contains **no type-inference entry anywhere** in 327 pages; DKM 1984 proves
+*unification* P-complete; and Henglein (TOPLAS 1993, p. 260) states the Curry–Hindley P-completeness
+explicitly as a **"folk theorem."** The cell has a citation, so it passes the atlas's 0-folklore gate —
+but the citation's own author calls the result folklore. **A folklore gate that checks for the presence
+of a citation cannot catch folklore that has acquired one.** Left as an owner call between `open` and a
+folk-theorem anchor; the value is not in dispute, its establishment is.
+
+`capacitated-dominating-set` is the same shape confirmed across three papers in that line: **no primary
+NP-completeness proof exists**; the result is inherited everywhere it appears.
 
 ### `minimum-weight-triangulation` — a SECOND vocabulary gap, in the decision column
 

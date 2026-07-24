@@ -168,6 +168,54 @@ it eleven entries later. Only the mechanical gates in this program (the frozen t
 `provenance_status`) have actually held. Prose lessons have a perfect record of not binding anyone,
 which is the thread's own recurring finding turned on the thread itself.
 
+## Instance 11 — 2026-07-24 — "unreachable" was never tested either, and it is the *root cause* of instance 9
+
+**What happened.** Instance 9 records that the `rn` funnel label was inferred topically because
+reductions.network and its GitLab repo were **unreachable from this environment**. That premise was
+asserted in K1, carried through K2 and K2b, repeated in the V2 report, and used to justify a Wayback
+Machine workaround. A screening agent tried the sources directly: **both returned HTTP 200.** It read
+the authoritative GitLab repo, enumerated all three networks from their own per-vertex Markdown files,
+pinned commit `8089fb4f…`, and recovered *two* theses (Verma and Faour) the earlier pass never found.
+
+**This reframes instance 9 entirely.** That entry diagnosed a provenance-labelling failure: a field
+inferred, flagged as inferred, and consumed as ground truth anyway. The diagnosis was right as far as it
+went, and the structural fix (`provenance_status`) is still correct. But it named the wrong root cause.
+**The inference was never necessary.** It only *looked* necessary because an untested environment claim
+made the real data appear out of reach. Instance 9 is therefore not primarily about provenance hygiene —
+it is instance 10's disease with a longer incubation. The label was a *symptom*; the untested
+"unreachable" was the pathogen.
+
+**Three for three.** Within one day: `pdftoppm` absent ⇒ "PDFs cannot be read" (false — instance 10);
+site unreachable ⇒ "membership must be inferred" (false — here); and both were repeated across multiple
+documents without a single probe. In each case the check costs one command and the false claim cost a
+verification ceiling or a fabricated stratifying variable.
+
+**What actually distinguishes the claims that failed.** Every one was a claim about *the agent's own
+situation* rather than about complexity theory. Claims about the subject matter go through Check-9,
+citation review and a second pass. Claims about the environment go through nothing — they are treated as
+observations rather than assertions, so they are never gated, and they propagate into prompts and
+published Limitations sections with the authority of fact. **An environment claim is a factual claim
+with no reviewer.**
+
+**Consequences applied.** The `rn` membership derivation was rebuilt on the authoritative pinned commit
+(110 vertices, not the 109 the screenshots showed — two `MLST` vertices abbreviate identically in
+Figure 1 and `EXACT COVER` is drawn occluded). Clarification-03's provenance basis is upgraded from
+screenshots to the pinned repo. 52 previously-missed vertices were screened; 21 admit.
+
+**A second-order catch worth recording.** The first attempt to rebuild membership on the authoritative
+list used normalized-name matching and returned **4 present, down from the hand-reconciled 12** — a
+regression dressed as an improvement, because the networks use their own labels (`UFL`, `Perfect Code`,
+`Graph k-Cut`, `Saving k Vertices`, `Kernel`). Automating a reconciliation does not make it more
+authoritative than the hand reconciliation it replaces; it only makes it faster to be wrong. Caught
+before it shipped because the number moved the wrong way and the drop was interrogated rather than
+accepted. **A derived number that changes sharply in the direction of "less work to do" deserves
+suspicion, not relief.**
+
+**Lesson.** *Probe the environment before describing it, once, cheaply, at the moment the claim is first
+made.* And when a workaround is adopted because something is unavailable, the unavailability is the
+load-bearing assumption of everything built on top — it earns a retest each time it is re-invoked, not a
+citation of the last time it was assumed.
+
 ---
 
 ## Delegation protocol — the authority boundary held under pressure (2026-07-24)
