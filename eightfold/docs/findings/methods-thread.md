@@ -107,12 +107,23 @@ Therefore: **inferred-status fields carry a machine-readable `provenance_status:
 and the battery REFUSES to stratify on `inferred`.** Cheap, and it closes the class — no future
 stratification can silently rest on a guess, no matter how loudly the guess was disclosed.
 
-**Blast radius, to be verified rather than assumed.** The quarantine verdict of ruling (a) is *probably*
-robust — relabeling moves cells between strata but the value-error total (13/272) is invariant, and no
-plausible reshuffle concentrates 15% into one funnel. But "probably robust" is now something to
-**recompute**, not assert: after the funnel field is re-derived from source, the error-by-funnel table
-is rebuilt on true labels and kill-criterion 1 re-scored. A published table computed on fabricated
-strata does not get to stand silently even if its verdict survives.
+**Blast radius — recomputed, not assumed (resolved 2026-07-24).** The field was re-derived from source:
+109 problems across the three actual networks (classic Figure 1 verified programmatically;
+approximation from the owner's screenshot; parameterized from the Faour thesis via the Wayback
+Machine). **12 of 227 candidates are present, against 57 labelled `rn` — the inferred field was wrong
+about roughly four rows in five.** The error table was then rebuilt on the derived labels:
+rn-present 8.3% value-error (n=24), rn-absent 4.4% (n=248), total 13/272 = 4.8% invariant. **Ruling
+(a)'s no-quarantine verdict survives** — but it now rests on a measured variable rather than a guessed
+one, which is the whole point. The six-way table was **withdrawn rather than amended**: five of the six
+funnel labels are still only miner-attributed, so a corrected six-way split would have reproduced the
+defect in nicer clothes. Bet B6's scoring surface narrows to the binary rn axis
+(`prereg_v9-clarification-03.json`); the bet text is untouched.
+
+**The part worth keeping.** The disconfirming evidence — that ~80% of the labels were wrong — was
+*obtainable the entire time*. The classic network was in a figure; the parameterized list was in a
+thesis the Wayback Machine had. What was missing was not access but the decision to treat a disclosed
+inference as a debt with a due date. A caveat repeated four times and never discharged is not caution,
+it is an IOU that everyone has agreed to stop reading.
 
 ---
 

@@ -35,33 +35,42 @@ standard is a different, unmeasured quantity — and remains the owner's to meas
 
 ## Error by funnel — and a kill-criterion ambiguity that needs an owner ruling
 
-> ### ⚠ CORRECTION NOTE — 2026-07-24: this table was computed on UNVERIFIED strata
+> ### ⚠ WITHDRAWN — 2026-07-24: this table was computed on FABRICATED strata. Replaced below.
 >
-> The `source_funnel` field this table stratifies on was **never derived from source data**. For the
+> The `source_funnel` field this table stratified on was **never derived from source data**. For the
 > `rn` funnel it was *inferred* ("this is a canonical NP problem, so it is probably in the
-> compendium") because reductions.network and its repo were unreachable. Owner-supplied screenshots of
-> the three actual networks (2026-07-24) showed **~6 of 58 `rn`-labelled candidates are confirmed
-> present**, and that labels are wrong in both directions (`Min-Sat`, `Perfect Code`, `Graph k-Cut`
-> are in the networks but carry `ck`/`df`).
+> compendium") because reductions.network and its repo were unreachable. **Re-derivation from source
+> (2026-07-24) found 12 of 227 candidates actually present — against 57 rows labelled `rn`.** Labels
+> were wrong in both directions: `min-sat`, `efficient-domination` (Perfect Code), `minimum-k-cut`
+> (Graph k-Cut), `firefighter` (Saving k Vertices), `independent-dominating-set` (Kernel) are IN the
+> networks and carried `ck`/`df`.
 >
-> **The rows below are therefore provisional.** The *totals* are unaffected — 272 cells, OK 212 /
-> CITE 47 / FIX 9 / OPEN 4, value-error 13/272 = 4.8% — because relabeling moves cells **between**
-> strata without changing the count. The per-funnel split is what is in doubt.
+> **The six-way table is withdrawn, not amended.** Five of the six funnel labels are miner-attributed,
+> not verified membership in an enumerated source list, so a six-way decomposition cannot be honestly
+> computed — publishing a corrected one would repeat the defect. Only the `rn` axis has source
+> provenance, so only the `rn` axis is reported. See methods-thread instance 9 and
+> `prereg_v9-clarification-03.json`.
 >
-> **Ruling (a)'s "no funnel quarantines" verdict is expected to survive** (no plausible reshuffle
-> concentrates 15% value-error into one funnel), **but that is now to be recomputed, not asserted**:
-> after the funnel field is re-derived from source, this table is rebuilt on true labels and
-> kill-criterion 1 re-scored. A published table computed on fabricated strata does not stand silently
-> even when its verdict survives. See methods-thread instance 9; prereg clarification-03 covers B6.
+> *(Withdrawn rows, retained for the record: ck 77/2.6%, df 36/8.3%, dh 28/14.3%, ghr 6/0.0%,
+> rn 76/5.3%, su 49/0.0% — value-error.)*
 
-| funnel | cells | FIX | OPEN | CITE | all-error % | **value-error %** |
+### Rebuilt on source-derived labels
+
+Sources: classic network (57 vertices, Figure 1, verified programmatically), approximation network
+(23 vertices), parameterized network (29 problems, Faour thesis via the Wayback Machine) — **109
+source problems checked**, `rn_membership` set by explicit set membership.
+
+| stratum | cells | FIX | OPEN | CITE | **value-error %** | kill-criterion 1 |
 |---|---|---|---|---|---|---|
-| ck | 77 | 1 | 1 | 11 | 16.9% | 2.6% |
-| df | 36 | 3 | 0 | 9 | 33.3% | 8.3% |
-| dh | 28 | 1 | 3 | 6 | 35.7% | 14.3% |
-| ghr | 6 | 0 | 0 | 1 | 16.7% | 0.0% |
-| rn | 76 | 4 | 0 | 16 | 26.3% | 5.3% |
-| su | 49 | 0 | 0 | 4 | 8.2% | 0.0% |
+| rn-present | 24 | 2 | 0 | 3 | **8.3%** | clears (< 15%) |
+| rn-absent | 248 | 7 | 4 | 44 | **4.4%** | clears (< 15%) |
+| **total** | **272** | **9** | **4** | **47** | **4.8%** | — |
+
+**Kill-criterion 1 clears on source-derived labels, not merely on inferred ones.** The total is
+invariant under relabeling (13/272), exactly as predicted; what the re-derivation establishes is that
+the surviving verdict now rests on a variable that was actually measured. The in-network stratum errs
+at roughly twice the rate of the rest — worth noting, but on 24 cells that is 2 FIXes, well inside
+noise, and it points the opposite way from the assumption that compendium-sourced rows are safest.
 
 **Kill-criterion 1 (spec §7) says a funnel with error > 15% is quarantined. The outcome flips entirely
 on what counts as an "error":**
