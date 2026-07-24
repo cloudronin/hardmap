@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *.egg-info/
+hardmap/hardmap/_bundled/    # build-time copy of repro/manifest.yaml
 .eggs/
 build/
 dist/

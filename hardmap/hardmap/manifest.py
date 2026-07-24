@@ -28,7 +28,15 @@ def find_repo_root(start: Path | None = None) -> Path:
 
 
 def manifest_path() -> Path:
-    return find_repo_root() / "repro" / "manifest.yaml"
+    """Repo-root repro/manifest.yaml when in a checkout; else the copy bundled in the wheel."""
+    try:
+        return find_repo_root() / "repro" / "manifest.yaml"
+    except FileNotFoundError:
+        from importlib.resources import files
+        bundled = files("hardmap") / "_bundled" / "manifest.yaml"
+        if bundled.is_file():
+            return Path(str(bundled))
+        raise
 
 
 def load_manifest(path: Path | None = None) -> list[dict]:

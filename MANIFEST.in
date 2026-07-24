@@ -1,0 +1,10 @@
+include README.md NOTICE requirements.lock
+include repro/manifest.yaml
+recursive-include LICENSES *.txt
+recursive-include scripts *.py
+recursive-include docs *.md *.txt
+graft eightfold/eightfold/results
+graft foundry/foundry/results
+graft proof-census/proofcensus/results
+graft desert-map/desertmap/results
+global-exclude __pycache__ *.py[cod]

@@ -1,0 +1,8 @@
+# hardmap runtime lock -- exact fast-tier closure (Python 3.12, numpy<2).
+# Note: python-sat publishes only pre-releases at >=1.8; pip selects it automatically.
+# Regenerate: pip install -e . in a clean venv, then pip freeze (minus the editable self).
+PyYAML==6.0.3
+numpy==1.26.4
+python-sat==1.9.dev7
+scipy==1.17.1
+six==1.17.0
