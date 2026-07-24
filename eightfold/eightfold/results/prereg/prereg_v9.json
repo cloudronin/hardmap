@@ -1,0 +1,54 @@
+{
+  "prereg_version": "v9",
+  "project": "Eightfold — Atlas v3 (Quarry broad expansion): sealed delta predictions",
+  "committed_before_analysis": true,
+  "supersedes": null,
+  "note": "Sealed BEFORE any atlas_v3 cell is drafted (sealed-before-measured). Atlas v3 broadly expands the frozen 118-row canon with the screened Quarry supply (~227 candidates + un-mined source remainders) across ALL columns; 300-450 rows is an OUTCOME, not a target (owner ruling, broad expansion supersedes Quarry K4 expand-narrow). Every statistical bet below is OUT-OF-SAMPLE: scored on the v3-NEW-only rows (the added population alone), NOT the full v3 roster which the carried-over 118 would dominate. Three-population reporting (v2 / v3-full / v3-new) in every table. Locking rule: a changed bet is a new prereg version (prereg_v10.json), never an in-place edit.",
+  "framing_honesty": "Expansion sharpens canon statistics (precision); it does NOT de-bias the canon (F1 — more famous rows deepen the canon bias). These bets test whether the v2 STRUCTURE reproduces OUT-OF-SAMPLE on a broader, provenance-tagged roster, and decompose any shift by source funnel. A confirmed bet is precision; a miss is a decomposable finding, not a failure.",
+  "populations": {
+    "v2": "the frozen 118-row canon (atlas.jsonl, sha256 6d53a4f1)",
+    "v3_full": "118 + all admitted v3 rows",
+    "v3_new": "the admitted v3 rows ONLY — the out-of-sample test set every bet is scored on"
+  },
+  "bets": {
+    "B1_gradient_robustness": {
+      "prediction": "The approximation<->parameterized both-real Cramer's V computed on v3-NEW-only lands inside v2's 95% bootstrap CI — the new roster INDEPENDENTLY reproduces the hardness gradient.",
+      "population": "v3_new (both-real approximation/parameterized subset)",
+      "decision_rule": "Compute v2's 95% bootstrap CI of the both-real approx<->param V (B=10000 resamples over v2's both-real rows; v2 point = 0.7293 full / 0.6807 dedup-114, from crucible_results.json S2). BET HOLDS iff the v3-new-only both-real V falls inside that CI. Movement OUTSIDE the CI => the v2 gradient was partly roster-composition, decomposed by funnel (B6) — a finding either way, stated in advance as acceptable.",
+      "measured_in": "crucible._both_real_v on the v3_new subset; manifest claim canon.gradient.v3new"
+    },
+    "B2_incompressibility": {
+      "prediction": "Effective dimensionality k* = 1 on v3-new-only (held-out LCM 1-SE estimator, the v7 battery).",
+      "population": "v3_new (dedup roster)",
+      "decision_rule": "factors.factors_verdict on v3_new. k*=1 AGREES with the v7/v2 primary. k*>=2 (a real basis emerging at larger n) would be the program's BIGGEST POSITIVE SURPRISE and is genuinely possible — stated as uncertain, reported at size; it does not retroactively touch the v2 k*=1 banked verdict.",
+      "measured_in": "factors.factors_verdict; manifest claim factors.kstar.v3new (expected k_star=1)"
+    },
+    "B3_NPI_calibration": {
+      "prediction": "The NPI-candidate decision row grows ONLY by candidates admitted AS NPI-candidates; no CSP-shaped / dichotomy-decidable (NPC) row is mis-slotted into NPI.",
+      "population": "v3_new",
+      "decision_rule": "Enumerate every v3_new row with decision=NPI-candidate; each must be an independently literature-attested NP-intermediate candidate (graph-isomorphism / factoring class), not a mis-typed NPC. A single CSP-shaped NPI row = calibration FAIL, reported. (A pure calibration bet — guards against the expansion inflating the thin NPI row with mis-types.)"
+    },
+    "B4_occupancy": {
+      "prediction": "The decision=PH-complete x parameterized=FPT occupancy cell stays inhabited (abstract-argumentation, skeptical/preferred Pi_2^p x FPT-by-treewidth, verified at Quarry K3); the remaining v2 gap-list cells' fates are enumerated per-cell as sealed bets BEFORE the rerun.",
+      "population": "v3_full occupancy grid (marginals, R3)",
+      "decision_rule": "For each of the 123 v2 gap-list cells (a3_structure.json H3_forbidden_and_gaps): a sealed 'inhabited by a v3 row / still empty' call, committed per-cell in the V4 findings appendix. The PH-complete x FPT cell is pre-called INHABITED. Scored at V4 against the v3 occupancy grid; theorem-forbidden cells must stay empty (a v3 row there = data-violates-theorem bug)."
+    },
+    "B5_folklore_gap_at_scale": {
+      "prediction": "The fraction of counting cells carrying a per-problem PUBLISHED #P-hardness proof does not materially improve at scale — the field's gap, not our effort's.",
+      "population": "v3_new counting column",
+      "decision_rule": "Compute the per-problem-cited fraction of real counting cells on v3_new; BET HOLDS iff within noise of v2's counting citation density (~37/118 published, per counting-folklore-gap.md). Expected: many v3 counting cells resolve to open under the F-1 per-problem bar, holding the gap. A large improvement would falsify the folklore-gap finding (a welcome surprise, reported)."
+    },
+    "B6_funnel_homogeneity": {
+      "prediction": "The gradient/structure signal is HOMOGENEOUS across the six source funnels — no single funnel (rn / ck / ghr / df / dh / su) drives the v3 structure.",
+      "population": "v3_new, decomposed by source_funnel (provenance sidecar)",
+      "decision_rule": "Compute the both-real approx<->param V within each funnel's v3_new rows; BET HOLDS iff every per-funnel V is within the 95% bootstrap band of the pooled v3_new V (no funnel outlier). A funnel outlier => that funnel's supply is structurally distinct (a decomposable finding), NOT a bad program. This is the de-confounding check the provenance-per-row rule (spec section 4) exists to enable.",
+      "measured_in": "manifest claim canon.funnel.homogeneity"
+    }
+  },
+  "kill_thresholds": {
+    "funnel_poisoning_V2": "any source funnel whose sampled or full owner-confirm shows error > 15% is quarantined (its rows drop to open-heavy or are excluded, documented); the wave continues without it. Scope stays broad; a bad funnel is not a bad program.",
+    "validator_integrity_V1_V3": "v2 byte-identity is inviolable; any tooling change that touches atlas.jsonl or atlas_v2.jsonl halts the milestone.",
+    "box": "drafting + battery ~= 25-35 h paired (drafting compresses; the battery is harness reruns). OWNER confirm sittings are explicitly UNBOUNDED and UNESTIMATED — the real cost, measured at wave 1's first sitting and reported honestly rather than guessed. No compute beyond laptop."
+  },
+  "unchanged": "The frozen atlas.jsonl (sha256 6d53a4f1d0907f1668949ae8cba902f6b9c59209088f5b67d27bac2b5527eae7, 118 rows), atlas_v2.jsonl / Strata (sha256 784f4739360f1d7b4a3308e1f548c37ecbafeb3842878bc64d82fc6c4dd9c567, 118 rows), the v7 k*=1 primary verdict, and the Crucible S1-S5 v2 verdicts all stand byte-identical. Atlas v3 is a NEW frozen file (atlas_v3.jsonl) + new tests + this new prereg + new canon.*.v3new manifest claims; the v2 artifacts a3_structure.json / crucible_results.json / factors_v1.json regenerate byte-identical. hardmap v1.0.0 is the version anchor; no paper gates the freeze (freeze waits on owner confirm-complete, full stop)."
+}
