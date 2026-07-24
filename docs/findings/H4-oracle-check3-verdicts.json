@@ -1,0 +1,370 @@
+{
+ "check": "H4 oracle spot-check (check 3)",
+ "seed": 20260724,
+ "atlas": "6d53a4f1 (frozen 118)",
+ "date": "2026-07-24",
+ "provenance": "AGENT-RUN second-pass QC, NOT owner-independent. Same standing caveat as the V2 confirm pass; no cell promoted to `confirmed`.",
+ "adjudicated": 66,
+ "of": 80,
+ "tally": {
+  "HOLDS": 42,
+  "MATERIAL": 21,
+  "COSMETIC": 3
+ },
+ "verdicts": [
+  {
+   "charge": "decision",
+   "problem_id": "one-in-three-sat",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "decision",
+   "problem_id": "stable-matching",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "decision",
+   "problem_id": "planar-3-coloring",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "decision",
+   "problem_id": "sat-2",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "decision",
+   "problem_id": "directed-feedback-vertex-set",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "decision",
+   "problem_id": "tautology",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "decision",
+   "problem_id": "steiner-tree",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "decision",
+   "problem_id": "group-steiner-tree",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "decision",
+   "problem_id": "max-directed-cut",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "decision",
+   "problem_id": "max-2lin",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "counting",
+   "problem_id": "sat-3",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "counting",
+   "problem_id": "tutte-polynomial",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "counting",
+   "problem_id": "determinant",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "counting",
+   "problem_id": "permanent",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "counting",
+   "problem_id": "number-partitioning",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "counting",
+   "problem_id": "subset-sum",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "counting",
+   "problem_id": "longest-path",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "counting",
+   "problem_id": "knapsack",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "counting",
+   "problem_id": "weighted-interval-scheduling",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "counting",
+   "problem_id": "bipartiteness",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "approximation",
+   "problem_id": "planar-vertex-cover",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "approximation",
+   "problem_id": "k-set-packing",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "approximation",
+   "problem_id": "kemeny-rank-aggregation",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "approximation",
+   "problem_id": "bin-packing",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "approximation",
+   "problem_id": "knapsack",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "approximation",
+   "problem_id": "longest-path",
+   "verdict": "COSMETIC"
+  },
+  {
+   "charge": "approximation",
+   "problem_id": "set-cover",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "approximation",
+   "problem_id": "hitting-set",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "approximation",
+   "problem_id": "dominating-set",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "approximation",
+   "problem_id": "edge-coloring",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "parameterized",
+   "problem_id": "maximum-common-subgraph",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "parameterized",
+   "problem_id": "set-cover",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "parameterized",
+   "problem_id": "integer-programming",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "parameterized",
+   "problem_id": "tsp",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "parameterized",
+   "problem_id": "cluster-editing",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "parameterized",
+   "problem_id": "vertex-cover",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "parameterized",
+   "problem_id": "induced-subgraph-isomorphism",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "parameterized",
+   "problem_id": "prize-collecting-steiner-tree",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "parameterized",
+   "problem_id": "max-cut",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "parameterized",
+   "problem_id": "kemeny-rank-aggregation",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "parallelization",
+   "problem_id": "circuit-value-problem",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "parallelization",
+   "problem_id": "max-flow",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "parallelization",
+   "problem_id": "monotone-circuit-value",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "parallelization",
+   "problem_id": "sat-2",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "parallelization",
+   "problem_id": "xor-sat",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "parallelization",
+   "problem_id": "reachability-stcon",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "parallelization",
+   "problem_id": "bipartiteness",
+   "verdict": "COSMETIC"
+  },
+  {
+   "charge": "parallelization",
+   "problem_id": "min-spanning-tree",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "parallelization",
+   "problem_id": "all-pairs-shortest-path",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "parallelization",
+   "problem_id": "planarity",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "proof_size",
+   "problem_id": "tautology",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "proof_size",
+   "problem_id": "sat-3",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "proof_size",
+   "problem_id": "tseitin",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "proof_size",
+   "problem_id": "random-3sat-refutation",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "proof_size",
+   "problem_id": "xor-sat",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "proof_size",
+   "problem_id": "horn-sat",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "proof_size",
+   "problem_id": "sat",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "proof_size",
+   "problem_id": "php",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "proof_size",
+   "problem_id": "tqbf",
+   "verdict": "COSMETIC"
+  },
+  {
+   "charge": "proof_size",
+   "problem_id": "sat-2",
+   "verdict": "MATERIAL"
+  },
+  {
+   "charge": "average_case",
+   "problem_id": "sat-3",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "average_case",
+   "problem_id": "sis",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "average_case",
+   "problem_id": "matching",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "average_case",
+   "problem_id": "primality",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "average_case",
+   "problem_id": "graph-isomorphism",
+   "verdict": "HOLDS"
+  },
+  {
+   "charge": "average_case",
+   "problem_id": "tsp",
+   "verdict": "MATERIAL"
+  }
+ ],
+ "pending_14": {
+  "reason": "paste truncated after 66 cells (6 of 10 average_case, landscape column absent)",
+  "cells": {
+   "average_case": [
+    "hamiltonian-cycle",
+    "xor-sat",
+    "lwe",
+    "factoring"
+   ],
+   "landscape": [
+    "nae-sat",
+    "graph-3-coloring",
+    "vertex-cover",
+    "sat-3",
+    "number-partitioning",
+    "xor-sat",
+    "max-cut",
+    "independent-set",
+    "clique",
+    "random-3sat-refutation"
+   ]
+  },
+  "protocol_correction": "Owner framed landscape as uniformly `measured` (manifest audit). FALSE: 9 of 10 landscape cells are `status: claimed` with literature citations and need ordinary theorem verification; only `random-3sat-refutation` is `measured`. So 13 of the 14 pending are theorem checks, 1 is a manifest audit."
+ }
+}

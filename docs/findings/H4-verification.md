@@ -14,7 +14,7 @@ Run against the public candidate at the H3 state (`hardmap repro --all` 8/8, `ha
 |---|---|---|---|
 | 1 | Statistic-implementation audit | **PASS** | `pytest hardmap/tests/test_audit.py` |
 | 2 | Internal-coherence sweep | **PASS (6/6)** | `hardmap verify` |
-| 3 | Oracle spot-check | **SET UP** (owner manual pass pending) | `python scripts/oracle_spotcheck_draw.py` |
+| 3 | Oracle spot-check | **RUN — agent QC, caveated** (66/80; 14 pending) | `python scripts/oracle_spotcheck_draw.py` |
 | 4 | Pipeline determinism | **PASS** | fresh clone → `pip install -e .` → `hardmap repro --all` |
 | 5 | Cross-artifact consistency | **PASS (8/8)** | `python scripts/cross_artifact_consistency.py` |
 
@@ -38,12 +38,20 @@ interval; netted ≤ raw (Cai–Chen); point estimates inside their CIs (lattice
 census Jaccard ∈ [0,1] and below the 0.95 plurality line; contingency marginals sum to n. Shipped as
 the permanent `hardmap verify` command.
 
-## 3. Oracle spot-check (owner manual pass)
+## 3. Oracle spot-check — RUN (agent QC, caveated)
 `scripts/oracle_spotcheck_draw.py` draws, under **sealed seed 20260724**, 10 cited-filled classes per
-charge column (79 rows) into [`H4-oracle-spotcheck-worksheet.md`](H4-oracle-spotcheck-worksheet.md). The
-condition on each drawn class must be re-derived **by hand** against the cited theorem — the one check
-that needs human judgment, not code. Sealing the seed fixes the sample before the manual audit begins.
-**Pending.**
+charge column into [`H4-oracle-spotcheck-worksheet.md`](H4-oracle-spotcheck-worksheet.md); each drawn
+value is re-derived against the cited theorem. **Run 2026-07-24 as agent-run second-pass QC — NOT
+owner-independent** (same standing caveat as the V2 pass; no cell promoted to `confirmed`). Verdicts and
+the full write-up: [`H4-oracle-check3-verdicts.json`](H4-oracle-check3-verdicts.json),
+[`H4-oracle-check3-findings.md`](H4-oracle-check3-findings.md).
+
+**66 of 80 adjudicated** (paste truncated after average-case; 14 pending): **42 HOLDS · 3 COSMETIC ·
+21 MATERIAL · 0 INVALIDATING.** No cell invalidates. ~4 of the MATERIAL are genuine value/object defects;
+the rest are warrant repair — right value, wrong receipt, the V2 anatomy. All are errata against the
+frozen kernel (E1 protocol) and are being verified to primary-source precision before application. Two
+systematic patterns each get an atlas-wide sweep: the **omnibus-textbook warrant** (Arora–Barak, 34
+cells) and **Cygan-as-wildcard** (36 cells).
 
 ## 4. Pipeline determinism
 Genuinely fresh clone of the candidate → clean venv → `pip install -e .` → `hardmap repro --all` 8/8 and
@@ -60,5 +68,7 @@ script normalizes the glyph.
 - **material:** none.
 - **invalidating:** none.
 
-No finding pauses H5. The oracle spot-check (check 3) remains as an owner manual pass; completing it
-closes H4 fully.
+No finding pauses H5. The oracle spot-check (check 3) has now been run as agent QC (above): 0
+invalidating, so H4's H5 gate is unaffected; the 21 MATERIAL warrant corrections are queued as a frozen-
+kernel erratum batch, and 14 cells remain to adjudicate. An owner-independent pass over the same draw
+would be what closes H4 to the `confirmed` standard — this pass substitutes in workload, not authority.
