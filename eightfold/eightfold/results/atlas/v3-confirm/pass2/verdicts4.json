@@ -1,0 +1,167 @@
+[
+ {
+  "problem_id": "unification",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Paterson & Wegman, 'Linear unification', JCSS 16 (1978) 158-167 (STOC'76 pp. 181-186), verified via Crossref. The paper gives a linear-time unification algorithm, which establishes the decision problem is in P for exactly the stated canonical_task. Corroborated by GHR A.6.9 (Unification), which records unification as P-complete, i.e. in P."
+ },
+ {
+  "problem_id": "generability",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Jones & Laaser, 'Complete problems for deterministic polynomial time', TCS 3 (1976) 105-117 (verified via Crossref) proves GENERABILITY log-space complete for P; completeness includes membership, so P is established for the stated closure-computation task. Confirmed against the full text of GHR, Limits to Parallel Computation: GENERABILITY is Problem A.6.7 and GHR credit Jones & Laaser [181] for it."
+ },
+ {
+  "problem_id": "cellular-automaton-prediction",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Read the full text of GHR (Limits to Parallel Computation, 327pp). Problem A.12.3 'One Dimensional Cellular Automata' states verbatim: 'Since the time bound is expressed in unary, the problem is in P.' That is precisely the stated canonical_task (simulate t steps, poly-time in (t,size)). GHR Problem A.11.5 'Game of Life' cites Berlekamp, Conway & Guy [33, pp. 817-850] for the universality construction, matching the second half of the citation. Both citation components are on-object and correct."
+ },
+ {
+  "problem_id": "plane-sweep-triangulation",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Extracted and read the Atallah-Callahan-Goodrich text. The paper defines Plane-sweep triangulation exactly as the canonical_task states (sweep a horizontal line top-to-bottom, drawing all non-crossing diagonals at each vertex) and proves Theorem 3.1: 'The plane sweep triangulation problem is P-complete.' P-completeness includes membership in P, so the value P is established on-object."
+ },
+ {
+  "problem_id": "deadlock-detection",
+  "charge": "parallelization",
+  "verdict": "FIX",
+  "corrected_value": "NC",
+  "corrected_citation": "P.G. Spirakis, The parallel complexity of deadlock detection, Theoretical Computer Science 52(1-2) (1987) 155-163; catalogued as GHR Problem A.12.2 'General Deadlock Detection', Remarks",
+  "reason": "OBJECT DRIFT, and the drift inverts the value. I read GHR's full entry A.12.2 (General Deadlock Detection). It is P-complete via a reduction from Monotone CVP in which 'the maximum number of units of any resource is two', and the Remarks then state explicitly: 'The problem is in NC if t_i equals 1 for all i [337]. That is, if there is only one unit of each resource.' (A second NC case is given for expedient states with at most one request per process.) So the canonical_task as written -- 'single-unit deadlock detection is P-complete' -- asserts P-completeness for exactly the case Spirakis proves is in NC. Two repair paths: (a) keep the canonical_task and set the value to NC, as recorded here; (b) preferred if the row was meant to carry the P-complete fact -- retarget canonical_task to GENERAL (multi-unit) deadlock detection, for which Spirakis 1987 / GHR A.12.2 does establish P-completeness. Note also the citation year: the journal paper is TCS 52 (1987), not 1986 (MFCS'86 is the conference version)."
+ },
+ {
+  "problem_id": "type-inference-typability",
+  "charge": "parallelization",
+  "verdict": "CITE",
+  "corrected_citation": "F. Henglein, Type inference with polymorphic recursion, ACM TOPLAS 15(2) (1993) 253-289, p. 260: 'typability for the Curry-Hindley Calculus, the let-free fragment of the Damas-Milner Calculus, is (deterministic) polynomial time complete (folk theorem) and typability for the full Damas-Milner Calculus is (deterministic) exponential time complete'. P-hardness leans on Dwork, Kanellakis & Mitchell, On the sequential nature of unification, J. Logic Programming 1 (1984) 35-50 (unification is log-space complete for P)",
+  "reason": "Neither cited work establishes the value for the stated object. (i) I extracted the DKM 1984 full text: its theorem is 'The problem of unification of terms is log-space complete for P'; type inference appears only as motivation (a citation to Milner 1978). Unification is a neighbouring problem, not simple-type typability. (ii) I searched the complete text of the GHR book: there is NO type-inference or typability entry at all (zero hits for 'type infer'/'typabil'); GHR's relevant entries are A.6.9 Unification and A.6.10/A.6.11 semi-unification. The corrected citation is a real, verified source that states the value for exactly the stated object -- but note it labels the result a FOLK THEOREM, i.e. no primary proof of P-completeness of simple-type typability appears to exist in the literature. Owner may reasonably prefer to demote this cell to `open` or tag it uncited-folklore rather than accept a folk-theorem anchor."
+ },
+ {
+  "problem_id": "path-system-accessibility",
+  "charge": "parallelization",
+  "verdict": "OK",
+  "reason": "Confirmed against the full GHR text. Problem A.6.8 'Path Systems' states 'Reference: Cook [64]' and the Remarks read: 'Cook defined path systems in [60]. This is the first problem shown to be logarithmic space complete for P. The original proof by Cook does a direct simulation of a Turing machine [64].' GHR [64] is Cook's JCSS 9 (1974) paper. Object, value and historic-anchor note all match."
+ },
+ {
+  "problem_id": "b-chromatic-number",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Irving & Manlove, 'The b-chromatic number of a graph', Discrete Appl. Math. 91 (1999) 127-141 introduces b(G) and proves that determining it is NP-hard in general (polynomial for trees). That is the stated canonical_task; membership in NP is immediate from the certificate (a b-colouring with k colours). The note's stronger connected-bipartite refinement is due to Kratochvil-Tuza-Voigt (2002), but the cell's value does not depend on it."
+ },
+ {
+  "problem_id": "capacitated-dominating-set",
+  "charge": "decision",
+  "verdict": "CITE",
+  "corrected_citation": "M. Dom, D. Lokshtanov, S. Saurabh, Y. Villanger, Capacitated Domination and Covering: A Parameterized Perspective, IWPEC 2008, LNCS 5018, pp. 78-90 (defines Capacitated Dominating Set as the capacitated generalization of Dominating Set; Theorem 1: CDS parameterized by treewidth and solution size is W[1]-hard)",
+  "reason": "The citation is not a citation -- it is a derivation ('generalizes Dominating Set ... set all capacities to n') hung on works about a DIFFERENT object. Karp 1972 and Garey & Johnson [GT2] establish DOMINATING SET, not CAPACITATED Dominating Set. The derivation is mathematically airtight (capacities = n makes every dominating set feasible; membership in NP is immediate), so the value NPC is right and I did not downgrade it. But I read the full texts of Dom et al. (IWPEC 2008) and of two follow-ups (arXiv:1004.2839 Kao et al.; arXiv:1604.04664 CDS on planar graphs) and NO paper in this line states or proves NP-completeness of plain CDS -- they all treat it as inherited. Dom et al. is the object-correct primary reference for the problem; the NP-completeness itself has no separate primary proof, which the owner should record explicitly rather than leave implied by a Karp/G&J stamp."
+ },
+ {
+  "problem_id": "connectivity-augmentation",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Frederickson & JaJa, 'Approximation algorithms for several graph augmentation problems', SIAM J. Comput. 10(2) (1981) 270-283. The paper's stated scope is exactly the canonical_task family -- minimum-cost sets of links to add to reach a connectivity target -- and it shows these augmentation problems NP-complete even with the graph initially connected (bridge-connectivity/2-edge-connectivity, biconnectivity, strong connectivity), which is the k=1 instance of 'raise edge-connectivity to k+1'. Same object, hardness on the nose; NP membership immediate."
+ },
+ {
+  "problem_id": "efficient-domination",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified by full-text extraction of Brandstaedt et al., 'On Efficient Domination for Some Classes of H-Free Chordal Graphs' (arXiv:1701.03414), whose introduction states: 'In [1,2], it was shown that the ED problem is NP-complete', with [1] = D.W. Bange, A.E. Barkauskas, P.J. Slater, Efficient dominating sets in graphs, in: Applications of Discrete Math. (SIAM, Philadelphia, 1988) 189-199. That is the cited work, and the object (existence of an e.d.s. / perfect code) is exactly the canonical_task. The 'also via Kratochvil' addendum is harmless surplus."
+ },
+ {
+  "problem_id": "geometric-bin-packing",
+  "charge": "decision",
+  "verdict": "CITE",
+  "corrected_citation": "J.Y-T. Leung, T.W. Tam, C.S. Wong, G.H. Young, F.Y.L. Chin, Packing squares into a square, Journal of Parallel and Distributed Computing 10(3) (1990) 271-275 (deciding whether a set of squares can be packed into a given square is NP-complete in the strong sense) -- this is the k=1 case of the stated 2-D canonical_task",
+  "reason": "Object drift. Garey & Johnson 1979 carries BIN PACKING as [SR1], the ONE-dimensional problem; the canonical_task is 2-D packing into unit bins. The cell's own note concedes the citation is for a restriction. The 1-D-restriction argument is valid, so the value NPC stands, but the corrected citation is an actual 2-D geometric packing NP-completeness (bibliographic details verified via Crossref) and removes the derivation step. (Fowler-Paterson-Tanimoto IPL 12 (1981) 133-137 is NOT the right substitute: it is about covering points by unit squares, a different object.)"
+ },
+ {
+  "problem_id": "grundy-number",
+  "charge": "decision",
+  "verdict": "CITE",
+  "corrected_citation": "M. Zaker, Results on the Grundy chromatic number of graphs, Discrete Mathematics 306(23) (2006) 3166-3173 (Grundy Coloring is NP-complete, already for complements of bipartite graphs); for the bipartite case see F. Havet, L. Sampaio, On the Grundy and b-Chromatic Numbers of a Graph, Algorithmica 65(4) (2013) 885-899",
+  "reason": "The cited paper does not establish the base value. I read the Bonnet-Foucaud-Kim-Sikora text: it REPORTS the fact ('Grundy Coloring remains NP-complete on bipartite graphs [21] and their complements [38]') and credits earlier work; its own theorems are about variants and parameterizations (e.g. 'Connected Grundy Coloring is NP-complete already for k=7 colors', ETH lower bounds in feedback-vertex-set number). That is the 'repeats a claim' pattern. Both replacement references were bibliographically verified via Crossref; either establishes NP-completeness of Gamma(G) >= k on a restricted class, which gives the general value. (The often-cited Goyal & Vishwanathan 1997 original is an unpublished manuscript and should not be used.)"
+ },
+ {
+  "problem_id": "label-cover",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Same object, and the implication is definitional rather than charitable. Dinur & Safra, IPL 89 (2004) 247-254, Theorem 17 shows it is NP-hard to distinguish Label-Cover instances whose covering number EQUALS 1 from those with covering number >= rho (rho = 2^{(log s)^{1-1/delta}}). Perfect completeness on the yes-side means the exact question 'is there a total labelling satisfying all edges' -- the stated canonical_task -- is itself NP-hard; membership in NP is immediate. No neighbouring-problem or restriction step is involved. Note for the atlas: if an approximation cell is ever drafted from this same paper, the 2^{(log n)^{1-o(1)}} gap is the F-2 poly-APX/quasi-poly regime, not inapprox."
+ },
+ {
+  "problem_id": "maximum-feasible-linear-subsystem",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Amaldi & Kann, 'The complexity and approximability of finding maximum feasible subsystems of linear relations', TCS 147 (1995) 181-210 (existence and venue confirmed via Semantic Scholar/DBLP; the STACS'94 precursor is 'On the approximability of finding maximum feasible subsystems of linear systems'). The paper's declared object is exactly MAX FS -- maximum-cardinality feasible subsystem of a system of linear relations -- and its declared scope is the complexity as well as the approximability of that problem, so the NP-hardness of the size->=k decision version is on-object. Caveat recorded: I could not obtain the full text (ScienceDirect 403, no open copy), so this rests on title/scope and the field's uniform attribution rather than a read theorem number; the note's independent anchor (Johnson & Preparata, The densest hemisphere problem, TCS 6 (1978) 93-107) covers the homogeneous strict-inequality case."
+ },
+ {
+  "problem_id": "min-linear-arrangement",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Garey, Johnson & Stockmeyer. The STOC'74 abstract ('Some simplified NP-complete problems', the precursor to the TCS 1 (1976) 237-267 journal version cited) states: 'First we show the completeness of SIMPLE MAX CUT ..., and, as a corollary, the completeness of the OPTIMAL LINEAR ARRANGEMENT problem.' Optimal Linear Arrangement with bound B is exactly the stated canonical_task."
+ },
+ {
+  "problem_id": "minimum-equivalent-digraph",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Same object, correctly carried. Garey & Johnson's appendix entry MINIMUM EQUIVALENT DIGRAPH is the reachability-preserving-subgraph-with-<=k-arcs problem named in the canonical_task, and the research literature treats G&J as the reference for it: Khuller, Raghavachari & Young (full text read; the arXiv cs/0205011 companion) write 'The problem is NP-hard [3]' with [3] = Garey & Johnson 1979. This is a compendium citation, but it is on-object and states the value, so it passes Check-9. One caveat the owner may wish to spot-check: I verified the entry's existence and content, not the specific index '[GT34]'."
+ },
+ {
+  "problem_id": "mixed-chinese-postman",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Papadimitriou, 'On the complexity of edge traversing', JACM 23(3) (1976) 544-554 is the primary and universally attributed source for NP-completeness of the Mixed Chinese Postman problem -- a closed walk traversing every edge/arc of a mixed graph with total length <= L, which is the canonical_task verbatim. The poly-time all-undirected (Edmonds-Johnson) and all-directed cases in the note are the correct boundary."
+ },
+ {
+  "problem_id": "pathwidth",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Kashiwabara & Fujisawa, ISCAS 1979, 657-660, is the standard primary attribution for pathwidth NP-completeness: minimum-clique-number interval supergraph = interval thickness = pathwidth + 1, an accepted identity that the cell's note already spells out. Verified as such by full-text extraction of a modern pathwidth paper (Dereniowski, 'From Pathwidth to Connected Pathwidth', STACS 2011): 'The problems of computing the pathwidth ... are NP-hard ... see e.g. [6, 11, 12, 16, 17, 20]', where [12] is exactly Kashiwabara & Fujisawa with the cited title and page numbers. Object and value match."
+ },
+ {
+  "problem_id": "quadratic-congruences",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Manders & Adleman, 'NP-complete decision problems for binary quadratics', JCSS 16 (1978) 168-184, is the primary source for the NP-completeness of exactly the stated predicate -- does there exist z <= c with z^2 = a (mod b) -- and is the reference G&J carries for AN1 QUADRATIC CONGRUENCES. Object, quantifier and bound all match the canonical_task."
+ },
+ {
+  "problem_id": "resource-constrained-scheduling",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Garey & Johnson, 'Complexity results for multiprocessor scheduling under resource constraints', SIAM J. Comput. 4(4) (1975) 397-411, is the primary source for the makespan-<=-T decision problem under resource constraints, including the single-resource restriction asserted in the note. Object and value match the canonical_task."
+ },
+ {
+  "problem_id": "sparsest-cut",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Matula & Shahrokhi, 'Sparsest cuts and bottlenecks in graphs', Discrete Appl. Math. 27(1-2) (1990) 113-123. The paper's own abstract states that the sparsest cut is characterized 'and its computation shown to be NP-hard'; the tractable sub-case they isolate (bottlenecks, dual to a poly-time multicommodity flow) is a restriction and does not disturb the general value. Object matches the canonical_task (a cut of ratio <= r)."
+ },
+ {
+  "problem_id": "thickness",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Mansfield, 'Determining the thickness of graphs is NP-hard', Math. Proc. Cambridge Philos. Soc. 93 (1983) 9-23, is the primary source and proves hardness already for the thickness-two decision problem, which is exactly the canonical_task. Membership in NP (guess the two planar subgraphs) is immediate, so NPC is correct."
+ },
+ {
+  "problem_id": "upper-domination",
+  "charge": "decision",
+  "verdict": "CITE",
+  "corrected_citation": "G.A. Cheston, G. Fricke, S.T. Hedetniemi, D. Pokrass Jacobs, On the computational complexity of upper fractional domination, Discrete Applied Mathematics 27(3) (1990) 195-207",
+  "reason": "The cited work reports rather than establishes the value. I extracted the full text of Bazgan et al., TCS 717 (2018) 2-25; it says verbatim: 'It has long been known that Upper Domination is NP-complete in general [19]', where its reference [19] is Cheston, Fricke, Hedetniemi & Jacobs (1990). Bazgan et al.'s own theorems are strengthenings and restrictions (Theorem 4: Upper Domination is NP-hard on cubic planar graphs; Theorem 9: Minimal Dominating Set Extension NP-complete on planar cubic graphs; approximation and parameterized results), not the base NP-completeness the cell asserts. Replacement bibliographic details verified via Crossref."
+ },
+ {
+  "problem_id": "sharp-eulerian-orientations",
+  "charge": "decision",
+  "verdict": "CITE",
+  "corrected_citation": "C. Hierholzer, Ueber die Moeglichkeit, einen Linienzug ohne Wiederholung und ohne Unterbrechung zu umfahren, Mathematische Annalen 6 (1873) 30-32 (constructive proof that a connected graph with all degrees even has a closed Euler tour; orienting the edges along the tour gives an Eulerian orientation in linear time)",
+  "reason": "The value P is right but Euler 1736 does not establish it. Euler's Koenigsberg paper proves only the NECESSITY of the even-degree condition; it contains no sufficiency proof, no algorithm, and no notion of orientation. The sufficiency -- and the constructive linear-time tour that the cell's note actually relies on -- is Hierholzer 1873, bibliographic details verified via Crossref. Keeping Euler as the anchor is exactly the historic-anchor charity the standard rules out; Euler can stay in the note as provenance, but the citation field should carry Hierholzer."
+ },
+ {
+  "problem_id": "sharp-dnf",
+  "charge": "decision",
+  "verdict": "CITE",
+  "corrected_citation": "L.G. Valiant, The Complexity of Enumeration and Reliability Problems, SIAM J. Comput. 8(3) (1979) 410-421 -- the decoupling partner (counting satisfying assignments of a DNF/monotone formula is #P-complete while the decision problem is trivial). DNF satisfiability itself is in P by inspection: a DNF is satisfiable iff some term contains no complementary literal pair; this is a syntactic triviality with no primary source.",
+  "reason": "Lowest-stakes item in the batch -- flagged for bookkeeping, not because the value is in doubt. Garey & Johnson's SATISFIABILITY entry [LO1] is the CNF problem; I could not locate any statement in G&J establishing DNF satisfiability in P, so as cited the work does not carry the value for the stated canonical_task. Since the row exists as a decoupling witness against the hard counting version, Valiant 1979 is the citation that actually speaks to that decoupling. If the owner can point to a G&J page that states the DNF case, this reverts to OK."
+ }
+]

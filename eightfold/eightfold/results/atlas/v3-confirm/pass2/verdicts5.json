@@ -1,0 +1,155 @@
+[
+ {
+  "problem_id": "dfs-lexicographic-ordering",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified against the full text of Greenlaw-Hoover-Ruzzo, Limits to Parallel Computation (1995), Problem A.3.3 'Lexicographically First Depth-first Search Ordering (LFDFS)': 'Reference: Reif [300]', where [300] is Reif, Depth-first search is inherently sequential, IPL 20(5) (1985) 229-234. GHR give Reif's direct reduction from NORCVP. P-completeness entails membership in P, and the ordered-DFS algorithm is trivially polynomial, so the value P for 'computable in P by ordered DFS' is established by the cited work. Object matches: fixed ordered adjacency lists, i.e. the lexicographic (ordered) DFS."
+ },
+ {
+  "problem_id": "generability",
+  "charge": "parallelization",
+  "verdict": "OK",
+  "reason": "Verified against GHR (1995) full text, Problem A.6.7 'Generability (GEN)': given a finite set W, a binary operation dot on W, V subset of W and w in W, is w in the smallest subset containing V and closed under dot? 'Reference: Jones and Laaser [181]' = Jones & Laaser, Complete problems for deterministic polynomial time, Theoretical Computer Science 3 (1976) 105-117. GHR record the reduction from Unit Resolution (A.6.1). Both cited works are exactly on the stated object; GEN is the canonical monotone-closure P-complete problem."
+ },
+ {
+  "problem_id": "cellular-automaton-prediction",
+  "charge": "parallelization",
+  "verdict": "OK",
+  "reason": "Verified against GHR (1995) full text, Problem A.12.3 'One Dimensional Cellular Automata (CA)': given an initial configuration, a time bound T in unary, a state q and a cell c, is cell c in state q at time T? This is exactly the t-step prediction decision problem. Crucially GHR are not repeating someone else's claim here: the reference line reads 'Lindgren and Nordahl [239], Smith [333], Albert and Culik [8], Greenlaw, Hoover, and Ruzzo, This Work', and the hint states 'We translated this result into a P-complete decision problem... Since the time bound is expressed in unary, the problem is in P. The reduction is based on the direct simulation of an arbitrary Turing machine.' So GHR (1995) is a primary source for this cell, not a survey. (Stronger later results exist for fixed small rules: Neary & Woods, P-completeness of cellular automaton Rule 110, ICALP 2006, LNCS 4051, 132-143; not needed for the stated general task.)"
+ },
+ {
+  "problem_id": "plane-sweep-triangulation",
+  "charge": "parallelization",
+  "verdict": "OK",
+  "reason": "Verified against GHR (1995) full text, Problem A.9.1 'Plane Sweep Triangulation (PST)': given an n-vertex polygon Q that may contain holes and a designated vertex u, is there a vertical edge connecting to u in the plane sweep triangulation of Q? 'Reference: Atallah, Callahan, and Goodrich [18]', with the reduction from a variant of Planar CVP (A.1.7). GHR bibliography entry [18] is the SPAA 1990 version (pages 317-326); the journal version is Atallah, Callahan & Goodrich, P-complete geometric problems, International Journal of Computational Geometry & Applications 3(4) (1993) 443-462, DOI 10.1142/S0218195993000282 (verified via dblp). Both halves of the citation are correct and on the exact object. Note GHR B.6.2 'Restricted Plane Sweep Triangulation' (hole-free polygons) is listed as OPEN - the unrestricted problem cited here is the P-complete one."
+ },
+ {
+  "problem_id": "lex-first-delta-plus-one-coloring",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Verified against GHR (1995) full text, Problem A.2.6 'Lexicographically First Delta+1 Vertex Coloring (LFDVC)'. The hint states verbatim: 'Computing the lexicographically least coloring is easily done in polynomial time by examining each vertex in order and coloring it with the smallest available color.' That is precisely the stated canonical_task (greedy first-fit coloring, poly-time), so the P value is established by the cited work. (GHR's reference line for the P-hardness half is Luby, personal communication 1984, and Luby [246]; the decision charge here only needs the polynomial-time membership, which GHR state directly.)"
+ },
+ {
+  "problem_id": "chromatic-number",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "CHROMATIC NUMBER is one of Karp's original 21 NP-complete problems (Karp, Reducibility among combinatorial problems, Complexity of Computer Computations, 1972, 85-103), proved via reduction from SATISFIABILITY/3-SAT. The cited work establishes NP-completeness of exactly the stated task, k-colourability with k part of the input. Note correctly distinguishes this row from the fixed-k=3 row."
+ },
+ {
+  "problem_id": "3-dimensional-assignment",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "The value NPC is right, but the citation fails Check 9 by object drift. Garey & Johnson [SP1] is 3-DIMENSIONAL MATCHING, a feasibility problem on a tripartite hypergraph; the canonical_task here is the min-cost axial 3-index assignment (n disjoint triples of total cost <= B) over a complete n x n x n cost array, where feasibility is trivial and all the content is in the costs. The note itself concedes the gap ('the min-cost assignment generalizes it'), which is exactly the interpretive-charity pattern the standard forbids. A dedicated, object-correct primary source exists and should be used instead; I verified its bibliographic record (RePEc/EJOR listing: A.M. Frieze, EJOR 13(2), June 1983, 161-164). Retain the Karp/G&J entry only as the ancestor of the reduction, not as the establishing citation.",
+  "corrected_citation": "Frieze, A.M., \"Complexity of a 3-dimensional assignment problem\", European Journal of Operational Research 13(2) (1983) 161-164 (NP-completeness of the 3-dimensional axial assignment problem itself). Secondary confirmation of the hardness landscape for this exact object: Burkard, R.E., Rudolf, R. & Woeginger, G.J., \"Three-dimensional axial assignment problems with decomposable cost coefficients\", Discrete Applied Mathematics 65 (1996) 123-139 (NP-completeness proof for the minimisation version with decomposable costs c_ijk = a_i b_j c_k)."
+ },
+ {
+  "problem_id": "balanced-connected-partition",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Dyer & Frieze, On the complexity of partitioning graphs into connected subgraphs, Discrete Applied Mathematics 10(2) (1985) 139-153, is the correct object and the universally used primary source: the BCP literature attributes to it that finding a balanced connected q-partition is NP-hard for every 2 <= q <= n/3, including on planar and bipartite graphs. With unit vertex weights the equal-part version and the max-min version (min part-weight >= B) coincide, so the stated decision task is established, and unit weights give strong NP-hardness as the note claims. Journal, volume, issue, year and pages all check out."
+ },
+ {
+  "problem_id": "capacitated-facility-location",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "Value NPC is right; the citation field is not a citation but a derivation ('generalizes metric Uncapacitated Facility Location, NP-hard via Set Cover'), and the one work it names, Cornuejols-Nemhauser-Wolsey (1990), is a survey chapter in Discrete Location Theory about the UNCAPACITATED problem. That is a double failure under Check 9: a survey repeating a claim, and a different object. I searched for a CFL-specific hardness theorem (Levi-Shmoys-Swamy 2004/2012 full text: no hardness statement; Chudak-Williamson, Pal-Tardos-Wexler, Cornuejols-Sridharan-Thizy: all assert NP-hardness by containment only) and could not find one - no dedicated CFL hardness proof appears to exist, because the containment is one line. The right remedy is therefore to cite the restriction that gives the STRONGEST true statement with a real proof behind it, and to name it as a restriction rather than hiding a derivation in the citation field.",
+  "corrected_citation": "Garey, M.R. & Johnson, D.S., Computers and Intractability: A Guide to the Theory of NP-Completeness, Freeman (1979), [BIN PACKING, SR1] - strongly NP-complete (via 3-PARTITION). BIN PACKING is the exact restriction of Capacitated Facility Location to zero connection costs, unit facility-opening costs and uniform capacity B, so the CFL decision problem is strongly NP-complete; this is a stronger and better-grounded statement than the weak containment of metric UFL currently cited. If a metric-specific citation is also wanted, use Guha, S. & Khuller, S., \"Greedy strikes back: improved facility location algorithms\", Journal of Algorithms 31(1) (1999) 228-248 for the metric uncapacitated restriction, but label it as such."
+ },
+ {
+  "problem_id": "constrained-shortest-path",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Garey & Johnson [ND30] is literally SHORTEST WEIGHT-CONSTRAINED PATH: given a graph with lengths and weights, s, t, and bounds K and W, is there an s-t path of total length <= K and total weight <= W? That is exactly the stated canonical_task, and G&J's entry carries the NP-completeness attribution (transformation from PARTITION), which also matches the note's 'weakly NP-complete, pseudo-polynomial by DP over the budget'. Object, bounds structure and hardness strength all match."
+ },
+ {
+  "problem_id": "euclidean-tsp",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Papadimitriou, The Euclidean traveling salesman problem is NP-complete, Theoretical Computer Science 4(3) (1977) 237-244 - title, journal, volume, year and pages all verified, and the result is exactly the stated object (points in the plane, tour of length <= L). This is the standard and correct primary citation; the note correctly separates it from metric TSP and general TSP."
+ },
+ {
+  "problem_id": "geometric-disk-cover",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Object-drift worry resolved from full text, not just the title. I extracted the full text of arXiv:1406.3838 (A fast 25/6-approximation for the minimum unit disk cover problem), whose introduction states: 'Given a point set P in R2, the unit disk cover problem (UDC) seeks to find the smallest set of unit disks that cover all of P... In both the L2 and L-infinity norm, UDC is NP-hard [1]', with [1] = 'R. J. Fowler, M. S. Paterson, and S. L. Tanimoto. Optimal packing and covering in the plane are NP-complete. Inform. Process. Lett., 12(3):133-137, 1981.' So Fowler-Paterson-Tanimoto covers disks (L2), not only unit squares (L-infinity), and the cited work establishes NP-completeness of exactly the stated task. Volume, issue, year and pages of the citation all check out."
+ },
+ {
+  "problem_id": "harmonious-coloring",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Hopcroft & Krishnamoorthy, On the harmonious coloring of graphs, SIAM J. Algebraic Discrete Methods 4 (1983) 306-311, introduced harmonious colouring and proved NP-completeness for general graphs - that is exactly the stated value for the stated decision task, so the cell passes. One caveat for the owner, not affecting the verdict: the parenthetical 'also NP-complete on trees' in canonical_task is NOT established by Hopcroft-Krishnamoorthy; it is due to Edwards, K. & McDiarmid, C., \"The complexity of harmonious colouring for trees\", Discrete Applied Mathematics 57(2-3) (1995) 133-144. If that clause is to stay in canonical_task, append that reference."
+ },
+ {
+  "problem_id": "list-coloring",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "The value NPC is right, but Karp (1972) fails Check 9 outright: list colouring did not exist as a notion in 1972 (introduced independently by Vizing 1976 and Erdos-Rubin-Taylor 1979), and Karp's paper contains nothing about it. The citation note - 'generalizes 3-colouring, NP-complete a fortiori' - is a derivation, not a citation, and the input format differs (per-vertex lists vs a single integer k). A dedicated, object-correct primary source exists; I verified its record twice independently (dblp record journals/dam/KratochvilT94, and Kratochvil's own publication list at kam.mff.cuni.cz): Discrete Applied Mathematics 50(3) (1994) 297-302, DOI 10.1016/0166-218X(94)90150-3. It establishes NP-completeness of list colouring proper, including for severely restricted instances.",
+  "corrected_citation": "Kratochvil, J. & Tuza, Zs., \"Algorithmic complexity of list colorings\", Discrete Applied Mathematics 50(3) (1994) 297-302. (Karp 1972 may be retained only as the ancestor of the all-lists-equal special case, not as the establishing citation.)"
+ },
+ {
+  "problem_id": "maximum-induced-matching",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Stockmeyer & Vazirani, NP-completeness of some generalizations of the maximum matching problem, Information Processing Letters 15(1) (1982) 14-19 - record verified (ScienceDirect PII 0020019082900771). This is the paper that introduced induced matching as the 'risk-free marriage' problem and showed maximum induced matching is NP-complete on bipartite graphs, which is exactly the stated canonical_task including the 'even on bipartite graphs' clause. Cameron (1989) is a correct secondary attribution as the note says, but is not needed."
+ },
+ {
+  "problem_id": "min-sum-set-cover",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Confirmed from the full text of the paper (MSR-TR-2003-21, the tech-report version of the Algorithmica 40 (2004) 219-234 article), not just the abstract. Section 1: 'All the above problems are NP-hard'; Theorem 1(2): 'For every epsilon > 0, it is NP-hard to approximate min sum set cover within a ratio of 4 - epsilon'; proved as Theorem 13 ('it is NP-hard to approximate min sum set cover within a ratio of 4 - epsilon on uniform hypergraphs') by reduction from the regular uniform case (Theorem 12), itself from 3SAT-6. Hardness of approximation within any factor > 1 entails NP-hardness of the exact decision version stated in canonical_task, so the cited work establishes the value for the stated object."
+ },
+ {
+  "problem_id": "minimum-k-cut",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Goldschmidt & Hochbaum, A polynomial algorithm for the k-cut problem for fixed k, Mathematics of Operations Research 19(1) (1994) 24-37, is the source of BOTH halves of this cell: it proves the k-cut problem is NP-hard when k is part of the input, and gives the n^{O(k^2)} algorithm for every fixed k. The parameterisation named in canonical_task (k part of the input) is exactly the one the paper's hardness result uses, and the note's fixed-k caveat matches the same paper. No drift."
+ },
+ {
+  "problem_id": "multidimensional-knapsack",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Garey & Johnson [MP9] is KNAPSACK (verified as the MP9 entry), which is the d=1 instance of d-Dimensional Knapsack under the identity map - no construction, no reformulation, no interpretive step - and membership in NP is immediate, so NPC for the stated decision task is established. Distinguished deliberately from the list-coloring and 3-dimensional-assignment cells in this batch, where the cited work is about a genuinely different object rather than a literal d=1 instance. Owner note: if an object-correct strengthening is wanted (strong NP-hardness and d^{1/2-eps} inapproximability when d is part of the input), the note's Chekuri-Khanna pointer should be spelled out as a full reference; I could not verify its exact venue/volume/pages within this pass, so I did not promote it to a corrected_citation."
+ },
+ {
+  "problem_id": "planar-3sat",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Lichtenstein, Planar formulae and their uses, SIAM Journal on Computing 11(2) (1982) 329-343 - title, journal, volume, year and pages all verified (also confirmed independently as reference [6] in an unrelated paper's bibliography I extracted). This is the paper that proves Planar 3-SAT NP-complete; exact object, exact value."
+ },
+ {
+  "problem_id": "quadratic-knapsack",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Gallo, Hammer & Simeone, Quadratic knapsack problems, Mathematical Programming Study 12 (1980) 132-149, introduced QKP and established its hardness; the QKP survey literature (Pisinger, The quadratic knapsack problem - a survey, DAM 155 (2007)) attributes the strong NP-hardness of QKP by reduction from CLIQUE to Gallo-Hammer-Simeone (1980). Same object as canonical_task (total quadratic profit >= V within a linear capacity), correct value. Reduction from CLIQUE also independently justifies the strong (not merely weak) hardness, which the note's 'generalizes 0/1 knapsack' phrasing understates - the linear-special-case remark is not load-bearing here."
+ },
+ {
+  "problem_id": "roman-domination",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Cockayne, Dreyer, Hedetniemi & Hedetniemi, Roman domination in graphs, Discrete Mathematics 278 (2004) 11-22 (DOI 10.1016/j.disc.2003.06.004, record verified via Semantic Scholar) is the paper that introduced Roman domination AND carries its complexity results; the downstream literature uniformly cites it for 'the Roman domination decision problem is NP-complete, even restricted to bipartite or chordal graphs'. I confirmed from the full text of arXiv:2407.03831 that this paper is the source other authors point to for NP-completeness statements in this family ('Cockayne and McRae proved that the DECIDE-IRD problem is NP-complete for bipartite graphs (mentioned in [2])', [2] = Cockayne et al. 2004). I could not open the paywalled Elsevier full text to quote the proposition number, so the owner may wish to record Dreyer, P.A. Jr., Applications and Variations of Domination in Graphs, PhD thesis, Rutgers University (2000) as the co-located proof detail; the establishing citation itself is correct."
+ },
+ {
+  "problem_id": "stacker-crane",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Frederickson, Hecht & Kim, Approximation algorithms for some routing problems, SIAM J. Comput. 7(2) (1978) 178-193 (DOI 10.1137/0207017, record verified via dblp) is the paper that introduced the Stacker Crane Problem in exactly the form of canonical_task - a min-cost tour of the mixed graph traversing every request arc - and it is the standard citation for its NP-hardness (the metric TSP containment is degenerate-arc-set substitution, which the paper's own framing supplies). I confirmed the object match from the full text of arXiv:2410.06764, which uses 'the following formulation of SCP, as introduced by Frederickson et al. [10]' and reproduces the definition verbatim. Owner note: the stronger restricted result, that SCP is NP-hard even on trees, is Frederickson & Guan (nonpreemptive ensemble motion planning on a tree, J. Algorithms 15 (1993) 29-60), not FHK - worth adding if the atlas ever wants a tree-restricted row."
+ },
+ {
+  "problem_id": "total-dominating-set",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Laskar, Pfaff, Hedetniemi & Hedetniemi, On the algorithmic complexity of total domination, SIAM J. Algebraic Discrete Methods 5(3) (1984) 420-425 - record verified. The paper proves the total domination decision problem NP-complete (for undirected path graphs, a subclass, hence a fortiori for unrestricted graphs, which is the stated canonical_task) and gives the linear-time algorithm for trees. Hardness on a subclass strictly implies hardness on the stated superclass, so this is a valid establishing citation rather than object drift in the disallowed direction."
+ },
+ {
+  "problem_id": "vector-bin-packing",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Garey, Graham, Johnson & Yao, Resource constrained scheduling as generalized bin packing, Journal of Combinatorial Theory Series A 21(3) (1976) 257-298 (DOI 10.1016/0097-3165(76)90001-7, record verified) is the paper that formulated the d-dimensional vector packing problem itself and is the acknowledged origin of vector bin packing. Unlike the multidimensional-knapsack/list-coloring cells, the cited work IS about the stated object rather than only about its 1-dimensional restriction, so the 'generalizes 1-D bin packing' phrasing in the note is descriptive rather than load-bearing. Value NPC correct."
+ },
+ {
+  "problem_id": "sharp-linear-extensions",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Szpilrajn, Sur l'extension de l'ordre partiel, Fundamenta Mathematicae 16 (1930) 386-389, is the order-extension principle: every partial order extends to a total order. For the stated decision task (does a linear extension exist?) the answer is unconditionally yes, so the decision problem is trivially in P and the cited work is exactly what establishes it. The canonical_task's algorithmic gloss (a witness by topological sort in linear time) is not needed for the value, though the owner could append Kahn, A.B., \"Topological sorting of large networks\", CACM 5(11) (1962) 558-562 if the witness-construction claim is to be sourced. Correctly kept distinct from the counting charge (#linear extensions is the Brightwell-Winkler #P-complete row) - no rung confusion here."
+ }
+]

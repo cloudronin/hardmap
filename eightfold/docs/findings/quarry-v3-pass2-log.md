@@ -14,21 +14,52 @@ verdict re-touches a V2 cell, the second-pass verdict supersedes.
 |---|---|---|---|---|---|---|
 | 1 | 26 | 17 | 8 | 0 | 1 | ~1050 |
 | 2 | 26 | 23 | 3 | 0 | 0 | ~400 |
-| 3 | 26 | | | | | |
+| 3 | 26 | 20 | 5 | 0 | 1 | ~1000 |
+| 5 | 25 | 22 | 3 | 0 | 0 | ~1450 |
 | 4 | 26 | | | | | |
-| 5 | 25 | | | | | |
 | 6 | 25 | | | | | |
-| **so far** | **52** | **40** | **11** | **0** | **1** | |
+| **so far** | **103** | **82** | **19** | **0** | **2** | |
 
-**Value-error rate so far: 1/52 = 1.9%** — against 4.8% in V2. Consistent with the reliable tier being
-genuinely cleaner, but the two batches drawn so far are decision/parallelization-heavy, which are
-structurally immune to the F-2 approximation trap that drove V2's error rate. Not yet a comparison.
+**Value-error rate so far: 2/103 = 1.9%** — against 4.8% in V2. **Zero FIXes in 103 cells**: no drafted
+value has been outright wrong; both errors are overclaims that resolve to `open`. Consistent with the
+reliable tier being genuinely cleaner, but every batch so far is decision/parallelization-heavy and
+structurally immune to the F-2 approximation trap that drove V2's rate. Not yet a comparison.
+
+**Citation-error rate is 19/103 = 18.4%**, statistically indistinguishable from V2's 17.3% — the tier
+that errs less on *values* errs identically on *citations*. This is the second independent confirmation
+that the reliable/judgment-heavy tiering does not predict citation quality, and therefore that retiring
+the sample was correct.
 
 ## Value changes
 
 | verdict | row | charge | drafted → corrected |
 |---|---|---|---|
 | OPEN | `lex-first-maximal-matching` | parallelization | `P-complete` → **`open`** |
+| OPEN | `minimum-weight-triangulation` | decision | `NPC` → **`open`** |
+
+### `minimum-weight-triangulation` — a SECOND vocabulary gap, in the decision column
+
+Mulzer & Rote (JACM 55(2) 2008, arXiv:cs/0601002v3) state verbatim that **it is not known whether MWT
+is in NP**, because it is open whether sums of radicals can be compared in polynomial time. MWT is
+NP-hard; `NPC` overclaims membership.
+
+**The decision vocabulary cannot express this.** Its 7 rungs — `P`, `NPC`, `coNP-complete`,
+`PH-complete`, `PSPACE-complete`, `beyond-PSPACE`, `NPI-candidate` — *all assert membership*. There is no
+"hard for the class, membership open" rung. This is structurally the **same defect class as errata-v1's
+approximation gap** (the one that produced `superpoly-APX`): a real, published status with no
+expressible value.
+
+**Two repairs exist and the choice is the owner's**, because the precedent points both ways:
+- **Extend the vocabulary** with an NP-hard rung — the SVP/CVP ruling: *"extend the vocabulary, don't
+  force a wrong rung."*
+- **Repin the task** to the rounded-weight ⌈‖e‖²⌉ variant, which the *same Mulzer–Rote paragraph* proves
+  NP-complete — the graph-3-coloring ruling: *"the id is the object, repin the task to match."*
+
+Unlike SVP/CVP, a correct object repin is available here, so a vocabulary extension is not forced. Unlike
+graph-3-coloring, this id covers both variants, so repinning is not obviously the object's own meaning.
+**A corpus-wide sweep is running** for the rest of this family (Euclidean TSP is the textbook member),
+under the standing ruling that a discovered defect class gets swept before freeze —
+`decision-membership-sweep.json`.
 
 **`lex-first-maximal-matching` is the pass's real find so far, and it took full-text access.** The cell
 claimed `P-complete` citing GHR (1995). Extracting the GHR compendium shows LFMM **is not in Part A
@@ -58,6 +89,26 @@ the wrong object, which the cell's own canonical_task already identified as an e
 4. **Object drift, two clean cases.** `node-multiway-cut` cites the *edge* multiterminal-cut paper
    (Dahlhaus et al.) for a vertex-version cell; `lz78-compression` cites an NP-completeness-of-optimal-
    parsing note for a P-completeness value.
+5. **The generic-authority stamp — all 5 of batch 3's CITEs.** A monograph or a pair of famous names
+   invoked for a claim it does not carry. `generalized-assignment` and `k-edge-connected-subgraph` cite
+   bare "Garey & Johnson (1979)" for problems **the G&J appendix does not contain** (GAP has no entry;
+   the nearest, [GT31], is the *vertex*-connectivity variant). `min-degree-spanning-tree` cites
+   "[Hamiltonian Path, ND1]" — ND1 is Degree Constrained Spanning Tree; Hamiltonian Path is GT39.
+   `datalog-evaluation` leans on the bare names "Immerman/Vardi" (fixpoint logic — a different object;
+   plain Datalog is monotone and does not capture P). `type-inference-typability` cites O'Toole &
+   Gifford, whose PLDI'89 system is second-order polymorphic — a strictly larger object.
+6. **The citation field holding a DERIVATION rather than a citation — all 3 of batch 5's CITEs.** The
+   sharpest instance: `list-coloring` cited to Karp 1972 on the reasoning *"generalizes 3-colouring,
+   NP-complete a fortiori"* — but list colouring did not exist as a notion until Vizing 1976 /
+   Erdős–Rubin–Taylor 1979, and Karp's paper says nothing about it (→ Kratochvíl & Tuza, DAM 50(3)
+   (1994) 297–302). `3-dimensional-assignment` cites G&J [SP1] 3-Dimensional Matching — a *feasibility*
+   problem — when the row is min-cost axial 3-index assignment, where feasibility is trivial and all the
+   content is in the costs (→ Frieze, EJOR 13(2) (1983) 161–164). `capacitated-facility-location` cites
+   a survey chapter about the *uncapacitated* problem; no CFL-specific hardness theorem appears to
+   exist, so the remedy is to cite the strongest true restriction (Bin Packing, G&J [SR1], strongly
+   NP-complete), named as a restriction. This pattern is distinct from patterns 1–5: the drafter did not
+   mis-select a source, it **reasoned to a conclusion and then wrote a famous name in the citation
+   field**. Check-9 exists precisely to catch this, and it did.
 
 ## Flagged for the Gate-4 sitting — not decided by the agent
 
