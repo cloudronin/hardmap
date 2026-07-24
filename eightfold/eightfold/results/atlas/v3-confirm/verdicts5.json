@@ -1,0 +1,318 @@
+[
+ {
+  "problem_id": "independent-dominating-set",
+  "charge": "approximation",
+  "value": "inapprox",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "FIX",
+  "corrected_value": "poly-APX",
+  "corrected_citation": "Halldorsson, Approximating the minimum maximal independence number, Information Processing Letters 46 (1993) 169-172 [n^{1-eps} hardness]; poly-factor membership: any maximal independent set is feasible (Min PB-complete, Kann 1993/94)",
+  "reason": "Halldorsson only rules out n^{1-eps}-approximation; a maximal independent set is a feasible solution of size <= n and OPT >= 1, so the problem IS n-approximable (Min PB subset of poly-APX), which contradicts 'inapprox' = no poly f(n)-approx, and matches the atlas's own poly-APX treatment of maximum-induced-matching (n^{1-eps}) and max-min-vertex-cover (n^{1/2})."
+ },
+ {
+  "problem_id": "independent-dominating-set",
+  "charge": "parameterized",
+  "value": "W[2]+",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Independent Dominating Set parameterized by solution size k is W[2]-complete (Downey & Fellows; corroborated by Downey-Fellows-McCartin-Rosamond's FPT-inapproximability result that assumes W[2]-hardness of IDS)."
+ },
+ {
+  "problem_id": "interval-completion",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Villanger, Heggernes, Paul & Telle (STOC 2007 / SIAM J. Comput. 38(5), 2009) give a k^{O(k)}n^{O(1)} algorithm for Interval Completion parameterized by the number k of added edges, exactly the canonical task."
+ },
+ {
+  "problem_id": "job-interval-selection",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Spieksma (J. Scheduling 2 (1999) 215-227) proves both directions in one paper: a greedy 1/2-approximation (APX membership) and MAX SNP-hardness even with two intervals per job."
+ },
+ {
+  "problem_id": "k-edge-connected-subgraph",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Fernandes (J. Algorithms 28 (1998) 105-124) gives an improved constant-factor algorithm for minimum-size k-edge-connected spanning subgraph and proves the problem MAX SNP-hard, so both APX membership and APX-hardness come from the cited work."
+ },
+ {
+  "problem_id": "k-minimum-spanning-tree",
+  "charge": "approximation",
+  "value": "APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Garg (STOC 2005, 396-402) gives a 2-approximation for k-MST, establishing exactly the claimed constant-factor (APX) membership; no completeness is claimed."
+ },
+ {
+  "problem_id": "label-cover",
+  "charge": "approximation",
+  "value": "poly-APX",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Charikar, Hajiaghayi & Karloff (ESA 2009 / Algorithmica 61 (2011) 190-206) give an O(n^{1/3})-approximation for Max Rep (label-cover-max, maximize satisfied edges), which is poly-factor membership; the sub-polynomial 2^{log^{1-eps}n} hardness is correctly reported as not contradicting membership."
+ },
+ {
+  "problem_id": "list-coloring",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Fellows et al., On the complexity of some colorful problems parameterized by treewidth (COCOA 2007 / Inf. Comput. 209 (2011) 143-153) prove List Coloring is W[1]-hard parameterized by treewidth, exactly the canonical task."
+ },
+ {
+  "problem_id": "map-labeling",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Formann & Wagner (SoCG 1991, 281-288) give an O(n log n) factor-2 algorithm for maximizing the common label size AND show no polynomial algorithm with guarantee better than 1/2 exists unless P=NP, so algorithm + constant-gap hardness are both in the cited work."
+ },
+ {
+  "problem_id": "max-2sat",
+  "charge": "counting",
+  "value": "#P-complete",
+  "tier": "dear",
+  "funnel": "rn",
+  "verdict": "CITE",
+  "corrected_citation": "Valiant, The complexity of enumeration and reliability problems, SIAM Journal on Computing 8(3) (1979) 410-421",
+  "reason": "The value is right (#2-SAT is #P-complete even for monotone 2-CNF) but the per-problem proof is in Valiant's enumeration/reliability paper, not 'The complexity of computing the permanent' (TCS 8 (1979) 189-201), which proves #P-completeness of the permanent."
+ },
+ {
+  "problem_id": "max-2sat",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Hastad (JACM 48 (2001) 798-859) proves the binding direction, NP-hardness of (21/22+eps)-approximation for MAX-2-SAT; APX membership is immediate (random assignment gives 3/4, and 0.940 via Lewin-Livnat-Zwick)."
+ },
+ {
+  "problem_id": "max-2sat",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Mahajan & Raman (J. Algorithms 31 (1999) 335-354) establish FPT for MaxSat/Max-2-Sat parameterized by the number k of satisfied clauses (and go further, above the m/2 guarantee), matching the canonical task."
+ },
+ {
+  "problem_id": "max-dispersion",
+  "charge": "approximation",
+  "value": "APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Hassin, Rubinstein & Tamir (Oper. Res. Lett. 21 (1997) 133-137) give a 2-approximation for max dispersion (sum of intra-set pairwise distances, metric), exactly the claimed constant-factor membership."
+ },
+ {
+  "problem_id": "max-e3-sat",
+  "charge": "counting",
+  "value": "#P-complete",
+  "tier": "dear",
+  "funnel": "rn",
+  "verdict": "CITE",
+  "corrected_citation": "Valiant, The complexity of enumeration and reliability problems, SIAM Journal on Computing 8(3) (1979) 410-421 (#P-completeness of #SAT/#3-SAT via the parsimonious Cook-Levin reduction)",
+  "reason": "#3-SAT is genuinely #P-complete, but 'The complexity of computing the permanent' defines #P and proves the permanent complete; the per-problem #SAT/#3-SAT completeness belongs to the companion enumeration/reliability paper."
+ },
+ {
+  "problem_id": "max-e3-sat",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Hastad (JACM 48 (2001)) proves the tight 7/8+eps NP-hardness for MAX-E3-SAT; the matching 7/8 algorithm is the trivial random assignment, so the pair is exactly APX-complete."
+ },
+ {
+  "problem_id": "max-e3-sat",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Alon, Gutin, Kim, Szeider & Yeo, Solving MAX-r-SAT above a tight lower bound (SODA 2010 / Algorithmica 61 (2011) 638-655) prove FPT above the (1-2^{-r})m guarantee, which for r=3 is exactly the (7/8)m parameterization."
+ },
+ {
+  "problem_id": "max-k-cut",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "CITE",
+  "corrected_citation": "Frieze & Jerrum, Improved approximation algorithms for MAX k-CUT and MAX BISECTION, Algorithmica 18 (1997) 67-81 [algorithm] + Kann, Khanna, Lagergren & Panconesi, On the hardness of approximating Max k-Cut and its dual, Chicago J. Theoret. Comput. Sci. 1997 [no (1-1/(239k))-approx unless P=NP]",
+  "reason": "Value is right, but Frieze & Jerrum supply only the (essentially trivial) APX-membership side; the binding APX-hardness for Max k-Cut is Kann-Khanna-Lagergren-Panconesi (Papadimitriou-Yannakakis for k=2)."
+ },
+ {
+  "problem_id": "maximum-agreement-forest",
+  "charge": "approximation",
+  "value": "APX",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "CITE",
+  "corrected_citation": "Whidden & Zeh, A unifying view on approximation and FPT of agreement forests, WABI 2009, LNCS 5724, 390-402 (linear-/O(n log n)-time 3-approximation for rSPR, TBR and hybridization)",
+  "reason": "The constant-factor (3-)approximation is in the WABI 2009 paper; the cited Whidden, Beiko & Zeh, SIAM J. Comput. 42 (2013) 1431-1466 is the FPT/depth-bounded-search paper and contains no approximation algorithm."
+ },
+ {
+  "problem_id": "maximum-agreement-forest",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Bordewich & Semple (Annals of Combinatorics 8 (2004/05) 409-423) prove rSPR distance is NP-hard and fixed-parameter tractable in the distance k (= #MAF components - 1), exactly the canonical task."
+ },
+ {
+  "problem_id": "maximum-csp",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Creignou (JCSS 51 (1995) 511-522) proves the dichotomy that every MAX SAT(S) is either in PO or APX(MAX SNP)-complete, so APX-complete is the correct hard side for the generic bounded-arity Max CSP; the canonical_task correctly records the dichotomy caveat."
+ },
+ {
+  "problem_id": "maximum-feasible-linear-subsystem",
+  "charge": "approximation",
+  "value": "poly-APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Amaldi & Kann (TCS 147 (1995) 181-210) show MAX FLS with equations is not approximable within n^eps for some eps>0 while remaining polynomially bounded (satisfying one relation gives ratio <= m), i.e. poly-APX, matching the canonical task's 'equations version' qualifier."
+ },
+ {
+  "problem_id": "maximum-induced-matching",
+  "charge": "approximation",
+  "value": "poly-APX",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Chalermsook, Laekhanukit & Nanongkai (SODA 2013) prove n^{1-eps} inapproximability for Maximum Induced Matching; a single edge gives a trivial n-approximation, so poly-APX (not inapprox) is the right bucket."
+ },
+ {
+  "problem_id": "maximum-induced-matching",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Moser & Sikdar (Discrete Appl. Math. 157 (2009) 715-727) prove Induced Matching is W[1]-hard parameterized by the size of the matching (already on bipartite graphs)."
+ },
+ {
+  "problem_id": "maximum-minimal-vertex-cover",
+  "charge": "approximation",
+  "value": "poly-APX",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Boria, Della Croce & Paschos (WAOA 2013 / Discrete Appl. Math. 196 (2015) 62-71) give a polynomial algorithm with ratio n^{-1/2} and prove inapproximability within n^{eps-1/2} unless P=NP, i.e. tight poly-factor approximability."
+ },
+ {
+  "problem_id": "maximum-minimal-vertex-cover",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "CITE",
+  "corrected_citation": "Zehavi, Maximum Minimal Vertex Cover Parameterized by Vertex Cover, MFCS 2015 (LNCS 9235) / SIAM J. Discrete Math. 31(4) (2017) 2440-2456",
+  "reason": "Boria, Della Croce & Paschos state FPT only for solution size, treewidth and maximum matching size (the last implies vc only indirectly, since mu <= vc <= 2mu); the direct result for the vertex cover number vc(G) is Zehavi's."
+ },
+ {
+  "problem_id": "maximum-planar-subgraph",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Calinescu, Fernandes, Finkler & Karloff (J. Algorithms 27(2) (1998) 269-302) give the 4/9-approximation and prove Maximum Planar Subgraph MAX SNP-hard in the same paper."
+ },
+ {
+  "problem_id": "min-communication-cost-spanning-tree",
+  "charge": "approximation",
+  "value": "PTAS",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "CITE",
+  "corrected_citation": "Wu, Lancia, Bafna, Chao, Ravi & Tang, A polynomial-time approximation scheme for minimum routing cost spanning trees, SIAM J. Comput. 29(3) (2000) 761-778",
+  "reason": "The PTAS is real but the author list 'Wu, Lee, Chao & Tang' is wrong (correct: Wu, Lancia, Bafna, Chao, Ravi, Tang); also flag scope - the PTAS holds only for the uniform-requirement MRCT special case named in canonical_task, NOT for the general optimum/minimum communication-cost spanning tree (Garey & Johnson ND7), so the row must keep the MRCT qualifier."
+ },
+ {
+  "problem_id": "min-degree-spanning-tree",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Furer & Raghavachari (J. Algorithms 17 (1994) 409-423) give Delta*+1 (hence ratio <= 3/2, APX membership) and the matching constant-gap hardness is immediate from Hamiltonian Path (deciding Delta*=2 is NP-hard), so no PTAS; note the hardness is a 3/2-gap, not a formal PTAS-reduction, and the algorithm is additive."
+ },
+ {
+  "problem_id": "min-degree-spanning-tree",
+  "charge": "parameterized",
+  "value": "para-NP-hard",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Parameterized by the degree bound k, the problem is NP-hard already at the fixed value k=2 (Hamiltonian Path, Garey & Johnson ND1), which is exactly para-NP-hardness."
+ },
+ {
+  "problem_id": "min-sat",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "CITE",
+  "corrected_citation": "Marathe & Ravi, On approximation algorithms for the minimum satisfiability problem, Information Processing Letters 58(1) (1996) 23-29",
+  "reason": "Value is right (approximation-preserving equivalence with Min Vertex Cover gives both the 2-approximation and APX-hardness) but the venue is wrong: the paper is Information Processing Letters 58 (1996) 23-29, not Operations Research Letters."
+ },
+ {
+  "problem_id": "min-sum-set-cover",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Feige, Lovasz & Tetali (Algorithmica 40 (2004) 219-234) prove greedy is a 4-approximation for min sum set cover and that 4-eps is NP-hard, giving both directions in the cited work."
+ },
+ {
+  "problem_id": "minimum-common-string-partition",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Bulteau & Komusiewicz (SODA 2014) prove Minimum Common String Partition parameterized by the partition size k is fixed-parameter tractable, exactly the canonical task."
+ },
+ {
+  "problem_id": "minimum-consistent-dfa",
+  "charge": "approximation",
+  "value": "inapprox",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Pitt & Warmuth (JACM 40 (1993) 95-142) prove exactly the claim in their title - no OPT^k-approximation for any k - but note the ratio is measured against OPT, since a prefix-tree acceptor trivially yields O(n) states; the cell therefore relies on the OPT-relative reading of 'no polynomial approximation'."
+ },
+ {
+  "problem_id": "minimum-decision-tree",
+  "charge": "approximation",
+  "value": "log-APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "CITE",
+  "corrected_citation": "Chakaravarthy, Pandit, Roy, Awasthi & Mohania, Decision trees for entity identification, PODS 2007 / ACM Trans. Algorithms 7(2) (2011) [Omega(log N) hardness, O(sqrt(K) log N) upper] + Chakaravarthy, Pandit, Roy & Sabharwal, Approximating decision trees with multiway branches, ICALP 2009, LNCS 5555, 210-221 [O(log N) upper for arbitrary K]",
+  "reason": "The cited paper proves the Omega(log N) lower bound but its upper bound is O(sqrt(K) log N), which is O(log N) only for binary tables (K=2); the general O(log N) algorithm needed for the log-APX label is the ICALP 2009 follow-up."
+ }
+]

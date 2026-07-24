@@ -1,0 +1,315 @@
+[
+ {
+  "problem_id": "sharp-eulerian-circuits",
+  "charge": "counting",
+  "value": "#P-complete",
+  "tier": "dear",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Brightwell & Winkler (ALENEX/ANALCO 2005, 259-262; arXiv cs/0405067) prove exactly that counting Eulerian circuits of an UNDIRECTED graph is #P-complete (directed case is poly via BEST, correctly excluded by canonical_task)."
+ },
+ {
+  "problem_id": "sharp-eulerian-orientations",
+  "charge": "counting",
+  "value": "#P-complete",
+  "tier": "dear",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Mihail & Winkler, Algorithmica 16(4/5) (1996) 402-414, prove #Eulerian-orientations is #P-complete (and give the FPRAS); per-problem proof for this exact object."
+ },
+ {
+  "problem_id": "sharp-linear-extensions",
+  "charge": "counting",
+  "value": "#P-complete",
+  "tier": "dear",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Brightwell & Winkler, Order 8(3) (1991) 225-242, is the per-problem #P-completeness proof for counting linear extensions of a poset."
+ },
+ {
+  "problem_id": "sharp-matchings",
+  "charge": "counting",
+  "value": "#P-complete",
+  "tier": "dear",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Verified in the paper text: Jerrum (J. Stat. Phys. 48 (1987) 121-134) states 'Our aim is to prove that PLANAR MATCHINGS is #P-complete' (unweighted count of matchings of all sizes), which is exactly this object and a fortiori gives general graphs."
+ },
+ {
+  "problem_id": "sharp-monotone-2sat",
+  "charge": "counting",
+  "value": "#P-complete",
+  "tier": "dear",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Valiant, SIAM J. Comput. 8(3) (1979) 410-421, is the per-problem source for #Monotone-2-CNF being #P-complete although 2-SAT decision is in P."
+ },
+ {
+  "problem_id": "sharp-spanning-trees",
+  "charge": "counting",
+  "value": "FP",
+  "tier": "dear",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Kirchhoff's matrix-tree theorem gives the count as a Laplacian cofactor (a determinant), computable in poly time, so the counting function is in FP."
+ },
+ {
+  "problem_id": "sharp-dnf",
+  "charge": "counting",
+  "value": "#P-complete",
+  "tier": "dear",
+  "funnel": "rn",
+  "verdict": "CITE",
+  "corrected_citation": "Valiant, The complexity of enumeration and reliability problems, SIAM J. Comput. 8(3) (1979) 410-421",
+  "reason": "Value confirmed (#DNF is #P-complete even for monotone 2-DNF, equivalent to counting independent sets), but the citation garbles two distinct 1979 Valiant papers ('computing the permanent', TCS 8, vs 'enumeration and reliability problems', SICOMP 8(3)); only the latter carries this result."
+ },
+ {
+  "problem_id": "multiple-sequence-alignment",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Wang & Jiang, J. Comput. Biol. 1(4) (1994) 337-348, prove MSA under the SP (sum-of-pairs) score is NP-complete; the decision form is in NP since an optimal alignment has poly length."
+ },
+ {
+  "problem_id": "k-minimum-spanning-tree",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Ravi, Sundaram, Marathe, Rosenkrantz & Ravi, SIAM J. Discrete Math. 9(2) (1996) 178-200, prove k-MST (min-weight tree spanning >= k vertices) is NP-hard, even for points in the plane."
+ },
+ {
+  "problem_id": "maximum-csp",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Creignou, JCSS 51 (1995) 511-522, gives the P-vs-MAX-SNP-complete dichotomy for MAX-SAT(F); MAX SNP/APX-completeness on the hard side implies exact optimisation is NP-hard, so the '>= k satisfied constraints' decision form is NP-complete exactly under the stated condition."
+ },
+ {
+  "problem_id": "rectangle-tiling",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Verified in the paper text: KMP's Theorem states 'The RTILE problem is NP-hard, even in the case where the element weights are non-negative integers bounded by a constant', by a PLANAR-SAT reduction built so F is satisfiable iff A_F is tileable by p_F tiles of weight <= W - exactly the cited decision form."
+ },
+ {
+  "problem_id": "open-shop-scheduling",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Gonzalez & Sahni, JACM 23(4) (1976) 665-679, give the poly algorithm for m=2 and the NP-hardness of O||Cmax for m>=3, so the makespan <= T decision problem is NP-complete."
+ },
+ {
+  "problem_id": "broadcast-time",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Slater, Cockayne & Hedetniemi, SIAM J. Comput. 10(4) (1981) 692-701, establish NP-completeness of broadcast time in general graphs alongside the linear-time tree algorithm."
+ },
+ {
+  "problem_id": "minimum-sum-of-squares",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Value is right and the named source problems are the correct ones: with K=2 bins, convexity makes sum-of-squares <= 2(S/2)^2 equivalent to PARTITION, and 3-PARTITION gives strong NP-completeness; could not confirm the G&J appendix code online, so no code is asserted."
+ },
+ {
+  "problem_id": "balanced-vertex-separator",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Bui & Jones, IPL 42(3) (1992) 153-159, prove it is NP-hard even to approximate alpha-vertex separators to within an additive OPT+n^(1/2-eps), which subsumes exact NP-hardness of the balanced separator decision problem (in NP trivially)."
+ },
+ {
+  "problem_id": "min-sat",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Kohli, Krishnamurti & Mirchandani, SIAM J. Discrete Math. 7(2) (1994) 275-283, prove MIN-SAT is strongly NP-hard even with at most two literals per clause."
+ },
+ {
+  "problem_id": "boxicity",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "df",
+  "verdict": "CITE",
+  "corrected_citation": "Kratochvil, A special planar satisfiability problem and a consequence of its NP-completeness, Discrete Appl. Math. 52(3) (1994) 233-252 [k=2]; Yannakakis, The complexity of the partial order dimension problem, SIAM J. Algebraic Discrete Methods 3(3) (1982) 351-358 [k>=3]",
+  "reason": "Kratochvil alone only gives boxicity <= 2; the canonical_task's 'every fixed k >= 2' needs Yannakakis too - Bruhn, Chopin, Joos & Schaudt (Algorithmica 2015) state 'the problem remains NP-complete for constant d >= 2 (Yannakakis [22] and Kratochvil [16])'."
+ },
+ {
+  "problem_id": "cycle-packing",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "df",
+  "verdict": "CITE",
+  "corrected_citation": "Garey & Johnson, Computers and Intractability (1979), [GT11] Partition into Triangles (n/3 vertex-disjoint cycles in an n-vertex graph is exactly a triangle partition); cf. Bodlaender, On disjoint cycles, Int. J. Found. Comput. Sci. 5(1) (1994) 59-68 for the fixed-k O(n) algorithm",
+  "reason": "Object mismatch in the cited work: Krivelevich et al. is about EDGE-disjoint cycle packing (nu_e) in undirected graphs - its only NP-hardness sentence cites Dor & Tarsi for triangle decomposition - and its vertex-disjoint (VDC) results are integrality-gap/quasi-NP-hardness for DIRECTED graphs, not the undirected >= k vertex-disjoint cycles decision problem."
+ },
+ {
+  "problem_id": "maximum-agreement-forest",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Bordewich & Semple, Ann. Comb. 8(4) (2004/2005) 409-423, prove rSPR distance is NP-hard and that it equals (MAF component count - 1), so the MAF <= k decision form is NP-complete."
+ },
+ {
+  "problem_id": "unification",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "tier": "reliable",
+  "funnel": "ghr",
+  "verdict": "OK",
+  "reason": "Verified against GHR Problem A.6.9 (Unification), whose Reference line is Dwork, Kanellakis & Mitchell [96] with the reduction from Monotone Circuit Value - exactly the cited work."
+ },
+ {
+  "problem_id": "path-system-accessibility",
+  "charge": "decision",
+  "value": "P",
+  "tier": "reliable",
+  "funnel": "ghr",
+  "verdict": "OK",
+  "reason": "GHR bibliography [63]/[64] is Cook's 'An observation on time-storage trade off' (STOC 1973, 29-33 / JCSS 9(3) (1974) 308-316), the first P-completeness result (Path Systems, GHR A.6.8); P-completeness entails the claimed membership in P."
+ },
+ {
+  "problem_id": "and-or-graph-accessibility",
+  "charge": "decision",
+  "value": "P",
+  "tier": "reliable",
+  "funnel": "ghr",
+  "verdict": "OK",
+  "reason": "GHR Problem A.2.3 (Alternating/and-or Graph Accessibility) lists Immerman [168] = 'Number of quantifiers is better than number of tape cells', JCSS 22(3) (1981) 384-406 - exactly the cited paper; alternating reachability closure is in P (P-complete with Chandra-Kozen-Stockmeyer's ALOG=P)."
+ },
+ {
+  "problem_id": "breadth-depth-search",
+  "charge": "decision",
+  "value": "P",
+  "tier": "reliable",
+  "funnel": "ghr",
+  "verdict": "OK",
+  "reason": "GHR bibliography [139] is exactly Greenlaw, 'Breadth-depth search is P-complete', Parallel Processing Letters 3(3) (1993) 209-222 (GHR Problem A.3.4); P-completeness entails the claimed membership in P."
+ },
+ {
+  "problem_id": "lex-first-maximal-independent-set",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "tier": "reliable",
+  "funnel": "ghr",
+  "verdict": "OK",
+  "reason": "GHR Problem A.2.1 Reference is Cook [67] = 'A taxonomy of problems with fast parallel algorithms', Information and Control 64(1-3) (1985) 2-22, and GHR Theorem 7.1.2 credits LFMIS P-completeness to it - exactly the cited work."
+ },
+ {
+  "problem_id": "dfs-lexicographic-ordering",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "tier": "reliable",
+  "funnel": "ghr",
+  "verdict": "CITE",
+  "corrected_citation": "Reif, Depth-first search is inherently sequential, Information Processing Letters 20(5) (1985) 229-234; GHR, Limits to Parallel Computation (1995), Problem A.3.3 (LFDFS)",
+  "reason": "Value confirmed (GHR A.3.3 LFDFS, Reference: Reif [300]) but the row's citation is a bare 'Reif (1985); GHR (1995)' with no title, journal, volume or pages, unlike every other row in the batch."
+ },
+ {
+  "problem_id": "multicut",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Garg, Vazirani & Yannakakis, SIAM J. Comput. 25(2) (1996) 235-251, is the standard source for Multicut being NP-hard and MAX SNP-hard already at k=3 terminal pairs (k<=2 is min-cut, in P)."
+ },
+ {
+  "problem_id": "sharp-eulerian-circuits",
+  "charge": "decision",
+  "value": "P",
+  "tier": "reliable",
+  "funnel": "rn",
+  "verdict": "CITE",
+  "corrected_citation": "Euler, Solutio problematis ad geometriam situs pertinentis, Comment. Acad. Sci. Petropol. 8 (1736) 128-140 (necessity); Hierholzer, Ueber die Moeglichkeit, einen Linienzug ohne Wiederholung und ohne Unterbrechung zu umfahren, Math. Ann. 6 (1873) 30-32 (sufficiency)",
+  "reason": "Value is right (connectivity + all-even-degrees is linear-time checkable) but Euler's 1736 paper establishes only the NECESSARY condition; the sufficiency half of the characterisation the row relies on was first proved by Hierholzer (1873)."
+ },
+ {
+  "problem_id": "sharp-acyclic-orientations",
+  "charge": "decision",
+  "value": "P",
+  "tier": "reliable",
+  "funnel": "rn",
+  "verdict": "CITE",
+  "corrected_citation": "Immediate/folklore: any linear order on V induces an acyclic orientation, so existence is trivially YES for every loopless graph; Stanley, Acyclic orientations of graphs, Discrete Math. 5 (1973) 171-178, is the COUNTING companion (chi(-1)), not the source of this decision fact",
+  "reason": "Charge/object mismatch: Stanley (1973) is about counting acyclic orientations via the chromatic polynomial at -1 and establishes nothing about the (trivial) existence decision problem this row states."
+ },
+ {
+  "problem_id": "max-2sat",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Garey, Johnson & Stockmeyer, Theoret. Comput. Sci. 1(3) (1976) 237-267, prove MAX-2-SAT NP-complete; the decoupling note (2-SAT in P) is correct."
+ },
+ {
+  "problem_id": "vehicle-routing",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Lenstra & Rinnooy Kan, Networks 11(2) (1981) 221-227, establish NP-hardness of capacitated vehicle routing (and essentially all its variants); the length <= B decision form is in NP."
+ },
+ {
+  "problem_id": "total-coloring",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Sanchez-Arroyo, Discrete Math. 78 (1989) 315-319, proves determining the total chromatic number is NP-hard, even for cubic bipartite graphs, i.e. deciding chi''(G) = Delta+1 is NP-complete."
+ },
+ {
+  "problem_id": "equitable-coloring",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "rn",
+  "verdict": "CITE",
+  "corrected_citation": "Bodlaender & Jansen, Restrictions of graph partition problems. Part I, Theoret. Comput. Sci. 148(1) (1995) 93-109 (equitable/bounded colouring NP-complete on bipartite and interval graphs)",
+  "reason": "Bodlaender & Fomin (TCS 349 (2005) 22-30) is a POSITIVE-results paper - poly-time equitable colouring for bounded treewidth - and only remarks in passing that 'coloring can be trivially reduced to equitable coloring'; it is not the source of the NP-completeness this row claims."
+ },
+ {
+  "problem_id": "graph-homomorphism",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Hell & Nesetril, JCTB 48(1) (1990) 92-110, is exactly the H-colouring dichotomy: poly iff H is bipartite or has a loop, NP-complete for every other fixed H."
+ },
+ {
+  "problem_id": "integer-expression-membership",
+  "charge": "decision",
+  "value": "NPC",
+  "tier": "reliable",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Stockmeyer & Meyer, STOC 1973, 1-9, prove the membership problem for integer expressions over {union, +} is NP-complete - the exact operation set in the canonical_task."
+ }
+]

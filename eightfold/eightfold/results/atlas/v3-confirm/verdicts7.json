@@ -1,0 +1,318 @@
+[
+ {
+  "problem_id": "rectilinear-steiner-tree",
+  "charge": "approximation",
+  "value": "PTAS",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Arora's geometric PTAS is stated for l_p metrics including rectilinear (l_1) and explicitly covers Steiner tree, so a PTAS for rectilinear Steiner minimum tree is established for this exact object."
+ },
+ {
+  "problem_id": "rectilinear-steiner-tree",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Hanan's theorem puts an optimal RSMT on the O(k^2)-node Hanan grid of the k terminals, and Dreyfus-Wagner then solves Steiner tree in O(3^k n + 2^k n^2 + n^3), which is FPT in k."
+ },
+ {
+  "problem_id": "red-blue-set-cover",
+  "charge": "approximation",
+  "value": "inapprox",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "FIX",
+  "corrected_value": "poly-APX",
+  "corrected_citation": "Peleg, Approximation algorithms for the Label-Cover_MAX and Red-Blue Set Cover problems, J. Discrete Algorithms 5 (2007) 55-64 (2*sqrt(n)*log(beta)-approximation); hardness: Carr, Doddi, Konjevod & Marathe, SODA 2000, 345-353 (2^(log^(1-eps) n), unless NP is in DTIME(n^polylog))",
+  "reason": "F-2 violation: Peleg gives an O(sqrt(n) log beta)-approximation, so a polynomial-factor approximation exists, and the Carr et al. 2^(log^(1-eps) n) bound is sub-polynomial and conditional on the quasi-polynomial assumption, not P!=NP - both disqualify `inapprox` under the pinned SCHEMA definition."
+ },
+ {
+  "problem_id": "resource-constrained-scheduling",
+  "charge": "approximation",
+  "value": "APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "CITE",
+  "corrected_citation": "Garey & Graham, Bounds for multiprocessor scheduling with resource constraints, SIAM J. Comput. 4 (1975) 187-200 (list scheduling within s+2-(2s+1)/m, i.e. 3-3/m for s=1); Niemeier & Wiese, Scheduling with an orthogonal resource constraint, Algorithmica 71 (2015) 837-858 ((2+eps) for a SINGLE additional resource) - scope: s = O(1)",
+  "reason": "The cited constant-factor results hold only for a fixed number of resources (Garey-Graham's ratio is s+2-(2s+1)/m; Niemeier-Wiese is the single-resource case), whereas the row's canonical encoding leaves s in the input - with s unbounded the problem encodes graph coloring (one bound-1 resource per edge) and is n^(1-eps)-inapproximable, so the cell must pin s = O(1)."
+ },
+ {
+  "problem_id": "roman-domination",
+  "charge": "approximation",
+  "value": "log-APX",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "CITE",
+  "corrected_citation": "Feige, A threshold of ln n for approximating set cover, JACM 45 (1998) 634-652 (log-hardness transfers via gamma <= gamma_R <= 2*gamma, Cockayne, Dreyer, Hedetniemi & Hedetniemi, Discrete Math. 278 (2004) 11-22); O(ln n) upper bound from greedy set cover on closed neighborhoods",
+  "reason": "Value is right (Theta(log n): greedy gives O(ln n), and the sandwich gamma <= gamma_R <= 2*gamma transfers the (1-eps)ln n Dominating Set/Set Cover lower bound up to a factor 2), but Chlebik & Chlebikova's paper covers dominating/connected/total/independent domination in BOUNDED-DEGREE graphs and does not treat Roman domination or prove a (1-eps)ln n bound."
+ },
+ {
+  "problem_id": "roman-domination",
+  "charge": "parameterized",
+  "value": "W[2]+",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Fernau's paper proves Roman Domination parameterized by solution weight is W[2]-complete on general graphs (FPT on planar), matching the cell's W[2]+ claim and its parameter."
+ },
+ {
+  "problem_id": "set-splitting",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Max Set Splitting is APX-complete with Petrank 1994 as the standard hardness reference (Kann's compendium entry SP4 lists exactly this) and a 1.380-approximation (Andersson & Engebretsen) on the algorithm side."
+ },
+ {
+  "problem_id": "set-splitting",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Dehne, Fellows & Rosamond (WG 2003) give an FPT algorithm for splitting at least k sets, exactly the parameter named in the canonical task."
+ },
+ {
+  "problem_id": "shortest-common-supersequence",
+  "charge": "approximation",
+  "value": "poly-APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Jiang & Li establish SCS is not in APX (no constant-factor approximation), while a trivial (|R|+3)/4-factor approximation exists, which is exactly polynomial-factor approximability."
+ },
+ {
+  "problem_id": "shortest-common-supersequence",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Pietrzak (JCSS 2003) proves W[1]-hardness of fixed-alphabet SCS parameterized by the number of input strings, matching the object and parameter."
+ },
+ {
+  "problem_id": "sorting-by-reversals",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Berman & Karpinski (ICALP 1999) give the explicit APX-hardness (1237/1236) for unsigned reversal distance, and the 1.375-approximation of Berman, Hannenhalli & Karpinski (ESA 2002) supplies membership - both halves hold for this object."
+ },
+ {
+  "problem_id": "sorting-by-transpositions",
+  "charge": "approximation",
+  "value": "APX",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Elias & Hartman's 1.375-approximation establishes constant-factor membership for transposition distance; the cell claims membership only, not APX-hardness (which is not known)."
+ },
+ {
+  "problem_id": "stacker-crane",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Frederickson, Hecht & Kim give the 9/5-approximation for the metric stacker crane problem, and APX-hardness follows since metric TSP is the special case of degenerate arcs."
+ },
+ {
+  "problem_id": "string-folding",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "FIX",
+  "corrected_value": "APX",
+  "corrected_citation": "Hart & Istrail, Fast protein folding in the hydrophobic-hydrophilic model within three-eighths of optimal, J. Comput. Biol. 3 (1996) 53-96 (3/8 in 3D, 1/4 in 2D - constant-factor membership); NP-hardness of the binary HP model: Crescenzi, Goldman, Papadimitriou, Piccolboni & Yannakakis 1998 (2D) and Berger & Leighton 1998 (3D)",
+  "reason": "Check-2 object mismatch: Nayak-Sinclair-Zwick prove MAX SNP-hardness (and only under randomized reductions) for string folding over a SUITABLY LARGE fixed alphabet with score = adjacent equal-symbol pairs, not for the row's binary {H,P} HP encoding with H-H contacts, so APX-hardness is not established for this object - only APX membership (Hart-Istrail) is."
+ },
+ {
+  "problem_id": "strip-packing",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "For the absolute ratio (R19) Harren, Jansen, Praedel & van Stee give (5/3+eps) and the 3/2 lower bound from Partition is standard, so APX-completeness holds for the pinned absolute-ratio object (the asymptotic object, which has an AFPTAS, is correctly excluded)."
+ },
+ {
+  "problem_id": "target-set-selection",
+  "charge": "approximation",
+  "value": "inapprox",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "FIX",
+  "corrected_value": "poly-APX",
+  "corrected_citation": "Chen, On the approximability of influence in social networks, SIAM J. Discrete Math. 23 (2009) 1400-1415 (no O(2^(log^(1-eps) n))-approximation unless NP is in DTIME(n^polylog(n))); membership: trivial n-approximation by seeding all vertices",
+  "reason": "F-2 violation: Chen's bound is 2^(log^(1-eps) n) = n^o(1), sub-polynomial and conditional on the quasi-polynomial assumption rather than P!=NP, while seeding all of V is a feasible n-approximation - so the cell is poly-APX, not `inapprox`."
+ },
+ {
+  "problem_id": "target-set-selection",
+  "charge": "parameterized",
+  "value": "W[2]+",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "CITE",
+  "corrected_citation": "Nichterlein, Niedermeier, Uhlmann & Weller, On tractable cases of Target Set Selection, Social Network Analysis and Mining 3 (2013) 233-256 (W[2]-hard w.r.t. solution size, even on bipartite diameter-4 graphs with majority thresholds or thresholds <= 2); stronger: Bazgan, Chopin, Nichterlein & Sikora, Computability 3 (2014) 135-145 (no FPT rho(k)-approximation unless FPT=W[P]); treewidth: Ben-Zwi, Hermelin, Lokshtanov & Newman, Discrete Optimization 8 (2011) 87-96",
+  "reason": "Value W[2]+ is correct, but Chen 2009 is a polynomial-time approximability paper and does not prove the parameterized hardness; the W[2]-hardness w.r.t. seed-set size is due to Nichterlein et al. (and is subsumed by the W[P]-level result of Bazgan et al.)."
+ },
+ {
+  "problem_id": "total-coloring",
+  "charge": "approximation",
+  "value": "APX",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Molloy & Reed's chi'' <= Delta + C supports the additive-constant claim, and constant-factor membership is independently airtight (greedy vertex coloring plus Misra-Gries edge coloring on disjoint palettes gives 2(Delta+1) <= 2*chi''); no APX-hardness is asserted."
+ },
+ {
+  "problem_id": "total-coloring",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "CITE",
+  "corrected_citation": "Isobe, Zhou & Nishizeki, A polynomial-time algorithm for finding total colorings of partial k-trees, Int. J. Found. Comput. Sci. 10 (1999) 171-194 (linear-time version: A linear algorithm for finding total colorings of partial k-trees, ISAAC 1999, LNCS 1741, 347-356)",
+  "reason": "Value FPT is correct but Courcelle's theorem alone does not justify it for parameter = treewidth: chi'' >= Delta+1 and Delta is unbounded on bounded-treewidth graphs (stars), so the number of colors is not a function of tw and the MSO formula is not fixed; the FPT result needs Isobe-Zhou-Nishizeki (chi'' = Delta+1 once Delta is large relative to k, plus a DP otherwise)."
+ },
+ {
+  "problem_id": "total-dominating-set",
+  "charge": "approximation",
+  "value": "log-APX",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Total Dominating Set is literally Set Cover on open neighborhoods (greedy gives O(ln n)) and Chlebik & Chlebikova's paper does explicitly cover total domination approximation hardness, with logarithmic-in-Delta lower bounds; the (1-eps)ln|V| statement for TDS is standard and consistent with that source."
+ },
+ {
+  "problem_id": "total-dominating-set",
+  "charge": "parameterized",
+  "value": "W[2]+",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Dominating Set is W[2]-complete (Downey & Fellows), and the same construction gives W[2]-hardness for Total Dominating Set w.r.t. solution size, as the canonical task transparently states."
+ },
+ {
+  "problem_id": "triangle-packing",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Kann's compendium entry GT11 lists Maximum Triangle Packing as APX-complete citing exactly Kann 1991 (even for maximum degree 4), with a (3/2+eps)-approximation from Hurkens & Schrijver."
+ },
+ {
+  "problem_id": "triangle-packing",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "k vertex-disjoint triangles form a 3k-vertex pattern of treewidth 2, which is exactly the subgraph class Alon-Yuster-Zwick color-coding handles in 2^O(k)*poly(n) time."
+ },
+ {
+  "problem_id": "ultrametric-tree-fitting",
+  "charge": "approximation",
+  "value": "APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "The row's canonical encoding is L-infinity TREE-METRIC fitting, for which Agarwala et al. give the 3-approximation via the exactly-solvable closest ultrametric (Farach-Kannan-Warnow); the norm/object caveat is already recorded in the row's note, so no mismatch."
+ },
+ {
+  "problem_id": "unrelated-machine-scheduling",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Lenstra, Shmoys & Tardos prove both halves for R||Cmax in one paper: a 2-approximation and 3/2-inapproximability unless P=NP."
+ },
+ {
+  "problem_id": "unsplittable-flow",
+  "charge": "approximation",
+  "value": "poly-APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Guruswami et al. give both the O(sqrt(m)) throughput approximation and the m^(1/2-eps) hardness inherited from edge-disjoint paths, which is exactly polynomial-factor approximability."
+ },
+ {
+  "problem_id": "upper-domination",
+  "charge": "approximation",
+  "value": "poly-APX",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Bazgan et al. prove Upper Domination admits no n^(1-eps)-approximation unless P=NP (as hard as Independent Set), while the trivial n-factor bound gives membership - poly-APX is the right bucket."
+ },
+ {
+  "problem_id": "upper-domination",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Bazgan et al. prove k-Upper Dominating Set is W[1]-hard for the standard parameter (reduction from k-Independent Set), matching the cell exactly."
+ },
+ {
+  "problem_id": "vector-bin-packing",
+  "charge": "approximation",
+  "value": "APX",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "For the row's fixed d >= 2 encoding, constant-factor approximations exist and Woeginger's result rules out an asymptotic PTAS, which is precisely the APX (membership, no APTAS) claim made."
+ },
+ {
+  "problem_id": "vehicle-routing",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Haimovich & Rinnooy Kan's iterated-tour-partitioning gives a constant factor for metric CVRP, and APX-hardness follows because metric TSP is the special case Q >= total demand."
+ },
+ {
+  "problem_id": "weighted-completion-time-scheduling",
+  "charge": "approximation",
+  "value": "PTAS",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Skutella & Woeginger's paper is precisely a PTAS for minimizing total weighted completion time on identical parallel machines, the object named in the canonical task."
+ },
+ {
+  "problem_id": "sharp-acyclic-orientations",
+  "charge": "counting",
+  "value": "#P-complete",
+  "tier": "dear",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Linial's paper contains the per-problem proof that counting acyclic orientations of a graph (equivalently |P(G,-1)|) is #P-complete."
+ },
+ {
+  "problem_id": "sharp-antichains",
+  "charge": "counting",
+  "value": "#P-complete",
+  "tier": "dear",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Provan & Ball prove #P-completeness for counting antichains / order ideals of a poset (the two are in bijection), so this is a per-problem proof, not a generic stamp."
+ },
+ {
+  "problem_id": "sharp-contingency-tables",
+  "charge": "counting",
+  "value": "#P-complete",
+  "tier": "dear",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Dyer, Kannan & Mount prove exact counting of contingency tables with prescribed row and column sums is #P-complete, already for two rows, alongside their sampling algorithm."
+ }
+]

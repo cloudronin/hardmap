@@ -1,0 +1,317 @@
+[
+ {
+  "problem_id": "autoepistemic-logic",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Gottlob, J. Logic and Computation 2(3):397-425 (1992) proves brave/credulous reasoning in autoepistemic logic (membership of phi in some stable expansion) Sigma_2^p-complete, exactly the canonical task."
+ },
+ {
+  "problem_id": "circumscription",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Eiter & Gottlob, Theoret. Comput. Sci. 114(2):231-245 (1993) is titled and proves exactly 'propositional circumscription ... is Pi_2^p-complete', i.e. inference over all subset-minimal models."
+ },
+ {
+  "problem_id": "competitive-facility-location",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "CITE",
+  "corrected_citation": "Noltemeier, Spoerhase & Wirth, Multiple voting location and single voting location on trees, European J. Oper. Res. 181(2) (2007) 654-667 [discrete (r|p)-centroid Sigma_2^p-hard; Sigma_2^p membership immediate]; see also Davydov, Kochetov & Plyasunov, On the complexity of the (r|p)-centroid problem in the plane, TOP 22(2) (2014) 614-623",
+  "reason": "Grune & Wulf's meta-theorem covers only min-max (interdiction/blocker/regret) and min-max-min (two-stage) variants of SSP-NPc problems -- Uncapacitated Facility Location appears only as such a nominal problem -- and never treats the (r|p)-centroid / 2-round Stackelberg location game named in the canonical task."
+ },
+ {
+  "problem_id": "credulous-semistable-argumentation",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Dvorak & Woltran, Inf. Process. Lett. 110(11):425-430 (2010) establishes credulous acceptance under semi-stable semantics as Sigma_2^p-complete."
+ },
+ {
+  "problem_id": "credulous-semistable-argumentation",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "CITE",
+  "corrected_citation": "Dvorak, Szeider & Woltran, Abstract Argumentation via Monadic Second Order Logic, SUM 2012, LNCS 7520, 85-98 (Theorem 2 + MSO encodings for semi-stable/stage) [also DBAI-TR-2012-79]",
+  "reason": "Dvorak, Pichler & Woltran (AIJ 186, 2012) does not cover semi-stable semantics -- its tech-report/KR version lists complete, stable, stage and semi-stable explicitly as future work -- whereas Dvorak, Szeider & Woltran give the MSO encoding of semi-stable plus Theorem 2 stating credulous/skeptical acceptance is FPT w.r.t. treewidth."
+ },
+ {
+  "problem_id": "credulous-stage-argumentation",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Dvorak & Woltran, Inf. Process. Lett. 110(11):425-430 (2010) extends the semi-stable bounds to stage semantics, giving credulous acceptance Sigma_2^p-complete."
+ },
+ {
+  "problem_id": "credulous-stage-argumentation",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "CITE",
+  "corrected_citation": "Dvorak, Szeider & Woltran, Abstract Argumentation via Monadic Second Order Logic, SUM 2012, LNCS 7520, 85-98 (Theorem 2 + MSO encoding for stage semantics) [also DBAI-TR-2012-79]",
+  "reason": "Dvorak, Pichler & Woltran (AIJ 186, 2012) does not cover stage semantics (Fichte/Hecher/Meier 2019 note a treewidth DP for stage 'has been missing' before their work), while Dvorak, Szeider & Woltran give an MSO encoding of stage and Theorem 2 yielding FPT w.r.t. treewidth."
+ },
+ {
+  "problem_id": "default-logic",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Gottlob, J. Logic and Computation 2(3):397-425 (1992) proves brave/credulous reasoning in propositional default logic (phi in some extension of (W,D)) Sigma_2^p-complete."
+ },
+ {
+  "problem_id": "disjunctive-asp",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Eiter & Gottlob, Ann. Math. Artif. Intell. 15(3-4):289-323 (1995) establishes Sigma_2^p-completeness of stable-model existence and brave reasoning for propositional disjunctive programs."
+ },
+ {
+  "problem_id": "disjunctive-asp",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Jakl, Pichler & Woltran (IJCAI 2009, 816-822) give a tree-decomposition DP for disjunctive programs running linear in program size and double exponential in the treewidth of the program's graph representation, i.e. FPT."
+ },
+ {
+  "problem_id": "judgment-aggregation",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "FIX",
+  "corrected_value": "PH-complete",
+  "corrected_citation": "Endriss, de Haan, Lang & Slavkovik, The complexity landscape of outcome determination in judgment aggregation, JAIR 69 (2020) 687-731, Table 1 and Theorems 4.20-4.21 [Ranked-agenda rule Sigma_2^p-complete]",
+  "reason": "Table 1 of the cited paper gives the Kemeny rule as Theta_2^p-complete (not Sigma_2^p), so the canonical task's 'e.g. ranked-agenda / Kemeny-style' example must be narrowed to the Ranked-agenda (or Condorcet) rule, the only Sigma_2^p-complete rules; the paper's genuinely hardest rules (AvgGeo, MaxGeo) are Theta_3^p-complete."
+ },
+ {
+  "problem_id": "minimal-model-checking",
+  "charge": "decision",
+  "value": "coNP-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Cadoli, Inf. Process. Lett. 44(3):113-118 (1992) proves model checking for propositional circumscriptive formulae -- i.e. deciding whether a given model is subset-minimal -- coNP-complete."
+ },
+ {
+  "problem_id": "min-max-regret",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Grune & Wulf (arXiv:2311.10540 / IPCO 2025) Section 5 proves Interval Min-Max Regret-Pi is Sigma_2^p-complete for every Pi in SSP-NPc (25 classical NP-complete problems), matching the canonical task's conditional statement."
+ },
+ {
+  "problem_id": "network-interdiction",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Grune & Wulf Section 4 (Definition 11, Lemma 13 and the meta-reduction) proves Combinatorial Interdiction-Pi and the minimum-cost blocker problem Sigma_2^p-complete for every Pi in SSP-NPc, i.e. exists-interdiction / forall-follower-response with an NP-complete nominal problem."
+ },
+ {
+  "problem_id": "bilevel-integer-programming",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Jeroslow, Math. Programming 32:146-164 (1985) places the k-level integer programming game complete for Sigma_k^p, giving Sigma_2^p-completeness for the bilevel 0/1 IP decision problem (Sigma_2^p membership immediate for bounded-integer variables)."
+ },
+ {
+  "problem_id": "robust-csp",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OPEN",
+  "reason": "de Haan & Szeider (KR 2014 / arXiv:1312.1672, App. A.2.2) state only that the parameterized Robust-CSP-SAT is forall_k-exists_*-complete and make no classical Pi_2^p claim; the origin papers they cite (Gottlob AIJ 2012; Abramsky, Gottlob & Kolaitis IJCAI 2013) give NP-completeness for fixed-k robust colourability/satisfiability, so no verified source establishes Pi_2^p-completeness with k in the input."
+ },
+ {
+  "problem_id": "robust-csp",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OPEN",
+  "reason": "The cited paper contains no treewidth result for Robust-CSP (its only parameter for that problem is k, and its bounded-treewidth section is about QSat2 alone), and the claim is doubtful as stated because CSP with unbounded domain size is |D|^{O(w)} i.e. XP, not FPT, in the primal treewidth w."
+ },
+ {
+  "problem_id": "3-coloring-extension",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "CITE",
+  "corrected_citation": "Ajtai, Fagin & Stockmeyer, The closure of monadic NP, J. Comput. System Sci. 60(3) (2000) 660-716 [3-coloring extension Pi_2^p-complete]; restated in de Haan & Szeider, KR 2014, App. A.3.2",
+  "reason": "de Haan & Szeider do not prove the Pi_2^p-completeness -- they state it 'in the most general setting' and attribute it to reference [2] = Ajtai, Fagin & Stockmeyer -- and their own object quantifies over 3-colourings of exactly m leaves rather than a fixed distinguished set L."
+ },
+ {
+  "problem_id": "3-coloring-extension",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OPEN",
+  "reason": "de Haan & Szeider parameterize 3-Coloring-Extension only by degree, #leaves, #coloured leaves and #uncoloured leaves (para-Pi_2^p / para-NP / forall_k-exists_*-complete respectively) and prove no treewidth result, and the input-dependent cardinality constraint 'exactly m coloured leaves' blocks a straightforward Courcelle argument."
+ },
+ {
+  "problem_id": "skeptical-semistable-argumentation",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Dvorak & Woltran, Inf. Process. Lett. 110(11):425-430 (2010) shows Pi_2^p-completeness of skeptical acceptance under semi-stable semantics, its headline result."
+ },
+ {
+  "problem_id": "skeptical-semistable-argumentation",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "CITE",
+  "corrected_citation": "Dvorak, Szeider & Woltran, Abstract Argumentation via Monadic Second Order Logic, SUM 2012, LNCS 7520, 85-98 (Theorem 2: skeptical acceptance FPT w.r.t. treewidth for any MSO-expressible semantics; semi-stable encoded)",
+  "reason": "Dvorak, Pichler & Woltran (AIJ 186, 2012) restricts its tree-decomposition algorithms to admissible/preferred-style semantics and lists semi-stable as future work, so it does not establish the treewidth-FPT claim for semi-stable skeptical acceptance."
+ },
+ {
+  "problem_id": "skeptical-stage-argumentation",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Dvorak & Woltran, Inf. Process. Lett. 110(11):425-430 (2010) extends its bounds to stage semantics, giving skeptical acceptance Pi_2^p-complete."
+ },
+ {
+  "problem_id": "skeptical-stage-argumentation",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "CITE",
+  "corrected_citation": "Dvorak, Szeider & Woltran, Abstract Argumentation via Monadic Second Order Logic, SUM 2012, LNCS 7520, 85-98 (Theorem 2: skeptical acceptance FPT w.r.t. treewidth; stage semantics MSO-encoded)",
+  "reason": "The cited Dvorak, Pichler & Woltran paper does not treat stage semantics at all (it names stage as future work), so the treewidth-FPT claim rests on the MSO/Courcelle route of Dvorak, Szeider & Woltran instead."
+ },
+ {
+  "problem_id": "two-stage-adjustable-robust",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Goerigk, Lendl & Wulf, Discrete Appl. Math. 343 (2024) 355-370 (arXiv:2209.01011) proves Sigma_3^p-completeness of two-stage adjustable robust problems with discrete budgeted uncertainty, exactly the exists/forall/exists object claimed."
+ },
+ {
+  "problem_id": "conformant-planning",
+  "charge": "decision",
+  "value": "beyond-PSPACE",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Haslum & Jonsson (ECP 1999) prove non-branching (conformant) plan existence in unobservable domains with the expressive operator formalism EXPSPACE-complete, matching the canonical task."
+ },
+ {
+  "problem_id": "ctl-satisfiability",
+  "charge": "decision",
+  "value": "beyond-PSPACE",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Emerson & Halpern, JCSS 30(1) (1985) 1-24 give the exponential-time decision procedure and Remark 5.2 states the deterministic-exponential-time lower bound for PDL carries over to CTL, i.e. EXPTIME-completeness."
+ },
+ {
+  "problem_id": "dfa-intersection-emptiness",
+  "charge": "decision",
+  "value": "PSPACE-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Kozen, Lower bounds for natural proof systems, FOCS 1977, 254-266 is the standard source for PSPACE-completeness of finite-automata intersection non-emptiness, whose complement is equally PSPACE-complete."
+ },
+ {
+  "problem_id": "generalized-checkers",
+  "charge": "decision",
+  "value": "beyond-PSPACE",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Robson, 'N by N Checkers is Exptime Complete', SIAM J. Comput. 13(2) (1984) 252-267 establishes exactly EXPTIME-completeness of the n x n Checkers winning-strategy decision."
+ },
+ {
+  "problem_id": "generalized-chess",
+  "charge": "decision",
+  "value": "beyond-PSPACE",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Fraenkel & Lichtenstein, J. Combin. Theory Ser. A 31 (1981) 199-214 proves n x n chess EXPTIME-complete."
+ },
+ {
+  "problem_id": "generalized-go",
+  "charge": "decision",
+  "value": "beyond-PSPACE",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Robson, The complexity of Go, IFIP Congress 1983, 413-417 proves EXPTIME-completeness for n x n Go under the Japanese ko rule (the superko variant is a different, EXPSPACE-hard object, correctly excluded here)."
+ },
+ {
+  "problem_id": "generalized-gomoku",
+  "charge": "decision",
+  "value": "PSPACE-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Reisch, 'Gobang ist PSPACE-vollstandig', Acta Informatica 13 (1980) 59-66 establishes PSPACE-completeness of generalized Gomoku/Gobang."
+ },
+ {
+  "problem_id": "generalized-hex",
+  "charge": "decision",
+  "value": "PSPACE-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Even & Tarjan, J. ACM 23(4) (1976) 710-719 proves PSPACE-completeness of exactly the generalized Hex / vertex Shannon switching game on arbitrary graphs."
+ },
+ {
+  "problem_id": "independent-set-reconfiguration",
+  "charge": "decision",
+  "value": "PSPACE-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "CITE",
+  "corrected_citation": "Ito, Demaine, Harvey, Papadimitriou, Sideri, Uehara & Uno, On the complexity of reconfiguration problems, Theoret. Comput. Sci. 412(12-14) (2011) 1054-1065 [independent set reconfiguration s-t reachability PSPACE-complete]; Hearn & Demaine, Theoret. Comput. Sci. 343(1-2) (2005) 72-96, Thm 23 covers the token-sliding variant only",
+  "reason": "Hearn & Demaine's Theorem 23 decides whether a given token can ever move (configuration-to-edge) under token sliding only, not s-t reachability between two given configurations, and covers neither token jumping nor token addition-removal, which the canonical task also claims."
+ },
+ {
+  "problem_id": "intuitionistic-propositional-logic",
+  "charge": "decision",
+  "value": "PSPACE-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Statman, Theoret. Comput. Sci. 9(1) (1979) 67-72 is titled and proves 'Intuitionistic propositional logic is polynomial-space complete'."
+ }
+]

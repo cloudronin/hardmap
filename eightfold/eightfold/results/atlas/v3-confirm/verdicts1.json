@@ -1,0 +1,312 @@
+[
+ {
+  "problem_id": "chromatic-number",
+  "charge": "counting",
+  "value": "#P-complete",
+  "tier": "dear",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "F-1 satisfied per-problem: Jaeger-Vertigan-Welsh (1990) prove #P-hardness of evaluating the Tutte polynomial at every point off the exceptional set; the chromatic polynomial is the line (x,y)=(1-k,0), so evaluating P(G,k) is #P-hard for every k>=3 (only q=0,1,2 are easy). Membership in #P is immediate for counting proper k-colorings. Not a generic 'count an NP-complete problem's witnesses' stamp."
+ },
+ {
+  "problem_id": "chromatic-number",
+  "charge": "approximation",
+  "value": "inapprox",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "FIX",
+  "corrected_value": "poly-APX",
+  "corrected_citation": "Halldorsson, A still better performance guarantee for approximate graph coloring, Inform. Process. Lett. 45 (1993) 19-23 [O(n (log log n)^2 / (log n)^3)-approximation, i.e. poly-factor membership]; hardness half: Zuckerman, Linear degree extractors and the inapproximability of max clique and chromatic number, Theory of Computing 3 (2007) 103-128 [n^(1-eps)]",
+  "reason": "F-2 violation: chi(G) HAS a polynomial-factor approximation - Halldorsson's O(n (log log n)^2/(log n)^3) is exactly the n/polylog case the pinned `inapprox` definition excludes - so the cell belongs in poly-APX (same shape as the existing longest-path poly-APX row: n^(1-eps)-hard yet poly-factor approximable). NB the frozen atlas.jsonl/atlas_v2.jsonl row `graph-3-coloring` carries the identical CHROMATIC NUMBER inapprox cell, so the owner should decide whether to keep v3 consistent with the frozen rows or to record the vocab correction here (and note the S2 overlap: two rows now claim the same approximation object)."
+ },
+ {
+  "problem_id": "chromatic-number",
+  "charge": "parameterized",
+  "value": "para-NP-hard",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Garey & Johnson [GT4] GRAPH K-COLORABILITY is NP-complete for every fixed k>=3; NP-hardness at a single fixed parameter value is exactly para-NP-hardness (Flum-Grohe), and the perspective field correctly pins 'number of colors k'."
+ },
+ {
+  "problem_id": "subgraph-isomorphism",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "W[1]-hardness is the trivial k-CLIQUE special case (Downey-Fellows, W[1]-completeness of CLIQUE) and (non-induced) subgraph isomorphism parameterized by pattern size is W[1]-complete (the embedding problem p-EMB; also Flum-Grohe Thm 7.22 if a sharper cite is wanted); the row's encoding pins the non-induced variant, which is the variant that is W[1]-complete."
+ },
+ {
+  "problem_id": "feedback-arc-set",
+  "charge": "approximation",
+  "value": "log-APX",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Even-Naor-Schieber-Sudan, Algorithmica 20 (1998) 151-174, give the O(log n log log n) approximation for minimum feedback arc set in DIRECTED graphs (row encoding pins 'general directed'), and MIN-FAS is APX-hard, so the log-APX bucket is right; the 'no constant factor under UGC' clause is Guruswami-Hastad-Manokaran-Raghavendra-Charikar (SICOMP 2011), which the cell's provenance note already names explicitly."
+ },
+ {
+  "problem_id": "feedback-arc-set",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Chen-Liu-Lu-O'Sullivan-Razgon (JACM 55(5):21, 2008) prove DFVS is FPT in the solution size k (O(k! 4^k k^4 nm)); directed FAS is parameter-preservingly equivalent to DFVS by the standard vertex-splitting reduction, which is the universally cited route for DFAS being FPT, and the cell's note records that route."
+ },
+ {
+  "problem_id": "metric-dimension",
+  "charge": "approximation",
+  "value": "log-APX",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "CITE",
+  "corrected_citation": "Khuller, Raghavachari & Rosenfeld, Landmarks in graphs, Discrete Appl. Math. 70 (1996) 217-229 [2 ln n + O(1) greedy/set-cover approximation - the O(log n) UPPER bound] + Hartung & Nichterlein, On the parameterized and approximation hardness of metric dimension, CCC 2013 (arXiv:1211.1636) [o(log n)-inapproximability, even on max-degree-3 graphs]",
+  "reason": "The value log-APX asserts an O(log n) algorithm, but Hartung-Nichterlein prove only the o(log n) LOWER bound (I checked the arXiv text: it contains no approximation algorithm and never cites Khuller et al.), so the cited work does not establish the membership half of the Theta(log n) claim in the canonical_task; the lower half is correctly established, so only the citation needs repair."
+ },
+ {
+  "problem_id": "metric-dimension",
+  "charge": "parameterized",
+  "value": "W[2]+",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Hartung & Nichterlein (CCC 2013) prove Metric Dimension is W[2]-COMPLETE w.r.t. the solution size k (via a solution-preserving reduction from Bipartite Dominating Set), even on maximum-degree-three graphs - i.e. completeness, not just hardness, matching the canonical_task."
+ },
+ {
+  "problem_id": "arrowing",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Schaefer-Umans compendium [GT12] ARROWING: exactly this question (does F -> (G,H)), Pi_2^p-complete 'even if G is a fixed tree on at least three vertices, and H a complete graph', reference Schaefer, STOC 1999 - level, restriction and citation all match, and perspective=Pi_2^p agrees."
+ },
+ {
+  "problem_id": "choosability",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [GT16] LIST CHROMATIC NUMBER (is chi_l(G) <= k): Pi_2^p-complete for every fixed k>=3, remains so for bipartite graphs, reference Gutner & Tarsi; the published version (Discrete Math. 309(8):2260-2270, 2009) states exactly 'bipartite k-choosability is Pi_2^p-complete for every constant k>=3' (k=2 is poly by Erdos-Rubin-Taylor, correctly excluded)."
+ },
+ {
+  "problem_id": "clique-choosability",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Marx, Complexity of clique coloring and related problems, TCS 412(29):3487-3500 (2011): k-clique-choosability (a clique coloring choosing from every k-list assignment) is Pi_3^p-complete for every k>=2 - level and the k>=2 threshold both match, and compendium [3rd level GT2] agrees."
+ },
+ {
+  "problem_id": "clique-coloring",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Marx (TCS 412(29):3487-3500, 2011) proves deciding whether G has a k-clique-coloring (every maximal clique gets two colors) is Sigma_2^p-complete for every k>=2; compendium [GT19] agrees, and perspective=Sigma_2^p is the right sibling (not Pi_2^p)."
+ },
+ {
+  "problem_id": "covering-radius",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [CC1] COVERING RADIUS (linear code by parity-check matrix H, is rho <= r?): Pi_2^p-complete by reduction from forall-exists 3-DIMENSIONAL MATCHING, reference McLoughlin, IEEE Trans. Inform. Theory 30 (1984) 800-804 - exactly the cell's claim including the reduction source."
+ },
+ {
+  "problem_id": "generalized-graph-coloring",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [GT9] GENERALIZED GRAPH COLORING: is there a 2-coloring of V(F) with no monochromatic G as a subgraph - Sigma_2^p-complete 'even if G is restricted to be complete', reference Rutenburg, MFCS 1986; note this is the VERTEX-coloring problem (the edge version is ARROWING, a Pi_2^p problem), and the cell is correctly on the Sigma side."
+ },
+ {
+  "problem_id": "generalized-ramsey-number",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [GT11] GENERALIZED RAMSEY NUMBER (F with a partial edge 2-coloring, k): does every extending 2-coloring contain a monochromatic K_k - Pi_2^p-complete, reference Ko & Lin, 'On the complexity of min-max optimization problems and their approximation', Minimax and Applications, Kluwer 1995."
+ },
+ {
+  "problem_id": "generalized-subset-sum",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [SP2] GENERALIZED SUBSET SUM: is (exists x)(forall y)[u.x + v.y != t] - Sigma_2^p-complete, reference Berman, Karpinski, Larmore, Plandowski & Rytter (pattern matching for highly compressed 2-D texts); the exists-forall quantifier order in the cell matches the Sigma_2^p claim."
+ },
+ {
+  "problem_id": "graph-sandwich-pi-property",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [GT23] GRAPH SANDWICH PROBLEM FOR Pi: Sigma_2^p-complete precisely 'for the property of being P_k-free where k = Theta(|V(G)|^{1/2})', reference Schaefer, TR06-011, DePaul University (2006) - the cell reproduces the property restriction, which is load-bearing (whether a NATURAL Pi such as well-covered gives Sigma_2^p-completeness is still open)."
+ },
+ {
+  "problem_id": "group-coloring",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [GT17] GROUP CHROMATIC NUMBER (is chi_g(G) <= k): Pi_2^p-complete for every fixed k>=3, referenced to Kral' and 'also in Kral' & Nejedly'; the cited MFCS 2004 paper is titled 'Group coloring and list group coloring are Pi_2^p-complete' (LNCS 3153, 274-287), so it does carry the group-coloring result."
+ },
+ {
+  "problem_id": "hereditary-clique-coloring",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "CITE",
+  "corrected_citation": "D. Marx, Complexity of clique coloring and related problems, Theoretical Computer Science 412(29):3487-3500 (2011) - CORRECT OBJECT: 'G is hereditarily k-clique-colorable iff EVERY INDUCED SUBGRAPH of G is k-clique-colorable (each with its own coloring)'; Pi_3^p-complete for every k>=3, k=2 open",
+  "reason": "Object/semantics mismatch (Check 2): the cell's canonical_task and the row's canonical_encoding both define the object as 'a SINGLE k-coloring that is a clique-coloring of G and of every induced subgraph' - that definition collapses to ordinary proper k-coloring (every clique of G is a maximal clique of some induced subgraph, so the condition is exactly 'no monochromatic edge'), i.e. it is NP-complete, not Pi_3^p-complete. Marx's Pi_3^p-completeness is for 'every induced subgraph is k-clique-colorable' (Pi_3 shape: forall subgraph / exists coloring / forall maximal clique; his membership argument uses a non-k-clique-colorable induced subgraph as the certificate). The faulty wording is inherited verbatim from Schaefer-Umans compendium [3rd level GT3]; fix the task/encoding text and the Pi_3^p value stands."
+ },
+ {
+  "problem_id": "integer-expression-inequivalence",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [AN1]: L(e1) != L(e2) for integer expressions over {+, union} is Sigma_2^p-complete (the containment version L(e1) subset L(e2) is Pi_2^p-complete, as the cell notes), the result appearing in Stockmeyer-Meyer 1973 and Stockmeyer's 1976 TCS 'The polynomial-time hierarchy' - which is exactly the cited paper; the INequivalence direction is the Sigma one, and the cell has it that way round."
+ },
+ {
+  "problem_id": "maxmin-vertex-cover",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [SP3] MAXMIN VERTEX COVER: 'Is max_{t in J^I} f_t(G) <= k?' with f_t the smallest vertex cover of the induced restriction - Pi_2^p-complete (from MINMAX CLIQUE by the standard cover/clique transformation), reference Ko & Lin 1995; the cell's forall-exists shape matches Pi_2^p."
+ },
+ {
+  "problem_id": "minmax-3d-matching",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [SP4] MINMAX THREE DIMENSIONAL MATCHING: 'Is min_{t in J^I} f_t(W) >= k?' - Pi_2^p-complete by reduction from MINMAX SAT, reference Ko & Lin 1995 - the cell reproduces the question, the level and the reduction source exactly."
+ },
+ {
+  "problem_id": "minmax-clique",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [GT2] MINMAX CLIQUE: 'Is min_{t in J^I} f_t(G) >= k?' - Pi_2^p-complete, reference Ko & Lin 1995; verbatim match of object and level."
+ },
+ {
+  "problem_id": "minmax-sat",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [L14] MINMAX SAT: 'for every assignment to x, is there an assignment to y making at least k clauses of phi(x,y) true' - Pi_2^p-complete, reference Meyer & Stockmeyer 1972, which is exactly the cell's citation. The attribution is indirect (setting k = #clauses recovers forall-exists-3SAT, whose 3-CNF-level completeness is Stockmeyer 1976 / Wrathall 1976), but the cell's provenance note already records both, so no repair is needed."
+ },
+ {
+  "problem_id": "pebbling-number",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [GT20] PEBBLING NUMBER: is pi(G) <= k - Pi_2^p-complete, and 'remains Pi_2^p-complete for a single target vertex which is part of the input', reference Milans & Clark (published as SIAM J. Discrete Math. 20(3):769-798, 2006, the version the cell cites); note the cell correctly does NOT claim the optimal pebbling number (that one is only NP-complete)."
+ },
+ {
+  "problem_id": "shortest-implicant",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Umans, JCSS 63(4):597-611 (2001) states: 'when the input is given as a formula or circuit, [shortest implicant] is Sigma_2^p-complete' - covering both variants the canonical_task claims; the DNF-input variant (which drops to GC(log^2 n, coNP)) is correctly excluded by the row's pinned encoding."
+ },
+ {
+  "problem_id": "min-equivalent-expression",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [L22] MEE: Sigma_2^p-complete UNDER TURING REDUCTIONS for formulas over {AND,OR,NOT} (many-one completeness still open), reference Buchfuhrer & Umans, ICALP 2008, LNCS 5125, 24-35 - the cell reproduces both the signature restriction and the Turing-reduction caveat, which is the trap here."
+ },
+ {
+  "problem_id": "strong-nash-equilibrium",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [GP1] STRONG NASH EQUILIBRIUM: Sigma_2^p-complete for a game in GRAPHICAL normal form, reference Gottlob, Greco & Scarcello. The succinct (graphical) encoding is load-bearing - with an explicit full normal-form table the same question is solvable in polynomial time - and the row's canonical_encoding does pin 'a game in graphical normal form: ... utility function u_p given as an explicit table over the joint actions of {p} union N(p)', so the object is correctly fixed. Recommend echoing 'graphical normal form' inside the canonical_task text, which alone reads as unqualified."
+ },
+ {
+  "problem_id": "thue-number",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [GT22] THUE NUMBER: is the Thue number (smallest k with a non-repetitive k-EDGE-coloring) at most k - Sigma_2^p-complete, reference Manin, arXiv:0709.4497 (2007); the Sigma side is right because verifying a given edge coloring is non-repetitive is itself coNP-complete (exists-coloring / forall-path)."
+ },
+ {
+  "problem_id": "vc-dimension",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Schaefer, JCSS 58:177-182 (1999) proves Sigma_3^p-completeness for the SUCCINCT version (family given by a circuit C with C(i,x)=1 iff x in S_i) - the trap here is that an explicit matrix encoding is only LOGNP-complete (Papadimitriou-Yannakakis), and the row's canonical_encoding and provenance note both pin the succinct circuit encoding and flag the LOGNP alternative, so the object matches the citation. Recommend restating 'succinct/circuit-represented' inside the canonical_task, which in isolation reads like the explicit set system."
+ },
+ {
+  "problem_id": "finite-tiling-extension",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [GP2] FINITE TILING EXTENSION: 'Is there a legally tiled row R of n tiles which cannot be extended to a legal tiling of an n x n square such that R is the first row and the square is surrounded by blank tiles?' - Sigma_2^p-complete, reference Durand & Fabret, TCS 215(1-2):225-237 (1999); verbatim object match including the blank-surround condition."
+ },
+ {
+  "problem_id": "succinct-set-cover",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Compendium [SP1] SUCCINCT SET COVER: given 3-DNF formulas S = {phi_1..phi_m} and k, is there S' of size <= k with the disjunction identically 1 - Sigma_2^p-complete, reference Umans, 'Hardness of Approximating Sigma_2^p Minimization Problems', FOCS 1999 (the 40th), which is the cell's citation."
+ },
+ {
+  "problem_id": "abduction",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Eiter & Gottlob, 'The complexity of logic-based abduction', JACM 42(1):3-42 (1995): for a general propositional theory T (CNF) deciding whether SOME S subset H makes T u S consistent and entailing M is Sigma_2^p-complete (it stays Sigma_2^p-complete even when H = V); the exists-hypotheses / forall-models shape matches the Sigma_2^p perspective, and the row's encoding correctly restricts to general (non-Horn) CNF theories, for which the level holds."
+ },
+ {
+  "problem_id": "abduction",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Gottlob, Pichler & Wei, 'Bounded treewidth as a key to tractability of knowledge representation and reasoning' (AAAI 2006, 250-256; Artificial Intelligence 174(1):105-132, 2010) show that the second- and third-level KR problems they treat - abduction among them - become tractable (indeed solvable in linear time for fixed treewidth) once the treewidth of the involved formulae is bounded, via an MSO/Courcelle then monadic-datalog encoding; that is exactly FPT with perspective = treewidth of the theory."
+ }
+]

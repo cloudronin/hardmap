@@ -1,0 +1,315 @@
+[
+ {
+  "problem_id": "closest-string",
+  "charge": "approximation",
+  "value": "PTAS",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Li, Ma & Wang (J. ACM 49 (2002) 157-171) give a PTAS for Closest String on exactly the pinned object (minimize the Hamming radius d)."
+ },
+ {
+  "problem_id": "closest-string",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Gramm, Niedermeier & Rossmanith (Algorithmica 37 (2003) 25-42) give the O(kL + kd*d^d) search-tree algorithm, i.e. FPT in the radius d, matching the stated perspective."
+ },
+ {
+  "problem_id": "closest-substring",
+  "charge": "approximation",
+  "value": "PTAS",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "The same Li-Ma-Wang J. ACM 2002 paper gives a (very slow, n^{O(1/eps^4)}) PTAS for Closest Substring; the row's note correctly records Marx's no-EPTAS caveat."
+ },
+ {
+  "problem_id": "closest-substring",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Marx (SIAM J. Comput. 38 (2008) 1382-1410, FOCS 2005) proves W[1]-hardness for the combined parameter (m, d) over a binary alphabet, exactly the parameterization stated."
+ },
+ {
+  "problem_id": "cluster-deletion",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Both sides hold on the pinned minimization object: Shamir, Sharan & Tsur (DAM 144 (2004) 173-182) prove Cluster Deletion is NP-hard to approximate within some constant (APX-hard), and constant-factor (2-/4-) approximations exist."
+ },
+ {
+  "problem_id": "cluster-deletion",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "CITE",
+  "corrected_citation": "Gramm, Guo, Huffner & Niedermeier, Graph-modeled data clustering: Fixed-parameter algorithms for clique generation, Theory Comput. Syst. 38 (2005) 373-392 (first O*(1.77^k) for Cluster Deletion); Bocker & Damaschke, Even faster parameterized cluster deletion and cluster editing, Inform. Process. Lett. 111 (2011) 717-721 (O*(1.415^k))",
+  "reason": "Value and primary citation check out (the TOCS 2005 paper does contain the first 1.77^k Cluster Deletion algorithm), but the Bocker-Damaschke bound is O*(1.415^k), not the 1.404^k written in the citation field."
+ },
+ {
+  "problem_id": "connectivity-augmentation",
+  "charge": "approximation",
+  "value": "APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "CITE",
+  "corrected_citation": "Frederickson & Ja'Ja', SIAM J. Comput. 10 (1981) 270-283 (2-approximation); Byrka, Grandoni & Jabal Ameli, Breaching the 2-approximation barrier for connectivity augmentation: a reduction to Steiner tree, STOC 2020, 815-825 / SIAM J. Comput. (1.91-approximation); Traub & Zenklusen, A (1.5+eps)-approximation algorithm for weighted connectivity augmentation, STOC 2023 (weighted CAP)",
+  "reason": "Constant-factor membership (APX) is right, but the citation misattributes: 'Breaching the 2-approximation barrier for connectivity augmentation' (STOC 2020 / SICOMP) is by Byrka, Grandoni & Jabal Ameli and gives 1.91 -- the (1.5+eps) bound is a different, later Traub-Zenklusen paper on WEIGHTED CAP."
+ },
+ {
+  "problem_id": "connectivity-augmentation",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Marx & Vegh (ACM TALG 11(4) (2015) 27) prove min-cost augmentation of edge-connectivity from k-1 to k with at most p new edges is FPT in p (with a polynomial kernel) -- exactly 'parameterized by the number of added links'."
+ },
+ {
+  "problem_id": "constrained-shortest-path",
+  "charge": "approximation",
+  "value": "FPTAS",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Hassin (Math. Oper. Res. 17 (1992) 36-42) gives the scaling-and-rounding FPTAS for exactly the restricted (resource-constrained) shortest path objective."
+ },
+ {
+  "problem_id": "crossing-number",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Grohe (JCSS 68 (2004) 285-302) decides cr(G) <= k in f(k)*n^2 time, i.e. FPT in the number of crossings k; Kawarabayashi-Reed improve to linear."
+ },
+ {
+  "problem_id": "cycle-packing",
+  "charge": "approximation",
+  "value": "log-APX",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "CITE",
+  "corrected_citation": "Krivelevich, Nutov, Salavatipour, Verstraete & Yuster, Approximation algorithms and hardness results for cycle packing problems, ACM Trans. Algorithms 3(4) (2007) art. 48 -- O(sqrt(log n))-approximation in undirected graphs (tight for the modified greedy, improving the earlier O(log n) analysis) and Omega(log^{1/2-eps} n) QUASI-NP-hardness for both vertex- and edge-disjoint packing",
+  "reason": "Rung is defensible (no constant factor, approximable within O(log n)) but the cited theorem gives O(sqrt(log n)), not O(log n), so the row's 'Theta~(log n)' framing overstates tightness; also the lower bound is quasi-NP-hardness (NP not in ZPTIME/DTIME(n^polylog)), not plain NP-hardness."
+ },
+ {
+  "problem_id": "cycle-packing",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Bodlaender (IJFCS 5 (1994) 59-68) gives an FPT algorithm for k vertex-disjoint cycles via the Erdos-Posa property, matching the pinned object and parameter."
+ },
+ {
+  "problem_id": "dissociation-number",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Object is correctly pinned to the MINIMIZATION side (3-path vertex cover): 2-approximation (Tu & Zhou, TCS 412 (2011) 7044-7048, primal-dual; also their local-ratio 2-approx) plus APX-completeness for cubic and bipartite Delta<=4 -- and the row's note correctly warns that the complementary max-dissociation object is NOT constant-factor approximable."
+ },
+ {
+  "problem_id": "dissociation-number",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Tu (Inform. Process. Lett. 115 (2015) 96-99) gives an O*(1.882^k) branching algorithm for 3-Path Vertex Cover by solution size k; minor nit: the '1.71^k' in the citation is Tsur's bound (O*(1.713^k)), Katrenic's is O*(1.7485^k)."
+ },
+ {
+  "problem_id": "domatic-number",
+  "charge": "approximation",
+  "value": "log-APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Feige, Halldorsson, Kortsarz & Srinivasan (SIAM J. Comput. 32 (2002) 172-195) give both sides on the pinned object: (1+o(1))ln n approximation and (1-eps)ln n hardness."
+ },
+ {
+  "problem_id": "efficient-domination",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Cesati (IPL 81 (2002) 163-168) settles Perfect Code (= efficient dominating set) as W[1]-COMPLETE parameterized by the code size k, matching the row's stronger completeness claim."
+ },
+ {
+  "problem_id": "equitable-coloring",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Fellows, Fomin, Lokshtanov, Rosamond, Saurabh, Szeider & Thomassen (Inform. Comput. 209 (2011) 143-153) prove Equitable Coloring W[1]-hard parameterized by treewidth, the stated perspective."
+ },
+ {
+  "problem_id": "euclidean-tsp",
+  "charge": "approximation",
+  "value": "PTAS",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Arora (J. ACM 45 (1998) 753-782), independently Mitchell, gives a PTAS for Euclidean TSP in fixed dimension, the encoding pinned by the row (d=2)."
+ },
+ {
+  "problem_id": "facility-location",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Both sides are cited in the full row: Li (Inform. Comput. 222 (2013) 45-58) 1.488-approximation and Guha & Khuller (J. Algorithms 31 (1999) 228-248) 1.463 hardness for metric UFL."
+ },
+ {
+  "problem_id": "firefighter",
+  "charge": "approximation",
+  "value": "PTAS",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Adjiashvili, Baggio & Zenklusen (SODA 2017 / ACM TALG) give a PTAS for maximizing saved vertices on TREES, which is the object this row pins."
+ },
+ {
+  "problem_id": "firefighter",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "FIX",
+  "corrected_value": "FPT",
+  "corrected_citation": "Cai, Verbin & Yang, Firefighting on trees: (1-1/e)-approximation, fixed parameter tractability and a subexponential algorithm, ISAAC 2008, LNCS 5369, 258-269; Cygan, Fomin & van Leeuwen, Parameterized complexity of firefighting revisited, IPEC 2011 / JCSS 78 (2012) (improved subexponential FPT algorithm on trees)",
+  "reason": "Object mismatch (Check 2): this problem is pinned to TREES (problem_name, canonical_encoding 'rooted tree', decision and approximation rows both on trees), but Cygan-Fomin-van Leeuwen's W[1]-hardness for the #saved-vertices parameter is on general/BIPARTITE graphs -- on trees the very same paper gives an FPT (subexponential) algorithm; separately, the canonical task's '(protected)' gloss is wrong, the parameter is saved/unburned vertices, not firefighters placed. Either correct the value to FPT or re-pin this charge's object to general graphs."
+ },
+ {
+  "problem_id": "flow-shop-scheduling",
+  "charge": "approximation",
+  "value": "PTAS",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Hall (Math. Programming 82 (1998) 175-190) gives a PTAS for F_m||Cmax with m fixed, and the row pins m=3; strong NP-hardness rules out an FPTAS, as stated."
+ },
+ {
+  "problem_id": "flow-shop-scheduling",
+  "charge": "parameterized",
+  "value": "para-NP-hard",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Garey, Johnson & Sethi (Math. Oper. Res. 1 (1976) 117-129) prove F3||Cmax NP-hard, i.e. NP-hardness at the fixed parameter value m=3 -- textbook para-NP-hardness."
+ },
+ {
+  "problem_id": "generalized-assignment",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Algorithm side (1-1/e) from Fleischer, Goemans, Mirrokni & Sviridenko (SODA 2006) and APX-hardness from Chekuri & Khanna (SIAM J. Comput. 35 (2005) 713-728) are both recorded, satisfying the both-sides bar for max-GAP."
+ },
+ {
+  "problem_id": "geometric-bin-packing",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Bansal, Correa, Kenyon & Sviridenko (Math. Oper. Res. 31 (2006) 31-49) rule out even an asymptotic PTAS for 2D bin packing unless P=NP, and constant-factor absolute-ratio algorithms exist; the R19 absolute-ratio framing is explicit in the row."
+ },
+ {
+  "problem_id": "geometric-disk-cover",
+  "charge": "approximation",
+  "value": "PTAS",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Hochbaum & Maass (J. ACM 32 (1985) 130-136) shifted-grid scheme is a PTAS for covering points by minimum-cardinality unit disks, the pinned uniform-radius encoding."
+ },
+ {
+  "problem_id": "geometric-independent-set",
+  "charge": "approximation",
+  "value": "PTAS",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Chan & Har-Peled (Discrete Comput. Geom. 48 (2012) 373-392) prove local search yields a PTAS for UNWEIGHTED MIS of pseudo-disks (unit disks are a special case); their weighted result is only O(1), and the row's task is unweighted."
+ },
+ {
+  "problem_id": "geometric-independent-set",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Marx (IWPEC 2006, LNCS 4169, 154-165) proves MIS on unit disk graphs W[1]-hard by solution size k -- the PTAS/W[1]-hard coexistence the row highlights."
+ },
+ {
+  "problem_id": "graph-burning",
+  "charge": "approximation",
+  "value": "APX",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "CITE",
+  "corrected_citation": "Bonato & Kamali, Approximation algorithms for graph burning, TAMC 2019, LNCS 11436, 74-92 (3-approximation, general graphs); Mondal, Rajasingh, Parthiban & Rajasingh, APX-hardness and approximation for the k-burning number problem, Theoret. Comput. Sci. 932 (2022) 21-30 (WALCOM 2021) -- APX-hardness via reduction from vertex cover in cubic graphs",
+  "reason": "The 3-approximation is correctly attributed, but the row's note that 'no matching APX-hardness is pinned' is stale: Graph Burning is now known to be APX-hard (Mondal et al. 2021/2022, as cited by Lieskovsky-Sgall-Feldmann, APPROX 2023), so the rung can be upgraded to APX-complete."
+ },
+ {
+  "problem_id": "graph-genus",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Mohar (SIAM J. Discrete Math. 12 (1999) 6-26) gives an f(g)*n embedding algorithm for each fixed genus g, i.e. FPT in the target genus."
+ },
+ {
+  "problem_id": "graph-homomorphism",
+  "charge": "counting",
+  "value": "#P-complete",
+  "tier": "dear",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Dyer & Greenhill (Random Structures Algorithms 17 (2000) 260-289) is a per-problem dichotomy for #Hom(.->H): #P-complete unless every component of H is a complete graph with all loops or a loopless complete bipartite graph -- exactly the canonical task's wording, so F-1 is met."
+ },
+ {
+  "problem_id": "graph-homomorphism",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "CITE",
+  "corrected_citation": "Diaz, Serna & Thilikos, Counting H-colorings of partial k-trees, Theoret. Comput. Sci. 281 (2002) 291-309 (O(|V(H)|^{k+1} n) tree-decomposition DP); cf. Grohe, The complexity of homomorphism and constraint satisfaction problems seen from the other side, J. ACM 54 (2007) art. 1 (with H in the INPUT, parameterizing by tw(G) is W[1]-hard)",
+  "reason": "FPT is correct only because this row fixes H (so |V(H)|^{tw+1} is a constant^{tw} factor), but Dalmau-Kolaitis-Vardi establish polynomial-time (n^{O(tw)}, i.e. XP) solvability of bounded-treewidth CSP with both structures in the input -- not the f(tw)*poly(n) DP the canonical task states; cite the source that actually proves the DP bound and flag that the fixed-H encoding is load-bearing."
+ },
+ {
+  "problem_id": "graph-spanner",
+  "charge": "approximation",
+  "value": "log-APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Kortsarz (Algorithmica 30 (2001) 432-450) gives the matching Omega(log n) hardness for minimum 2-spanner and the O(log n) algorithm side (Kortsarz & Peleg, J. Algorithms 17 (1994) 222-236) is recorded in the row's note -- both sides present, though the algorithm reference would be better placed in the citation field."
+ },
+ {
+  "problem_id": "grundy-number",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Aboulker, Bonnet, Kim & Sikora (STACS 2020, LIPIcs 154, 58:1-58:18) resolve the long-open question by proving Grundy Coloring W[1]-hard parameterized by the number of colours k."
+ }
+]

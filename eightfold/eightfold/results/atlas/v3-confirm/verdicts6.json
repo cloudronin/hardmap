@@ -1,0 +1,317 @@
+[
+ {
+  "problem_id": "minimum-distance-code",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Bhattacharyya, Bonnet, Egri, Ghoshal, Karthik C.S., Lin, Manurangsi & Marx (JACM 68(3):16, 2021) prove k-Even Set (= Minimum Distance Problem parameterized by target distance) is W[1]-hard, resolving the Downey-Fellows open problem; caveat worth recording in the cell note: the hardness is under RANDOMIZED fpt-reductions."
+ },
+ {
+  "problem_id": "minimum-equivalent-digraph",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Khuller-Raghavachari-Young (SICOMP 24:859-872) contains BOTH halves in the one cited paper: the pi^2/6 ~ 1.64 approximation (APX membership, transferring from SCSS to MEG by their approximation-preserving decomposition) and their own Theorem 7.6 proving minimum SCSS_7 (a special case of MEG) is MAX SNP-hard."
+ },
+ {
+  "problem_id": "minimum-k-cut",
+  "charge": "approximation",
+  "value": "APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Saran & Vazirani give a (2-2/k)-approximation, i.e. a factor-2 algorithm independent of k, so min k-cut is in APX (membership claim only, no hardness asserted)."
+ },
+ {
+  "problem_id": "minimum-k-cut",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Downey, Estivill-Castro, Fellows, Prieto & Rosamond prove Graph k-Cut (remove min-weight edge set leaving >= k components), parameterized by the number of parts k, is W[1]-hard - exactly the canonical_task."
+ },
+ {
+  "problem_id": "minimum-latency",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "CITE",
+  "corrected_citation": "Chaudhuri, Godfrey, Rao & Talwar, Paths, trees, and minimum latency tours, FOCS 2003, 36-45 (3.59-approx = APX membership) + Blum, Chalasani, Coppersmith, Pulleyblank, Raghavan & Sudan, The minimum latency problem, STOC 1994, 163-171 (MAX-SNP-hardness in general metrics)",
+  "reason": "The cited FOCS 2003 paper supplies only the constant-factor algorithm; APX-COMPLETE additionally needs the MAX-SNP/APX-hardness, which is Blum et al. STOC 1994."
+ },
+ {
+  "problem_id": "minimum-sum-coloring",
+  "charge": "approximation",
+  "value": "poly-APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Bar-Noy, Bellare, Halldorsson, Shachnai & Tamir is the standard source for both the general-graph poly-factor upper bound (survey table of Halldorsson-Kortsarz lists O*(n/log^3 n) for sum coloring citing [Bar-Noy et al.]) and the n^{1-eps} lower bound, so poly-factor membership is correctly attributed."
+ },
+ {
+  "problem_id": "minimum-sum-of-squares",
+  "charge": "approximation",
+  "value": "PTAS",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Alon, Azar, Woeginger & Yadid give a PTAS for minimizing the L_p norm of machine loads on identical parallel machines for every fixed p >= 1; p = 2 is exactly 'minimize sum of squared loads' (m part of the input), matching the canonical_task."
+ },
+ {
+  "problem_id": "minimum-test-cover",
+  "charge": "approximation",
+  "value": "log-APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "De Bontridder et al. (Math. Prog. 98:477-491) give the greedy/information-content O(log n) (1+ln n) guarantee AND the matching (1-o(1))ln n inapproximability, so both the O(log n) upper and Omega(log n) lower of the canonical_task come from the cited work."
+ },
+ {
+  "problem_id": "minimum-test-cover",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Crowston, Gutin, Jones, Saurabh & Yeo (MFCS 2012) explicitly classify k-Test Cover (parameter = solution size) as FPT (their W[1]-hardness results are for the |T|-k and log n + k parameterizations, not this one)."
+ },
+ {
+  "problem_id": "minimum-weight-triangulation",
+  "charge": "approximation",
+  "value": "APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Levcopoulos & Krznaric's quasi-greedy triangulation is the first polynomial-time algorithm within a constant factor of the MWT, giving exactly the constant-factor (APX) membership claimed."
+ },
+ {
+  "problem_id": "mixed-chinese-postman",
+  "charge": "approximation",
+  "value": "APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Raghavachari & Veerasamy's 3/2-approximation for the mixed postman problem is a constant-factor algorithm for exactly this objective (minimize total traversal length), giving APX membership."
+ },
+ {
+  "problem_id": "multicut",
+  "charge": "approximation",
+  "value": "log-APX",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Garg, Vazirani & Yannakakis prove the O(log k) approximate max-flow min-multicut theorem and the matching algorithm for minimum multicut (k = number of terminal pairs <= n^2, so O(log n)); membership-only claim, correctly sourced."
+ },
+ {
+  "problem_id": "multicut",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Marx & Razgon prove Multicut with an unbounded number of terminal pairs is FPT parameterized by the cutset size, exactly the canonical_task."
+ },
+ {
+  "problem_id": "multidimensional-knapsack",
+  "charge": "approximation",
+  "value": "PTAS",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Frieze & Clarke give a polynomial approximation scheme for the m-constraint 0-1 knapsack with m FIXED, which is precisely the canonical_task's '(1-eps)-approx for fixed d'."
+ },
+ {
+  "problem_id": "multiple-sequence-alignment",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "CITE",
+  "corrected_citation": "Gusfield, Efficient methods for multiple sequence alignment with guaranteed error bounds, Bull. Math. Biol. 55 (1993) 141-154 ((2-2/k)-approx for metric SP-score = APX membership) + Just, Computational complexity of multiple sequence alignment with SP-score, J. Comput. Biol. 8 (2001) 615-623 (MAX-SNP-hardness) [see also Bonizzoni & Della Vedova, TCS 259 (2001) 63-79]",
+  "reason": "Gusfield supplies only the 2-2/k algorithm; the APX-hardness half is Just 2001 (MAX-SNP-hard for a scoring matrix) / Bonizzoni-Della Vedova 2001 - and the cell should record that both halves must be taken over the same (metric) scoring-matrix regime for 'APX-complete' to be coherent."
+ },
+ {
+  "problem_id": "multiple-sequence-alignment",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Bodlaender, Downey, Fellows & Wareham (TCS 147:31-54) is the standard and correct source for W[1]-hardness of multiple sequence alignment parameterized by the number of sequences k (their LCS lower bounds carry to the general alignment/consensus problems)."
+ },
+ {
+  "problem_id": "nearest-codeword",
+  "charge": "approximation",
+  "value": "poly-APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Alon, Panigrahy & Yekhanin give a deterministic polynomial-time O(n/log n)-approximation for NCP - a polynomial factor - establishing the claimed poly-factor membership."
+ },
+ {
+  "problem_id": "nearest-codeword",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Downey, Fellows, Vardy & Whittle (SICOMP 29:545-570) prove Maximum-Likelihood Decoding / Nearest Codeword parameterized by the number of errors is W[1]-hard (this is the problem they settled; k-Even Set they left open)."
+ },
+ {
+  "problem_id": "node-multiway-cut",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "CITE",
+  "corrected_citation": "Garg, Vazirani & Yannakakis, Multiway cuts in node weighted graphs, J. Algorithms 50 (2004) 49-61 ((2-2/k)-approx = APX membership) + Dahlhaus, Johnson, Papadimitriou, Seymour & Yannakakis, The complexity of multiterminal cuts, SIAM J. Comput. 23 (1994) 864-894 (MAX SNP-hardness for k >= 3, transferring to the node version)",
+  "reason": "The cited GVY paper gives only the (2-2/k) half-integrality algorithm; the APX-hardness needed for APX-COMPLETEness comes from Dahlhaus et al.'s MAX SNP-hardness of multiterminal cut."
+ },
+ {
+  "problem_id": "node-multiway-cut",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Marx, Parameterized graph separation problems (TCS 351:394-406), proves the vertex/node multiway cut is FPT parameterized by the size of the separator, exactly the canonical_task."
+ },
+ {
+  "problem_id": "open-shop-scheduling",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "CITE",
+  "corrected_citation": "Barany & Fiala, Nearly optimal solution of multi-machine scheduling problems, Szigma 15 (1982) 177-191 (dense schedules are a 2-approx for O||Cmax = APX membership) + Williamson, Hall, Hoogeveen, Hurkens, Lenstra, Sevast'janov & Shmoys, Short shop schedules, Oper. Res. 45 (1997) 288-294 (NP-hard to decide Cmax <= 4, hence no ratio < 5/4)",
+  "reason": "Barany-Fiala supplies only the factor-2 (dense-schedule) membership; the APX-hardness half of APX-COMPLETE is Williamson et al. 1997's 5/4 threshold (as recorded in Woeginger's STACS 2018 open-shop survey)."
+ },
+ {
+  "problem_id": "open-shop-scheduling",
+  "charge": "parameterized",
+  "value": "para-NP-hard",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Gonzalez & Sahni prove O_m||Cmax is NP-hard for every fixed m >= 3 (and poly for m = 2), which is exactly para-NP-hardness for the parameter 'number of machines'."
+ },
+ {
+  "problem_id": "orienteering",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "CITE",
+  "corrected_citation": "Chekuri, Korula & Pal, Improved algorithms for orienteering and related problems, ACM Trans. Algorithms 8 (2012) 23 ((2+eps)-approx in undirected graphs = APX membership) + Blum, Chawla, Karger, Lane, Meyerson & Minkoff, Approximation algorithms for orienteering and discounted-reward TSP, SIAM J. Comput. 37 (2007) 653-670 (APX-hardness, no ratio better than 1481/1480)",
+  "reason": "Chekuri-Korula-Pal give only the (2+eps) algorithm; the APX-hardness (1481/1480, via TSP(1,2)) needed for APX-COMPLETE is Blum et al. - note also that the (2+eps) ratio is for UNDIRECTED graphs (directed is only O(log^2 n)), so the canonical_task should stay undirected."
+ },
+ {
+  "problem_id": "pagenumber",
+  "charge": "parameterized",
+  "value": "para-NP-hard",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Chung, Leighton & Rosenberg is the standard attribution for NP-completeness of testing pagenumber <= 2 (via subhamiltonicity of maximal planar graphs, building on Wigderson 1982), so the parameter 'number of pages' is para-NP-hard at the fixed value k = 2."
+ },
+ {
+  "problem_id": "pathwidth",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Bodlaender's SICOMP 1996 paper states its results for treewidth AND pathwidth (for all constants k, linear time to decide pathwidth <= k and output a path-decomposition), so the cited work does cover the pathwidth object."
+ },
+ {
+  "problem_id": "planar-3sat",
+  "charge": "approximation",
+  "value": "PTAS",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Khanna & Motwani's planar-structured MPSAT/TMAX/TMIN classes admit PTASs, and MAX planar 3-SAT (planar variable-clause incidence graph) is an instance of their planar Max-CSP class, so the cited work covers the exact object."
+ },
+ {
+  "problem_id": "planar-vertex-deletion",
+  "charge": "approximation",
+  "value": "poly-APX",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "CITE",
+  "corrected_citation": "Kawarabayashi & Sidiropoulos, Polylogarithmic approximation for minimum planarization (almost), FOCS 2017, 779-788 (O(n^eps)-approximation in n^{O(1/eps)} time for every fixed eps > 0; polylog(n) ratio in n^{O(log n/log log n)} time)",
+  "reason": "Lewis & Yannakakis establishes only NP-completeness of hereditary node-deletion - it proves NO approximation guarantee, so it cannot support a poly-APX membership cell; the poly-factor algorithm is Kawarabayashi-Sidiropoulos (value poly-APX itself stands)."
+ },
+ {
+  "problem_id": "planar-vertex-deletion",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Marx & Schlotter give the constructive FPT algorithm (f(k)*n^2) for deleting k vertices to make a graph planar, exactly the canonical_task."
+ },
+ {
+  "problem_id": "power-dominating-set",
+  "charge": "parameterized",
+  "value": "W[2]+",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Guo, Niedermeier & Raible prove Power Dominating Set parameterized by solution size k is W[2]-hard (even on bipartite and split graphs); membership in W[2] is not claimed, so 'W[2]+' (hard-for, possibly higher) is the right shape."
+ },
+ {
+  "problem_id": "precedence-constrained-scheduling",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "CITE",
+  "corrected_citation": "Graham, Bounds for certain multiprocessing anomalies, Bell System Tech. J. 45 (1966) 1563-1581 (list scheduling is a (2-1/m)-approx = APX membership) + Lenstra & Rinnooy Kan, Complexity of scheduling under precedence constraints, Oper. Res. 26 (1978) 22-35 (NP-hard to approximate P|prec,p_j=1|Cmax within any factor < 4/3)",
+  "reason": "Graham gives only the 2-1/m upper bound; the APX-hardness half is Lenstra & Rinnooy Kan's 4/3 threshold."
+ },
+ {
+  "problem_id": "precedence-constrained-scheduling",
+  "charge": "parameterized",
+  "value": "W[2]+",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Bodlaender & Fellows (ORL 18:93-97) prove exactly that P|prec,p_j=1|Cmax parameterized by the number of machines m is W[2]-hard, with no matching membership claimed."
+ },
+ {
+  "problem_id": "precoloring-extension",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "corrected_value": "para-NP-hard (as the canonical_task is written, i.e. general graphs); W[1]-hard only if the canonical_task is restricted to chordal/interval graphs",
+  "corrected_citation": "Marx, Parameterized coloring problems on chordal graphs, TCS 351 (2006) 407-424 (PrExt on CHORDAL/INTERVAL graphs is W[1]-hard when parameterized by the number of precolored vertices, though poly for each fixed k)",
+  "verdict": "FIX",
+  "reason": "Object mismatch: Marx's W[1]-hardness is stated for chordal (interval) graphs only, and on general graphs the canonical_task as written is para-NP-hard because zero precolored vertices already gives NP-hard k-Colouring - the row must either name the graph class (then W[1] stands) or take the para-NP-hard value."
+ },
+ {
+  "problem_id": "radio-coloring",
+  "charge": "parameterized",
+  "value": "para-NP-hard",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Fiala, Kloks & Kratochvil (DAM 113:59-72) prove L(2,1)-labeling with span <= k is NP-complete for every fixed k >= 4 (and linear-time for k <= 3), exactly the para-NP-hardness claimed."
+ },
+ {
+  "problem_id": "rectangle-tiling",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Khanna, Muthukrishnan & Paterson (SODA 1998) contain both halves for d = 2: the 2.5 upper bound and the 5/4 inapproximability - confirmed by Gluch & Lorys (arXiv:1703.01475), which states 'the only known lower bound, equal to 1 1/4, was given in [KMP98]' and the 2 1/2 upper bound also from [KMP98]."
+ }
+]

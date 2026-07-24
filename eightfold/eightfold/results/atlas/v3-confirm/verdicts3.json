@@ -1,0 +1,316 @@
+[
+ {
+  "problem_id": "ltl-satisfiability",
+  "charge": "decision",
+  "value": "PSPACE-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Sistla & Clarke (JACM 32(3), 1985) prove PSPACE-completeness for LTL satisfiability/validity and model checking exactly as stated."
+ },
+ {
+  "problem_id": "modal-logic-satisfiability",
+  "charge": "decision",
+  "value": "PSPACE-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "CITE",
+  "corrected_citation": "Ladner, The computational complexity of provability in systems of modal propositional logic, SIAM J. Comput. 6(3) (1977) 467-480 [K, T, D, K4, D4, S4]; for B/KTB: Rybakov & Shkatov (2018/2019), PSPACE-completeness of B and TB",
+  "reason": "Ladner's hardness argument covers logics between K and S4 (K, T, D, K4, D4, S4); B = KTB lies outside that interval and its PSPACE-completeness was only established later by Rybakov & Shkatov, so the cited work does not establish the 'also B' part of the canonical task."
+ },
+ {
+  "problem_id": "nfa-universality",
+  "charge": "decision",
+  "value": "PSPACE-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Meyer & Stockmeyer (SWAT/FOCS 1972) is the standard and correct source for 'given NFA N, is L(N) = Sigma*' being PSPACE-complete."
+ },
+ {
+  "problem_id": "node-kayles",
+  "charge": "decision",
+  "value": "PSPACE-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Schaefer (JCSS 16(2), 1978) proves PSPACE-completeness of Node Kayles winning-strategy decision."
+ },
+ {
+  "problem_id": "nondeterministic-constraint-logic",
+  "charge": "decision",
+  "value": "PSPACE-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Hearn & Demaine (TCS 343, 2005) prove PSPACE-completeness of NCL target-edge-reversal reachability, the exact object cited."
+ },
+ {
+  "problem_id": "presburger-arithmetic",
+  "charge": "decision",
+  "value": "beyond-PSPACE",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "CITE",
+  "corrected_citation": "Fischer & Rabin, Super-exponential complexity of Presburger arithmetic, SIAM-AMS Proc. 7 (1974) 27-41 [2^(2^(cn)) nondeterministic lower bound]; Berman, The complexity of logical theories, Theoret. Comput. Sci. 11 (1980) 71-77 [completeness for STA(*, 2^(2^O(n)), O(n))]",
+  "reason": "Fischer & Rabin establish only the 2^(2^(cn)) lower bound; the STA(*, 2^(2^O(n)), O(n))-completeness asserted in the canonical task is Berman (1980)."
+ },
+ {
+  "problem_id": "propositional-planning",
+  "charge": "decision",
+  "value": "PSPACE-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Bylander (Artif. Intell. 69, 1994) proves PLANSAT (propositional STRIPS plan existence) is PSPACE-complete."
+ },
+ {
+  "problem_id": "qcsp",
+  "charge": "decision",
+  "value": "PSPACE-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Boerner, Bulatov, Chen, Jeavons & Krokhin (Inform. and Comput. 207(9), 2009) classify QCSP over finite constraint languages with PSPACE-completeness for the unrestricted case; PSPACE membership plus QBF as a special case is standard."
+ },
+ {
+  "problem_id": "regex-squaring-inequivalence",
+  "charge": "decision",
+  "value": "beyond-PSPACE",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Meyer & Stockmeyer (1972) is exactly the EXPSPACE lower/completeness result for inequivalence of regular expressions with squaring."
+ },
+ {
+  "problem_id": "sat-reconfiguration",
+  "charge": "decision",
+  "value": "PSPACE-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Gopalan, Kolaitis, Maneva & Papadimitriou (SICOMP 38(6), 2009) prove a dichotomy for st-connectivity of the solution graph whose intractable side is PSPACE-complete, matching the canonical task."
+ },
+ {
+  "problem_id": "stochastic-sat",
+  "charge": "decision",
+  "value": "PSPACE-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Papadimitriou, Games against nature (JCSS 31(2), 1985), introduces stochastic SAT and proves PSPACE-completeness of the threshold decision problem."
+ },
+ {
+  "problem_id": "succinct-hamiltonian-cycle",
+  "charge": "decision",
+  "value": "beyond-PSPACE",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Papadimitriou & Yannakakis (Inform. and Control 71, 1986) establish NEXP-completeness for circuit-succinct versions of NP-complete graph problems, Hamiltonian path/cycle explicitly among them."
+ },
+ {
+  "problem_id": "succinct-sat",
+  "charge": "decision",
+  "value": "beyond-PSPACE",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Same P&Y (1986) note gives NEXP-completeness of Succinct SAT/3SAT under circuit succinct encoding."
+ },
+ {
+  "problem_id": "abstract-argumentation",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Semantics check passes: Dunne & Bench-Capon (AIJ 141, 2002) prove skeptical acceptance under preferred semantics is Pi_2^p-complete (credulous preferred would be NP, skeptical stable coNP), and the canonical task names skeptical/preferred."
+ },
+ {
+  "problem_id": "abstract-argumentation",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "dh",
+  "verdict": "OK",
+  "reason": "Dvorak, Szeider & Woltran (SUM 2012) give MSO-based FPT algorithms w.r.t. treewidth covering skeptical acceptance under preferred semantics."
+ },
+ {
+  "problem_id": "generalized-geography",
+  "charge": "decision",
+  "value": "PSPACE-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Schaefer (JCSS 16, 1978) proves Generalized Geography PSPACE-complete."
+ },
+ {
+  "problem_id": "bilevel-knapsack",
+  "charge": "decision",
+  "value": "PH-complete",
+  "tier": "judgment-heavy",
+  "funnel": "su",
+  "verdict": "OK",
+  "reason": "Caprara, Carvalho, Lodi & Woeginger (SIAM J. Optim. 24(2), 2014) prove Sigma_2^p-completeness of the bilevel knapsack decision problem."
+ },
+ {
+  "problem_id": "3-dimensional-assignment",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OPEN",
+  "reason": "F-2 both-sides test fails: Crama & Spieksma (1992) is confirmed for the 4/3-approximation of the metric perimeter version, but it proves only NP-hardness (Euclidean NP-hardness is Spieksma & Woeginger); no per-problem APX-hardness proof for min-perimeter metric 3AP could be located, so APX-completeness is not established."
+ },
+ {
+  "problem_id": "achromatic-number",
+  "charge": "approximation",
+  "value": "poly-APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Chaudhary & Vishwanathan (J. Algorithms 41, 2001) give an O(n/sqrt(log n)) approximation for general graphs (their finer n^{3/8}-type ratios are girth-restricted), which is exactly the polynomial-factor membership claimed."
+ },
+ {
+  "problem_id": "achromatic-number",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "CITE",
+  "corrected_citation": "Farber, Hahn, Hell & Miller, Concerning the achromatic number of graphs, J. Combin. Theory Ser. B 40 (1986) 21-39 [FPT: O(f(k)|E(G)|)]; Jana et al., Parameterized Reunion with Achromatic Number, ISAAC 2025 (LIPIcs 359:42) [explicit 2^{O(k^5)} and kernel]",
+  "reason": "FPT for Achromatic Number parameterized by k is due to Farber, Hahn, Hell & Miller (1986), not Chaudhary & Vishwanathan (an approximation paper); the quoted (k-2)(k+1)-vertex kernel matches no result in that paper, and the explicit 2^{O(k^5)} bound is the 2025 ISAAC paper."
+ },
+ {
+  "problem_id": "acyclic-coloring",
+  "charge": "parameterized",
+  "value": "FPT",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "k-Acyclic Colourability is MSO-expressible and the acyclic chromatic number is bounded by treewidth+1, so Courcelle (1990) legitimately yields FPT parameterized by treewidth alone; this derivation is standard in the literature."
+ },
+ {
+  "problem_id": "art-gallery",
+  "charge": "approximation",
+  "value": "log-APX",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "CITE",
+  "corrected_citation": "Ghosh, Approximation algorithms for art gallery problems in polygons, Discrete Appl. Math. 158 (2010) 718-722 [O(log n) upper bound]; Eidenbenz, Stamm & Widmayer, Inapproximability results for guarding polygons and terrains, Algorithmica 31(1) (2001) 79-113 [Omega(log n) for polygons with holes]",
+  "reason": "Ghosh supplies only the O(log n) algorithm; the matching Omega(log n) lower bound for polygons with holes asserted in the canonical task is Eidenbenz, Stamm & Widmayer."
+ },
+ {
+  "problem_id": "art-gallery",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Bonnet & Miltzow (ESA 2016 / ACM Trans. Algorithms) prove W[1]-hardness of vertex-guard and point-guard art gallery parameterized by the number of guards k."
+ },
+ {
+  "problem_id": "b-chromatic-number",
+  "charge": "approximation",
+  "value": "poly-APX",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "CITE",
+  "corrected_citation": "Galcik & Katrenic, A note on approximating the b-chromatic number, Discrete Appl. Math. 161 (2013) 1137-1140 [n^{1/4-eps} inapproximability]; Corteel, Valencia-Pabon & Vera, Discrete Appl. Math. 146 (2005) 106-110 gives only 120/113-eps APX-hardness",
+  "reason": "The cited Corteel-Valencia-Pabon-Vera paper proves only constant-factor (120/113-eps) hardness and explicitly leaves constant-factor approximability open; the n^{1/4-eps} bound in the canonical task is Galcik & Katrenic (2013)."
+ },
+ {
+  "problem_id": "b-chromatic-number",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Panolan, Philip & Saurabh (IPEC 2015; JCSS 2017) prove b-Chromatic Number is W[1]-hard parameterized by the number of colours k."
+ },
+ {
+  "problem_id": "bandwidth",
+  "charge": "approximation",
+  "value": "poly-APX",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "CITE",
+  "corrected_citation": "Unger, The complexity of the approximation of the bandwidth problem, FOCS 1998 [no constant-factor approximation]; Feige, Approximating the bandwidth via volume respecting embeddings, JCSS 60 (2000) 510-539 and Dunagan & Vempala, On Euclidean embeddings and bandwidth minimization (2001), O(log^3 n sqrt(log log n)) [polylog upper bound]",
+  "reason": "Unger supplies only the hardness side; the O(polylog n) approximability asserted in the canonical task is Feige (and Dunagan & Vempala), so the citation is one-sided."
+ },
+ {
+  "problem_id": "bandwidth",
+  "charge": "parameterized",
+  "value": "W[2]+",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Bodlaender, Fellows & Hallett (STOC 1994) prove Bandwidth is W[t]-hard for every t when parameterized by the target bandwidth, and XP membership follows from the classical n^{O(b)} algorithm."
+ },
+ {
+  "problem_id": "biclique-cover",
+  "charge": "approximation",
+  "value": "poly-APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Chalermsook, Heydrich, Holm & Karrenbauer (ESA 2014) prove n^{1-eps} inapproximability for minimum biclique COVER (the flawed part of that paper concerned biclique partition, not cover), and the trivial n-star cover gives poly-factor membership."
+ },
+ {
+  "problem_id": "bounded-pcp",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Short/Bounded PCP parameterized by the length bound k is a standard W[1]-complete problem recorded in Downey & Fellows (1999), with membership via reduction to Short NTM Computation."
+ },
+ {
+  "problem_id": "boxicity",
+  "charge": "approximation",
+  "value": "poly-APX",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "FIX",
+  "corrected_value": "poly-APX [canonical_task must read: O(n^{0.5-eps})-inapproximable unless NP=ZPP, not n^{1-eps}]",
+  "reason": "Adiga, Bhowmick & Chandran prove hardness of factor O(n^{0.5-eps}) (unless NP=ZPP), not n^{1-eps} as the canonical task states; the poly-APX class placement itself survives via the trivial/o(n) approximations."
+ },
+ {
+  "problem_id": "boxicity",
+  "charge": "parameterized",
+  "value": "para-NP-hard",
+  "tier": "judgment-heavy",
+  "funnel": "df",
+  "verdict": "OK",
+  "reason": "Kratochvil (Discrete Appl. Math. 52, 1994) proves NP-completeness of recognizing boxicity-2 graphs, giving NP-hardness at the fixed value k=2, i.e. para-NP-hardness."
+ },
+ {
+  "problem_id": "broadcast-time",
+  "charge": "approximation",
+  "value": "log-APX",
+  "tier": "judgment-heavy",
+  "funnel": "ck",
+  "verdict": "OK",
+  "reason": "Elkin & Kortsarz (JCSS 72, 2006) give the O(log n / log log n)-approximation, which yields log-APX membership; note only constant (3-eps) hardness is known and constant-factor approximability for general graphs is still open, so this is membership, not log-APX-completeness."
+ },
+ {
+  "problem_id": "capacitated-dominating-set",
+  "charge": "parameterized",
+  "value": "W[1]",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "OK",
+  "reason": "Dom, Lokshtanov, Saurabh & Villanger (IWPEC 2008) prove Capacitated Dominating Set is W[1]-hard parameterized by treewidth, the exact object cited."
+ },
+ {
+  "problem_id": "capacitated-facility-location",
+  "charge": "approximation",
+  "value": "APX-complete",
+  "tier": "judgment-heavy",
+  "funnel": "rn",
+  "verdict": "CITE",
+  "corrected_citation": "Zhang, Chen & Ye, A multiexchange local search algorithm for the capacitated facility location problem, Math. Oper. Res. 30(2) (2005) 389-403 [3+2sqrt(2) ~ 5.83 upper bound]; Guha & Khuller, Greedy strikes back: improved facility location algorithms, J. Algorithms 31 (1999) 228-248 [1.463 hardness for metric UFL, which CFL generalizes]",
+  "reason": "The cited work supplies only the constant-factor algorithm; APX-hardness for metric capacitated facility location comes from metric UFL (Guha & Khuller), so the APX-completeness claim is one-sided as cited."
+ }
+]
