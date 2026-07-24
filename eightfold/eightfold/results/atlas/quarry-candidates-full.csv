@@ -1,0 +1,228 @@
+candidate_id,name,origin,sources,charges,n_charges,multi_charge,screen,note
+lex-first-maximal-independent-set,Lexicographically-First Maximal Independent Set,curated-37,ghr,decision=P;parallelization=P-complete;counting=FP,3,True,PASS-multi,parallelization anchor + candidate gap-cell occupant
+abstract-argumentation,Credulous Acceptance in Abstract Argumentation (preferred semantics),curated-37,"dh,su",decision=PH-complete;parameterized=FPT,2,True,PASS-multi,fills beyond-NP decision AND parameterized; de Haan compendium core
+sharp-dnf,#DNF (count satisfying assignments of a DNF),curated-37,rn,decision=P;counting=#P-complete,2,True,PASS-multi,"DECOUPLING WITNESS (decision easy, counting hard) + counting-column filler"
+sharp-eulerian-circuits,#Eulerian Circuits,curated-37,rn,decision=P;counting=#P-complete,2,True,PASS-multi,decoupling witness + counting filler
+sharp-linear-extensions,#Linear Extensions of a Poset,curated-37,rn,decision=P;counting=#P-complete,2,True,PASS-multi,decoupling witness + counting filler
+sharp-monotone-2sat,#Monotone-2-SAT (count satisfying assignments),curated-37,rn,decision=P;counting=#P-complete,2,True,REVISIT-S2,decoupling witness; check S2 vs sharp-dnf
+chromatic-number,"Chromatic Number (Vertex Coloring, optimization)",curated-37,"rn,ck,df",decision=NPC;counting=#P-complete;approximation=inapprox;parameterized=para-NP-hard,4,True,PASS-multi,flagship counting-column filler with a modern tight inapprox
+max-2sat,MAX-2-SAT,curated-37,"rn,ck",decision=NPC;approximation=APX-complete;counting=#P-complete,3,True,PASS-multi,"decoupling-flavored (2-SAT P, MAX-2-SAT NPC) + counting filler"
+max-e3-sat,MAX-E3-SAT (maximize satisfied exact-3-clauses),curated-37,"rn,ck",decision=NPC;approximation=APX-complete;counting=#P-complete,3,True,PASS-multi,tight modern inapprox + counting filler
+subgraph-isomorphism,Subgraph Isomorphism (non-induced),curated-37,"rn,df",decision=NPC;parameterized=W[1];counting=#W[1]-hard / #P-complete,3,True,PASS-multi,fills W[1] and counting; canonical parameterized anchor
+judgment-aggregation,Judgment Aggregation (winner determination),curated-37,dh,decision=PH-complete;parameterized=W[1]/FPT,2,True,PASS-multi,beyond-NP decision + parameterized (de Haan)
+and-or-graph-accessibility,AND/OR Graph Accessibility (Alternating Graph Accessibility),curated-37,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,parallelization filler
+context-free-membership,Context-Free Grammar Membership (CFL recognition),curated-37,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,parallelization filler
+dfs-lexicographic-ordering,Lexicographic Depth-First Search Ordering,curated-37,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,parallelization filler
+path-system-accessibility,Path System Accessibility,curated-37,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,historic P-complete; parallelization filler
+unification,First-Order Term Unification,curated-37,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,parallelization filler
+bandwidth,Graph Bandwidth,curated-37,"rn,ck,df",decision=NPC;parameterized=W-hard/XP;approximation=poly-log / inapprox-const,3,True,PASS-multi,hard-to-parameterize canonical; staleness check on approx
+closest-substring,Closest Substring,curated-37,"rn,ck,df",decision=NPC;parameterized=W[1];approximation=PTAS,3,True,PASS-multi,multi-charge; grows thin string family
+independent-dominating-set,Independent Dominating Set (Minimum Maximal Independent Set),curated-37,"rn,ck,df",decision=NPC;approximation=inapprox;parameterized=W[2],3,True,PASS-multi,tight inapprox + W[2]
+list-coloring,List Coloring,curated-37,"rn,df",decision=NPC;parameterized=W[1];approximation=inapprox,3,True,PASS-multi,W[1]-hard-by-treewidth witness
+maximum-induced-matching,Maximum Induced Matching,curated-37,"rn,df",decision=NPC;parameterized=W[1];approximation=poly-APX,3,True,PASS-multi,W[1] + approx
+metric-dimension,Metric Dimension,curated-37,"rn,df",decision=NPC;parameterized=W[2];approximation=log-APX,3,True,PASS-multi,canonical W[2]-complete; fills the sparse W[2]+ end (4 rows)
+multicut,Minimum Multicut (with terminal pairs),curated-37,"rn,df",decision=NPC;parameterized=FPT;approximation=log-APX,3,True,PASS-multi,landmark FPT; multi-charge
+target-set-selection,Target Set Selection,curated-37,"rn,df",decision=NPC;parameterized=para-NP-hard;approximation=inapprox,3,True,PASS-multi,hard everywhere; multi-charge
+closest-string,Closest String,curated-37,"rn,ck,df",decision=NPC;approximation=PTAS;parameterized=FPT,3,True,PASS-multi,multi-charge; grows the thin string family
+feedback-arc-set,Minimum Feedback Arc Set (general directed),curated-37,"rn,ck,df",decision=NPC;approximation=APX-hard;parameterized=FPT,3,True,PASS-multi,multi-charge but core columns already well-covered; S2 complementation note
+capacitated-dominating-set,Capacitated Dominating Set,curated-37,"rn,df",decision=NPC;parameterized=W[1],2,True,PASS-multi,W[1] parameterized
+equitable-coloring,Equitable Coloring,curated-37,"rn,df",decision=NPC;parameterized=W[1],2,True,PASS-multi,W[1]-by-treewidth witness
+sparsest-cut,Sparsest Cut (non-uniform),curated-37,"rn,ck",decision=NPC;approximation=inapprox,2,True,PASS-multi,approx-primary; currency-current
+bilevel-knapsack,Bilevel Knapsack,curated-37,su,decision=PH-complete,1,False,PASS-single,clean beyond-NP decision filler
+competitive-facility-location,Competitive Facility Location (2-player),curated-37,su,decision=PH-complete,1,False,PASS-single,clean beyond-NP decision filler (Schaefer-Umans)
+generalized-geography,Generalized Geography,curated-37,su,decision=PSPACE-complete,1,False,PASS-single,canonical PSPACE game; fills sparse PSPACE (2 rows)
+min-equivalent-expression,Minimum Equivalent Expression (general formulas),curated-37,su,decision=PH-complete,1,False,REVISIT-S2,borderline vs dnf-minimization; owner S2 ruling needed
+facility-location,Uncapacitated Facility Location (metric),curated-37,"rn,ck",decision=NPC;approximation=APX-complete,2,True,PASS-multi,canonical CK approx problem
+min-linear-arrangement,Minimum Linear Arrangement (Optimal Linear Arrangement),curated-37,"rn,ck",decision=NPC;approximation=poly-log-APX,2,True,PASS-multi,Crescenzi-Kann approximation problem; staleness check
+set-splitting,Set Splitting (Hypergraph 2-Coloring / Max Set Splitting),curated-37,"rn,ck",decision=NPC;approximation=APX-complete,2,True,PASS-multi,approx-primary; staleness
+betweenness,Betweenness (Total Order),curated-37,rn,decision=NPC,1,False,PASS-single,single-charge; low priority
+graph-homomorphism,Graph Homomorphism (H-Coloring),mined-A,"rn,df",decision=NPC;counting=#P-complete,2,True,PASS-multi,fixed non-bipartite H; k-coloring is H=Kk case
+minimum-sum-coloring,Minimum Sum Coloring,mined-A,ck,decision=NPC;approximation=APX-hard,2,True,PASS-multi,color-sum objective not #colors
+achromatic-number,Achromatic Number,mined-A,"ck,df",decision=NPC;approximation=poly-APX;parameterized=FPT,3,True,PASS-multi,max colors in complete coloring
+b-chromatic-number,b-Chromatic Number,mined-A,df,decision=NPC;parameterized=W[1];approximation=APX-hard,3,True,PASS-multi,largest k admitting b-coloring
+grundy-number,Grundy Number,mined-A,df,decision=NPC;parameterized=W[1],2,True,PASS-multi,worst-case greedy coloring size
+harmonious-coloring,Harmonious Coloring,mined-A,df,decision=NPC;approximation=inapprox,2,True,PASS-multi,each color-pair on <=1 edge
+total-coloring,Total Coloring,mined-A,rn,decision=NPC,1,False,PASS-single,colors vertices+edges jointly
+acyclic-coloring,Acyclic Coloring,mined-A,rn,decision=NPC;parameterized=FPT,2,True,PASS-multi,no 2-colored cycle
+precoloring-extension,Precoloring Extension,mined-A,df,decision=NPC;parameterized=W[1],2,True,PASS-multi,extend fixed partial coloring
+radio-coloring,"L(2,1)-Labeling / Radio Coloring",mined-A,ck,decision=NPC;approximation=APX;parameterized=FPT,3,True,PASS-multi,distance-constrained labeling
+efficient-domination,Efficient Domination (Perfect Code),mined-A,df,decision=NPC;parameterized=W[1],2,True,PASS-multi,each vertex dominated exactly once
+total-dominating-set,Total Dominating Set,mined-A,df,decision=NPC;approximation=log-APX;parameterized=W[2]+,3,True,PASS-multi,dominators also dominated
+roman-domination,Roman Domination,mined-A,df,decision=NPC;approximation=log-APX;parameterized=W[2]+,3,True,PASS-multi,0/1/2 legion protocol
+power-dominating-set,Power Dominating Set,mined-A,df,decision=NPC;parameterized=W[2]+;approximation=inapprox,3,True,PASS-multi,domination + propagation
+domatic-number,Domatic Number,mined-A,ck,decision=NPC;approximation=log-APX,2,True,PASS-multi,max disjoint dominating sets
+upper-domination,Upper Domination,mined-A,df,decision=NPC;parameterized=W[1];approximation=poly-APX,3,True,PASS-multi,largest minimal dominating set
+maximum-minimal-vertex-cover,Maximum Minimal Vertex Cover,mined-A,df,decision=NPC;approximation=poly-APX;parameterized=FPT,3,True,PASS-multi,largest minimal VC
+dissociation-number,Dissociation Number / 3-Path Vertex Cover,mined-A,df,decision=NPC;approximation=APX-complete;parameterized=FPT,3,True,PASS-multi,max-degree-<=1 induced set
+minimum-test-cover,Test Cover,mined-A,"ck,df",decision=NPC;approximation=log-APX;parameterized=FPT,3,True,PASS-multi,fewest tests distinguishing items
+minimum-k-cut,Minimum k-Cut,mined-A,"ck,df",decision=NPC;approximation=APX;parameterized=W[1],3,True,PASS-multi,"k>=3 parts, no terminals"
+max-k-cut,Maximum k-Cut,mined-A,ck,decision=NPC;approximation=APX-complete,2,True,PASS-multi,edges across k-partition
+node-multiway-cut,Node Multiway Cut,mined-A,"rn,df",decision=NPC;approximation=APX;parameterized=FPT,3,True,PASS-multi,separate terminals via vertices
+balanced-vertex-separator,Balanced Vertex Separator,mined-A,ck,decision=NPC;approximation=log-APX,2,True,PASS-multi,balanced vertex split
+crossing-number,Crossing Number,mined-A,"ck,df",decision=NPC;parameterized=FPT;approximation=poly-APX,3,True,PASS-multi,min crossings in a drawing
+graph-genus,Graph Genus,mined-A,df,decision=NPC;parameterized=FPT,2,True,PASS-multi,min genus embedding
+boxicity,Boxicity,mined-A,df,decision=NPC;parameterized=para-NP-hard,2,True,PASS-multi,min box-representation dimension
+pagenumber,Book Thickness (Pagenumber),mined-A,rn,decision=NPC,1,False,PASS-single,min pages in book embedding
+thickness,Graph Thickness,mined-A,rn,decision=NPC,1,False,PASS-single,min planar edge partition
+maximum-planar-subgraph,Maximum Planar Subgraph,mined-A,ck,decision=NPC;approximation=APX-complete,2,True,PASS-multi,max edges keeping planarity
+planar-vertex-deletion,Planar Vertex Deletion,mined-A,df,decision=NPC;parameterized=FPT;approximation=poly-APX,3,True,PASS-multi,min vertices to planarize
+pathwidth,Pathwidth,mined-A,df,decision=NPC;parameterized=FPT,2,True,PASS-multi,path-decomposition width
+clique-width,Clique-width,mined-A,df,decision=NPC;parameterized=para-NP-hard,2,True,PASS-multi,dense-graph width
+interval-completion,Interval Graph Completion,mined-A,"ck,df",decision=NPC;parameterized=FPT,2,True,PASS-multi,min edges to interval graph
+triangle-packing,Maximum Triangle Packing,mined-A,"ck,df",decision=NPC;approximation=APX-complete;parameterized=FPT,3,True,PASS-multi,vertex-disjoint triangles
+cycle-packing,Maximum Vertex-Disjoint Cycle Packing,mined-A,df,decision=NPC;parameterized=W[1];approximation=log-APX,3,True,PASS-multi,max disjoint cycles
+strip-packing,Strip Packing,mined-A,ck,decision=NPC;approximation=APX-hard,2,True,PASS-multi,2D height packing
+geometric-bin-packing,2-Dimensional Bin Packing,mined-A,ck,decision=NPC;approximation=APX-hard,2,True,PASS-multi,rectangle bin packing
+vector-bin-packing,Vector Bin Packing,mined-A,rn,decision=NPC;approximation=poly-APX,2,True,PASS-multi,d-dim vector packing
+multidimensional-knapsack,Multidimensional Knapsack,mined-A,ck,decision=NPC;approximation=PTAS,2,True,PASS-multi,multiple weight constraints
+quadratic-knapsack,Quadratic Knapsack,mined-A,rn,decision=NPC;approximation=inapprox,2,True,PASS-multi,quadratic item-pair profits
+geometric-independent-set,Max Independent Set of Rectangles/Disks,mined-A,rn,decision=NPC;approximation=PTAS;parameterized=W[1],3,True,PASS-multi,geometric IS restriction
+geometric-disk-cover,Geometric Disk/Unit-Disk Cover,mined-A,ck,decision=NPC;approximation=PTAS,2,True,PASS-multi,cover points by disks
+min-degree-spanning-tree,Minimum Degree Spanning Tree,mined-A,ck,decision=NPC;approximation=PTAS,2,True,PASS-multi,min max-degree spanning tree
+k-minimum-spanning-tree,k-Minimum Spanning Tree,mined-A,ck,decision=NPC;approximation=APX,2,True,PASS-multi,tree spanning >=k vertices
+min-communication-cost-spanning-tree,Min Communication Cost Spanning Tree,mined-A,ck,decision=NPC;approximation=PTAS,2,True,PASS-multi,min weighted path-cost tree
+graph-spanner,Minimum t-Spanner,mined-A,ck,decision=NPC;approximation=log-APX,2,True,PASS-multi,min distance-preserving subgraph
+k-edge-connected-subgraph,Min k-Edge-Connected Spanning Subgraph,mined-A,ck,decision=NPC;approximation=APX-complete,2,True,PASS-multi,uniform k-connectivity
+connectivity-augmentation,Connectivity Augmentation,mined-A,"ck,df",decision=NPC;approximation=APX;parameterized=FPT,3,True,PASS-multi,fewest edges to target connectivity
+minimum-equivalent-digraph,Minimum Equivalent Digraph,mined-A,ck,decision=NPC;approximation=APX,2,True,PASS-multi,fewest arcs preserving reachability
+open-shop-scheduling,Open-Shop Scheduling,mined-A,ck,decision=NPC;approximation=APX,2,True,PASS-multi,any operation order per job
+flow-shop-scheduling,Flow-Shop Scheduling,mined-A,ck,decision=NPC;approximation=APX-hard,2,True,PASS-multi,fixed common machine order
+unrelated-machine-scheduling,Unrelated Parallel Machine Scheduling,mined-A,ck,decision=NPC;approximation=APX-hard,2,True,PASS-multi,machine-dependent times
+precedence-constrained-scheduling,Precedence-Constrained Scheduling,mined-A,"ck,df",decision=NPC;approximation=APX-hard;parameterized=W[2]+,3,True,PASS-multi,makespan under precedence DAG
+weighted-completion-time-scheduling,Minimum Weighted Completion Time,mined-A,ck,decision=NPC;approximation=APX,2,True,PASS-multi,sum weighted completion
+weighted-tardiness,Total Weighted Tardiness,mined-A,rn,decision=NPC;approximation=poly-APX,2,True,PASS-multi,tardiness vs due-date
+resource-constrained-scheduling,Resource-Constrained Scheduling,mined-A,ck,decision=NPC;approximation=poly-APX,2,True,PASS-multi,shared renewable resources
+job-interval-selection,Job Interval Selection Problem,mined-A,rn,decision=NPC;approximation=APX-complete,2,True,PASS-multi,<=1 interval per job
+capacitated-facility-location,Capacitated Facility Location,mined-A,rn,decision=NPC;approximation=APX,2,True,PASS-multi,facility capacity limits
+max-dispersion,Maximum Dispersion,mined-A,ck,decision=NPC;approximation=APX-complete,2,True,PASS-multi,maximize spread (anti-cluster)
+broadcast-time,Minimum Broadcast Time,mined-A,ck,decision=NPC;approximation=log-APX,2,True,PASS-multi,fewest rounds one-to-all
+generalized-assignment,Generalized Assignment Problem,mined-A,"ck,rn",decision=NPC;approximation=APX-complete,2,True,PASS-multi,jobs to capacitated machines
+3-dimensional-assignment,3-Dimensional Assignment,mined-A,ck,decision=NPC;approximation=APX-hard,2,True,PASS-multi,weighted axial triples
+orienteering,Orienteering,mined-A,rn,decision=NPC;approximation=APX,2,True,PASS-multi,max-reward walk under budget
+minimum-latency,Minimum Latency / Traveling Repairman,mined-A,ck,decision=NPC;approximation=APX,2,True,PASS-multi,min sum arrival times
+mixed-chinese-postman,Mixed Chinese Postman,mined-A,ck,decision=NPC;approximation=APX,2,True,PASS-multi,route on mixed graph
+vehicle-routing,Capacitated Vehicle Routing,mined-A,rn,decision=NPC;approximation=APX,2,True,PASS-multi,capacity-limited depot routes
+stacker-crane,Stacker Crane Problem,mined-A,ck,decision=NPC;approximation=APX,2,True,PASS-multi,pickup-delivery arc routing
+constrained-shortest-path,Resource-Constrained Shortest Path,mined-A,ck,decision=NPC;approximation=FPTAS,2,True,PASS-multi,path under side-budget
+euclidean-tsp,Euclidean TSP,mined-A,ck,decision=NPC;approximation=PTAS,2,True,PASS-multi,geometric TSP restriction
+rectilinear-steiner-tree,Rectilinear/Geometric Steiner Tree,mined-A,ck,decision=NPC;approximation=PTAS,2,True,PASS-multi,geometric steiner restriction
+minimum-weight-triangulation,Minimum Weight Triangulation,mined-A,ck,decision=NPC;approximation=PTAS,2,True,PASS-multi,min-length point-set triangulation
+art-gallery,Art Gallery / Minimum Guarding,mined-A,rn,decision=NPC;approximation=log-APX,2,True,PASS-multi,fewest polygon guards
+map-labeling,Map Labeling,mined-A,ck,decision=NPC;approximation=APX-hard,2,True,PASS-multi,max non-overlapping labels
+shortest-common-supersequence,Shortest Common Supersequence,mined-A,"ck,df",decision=NPC;approximation=poly-APX;parameterized=W[1],3,True,PASS-multi,supersequence not substring
+multiple-sequence-alignment,Multiple Sequence Alignment,mined-A,ck,decision=NPC;approximation=APX,2,True,PASS-multi,sum-of-pairs alignment
+sorting-by-reversals,Sorting by Reversals,mined-A,ck,decision=NPC;approximation=APX-complete,2,True,PASS-multi,genome reversal distance
+sorting-by-transpositions,Sorting by Transpositions,mined-A,rn,decision=NPC;approximation=APX,2,True,PASS-multi,block transposition distance
+minimum-common-string-partition,Minimum Common String Partition,mined-A,df,decision=NPC;approximation=APX-hard;parameterized=FPT,3,True,PASS-multi,matching block partition
+string-folding,String Folding (HP Lattice),mined-A,ck,decision=NPC;approximation=APX-hard,2,True,PASS-multi,lattice protein folding
+nearest-codeword,Nearest Codeword,mined-A,ck,decision=NPC;approximation=inapprox,2,True,PASS-multi,ML decoding over GF(2)
+minimum-distance-code,Minimum Distance of a Code,mined-A,df,decision=NPC;parameterized=W[1],2,True,PASS-multi,min-weight nonzero codeword
+min-sat,Minimum Satisfiability,mined-A,ck,decision=NPC;approximation=APX-complete,2,True,PASS-multi,minimize satisfied clauses
+maximum-csp,Maximum Constraint Satisfaction,mined-A,ck,decision=NPC;approximation=APX-complete,2,True,PASS-multi,general MAX-CSP umbrella
+planar-3sat,Planar 3-SAT,mined-A,rn,decision=NPC;approximation=PTAS,2,True,PASS-multi,planar SAT restriction
+label-cover,Label Cover,mined-A,rn,decision=NPC;approximation=inapprox,2,True,PASS-multi,projection games (PCP backbone)
+maximum-feasible-linear-subsystem,Maximum Feasible Linear Subsystem,mined-A,ck,decision=NPC;approximation=poly-APX,2,True,PASS-multi,max satisfiable linear subset
+min-sum-set-cover,Minimum Sum Set Cover,mined-A,rn,decision=NPC;approximation=APX-complete,2,True,PASS-multi,ordering (cover-time) objective
+red-blue-set-cover,Red-Blue Set Cover,mined-A,rn,decision=NPC;approximation=inapprox,2,True,PASS-multi,"cover blue, hit fewest red"
+3-partition,3-Partition,mined-A,"rn,df",decision=NPC;parameterized=para-NP-hard,2,True,PASS-multi,strongly NP-complete triples
+subset-product,Subset Product,mined-A,rn,decision=NPC,1,False,PASS-single,multiplicative target
+minimum-sum-of-squares,Minimum Sum of Squares,mined-A,ck,decision=NPC;approximation=APX,2,True,PASS-multi,min sum squared bin loads
+quadratic-congruences,Quadratic Congruences,mined-A,rn,decision=NPC,1,False,PASS-single,"x^2 = a mod b, x<c"
+minimum-consistent-dfa,Minimum Consistent DFA,mined-A,ck,decision=NPC;approximation=inapprox,2,True,PASS-multi,smallest DFA fitting samples
+bounded-pcp,Bounded Post Correspondence Problem,mined-A,df,decision=NPC;parameterized=W[1],2,True,PASS-multi,match of length <=k
+integer-expression-membership,Integer Expression Membership,mined-A,rn,decision=NPC,1,False,PASS-single,"membership in {union,+} exprs"
+register-sufficiency,Register Sufficiency,mined-A,ck,decision=NPC;approximation=poly-APX,2,True,PASS-multi,min registers for expr DAG
+minimum-decision-tree,Minimum Decision Tree,mined-A,ck,decision=NPC;approximation=log-APX,2,True,PASS-multi,min-cost identification tree
+ultrametric-tree-fitting,Numerical Taxonomy / Ultrametric Tree Fitting,mined-A,ck,decision=NPC;approximation=APX,2,True,PASS-multi,fit tree to distance matrix
+maximum-agreement-forest,Maximum Agreement Forest,mined-A,df,decision=NPC;approximation=APX;parameterized=FPT,3,True,PASS-multi,fewest components agreeing 2 trees
+unsplittable-flow,Unsplittable Flow,mined-A,ck,decision=NPC;approximation=poly-APX,2,True,PASS-multi,single-path routing
+firefighter,Firefighter Problem,mined-A,df,decision=NPC;approximation=APX;parameterized=W[1],3,True,PASS-multi,protect vs spreading fire
+graph-burning,Graph Burning,mined-A,rn,decision=NPC;approximation=APX;parameterized=FPT,3,True,PASS-multi,rounds to burn graph
+cluster-deletion,Cluster Deletion,mined-A,df,decision=NPC;parameterized=FPT;approximation=APX-hard,3,True,PASS-multi,edge-delete to disjoint cliques
+balanced-connected-partition,Balanced Connected Partition,mined-A,ck,decision=NPC;approximation=inapprox,2,True,PASS-multi,connected balanced parts
+rectangle-tiling,Rectangle Tiling (Array Partition),mined-A,ck,decision=NPC;approximation=APX,2,True,PASS-multi,weight-bounded rectangular tiles
+cyclic-ordering,Cyclic Ordering,mined-A,rn,decision=NPC,1,False,PASS-single,realize cyclic-order triples
+biclique-cover,Minimum Biclique Cover,mined-A,ck,decision=NPC;approximation=inapprox,2,True,PASS-multi,cover edges by bicliques
+abduction,Propositional Abduction,mined-B,"dh,su",decision=PH-complete;parameterized=FPT,2,True,PASS-multi,Sigma_2^p (Eiter-Gottlob); explanation existence; FPT varies by clause-class
+disjunctive-asp,Disjunctive ASP Consistency,mined-B,dh,decision=PH-complete;parameterized=FPT,2,True,PASS-multi,Sigma_2^p brave (Eiter-Gottlob); distinct from normal ASP (NP)
+3-coloring-extension,3-Coloring Extension (forall-exists),mined-B,"dh,su",decision=PH-complete;parameterized=FPT,2,True,PASS-multi,Pi_2^p; every leaf-3-coloring extends; distinct from planar-3-coloring/list-coloring
+robust-csp,Robust Constraint Satisfaction,mined-B,dh,decision=PH-complete;parameterized=FPT,2,True,PASS-multi,Pi_2^p; every size-k non-violating partial assignment extends; distinct from CSP/QCSP
+credulous-semistable-argumentation,"Credulous Acceptance, Semi-Stable Semantics",mined-B,"dh,su",decision=PH-complete;parameterized=FPT,2,True,PASS-multi,Sigma_2^p (Dvorak-Woltran); FPT by treewidth; distinct semantics x mode from abstract-argumentation
+skeptical-semistable-argumentation,"Skeptical Acceptance, Semi-Stable Semantics",mined-B,"dh,su",decision=PH-complete;parameterized=FPT,2,True,PASS-multi,Pi_2^p; FPT by treewidth; distinct semantics x mode
+credulous-stage-argumentation,"Credulous Acceptance, Stage Semantics",mined-B,"dh,su",decision=PH-complete;parameterized=FPT,2,True,PASS-multi,Sigma_2^p; FPT by treewidth; distinct semantics x mode
+skeptical-stage-argumentation,"Skeptical Acceptance, Stage Semantics",mined-B,"dh,su",decision=PH-complete;parameterized=FPT,2,True,PASS-multi,Pi_2^p; FPT by treewidth; distinct semantics x mode
+shortest-implicant,Shortest Implicant,mined-B,su,decision=PH-complete,1,False,PASS-single,Sigma_2^p (Umans); distinct from dnf-minimization
+succinct-set-cover,Succinct Set Cover,mined-B,su,decision=PH-complete,1,False,PASS-single,Sigma_2^p (Umans); sets = on-sets of 3-DNFs; distinct from set-cover
+generalized-subset-sum,Generalized Subset Sum,mined-B,su,decision=PH-complete,1,False,PASS-single,Sigma_2^p; distinct from subset-sum/knapsack
+integer-expression-inequivalence,Integer Expression Inequivalence,mined-B,su,decision=PH-complete,1,False,PASS-single,"Sigma_2^p (Stockmeyer-Meyer); expressions over union,plus"
+strong-nash-equilibrium,Strong Nash Equilibrium Existence,mined-B,su,decision=PH-complete,1,False,PASS-single,Sigma_2^p; graphical games; distinct from Nash existence
+clique-coloring,Clique Coloring,mined-B,su,decision=PH-complete,1,False,PASS-single,Sigma_2^p (Marx); no maximal clique monochromatic; distinct from chromatic-number
+choosability,Choosability / List Chromatic Number,mined-B,su,decision=PH-complete,1,False,PASS-single,Pi_2^p; forall list-assignments exists coloring; distinct from list-coloring (NP)
+group-coloring,Group Chromatic Number,mined-B,su,decision=PH-complete,1,False,PASS-single,Pi_2^p; distinct from chromatic-number and choosability
+arrowing,Arrowing (Ramsey),mined-B,su,decision=PH-complete,1,False,PASS-single,Pi_2^p; every 2-edge-coloring yields red-G or green-H
+generalized-ramsey-number,Generalized Ramsey Number,mined-B,su,decision=PH-complete,1,False,PASS-single,Pi_2^p; partial-coloring extension has monochromatic clique
+pebbling-number,Graph Pebbling Number,mined-B,su,decision=PH-complete,1,False,PASS-single,Pi_2^p; distinct from black-pebble game (PSPACE)
+thue-number,Thue Number,mined-B,su,decision=PH-complete,1,False,PASS-single,Sigma_2^p; square-free coloring
+generalized-graph-coloring,Generalized Graph Coloring,mined-B,su,decision=PH-complete,1,False,PASS-single,Sigma_2^p; 2-coloring with no monochromatic copy of G
+minmax-clique,Min-Max Clique,mined-B,su,decision=PH-complete,1,False,PASS-single,Pi_2^p; adversary picks representatives then clique threshold
+maxmin-vertex-cover,Max-Min Vertex Cover,mined-B,su,decision=PH-complete,1,False,PASS-single,Pi_2^p; robust VC over partition; distinct from partial/capacitated-VC
+minmax-3d-matching,Min-Max Three-Dimensional Matching,mined-B,su,decision=PH-complete,1,False,PASS-single,Pi_2^p; robust 3DM; distinct from three-dimensional-matching
+minmax-sat,Min-Max SAT,mined-B,su,decision=PH-complete,1,False,PASS-single,Pi_2^p; forall x exists y satisfying >=k clauses; distinct from pi2-sat
+graph-sandwich-pi-property,Graph Sandwich for a Pi-Property,mined-B,su,decision=PH-complete,1,False,PASS-single,"Sigma_2^p; graph between F,F' with Pi-property; distinct from minimum-fill-in"
+finite-tiling-extension,Finite Tiling Extension,mined-B,su,decision=PH-complete,1,False,PASS-single,Sigma_2^p; extend a partial square-tiling
+covering-radius,Covering Radius (Linear Code),mined-B,su,decision=PH-complete,1,False,PASS-single,Pi_2^p; covering radius <=k; distinct from CVP
+circumscription,Circumscription Inference,mined-B,dh,decision=PH-complete,1,False,PASS-single,Pi_2^p (Eiter-Gottlob); inference under minimal models
+default-logic,Default Logic Reasoning,mined-B,dh,decision=PH-complete,1,False,PASS-single,Sigma_2^p credulous / Pi_2^p skeptical (Gottlob)
+autoepistemic-logic,Autoepistemic Logic Reasoning,mined-B,dh,decision=PH-complete,1,False,PASS-single,Sigma_2^p/Pi_2^p; distinct formalism from default logic
+minimal-model-checking,Minimal Model Checking,mined-B,dh,decision=coNP-complete,1,False,PASS-single,coNP; is M a minimal model; distinct from circumscription-inference
+network-interdiction,Network Interdiction,mined-B,su,decision=PH-complete,1,False,PASS-single,"Sigma_2^p; leader removes elements, follower solves NP-hard X; distinct from bilevel-knapsack"
+min-max-regret,Min-Max Regret Optimization,mined-B,su,decision=PH-complete,1,False,PASS-single,Sigma_2^p; interval-data regret (knapsack/TSP/Steiner)
+bilevel-integer-programming,Bilevel Integer Programming,mined-B,su,decision=PH-complete,1,False,PASS-single,Sigma_2^p; general bilevel; bilevel-knapsack is a special case
+vc-dimension,VC Dimension,mined-B,su,decision=PH-complete,1,False,PASS-single,Sigma_3^p (Schaefer); succinct set-system; rare third-level
+clique-choosability,Clique Choosability,mined-B,su,decision=PH-complete,1,False,PASS-single,Sigma_3^p; list-version of clique-coloring
+hereditary-clique-coloring,Hereditary Clique Coloring,mined-B,su,decision=PH-complete,1,False,PASS-single,Pi_3^p; all induced subgraphs k-clique-colorable
+two-stage-adjustable-robust,Two-Stage Adjustable Robust Optimization,mined-B,su,decision=PH-complete,1,False,PASS-single,Sigma_3^p; exists-forall-exists; rare third-level optimization
+qcsp,Quantified CSP,mined-B,dh,decision=PSPACE-complete,1,False,PASS-single,PSPACE; quantified CSP; distinct from tqbf (general constraint language)
+stochastic-sat,Stochastic SAT,mined-B,su,decision=PSPACE-complete,1,False,PASS-single,PSPACE; exists/randomized alternation with probability threshold
+node-kayles,Node Kayles,mined-B,su,decision=PSPACE-complete,1,False,PASS-single,PSPACE; distinct game from generalized-geography
+generalized-hex,Generalized Hex,mined-B,su,decision=PSPACE-complete,1,False,PASS-single,PSPACE; distinct from generalized-geography
+generalized-gomoku,Generalized Gomoku,mined-B,su,decision=PSPACE-complete,1,False,PASS-single,PSPACE
+nondeterministic-constraint-logic,Nondeterministic Constraint Logic,mined-B,su,decision=PSPACE-complete,1,False,PASS-single,PSPACE; canonical puzzle/game framework
+propositional-planning,Propositional STRIPS Plan Existence,mined-B,dh,decision=PSPACE-complete,1,False,PASS-single,PSPACE; distinct from scheduling rows (NP)
+independent-set-reconfiguration,Independent Set Reconfiguration,mined-B,dh,decision=PSPACE-complete,1,False,PASS-single,PSPACE; solution-connectivity; distinct from independent-set
+sat-reconfiguration,SAT Reconfiguration,mined-B,dh,decision=PSPACE-complete,1,False,PASS-single,PSPACE; st-connectivity of solution space; distinct from SAT
+modal-logic-satisfiability,Modal Logic Satisfiability (K/T/S4),mined-B,su,decision=PSPACE-complete,1,False,PASS-single,PSPACE (S5 is NP); distinct from tqbf
+intuitionistic-propositional-logic,Intuitionistic Propositional Validity,mined-B,su,decision=PSPACE-complete,1,False,PASS-single,PSPACE; distinct from tautology (coNP classical)
+ltl-satisfiability,LTL Satisfiability / Model Checking,mined-B,su,decision=PSPACE-complete,1,False,PASS-single,PSPACE; distinct from tqbf
+dfa-intersection-emptiness,Finite Automata Intersection Nonemptiness,mined-B,su,decision=PSPACE-complete,1,False,PASS-single,PSPACE (Kozen); distinct from tqbf
+nfa-universality,NFA / Regex Universality,mined-B,su,decision=PSPACE-complete,1,False,PASS-single,PSPACE (Meyer-Stockmeyer); distinct from tqbf
+succinct-sat,Succinct SAT,mined-B,su,decision=beyond-PSPACE,1,False,PASS-single,NEXP (Papadimitriou-Yannakakis); circuit-encoded CNF; distinct from succinct-3-coloring
+succinct-hamiltonian-cycle,Succinct Hamiltonian Cycle,mined-B,su,decision=beyond-PSPACE,1,False,PASS-single,NEXP; distinct from succinct-3-coloring and hamiltonian-cycle
+generalized-chess,Generalized Chess,mined-B,su,decision=beyond-PSPACE,1,False,PASS-single,EXPTIME (Fraenkel-Lichtenstein)
+generalized-checkers,Generalized Checkers,mined-B,su,decision=beyond-PSPACE,1,False,PASS-single,EXPTIME (Robson)
+generalized-go,Generalized Go,mined-B,su,decision=beyond-PSPACE,1,False,PASS-single,EXPTIME (Robson)
+ctl-satisfiability,CTL / mu-Calculus Satisfiability,mined-B,su,decision=beyond-PSPACE,1,False,PASS-single,EXPTIME; distinct from LTL (PSPACE)
+regex-squaring-inequivalence,Regular Expressions with Squaring: Inequivalence,mined-B,su,decision=beyond-PSPACE,1,False,PASS-single,EXPSPACE (Meyer-Stockmeyer); distinct from nfa-universality (PSPACE)
+presburger-arithmetic,Presburger Arithmetic,mined-B,su,decision=beyond-PSPACE,1,False,PASS-single,"2-EXP (Fischer-Rabin); FO theory of (N,+,<); distinct from short-presburger"
+conformant-planning,Conformant Planning,mined-B,dh,decision=beyond-PSPACE,1,False,PASS-single,EXPSPACE (Sigma_2^p if plan-length poly-bounded); distinct from STRIPS plan-existence
+lex-first-maximal-matching,Lexicographically First Maximal Matching,mined-C,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,"edge-set object, distinct from lex-first-MIS (vertices)"
+high-degree-subgraph,High-Degree Subgraph,mined-C,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,k-HDS P-complete k>=3; distinct from densest-k-subgraph (NP)
+generability,Generability (GEN),mined-C,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,groupoid closure; distinct sibling of path-system/AGAP
+unit-resolution,Unit Resolution,mined-C,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,general CNF unit resolution; distinct from horn-sat
+datalog-evaluation,Datalog Evaluation (data complexity),mined-C,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,data complexity P-complete; DB framing distinct from horn-sat/generability
+cellular-automaton-prediction,Cellular Automaton / Game of Life Prediction,mined-C,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,predict cell after t steps (t unary); distinct simulation problem
+chip-firing-stabilization,Sandpile / Chip-Firing Stabilization,mined-C,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,Moore-Nilsson; prediction P-complete dim>=3; distinct from CA prediction
+gaussian-elimination-pivoting,Gaussian Elimination with Pivoting,mined-C,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,Vavasis; pivot-order object; distinct from determinant/linear-equations (NC)
+plane-sweep-triangulation,Plane-Sweep Triangulation,mined-C,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,natural planar-geometry P-complete; distinct from planarity/planar-*
+lz78-compression,LZ78 / LZW Compression,mined-C,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,dictionary-factor membership; no compression row exists
+breadth-depth-search,Breadth-Depth Search Ordering,mined-C,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,distinct search discipline from lex-first DFS
+deadlock-detection,Deadlock Detection,mined-C,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,resource-allocation deadlock; log-space-complete for P
+lex-first-delta-plus-one-coloring,Lexicographically First (Delta+1)-Coloring,mined-C,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,greedy color labeling; distinct object from lex-first-MIS (?)
+context-free-emptiness,Context-Free Grammar Emptiness,mined-C,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,grammar-productivity; distinct from context-free-membership (?)
+type-inference-typability,Simple Type Inference / Typability,mined-C,ghr,decision=P;parallelization=P-complete,2,True,PASS-multi,typing object; log-space-equiv to unification but distinct problem (?)
+sharp-contingency-tables,Counting Contingency Tables,mined-D,rn,decision=P;counting=#P-complete,2,True,PASS-multi,Dyer-Kannan-Mount; #P-complete even w/ 2 rows; no contingency decision row; distinct from min-cost-flow
+sharp-eulerian-orientations,Counting Eulerian Orientations,mined-D,rn,decision=P;counting=#P-complete,2,True,PASS-multi,Mihail-Winkler; ice-model partition fn; distinct from sharp-eulerian-circuits (orientations != circuits)
+sharp-matchings,Counting All Matchings (Monomer-Dimer),mined-D,rn,decision=P;counting=#P-complete,2,True,PASS-multi,"Jerrum; #all-matchings; NOT #max-matchings cell, NOT permanent(#perfect); planar #all-matchings #P-complete vs planar #perfect FP"
+sharp-acyclic-orientations,Counting Acyclic Orientations,mined-D,rn,decision=P;counting=#P-complete,2,True,PASS-multi,Stanley 1973;
+sharp-spanning-trees,Counting Spanning Trees,mined-D,rn,decision=P;counting=FP,2,True,PASS-multi,Kirchhoff matrix-tree; clean FP counting-primary; decision=connectivity; separate object like permanent despite matrix route
+sharp-antichains,Counting Antichains / Order Ideals,mined-D,rn,decision=P;counting=#P-complete,2,True,PASS-multi,Provan-Ball; poset order-theory counting object; studied in own right (Dedekind lineage) (?)
