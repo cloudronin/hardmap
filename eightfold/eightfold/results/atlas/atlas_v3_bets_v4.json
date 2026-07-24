@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "seed": 20260724,
+    "atlas_v3": "e62f3c28",
+    "n_v3_new": 227,
+    "n_kernel": 118,
+    "trust": "v3 cells agent-double-passed, owner-unconfirmed; see trust-labels.md"
+  },
+  "B1_gradient_robustness": {
+    "v2_point_full": 0.7293,
+    "v2_point_dedup": 0.6807,
+    "v2_bootstrap_ci95": [
+      0.532,
+      0.9183
+    ],
+    "v2_boot_mean": 0.7579,
+    "v3new_V_v3coded_9rung_corrected": 0.0,
+    "v3new_V_v2coded_8rung_corrected": 0.0,
+    "v3new_V_uncorrected": 0.3112,
+    "n_v2_bothreal": 47,
+    "n_v3new_bothreal": 42,
+    "HOLDS": false,
+    "finding": "DOES NOT HOLD \u2014 and this is the prereg-anticipated 'roster-composition' outcome (the bet named it acceptable in advance). v3-new approx<->param V is 0.0 corrected / 0.31 uncorrected \u2014 BOTH below v2's CI lower bound 0.53. The v2 hardness gradient (0.73) is substantially a property of the canonical-problem roster, not a universal coupling: the broad expansion washes it out. Decomposed in B6: the in-network (rn-present) rows retain more gradient than the rest.",
+    "coding_note": "corrected V clamps this sparse 5x4/42-pair table to 0 (Bergsma); the uncorrected 0.31 is the honest raw association and is still below v2's CI. Dual-coded (v3 9-rung vs v2 8-rung) identical here."
+  },
+  "B2_incompressibility": {
+    "kstar_v3new_9rung": 1,
+    "HOLDS": true,
+    "verdict_note": "k*=1 agrees with the v7/v2 primary. k*>=2 would be the biggest positive surprise; reported at size, does not touch the banked v2 verdict."
+  },
+  "B3_NPI_calibration": {
+    "n_npi_v3new": 0,
+    "rows": [],
+    "HOLDS": true,
+    "finding": "HOLDS (vacuously, and informatively): ZERO v3-new rows carry decision=NPI-candidate, so the thin NPI row was NOT inflated by the expansion \u2014 no CSP-shaped NPC was mis-slotted into NPI. The 2 Garden NPI admits (ring-isomorphism, simple-stochastic-games) are v3.1, each resting on an established NP-intersect-coAM/coNP membership theorem, not conjecture."
+  },
+  "B4_occupancy": {
+    "PH-complete x FPT inhabited (pre-called INHABITED)": true,
+    "ph_fpt_rows": [
+      "abduction",
+      "credulous-semistable-argumentation",
+      "credulous-stage-argumentation",
+      "disjunctive-asp",
+      "skeptical-semistable-argumentation",
+      "skeptical-stage-argumentation",
+      "abstract-argumentation"
+    ],
+    "n_theorem_forbidden": 16,
+    "theorem_forbidden_violations": [],
+    "n_gap_cells": 123,
+    "gap_cells_newly_inhabited": 6,
+    "gap_cells_still_empty": 117,
+    "newly_inhabited_detail": [
+      {
+        "cell": {
+          "decision": "PH-complete",
+          "parameterized": "FPT"
+        },
+        "rows": [
+          "abduction",
+          "credulous-semistable-argumentation",
+          "credulous-stage-argumentation",
+          "disjunctive-asp",
+          "skeptical-semistable-argumentation",
+          "skeptical-stage-argumentation",
+          "abstract-argumentation"
+        ]
+      },
+      {
+        "cell": {
+          "approximation": "APX",
+          "parameterized": "W[1]"
+        },
+        "rows": [
+          "minimum-k-cut"
+        ]
+      },
+      {
+        "cell": {
+          "approximation": "APX-complete",
+          "parameterized": "W[2]+"
+        },
+        "rows": [
+          "precedence-constrained-scheduling"
+        ]
+      },
+      {
+        "cell": {
+          "approximation": "PTAS",
+          "parameterized": "W[1]"
+        },
+        "rows": [
+          "closest-substring",
+          "geometric-independent-set"
+        ]
+      },
+      {
+        "cell": {
+          "approximation": "log-APX",
+          "parameterized": "W[1]"
+        },
+        "rows": [
+          "art-gallery"
+        ]
+      },
+      {
+        "cell": {
+          "approximation": "poly-APX",
+          "parameterized": "W[2]+"
+        },
+        "rows": [
+          "bandwidth",
+          "independent-dominating-set",
+          "target-set-selection"
+        ]
+      }
+    ],
+    "HOLDS": true,
+    "finding": "HOLDS: PH-complete x FPT stays inhabited (abduction, credulous-semistable-argumentation, credulous-stage-argumentation); 0 of 16 theorem-forbidden cells violated (CLEAN \u2014 no data-violates-theorem bug); the expansion newly inhabited 6 of 123 predicted-empty gap cells, 117 still empty \u2014 occupancy grew where structure permitted, nowhere it forbade."
+  },
+  "B5_folklore_gap": {
+    "v3new_counting_real_pP": 14,
+    "v3new_counting_open": 63,
+    "v3new_counting_applicable": 77,
+    "v3new_published_proof_fraction": 0.182,
+    "v2_reference_fraction": 0.314,
+    "HOLDS": true,
+    "finding": "HOLDS: 14/77 = 0.18 of applicable v3-new counting cells carry a per-problem published proof \u2014 vs v2's ~0.314. The gap did NOT improve at scale (it widened: 63 cells resolved to `open` under the F-1 per-problem bar). The folklore gap is the field's, not our effort's \u2014 confirmed out-of-sample."
+  },
+  "B6_funnel_homogeneity": {
+    "scored_on": "rn_membership (binary, source-derived) per clarification-03; six-way source_funnel WITHHELD (5/6 labels miner-attributed, not source-verified)",
+    "pooled_v3new_V_corrected": 0.0,
+    "pooled_ci95": [
+      0.0,
+      0.4429
+    ],
+    "pooled_V_uncorrected": 0.3112,
+    "n_rn_present": 16,
+    "n_rn_absent": 211,
+    "V_rn_present": 0.3887,
+    "V_rn_absent": 0.1043,
+    "rn_present_in_band": true,
+    "rn_absent_in_band": true,
+    "HOLDS": true,
+    "finding": "HOLDS but WEAKLY, and the caveat matters: no rn stratum is an outlier (present V=0.389, absent V=0.104, both inside the pooled band [0.00,0.44]) \u2014 but the band is wide because the pooled association is itself weak (B1), so there is little structure to be homogeneous ABOUT. The one signal worth naming: rn-present carries MORE approx<->param gradient than rn-absent, consistent with B1's decomposition that the v2 gradient was concentrated in the canonical/in-network roster. On 16 in-network rows this is suggestive, not conclusive."
+  }
+}
