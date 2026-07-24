@@ -95,12 +95,26 @@ def check_census_jaccard_sane() -> list[str]:
     return bad
 
 
+def check_marginals_sum_to_n() -> list[str]:
+    """Lattice v3 contingency marginals and occupancy cells each sum to n_both_real."""
+    import foundry
+    lat = _load(Path(foundry.__file__).resolve().parent / "results" / "lattice" / "lattice_v3_occupancy.json")
+    n = lat["n_both_real"]
+    bad = []
+    if sum(lat["param_marginal"].values()) != n:
+        bad.append(f"param_marginal sums to {sum(lat['param_marginal'].values())}, not n_both_real={n}")
+    if sum(lat["occupancy"].values()) != n:
+        bad.append(f"occupancy cells sum to {sum(lat['occupancy'].values())}, not n_both_real={n}")
+    return bad
+
+
 CHECKS = [
     ("Cramér's V in [0,1]", check_cramers_v_range),
     ("Factors k* inside verdict interval", check_factors_kstar_interval),
     ("Netted association <= raw (Cai-Chen)", check_netted_le_raw),
     ("Point estimates inside their CIs", check_estimates_in_cis),
     ("Census Jaccard in [0,1] and below plurality line", check_census_jaccard_sane),
+    ("Contingency marginals sum to n", check_marginals_sum_to_n),
 ]
 
 
