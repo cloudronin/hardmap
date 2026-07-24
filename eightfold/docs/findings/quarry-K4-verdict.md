@@ -60,14 +60,20 @@ semantics, **Π₂ᵖ-complete**, FPT by treewidth) occupies the previously-empt
 
 ## Output 5 — Atlas v3 recommendation
 
-**EXPAND-NARROW.**
+**EXPAND-NARROW** — in the spec's own sense (§4.4.5): *specific columns only*, a prioritization,
+**not** a row-count cap.
+
+> *Revised 2026-07-23: this section originally asserted a "~20–30-row batch sized to the owner's
+> confirm budget." No verification budget was ever defined — by the spec or the owner — and the
+> ~20–30 figure was unfounded. Struck below. The row target is the owner's to set once confirm-cost
+> is measured; the enumerated supply (K2b) is ~161 multi-charge / 227 total.*
 
 Not *don't* (the thin columns — counting 43%, parallelization 46%, beyond-NP decision 7 rows — gain
 real precision, and occupancy gaps like the argumentation cell are fillable). Not broad *expand* (the
 pilot confirms the binding constraint is unchanged since A2: **verification judgment, not row
-supply** — a broad sweep would blow the confirm budget on the dear columns, and the 1/3 error rate
-says every row still needs the owner's confirm-pass). **Expand narrowly, column-prioritized by the
-cost model:**
+supply** — a broad sweep would spend the scarce confirm-pass on the dear columns, and the 1/3 error
+rate says every row still needs the owner's confirm-pass). **Expand narrowly, column-prioritized by
+the cost model:**
 
 1. **First — `parallelization` + decision-led multi-charge rows** (cheapest, 0-correction columns).
    GHR's un-mined P-complete problems (LFMIS, path-system, AGAP, CFL-membership, unification…) and the
@@ -79,19 +85,24 @@ cost model:**
    the folklore-gap lesson) and **`approximation`** (re-verify Crescenzi–Kann currency vs post-2000
    results before trusting any pre-2005 value).
 
-**Row target the cost supports:** size to the **owner's confirm budget, not the agent's draft speed.**
-A **narrow ~20–30-row Atlas v3 batch**, front-loaded on columns 1–2 above, materially fattens the
-thin columns and adds occupancy cells (≈ the argumentation gap-fill) while staying inside a confirm
-budget comparable to what produced the 118. Drafting all ~30 is hours of agent time; **confirming them
-is the real project** — and it is the owner's, not the agent's. Two preconditions sharpen the cheap
-path before v3: (a) get reductions.network's data locally (owner `git clone` of
-`reductioncompendium/data`, or env egress) to turn the decision/approximation join from documented-
-coverage into an exact file-level join; (b) treat every agent-draft value as `claimed`-pending-confirm
-— the pilot's error rate makes the confirm-pass non-optional.
+**Row target — undefined here, on purpose.** The spec (§4.4.5) asks for "the row-target the cost
+number supports." The cost number that would support it is **human confirm-hours per verified row** —
+exactly what this investigation did *not* measure (K3 measured agent-draft cost and flagged human
+confirm cost as unmeasured). So the honest output is: **the row target is undefined until the owner's
+confirm-pass measures its own rate.** What *is* known bounds it — **supply is ~161 multi-charge / 227
+total screened candidates** (K2b), so supply is not the limit; and the confirm-pass is the scarce
+resource, with the pilot's 1/3 error rate proving it load-bearing. The batch size is a **dial the
+owner sets** by choosing how many confirm-hours to spend, front-loaded on columns 1–2 above; this note
+should not have implied a number for it. Two preconditions sharpen the cheap path first: (a) clone
+`reductioncompendium/data` (or open env egress) to turn the decision/approximation join into an exact
+file-level join; (b) treat every agent-draft value as `claimed`-pending-confirm — the error rate makes
+the confirm-pass non-optional.
 
 ## K4 done-gate
 
 - **Outputs 1–5 delivered** ✓ (K1–K3 findings + this note + the parquet-substitute JSONL/CSV data).
-- **Atlas v3 recommendation stated with a cost-supported row target** ✓ (expand-narrow, ~20–30 rows,
-  column-prioritized, confirm-budget-sized).
+- **Atlas v3 recommendation stated** ✓ — **expand-narrow = specific columns only** (the spec's §4.4.5
+  sense), column-prioritized by the cost model. The **row target is left undefined** pending a
+  human confirm-cost measurement (see the revision note in Output 5); supply is ~161 multi-charge /
+  227 total (K2b), so supply is not the constraint.
 - **Gap-list update recorded, dated** ✓.
