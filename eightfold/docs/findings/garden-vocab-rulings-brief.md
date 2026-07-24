@@ -1,5 +1,15 @@
 # Garden vocabulary rulings — decision brief (owner)
 
+> **RULED 2026-07-24.** Both decisions are now settled; this brief is the record, not a pending ask.
+> - **Decision A — QMA rung: ruled IN.** Two rungs (`QMA-complete`, `QMA1-complete`) + the membership value
+>   `in-QMA`, placed above NPC / below PSPACE-complete / incomparable to PH. Filed as
+>   `prereg_v9-clarification-04.json`; V3_SPEC extended (decision 7→10 values, kernel unchanged); three rows
+>   admitted to v3.1 (`quarry-v3.1-quantum.jsonl`, validated). Frozen bytes untouched (6d53a4f1, e62f3c28).
+> - **Decision B — communication-complexity axis: ruled SCOPED OUT.** No ninth column opens reactively.
+>   `equality-communication` and the REJECT cluster are out-of-vocabulary-by-scope (a model boundary, not a
+>   vocabulary gap). The three-way axis split (fine-grained = candidate 9th *column*; communication = candidate
+>   *companion table*) and the carry-forward scope finding are banked in `A4-charge-atlas-move-one.md`.
+
 The Complexity Garden screen surfaced 4 admissible-but-unexpressible problems. They split into **two
 decisions of different size**, exactly as flagged: a rung *inside* an existing charge (a coding change),
 and a candidate *ninth column* (a schema change). Ruling them together would conflate the two.

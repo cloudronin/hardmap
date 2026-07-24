@@ -177,6 +177,30 @@ Move Two (predict-and-populate: use the structure to place bets on uninhabited c
 5. **A candidate v2 charge 9 — fine-grained complexity** (SETH/3SUM/APSP). Recorded for the record; it is
    the natural next column once the object-existence predicate exists to type it.
 
+   **The axis question is three-way, not two (owner ruling 2026-07-24, from the Complexity Garden screen).**
+   The Garden surfaced a second candidate axis — *communication complexity* (`equality-communication`,
+   deterministic CC = Θ(n)) — and separating it from charge-9 clarifies both. **Charge-9 (fine-grained) is a
+   candidate ninth *column*: it attaches to rows the atlas already has** — SETH-hardness of edit distance is
+   a fact about an existing row. **Communication complexity is a candidate *companion table*, not a column:
+   it attaches to different row-objects** (a two-party function with an input partition), which is why
+   `EQ`-as-computation is trivially in P while `EQ`-as-communication is Θ(n). It wants rows the atlas does
+   not have — which is exactly why the Garden's REJECT pile concentrated there (12 rejects, nearly all
+   circuit-size / monotone-gap / AC⁰ / communication results). So the future thread is: fine-grained
+   competes for the 9th *column*; communication complexity, if pursued, is a *sibling atlas*. No column
+   opens reactively for either; this paragraph banks the split so the eventual decision need not relitigate
+   it.
+
+   **Carry-forward finding (belongs verbatim in any future scope section):** the Garden screen *measured
+   where the atlas's scope boundary sits* — nearly all its rejects were other-model results (communication,
+   circuit, AC⁰), not missing rungs inside the eight charges. That is a finding about the atlas's identity:
+   it is a **Turing-resource atlas, by construction and now by ruling**. The eight charges are resource
+   measures on one computational model; a charge is a *column* only if it attaches to the atlas's existing
+   rows. `equality-communication` and the REJECT cluster are therefore **out-of-vocabulary-by-scope** — a
+   model boundary, not a vocabulary gap (contrast the QMA rung, clarification-04, which *is* a vocabulary gap
+   inside the existing decision object and was ruled in). The byte-identity analysis in the vocab-rulings
+   brief proves the schema already knows the difference: a rung rides `V3_SPEC` and touches no frozen bytes;
+   a new column changes every row and cannot.
+
 ---
 
 ## 7. Provenance & honest caveats

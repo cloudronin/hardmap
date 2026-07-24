@@ -1,0 +1,26 @@
+{
+  "clarification_of": "prereg_v9",
+  "clarification_id": "04",
+  "date": "2026-07-24",
+  "kind": "declared measurement change — the decision column gains a quantum band; filed BEFORE any v3.1 statistic runs, not discovered in a delta table",
+  "owner_ruling": true,
+  "subject": "the QMA vocabulary gap surfaced by the Complexity Garden screen",
+  "note": "Owner ruling 2026-07-24: the Garden's QMA-complete problems are admissible-but-unexpressible, the same defect class as the SVP/CVP sum-of-radicals gap (clarification-02). Resolved by EXTENDING the decision vocabulary, not forcing a wrong rung. Same shape as superpoly-APX and ruled the same way. This note records the CONSEQUENCE for the battery before any v3.1 decision-column statistic is computed.",
+  "change": {
+    "vocabulary": "The decision charge gains TWO completeness rungs and ONE membership value: `QMA-complete`, `QMA1-complete` (ASCII for QMA_1, perfect completeness), and `in-QMA`. TWO rungs, not one, because the theorems draw the distinction: quantum-2-SAT is in P while quantum-k-SAT (k>=3) is QMA_1-complete (a permanent/determinant-style near-surface reversal), and QMA_1 is the class the quantum-k-SAT theorem proves completeness for. Collapsing QMA_1 into QMA would blur a cited distinction. The rung count follows the theorems, not parsimony.",
+    "ordinal_coding": "The decision column's ordinal GAINS TWO LEVELS (7 rungs -> 9 completeness positions; kernel/v2 stays at 7 by construction). Placement: NP subset QMA_1 subset QMA subset PSPACE, so both quantum rungs sit ABOVE NPC and BELOW PSPACE-complete. Partial order edges added: (NPC, QMA1-complete), (QMA1-complete, QMA-complete), (QMA-complete, PSPACE-complete), (in-QMA, QMA-complete). INCOMPARABILITY to the PH rungs (PH-complete, coNP-complete) is recorded as a NON-edge here, not forced into the ordering -- the same convention that placed superpoly-APX.",
+    "membership_value": "`in-QMA` is a MEMBERSHIP value, the quantum analogue of `NPI-candidate`. group-non-membership is IN QMA (Watrous, FOCS 2000), not known QMA-complete. It is admitted because the PLACEMENT ITSELF IS THE THEOREM -- the same bar factoring and graph-isomorphism clear as NPI-candidates on NP-intersect-coAM-style evidence. Watrous's 'in QMA, not known in MA' is that evidence's quantum form. The value is recorded as membership, NEVER dressed as completeness, exactly as NPI-candidate rows never claim hardness.",
+    "affected_statistics": "any v2-vs-v3.1 comparison whose estimator consumes the decision column as an ordered/nominal factor: decision-column occupancy, the factors indicator matrix (widens in V3_SPEC only), any decision-stratified gradient. B3 (NPI calibration) is unaffected -- in-QMA is a distinct value, not an NPI-candidate."
+  },
+  "handling": {
+    "rule": "both-values-always -- every decision-column table reports the v2 value and the v3 value side by side; any decision-column comparison carries the coding-change flag.",
+    "requirement": "Where a v2-vs-v3.1 decision-column delta is reported, it MUST be accompanied by a re-run under the v2 7-rung coding (to_v2_coding collapses QMA/QMA1/in-QMA to their nearest v2-expressible bound, PSPACE-complete, since QMA subset PSPACE) so the reader separates INSTRUMENT change from POPULATION change. Same discipline as clarification-02's approximation dual-coding.",
+    "scope": "The rungs are implemented in V3_SPEC ONLY (dev/quarry_v3_spec.py), never the kernel charges.py. THE VOCABULARY IS PART OF THE INSTRUMENT -- a kernel edit would perturb the v2 factors indicator matrix and confound the very comparison this note protects (clarification-02's lesson, instance 8). Verified: frozen suite 83 passed, kernel decision vocabulary unchanged at 7 rungs, atlas.jsonl 6d53a4f1 and atlas_v3.jsonl e62f3c28 both byte-identical."
+  },
+  "rows_admitted_to_v3_1": [
+    {"problem_id": "k-local-hamiltonian", "decision": "QMA-complete", "citation": "Kitaev-Shen-Vyalyi 2002 (k=5); Kempe-Regev 2003 (k=3); Kempe-Kitaev-Regev SICOMP 35 2006 (k=2)"},
+    {"problem_id": "quantum-k-sat", "decision": "QMA1-complete", "citation": "Bravyi 2006 (quantum k-SAT QMA_1-complete k>=3, quantum 2-SAT in P) -- agent-supplied primary replacing the Garden's lecture pointer (R20 discipline)"},
+    {"problem_id": "group-non-membership", "decision": "in-QMA", "citation": "Watrous, Succinct quantum proofs for properties of finite groups, FOCS 2000 -- membership status, not completeness"}
+  ],
+  "unchanged": "No bet in prereg_v9 is edited, added, or removed; B1-B6 stand verbatim. The frozen atlas.jsonl (6d53a4f1...), atlas_v2.jsonl (784f4739...) and atlas_v3.jsonl (e62f3c28...) remain byte-identical -- the vocabulary extension is additive and no frozen row carries a quantum value."
+}
