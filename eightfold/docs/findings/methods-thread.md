@@ -216,6 +216,46 @@ made.* And when a workaround is adopted because something is unavailable, the un
 load-bearing assumption of everything built on top — it earns a retest each time it is re-invoked, not a
 citation of the last time it was assumed.
 
+## Instance 12 — 2026-07-24 — an OWNER ruling issued on an uninspected constraint (the delegation protocol's mirror)
+
+**What happened.** The freeze finalizer carried a zero-`claimed` gate: it refused to freeze while any v3
+cell was still `claimed`. That gate was **agent-built** — nothing in the prereg or the instrument
+required it. Presented with it, the owner ruled that all 426 cells be owner-confirmed before freeze
+("426 cells, sittings back to back"), treating the gate as if it were the freeze *semantics*. It was
+not. It was one agent's over-construction, stricter than anything v1 was ever held to — the frozen v1
+kernel shipped with **2 of 331 real-value cells `confirmed`** and 329 `claimed`.
+
+**Why it is the same species as the earlier corrections.** The thread's characteristic failure is a
+constraint supplied where none was written (instances 1–7) or a written one under-read (instance 8).
+This is a third face: **a self-imposed constraint mistaken for an external one, and ruled upon as if it
+were.** The owner named it exactly — "an owner ruling issued on an uninspected constraint" — and gave it
+the standard treatment: dated correction, reason named. That the ruling came from the *owner* is the
+point. The authority boundary protects against the agent supplying unwritten constraints (the delegation
+note below); nothing symmetric protects against the owner *ratifying* an agent-built one. The gate read
+as spec because the agent had built it into the tool, and a constraint encoded in code wears the same
+authority as a constraint written in the prereg.
+
+**The substantive reasoning, preserved (owner's, 2026-07-24).** The 426 argument was: *v1's spot-check
+standard produced the 8-of-9 `inapprox` disaster — do not repeat v1's epistemics.* Sound, against
+**unchecked** `claimed`. But v3's `claimed` is not v1's `claimed`: it is double-passed at full Check-9
+with full-text evidence, swept three ways (F-2, decision-membership, prose-vs-value), and recursively
+CITE-gated. **v3 at `claimed` already carries more verification than v1 ever had at freeze.** Holding the
+battery hostage to a 426-cell sitting would apply a retroactively-invented standard to the one version
+that least needs it.
+
+**What ran right, and it is the counter-example to instances 10–11.** The corpus-question check — *does
+the corpus actually require this?* — ran in the correcting direction. The premise was **pressed instead
+of executed**: v1's real confirmed-count was verified against the frozen kernel (2/331) rather than the
+zero-`claimed` gate being accepted as given, and the owner reversed on the evidence. Instances 10 and 11
+were untested premises that propagated; this was a tested premise that collapsed on contact. The whole
+difference was one check against the artifact, made before acting instead of after.
+
+**The correction.** The zero-`claimed` gate is removed; v3 freezes on CITE-clean + kill-criterion 1 —
+the conditions v1 actually met. The 426-cell pre-freeze sitting is superseded. Owner-`confirmed`
+promotion becomes a rolling v3.1 spot-check, never a freeze blocker; if it surfaces material corrections
+they ride the errata protocol. The per-version trust-label distribution is published so no reader
+mistakes `frozen` for `owner-confirmed` (see `trust-labels.md`). Recorded in `freeze_atlas_v3.py`.
+
 ---
 
 ## Delegation protocol — the authority boundary held under pressure (2026-07-24)
