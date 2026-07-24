@@ -1,0 +1,167 @@
+[
+ {
+  "problem_id": "and-or-graph-accessibility",
+  "charge": "parallelization",
+  "verdict": "CITE",
+  "reason": "Value P-complete is correct, but GHR (1995) is a compendium entry that repeats the result rather than establishing it. Verified by extracting the full text of the GHR compendium PDF: entry 'A.x Alternating Graph Accessibility Problem (AGAP)' gives 'Reference: [CKS], [Imm], [Imm]' and the Remark 'The original proof simulated an alternating Turing machine (ATM) directly to show that AGAP was complete for P.' GHR's own bibliography expands [CKS] = Chandra, Kozen and Stockmeyer, 'Alternation', J. ACM (Jan 1981), and [Imm] = Immerman, 'Number of quantifiers is better than number of tape cells', JCSS (1981). GHR itself points at the originals, so the cell should cite them.",
+  "corrected_citation": "A. K. Chandra, D. C. Kozen & L. J. Stockmeyer, Alternation, Journal of the ACM 28(1) (1981) 114-133 (ASPACE(log n) = P, via direct ATM simulation); and N. Immerman, Number of quantifiers is better than number of tape cells, J. Comput. System Sci. 22(3) (1981) 384-406 (AGAP logspace-complete for P). These are the two references GHR (1995) itself gives for the AGAP entry."
+ },
+ {
+  "problem_id": "lex-first-maximal-matching",
+  "charge": "parallelization",
+  "verdict": "OPEN",
+  "reason": "The value P-complete is not established and is in fact a known open question; both cited works fail, and one of them says the opposite. (1) Extracted the GHR (1995) compendium PDF directly: LFMM is NOT in Part A (P-complete problems) at all -- it is in Part B, section 'CC Problems', alongside the Comparator Circuit Value Problem and Stable Marriage. GHR's index line reads 'LFMIS ... A / LFMM ... B / LFMP ... A'. The LFMM entry reads: 'Reference [Coo], [MS]. Remarks: LFMM is NC equivalent to Comparator CVP (Problem B) [MS]. This problem resembles the lexicographically first maximal independent set problem (Problem A) known to be P-complete. A P-completeness proof for LFMM would imply that edge-weighted matching (Problem B) is also P-complete.' The section preamble states 'It is known that NL subset-eq CC subset-eq P [MS]' and 'it is generally considered unlikely that these problems are P-complete because of the lack of fanout in comparator circuits.' So the cell cites GHR for a value GHR explicitly declines to assert. (2) Miyano's P-completeness theorem is about the lexicographically first maximal VERTEX-induced subgraph problem for nontrivial hereditary properties -- the wrong object; the cell's own canonical_task flags matching as an edge object, which is exactly the case Miyano does not cover. (3) Independently confirmed by Cook, Filmus & Le, 'The complexity of the comparator circuit value problem' (ToCT 2014; arXiv:1208.2721) and Cook, Filmus & Le (arXiv:1106.4142): Subramanian proved that stable marriage and finding the lexicographically first maximal matching in a bipartite graph are CC-complete; CC is conjectured incomparable with NC and CC = P is unresolved. Downgrade to open. If the atlas has a rung for CC-completeness, that is the true placement.",
+  "corrected_citation": "E. W. Mayr & A. Subramanian, The complexity of circuit value and network stability, J. Comput. System Sci. 44(2) (1992) 302-323 (LFMM is CC-complete; NL subset-eq CC subset-eq P); see also S. Cook, Y. Filmus & D. T. M. Le, The complexity of the comparator circuit value problem, ACM Trans. Computation Theory 6(4) (2014), art. 15. Supplied as the correct-status reference, not as support for P-completeness."
+ },
+ {
+  "problem_id": "unit-resolution",
+  "charge": "parallelization",
+  "verdict": "OK",
+  "reason": "Verified against the GHR compendium full text: entry 'A.x Unit Resolution (UNIT) -- Given: A Boolean formula F in conjunctive normal form. Problem: Can the empty clause be deduced from F by unit resolution? Reference: [JL]', with GHR's bibliography giving [JL] = N. D. Jones and W. T. Laaser, 'Complete problems for deterministic polynomial time', Theoretical Computer Science (1976). The cell's citation string includes Jones & Laaser (1976), which is the establishing work, so the citation as a whole meets Check 9. Cosmetic note for the owner: J&L should lead and GHR be secondary; the current 'GHR (1995); cf. Jones & Laaser (1976)' ordering puts the compendium first."
+ },
+ {
+  "problem_id": "chip-firing-stabilization",
+  "charge": "parallelization",
+  "verdict": "OK",
+  "reason": "Moore & Nilsson, 'The computational complexity of sandpiles', J. Stat. Phys. 96 (1999) 205-224 (preprint cond-mat/9808183) proves exactly the stated claim: in d >= 3 the Abelian sandpile prediction problem (final state after all avalanches) is P-complete, and recurrence of a sandpile state is also P-complete in d >= 3. Same object, same dimension restriction as the canonical_task. No drift."
+ },
+ {
+  "problem_id": "lz78-compression",
+  "charge": "parallelization",
+  "verdict": "CITE",
+  "reason": "Wrong paper for the stated value. De Agostino & Storer (1996) is 'On-line versus off-line computation in dynamic text compression', Inform. Process. Lett. 59 (1996) 169-174, which proves NP-completeness of computing the optimal parsing and that no sublogarithmic-factor approximation can be realized on-line. That is an NP-hardness result about optimal parsing, not a P-completeness result about the LZ78/LZ2 dictionary, so it cannot establish a parallelization-charge value. The P-completeness of the unbounded LZ2 (LZ78) dynamic dictionary compression method is established in De Agostino's separate 1994 TCS paper. Two caveats the owner should resolve before promoting: (a) I could not obtain the 1994 full text (Elsevier 403, ResearchGate 403, and the web-search budget was exhausted), so the exact problem form -- 'dictionary membership' as the canonical_task words it -- is attested only from secondary descriptions of the result; (b) there is a published erratum, De Agostino, 'Erratum to \"P-complete Problems in Data Compression\"', Theoret. Comput. Sci. 234(1-2) (2000) 325-326, whose content I could not read; it should be checked before this cell is confirmed.",
+  "corrected_citation": "S. De Agostino, P-complete problems in data compression, Theoretical Computer Science 127(1) (1994) 181-186 (unbounded LZ2/LZ78 dynamic dictionary compression is P-complete). NB: see the author's erratum, Theoret. Comput. Sci. 234(1-2) (2000) 325-326."
+ },
+ {
+  "problem_id": "context-free-emptiness",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Jones & Laaser, 'Complete problems for deterministic polynomial time', TCS 3 (1976) 105-117 explicitly includes context-free emptiness among the problems shown complete for P; P-completeness entails membership in P, which is the stated value. Confirmed against the GHR compendium full text, whose CFGempty entry cites [JL] and remarks 'The original proof of Jones and Laaser reduced GEN to CFGempty.' Same object as canonical_task (grammar productivity)."
+ },
+ {
+  "problem_id": "feedback-arc-set",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Feedback Arc Set is one of Karp's original 21 NP-complete problems (Karp, Reducibility among combinatorial problems, in Complexity of Computer Computations, 1972, 85-103). The canonical_task (acyclic after removing at most k arcs, general digraphs) is exactly Karp's problem. The note's separations from feedback-arc-set-tournament and directed-feedback-vertex-set are correct object distinctions."
+ },
+ {
+  "problem_id": "achromatic-number",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "The general-graph NP-completeness is genuinely in the cited Yannakakis & Gavril, 'Edge dominating sets in graphs', SIAM J. Appl. Math. 38(3) (1980) 364-372: they prove edge dominating set NP-complete even for planar/bipartite graphs of maximum degree 3, and derive as corollaries that minimum maximal matching and the achromatic number problem are NP-complete. The citation string names this work for general graphs, so the value is established by a real per-problem proof rather than by the restricted-class results. Bodlaender, IPL 31 (1989) 135-138 (cographs, interval graphs) and Cairnie & Edwards (trees, 1997) are correctly listed as strengthenings. Minor wording issue in the note only: restricted-class NP-completeness implies general NP-hardness a fortiori, but it is Yannakakis-Gavril that carries the cell."
+ },
+ {
+  "problem_id": "betweenness",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Opatrny, 'Total ordering problem', SIAM J. Comput. 8(1) (1979) 111-114 is the establishing proof that Betweenness (does a total order realize every given betweenness triple?) is NP-complete. Object matches canonical_task exactly, and the note correctly separates it from Cyclic Ordering and Max-Betweenness."
+ },
+ {
+  "problem_id": "closest-string",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Frances & Litman, 'On covering problems of codes', Theory Comput. Syst. 30 (1997) 113-119 proves the Minimum Radius decision problem NP-complete by polynomial reduction from 3SAT, over a binary alphabet -- this is precisely Closest String (a center string within Hamming distance d of all inputs), as the parameterized-complexity literature (Gramm-Niedermeier-Rossmanith and successors) uniformly attributes it. Lanctot, Li, Ma, Wang & Zhang (1999) is a correct secondary. Object matches; alphabet restriction in the note is correct and is a strengthening."
+ },
+ {
+  "problem_id": "cyclic-ordering",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Galil & Megiddo, 'Cyclic ordering is NP-complete', Theoret. Comput. Sci. 5 (1977) 179-182 -- the paper's result is the cell's claim verbatim, for the stated object (a circular order realizing every ordered triple). Correctly distinguished from Betweenness."
+ },
+ {
+  "problem_id": "firefighter",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Finbow, King, MacGillivray & Rizzi, 'The firefighter problem for graphs of maximum degree three', Discrete Mathematics 307 (2007) 2094-2105 proves NP-completeness of the Firefighter decision problem even for trees of maximum degree three -- exactly the strengthened claim the canonical_task states. General graphs follow a fortiori, as the note says."
+ },
+ {
+  "problem_id": "graph-burning",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Bessy, Bonato, Janssen, Rautenbach & Roshanbin, 'Burning a graph is hard', Discrete Applied Mathematics 232 (2017) 73-87 establishes NP-completeness of deciding b(G) <= k, including for trees/forests of maximum degree three and for disjoint unions of paths -- matching the canonical_task including its restricted-class strengthenings."
+ },
+ {
+  "problem_id": "interval-completion",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "Value NPC is right; the citation is the Garey & Johnson compendium, which lists the problem as [GT35] but does not prove it -- exactly the failure mode Check 9 excludes, and the cell's own note hedges with '[GT35-adjacent]'. The establishing work is Kashiwabara & Fujisawa's 1979 ISCAS paper, which is the source G&J cite for GT35 (Interval Graph Completion: can an interval graph be obtained by adding at most k edges?). Note for the owner: Kashiwabara & Fujisawa published two 1979 ISCAS items and they are easily conflated -- the other one, 'NP-completeness of the problem of finding a minimum-clique-number interval graph containing a given graph as a subgraph', is the interval-thickness/pathwidth object, NOT the edge-addition object of this cell. The edge-addition one is given below. Since this is a 1979 conference proceedings I could not obtain the full text; the pairing is attested from the secondary literature rather than read directly.",
+  "corrected_citation": "T. Kashiwabara & T. Fujisawa, An NP-complete problem on interval graphs, Proc. IEEE International Symposium on Circuits and Systems (1979) 82-83 -- the source underlying Garey & Johnson [GT35] Interval Graph Completion (minimum number of added edges). Distinguish from the same authors' companion ISCAS 1979 paper on minimum-clique-number interval supergraphs, which is a different object."
+ },
+ {
+  "problem_id": "max-dispersion",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "Object drift plus wrong charge. Hassin, Rubinstein & Tamir, 'Approximation algorithms for maximum dispersion', Oper. Res. Lett. 21 (1997) 133-137 is an approximation-algorithms paper, and its problem is a generalization with a metric restriction: given a graph with edge weights satisfying the triangle inequality and numbers k and p, find k disjoint subsets of p vertices each maximizing total intra-subset weight. The cell's canonical_task is the plain single-subset max-sum p-dispersion decision problem with no triangle-inequality assumption. An approximation paper for a metric generalization does not establish NP-completeness of the unrestricted decision problem; that requires interpretive charity. The value NPC is correct -- the standard establishing proof is a reduction from Clique.",
+  "corrected_citation": "C.-C. Kuo, F. Glover & K. S. Dhir, Analyzing and modeling the maximum diversity problem by zero-one programming, Decision Sciences 24(6) (1993) 1171-1185 (NP-hardness of max-sum dispersion / maximum diversity by reduction from Clique). Corroborating: S. S. Ravi, D. J. Rosenkrantz & G. K. Tayi, Heuristic and special case algorithms for dispersion problems, Operations Research 42(2) (1994) 299-310 (MAX-AVG, i.e. max-sum, hardness and approximation bounds)."
+ },
+ {
+  "problem_id": "maximum-planar-subgraph",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "Value NPC is right; the citation is the Garey & Johnson compendium ([GT27]), which repeats rather than establishes -- the same compendium-citation failure as interval-completion. The cell's own note already names the establishing work. The edge-deletion-to-planarity result (equivalently, a planar subgraph with at least k edges) is due to Liu & Geldmacher.",
+  "corrected_citation": "P. C. Liu & R. C. Geldmacher, On the deletion of nonplanar edges of a graph, Proc. 10th Southeastern Conference on Combinatorics, Graph Theory and Computing (1979) 727-738 (NP-completeness of minimum edge deletion to planarity, equivalently Maximum Planar Subgraph)."
+ },
+ {
+  "problem_id": "minimum-consistent-dfa",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Gold, 'Complexity of automaton identification from given data', Information and Control 37(3) (1978) 302-320 is the establishing proof that finding a minimum-state DFA consistent with a given set of labelled example strings is NP-hard (decision version NP-complete). Object matches canonical_task exactly."
+ },
+ {
+  "problem_id": "minimum-sum-coloring",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "Value NPC is right; the cited work is an approximation paper and does not carry the decision NP-completeness. Verified against the field's own survey (Jin, Hamiez & Hao, 'Algorithms for the minimum sum coloring problem: a review', arXiv:1505.00449, full text extracted): the survey states 'in the general case, the decision version of MSCP is NP-complete [28, 29]' where [29] is Kubicka's 1989 work, and separately cites Bar-Noy et al. 1998 -- reference [1] there -- only for approximation results (a 2-approximation for line graphs and a (Delta+2)/3-approximation for graphs of maximum degree Delta). So the community attributes the decision hardness to Kubicka, not to Bar-Noy et al. The cell's own note already lists Kubicka-Schwenk first; the citation field should match.",
+  "corrected_citation": "E. Kubicka & A. J. Schwenk, An introduction to chromatic sums, Proc. 17th ACM Annual Computer Science Conference (CSC '89), ACM (1989) 39-45 (NP-completeness of the chromatic sum / minimum sum coloring decision problem); see also E. Kubicka, The chromatic sum of a graph, Ph.D. thesis, Western Michigan University (1989). Retain Bar-Noy, Bellare, Halldorsson, Shachnai & Tamir, Inform. Comput. 140 (1998) 183-202 as the approximation reference only."
+ },
+ {
+  "problem_id": "node-multiway-cut",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "Object drift: edge version cited for a vertex-version cell. Dahlhaus, Johnson, Papadimitriou, Seymour & Yannakakis, SIAM J. Comput. 23 (1994) 864-894 is about the EDGE multiterminal cut -- a minimum-weight set of EDGES separating the terminals -- whereas the canonical_task asks for at most k non-terminal VERTICES. Confirmed from the introduction of Johnson, Martin, Pandey, Paulusma, Smith & van Leeuwen, 'Edge Multiway Cut and Node Multiway Cut are NP-complete on subcubic graphs' (arXiv:2211.12203), which separates the attributions explicitly: 'In their famous study of Edge Multiway Cut, Dahlhaus et al. [13] showed that it is NP-complete even if the set of terminals has size |T| = 3', and then 'Garg et al. [16] showed the same for Node Multiway Cut', with [16] = Garg, Vazirani & Yannakakis, Multiway cuts in node weighted graphs, J. Algorithms 50 (2004) 49-61. The value NPC and the note's 'NP-hard for >= 3 terminals, poly for 2' are both correct.",
+  "corrected_citation": "N. Garg, V. V. Vazirani & M. Yannakakis, Multiway cuts in node weighted graphs, Journal of Algorithms 50(1) (2004) 49-61 (Node Multiway Cut NP-complete already for |T| = 3); preliminary version: Multiway cuts in directed and node weighted graphs, ICALP 1994, LNCS 820, 487-498."
+ },
+ {
+  "problem_id": "power-dominating-set",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Haynes, Hedetniemi, Hedetniemi & Henning, 'Domination in graphs applied to electric power networks', SIAM J. Discrete Math. 15(4) (2002) 519-529 is the paper that introduces the power domination problem in graph-theoretic form and proves the decision problem (at most k vertices observing all vertices, under the observation/propagation rules) NP-complete, including for bipartite and chordal graphs. Object matches canonical_task."
+ },
+ {
+  "problem_id": "rectilinear-steiner-tree",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Garey & Johnson, 'The rectilinear Steiner tree problem is NP-complete', SIAM J. Appl. Math. 32(4) (1977) 826-834 -- the paper's title and result are the cell's claim, for the stated decision object (rectilinear Steiner tree of length at most B). This is a research paper, not the compendium, so it does not share the failure mode of the other two Garey-Johnson citations in this batch."
+ },
+ {
+  "problem_id": "shortest-common-supersequence",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Raiha & Ukkonen, 'The shortest common supersequence problem over binary alphabet is NP-complete', Theoret. Comput. Sci. 16 (1981) 187-198 establishes exactly the stated value for the stated object, with the binary-alphabet strengthening the note claims. The note's separation from shortest common superstring (substrings, not subsequences) is a correct object distinction."
+ },
+ {
+  "problem_id": "strip-packing",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "The cited work contains no hardness proof. I downloaded Baker, Coffman & Rivest, 'Orthogonal packings in two dimensions', SIAM J. Comput. 9(4) (1980) 846-855 from Rivest's own publications page and extracted the full text. It is purely an approximation-analysis paper (bottom-left / BL algorithms). Its single intractability remark is: 'Even when x_i = x_j for all i and j, our packing problem is intractable; it can be shown that it becomes the NP-complete make-span minimization problem [7]. Hence, we are moved to consider fast heuristics...' -- i.e. BCR (a) restrict to the equal-widths special case, (b) do not prove anything, and (c) attribute even that to their reference [7] = J. D. Ullman, 'Complexity of sequencing problems', in Computer and Job-Shop Scheduling Theory, E. G. Coffman Jr. (ed.), Wiley (1976). The cell's note 'NP-hard via 3-Partition' appears nowhere in BCR; 3-Partition is not mentioned. Cross-checked against a current paper's framing of the same landscape (arXiv:2509.04654, A 13/6-Approximation for Strip Packing via the Bottom-Left Algorithm): it cites BCR only for the BL absolute ratio 3, and attributes strong NP-hardness to Garey & Johnson (1978), with NP-hardness inherited because Strip Packing generalizes Bin Packing. Value NPC is correct; the citation is not.",
+  "corrected_citation": "M. R. Garey & D. S. Johnson, '\"Strong\" NP-completeness results: motivation, examples, and implications', Journal of the ACM 25(3) (1978) 499-508 (strong NP-completeness of 3-Partition and Bin Packing). Strip Packing contains Bin Packing as the unit-height special case, giving strong NP-hardness of the height-at-most-H decision problem and the 3/2 absolute-approximation threshold; this is the attribution used in the current strip-packing literature. Baker, Coffman & Rivest (1980) should be retained only as the Bottom-Left 3-approximation reference."
+ },
+ {
+  "problem_id": "ultrametric-tree-fitting",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Hardened by reading the full text (open-access Warwick research report WRAP_cs-rr-330, the report version of the SICOMP paper). Section 5 'Lower bound' states the decision problem verbatim -- 'The Numerical Taxonomy Problem. Input: A distance matrix D and a threshold Delta. Question: Is there a tree metric T which spans S and for which ||T - D||_inf <= Delta?' -- and proves THEOREM 5.1: The Numerical Taxonomy Problem is NP-complete, with Corollary 5.3 giving the 9/8-factor hardness. That is exactly the canonical_task, proved in the cited paper, so the citation establishes the value and the theorem number can be pinned. IMPORTANT FLAG FOR THE OWNER, not a defect in the stated value: the problem_id says 'ultrametric', and L-infinity fitting by an ULTRAMETRIC is polynomial-time solvable -- the same paper says so on page 1, 'The only positive fitting result is from 1993 [6] and shows that under the L-inf norm an optimal ultrametric is polynomially computable, in fact in linear time', citing Farach, Kannan & Warnow (STOC'93; Algorithmica 13 (1995) 155-179). So if this cell's object is ever read off the problem_id rather than the canonical_task, the correct value flips to P. Recommend renaming the id to tree-metric-fitting (or numerical-taxonomy) before confirming. Suggested citation refinement: add 'Theorem 5.1'."
+ },
+ {
+  "problem_id": "weighted-tardiness",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Lenstra, Rinnooy Kan & Brucker, 'Complexity of machine scheduling problems', Annals of Discrete Mathematics 1 (1977) 343-362 is the standard and correct attribution for 1||sum w_j T_j being NP-hard in the STRONG sense, which is what both the value and the note assert; the scheduling literature attributes strong NP-hardness of the weighted problem to this paper. The note's contrast with the unweighted 1||sum T_j (pseudo-polynomial DP via Lawler 1977, ordinary NP-hardness only, FPTAS) is correct and is a genuine object distinction rather than drift."
+ },
+ {
+  "problem_id": "sharp-monotone-2sat",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "The canonical_task makes two claims and both are established. Monotone 2-CNF satisfiability is trivially yes by the all-true assignment (no citation needed), and 2-SAT in general is in P by the cited Aspvall, Plass & Tarjan, 'A linear-time algorithm for testing the truth of certain quantified boolean formulas', Inf. Process. Lett. 8(3) (1979) 121-123, which is the establishing linear-time algorithm. Value P is correct and the cell functions as intended as a decoupling witness against the hard counting version."
+ }
+]

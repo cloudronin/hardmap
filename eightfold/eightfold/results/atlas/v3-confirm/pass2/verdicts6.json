@@ -1,0 +1,177 @@
+[
+ {
+  "problem_id": "lex-first-maximal-matching",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "Value P is correct, but the citation fails on two counts. (1) Venue error: Miyano's lexicographically-first-maximal-subgraph paper is 'The lexicographically first maximal subgraph problems: P-completeness and NC algorithms', Mathematical Systems Theory 22(1) (1989) 47-73 (conf. version FCT 1987); there is no IJFCS 1990 Miyano paper on this. (2) Object drift: Miyano's theorem is about the lfm VERTEX set whose INDUCED subgraph satisfies a nontrivial hereditary property. A matching is an edge set, not a vertex-induced subgraph, so Miyano's theorem does not cover lex-first maximal matching at all. The work that actually places LFMM in P (indeed pins it exactly) is Mayr & Subramanian, who show LFMM is complete for the class CC with NL subset-eq CC subset-eq P.",
+  "corrected_citation": "E. W. Mayr & A. Subramanian, The complexity of circuit value and network stability, Journal of Computer and System Sciences 44(2) (1992) 302-323 (lexicographically first maximal matching is CC-complete, and NL ⊆ CC ⊆ P, so LFMM is in P); see also S. Cook, Y. Filmus & D. T. M. Le, The complexity of the comparator circuit value problem, ACM Transactions on Computation Theory 7(4) (2015), Article 19"
+ },
+ {
+  "problem_id": "unit-resolution",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "Value P is correct. Greenlaw-Hoover-Ruzzo (1995) is a compendium: its Unit Resolution entry records the result and points at the primary rather than proving it. The establishing work is Jones & Laaser, who proved that UNIT (is the empty clause derivable by unit resolution?) is log-space complete for P — which gives both membership in P and P-hardness for unit propagation to fixpoint.",
+  "corrected_citation": "N. D. Jones & W. T. Laaser, Complete problems for deterministic polynomial time, Theoretical Computer Science 3(1) (1976) 105-117 (the problem UNIT / unit resolution is log-space complete for P)"
+ },
+ {
+  "problem_id": "chip-firing-stabilization",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "The canonical_task conjoins two claims and the citation only supports one. Bjorner-Lovasz-Shor (1991) establish the abelian property — finiteness of the game and the terminating configuration are independent of the order of moves — plus the chip-count thresholds for finiteness (N < |E| always finite; N > 2|E|-|V| always infinite). They do not supply the polynomial bound on the number of firings that the 'poly-time' half of the value P requires; that is Tardos (1988), who proved an O(n^4) bound on the length of a terminating chip-firing game on an undirected graph. A two-part citation is needed.",
+  "corrected_citation": "G. Tardos, Polynomial bound for a chip firing game on graphs, SIAM Journal on Discrete Mathematics 1(3) (1988) 397-398 (O(n^4) bound on the number of firings in a terminating game), together with A. Bjorner, L. Lovasz & P. W. Shor, Chip-firing games on graphs, European Journal of Combinatorics 12(4) (1991) 283-291 (order-independence / abelian property)"
+ },
+ {
+  "problem_id": "lz78-compression",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "Object drift. De Agostino & Storer, IPL 59 (1996) 169-174, is about the OPTIMAL parsing (they prove NP-completeness of computing the optimal parse, and that no sublogarithmic-factor approximation can be realised on-line). It is not about the greedy LZ78 dictionary parse being poly-time — if anything it is a hardness result for a neighbouring object. The greedy incremental parse is from Ziv & Lempel's original paper (linear time); the parallel-complexity classification that pins the greedy LZ2/LZ78 algorithm inside P is De Agostino's TCS 1994 paper.",
+  "corrected_citation": "J. Ziv & A. Lempel, Compression of individual sequences via variable-rate coding, IEEE Transactions on Information Theory 24(5) (1978) 530-536 (the incremental/greedy LZ78 parse, linear time); for the exact placement in P see S. De Agostino, P-complete problems in data compression, Theoretical Computer Science 127(1) (1994) 181-186 (the Ziv-Lempel LZ2/LZ78 compression algorithm and two standard variations are P-complete, hence in P)"
+ },
+ {
+  "problem_id": "lex-first-delta-plus-one-coloring",
+  "charge": "parallelization",
+  "verdict": "OK",
+  "reason": "Greenlaw-Hoover-Ruzzo's compendium contains exactly this problem — 'Lexicographically First Delta+1 Vertex Coloring' (compendium entry A.2.6: given G, a vertex ordering v_1..v_n, a colour c and a vertex v, is v assigned colour c in the lexicographically least Delta+1 colouring?) — stated as P-complete under log-space reduction. Same object, same value, no charity required. I searched for a distinct primary paper and could not verify one, so I am not substituting a guessed citation.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "subgraph-isomorphism",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Garey & Johnson (1979) list SUBGRAPH ISOMORPHISM as [GT48] and state NP-completeness for exactly the decision form given (is H isomorphic to a subgraph of G?). The compendium entry matches the canonical_task verbatim.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "3-partition",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Garey & Johnson, SIAM J. Comput. 4 (1975) 397-411, is the primary source in which 3-PARTITION is proved strongly NP-complete (NP-complete with all integers bounded by a polynomial in m, i.e. under unary encoding), which is exactly the stated canonical_task. The [SP15] compendium pointer is a correct secondary cross-reference.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "bandwidth",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Papadimitriou, Computing 16 (1976) 263-270, is the primary NP-completeness proof for exactly the bandwidth decision problem (is there a layout of bandwidth <= b?). Same object, same value.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "clique-width",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Fellows, Rosamond, Rotics & Szeider, SIAM J. Discrete Math. 23(2) (2009) 909-939 (STOC 2006), is the primary source: the paper's stated result is precisely that deciding cwd(G) <= k is NP-complete. No drift.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "crossing-number",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Garey & Johnson, SIAM J. Algebraic Discrete Methods 4(3) (1983) 312-316, titled 'Crossing number is NP-complete', is the primary proof for exactly the stated decision problem. Correctly distinguished from rectilinear crossing number in the note.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "facility-location",
+  "charge": "decision",
+  "verdict": "CITE",
+  "reason": "Value NPC is right, but neither cited work establishes it for the stated object. Cornuejols-Nemhauser-Wolsey (1990) is a 53-page survey chapter in Discrete Location Theory that reports UFL's NP-hardness rather than proving it, and it is not specific to the METRIC case that canonical_task pins; Garey & Johnson (1979) has no metric UFL entry. Guha & Khuller prove hardness for the metric case directly: by relating metric UFL to Set Cover they show it is MAX SNP-hard (so NP-hard under P != NP) and 1.463-inapproximable unless NP ⊆ DTIME[n^{O(log log n)}].",
+  "corrected_citation": "S. Guha & S. Khuller, Greedy strikes back: Improved facility location algorithms, Journal of Algorithms 31(1) (1999) 228-248 (prelim. version SODA 1998) — metric uncapacitated facility location is MAX SNP-hard, and 1.463-inapproximable unless NP ⊆ DTIME[n^{O(log log n)}]"
+ },
+ {
+  "problem_id": "geometric-independent-set",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Clark, Colbourn & Johnson, Discrete Mathematics 86 (1990) 165-177, prove that independent set (along with colouring, domination, independent domination and connected domination) remains NP-complete on unit disk graphs. Exactly the stated graph class and exactly the stated decision problem.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "independent-dominating-set",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Garey & Johnson (1979) is the standard and correct source for the NP-completeness of the independent domination decision problem (equivalently MINIMUM MAXIMAL INDEPENDENT SET: is there an independent dominating set S with |S| <= k?), and is uniformly cited as such in the independent-domination literature. Object matches: unrestricted graphs, cardinality bound.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "map-labeling",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Formann & Wagner, SoCG 1991, 281-288, prove NP-hardness of exactly this label-placement packing problem — given sites in the plane, can a common label size sigma be achieved by axis-parallel squares? — and additionally show approximating better than factor 2 is NP-hard. Same object.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "maximum-minimal-vertex-cover",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Boria, Della Croce & Paschos, Discrete Applied Mathematics 196 (2015) 62-71, is a paper devoted to exactly MAX MIN VERTEX COVER (find a minimal vertex cover of maximum size), and it proves inapproximability within ratio n^{eps-1/2} unless P = NP. A P!=NP inapproximability result for the optimisation problem establishes NP-hardness of the stated decision version in the same paper; this is not a repeated claim. (Note the n^{eps-1/2} form: if an approximation cell for this problem exists elsewhere in the atlas, that is a poly-APX-shaped bound, not inapprox.)",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "minimum-common-string-partition",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Goldstein, Kolman & Zheng, Electron. J. Combin. 12 (2005) R50 (prelim. ISAAC 2004), is the primary hardness source for MCSP: they prove NP-hardness, in fact already for 2-MCSP where each letter occurs at most twice. Same object as canonical_task (common partition into <= k blocks).",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "minimum-latency",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Blum, Chalasani, Coppersmith, Pulleyblank, Raghavan & Sudan, STOC 1994, 163-171, prove that the minimum latency problem is MAX-SNP-hard for general metric spaces (alongside their 144-approximation for the metric case and 8-approximation for weighted trees). MAX-SNP-hardness gives NP-hardness of the stated decision version on metric spaces, so the citation establishes the value for the stated object.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "nearest-codeword",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Berlekamp, McEliece & van Tilborg, IEEE Trans. Inform. Theory 24(3) (1978) 384-386, prove that maximum-likelihood decoding of a linear code (their COSET WEIGHTS problem: is there a codeword within Hamming distance d of y?) is NP-complete. This is precisely the canonical_task.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "planar-vertex-deletion",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Lewis & Yannakakis, JCSS 20(2) (1980) 219-230, prove node-deletion is NP-complete for EVERY nontrivial property hereditary on induced subgraphs. Planarity is hereditary on induced subgraphs and nontrivial (infinitely many graphs have it, infinitely many do not), so the theorem applies directly, with no interpretive step beyond checking those two conditions. Same object: unrestricted graphs, vertex deletion, cardinality bound k.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "radio-coloring",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Griggs & Yeh, SIAM J. Discrete Math. 5(4) (1992) 586-595, introduce L(2,1)-labelling and prove that determining lambda(G) is NP-complete (by relating it to Hamilton path). Exactly the stated span decision problem on unrestricted graphs.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "set-splitting",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Garey & Johnson (1979) [SP4] SET SPLITTING is the standard compendium entry for exactly this feasibility problem (equivalently hypergraph 2-colourability / Property B), stated NP-complete and remaining so for sets of size 3. Problem-ID-level match with the canonical_task; the Lovasz attribution in the note is correct.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "string-folding",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Berger & Leighton, J. Comput. Biol. 5(1) (1998) 27-40, prove NP-completeness of exactly the HP-model folding decision problem — is there a self-avoiding embedding of an H/P string achieving at least k H-H contacts — in the cubic lattice. Same object and same scoring function as canonical_task.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "triangle-packing",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Garey & Johnson [GT11] PARTITION INTO TRIANGLES is NP-complete, and the reduction to the packing form is the identity instance with k = n/3 (G partitions into triangles iff G has n/3 vertex-disjoint triangles). That is a tight one-line equivalence, not interpretive charity, and the note already flags the exact-vs-packing relation explicitly.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "weighted-completion-time-scheduling",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Bruno, Coffman & Sethi, Comm. ACM 17(7) (1974) 382-387, is the primary source for the NP-hardness of P2||sum w_j C_j (weighted mean flow time on two identical parallel machines, by reduction from Partition); this is the standard attribution throughout the scheduling literature. It establishes the value for P||sum w_j C_j since m=2 is a special case, and the note correctly separates the poly-time single-machine WSPT case.",
+  "corrected_citation": null
+ },
+ {
+  "problem_id": "sharp-matchings",
+  "charge": "decision",
+  "verdict": "OK",
+  "reason": "Edmonds, Canad. J. Math. 17 (1965) 449-467, is the blossom algorithm paper: it gives the polynomial-time algorithm for maximum matching in general graphs, which is exactly the poly-time half of the canonical_task (existence being trivial). Correct object for the decoupling witness.",
+  "corrected_citation": null
+ }
+]

@@ -1002,7 +1002,7 @@
    ]
   },
   "parameterized": {
-   "source": "RWTH GitLab data repository https://git.rwth-aachen.de/reductioncompendium/data (the repo the paper designates in Sec. 3.1 / Sec. 4 as the authoritative store synchronised to the live site), path `parameterized/problems/*.md`, one Markdown file per network vertex; commit 8089fb4f3b0d674550ce00449d41533b0d7e3404 (2025-12-13). Enumerated via GitLab REST API tree listing (x-total=30); each name read from that file's `# name` field. Class values are read from each file's `# completeness` field. The paper attributes this network to the Faour thesis ('Extending Reductions Network: A Survey of Parameterized Complexity'); the thesis PDF itself was NOT retrieved (see gaps) - every name and class below comes from the data repository, not from the thesis.",
+   "source": "RWTH GitLab data repository https://git.rwth-aachen.de/reductioncompendium/data (the repo the paper designates in Sec. 3.1 / Sec. 4 as the authoritative store synchronised to the live site), path `parameterized/problems/*.md`, one Markdown file per network vertex; commit 8089fb4f3b0d674550ce00449d41533b0d7e3404 (2025-12-13). Enumerated via GitLab REST API tree listing (x-total=30); each name read from that file's `# name` field. Class values are read from each file's `# completeness` field. The paper attributes this network to the Faour thesis ('Extending Reductions Network: A Survey of Parameterized Complexity'); the thesis PDF itself was NOT retrieved (see gaps) - `class`/`completeness_raw` are the repo's values, `thesis_complete_for` the thesis's own.",
    "reachable": true,
    "count": 29,
    "problems": [
@@ -1014,7 +1014,9 @@
       "W[1]-hard"
      ],
      "abbreviation": "AM sCNF WSat",
-     "file": "antimonotone_s-cnf_weighted_satisfiability.md"
+     "file": "antimonotone_s-cnf_weighted_satisfiability.md",
+     "thesis_complete_for": "W[1]-complete",
+     "thesis_section": "Sec. 3 \"W[1]-Complete Problems\" (pp. 15-18)"
     },
     {
      "name": "Clique",
@@ -1024,7 +1026,9 @@
       "W[1]-hard"
      ],
      "abbreviation": "Clique",
-     "file": "clique.md"
+     "file": "clique.md",
+     "thesis_complete_for": "W[1]-complete",
+     "thesis_section": "Sec. 3 \"W[1]-Complete Problems\" (pp. 15-18)"
     },
     {
      "name": "Cutting k Vertices from a Graph",
@@ -1033,7 +1037,9 @@
       "W[1]-hard"
      ],
      "abbreviation": "Cutting k Vertices",
-     "file": "cutting_k_vertices_from_a_graph.md"
+     "file": "cutting_k_vertices_from_a_graph.md",
+     "thesis_complete_for": "W[1]-hard",
+     "thesis_section": "Sec. 5 \"W[1]-Hard Problems\" (pp. 53-54)"
     },
     {
      "name": "Dominating Clique",
@@ -1043,7 +1049,9 @@
       "W[2]"
      ],
      "abbreviation": "D-Clique",
-     "file": "dominating_clique.md"
+     "file": "dominating_clique.md",
+     "thesis_complete_for": "W[2]-complete",
+     "thesis_section": "Sec. 7 \"W[2]-Complete Problems\" (pp. 63-67)"
     },
     {
      "name": "Dominating Set",
@@ -1053,7 +1061,9 @@
       "W[2]"
      ],
      "abbreviation": "DS",
-     "file": "dominating_set.md"
+     "file": "dominating_set.md",
+     "thesis_complete_for": "W[2]-complete",
+     "thesis_section": "Sec. 7 \"W[2]-Complete Problems\" (pp. 63-67)"
     },
     {
      "name": "Graph k-Cut",
@@ -1062,7 +1072,9 @@
       "W[1]-hard"
      ],
      "abbreviation": "Graph k-Cut",
-     "file": "graph_k-cut.md"
+     "file": "graph_k-cut.md",
+     "thesis_complete_for": "W[1]-hard",
+     "thesis_section": "Sec. 5 \"W[1]-Hard Problems\" (pp. 53-54)"
     },
     {
      "name": "Hitting Set",
@@ -1072,7 +1084,9 @@
       "W[2]"
      ],
      "abbreviation": "HS",
-     "file": "hitting_set.md"
+     "file": "hitting_set.md",
+     "thesis_complete_for": "W[2]-complete",
+     "thesis_section": "Sec. 7 \"W[2]-Complete Problems\" (pp. 63-67)"
     },
     {
      "name": "Independent Set",
@@ -1082,7 +1096,9 @@
       "W[1]-hard"
      ],
      "abbreviation": "IS",
-     "file": "independent_set.md"
+     "file": "independent_set.md",
+     "thesis_complete_for": "W[1]-complete",
+     "thesis_section": "Sec. 3 \"W[1]-Complete Problems\" (pp. 15-18)"
     },
     {
      "name": "Irredundant Set",
@@ -1092,7 +1108,9 @@
       "W[1]-hard"
      ],
      "abbreviation": "Irredundant Set",
-     "file": "irredundant_set.md"
+     "file": "irredundant_set.md",
+     "thesis_complete_for": "W[1]-complete",
+     "thesis_section": "Sec. 3 \"W[1]-Complete Problems\" (pp. 15-18)"
     },
     {
      "name": "Kernel",
@@ -1102,7 +1120,9 @@
       "W[2]"
      ],
      "abbreviation": "Kernel",
-     "file": "kernel.md"
+     "file": "kernel.md",
+     "thesis_complete_for": "W[2]-complete",
+     "thesis_section": "Sec. 7 \"W[2]-Complete Problems\" (pp. 63-67)"
     },
     {
      "name": "Monotone Prenex CNF Query Non-Emptiness",
@@ -1112,7 +1132,9 @@
       "W[2]"
      ],
      "abbreviation": "Mon. CNF MQNE",
-     "file": "monotone_prenex_cnf_query_non-emptiness.md"
+     "file": "monotone_prenex_cnf_query_non-emptiness.md",
+     "thesis_complete_for": "W[1]-complete",
+     "thesis_section": "Sec. 3 \"W[1]-Complete Problems\" (pp. 15-18)"
     },
     {
      "name": "Monotone Query Non-Emptiness",
@@ -1122,7 +1144,9 @@
       "W[1]-hard"
      ],
      "abbreviation": "Mon. QNE",
-     "file": "monotone_query_non-emptiness.md"
+     "file": "monotone_query_non-emptiness.md",
+     "thesis_complete_for": "W[1]-complete",
+     "thesis_section": "Sec. 3 \"W[1]-Complete Problems\" (pp. 15-18)"
     },
     {
      "name": "Monotone Weighted CNF Satisfiability",
@@ -1132,7 +1156,9 @@
       "W[2]"
      ],
      "abbreviation": "CNF MWSat",
-     "file": "monotone_weighted_cnf_satisfiability.md"
+     "file": "monotone_weighted_cnf_satisfiability.md",
+     "thesis_complete_for": "W[2]-complete",
+     "thesis_section": "Sec. 7 \"W[2]-Complete Problems\" (pp. 63-67)"
     },
     {
      "name": "Multicoloured Clique",
@@ -1142,7 +1168,9 @@
       "W[1]-hard"
      ],
      "abbreviation": "Multicoloured Clique",
-     "file": "multicoloured_clique.md"
+     "file": "multicoloured_clique.md",
+     "thesis_complete_for": "W[1]-complete",
+     "thesis_section": "Sec. 3 \"W[1]-Complete Problems\" (pp. 15-18)"
     },
     {
      "name": "Perfect Code",
@@ -1152,7 +1180,9 @@
       "W[1]-hard"
      ],
      "abbreviation": "Perfect Code",
-     "file": "perfect_code.md"
+     "file": "perfect_code.md",
+     "thesis_complete_for": "W[1]-complete",
+     "thesis_section": "Sec. 3 \"W[1]-Complete Problems\" (pp. 15-18)"
     },
     {
      "name": "s-CNF Weighted Satisfiability",
@@ -1162,7 +1192,9 @@
       "W[1]-hard"
      ],
      "abbreviation": "sCNF WSat",
-     "file": "s-cnf_weighted_satisfiability.md"
+     "file": "s-cnf_weighted_satisfiability.md",
+     "thesis_complete_for": "W[1]-complete",
+     "thesis_section": "Sec. 3 \"W[1]-Complete Problems\" (pp. 15-18)"
     },
     {
      "name": "s-Red-Blue Nonblocker",
@@ -1172,7 +1204,9 @@
       "W[1]-hard"
      ],
      "abbreviation": "s-R-B Nonblocker",
-     "file": "s-red_blue_nonblocker.md"
+     "file": "s-red_blue_nonblocker.md",
+     "thesis_complete_for": "W[1]-complete",
+     "thesis_section": "Sec. 3 \"W[1]-Complete Problems\" (pp. 15-18)"
     },
     {
      "name": "Saving k Vertices",
@@ -1181,7 +1215,9 @@
       "W[1]-hard"
      ],
      "abbreviation": "Saving k Vertices",
-     "file": "saving_k_vertices.md"
+     "file": "saving_k_vertices.md",
+     "thesis_complete_for": "W[1]-hard",
+     "thesis_section": "Sec. 5 \"W[1]-Hard Problems\" (pp. 53-54)"
     },
     {
      "name": "Set Cover",
@@ -1191,7 +1227,9 @@
       "W[2]"
      ],
      "abbreviation": "SC",
-     "file": "set_cover.md"
+     "file": "set_cover.md",
+     "thesis_complete_for": "W[2]-complete",
+     "thesis_section": "Sec. 7 \"W[2]-Complete Problems\" (pp. 63-67)"
     },
     {
      "name": "Short Exact Tour",
@@ -1200,7 +1238,9 @@
       "W[1]-hard"
      ],
      "abbreviation": "Short Exact Tour",
-     "file": "short_exact_tour.md"
+     "file": "short_exact_tour.md",
+     "thesis_complete_for": "W[1]-hard",
+     "thesis_section": "Sec. 5 \"W[1]-Hard Problems\" (pp. 53-54)"
     },
     {
      "name": "Short Multi-Tape NTM",
@@ -1210,7 +1250,9 @@
       "W[2]"
      ],
      "abbreviation": "Short Multi-Tape NTM",
-     "file": "short_multi-tape_ntm.md"
+     "file": "short_multi-tape_ntm.md",
+     "thesis_complete_for": "W[2]-complete",
+     "thesis_section": "Sec. 7 \"W[2]-Complete Problems\" (pp. 63-67)"
     },
     {
      "name": "Short Turing Machine Acceptance",
@@ -1220,7 +1262,9 @@
       "W[1]-hard"
      ],
      "abbreviation": "Short TM Acceptance",
-     "file": "short_turing_machine_acceptance.md"
+     "file": "short_turing_machine_acceptance.md",
+     "thesis_complete_for": "W[1]-complete",
+     "thesis_section": "Sec. 3 \"W[1]-Complete Problems\" (pp. 15-18)"
     },
     {
      "name": "Sized Subset Sum",
@@ -1229,7 +1273,9 @@
       "W[1]-hard"
      ],
      "abbreviation": "Sized Subset Sum",
-     "file": "sized_subset_sum.md"
+     "file": "sized_subset_sum.md",
+     "thesis_complete_for": "W[1]-hard",
+     "thesis_section": "Sec. 5 \"W[1]-Hard Problems\" (pp. 53-54)"
     },
     {
      "name": "Steiner Tree",
@@ -1239,7 +1285,9 @@
       "W[2]"
      ],
      "abbreviation": "ST",
-     "file": "steiner_tree.md"
+     "file": "steiner_tree.md",
+     "thesis_complete_for": "W[2]-complete",
+     "thesis_section": "Sec. 7 \"W[2]-Complete Problems\" (pp. 63-67)"
     },
     {
      "name": "Threshold Dominating Set",
@@ -1249,7 +1297,9 @@
       "W[2]"
      ],
      "abbreviation": "Threshold DS",
-     "file": "threshold_dominating_set.md"
+     "file": "threshold_dominating_set.md",
+     "thesis_complete_for": "W[2]-complete",
+     "thesis_section": "Sec. 7 \"W[2]-Complete Problems\" (pp. 63-67)"
     },
     {
      "name": "Weighted Binary Integer Programming",
@@ -1259,7 +1309,9 @@
       "W[2]"
      ],
      "abbreviation": "Weighted 0-1-IP",
-     "file": "weighted_binary_integer_programming.md"
+     "file": "weighted_binary_integer_programming.md",
+     "thesis_complete_for": "W[2]-complete",
+     "thesis_section": "Sec. 7 \"W[2]-Complete Problems\" (pp. 63-67)"
     },
     {
      "name": "Weighted Circuit Satisfiability (1,h,s)",
@@ -1269,7 +1321,9 @@
       "W[1]-hard"
      ],
      "abbreviation": "WCS(1,h,s)",
-     "file": "weighted_circuit_satisfiability_(1,h,s).md"
+     "file": "weighted_circuit_satisfiability_(1,h,s).md",
+     "thesis_complete_for": "W[1]-complete",
+     "thesis_section": "Sec. 3 \"W[1]-Complete Problems\" (pp. 15-18)"
     },
     {
      "name": "Weighted Circuit Satisfiability 2,h,s)",
@@ -1279,7 +1333,9 @@
       "W[2]"
      ],
      "abbreviation": "WCS(2,h,s)",
-     "file": "weighted_circuit_satisfiability_(2,h,s).md"
+     "file": "weighted_circuit_satisfiability_(2,h,s).md",
+     "thesis_complete_for": "W[2]-complete",
+     "thesis_section": "Sec. 7 \"W[2]-Complete Problems\" (pp. 63-67)"
     },
     {
      "name": "Weighted CNF Satisfiability",
@@ -1289,10 +1345,31 @@
       "W[2]"
      ],
      "abbreviation": "CNF WSat",
-     "file": "weighted_cnf_satisfiability.md"
+     "file": "weighted_cnf_satisfiability.md",
+     "thesis_complete_for": "W[2]-complete",
+     "thesis_section": "Sec. 7 \"W[2]-Complete Problems\" (pp. 63-67)"
     }
-   ]
+   ],
+   "thesis_cross_check": {
+    "thesis": "Yaman Faour, \"Extending Reductions.Network: A Survey of Parameterized Complexity\", B.Sc. thesis, Dept. of Computer Science i1, RWTH Aachen University, Winter Semester 2024/25. Supervisor: Christoph Grune; Reviewers: Peter Rossmanith, Martin Hoefer.",
+    "url": "https://reductions.network/papers/faour_extending_reductions_network_a_survey_of_parameterized_complexity",
+    "retrieved": "2026-07-24 (HTTP 200, application/pdf, 1193067 bytes, 99 pages; text extracted with PyMuPDF)",
+    "result": "The thesis independently enumerates the same 29 problems, in three labelled sections: 12 in \"W[1]-Complete Problems\", 5 in \"W[1]-Hard Problems\", 12 in \"W[2]-Complete Problems\" (the thesis states verbatim \"We provide the definitions of 12 W[2]-complete problems\"). 12+5+12 = 29 = the repo count. Each thesis entry carries its own \"Complete for:\" and \"References:\" fields.",
+    "discrepancies": [
+     {
+      "name": "Monotone Prenex CNF Query Non-Emptiness",
+      "repo_class": "W[2]",
+      "repo_completeness_raw": [
+       "W[1]-hard",
+       "W[2]"
+      ],
+      "thesis_class": "W[1]-complete",
+      "thesis_section": "Sec. 3 \"W[1]-Complete Problems\" (pp. 15-18)"
+     }
+    ],
+    "note_on_W2": "The thesis asserts W[2]-COMPLETENESS for the 12 problems in its Sec. 7, which is stronger than the repo `# completeness` tokens (membership \"W[2]\" + \"W[1]-hard\") for those same problems. Where the two agree, the thesis wording is the stronger and better-sourced claim."
+   }
   }
  },
- "gaps": "1) The Faour thesis itself was not retrieved. The paper cites it as https://reductions.network/papers/faour_extending_reductions_network_a_survey_of_parameterized_complexity. It was not needed for the enumeration - the parameterized vertex list and its W-classes were taken from the live data repository, which is what the site actually renders - but no independent cross-check of the 29 names against the thesis text was performed. 2) The `# completeness` field records set membership and hardness as separate tokens. 'W[1]'+'W[1]-hard' is read here as W[1]-complete. For the 11 problems tagged 'W[2]'+'W[1]-hard', the repo asserts membership in W[2] but only W[1]-hardness, NOT W[2]-hardness; several of these are W[2]-complete in the literature, but that stronger claim is not made by this source and is not asserted here. `completeness_raw` preserves the exact tokens. 3) Six classic entries are unfilled stubs in the repo (instances/solutions/citations literally 'todo', empty completeness): Chinese Postman, Directed Rural Postman, Undirected Rural Postman, Minimal Maximal Matching, s-t-Max Cut, and (partially) several others with empty completeness - Edge Dominating Set, Longest Common Subsequence, Not-All-Equal 4SAT, Planar Vertex Cover, Vertex Cover on Cubic Graph, Maximum Cut(classic, has citation). They are genuine vertices of the network but the repo establishes no complexity value for them. 4) Counts differ slightly from the ~57/~23/~29 figures in the tasking: classic is 58 (not 57). Figure 1 renders 57 legible labels because two distinct vertices both abbreviate to 'MLST' (Maximum Leaf Spanning Tree and Minimum Leaf Spanning Tree) and 'EXACT COVER' (EC) is drawn occluded behind the '3-Dim Matching' node; GRAPH COLORING is present in the repo but was not located in the figure. The repo listing (58) is taken as authoritative over the figure. 5) Vertex counts are as of commit 8089fb4f3b0d674550ce00449d41533b0d7e3404 (2025-12-13); the live site may have drifted since."
+ "gaps": "1) RESOLVED (was: Faour thesis not retrieved). The thesis was retrieved from https://reductions.network/papers/faour_extending_reductions_network_a_survey_of_parameterized_complexity and independently confirms the parameterized network as exactly 29 problems in the same three classes. See networks.parameterized.thesis_cross_check. ONE conflict remains unresolved between the two sources: Monotone Prenex CNF Query Non-Emptiness is tagged {W[1]-hard, W[2]} in the repo but is defined in the thesis's \"W[1]-Complete Problems\" section with \"Complete for: W[1].\" Both cite Downey, Fellows & Taylor (DMTCS 1996). Since W[1] subseteq W[2] the repo tag is not false, only weaker; the thesis value is the better-sourced one. Both are recorded; neither was overwritten. 2) The repo `# completeness` field records membership and hardness as separate tokens. 'W[1]'+'W[1]-hard' is read here as W[1]-complete. For the 13 problems the repo tags 'W[2]'+'W[1]-hard', the repo itself does NOT assert W[2]-hardness; the Faour thesis does assert W[2]-completeness for 12 of them (all but the Monotone Prenex case above). `completeness_raw` preserves the exact repo tokens and `thesis_complete_for` the thesis's. 3) Six classic vertices are unfilled stubs in the repo - instances/solutions/citations literally 'todo' and empty completeness: Chinese Postman, Directed Rural Postman, Undirected Rural Postman, Minimal Maximal Matching, s-t-Max Cut. A further five carry no completeness value: Edge Dominating Set, Longest Common Subsequence, Not-All-Equal 4SAT, Planar Vertex Cover, Vertex Cover on Cubic Graph. These are genuine vertices but the source establishes no complexity value for them. 4) Counts differ slightly from the ~57/~23/~29 in the tasking. Classic is 58, not 57: Figure 1 renders 57 legible labels because two distinct vertices both abbreviate to 'MLST' (Maximum Leaf Spanning Tree and Minimum Leaf Spanning Tree) and 'EXACT COVER' (EC) is drawn occluded behind the '3-Dim Matching' node; GRAPH COLORING is in the repo but was not located in the figure. The repo listing (58) is authoritative over the figure. Approximation is 23 after excluding the byte-identical duplicate `dominating_set_TEST.md`. 5) The approximation network's `# completeness` field only ever records the hardness FRAMEWORK ('PCP' and/or 'UGC'), never a ratio or an APX-class. No inapproximability CONSTANT can be read off this source for any of the 23 approximation vertices; the per-problem citations (Hastad 2001, Khot 2002, Feige 1998, Vazirani 2001, Williamson-Shmoys 2011, Austrin 2007, Crescenzi-Silvestri-Trevisan 2001) are the only place those live, and they were not opened. 6) Four approximation vertices carry NO citation at all (empty `# citations`): Maximum Satisfiability with three literals pro clause (Max-3sat), Satisfiability problem, Vertex Cover, Weighted Maximum Cut, Weighted Vertex Cover. 7) Vertex counts are as of data-repo commit 8089fb4f3b0d674550ce00449d41533b0d7e3404 (2025-12-13); the live site may have drifted since."
 }

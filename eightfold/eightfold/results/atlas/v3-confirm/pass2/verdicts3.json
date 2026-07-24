@@ -1,0 +1,189 @@
+[
+ {
+  "problem_id": "context-free-membership",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "verdict": "OK",
+  "reason": "Verified against GHR itself: Problem A.7.1 'Context-free Grammar Membership (CFGmem) - Given: a context-free grammar G=(N,T,P,S) and a string x in T*. Problem: Is x in L(G)? Reference: Jones and Laaser [181]', with the hint reducing Generability (A.6.7) to CFGmem. GHR bibliography [181] = N. D. Jones and W. T. Laaser, Complete problems for deterministic polynomial time, Theoretical Computer Science 3(1) (1976) 105-117 - exactly the cited work and year. Precision note for the owner (not a citation defect): the canonical_task should pin the UNIFORM object (grammar and string both in the input); for a FIXED context-free language, recognition is in NC^2 (Ruzzo's AC^1 algorithm, which GHR names in the same entry's remarks), so the bare phrase 'CFL membership' is the one place this row could be misread."
+ },
+ {
+  "problem_id": "high-degree-subgraph",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "verdict": "OK",
+  "reason": "GHR Problem A.2.7 (HDS): 'Does G contain a vertex induced subgraph with minimum degree at least k?', Reference: Anderson and Mayr [14]; the hint states the reduction (from AM2CVP) is given for k=3 'although it can be generalized to any fixed k greater than or equal to three', and the remarks state 'There is an NC algorithm computing a HDS for k equals two' - both halves of the canonical_task, verbatim. Author+year match; for maximum precision GHR's [14] is the tech report 'A P-complete problem and approximations to it', STAN-CS-84-1014, Stanford (1984), NOT the same authors' 'Parallelism and greedy algorithms', Advances in Computing Research 4 (1987) 17-38, which GHR cites separately as [15] for a different problem."
+ },
+ {
+  "problem_id": "datalog-evaluation",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "verdict": "CITE",
+  "corrected_citation": "Ullman & Van Gelder, Parallel complexity of logical query programs, Algorithmica 3(1) (1988) 5-42 [= Greenlaw-Hoover-Ruzzo Problem A.6.10, Logical Query Program, P-complete; the hardness reduction from Cook's Path Systems uses the FIXED two-rule datalog program a(Y):-t(Y); a(Y):-r(Y,V,W),a(V),a(W) with only the EDB varying, i.e. it is exactly a data-complexity lower bound]; for the descriptive-complexity half: Vardi, The complexity of relational query languages, STOC 1982, 137-146, and Immerman, Relational queries computable in polynomial time, Information and Control 68(1) (1986) 86-104",
+  "reason": "The citation as written fails on both halves. 'Immerman/Vardi' is a bare-name pointer with no title/venue, and those results are about FIXPOINT logic capturing P on ordered structures - a different object from plain (monotone, negation-free) datalog, which does not capture P; reading them as establishing the datalog cell is exactly the interpretive charity the standard forbids. Dantsin-Eiter-Gottlob-Voronkov, ACM Computing Surveys 33(3) (2001) 374-425, is a survey that repeats the claim rather than proving it. The per-object P-completeness proof exists and is Ullman & Van Gelder's; value P-complete is right."
+ },
+ {
+  "problem_id": "gaussian-elimination-pivoting",
+  "charge": "parallelization",
+  "value": "P-complete",
+  "verdict": "OK",
+  "reason": "GHR Problem A.8.4 (GEPP) is on-object ('Is the pivot value for the lth column positive when Gaussian elimination with partial pivoting is performed on A?'), Reference: Vavasis [361] = S. Vavasis, Gaussian elimination with pivoting is P-complete, SIAM J. Discrete Mathematics 2(3) (1989) 413-423. GHR's hint states membership in P (numbers stay polynomially bounded) and completeness by reduction from NANDCVP, and notes Vavasis also proves the complete-pivoting variant P-complete. GHR's Ch. 9 text confirms the canonical_task's contrast clause verbatim: solving the same system 'by using another approach' is in NC. Citation is terse (author+year only) but resolves uniquely and establishes exactly the stated value."
+ },
+ {
+  "problem_id": "deadlock-detection",
+  "charge": "decision",
+  "value": "P",
+  "verdict": "OK",
+  "reason": "GHR Problem A.12.2 (General Deadlock Detection) is exactly the resource-graph object ('Is D a deadlock state?' on the bipartite process/resource multigraph), Reference: Spirakis [337] = P. G. Spirakis, The parallel complexity of deadlock detection, Theoretical Computer Science 52(1,2) (1987) 155-163 (the atlas's '1986' is the MFCS 1986 conference version, so the year is defensible). GDD's P-completeness entails membership in P, so the value is established, and GHR records the NC-restrictions (single-unit resources) the row does not claim. Optional strengthening if the owner wants the algorithmic primary source for the graph-reduction procedure named in canonical_task: Holt, Some deadlock properties of computer systems, ACM Computing Surveys 4(3) (1972) 179-196."
+ },
+ {
+  "problem_id": "type-inference-typability",
+  "charge": "decision",
+  "value": "P",
+  "verdict": "CITE",
+  "corrected_citation": "Tyszkiewicz, Complexity of Type Inference, Fundamenta Informaticae 103(1-4) (2010) 289-301 [type reconstruction for the simply typed lambda-calculus is PTIME-complete, hence in P]; the polynomial-time upper bound itself is the Hindley (Trans. AMS 146 (1969) 29-60) / Milner (JCSS 17(3) (1978) 348-375) constraint-generation algorithm run over Paterson & Wegman, Linear unification, JCSS 16(2) (1978) 158-167",
+  "reason": "Object drift on both cited items. O'Toole & Gifford is 'Type reconstruction with first-class polymorphic values', PLDI 1989 (SIGPLAN Notices 24(7) 207-217) - a system combining ML-style implicit typing with the explicitly typed SECOND-ORDER polymorphic lambda-calculus, strictly larger than the simply-typed object this cell pins, and it makes no poly-time claim. Dwork, Kanellakis & Mitchell, On the sequential nature of unification, J. Logic Programming 1(1) (1984) 35-50, proves unification is log-space complete for P: that is the right hardness side for UNIFICATION, but the cell's object is typability of lambda-terms, and DKM never states it. The value P is correct."
+ },
+ {
+  "problem_id": "lex-first-maximal-independent-set",
+  "charge": "decision",
+  "value": "P",
+  "verdict": "OK",
+  "reason": "Verified in GHR's text: Theorem 7.1.2 (Cook [67]) 'The Lexicographically First Maximal Independent Set Problem is P-complete under <=NC1_m reductions. Proof. Membership in P follows from the algorithm in Figure 7.1.1' - i.e. the greedy scan, which is precisely this cell's canonical_task. GHR bibliography [67] = S. A. Cook, A taxonomy of problems with fast parallel algorithms, Information and Control 64(1-3) (1985) 2-22, matching the atlas citation exactly, and GHR's problem statement fixes the object as the membership question (is designated vertex v in the LFMIS?), distinct from independent-set as the note says."
+ },
+ {
+  "problem_id": "art-gallery",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "OK",
+  "reason": "Lee & Lin, Computational complexity of art gallery problems, IEEE Trans. Inform. Theory 32(2) (1986) 276-282, prove the minimum VERTEX guard problem NP-hard for simple polygons (along with edge and point guards), which is the object the cell pins. Membership in NP is genuine for vertex guards - the candidate set is the n vertices and coverage of a guessed subset is checkable in polynomial time - so NPC (not just NP-hard) is legitimate here. The note's pin is load-bearing and correctly flagged: the POINT-guard variant is not known to be in NP (it is complete for the existential theory of the reals), so this row must not silently widen to point guards."
+ },
+ {
+  "problem_id": "bounded-pcp",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "OK",
+  "reason": "The problem code checks out: Bounded Post Correspondence Problem is Garey & Johnson [SR11], p. 228 (confirmed against two independent indexes of the G&J appendix), with the NP-completeness attributed there to Constable, Hunt & Sahni (1974), On the computational complexity of scheme equivalence - exactly the attribution the cell carries. Object is correctly separated from the unbounded PCP (undecidable), as the note states; the length-<=k bound makes the index sequence a polynomial-size witness, giving NP membership."
+ },
+ {
+  "problem_id": "cluster-deletion",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "OK",
+  "reason": "Shamir, Sharan & Tsur, Cluster graph modification problems, Discrete Applied Mathematics 144(1-2) (2004) 173-182, is the standard and correct source: they prove cluster DELETION NP-hard in the unconstrained (unbounded number of clusters) form and NP-hard for every fixed number d >= 3 of clusters (polynomial for d = 2), and additionally APX-hard. Membership in NP is immediate (the deleted edge set is the witness). The note's separation from cluster editing (add+delete) and cluster vertex deletion is exactly the separation the cited paper itself draws."
+ },
+ {
+  "problem_id": "domatic-number",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "OK",
+  "reason": "The code checks out: Garey & Johnson [GT3] Domatic Number, p. 190, is stated as 'given a graph G and integer K, is the domatic number of G at least K?' - the cell's canonical_task verbatim - and is NP-complete there. Bonuccelli, Dominating sets and domatic number of circular arc graphs, Discrete Applied Mathematics 12 (1985) 203-213, is a genuine strengthening (hardness on a restricted class), which is the safe direction and does not weaken the general claim. Object correctly separated from domination number."
+ },
+ {
+  "problem_id": "generalized-assignment",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "CITE",
+  "corrected_citation": "Martello & Toth, Knapsack Problems: Algorithms and Computer Implementations, Wiley (1990), Ch. 7 (Generalized Assignment Problem) - GAP is NP-hard, and even deciding whether a feasible assignment exists is NP-complete, by reduction from PARTITION / bin packing; the G&J pointer, if retained, must name PARTITION and Bin Packing as the source problems rather than a GAP entry",
+  "reason": "Garey & Johnson (1979) contains no Generalized Assignment Problem entry, so the citation as written is a bare 'contains PARTITION/knapsack' stamp on a book that does not carry the object - the generic-stamp failure mode the standard rejects. The value NPC is right (the reduction is real and immediate: unit profits and a single bin recover PARTITION, and a solution is a poly-size witness), but it needs a source that actually states GAP's hardness."
+ },
+ {
+  "problem_id": "graph-spanner",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "OK",
+  "reason": "Peleg & Schaffer, Graph spanners, Journal of Graph Theory 13(1) (1989) 99-116 (dblp-verified volume/issue/pages, matching the cell exactly), prove that deciding whether an unweighted graph has a t-spanner with at most m edges is NP-complete, and explicitly ALREADY FOR t=2 (by reduction from edge dominating set on bipartite graphs) - which is precisely the t=2 object this cell pins, not a general-t result being narrowed by charity."
+ },
+ {
+  "problem_id": "k-edge-connected-subgraph",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "CITE",
+  "corrected_citation": "Fernandes, A better approximation ratio for the minimum size k-edge-connected spanning subgraph problem, J. Algorithms 28 (1998) 105-124 [min-size k-ECSS is NP-hard - indeed MAX SNP-hard - for every k >= 2, and NP-hard already on cubic planar graphs for k=2]; the trivial half is that a 2-edge-connected spanning subgraph with n edges is exactly a Hamiltonian cycle (Karp 1972)",
+  "reason": "The bare 'Garey & Johnson (1979)' does not land on this object. G&J's nearest entry is [GT31] Minimum k-Connected Subgraph, which is the VERTEX-connectivity variant; there is no k-EDGE-connected spanning subgraph entry, so the cell is relying on an unwritten folklore reduction. The value NPC is right and the Hamiltonicity argument is exact, but Check 9 wants a source that states the edge-connectivity result - Fernandes does, for all k >= 2."
+ },
+ {
+  "problem_id": "max-k-cut",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "OK",
+  "reason": "Garey, Johnson & Stockmeyer, Some simplified NP-complete graph problems, Theoretical Computer Science 1(3) (1976) 237-267, prove SIMPLE MAX CUT NP-complete - which is literally the k=2 slice the canonical_task names - and MAX-k-CUT contains it for every k >= 2 (pad with k-2 empty parts), with membership in NP immediate from the partition witness. No charity needed: the cell states the k=2 identification itself rather than leaning on an unstated generalization."
+ },
+ {
+  "problem_id": "min-degree-spanning-tree",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "CITE",
+  "corrected_citation": "Garey & Johnson, Computers and Intractability (1979) [Degree Constrained Spanning Tree, ND1, p. 206] - NP-complete by transformation from Hamiltonian Path, which is the k=2 case; Hamiltonian Path itself is [GT39], not ND1",
+  "reason": "Pointer mislabel: the bracket reads '[Hamiltonian Path, ND1]', but ND1 (p. 206) is DEGREE CONSTRAINED SPANNING TREE - which is in fact exactly this cell's object, 'is there a spanning tree of maximum degree <= k?' - while Hamiltonian Path sits at GT39. The value is right and G&J does establish it; the citation just names the wrong problem for the code it gives, and a reader checking GT-vs-ND would find nothing at 'Hamiltonian Path, ND1'. Note the same row's parameterized cell (confirmed OK in pass 1) already cites 'Garey & Johnson ND1' for the degree-bound object, so fixing the label here also makes the row internally consistent."
+ },
+ {
+  "problem_id": "minimum-distance-code",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "OK",
+  "reason": "Vardy, The intractability of computing the minimum distance of a code, IEEE Trans. Inform. Theory 43 (1997) 1757-1766, proves NP-hardness of exactly the stated decision object (given a generator/parity-check matrix for a binary linear code and an integer d, is there a nonzero codeword of weight <= d?), settling the Berlekamp-McEliece-van Tilborg 1978 conjecture as the note says; NP membership is immediate from the codeword witness, so NPC is right."
+ },
+ {
+  "problem_id": "minimum-weight-triangulation",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "OPEN",
+  "reason": "Read in the paper's full text (Mulzer & Rote, arXiv:cs/0601002v3 = JACM 55(2) 2008, Art. 11, Section 1): 'We show that computing a minimum-weight triangulation is NP-hard. Note that it is not known whether the MWT problem is in NP, because it is an open problem whether sums of radicals (namely, Euclidean distances) can be compared in polynomial time [Blomer 1991].' The cell's canonical_task is the Euclidean-length object ('a triangulation of total length <= L'), for which NP membership is therefore OPEN, so NPC is not established - and the decision vocabulary has no NP-hard rung, so the honest disposition is `open` plus a note (same shape as the SVP/CVP vocabulary gap recorded in errata E1). The cell's own note already says only 'NP-hard', so the value overshoots its note. OWNER ALTERNATIVE that keeps NPC: the same paragraph continues 'To get a variant of the problem that is in NP, one can take the weight of an edge e as the rounded value ceil(||e||^2). Our proof also shows that this variant is NP-complete.' - so re-pinning canonical_task to the rounded-weight variant restores NPC on a fully cited object. Either repair is defensible; leaving NPC on the Euclidean object is not."
+ },
+ {
+  "problem_id": "pagenumber",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "OK",
+  "reason": "Chung, Leighton & Rosenberg, Embedding graphs in books: a layout problem with applications to VLSI design, SIAM J. Algebraic Discrete Methods 8 (1987) 33-58, is the standard and correct source for both claims the cell makes: finding the book thickness is NP-hard, and testing whether a (maximal planar) graph has book thickness two is NP-complete - the latter via the subhamiltonicity characterisation the note cites. Membership in NP is immediate from the vertex ordering plus page assignment as witness."
+ },
+ {
+  "problem_id": "precoloring-extension",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "OK",
+  "reason": "Biro, Hujter & Tuza, Precoloring extension. I. Interval graphs, Discrete Math. 100 (1992) 267-279, prove PrExt NP-complete already on interval graphs. Direction check passes: this is hardness on a SUBCLASS, which a fortiori gives the unrestricted canonical_task, and NP membership is trivial. (Contrast the same row's parameterized cell, which pass 1 corrected precisely because it ran the drift the other way - importing Marx's chordal/interval W[1]-hardness onto general graphs.)"
+ },
+ {
+  "problem_id": "register-sufficiency",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "OK",
+  "reason": "Sethi, Complete Register Allocation Problems, SIAM J. Comput. 4(3) (1975) 226-248 (dblp-verified: volume, issue, year and page range match the cell exactly), proves the general-DAG question 'can the expression DAG be evaluated with <= k registers?' NP-complete; membership in NP is immediate from the evaluation order witness. The note's contrast (Sethi-Ullman labelling is optimal on TREES, the hardness is for DAGs) is the correct object separation."
+ },
+ {
+  "problem_id": "sorting-by-transpositions",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "OK",
+  "reason": "Bulteau, Fertin & Rusu, Sorting by transpositions is difficult, SIAM J. Discrete Math. 26 (2012) 1148-1180, is the paper that settled this long-open question with NP-hardness of exactly the stated decision object (is the permutation sortable in at most k transpositions?); membership in NP is immediate since a sorting sequence has length at most n. Correct object (transpositions, not reversals or prefix operations)."
+ },
+ {
+  "problem_id": "target-set-selection",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "OK",
+  "reason": "Chen, On the approximability of influence in social networks, SIAM J. Discrete Math. 23(3) (2009) 1400-1415, is the origin paper for minimum Target Set Selection and proves hardness for exactly this object (min seed set activating all vertices under fixed thresholds), which subsumes NP-hardness of the 'seed set of size <= k' decision form; NP membership is immediate because the activation cascade is deterministic and poly-time simulable from the seed set. Note for the owner: this is the same paper whose 2^(log^(1-eps) n) bound the first pass correctly ruled sub-polynomial and conditional when demoting this row's APPROXIMATION cell to poly-APX - the decision cell is unaffected by that, since exact NP-hardness is not the part that was overstated."
+ },
+ {
+  "problem_id": "unsplittable-flow",
+  "charge": "decision",
+  "value": "NPC",
+  "verdict": "OK",
+  "reason": "Kleinberg, Approximation Algorithms for Disjoint Paths Problems, PhD thesis, MIT (1996), is the work that defines UFP and establishes its hardness, and is the universally used citation for the problem's origin. The value is safe at both ends of the generality range named in the canonical_task: a single edge with arbitrary demands already encodes PARTITION, and unit demands/capacities specialise to edge-disjoint paths, NP-complete by Karp, On the computational complexity of combinatorial problems, Networks 5(1) (1975) 45-68 (the attribution the note makes). NP membership is immediate from the chosen subset plus its single paths as witness."
+ },
+ {
+  "problem_id": "sharp-contingency-tables",
+  "charge": "decision",
+  "value": "P",
+  "verdict": "OK",
+  "reason": "The cell's object is transportation-polytope feasibility - a nonnegative integer table with margins (r,c) exists iff sum(r) = sum(c), with the northwest-corner rule producing the witness in poly time - and that is exactly what Dantzig, Linear Programming and Extensions, Princeton Univ. Press (1963), sets out in its treatment of the transportation problem (the northwest-corner rule is Dantzig's own, from the 1951 Activity Analysis chapter). Nothing here requires charity: the claim is elementary and the cited work is where it lives. The decoupling the row is built on holds: the same row's counting cell is #P-complete (Dyer-Kannan-Mount, confirmed in pass 1) while existence is trivial."
+ },
+ {
+  "problem_id": "sharp-spanning-trees",
+  "charge": "parallelization",
+  "value": "NC",
+  "verdict": "OK",
+  "reason": "Citation is exact - verified against GHR's bibliography [72]: 'L. Csanky. Fast parallel matrix inversion algorithms. SIAM Journal on Computing, 5(4):618-623, 1976' - and it gives determinant/inversion in NC^2 over characteristic-zero fields, which covers the integer Laplacian cofactor at issue. The Matrix-Tree step (Kirchhoff 1847) is named in the canonical_task itself rather than being smuggled in, and pass 1 accepted the identical composition for this row's counting cell (FP, 'Kirchhoff's matrix-tree theorem gives the count as a Laplacian cofactor'), so accepting it here is consistent. Worth adding, as the note already anticipates: Berkowitz, On computing the determinant in small parallel time using a small number of processors, Inform. Process. Lett. 18(3) (1984) 147-150, for the division-free NC^2 determinant."
+ }
+]
