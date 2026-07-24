@@ -1,0 +1,816 @@
+{
+ "commit": "8089fb4f3b0d674550ce00449d41533b0d7e3404",
+ "source_url": "https://git.rwth-aachen.de/reductioncompendium/data",
+ "source_detail": {
+  "repo": "https://git.rwth-aachen.de/reductioncompendium/data",
+  "gitlab_project_id": 115837,
+  "commit": "8089fb4f3b0d674550ce00449d41533b0d7e3404",
+  "commit_date": "2025-12-13T18:41:43+01:00",
+  "retrieved": "2026-07-24",
+  "retrieval_method": "Anonymous GitLab REST API archive endpoint GET /api/v4/projects/115837/repository/archive.tar.gz?sha=<commit> (HTTP 200, 24,759,965 bytes), extracted at the pinned commit. Edges live in three subfolders classic/reductions/, approximation/reductions/, parameterized/reductions/ (one .md file per reduction), NOT a single top-level reductions/ folder.",
+  "paper": "arXiv:2511.04308",
+  "reachable": true
+ },
+ "reachable": true,
+ "direction_convention": "Edge P -> Q means 'P reduces to Q' (P <= Q): the reduction transforms an instance of P into an instance of Q. Encoded per reduction .md file by its '# from' (= P, the SOURCE, reduced FROM) and '# to' (= Q, the TARGET, reduced TO) fields; verified against each file's mathematical '# description' (the construction always builds a '# to' instance from a '# from' instance). Out-degree(P) = number of DISTINCT problems P reduces TO = |{Q : an edge P->Q exists}|, i.e. count over P appearing as '# from'. CRITICAL DATA QUIRK: the reduction FILENAME pattern 'from_X_to_Y_<n>.md' is REVERSED relative to the authoritative fields (its X is the '# to' and its Y is the '# from'); the fields, not the filename, were used. Trusting filenames would invert every edge (turning out-degree into in-degree).",
+ "counting_rule": "A problem that appears as a vertex in more than one sub-network (classic/approximation/parameterized) is scored by UNION across sub-networks: pool the out-edges of EVERY reduction-network vertex that maps to the atlas row (join via coverage.json 'maps_to' for covered vertices and 'proposed_problem_id' for the 23 uncovered ones -- all 110 vertices resolve), then count DISTINCT TARGET atlas/proposed problem ids. This matches reductions-network-coverage.json's explicit instruction that rn_membership be a SET UNION keyed on 'maps_to', not a 1:1 join. Targets are counted at the canonical (atlas-problem) level, so two reduction-network vertices that map to the same atlas id count as ONE target. Atlas-level SELF-LOOPS are EXCLUDED (a reduction from one encoding of a problem to another encoding of the SAME atlas problem -- e.g. VERTEX COVER -> Vertex Cover with One Fixed Vertex, or directed<->undirected Hamiltonicity -- is not a reduction to a DIFFERENT problem); 19 such self-loops were dropped. Parallel reductions (multiple proof files for the same directed pair) collapse to one edge. Vertices reached via the coverage 'merge' and 'cell' routes ARE included in the union, per the coverage file. Rejected alternatives: (a) SUM across sub-networks would double-count reductions replicated in multiple networks; (b) single chosen network would discard real edges (e.g. clique's 5 parameterized W-hierarchy targets, or vertex-cover's +3 targets from its cubic-graph and approximation vertices).",
+ "n_edges": 148,
+ "edge_counts": {
+  "reduction_files_parsed": 154,
+  "distinct_rn_vertex_directed_edges": 148,
+  "canonical_atlas_level_edges_excl_selfloops": 121,
+  "atlas_level_selfloops_excluded": 19
+ },
+ "per_problem_outdegree": {
+  "chromatic-number": 0,
+  "clique": 7,
+  "dominating-set": 4,
+  "edge-dominating-set": 0,
+  "feedback-arc-set": 0,
+  "feedback-vertex-set": 0,
+  "firefighter": 0,
+  "hitting-set": 1,
+  "independent-dominating-set": 1,
+  "independent-set": 5,
+  "k-set-packing": 1,
+  "knapsack": 1,
+  "makespan-scheduling": 0,
+  "max-2sat": 1,
+  "max-cut": 0,
+  "max-e3-sat": 4,
+  "maximum-leaf-spanning-tree": 1,
+  "min-degree-spanning-tree": 0,
+  "minimum-k-cut": 0,
+  "multicut": 0,
+  "nae-sat": 1,
+  "one-in-three-sat": 8,
+  "planar-vertex-cover": 0,
+  "sat": 9,
+  "sat-3": 15,
+  "set-cover": 3,
+  "steiner-tree": 1,
+  "subset-sum": 4,
+  "three-dimensional-matching": 2,
+  "tsp": 0,
+  "vertex-cover": 14
+ },
+ "per_problem_outdegree_targets": {
+  "chromatic-number": [],
+  "clique": [
+   "cutting-k-vertices",
+   "firefighter",
+   "independent-set",
+   "minimum-k-cut",
+   "monotone-query-non-emptiness",
+   "short-turing-machine-acceptance",
+   "vertex-cover"
+  ],
+  "dominating-set": [
+   "dominating-clique",
+   "monotone-weighted-cnf-sat",
+   "set-cover",
+   "threshold-dominating-set"
+  ],
+  "edge-dominating-set": [],
+  "feedback-arc-set": [],
+  "feedback-vertex-set": [],
+  "firefighter": [],
+  "hitting-set": [
+   "monotone-weighted-cnf-sat"
+  ],
+  "independent-dominating-set": [
+   "sat"
+  ],
+  "independent-set": [
+   "circuit-sat",
+   "clique",
+   "efficient-domination",
+   "k-set-packing",
+   "vertex-cover"
+  ],
+  "k-set-packing": [
+   "independent-set"
+  ],
+  "knapsack": [
+   "constrained-shortest-path"
+  ],
+  "makespan-scheduling": [],
+  "max-2sat": [
+   "max-cut"
+  ],
+  "max-cut": [],
+  "max-e3-sat": [
+   "clique",
+   "label-cover",
+   "max-2sat",
+   "vertex-cover"
+  ],
+  "maximum-leaf-spanning-tree": [
+   "connected-dominating-set"
+  ],
+  "min-degree-spanning-tree": [],
+  "minimum-k-cut": [],
+  "multicut": [],
+  "nae-sat": [
+   "max-cut"
+  ],
+  "one-in-three-sat": [
+   "capacitated-minimum-spanning-tree",
+   "independent-set",
+   "k-set-packing",
+   "path-with-forbidden-pairs",
+   "steiner-tree",
+   "subset-sum",
+   "three-dimensional-matching",
+   "vertex-cover"
+  ],
+  "planar-vertex-cover": [],
+  "sat": [
+   "capacitated-minimum-spanning-tree",
+   "circuit-sat",
+   "clique",
+   "connected-dominating-set",
+   "dominating-set",
+   "integer-programming",
+   "maximum-csp",
+   "sat-3",
+   "xor-sat"
+  ],
+  "sat-3": [
+   "chinese-postman",
+   "clique",
+   "disjoint-paths",
+   "dominating-set",
+   "exact-cover-x3c",
+   "hamiltonian-cycle",
+   "independent-set",
+   "max-2sat",
+   "nae-sat",
+   "one-in-three-sat",
+   "path-with-forbidden-pairs",
+   "steiner-tree",
+   "subset-sum",
+   "three-dimensional-matching",
+   "vertex-cover"
+  ],
+  "set-cover": [
+   "dominating-set",
+   "hitting-set",
+   "steiner-tree"
+  ],
+  "steiner-tree": [
+   "short-multi-tape-ntm"
+  ],
+  "subset-sum": [
+   "knapsack",
+   "network-design-problem",
+   "number-partitioning",
+   "short-exact-tour"
+  ],
+  "three-dimensional-matching": [
+   "exact-cover-x3c",
+   "number-partitioning"
+  ],
+  "tsp": [],
+  "vertex-cover": [
+   "dominating-set",
+   "edge-dominating-set",
+   "facility-location",
+   "feedback-arc-set",
+   "feedback-vertex-set",
+   "hamiltonian-cycle",
+   "hitting-set",
+   "k-center",
+   "k-median",
+   "longest-common-subsequence",
+   "min-sat",
+   "planar-vertex-cover",
+   "set-cover",
+   "steiner-tree"
+  ]
+ },
+ "per_problem_outdegree_detail": {
+  "chromatic-number": {
+   "classic/graph_coloring": {
+    "name": "GRAPH COLORING",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   }
+  },
+  "clique": {
+   "approximation/clique": {
+    "name": "Clique",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   },
+   "classic/clique": {
+    "name": "CLIQUE",
+    "route": "direct",
+    "in_network_outdegree": 2,
+    "reduces_to_canonical": [
+     "independent-set",
+     "vertex-cover"
+    ]
+   },
+   "parameterized/clique": {
+    "name": "Clique",
+    "route": "direct",
+    "in_network_outdegree": 7,
+    "reduces_to_canonical": [
+     "clique",
+     "cutting-k-vertices",
+     "firefighter",
+     "independent-set",
+     "minimum-k-cut",
+     "monotone-query-non-emptiness",
+     "short-turing-machine-acceptance"
+    ]
+   },
+   "parameterized/multicoloured_clique": {
+    "name": "Multicoloured Clique",
+    "route": "merge",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "clique"
+    ]
+   }
+  },
+  "dominating-set": {
+   "approximation/dominating_set": {
+    "name": "Dominating Set",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   },
+   "approximation/dominating_set_TEST": {
+    "name": "Dominating Set",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   },
+   "classic/dominating_set": {
+    "name": "DOMINATING SET",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   },
+   "parameterized/dominating_set": {
+    "name": "Dominating Set",
+    "route": "direct",
+    "in_network_outdegree": 4,
+    "reduces_to_canonical": [
+     "dominating-clique",
+     "monotone-weighted-cnf-sat",
+     "set-cover",
+     "threshold-dominating-set"
+    ]
+   }
+  },
+  "edge-dominating-set": {
+   "classic/edge_dominating_set": {
+    "name": "Edge Dominating Set",
+    "route": "direct",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "edge-dominating-set"
+    ]
+   },
+   "classic/minimal_maximal_matching": {
+    "name": "Minimal Maximal Matching",
+    "route": "merge",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   }
+  },
+  "feedback-arc-set": {
+   "classic/feedback_arc_set": {
+    "name": "FEEDBACK ARC SET",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   }
+  },
+  "feedback-vertex-set": {
+   "classic/feedback_vertex_set": {
+    "name": "FEEDBACK VERTEX SET",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   }
+  },
+  "firefighter": {
+   "parameterized/saving_k_vertices": {
+    "name": "Saving k Vertices",
+    "route": "merge",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   }
+  },
+  "hitting-set": {
+   "classic/hitting_set": {
+    "name": "HITTING SET",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   },
+   "parameterized/hitting_set": {
+    "name": "Hitting Set",
+    "route": "direct",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "monotone-weighted-cnf-sat"
+    ]
+   }
+  },
+  "independent-dominating-set": {
+   "parameterized/kernel": {
+    "name": "Kernel",
+    "route": "direct",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "sat"
+    ]
+   }
+  },
+  "independent-set": {
+   "classic/independent_set": {
+    "name": "INDEPENDENT SET",
+    "route": "direct",
+    "in_network_outdegree": 3,
+    "reduces_to_canonical": [
+     "clique",
+     "k-set-packing",
+     "vertex-cover"
+    ]
+   },
+   "parameterized/independent_set": {
+    "name": "Independent Set",
+    "route": "direct",
+    "in_network_outdegree": 3,
+    "reduces_to_canonical": [
+     "circuit-sat",
+     "clique",
+     "efficient-domination"
+    ]
+   }
+  },
+  "k-set-packing": {
+   "classic/combinatorial_auction": {
+    "name": "COMBINATORIAL AUCTION",
+    "route": "merge",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   },
+   "classic/set_packing": {
+    "name": "SET PACKING",
+    "route": "direct",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "independent-set"
+    ]
+   }
+  },
+  "knapsack": {
+   "classic/knapsack": {
+    "name": "KNAPSACK",
+    "route": "direct",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "constrained-shortest-path"
+    ]
+   }
+  },
+  "makespan-scheduling": {
+   "classic/two_machine_scheduling": {
+    "name": "TWO MACHINE SCHEDULING",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   }
+  },
+  "max-2sat": {
+   "approximation/maximum_satisfiability_with_two_literals_pro_clause": {
+    "name": "Maximum Satisfiability with two literals pro clause",
+    "route": "direct",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "max-2sat"
+    ]
+   },
+   "approximation/weighted_maximum_satisfiability_with_two_literals_pro_clause": {
+    "name": "Weighted Maximum Satisfiability with two literals pro clause",
+    "route": "merge",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "max-2sat"
+    ]
+   },
+   "classic/maximum_2sat": {
+    "name": "Maximum 2Sat",
+    "route": "direct",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "max-cut"
+    ]
+   }
+  },
+  "max-cut": {
+   "approximation/maximum_cut": {
+    "name": "Maximum Cut",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   },
+   "approximation/weighted_maximum_cut": {
+    "name": "Weighted Maximum Cut",
+    "route": "merge",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "max-cut"
+    ]
+   },
+   "classic/maximum_cut": {
+    "name": "Maximum Cut",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   },
+   "classic/s-t-max_cut": {
+    "name": "s-t-Max Cut",
+    "route": "merge",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   }
+  },
+  "max-e3-sat": {
+   "approximation/maximum_satisfiability_with_three_literals_pro_clause": {
+    "name": "Maximum Satisfiability with three literals pro clause",
+    "route": "direct",
+    "in_network_outdegree": 4,
+    "reduces_to_canonical": [
+     "clique",
+     "max-2sat",
+     "max-e3-sat",
+     "vertex-cover"
+    ]
+   },
+   "approximation/maximum_satisfiability_with_three_literals_pro_clause(5)": {
+    "name": "Maximum Satisfiability with three literals pro clause(5)",
+    "route": "merge",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   },
+   "approximation/maximum_satisfiability_with_three_literals_pro_clause(k)": {
+    "name": "Maximum Satisfiability with three literals pro clause(k)",
+    "route": "merge",
+    "in_network_outdegree": 4,
+    "reduces_to_canonical": [
+     "label-cover",
+     "max-e3-sat",
+     "vertex-cover"
+    ]
+   }
+  },
+  "maximum-leaf-spanning-tree": {
+   "classic/maximum_leaf_spanning_tree": {
+    "name": "Maximum Leaf Spanning Tree",
+    "route": "direct",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "connected-dominating-set"
+    ]
+   }
+  },
+  "min-degree-spanning-tree": {
+   "classic/degree_constrained_spanning_tree": {
+    "name": "Degree Constrained Spanning Tree",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   }
+  },
+  "minimum-k-cut": {
+   "parameterized/graph_k-cut": {
+    "name": "Graph k-Cut",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   }
+  },
+  "multicut": {
+   "approximation/multicut": {
+    "name": "MULTICUT",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   }
+  },
+  "nae-sat": {
+   "approximation/maximum_not-all-equal_satisfiability_with_three_literals_pro_clause": {
+    "name": "Maximum Not-All-Equal Satisfiability with three literals pro clause",
+    "route": "cell",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "max-cut"
+    ]
+   },
+   "classic/not-all-equal_4sat": {
+    "name": "Not-All-Equal 4SAT",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   }
+  },
+  "one-in-three-sat": {
+   "classic/1-in-3-satisfiability": {
+    "name": "1-in-3-Satisfiability",
+    "route": "direct",
+    "in_network_outdegree": 10,
+    "reduces_to_canonical": [
+     "capacitated-minimum-spanning-tree",
+     "independent-set",
+     "k-set-packing",
+     "path-with-forbidden-pairs",
+     "steiner-tree",
+     "subset-sum",
+     "three-dimensional-matching",
+     "vertex-cover"
+    ]
+   }
+  },
+  "planar-vertex-cover": {
+   "classic/planar_vertex_cover": {
+    "name": "Planar Vertex Cover",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   }
+  },
+  "sat": {
+   "approximation/satisfiability_problem": {
+    "name": "Satisfiability problem",
+    "route": "direct",
+    "in_network_outdegree": 3,
+    "reduces_to_canonical": [
+     "clique",
+     "maximum-csp",
+     "xor-sat"
+    ]
+   },
+   "classic/satisfiability": {
+    "name": "SATISFIABILITY",
+    "route": "direct",
+    "in_network_outdegree": 4,
+    "reduces_to_canonical": [
+     "capacitated-minimum-spanning-tree",
+     "connected-dominating-set",
+     "integer-programming",
+     "sat-3"
+    ]
+   },
+   "parameterized/weighted_cnf_satisfiability": {
+    "name": "Weighted CNF Satisfiability",
+    "route": "merge",
+    "in_network_outdegree": 2,
+    "reduces_to_canonical": [
+     "circuit-sat",
+     "dominating-set"
+    ]
+   }
+  },
+  "sat-3": {
+   "classic/3-satisfiability": {
+    "name": "3-SATISFIABILITY",
+    "route": "direct",
+    "in_network_outdegree": 16,
+    "reduces_to_canonical": [
+     "chinese-postman",
+     "clique",
+     "disjoint-paths",
+     "dominating-set",
+     "exact-cover-x3c",
+     "hamiltonian-cycle",
+     "independent-set",
+     "max-2sat",
+     "nae-sat",
+     "one-in-three-sat",
+     "path-with-forbidden-pairs",
+     "steiner-tree",
+     "subset-sum",
+     "three-dimensional-matching",
+     "vertex-cover"
+    ]
+   }
+  },
+  "set-cover": {
+   "approximation/set_cover": {
+    "name": "Set Cover",
+    "route": "direct",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "dominating-set"
+    ]
+   },
+   "classic/set_cover": {
+    "name": "SET COVER",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   },
+   "parameterized/set_cover": {
+    "name": "Set Cover",
+    "route": "direct",
+    "in_network_outdegree": 2,
+    "reduces_to_canonical": [
+     "hitting-set",
+     "steiner-tree"
+    ]
+   }
+  },
+  "steiner-tree": {
+   "approximation/steiner_tree": {
+    "name": "Steiner Tree",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   },
+   "classic/steiner_tree": {
+    "name": "STEINER TREE",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   },
+   "parameterized/steiner_tree": {
+    "name": "Steiner Tree",
+    "route": "direct",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "short-multi-tape-ntm"
+    ]
+   }
+  },
+  "subset-sum": {
+   "classic/subset_sum": {
+    "name": "SUBSET SUM",
+    "route": "direct",
+    "in_network_outdegree": 3,
+    "reduces_to_canonical": [
+     "knapsack",
+     "network-design-problem",
+     "number-partitioning"
+    ]
+   },
+   "parameterized/sized_subset_sum": {
+    "name": "Sized Subset Sum",
+    "route": "merge",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "short-exact-tour"
+    ]
+   }
+  },
+  "three-dimensional-matching": {
+   "classic/1+3-dimensional_matching": {
+    "name": "1+3-Dimensional Matching",
+    "route": "merge",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   },
+   "classic/3-dimensional_exact_matching": {
+    "name": "3-DIMENSIONAL EXACT MATCHING",
+    "route": "merge",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "number-partitioning"
+    ]
+   },
+   "classic/3-dimensional_matching": {
+    "name": "3-DIMENSIONAL MATCHING",
+    "route": "direct",
+    "in_network_outdegree": 2,
+    "reduces_to_canonical": [
+     "exact-cover-x3c",
+     "three-dimensional-matching"
+    ]
+   }
+  },
+  "tsp": {
+   "classic/traveling_salesperson": {
+    "name": "TRAVELING SALESPERSON",
+    "route": "direct",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   }
+  },
+  "vertex-cover": {
+   "approximation/vertex_cover": {
+    "name": "Vertex Cover",
+    "route": "direct",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "min-sat"
+    ]
+   },
+   "approximation/vertex_cover_with_k+1_maximum_degree": {
+    "name": "Vertex Cover with k+1 maximum degree",
+    "route": "merge",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "steiner-tree"
+    ]
+   },
+   "approximation/weighted_vertex_cover": {
+    "name": "Weighted  Vertex Cover",
+    "route": "merge",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "vertex-cover"
+    ]
+   },
+   "classic/vertex_cover": {
+    "name": "VERTEX COVER",
+    "route": "direct",
+    "in_network_outdegree": 13,
+    "reduces_to_canonical": [
+     "dominating-set",
+     "facility-location",
+     "feedback-arc-set",
+     "feedback-vertex-set",
+     "hamiltonian-cycle",
+     "hitting-set",
+     "k-center",
+     "k-median",
+     "longest-common-subsequence",
+     "planar-vertex-cover",
+     "set-cover",
+     "vertex-cover"
+    ]
+   },
+   "classic/vertex_cover_on_cubic_graph": {
+    "name": "Vertex Cover on Cubic Graph",
+    "route": "merge",
+    "in_network_outdegree": 1,
+    "reduces_to_canonical": [
+     "edge-dominating-set"
+    ]
+   },
+   "classic/vertex_cover_with_one_fixed_vertex": {
+    "name": "Vertex Cover with One Fixed Vertex",
+    "route": "merge",
+    "in_network_outdegree": 0,
+    "reduces_to_canonical": []
+   }
+  }
+ },
+ "covered_both_real": [
+  "chromatic-number",
+  "clique",
+  "dominating-set",
+  "edge-dominating-set",
+  "feedback-arc-set",
+  "feedback-vertex-set",
+  "firefighter",
+  "hitting-set",
+  "independent-dominating-set",
+  "independent-set",
+  "k-set-packing",
+  "knapsack",
+  "makespan-scheduling",
+  "max-2sat",
+  "max-cut",
+  "max-e3-sat",
+  "maximum-leaf-spanning-tree",
+  "min-degree-spanning-tree",
+  "minimum-k-cut",
+  "multicut",
+  "nae-sat",
+  "one-in-three-sat",
+  "planar-vertex-cover",
+  "sat",
+  "sat-3",
+  "set-cover",
+  "steiner-tree",
+  "subset-sum",
+  "three-dimensional-matching",
+  "tsp",
+  "vertex-cover"
+ ],
+ "prediction_alignment": {
+  "study": "Mosaic",
+  "prediction": "P7",
+  "prereg_file": "eightfold/eightfold/results/prereg/prereg_v10.json",
+  "prereg_text": "The within-class residual coupling concentrates in rows with high reduction-source out-degree (the dark component wears the expressiveness signature).",
+  "population_declared": "the 31 both-real rows covered by reductions.network (commit 8089fb4f); edges front-loaded at L0",
+  "alignment": "P7 asks for 'reduction-SOURCE out-degree' over exactly these 31 rows at exactly this commit. The out-degree computed here IS source out-degree (row counted as the reduction '# from'; number of distinct problems it reduces TO). Population and commit match. This pull only supplies the ranking input; P7 is scored elsewhere and only conditionally (if P3 shrinkage is real but below half).",
+  "resolution_note_31rows": "19/31 rows have out-degree > 0; 12/31 are 0 (they are reduction targets/sinks, not sources, in this data). Degree histogram (degree:count) = 0:12, 1:8, 2:1, 3:1, 4:3, 5:1, 7:1, 8:1, 9:1, 14:1, 15:1. A whole-number tie-heavy tail at 0 is why the prereg permits an INSUFFICIENT RESOLUTION verdict on the 31-row n; the top of the ranking (sat-3=15, vertex-cover=14, sat=9, one-in-three-sat=8, clique=7, independent-set=5) is well separated."
+ },
+ "provenance_status": "derived",
+ "validation": {
+  "unresolved_edge_endpoints": 0,
+  "vertices_without_canonical_id": 0,
+  "note": "Every one of the 154 reduction files' '# from'/'# to' endpoints resolves to a problem file in the same sub-network, and every endpoint canonicalises to an atlas/proposed id. No cross-network edges exist (each sub-network is a self-contained graph)."
+ },
+ "notes": "Derived by re-pulling the EDGE layer of reductions.network (the network's VERTICES were already in reductions-network-source.json). n_edges=148 distinct directed reduction edges over 110 vertices (154 reduction .md files; parallel-proof files for the same pair collapsed). Out-degree here is reduction-SOURCE out-degree = how many distinct problems a row reduces TO (uses of the row as a gadget/starting point), NOT in-degree. Profile is as expected for an SSP compendium: 3-SAT(sat-3)=15, vertex-cover=14, sat=9, one-in-three-sat=8, clique=7, independent-set=5 are the high-out-degree gadget sources; terminal rows (tsp, max-cut, chromatic-number, feedback-arc-set, feedback-vertex-set, firefighter, multicut, minimum-k-cut, planar-vertex-cover, min-degree-spanning-tree, edge-dominating-set, makespan-scheduling) are 0 (they are reduction TARGETS, not sources, in this data). The counting rule is material: e.g. vertex-cover is 11 under a classic-only rule but 14 under the union rule adopted here; clique is 2 (classic-only) / 6 (parameterized-only) / 7 (union). A raw-target variant that counts distinct reduction-network target VERTICES instead of collapsing them to atlas ids gives slightly higher numbers for 6 rows (clique 8, independent-set 6, sat-3 16, one-in-three-sat 10, max-e3-sat 5, vertex-cover 15); it is recorded per-row implicitly via per_problem_outdegree_detail. Targets include problems outside the 31 (e.g. hamiltonian-cycle, integer-programming, and 'proposed' ids for the 23 not-yet-admitted vertices such as firefighter's source 'Saving k Vertices'); per_problem_outdegree_targets lists them. Some rows enter the network ONLY via a non-classic or merged vertex: firefighter<-Saving k Vertices (parameterized, merge, out-degree 0), multicut<-MULTICUT (approximation, out-degree 0), minimum-k-cut<-Graph k-Cut (parameterized, 0), independent-dominating-set<-Kernel (parameterized, 1). Pinned to data-repo commit 8089fb4f3b0d674550ce00449d41533b0d7e3404 (2025-12-13); the live site may have drifted. This is a front-loaded pull for a CONDITIONAL prediction (Mosaic prediction 7); no frozen atlas file was modified."
+}
