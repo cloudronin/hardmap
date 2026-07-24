@@ -1,0 +1,81 @@
+{
+  "prereg_version": "v10",
+  "project": "Mosaic — the locality hypothesis measured on v3",
+  "committed_before_analysis": true,
+  "supersedes": "prereg_v9 (adds Mosaic predictions; B1-B6 stand verbatim, never rescored)",
+  "note": "Mosaic tests whether a blind-coded locality class is the latent variable both gradient charges probe, and whether the v2->v3-new locality-composition shift explains the B1 drop (0.73->0.31). Sidecar + analysis only; no frozen byte changes, no instrument runs, no re-scoring of the sealed V4 bets.",
+  "framing_honesty": {
+    "contamination_disclosed": "The owner and agent coders know many charge values from memory. Mitigation is NOT a claim of innocence: it is (a) the definitional/structural rubric with a forbidden-outcome-vocabulary list, (b) a leak-proof coder input (problem_id + problem_name + canonical_encoding only; per-charge canonical_task withheld because it states values verbatim), (c) two VARIED coder configurations (identical agents on an identical rubric measure agreement with themselves, not reliability), and (d) the separability gate below. Predictions 4 and 6 are the contamination-ROBUST core; prediction 3 is always reported beside its separability evidence.",
+    "prism_caution": "Prism's analogous bounded-width absorption arm was DROPPED as confounded in the foundry synthetic domain (bounded-width was inseparable from the affine netting). Mosaic bets the natural-problem population separates the two; the separability gate is the test of that bet, not an assumption of it."
+  },
+  "populations": {
+    "v2": "the frozen 118 kernel; 47 both-real approx/param rows",
+    "v3_new": "the 227 expansion rows; 42 both-real",
+    "pooled": "89 both-real across both",
+    "all_345": "every v3 row is locality-coded; the both-real subset is where the gradient test lives"
+  },
+  "anchors_repinned_to_frozen_coordinates": {
+    "decomposable": ["planar-vertex-cover (PTAS x FPT, on-diagonal)", "knapsack (FPTAS x W[1], OFF-diagonal — the dissociation exemplar)"],
+    "local-covering": ["vertex-cover (APX-complete x FPT)", "max-2sat (APX-complete x FPT); note: `max-sat` does not exist as an id"],
+    "entangled": ["clique (poly-APX x W[1])", "independent-set (poly-APX x W[1])", "label-cover (poly-APX x OPEN — anchors on structure + approx/decision only, never a param value)"]
+  },
+  "dissociation_set": {
+    "sealed_members": ["knapsack", "subset-sum"],
+    "definition": "rows maximally decomposable by structure (1-D DP scaffold) yet W-hard on the standard parameter — decomposition-locality present, certificate-locality absent, so the two gradient charges are driven by DIFFERENT structural properties. Additional members may be identified at coding; the sealed two anchor the gate.",
+    "role": "the separability test: these MUST code by structure (decomposable), not by coordinates (delocalized). Coding them by coordinates is the contamination signature."
+  },
+  "predictions": {
+    "P1_instrument_qualification": {
+      "prediction": "The blind coder assigns the anchor triples to their sealed classes (planar-vertex-cover/knapsack -> decomposable; vertex-cover/max-2sat -> local-covering; clique/independent-set/label-cover -> entangled).",
+      "population": "the 7 anchor rows",
+      "decision_rule": "All anchors code correctly after at most one rubric revision. Failure => INSTRUMENT NOT QUALIFIED (a legal outcome; write the negative note). knapsack must code `decomposable` on structure DESPITE its off-diagonal coordinates — the anchor doubles as the separability check."
+    },
+    "P2_separate_association": {
+      "prediction": "locality_class associates with approximation AND with parameterized SEPARATELY on v2's 47 both-real pairs, each Cramer's V >= 0.35, direction per the regime table (decomposable->scheme-side/FPT, entangled->inapprox-side/W-hard).",
+      "population": "v2 both-real (47)",
+      "decision_rule": "Both marginal Vs >= 0.35 with the predicted direction. Reported marginals-first (per-class n before any V); thin class => INSUFFICIENT RESOLUTION on the affected side."
+    },
+    "P3_absorption": {
+      "prediction": "Conditioning on locality_class shrinks the v2 both-real approx<->param V by >= half (0.73 -> pooled within-class <= 0.37). Prism prediction 4, finally askable on a population that varies.",
+      "population": "v2 both-real (47)",
+      "decision_rule": "Pooled within-class V (loop _both_real_v per class, weight by class-n) <= 0.37. ALWAYS reported beside the separability evidence (P1 anchors + the dissociation set + the charge-reconstruction check); a shrinkage number without its separability panel is not a scored result. Partial shrinkage (real but > 0.37) triggers the secondary observation below, not a silent pass/fail."
+    },
+    "P4_composition_decomposition": {
+      "prediction": "Reweighting v2's locality-class mixture to v3-new's mixture predicts >= half of the observed 0.73 -> 0.31 drop. THE B1 PAYOFF and the contamination-robust core.",
+      "population": "v2 within-class tables reweighted to v3-new class-weights",
+      "decision_rule": "predicted-V from v2 within-class tables under v3-new weights explains >= 50% of (0.73-0.31). Success converts the V4 note's reading-(b) confound into a measured claim: the drop is substantially WHERE THE ROWS LIVE on the spectrum. Failure => the periphery's weakness is not compositional at this coding's resolution; reading (a) strengthens (stated in advance as acceptable)."
+    },
+    "P5_violator_fingerprint": {
+      "prediction": "TWO-SIDED. The OFF-DIAGONAL non-anchor v2 both-real rows blind-code delocalized/mixed; the on-diagonal control rows do NOT.",
+      "population": "off-diagonal set (5): subset-sum, graph-3-coloring, group-steiner-tree, longest-path, tsp | on-diagonal control (13): clique, densest-k-subgraph, dominating-set, feedback-arc-set-tournament, hitting-set, independent-set, kemeny-rank-aggregation, makespan-scheduling, maximum-common-subgraph, planar-dominating-set, planar-independent-set, planar-vertex-cover, set-cover",
+      "decision_rule": "The off-diagonal 5 code delocalized/mixed AND the on-diagonal 13 code non-mixed, at a rate beating chance. SEALED SELECTION RIDER: the off-diagonal/on-diagonal split is computed from the FROZEN charge coordinates (a cell-pattern query: approximation-easy{FPTAS,EPTAS,PTAS} x W-hard, or inapproximable-side{log-APX,poly-APX,superpoly-APX,inapprox} x FPT; APX/APX-complete = the excluded ambiguous middle; pred-1 anchors excluded). Selection uses charges; CODING STAYS BLIND — selection and instrument never touch, so this is a legitimate known-answer test, not a leak. NOTE: subset-sum is a dissociation-shaped off-diagonal row (decomposable structure, W-hard coordinate); a miss there is P5 evidence FOR the two-property split, not noise."
+    },
+    "P6_kernelization_netting": {
+      "prediction": "The kernel_status column's association with the parameterized column survives ENTAILMENT NETTING; the informative residual is poly-kernel vs no-poly-kernel WITHIN FPT, and it is nonzero and aligns with locality class.",
+      "population": "the 89 both-real rows with kernel_status cited at R20",
+      "decision_rule": "Netted per the cai_chen_residual_audit pattern (the FPT<=>some-kernel theorem, Kratsch, is the forced bridge). A raw unnetted kernel<->param V is NEVER reported. Residual > 0 at the floor AND aligns with locality (poly-kernel <-> decomposable/local-covering; no-poly-kernel <-> entangled/mixed)."
+    },
+    "P7_expressiveness_probe_CONDITIONAL": {
+      "prediction": "The within-class residual coupling concentrates in rows with high reduction-source out-degree (the dark component wears the expressiveness signature).",
+      "population": "the 31 both-real rows covered by reductions.network (commit 8089fb4f); edges front-loaded at L0",
+      "decision_rule": "Scored ONLY if P3 shrinkage is real but below half. Out-degree from the front-loaded reductions/ edges; INSUFFICIENT RESOLUTION legal, declared on the 31-row covered-n. If P3 fully lands or fully misses, P7 is moot and recorded as such."
+    }
+  },
+  "secondary_observations_not_bets": {
+    "two_property_split": "ADDITION (owner ruling 2026-07-24), named in advance so it is a designed follow-up, not an improvisation after a miss: knapsack (FPTAS x W[1]) proves locality feeds the two charges through two partially independent structural properties — decomposition-locality (drives the approximation/scheme side) and certificate-locality (drives the parameterized/branching side). IF P3 absorption underperforms (real but below half), the pre-committed first probe of the residual is to SPLIT the single locality_class into decomposition-locality and certificate-locality and re-test whether that recovers the absorption. Logged here before coding; reported as the residual hunt's first specific hypothesis, never scored as a P3 pass. Expectation on record: subset-sum (in the P5 set) and knapsack (anchor) are the visible split cases — decomposition without certificate."
+  },
+  "separability_gate": {
+    "fires_at": "L1, before any charge join",
+    "components": [
+      "codability: locality must be assignable from problem_id + problem_name + canonical_encoding alone (charges withheld). A class that cannot be reached without the charges is uncodable.",
+      "anchors: P1 must qualify (knapsack codes decomposable on structure despite off-diagonal coordinates).",
+      "charge_reconstruction_check (PINNED): The circularity flag FIRES iff locality_class predicts the approximation OR parameterized column (Cramer's V over all coded rows) BETTER than it predicts the DISSOCIATION SET's own structural class — i.e. the labels track coordinates precisely on the rows where structure and coordinates provably diverge. Computable, sealed: compare V(locality, approx) and V(locality, param) against the coder's accuracy on {knapsack, subset-sum} coding decomposable. If coordinate-tracking beats structure-coding on the dissociation set, the instrument is contaminated and absorption (P3) is reported UNQUALIFIED."
+    ]
+  },
+  "kill_criteria": {
+    "instrument_L1": "Cohen's kappa (two VARIED coders) < 0.6 after one rubric revision => NOT QUALIFIED; write the negative note (locality is not blind-codable at this resolution — a finding about the hypothesis's testability).",
+    "resolution_L3": "any prediction whose per-class n cannot support a CI => INSUFFICIENT RESOLUTION on that prediction, declared, never argued past.",
+    "box": "14-20 h paired (rubric+prereg 3-4; coding cheap agent work; kernel column 4-6 judgment-bound; analysis 3-4; findings 2). $0 compute."
+  },
+  "unchanged": "No prereg_v9 bet is edited, added, or removed; B1-B6 stand verbatim and Mosaic never rescores them. The frozen atlas.jsonl (6d53a4f1), atlas_v2.jsonl (784f4739), atlas_v3.jsonl (e62f3c28) remain byte-identical — locality is a sidecar layer, additive-only."
+}
