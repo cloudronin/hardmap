@@ -19,7 +19,7 @@ OPEN = the grid's real estate.
 | → charge | proven content | cite anchors (pin at I-phase) | verdict |
 |---|---|---|---|
 | decision | all MSO properties linear-time at bounded tw; bounded-arity CSP tractability ⟺ bounded tw (up to hom-equiv) | Courcelle 1990; Grohe–Marx | **NETTED** |
-| counting | MSO counting/enumeration tractable at bounded tw; #SAT at bounded tw | Arnborg–Lagergren–Seese 1991; Courcelle–Makowsky–Rotics 2001; Fischer–Makowsky–Ravve 2008 | **NETTED** |
+| counting | MSO **counting/evaluation** tractable at bounded tw; #SAT at bounded tw ⟵ *corrected at I3 pinning, 2026-07-24: originally read "counting/**enumeration**"; CMR's own footnote 4 warns the term "might be misleading, as we do not enumerate the solutions but we count them." Delay-bounded enumeration is **UNPINNED** — no anchor carries it.* | **treewidth primary:** Courcelle–Mosbah 1993 (TCS 109:49–82) + Arnborg–Lagergren–Seese 1991; **modern statement:** CMR 2001 (DAM 108:23–52) Thm 32; **#SAT:** Fischer–Makowsky–Ravve 2008, sharp constant 2^k Slivovsky–Szeider 2020 | **NETTED** (counting only) |
 | parallelization | small-treewidth NC algorithms; optimal-speedup parallel tree decomposition + all MSO decision problems in O(log n) CRCW | Bodlaender 1988; Bodlaender–Hagerup (SICOMP) | **NETTED** — bounded-width decomposability ⟹ parallelizable; the Horn-SAT counterexample is *unbounded-width* local structure. Strata must carry the bounded/unbounded-width distinction or this cell mis-nets |
 | parameterized (tw as parameter) | FPT by treewidth for MSO problems | Courcelle | **NETTED** |
 | parameterized (solution size) | — | — | **OPEN** (the witness-ambiguity split, already tagged in the atlas) |
@@ -273,6 +273,39 @@ corrections are right. It also found three things neither pass had:
 4. *(§2.approximation, minor)* the DeVos et al./DHK low-treewidth-partition route is, in Demaine–Hajiaghayi's
    own words, **"effectively limited to deletion-closed problems"** — another place the unqualified
    "broad families" leaks.
+
+### 9.7 Terminal statuses and verdict revisions (owner rulings, 2026-07-24)
+
+**The epitaph, recorded verbatim because it is the honest one:**
+
+> **Directionally right everywhere, precisely right almost nowhere.**
+
+That is what a memory-cited proven-cell matrix looks like measured at theorem-statement resolution, and
+pin-before-net converted it from a latent embarrassment into fifteen corrected cells **before a single
+column cited anything**.
+
+**(a) The two structurally unpinnable cells revert to OPEN.** *Unpinnable-as-stated* is a **legal terminal
+status** — the same family as the corpus-starved INSUFFICIENT verdict — and each is recorded with its
+reason, because the reason is the finding:
+
+| cell | prior verdict | now | why no single theorem statement carries it as phrased |
+|---|---|---|---|
+| §5.approximation | "NETTED as mechanism; OPEN as per-row predictor" | **OPEN** | Dinur's Preprocessing Lemma *manufactures* the expansion hypothesis on **any** constraint graph, so no instance is excluded for lacking it or charged for having it. Expansion cannot discriminate rows on this route **at all**; the deliverable is class-level NP-hardness of gap-3SAT, not an instance charge. |
+| §7.ogp | "islands … ensemble-typed" | **OPEN** | OGP's parameters are ensemble constants; the barrier proofs need e-OGP/m-OGP over *sets* of correlated instances; and the conclusion excludes only **stable/insensitive algorithms, not P**. Ensemble-typed, not row-typed — the ledger's own call, confirmed. |
+
+**(b) The ISLAND coastline moves inward — and this changes what the extrapolation bets extrapolate *from*.**
+§2's islands were drawn wider than the pinned theorems support, in two independent ways:
+
+- **DFHT's *general framework* theorem is BOUNDED-GENUS, not H-minor-free.** On H-minor-free graphs DFHT
+  deliver only dominating set, vertex cover and set cover at 2^O(√k)·n^h; the general H-minor-free statement
+  rests on the *later* linear grid-minor theorem (Combinatorica 2008), not on DFHT.
+- **The side condition is h(w) = 2^{o(w²)}, not 2^O(tw)** — strictly weaker than the ledger drew it.
+- Plus the class split already recorded: minor-bidimensional → H-minor-free, but **contraction-bidimensional
+  → apex-minor-free only** (undefined for general H-minor-free, CJ 2008 fn. 1).
+
+**Consequence:** an ISLAND cell is a licence to bet on *off-island extrapolation*, so the island's boundary
+is load-bearing. G0's island bets must be drawn against the **pinned** coastline, not the remembered one.
+Recorded into the grid's I-phase notes (`docs/specs/mosaic-v3-grid-Iphase-flags.md`, Flag 4).
 
 *Remaining verification gaps on this pass:* Baker's JACM full text and ALS 1991's full text are both
 paywalled — Baker's seven-problem list and running-time form rest on Demaine–Hajiaghayi's Encyclopedia entry

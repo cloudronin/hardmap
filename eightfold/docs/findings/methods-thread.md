@@ -452,3 +452,46 @@ as scored on 22, robustness verified — `quarry-v2-gate4-sitting.md`.)
 same sitting — `minimum-sum-of-squares`, a one-paragraph PARTITION→(m=2) reduction beside a G&J [SP19]
 catalog warrant scoped honestly to what the entry actually asserts (general-K). The theorem factory's first
 production unit, produced incidentally at a Gate-4 sitting, through the front door, at full provenance.
+
+---
+
+## Instance 18 — 2026-07-24 — the reviewer's own error rate, measured: 10 of 15 proven-cell claims imprecise at pinning
+
+**Attribution stated first, at the owner's direction.** The Bridge Ledger v1's cells came from the **owner's
+own bridge hunts** — reviewer-drafted, high-confidence claims about which feature→charge links are *proven*.
+The Anatomy S0 pin-before-net pass took all 15 to primary sources. Result:
+
+> **3 pinned clean · 10 pinned only with correction · 2 structurally unpinnable.**
+>
+> **Directionally right everywhere, precisely right almost nowhere.**
+
+**That two-thirds figure is the number that justifies the rule.** It is not a claim about carelessness — the
+cells were high-confidence and every one was *directionally* correct. It is a measurement of what
+**memory-cited proven-cell claims are worth at theorem-statement resolution**, taken on the owner's own
+work, which is the only place such a number is worth taking.
+
+**What the imprecision actually consisted of** (all four classes recur elsewhere in this thread):
+- **Wrong paper, right area** — "Grohe–Marx" for a Grohe-alone characterization; two mis-attributed NC
+  anchors. (Object-drift's bibliographic cousin: instances 9, 17.)
+- **A claim its own field refutes** — "planar matchings … in P" is precisely what Jerrum 1987 proves
+  #P-complete; the tractable object is planar *perfect* matchings. This cell was marked **NETTED**, i.e.
+  bound for the known-answer calibration layer, where a correct pipeline would have been flagged as buggy.
+- **A definition presented as a theorem** — "bounded-width ⟺ local consistency" is Barto–Kozik's *definition*;
+  the theorem is the SD(∧) characterization, and necessity belongs to Larose–Zádori.
+- **Wording claiming more than the cited theorem** — "enumeration" where the anchor's own footnote 4 says
+  "we do not enumerate the solutions but we count them." Counting ≠ delay-bounded enumeration: the same
+  species of distinction as squares-vs-disks, one that survives casual reading and dies at pinning.
+
+**The lesson, and why it is not the same as the earlier instances.** Instances 14/16/17 were about *outputs*
+— a verdict, a statistic, a promoted cell. This one is about **inputs to an instrument**: the ledger's NETTED
+cells were destined to become known-answer calibration values, where "failures are pipeline bugs by
+definition." An error there does not merely mislead, it **inverts the debugging direction** — the instrument
+would have been "corrected" toward the error. So the rule generalizes: *a claim that will serve as a
+known-answer value must be pinned to an exact theorem statement with its scope conditions before it is
+allowed to calibrate anything, and the author's own confidence is not evidence.* Two independent pinning
+passes converging on the same corrections is what closed it.
+
+**Legal terminal status recorded:** *unpinnable-as-stated* (§5.approximation, §7.ogp) joins
+INSUFFICIENT-RESOLUTION and UNTESTABLE as an honest terminus. Both revert to OPEN with their reasons on the
+record — and one of them (expansion is *manufactured* by Dinur's preprocessing, so it cannot discriminate
+rows) is instance 16's shape a third time: **a proposed feature that cannot vary in the way a bet needs.**

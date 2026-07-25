@@ -92,6 +92,35 @@ its **finite core + all-singletons** hypotheses. "Bounded width ⟺ local consis
 
 ---
 
+---
+
+## Flag 4 — the ISLAND coastline is smaller than the ledger drew it; draw G0's island bets against the pinned one
+
+An ISLAND verdict is a licence to bet on **off-island extrapolation** ("proven on class C; does the trend
+persist off-island as a population claim?"), so **the island's boundary is load-bearing** — it defines what
+prediction 5's extrapolation bets are extrapolating *from*. Pinning moved that boundary **inward** in three
+independent ways (ledger §9.7b):
+
+1. **DFHT's general framework theorem is BOUNDED-GENUS, not H-minor-free.** On H-minor-free graphs DFHT
+   deliver only dominating set, vertex cover and set cover at 2^O(√k)·n^h. The general H-minor-free
+   statement rests on the *later* linear grid-minor theorem (Combinatorica 2008 Cor. 3 / CJ 2008 Thm 8.1),
+   not on DFHT.
+2. **The side condition is h(w) = 2^{o(w²)}**, not 2^O(tw) — strictly weaker than drawn.
+3. **The class ceiling is not uniform:** minor-bidimensional → H-minor-free, but **contraction-bidimensional
+   → apex-minor-free only**, and contraction-bidimensionality is *undefined* for general H-minor-free
+   classes (CJ 2008 fn. 1). Separately, the DeVos/DHK low-treewidth-partition route is "effectively limited
+   to deletion-closed problems."
+
+**Binding on G0:** any island bet must state which flavour (minor- vs contraction-bidimensional) and
+therefore which class ceiling it sits inside, and must not treat "planar/minor-free" as one population. A
+bet that extrapolates from a remembered wider island would be measuring the ledger's error, not the world's
+structure.
+
+**Also:** the two now-OPEN cells (§5.approximation expansion, §7.ogp) are **not** available as island bets —
+they are unpinnable-as-stated, a legal terminal status, and revert to OPEN.
+
+---
+
 ## Carry-forward summary
 
 1. Prediction 2 splits: approx×objective empirical; **param×objective definitional (oracle-forced zero) —
