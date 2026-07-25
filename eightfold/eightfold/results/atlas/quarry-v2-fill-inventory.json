@@ -1,0 +1,277 @@
+[
+ {
+  "problem_id": "biclique-cover",
+  "approximation": "poly-APX",
+  "param_task": "no standard W-hierarchy parameterization of the biclique-cover number curated here"
+ },
+ {
+  "problem_id": "broadcast-time",
+  "approximation": "log-APX",
+  "param_task": "no clean curated W-hierarchy classification of Minimum Broadcast Time pinned here"
+ },
+ {
+  "problem_id": "capacitated-facility-location",
+  "approximation": "APX-complete",
+  "param_task": "no standard W-hierarchy parameterization of capacitated facility location curated here"
+ },
+ {
+  "problem_id": "constrained-shortest-path",
+  "approximation": "FPTAS",
+  "param_task": "no standard W-hierarchy parameterization curated (the single-budget version is weakly NP-hard with a pseudo-polynomial a"
+ },
+ {
+  "problem_id": "directed-steiner-tree",
+  "approximation": "log-APX",
+  "param_task": "FPT/XP in #terminals is subtle; not curated"
+ },
+ {
+  "problem_id": "domatic-number",
+  "approximation": "log-APX",
+  "param_task": "no clean curated W-hierarchy classification of the domatic number pinned here"
+ },
+ {
+  "problem_id": "euclidean-tsp",
+  "approximation": "PTAS",
+  "param_task": "no standard W-hierarchy parameterization of Euclidean TSP curated here"
+ },
+ {
+  "problem_id": "facility-location",
+  "approximation": "APX-complete",
+  "param_task": "no standard W-hierarchy parameterization of metric UFL curated here"
+ },
+ {
+  "problem_id": "generalized-assignment",
+  "approximation": "APX-complete",
+  "param_task": "no standard W-hierarchy parameterization curated (natural parameters: #bins m, or profit)"
+ },
+ {
+  "problem_id": "geometric-bin-packing",
+  "approximation": "APX-complete",
+  "param_task": "no standard W-hierarchy parameterization curated (natural parameter: #bins k)"
+ },
+ {
+  "problem_id": "geometric-disk-cover",
+  "approximation": "PTAS",
+  "param_task": "no standard W-hierarchy parameterization curated here (covering by k unit disks; W[1]-hardness plausible via geometric d"
+ },
+ {
+  "problem_id": "graph-burning",
+  "approximation": "APX",
+  "param_task": "FPT is known for structural parameters (neighbourhood diversity, modular-width, distance-to-cluster; Kare & Reddy, IWOCA"
+ },
+ {
+  "problem_id": "graph-spanner",
+  "approximation": "log-APX",
+  "param_task": "no standard W-hierarchy parameterization curated (natural parameter: solution edge count k)"
+ },
+ {
+  "problem_id": "job-interval-selection",
+  "approximation": "APX-complete",
+  "param_task": "no standard W-hierarchy parameterization curated (natural parameter: #selected jobs k)"
+ },
+ {
+  "problem_id": "k-center",
+  "approximation": "APX-complete",
+  "param_task": "not curated"
+ },
+ {
+  "problem_id": "k-edge-connected-subgraph",
+  "approximation": "APX-complete",
+  "param_task": "no standard W-hierarchy parameterization curated (natural parameters: connectivity k, or solution size)"
+ },
+ {
+  "problem_id": "k-minimum-spanning-tree",
+  "approximation": "APX",
+  "param_task": "no standard W-hierarchy parameterization curated (natural parameter: target size k)"
+ },
+ {
+  "problem_id": "label-cover",
+  "approximation": "poly-APX",
+  "param_task": "no standard W-hierarchy parameterization curated here (parameterizations by label-set size or by satisfied-edge count ex"
+ },
+ {
+  "problem_id": "map-labeling",
+  "approximation": "APX-complete",
+  "param_task": "no standard W-hierarchy parameterization curated for this encoding"
+ },
+ {
+  "problem_id": "max-coverage",
+  "approximation": "APX-complete",
+  "param_task": "k-coverage parameterization not curated"
+ },
+ {
+  "problem_id": "max-dispersion",
+  "approximation": "APX",
+  "param_task": "no standard W-hierarchy parameterization curated (natural parameter: cardinality p)"
+ },
+ {
+  "problem_id": "max-k-cut",
+  "approximation": "APX-complete",
+  "param_task": "no standard W-hierarchy parameterization pinned here (MAX-CUT above the m/2 / spanning-tree guarantee is FPT, but the MA"
+ },
+ {
+  "problem_id": "maximum-csp",
+  "approximation": "APX-complete",
+  "param_task": "no standard W-hierarchy parameterization pinned at this umbrella level (above-average / above-guarantee parameterization"
+ },
+ {
+  "problem_id": "maximum-feasible-linear-subsystem",
+  "approximation": "poly-APX",
+  "param_task": "no standard W-hierarchy parameterization curated (natural parameter: subsystem size k)"
+ },
+ {
+  "problem_id": "maximum-planar-subgraph",
+  "approximation": "APX-complete",
+  "param_task": "no standard W-hierarchy parameterization pinned here (the dual skewness = min edges deleted to planar is FPT, but that i"
+ },
+ {
+  "problem_id": "min-communication-cost-spanning-tree",
+  "approximation": "PTAS",
+  "param_task": "no standard W-hierarchy parameterization curated for MRCT/OCT"
+ },
+ {
+  "problem_id": "min-sat",
+  "approximation": "APX-complete",
+  "param_task": "no canonical W-hierarchy parameterization banked"
+ },
+ {
+  "problem_id": "min-sum-set-cover",
+  "approximation": "APX-complete",
+  "param_task": "no canonical parameterization banked"
+ },
+ {
+  "problem_id": "minimum-consistent-dfa",
+  "approximation": "inapprox",
+  "param_task": "parameterization by target #states not cleanly banked in the W-hierarchy"
+ },
+ {
+  "problem_id": "minimum-decision-tree",
+  "approximation": "log-APX",
+  "param_task": "no canonical W-hierarchy parameterization banked"
+ },
+ {
+  "problem_id": "minimum-equivalent-digraph",
+  "approximation": "APX-complete",
+  "param_task": "no canonical W-hierarchy parameterization banked"
+ },
+ {
+  "problem_id": "minimum-latency",
+  "approximation": "APX-complete",
+  "param_task": "no canonical W-hierarchy parameterization banked"
+ },
+ {
+  "problem_id": "minimum-sum-coloring",
+  "approximation": "poly-APX",
+  "param_task": "FPT by treewidth (DP) but no canonical parameterization is banked with a citation here"
+ },
+ {
+  "problem_id": "minimum-sum-of-squares",
+  "approximation": "PTAS",
+  "param_task": "no canonical W-hierarchy parameterization banked"
+ },
+ {
+  "problem_id": "minimum-weight-triangulation",
+  "approximation": "APX",
+  "param_task": "no canonical W-hierarchy parameterization banked"
+ },
+ {
+  "problem_id": "mixed-chinese-postman",
+  "approximation": "APX",
+  "param_task": "FPT results exist for structural parameters but no canonical parameterization is banked here"
+ },
+ {
+  "problem_id": "multidimensional-knapsack",
+  "approximation": "PTAS",
+  "param_task": "parameterization by dimension d not cleanly banked in the W-hierarchy"
+ },
+ {
+  "problem_id": "number-partitioning",
+  "approximation": "FPTAS",
+  "param_task": "no standard W-hierarchy parameter curated"
+ },
+ {
+  "problem_id": "orienteering",
+  "approximation": "APX-complete",
+  "param_task": "no canonical W-hierarchy parameterization banked"
+ },
+ {
+  "problem_id": "planar-3sat",
+  "approximation": "PTAS",
+  "param_task": "bounded-treewidth / planar structural parameterizations exist but no canonical one is banked here"
+ },
+ {
+  "problem_id": "rectangle-tiling",
+  "approximation": "APX-complete",
+  "param_task": "multivariate analyses exist (Berman et al.) but no single clean W-class result is curated"
+ },
+ {
+  "problem_id": "red-blue-set-cover",
+  "approximation": "poly-APX",
+  "param_task": "no clean single W-class result for the natural parameter is curated here"
+ },
+ {
+  "problem_id": "resource-constrained-scheduling",
+  "approximation": "APX",
+  "param_task": "no clean single W-class result for the natural parameter is curated"
+ },
+ {
+  "problem_id": "sorting-by-reversals",
+  "approximation": "APX-complete",
+  "param_task": "no clean single W-class result for the natural parameter is curated (FPT by distance k is plausible; uncited -> open)"
+ },
+ {
+  "problem_id": "sorting-by-transpositions",
+  "approximation": "APX",
+  "param_task": "no clean single W-class result for the natural parameter is curated"
+ },
+ {
+  "problem_id": "stacker-crane",
+  "approximation": "APX-complete",
+  "param_task": "no clean single W-class result for the natural parameter is curated"
+ },
+ {
+  "problem_id": "steiner-forest",
+  "approximation": "APX-complete",
+  "param_task": "FPT status by #terminal-pairs is subtle; not curated"
+ },
+ {
+  "problem_id": "string-folding",
+  "approximation": "APX",
+  "param_task": "no clean single W-class result for the natural parameter is curated"
+ },
+ {
+  "problem_id": "strip-packing",
+  "approximation": "APX-complete",
+  "param_task": "no clean single W-class result for the natural parameter is curated"
+ },
+ {
+  "problem_id": "ultrametric-tree-fitting",
+  "approximation": "APX",
+  "param_task": "no clean single W-class result for the natural parameter is curated"
+ },
+ {
+  "problem_id": "unrelated-machine-scheduling",
+  "approximation": "APX-complete",
+  "param_task": "parameterized by #machines m: exact R||Cmax is (weakly) NP-hard already at m=2 but has an FPTAS for fixed m (Horowitz-Sa"
+ },
+ {
+  "problem_id": "unsplittable-flow",
+  "approximation": "poly-APX",
+  "param_task": "no clean single W-class result for the natural parameter is curated"
+ },
+ {
+  "problem_id": "vector-bin-packing",
+  "approximation": "APX",
+  "param_task": "no clean single W-class result for the natural parameter is curated"
+ },
+ {
+  "problem_id": "vehicle-routing",
+  "approximation": "APX-complete",
+  "param_task": "no clean single W-class result for the natural parameter is curated"
+ },
+ {
+  "problem_id": "weighted-completion-time-scheduling",
+  "approximation": "PTAS",
+  "param_task": "parameterized by #machines m: (weakly) NP-hard at m=2 but pseudo-poly for fixed m; no clean single W-class value -> open"
+ }
+]

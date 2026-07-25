@@ -1,0 +1,17 @@
+{
+ "channel": "A \u2014 inverted funnel (new both-real optimization rows)",
+ "recruitment_law": "selection is blind to locality; admission is on charge-citability ONLY.",
+ "admission_criterion": [
+  "the problem is an OPTIMIZATION problem (has a well-defined objective to min/max),",
+  "AND it is NOT already an atlas_v3 problem_id (genuinely new),",
+  "AND BOTH gradient charges are plausibly citable at R20: a known approximation status (scheme / const / log / poly / inapprox) AND a known parameterized status (FPT / W[t] / para-NP-hard / XP) from the standard literature."
+ ],
+ "sealed_sources": [
+  "the parameterized-approximation surveys' problem lists (Feldmann\u2013Karthik\u2013Lee\u2013Manurangsi and successors),",
+  "kernelization compendia / the parameterized-algorithms textbook problem index (Cygan et al.) \u2014 both-real by construction (kernel papers state param status and usually approx context),",
+  "the W-hierarchy classified problem lists \u00d7 the approximation compendium (Ausiello\u2013Kann) intersection."
+ ],
+ "selection_order": "candidates enumerated in the fixed source order above, then alphabetically by problem name WITHIN each source; the FIRST N meeting the admission criterion are drafted. Order is fixed before any locality read; no reordering by anticipated structure/stratum.",
+ "explicitly_forbidden": "selecting or reordering a candidate because of its anticipated locality class, its structure, or which stratum is thin. The recruitment artifacts never mention locality.",
+ "instrument": "new rows drafted at 'claimed', dual-pass Check-9, owner confirm sittings, S2 dedup, provenance \u2014 standard pipeline. Locality coding (blind 3-class qualified instrument) runs at Q3 AFTER charges, never during selection."
+}

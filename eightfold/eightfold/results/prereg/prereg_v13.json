@@ -1,0 +1,50 @@
+{
+  "prereg_version": "v13",
+  "project": "Quarry v2 — Targeted Both-Real Recruitment + Absorption Rerun (the third, powered seal of the Mosaic P3 absorption bet)",
+  "committed_before_analysis": true,
+  "owner": "Vishnu",
+  "date": "2026-07-24",
+  "supersedes_operationally": "prereg_v11 (Mosaic v3 G0). prereg_v11 sealed the STRATEGIC recruit-then-rerun; prereg_v13 OPERATIONALIZES it into two concrete channels with frozen inventories, the pinned power arithmetic, and the recruitment law verbatim. prereg_v11's sealed_bet_unchanged (P3 absorption, unchanged form) and its power gate are INHERITED VERBATIM here; no bet form changes. prereg_v11 remains valid as the strategic parent. All of B1-B6 and every prior bet stand exactly as scored; nothing rescores.",
+  "relation": "successor to Quarry v1 and the direct answer to the Mosaic absorption verdict (INSUFFICIENT RESOLUTION at 89 both-real rows, 78% vs the 80% collapsed-3 floor).",
+
+  "the_recruitment_law_sealed_verbatim": "selection is blind to locality. Channels A and B select on charge-citability only — never on structure, never on anticipated locality class, never on which stratum is thin. Selecting rows because they would populate a locality class manufactures the stratification the bet tests (Lattice v2's selection mistake aimed at the hypothesis). The funnel query, the fill list, and their orderings are committed before any locality consideration exists; the recruitment artifacts never mention locality; coders receive new rows blind, same 3-class qualified instrument, before any charge join.",
+
+  "frozen_recruitment_artifacts": {
+    "channel_A_funnel_query": {"file": "atlas/quarry-v2-funnel-query.json", "sha256_16": "1f303db5a60ead2c",
+      "committed": "before any candidate is read against locality; selection order fixed; artifact never mentions locality"},
+    "channel_B_fill_inventory": {"file": "atlas/quarry-v2-fill-inventory.json", "sha256_16": "611985a27401d6de",
+      "n_rows": 55, "def": "atlas_v3 rows with approximation non-sentinel AND parameterized == 'open'",
+      "ordered_by": "problem_id (NOT locality); locality never consulted in building or ordering this list"}
+  },
+
+  "sealed_predictions": {
+    "1_supply": "channels A+B deliver >= 22 net new both-real rows (A: ~25-30 recruited, >= 70% landing both-real after R20; B: >= 8 param fills on approx-real rows). Below 22, the floor doesn't clear and the rerun ends at its power check again — declared, with the updated price.",
+    "2_power": "the pooled both-real population clears the Cochran floor at collapsed-3 (>= 80% cells with expected >= 5). Sealed so the resolution isn't chosen after the fact. See pinned_power_arithmetic below for the exact table and threshold.",
+    "3_absorption_third_seal_unchanged_in_form": "conditioning on 3-class locality shrinks the pooled unconditional approx<->param V by >= half. Fixed stratified estimator (structure.stratified_cramers_v, defect-#15-gated by hardmap verify), power check first and governing. Contamination fully disclosed: two prior populations' outcomes known, both leaning against absorption; the honest prior is a powered MISS, and a powered MISS is a COMPLETE answer — it closes the single-variable question and hands the mechanism burden to the Mosaic-v3 grid cleanly.",
+    "4_split_stability": "V(locality, approx) stays >= 0.35 and V(locality, param) stays < 0.35 with separated CIs on the enlarged population — the two-property split surviving recruitment is its out-of-sample test.",
+    "5_recruitment_calibration": "the recruited rows' locality-class mixture does not differ from the v3-new both-real mixture beyond noise (evidence the funnel selected on citability, not structure — the blindness law's measurable check). SCOPE NOTE (grounding, see below): this mixture-match test is the blindness check for CHANNEL A (funnel selection). Channel B fills ALL charge-citable candidates with no locality selection, so its mixture is a corpus census, not a selection outcome; Channel B's mixture is reported descriptively and is NOT a blindness-breach signal even if it is decomposable-enriched."
+  },
+
+  "pinned_power_arithmetic_I3": {
+    "sealed_table": "locality[3: decomposable / local-covering / delocalized] x approximation collapsed-3 (scheme / const-or-log / poly-or-worse) — the EXACT table addendum-01 declared. Bucket map: scheme = {PTAS, FPTAS, EPTAS, QPTAS}; const-or-log = {APX-complete, APX, const-APX, log-APX}; poly-or-worse = {poly-APX, inapprox, no-APX, superpoly-APX}.",
+    "floor": "Cochran: >= 80% of the 9 cells with expected >= 5, all expected >= 1. 80% of 9 => >= 8/9 cells.",
+    "current_89": "7/9 cells expected >= 5 (78%); the ONE short cell is decomposable x scheme (expected 2.0). (decomposable x poly-or-worse is 2.9 but the 8/9 floor is reached without it.)",
+    "threshold_as_a_number": "the floor clears (8/9) when the DECOMPOSABLE both-real stratum grows from 13 to >= 23 (+10 decomposable both-real rows), which lifts expected(decomposable, scheme) from 2.0 to 5.0. +14 decomposable reaches 9/9. THIS, not total both-real mass, is prediction 2's operative target.",
+    "grounding_correction_surfaced": "The spec's supply framing ('~25-30 new rows -> ~115 total -> clears floor') is optimistic because the binding constraint is the DECOMPOSABLE STRATUM (~15% of both-real), not total mass. A BLIND Channel-A funnel recruits ~13-15% decomposable, so ~25-30 new rows adds only ~3-4 decomposable (floor stays 7/9); clearing the floor by Channel A alone would need ~77 blind both-real rows. CHANNEL B IS THE FLOOR LEVER: 14 of its 55 fill candidates carry decomposable labels, and IF their param cells are R20-citable, filling them (blind, on citability) adds up to +14 decomposable and clears the floor directly. Whether they are citable is the empirical question Channel B answers — not assumed. The honest expectation per kill-criterion 1: floor-clears-or-updated-price.",
+    "blindness_note_on_the_correction": "Knowing that decomposable rows clear the floor does NOT license filling them preferentially — that would breach the recruitment law. Channel B fills ALL charge-citable candidates in the frozen problem_id order; the decomposable ones land as a consequence of citability, never as a target."
+  },
+
+  "estimator": "structure.stratified_cramers_v — pooled within-stratum chi-square conditional association (defect #15 permanent fix, gated by the hardmap-verify known-answer test). NEVER the average of per-class V's.",
+
+  "contamination_disclosed": "All Mosaic v1/v2 outcomes are known at this seal (the two-property split found and powered; absorption INSUFFICIENT at 89; the decomposable-stratum diagnosis). Mitigation: the bet FORM is unchanged from prereg_v10 P3 / addendum-01 / prereg_v11; the estimator is fixed and gated; the power check is pre-sealed and governs; the recruitment law is sealed verbatim; both recruitment artifacts are hashed before any locality read. The honest prior is a powered MISS.",
+
+  "kill_criteria": {
+    "1_supply": "prediction 1 missing -> the rerun still executes its power check and declares the updated price; no forcing, no floor-shopping.",
+    "2_blindness_breach": "any recruitment artifact found to reference locality class -> the wave is quarantined and redrawn from the sealed query; logged as a defect.",
+    "3_power": "if recruitment cannot reach the Cochran floor from admissible sources, the verdict is 'absorption not decidable from the natural-problem corpus at this coding resolution' — a bounded, honest terminus (inherited from prereg_v11), not an open loop."
+  },
+
+  "placement": "Behind the v1/v2 findings note (INSUFFICIENT-with-a-price is a complete finding). Parallel to Mosaic v3 G0 — disjoint surfaces: the grid tests the objective component on synthetic ground; this feeds the canon-side single-variable question. A powered MISS here + the grid isolating the objective component closes the story as 'structure-locality carries approximability; objective-channelness carries the coupling; neither alone is locality.' A powered HIT revives the single-variable claim with the floor cleared. Either way the question stops dangling at 78%.",
+
+  "unchanged": "Frozen atlas.jsonl (6d53a4f1), atlas_v2.jsonl (784f4739), atlas_v3.jsonl (e62f3c28), mosaic-locality.jsonl (4c7ef94c) all byte-identical. All prior bets stand as scored. Quarry v2 adds recruitment + the powered re-run only; no frozen byte is touched."
+}
