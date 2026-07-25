@@ -1,0 +1,135 @@
+[
+ {
+  "problem_id": "sat",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "SAT parameterized by treewidth of the primal graph"
+ },
+ {
+  "problem_id": "sat-3",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "3-SAT parameterized by treewidth"
+ },
+ {
+  "problem_id": "vertex-cover",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "VC parameterized by solution size k"
+ },
+ {
+  "problem_id": "graph-3-coloring",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "poly-APX",
+  "canonical_task_param": "coloring parameterized by treewidth"
+ },
+ {
+  "problem_id": "tsp",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "inapprox",
+  "canonical_task_param": "TSP parameterized by treewidth"
+ },
+ {
+  "problem_id": "max-cut",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "MAX-CUT above the m/2 guarantee: FPT"
+ },
+ {
+  "problem_id": "feedback-vertex-set",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "k-FVS: FPT (iterative compression)"
+ },
+ {
+  "problem_id": "steiner-tree",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "Steiner tree parameterized by number of terminals"
+ },
+ {
+  "problem_id": "longest-path",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "poly-APX",
+  "canonical_task_param": "k-PATH: FPT via color-coding"
+ },
+ {
+  "problem_id": "nae-sat",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "NAE-SAT parameterized by treewidth (same convention as sat-3)"
+ },
+ {
+  "problem_id": "bin-packing",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX",
+  "canonical_task_param": "FPT in the number of distinct item sizes"
+ },
+ {
+  "problem_id": "makespan-scheduling",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "PTAS",
+  "canonical_task_param": "FPT in the number of machines / job types"
+ },
+ {
+  "problem_id": "metric-tsp",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "TSP parameterized by treewidth"
+ },
+ {
+  "problem_id": "edge-coloring",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX",
+  "canonical_task_param": "edge-coloring parameterized by treewidth"
+ },
+ {
+  "problem_id": "multiway-cut",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "multiway cut FPT in the cutset size"
+ },
+ {
+  "problem_id": "three-dimensional-matching",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "k-3DM (3-set packing) is FPT via color-coding"
+ },
+ {
+  "problem_id": "one-in-three-sat",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "1-in-3-SAT parameterized by treewidth (SAT-family convention)"
+ },
+ {
+  "problem_id": "max-2lin",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "MAX-2LIN parameterized by treewidth (SAT-family convention)"
+ },
+ {
+  "problem_id": "cluster-editing",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "cluster editing is FPT in the edit budget"
+ }
+]

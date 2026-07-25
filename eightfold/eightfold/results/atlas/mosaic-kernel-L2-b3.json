@@ -1,0 +1,135 @@
+[
+ {
+  "problem_id": "achromatic-number",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "poly-APX",
+  "canonical_task_param": "Achromatic Number parameterized by solution size k (number of colours): FPT"
+ },
+ {
+  "problem_id": "closest-string",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "PTAS",
+  "canonical_task_param": "Closest String parameterized by the radius d: FPT"
+ },
+ {
+  "problem_id": "cluster-deletion",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "Cluster Deletion parameterized by the number of deletions k: FPT"
+ },
+ {
+  "problem_id": "connectivity-augmentation",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "APX",
+  "canonical_task_param": "Connectivity Augmentation parameterized by the number of added links k: FPT"
+ },
+ {
+  "problem_id": "cycle-packing",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "log-APX",
+  "canonical_task_param": "Cycle Packing parameterized by the number of cycles k: FPT (Erdos-Posa)"
+ },
+ {
+  "problem_id": "dissociation-number",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "3-Path Vertex Cover parameterized by the solution size k: FPT"
+ },
+ {
+  "problem_id": "firefighter",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "PTAS",
+  "canonical_task_param": "Firefighter parameterized by number of saved (protected) vertices: W[1]-hard even on bipar"
+ },
+ {
+  "problem_id": "max-2sat",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "MAX-2-SAT parameterized by the number k of clauses to satisfy: FPT"
+ },
+ {
+  "problem_id": "max-e3-sat",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "MAX-E3-SAT parameterized above the tight (7/8)m guarantee: FPT"
+ },
+ {
+  "problem_id": "maximum-agreement-forest",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "APX",
+  "canonical_task_param": "MAF parameterized by the rSPR distance k (= #components - 1): fixed-parameter tractable"
+ },
+ {
+  "problem_id": "maximum-minimal-vertex-cover",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "poly-APX",
+  "canonical_task_param": "MMVC parameterized by the vertex cover number vc(G): fixed-parameter tractable"
+ },
+ {
+  "problem_id": "minimum-test-cover",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "log-APX",
+  "canonical_task_param": "Test Cover parameterized by the solution size k"
+ },
+ {
+  "problem_id": "multicut",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "log-APX",
+  "canonical_task_param": "Multicut parameterized by the cutset size k"
+ },
+ {
+  "problem_id": "node-multiway-cut",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "Node Multiway Cut parameterized by the solution (cutset) size s"
+ },
+ {
+  "problem_id": "planar-vertex-deletion",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "poly-APX",
+  "canonical_task_param": "Planar Vertex Deletion parameterized by the number of deleted vertices k"
+ },
+ {
+  "problem_id": "rectilinear-steiner-tree",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "PTAS",
+  "canonical_task_param": "parameterized by number of terminals k: FPT via the Hanan grid + Dreyfus-Wagner DP"
+ },
+ {
+  "problem_id": "set-splitting",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "Max Set Splitting parameterized by number of split sets k: FPT"
+ },
+ {
+  "problem_id": "total-coloring",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "APX",
+  "canonical_task_param": "parameterized by treewidth: chi'' <= k is MSO-expressible for fixed k -> FPT by Courcelle'"
+ },
+ {
+  "problem_id": "triangle-packing",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "parameterized by number of triangles k: FPT via color-coding"
+ }
+]

@@ -1,0 +1,135 @@
+[
+ {
+  "problem_id": "planar-3-coloring",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX",
+  "canonical_task_param": "planar 3-coloring parameterized by treewidth"
+ },
+ {
+  "problem_id": "connected-vertex-cover",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "FPT in solution size k"
+ },
+ {
+  "problem_id": "edge-dominating-set",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "FPT in solution size k"
+ },
+ {
+  "problem_id": "maximum-leaf-spanning-tree",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "FPT in number of leaves k"
+ },
+ {
+  "problem_id": "prize-collecting-steiner-tree",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "FPT parameterized by the number of proper potential terminals |T^+_p| (positive-prize vert"
+ },
+ {
+  "problem_id": "feedback-arc-set-tournament",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "PTAS",
+  "canonical_task_param": "FPT in solution size k"
+ },
+ {
+  "problem_id": "kemeny-rank-aggregation",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "PTAS",
+  "canonical_task_param": "FPT in the optimal Kemeny score"
+ },
+ {
+  "problem_id": "capacitated-vertex-cover",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "FPT in solution size k"
+ },
+ {
+  "problem_id": "k-set-packing",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "FPT in solution size via color-coding"
+ },
+ {
+  "problem_id": "group-steiner-tree",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "log-APX",
+  "canonical_task_param": "FPT in number of groups"
+ },
+ {
+  "problem_id": "treedepth",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX",
+  "canonical_task_param": "FPT in treedepth k (and computable in linear FPT time)"
+ },
+ {
+  "problem_id": "cluster-vertex-deletion",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "FPT in solution size k"
+ },
+ {
+  "problem_id": "max-directed-cut",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "FPT above the m/4 guarantee"
+ },
+ {
+  "problem_id": "d-hitting-set",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX-complete",
+  "canonical_task_param": "FPT in k for fixed d (sunflower kernel)"
+ },
+ {
+  "problem_id": "bin-covering",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "APX",
+  "canonical_task_param": "FPT in the number of distinct sizes"
+ },
+ {
+  "problem_id": "planar-vertex-cover",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "PTAS",
+  "canonical_task_param": "linear kernel / FPT in k"
+ },
+ {
+  "problem_id": "planar-dominating-set",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "PTAS",
+  "canonical_task_param": "FPT (linear kernel; bidimensionality)"
+ },
+ {
+  "problem_id": "planar-independent-set",
+  "in": "kernel",
+  "parameterized": "FPT",
+  "approximation": "PTAS",
+  "canonical_task_param": "FPT (subexponential via separators)"
+ },
+ {
+  "problem_id": "feedback-arc-set",
+  "in": "v3-new",
+  "parameterized": "FPT",
+  "approximation": "log-APX",
+  "canonical_task_param": "FAS parameterized by solution size k"
+ }
+]

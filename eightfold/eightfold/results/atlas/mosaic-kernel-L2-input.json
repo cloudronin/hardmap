@@ -1,0 +1,629 @@
+{
+ "fpt_rows": [
+  {
+   "problem_id": "sat",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "SAT parameterized by treewidth of the primal graph"
+  },
+  {
+   "problem_id": "sat-3",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "3-SAT parameterized by treewidth"
+  },
+  {
+   "problem_id": "vertex-cover",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "VC parameterized by solution size k"
+  },
+  {
+   "problem_id": "graph-3-coloring",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "poly-APX",
+   "canonical_task_param": "coloring parameterized by treewidth"
+  },
+  {
+   "problem_id": "tsp",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "inapprox",
+   "canonical_task_param": "TSP parameterized by treewidth"
+  },
+  {
+   "problem_id": "max-cut",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "MAX-CUT above the m/2 guarantee: FPT"
+  },
+  {
+   "problem_id": "feedback-vertex-set",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "k-FVS: FPT (iterative compression)"
+  },
+  {
+   "problem_id": "steiner-tree",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "Steiner tree parameterized by number of terminals"
+  },
+  {
+   "problem_id": "longest-path",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "poly-APX",
+   "canonical_task_param": "k-PATH: FPT via color-coding"
+  },
+  {
+   "problem_id": "nae-sat",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "NAE-SAT parameterized by treewidth (same convention as sat-3)"
+  },
+  {
+   "problem_id": "bin-packing",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX",
+   "canonical_task_param": "FPT in the number of distinct item sizes"
+  },
+  {
+   "problem_id": "makespan-scheduling",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "PTAS",
+   "canonical_task_param": "FPT in the number of machines / job types"
+  },
+  {
+   "problem_id": "metric-tsp",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "TSP parameterized by treewidth"
+  },
+  {
+   "problem_id": "edge-coloring",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX",
+   "canonical_task_param": "edge-coloring parameterized by treewidth"
+  },
+  {
+   "problem_id": "multiway-cut",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "multiway cut FPT in the cutset size"
+  },
+  {
+   "problem_id": "three-dimensional-matching",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "k-3DM (3-set packing) is FPT via color-coding"
+  },
+  {
+   "problem_id": "one-in-three-sat",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "1-in-3-SAT parameterized by treewidth (SAT-family convention)"
+  },
+  {
+   "problem_id": "max-2lin",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "MAX-2LIN parameterized by treewidth (SAT-family convention)"
+  },
+  {
+   "problem_id": "cluster-editing",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "cluster editing is FPT in the edit budget"
+  },
+  {
+   "problem_id": "planar-3-coloring",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX",
+   "canonical_task_param": "planar 3-coloring parameterized by treewidth"
+  },
+  {
+   "problem_id": "connected-vertex-cover",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "FPT in solution size k"
+  },
+  {
+   "problem_id": "edge-dominating-set",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "FPT in solution size k"
+  },
+  {
+   "problem_id": "maximum-leaf-spanning-tree",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "FPT in number of leaves k"
+  },
+  {
+   "problem_id": "prize-collecting-steiner-tree",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "FPT parameterized by the number of proper potential terminals |T^+_p| (positive-prize vert"
+  },
+  {
+   "problem_id": "feedback-arc-set-tournament",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "PTAS",
+   "canonical_task_param": "FPT in solution size k"
+  },
+  {
+   "problem_id": "kemeny-rank-aggregation",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "PTAS",
+   "canonical_task_param": "FPT in the optimal Kemeny score"
+  },
+  {
+   "problem_id": "capacitated-vertex-cover",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "FPT in solution size k"
+  },
+  {
+   "problem_id": "k-set-packing",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "FPT in solution size via color-coding"
+  },
+  {
+   "problem_id": "group-steiner-tree",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "log-APX",
+   "canonical_task_param": "FPT in number of groups"
+  },
+  {
+   "problem_id": "treedepth",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX",
+   "canonical_task_param": "FPT in treedepth k (and computable in linear FPT time)"
+  },
+  {
+   "problem_id": "cluster-vertex-deletion",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "FPT in solution size k"
+  },
+  {
+   "problem_id": "max-directed-cut",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "FPT above the m/4 guarantee"
+  },
+  {
+   "problem_id": "d-hitting-set",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "FPT in k for fixed d (sunflower kernel)"
+  },
+  {
+   "problem_id": "bin-covering",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "APX",
+   "canonical_task_param": "FPT in the number of distinct sizes"
+  },
+  {
+   "problem_id": "planar-vertex-cover",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "PTAS",
+   "canonical_task_param": "linear kernel / FPT in k"
+  },
+  {
+   "problem_id": "planar-dominating-set",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "PTAS",
+   "canonical_task_param": "FPT (linear kernel; bidimensionality)"
+  },
+  {
+   "problem_id": "planar-independent-set",
+   "in": "kernel",
+   "parameterized": "FPT",
+   "approximation": "PTAS",
+   "canonical_task_param": "FPT (subexponential via separators)"
+  },
+  {
+   "problem_id": "feedback-arc-set",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "log-APX",
+   "canonical_task_param": "FAS parameterized by solution size k"
+  },
+  {
+   "problem_id": "achromatic-number",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "poly-APX",
+   "canonical_task_param": "Achromatic Number parameterized by solution size k (number of colours): FPT"
+  },
+  {
+   "problem_id": "closest-string",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "PTAS",
+   "canonical_task_param": "Closest String parameterized by the radius d: FPT"
+  },
+  {
+   "problem_id": "cluster-deletion",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "Cluster Deletion parameterized by the number of deletions k: FPT"
+  },
+  {
+   "problem_id": "connectivity-augmentation",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "APX",
+   "canonical_task_param": "Connectivity Augmentation parameterized by the number of added links k: FPT"
+  },
+  {
+   "problem_id": "cycle-packing",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "log-APX",
+   "canonical_task_param": "Cycle Packing parameterized by the number of cycles k: FPT (Erdos-Posa)"
+  },
+  {
+   "problem_id": "dissociation-number",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "3-Path Vertex Cover parameterized by the solution size k: FPT"
+  },
+  {
+   "problem_id": "firefighter",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "PTAS",
+   "canonical_task_param": "Firefighter parameterized by number of saved (protected) vertices: W[1]-hard even on bipar"
+  },
+  {
+   "problem_id": "max-2sat",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "MAX-2-SAT parameterized by the number k of clauses to satisfy: FPT"
+  },
+  {
+   "problem_id": "max-e3-sat",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "MAX-E3-SAT parameterized above the tight (7/8)m guarantee: FPT"
+  },
+  {
+   "problem_id": "maximum-agreement-forest",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "APX",
+   "canonical_task_param": "MAF parameterized by the rSPR distance k (= #components - 1): fixed-parameter tractable"
+  },
+  {
+   "problem_id": "maximum-minimal-vertex-cover",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "poly-APX",
+   "canonical_task_param": "MMVC parameterized by the vertex cover number vc(G): fixed-parameter tractable"
+  },
+  {
+   "problem_id": "minimum-test-cover",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "log-APX",
+   "canonical_task_param": "Test Cover parameterized by the solution size k"
+  },
+  {
+   "problem_id": "multicut",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "log-APX",
+   "canonical_task_param": "Multicut parameterized by the cutset size k"
+  },
+  {
+   "problem_id": "node-multiway-cut",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "Node Multiway Cut parameterized by the solution (cutset) size s"
+  },
+  {
+   "problem_id": "planar-vertex-deletion",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "poly-APX",
+   "canonical_task_param": "Planar Vertex Deletion parameterized by the number of deleted vertices k"
+  },
+  {
+   "problem_id": "rectilinear-steiner-tree",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "PTAS",
+   "canonical_task_param": "parameterized by number of terminals k: FPT via the Hanan grid + Dreyfus-Wagner DP"
+  },
+  {
+   "problem_id": "set-splitting",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "Max Set Splitting parameterized by number of split sets k: FPT"
+  },
+  {
+   "problem_id": "total-coloring",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "APX",
+   "canonical_task_param": "parameterized by treewidth: chi'' <= k is MSO-expressible for fixed k -> FPT by Courcelle'"
+  },
+  {
+   "problem_id": "triangle-packing",
+   "in": "v3-new",
+   "parameterized": "FPT",
+   "approximation": "APX-complete",
+   "canonical_task_param": "parameterized by number of triangles k: FPT via color-coding"
+  }
+ ],
+ "na_rows_Whard": [
+  {
+   "problem_id": "clique",
+   "in": "kernel",
+   "parameterized": "W[1]",
+   "approximation": "poly-APX",
+   "canonical_task_param": "k-CLIQUE: W[1]-complete"
+  },
+  {
+   "problem_id": "independent-set",
+   "in": "kernel",
+   "parameterized": "W[1]",
+   "approximation": "poly-APX",
+   "canonical_task_param": "k-IS: W[1]-complete"
+  },
+  {
+   "problem_id": "knapsack",
+   "in": "kernel",
+   "parameterized": "W[1]",
+   "approximation": "FPTAS",
+   "canonical_task_param": "k-subset-sum (exactly k items hitting the target): W[1]-hard"
+  },
+  {
+   "problem_id": "set-cover",
+   "in": "kernel",
+   "parameterized": "W[2]+",
+   "approximation": "log-APX",
+   "canonical_task_param": "k-SET-COVER: W[2]-complete"
+  },
+  {
+   "problem_id": "dominating-set",
+   "in": "kernel",
+   "parameterized": "W[2]+",
+   "approximation": "log-APX",
+   "canonical_task_param": "k-DOMINATING-SET: W[2]-complete"
+  },
+  {
+   "problem_id": "subset-sum",
+   "in": "kernel",
+   "parameterized": "W[1]",
+   "approximation": "FPTAS",
+   "canonical_task_param": "k-subset-sum (exactly k items): W[1]-hard"
+  },
+  {
+   "problem_id": "maximum-common-subgraph",
+   "in": "kernel",
+   "parameterized": "W[1]",
+   "approximation": "poly-APX",
+   "canonical_task_param": "W[1]-hard (contains subgraph isomorphism by pattern size)"
+  },
+  {
+   "problem_id": "hitting-set",
+   "in": "kernel",
+   "parameterized": "W[2]+",
+   "approximation": "log-APX",
+   "canonical_task_param": "k-HITTING-SET: W[2]-complete"
+  },
+  {
+   "problem_id": "partial-vertex-cover",
+   "in": "kernel",
+   "parameterized": "W[1]",
+   "approximation": "APX-complete",
+   "canonical_task_param": "k-PARTIAL-VC: W[1]-hard"
+  },
+  {
+   "problem_id": "densest-k-subgraph",
+   "in": "kernel",
+   "parameterized": "W[1]",
+   "approximation": "poly-APX",
+   "canonical_task_param": "W[1]-hard in k"
+  },
+  {
+   "problem_id": "chromatic-number",
+   "in": "v3-new",
+   "parameterized": "para-NP-hard",
+   "approximation": "poly-APX",
+   "canonical_task_param": "chi(G) parameterized by number of colors k; NP-hard at fixed k=3"
+  },
+  {
+   "problem_id": "metric-dimension",
+   "in": "v3-new",
+   "parameterized": "W[2]+",
+   "approximation": "log-APX",
+   "canonical_task_param": "Metric Dimension parameterized by solution size k: W[2]-complete"
+  },
+  {
+   "problem_id": "art-gallery",
+   "in": "v3-new",
+   "parameterized": "W[1]",
+   "approximation": "log-APX",
+   "canonical_task_param": "Vertex/Point-Guard parameterized by number of guards k: W[1]-hard"
+  },
+  {
+   "problem_id": "b-chromatic-number",
+   "in": "v3-new",
+   "parameterized": "W[1]",
+   "approximation": "poly-APX",
+   "canonical_task_param": "b-Chromatic Number parameterized by k (number of colours): W[1]-hard"
+  },
+  {
+   "problem_id": "bandwidth",
+   "in": "v3-new",
+   "parameterized": "W[2]+",
+   "approximation": "poly-APX",
+   "canonical_task_param": "Bandwidth parameterized by the target bandwidth b: W[t]-hard for all t, but in XP"
+  },
+  {
+   "problem_id": "boxicity",
+   "in": "v3-new",
+   "parameterized": "para-NP-hard",
+   "approximation": "poly-APX",
+   "canonical_task_param": "Boxicity parameterized by the boxicity value k: para-NP-hard (NP-hard at fixed k=2)"
+  },
+  {
+   "problem_id": "closest-substring",
+   "in": "v3-new",
+   "parameterized": "W[1]",
+   "approximation": "PTAS",
+   "canonical_task_param": "Closest Substring parameterized by the number of strings m (and radius d): W[1]-hard"
+  },
+  {
+   "problem_id": "flow-shop-scheduling",
+   "in": "v3-new",
+   "parameterized": "para-NP-hard",
+   "approximation": "PTAS",
+   "canonical_task_param": "parameterized by number of machines m: NP-hard already at the fixed value m=3"
+  },
+  {
+   "problem_id": "geometric-independent-set",
+   "in": "v3-new",
+   "parameterized": "W[1]",
+   "approximation": "PTAS",
+   "canonical_task_param": "MIS on unit disks parameterized by solution size k: W[1]-hard"
+  },
+  {
+   "problem_id": "independent-dominating-set",
+   "in": "v3-new",
+   "parameterized": "W[2]+",
+   "approximation": "poly-APX",
+   "canonical_task_param": "Independent Dominating Set parameterized by solution size k: W[2]-complete"
+  },
+  {
+   "problem_id": "maximum-induced-matching",
+   "in": "v3-new",
+   "parameterized": "W[1]",
+   "approximation": "poly-APX",
+   "canonical_task_param": "Maximum Induced Matching parameterized by solution size k: W[1]-hard"
+  },
+  {
+   "problem_id": "min-degree-spanning-tree",
+   "in": "v3-new",
+   "parameterized": "para-NP-hard",
+   "approximation": "APX-complete",
+   "canonical_task_param": "parameterized by the degree bound k; NP-hard at fixed k=2 (Hamiltonian Path)"
+  },
+  {
+   "problem_id": "minimum-k-cut",
+   "in": "v3-new",
+   "parameterized": "W[1]",
+   "approximation": "APX",
+   "canonical_task_param": "Minimum k-Cut parameterized by the number of parts k"
+  },
+  {
+   "problem_id": "multiple-sequence-alignment",
+   "in": "v3-new",
+   "parameterized": "W[1]",
+   "approximation": "APX-complete",
+   "canonical_task_param": "MSA parameterized by the number of sequences k"
+  },
+  {
+   "problem_id": "nearest-codeword",
+   "in": "v3-new",
+   "parameterized": "W[1]",
+   "approximation": "poly-APX",
+   "canonical_task_param": "Nearest Codeword parameterized by the number of errors (target distance) t"
+  },
+  {
+   "problem_id": "open-shop-scheduling",
+   "in": "v3-new",
+   "parameterized": "para-NP-hard",
+   "approximation": "APX-complete",
+   "canonical_task_param": "parameterized by the number of machines m; NP-hard at fixed m=3"
+  },
+  {
+   "problem_id": "precedence-constrained-scheduling",
+   "in": "v3-new",
+   "parameterized": "W[2]+",
+   "approximation": "APX-complete",
+   "canonical_task_param": "P|prec,pj=1|Cmax parameterized by the number of machines m"
+  },
+  {
+   "problem_id": "roman-domination",
+   "in": "v3-new",
+   "parameterized": "W[2]+",
+   "approximation": "log-APX",
+   "canonical_task_param": "parameterized by solution weight k: W[2]-hard (general graphs)"
+  },
+  {
+   "problem_id": "shortest-common-supersequence",
+   "in": "v3-new",
+   "parameterized": "W[1]",
+   "approximation": "poly-APX",
+   "canonical_task_param": "fixed-alphabet SCS parameterized by the number of input strings k: W[1]-hard"
+  },
+  {
+   "problem_id": "target-set-selection",
+   "in": "v3-new",
+   "parameterized": "W[2]+",
+   "approximation": "poly-APX",
+   "canonical_task_param": "parameterized by seed-set size k: W[2]-hard (undirected); W[1]-hard by treewidth (Ben-Zwi "
+  },
+  {
+   "problem_id": "total-dominating-set",
+   "in": "v3-new",
+   "parameterized": "W[2]+",
+   "approximation": "log-APX",
+   "canonical_task_param": "parameterized by solution size k: W[2]-hard (by reduction from/parallel to Dominating Set)"
+  },
+  {
+   "problem_id": "upper-domination",
+   "in": "v3-new",
+   "parameterized": "W[1]",
+   "approximation": "poly-APX",
+   "canonical_task_param": "parameterized by solution size k: W[1]-hard"
+  }
+ ]
+}
