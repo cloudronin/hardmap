@@ -1,0 +1,57 @@
+{
+ "step4_three_population": {
+  "canon-47": {
+   "n": 47,
+   "loc_n": {
+    "local-covering": 19,
+    "delocalized": 19,
+    "decomposable": 9
+   },
+   "uncond_V": 0.751,
+   "stratified_V": 0.644,
+   "shrink": "14%",
+   "min_class": 9
+  },
+  "v3new-42": {
+   "n": 42,
+   "loc_n": {
+    "delocalized": 24,
+    "local-covering": 14,
+    "decomposable": 4
+   },
+   "uncond_V": 0.0,
+   "stratified_V": 0.396,
+   "shrink": "n/a",
+   "min_class": 4
+  },
+  "pooled-89": {
+   "n": 89,
+   "loc_n": {
+    "local-covering": 33,
+    "delocalized": 43,
+    "decomposable": 13
+   },
+   "uncond_V": 0.366,
+   "stratified_V": 0.447,
+   "shrink": "-22%",
+   "min_class": 13
+  }
+ },
+ "step5_P2_on89": {
+  "approx": {
+   "V": 0.562,
+   "ci": [
+    0.481,
+    0.695
+   ]
+  },
+  "param": {
+   "V": 0.144,
+   "ci": [
+    0.0,
+    0.339
+   ]
+  }
+ },
+ "note": "DESCRIPTIVE; P3 bet INSUFFICIENT RESOLUTION per addendum-01"
+}
