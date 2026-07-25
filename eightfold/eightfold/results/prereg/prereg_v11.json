@@ -1,0 +1,25 @@
+{
+  "prereg_version": "v11",
+  "project": "Mosaic v3 (G0) — the powered absorption experiment: recruit parameterized variation, then re-run P3",
+  "committed_before_analysis": true,
+  "supersedes": "prereg_v10 (Mosaic v1/v2); B1-B6 and all prior bets stand verbatim, never rescored",
+  "note": "Mosaic v1/v2 measured the two-property SPLIT with power (locality predicts approximation not parameterized) but could NOT measure ABSORPTION: P3 was INSUFFICIENT RESOLUTION because the canon's parameterized column is nearly constant (mostly FPT), and that single variance starvation killed three tests (P3 strata, P6 kernel<->param, canon-only P2). Mosaic v3 is the targeted fix: recruit the rows that carry the missing variance, then re-run the sealed absorption bet at adequate power.",
+  "the_diagnosis_from_v1v2": "The gradient can only be decomposed where BOTH charges vary. The canon supplies approximation variation richly and parameterized variation barely. So the bottleneck is not sample size in general but PARAMETERIZED-VARIED both-real rows specifically.",
+  "recruitment_target_G0": {
+    "what": "both-real rows (approximation AND parameterized both non-sentinel) whose parameterized value is W-hard (W[1] / W[2]+ / para-NP-hard) AND whose approximation value is a real rung -- the cells the canon under-supplies.",
+    "why": "these are the rows that put mass in the off-diagonal and give each locality stratum enough W-hard rows to estimate a within-stratum approx<->param table.",
+    "power_gate": "recruit until the pre-sealed power check (locality[3] x approx, Cochran floor >=80% expected>=5 all>=1) CLEARS at the finest granularity, OR declare the target infeasible from the available literature. The collapsed-3 check reached 78% at 89 rows, so the shortfall is small and specific.",
+    "sources": "the reductions.network parameterized network (Faour thesis, W-hierarchy classified), the parameterized-inapproximability line, and any admissible expansion source carrying W-hard problems with cited approximation values."
+  },
+  "sealed_bet_unchanged": {
+    "P3_absorption": "Conditioning on locality shrinks the pooled unconditional approx<->param V of the recruited both-real population by >= half. UNCHANGED in form from prereg_v10 P3 and addendum-01. Estimator = structure.stratified_cramers_v (defect #15 fixed, hardmap-verify-gated). Resolution = whatever the power gate declares. Scored HIT/MISS ONLY if the power gate clears; else INSUFFICIENT again, declared, and recruitment continues.",
+    "P4_composition": "reweighting the recruited within-class tables to the periphery's locality mixture predicts >= half the B1 drop -- runs only if P3's power gate clears."
+  },
+  "carried_forward_descriptive": "the two-property split (P2 asymmetry) and P6 (kernel<->locality weak independence) are re-measured on the enlarged population as descriptive updates with CIs; the split is the established headline and does not require re-qualification.",
+  "contamination_disclosed": "All Mosaic v1/v2 outcomes are known at this seal (the split found, absorption INSUFFICIENT, the variance-starvation diagnosis). Mitigation: the bet form is unchanged, the estimator is fixed and gated, the power gate is pre-sealed, and the recruitment target is defined structurally (W-hard x real-approx) not by any absorption outcome.",
+  "kill_criteria": {
+    "power": "if the recruitment cannot reach the Cochran floor from admissible sources, the verdict is 'absorption not decidable from the natural-problem corpus at this coding resolution' -- a bounded, honest terminus, not an open loop.",
+    "blindness": "the separability gate (prereg_v10) remains ABSOLUTE at whatever resolution the power gate declares; coarsening never smuggles coordinate information past it."
+  },
+  "unchanged": "Frozen atlas.jsonl (6d53a4f1), atlas_v2.jsonl (784f4739), atlas_v3.jsonl (e62f3c28) byte-identical. All prior bets stand. Mosaic v3 adds the recruitment + the powered re-run only."
+}
