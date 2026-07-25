@@ -1,0 +1,41 @@
+{
+  "scored_population": "pooled_111",
+  "estimator": "structure.stratified_cramers_v (defect #15 gated)",
+  "resolution": "2-class locality (local = decomposable+local-covering vs delocalized)",
+  "bet": "conditioning on 2-class locality shrinks the pooled unconditional approx<->param V by >= half (cond <= 0.5*uncond)",
+  "prior_89": {
+    "n": 89,
+    "strata": {
+      "local": 46,
+      "delocalized": 43
+    },
+    "uncond": 0.366,
+    "cond_2class": 0.514,
+    "shrinkage": -0.404
+  },
+  "recruited_B": {
+    "n": 22,
+    "strata": {
+      "delocalized": 10,
+      "local": 12
+    },
+    "uncond": 0.0,
+    "cond_2class": 0.478,
+    "shrinkage": NaN
+  },
+  "pooled": {
+    "n": 111,
+    "strata": {
+      "local": 58,
+      "delocalized": 53
+    },
+    "uncond": 0.283,
+    "cond_2class": 0.453,
+    "shrinkage": -0.6,
+    "shrinkage_ci95": [
+      -1.153,
+      -0.21
+    ]
+  },
+  "VERDICT": "MISS \u2014 does not absorb (shrinks < half)"
+}
