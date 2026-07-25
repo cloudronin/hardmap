@@ -173,6 +173,35 @@ instrument-grade validation signal.
 > mechanical derivation disagrees with **both** coders, that is a **task-text ambiguity worth a typing
 > note** — recorded, not resolved by a third pass. No new judging is performed.
 
+### 2.2a `arity_class` — the mechanical lexicon, SEALED 2026-07-24 before any derivation ran
+
+§2.2 fixed the *route* (mechanical, cross-checked) but left the lexicon abstract. It is pinned here, in its
+own commit, **before the derivation was executed** — deriving against an unwritten rule is precisely what
+seal-before-derivation forbids. Rules are applied in this fixed order; **first match wins**, and the order
+is outcome-relevant because several rows match more than one pattern.
+
+Read ONLY the pinned `canonical_encoding` plus the `decision`/`approximation` `canonical_task` text (task
+*text*, never charge *values* — SCHEMA §0.3.1). Provenance is therefore `derived:from-verified-field`.
+
+1. **`n.a.`** — the row pins no constraint/objective structure to classify (pure decision-of-a-language
+   rows, promise problems with no stated combinatorial constraint). Mandatory reason required.
+2. **`global-objective`** — the objective aggregates over the whole instance rather than over bounded local
+   pieces: matches `tour|cycle cover|spanning|connected|flow|cut(?!width)|chromatic|colou?ring|makespan|
+   completion time|latency|diameter|bandwidth|bisection|arrangement|embedding|triangulation|packing|
+   routing|scheduling|total (weight|cost|length)`.
+3. **`unbounded-fanin`** — constraints bind an unbounded number of elements: matches
+   `set cover|hitting set|dominating|hypergraph|clause of arbitrary|unbounded (width|arity|degree)|
+   subset of arbitrary|family of sets|covering all|hits every`.
+4. **`bounded-local`** — constraints bind O(1) elements each: matches
+   `edge|pair(wise)?|adjacent|incident|neighbou?r|2-|binary constraint|degree at most|arity (2|3|at most)|
+   clause of (size|width) (2|3)|triangle`.
+5. **Fallthrough → `open`** (not a guess). No mandatory reason, but the row is reported in the S2
+   condition-check log so the residual is visible rather than silently bucketed.
+
+**Cross-check, not tiebreak (§2.2 ruling).** The two blind coders' existing 345×2 `arity_class` codings are
+compared against the derivation and **agreement is reported**. Where the derivation disagrees with *both*
+coders, the row is recorded as a **task-text ambiguity typing note** — never resolved by a third pass.
+
 ### 2.3 `objective_type` (natural)
 
 Inherit the 118 sealed `atlas_v2` strata pins verbatim with their existing `derived`/`judged` provenance,
