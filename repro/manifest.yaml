@@ -168,3 +168,48 @@ claims:
     tolerance:
       V_rn_present: {abs: 0.005}
       V_rn_absent: {abs: 0.005}
+
+  # --- Quarry v2: absorption close-out (prereg_v13), recomputed from frozen atlas_v3 + verified fills ---
+  # QC: the 22 Channel-B param fills are dual-pass R20-verified, in a sidecar, owner-confirm-pending
+  # (E-track). Nothing rescores; these claim the close-out's headline numbers (absorption-closeout.md).
+  - id: mosaic.split.pooled
+    description: "Two-property SPLIT on pooled-111: locality carries approximation (V 0.55), not parameterized (V 0.23)"
+    tier: fast
+    fast: "hardmap.claims.mosaic_claims:split_pooled"
+    artifact: eightfold/eightfold/results/atlas/quarry-v2-fills.jsonl
+    expected: {n: 111, V_loc_approx: 0.547, V_loc_param: 0.231}
+    tolerance:
+      n: {abs: 0}
+      V_loc_approx: {abs: 0.005}
+      V_loc_param: {abs: 0.005}
+
+  - id: mosaic.absorption.2class
+    description: "Absorption 2-class powered MISS: uncond 0.283 -> cond 0.453, shrinkage -0.60 (does NOT absorb)"
+    tier: fast
+    fast: "hardmap.claims.mosaic_claims:absorption_2class"
+    artifact: eightfold/eightfold/results/atlas/quarry-v2-fills.jsonl
+    expected: {uncond_V: 0.283, cond_2class_V: 0.453, shrinkage: -0.6, absorbs: false}
+    tolerance:
+      uncond_V: {abs: 0.005}
+      cond_2class_V: {abs: 0.005}
+      shrinkage: {abs: 0.01}
+      absorbs: exact
+
+  - id: mosaic.power.3class
+    description: "Absorption 3-class INSUFFICIENT (terminal): 7/9 cells exp>=5, floor not cleared"
+    tier: fast
+    fast: "hardmap.claims.mosaic_claims:power_3class"
+    artifact: eightfold/eightfold/results/atlas/quarry-v2-fills.jsonl
+    expected: {n: 111, cells_ge5: 7, clears_floor: false}
+    tolerance:
+      n: {abs: 0}
+      cells_ge5: {abs: 0}
+      clears_floor: exact
+
+  - id: mosaic.supply.channelB
+    description: "Quarry v2 Channel-B verified net-new both-real supply (dual-pass R20): 22"
+    tier: fast
+    fast: "hardmap.claims.mosaic_claims:supply_channelB"
+    artifact: eightfold/eightfold/results/atlas/quarry-v2-fills.jsonl
+    expected: {n_verified_fills: 22}
+    tolerance: {n_verified_fills: {abs: 0}}
