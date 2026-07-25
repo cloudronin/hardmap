@@ -11,7 +11,7 @@ authors:
   - family-names: Vettrivel
     given-names: Vishnu
     # orcid: "https://orcid.org/0000-0000-0000-0000"   # TODO: add before publication
-version: "0.1.0"
+version: "1.0.0"
 date-released: "2026-07-23"
 license: Apache-2.0
 repository-code: "https://github.com/cloudronin/hardmap"

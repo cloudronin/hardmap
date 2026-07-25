@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main]
+  release:
+    types: [published]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: repro + verify + tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install the bundled distribution
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+      - name: Reproduce every paper-cited number (fast tier)
+        run: hardmap repro --all
+      - name: Internal-coherence sweep
+        run: hardmap verify
+      - name: Cross-artifact consistency
+        run: python scripts/cross_artifact_consistency.py
+      - name: Atlas byte-identity
+        run: diff <(hardmap atlas --format jsonl) eightfold/eightfold/results/atlas/atlas.jsonl
+      - name: Test suites
+        run: |
+          set -e
+          for d in desert-map eightfold foundry proof-census; do
+            echo "::group::$d"; ( cd "$d" && python -m pytest -q ); echo "::endgroup::"
+          done
+          ( cd hardmap && python -m pytest tests -q )
+
+  publish:
+    name: Publish to PyPI (trusted publishing)
+    needs: test
+    # publish on a published Release, a pushed v* tag, or a manual dispatch
+    if: >-
+      github.event_name == 'release' ||
+      github.event_name == 'workflow_dispatch' ||
+      startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # OIDC token for PyPI Trusted Publishing (no API token needed)
+    # If your PyPI trusted-publisher config names a GitHub environment, add e.g.:
+    #   environment: pypi
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build sdist + wheel
+        run: |
+          python -m pip install --upgrade build
+          python -m build
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1

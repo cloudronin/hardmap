@@ -6,4 +6,4 @@ research logic; it orchestrates the code already living in eightfold, foundry,
 proofcensus, and desertmap.
 """
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"
