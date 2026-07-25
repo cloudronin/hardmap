@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "resolution": "3-class (decomposable / local-covering / delocalized)",
+    "kappa_3class": 0.646,
+    "caveat": "locality is an APPROXIMATE LLM-coded variable; associations are indicative, not precise",
+    "n_v2_bothreal": 47,
+    "n_v3new_bothreal": 42
+  },
+  "P2_separate_association": {
+    "n": 47,
+    "locality_marginal": {
+      "local-covering": 19,
+      "delocalized": 19,
+      "decomposable": 9
+    },
+    "V_locality_approx": 0.619,
+    "V_locality_param": 0.161,
+    "threshold": 0.35,
+    "HOLDS": false,
+    "note": "does locality predict each gradient charge separately? threshold 0.35 each."
+  },
+  "P3_absorption": {
+    "v2_unconditional_V": 0.751,
+    "within_class": {
+      "decomposable": {
+        "n": 9,
+        "V": 0.926,
+        "status": "ok"
+      },
+      "delocalized": {
+        "n": 19,
+        "V": 0.564,
+        "status": "ok"
+      },
+      "local-covering": {
+        "n": 19,
+        "V": 0.97,
+        "status": "ok"
+      }
+    },
+    "pooled_within_class_V": 0.797,
+    "threshold_absorb_half": 0.37,
+    "HOLDS": false,
+    "separability_evidence_beside": "L1 gate CLEAR \u2014 V(locality,approx)=0.436 < dissociation structure-acc 1.00; the labels code structure, not charge-echo",
+    "note": "absorption = does conditioning on locality shrink the 0.73 approx<->param V by >= half? marginals-first."
+  },
+  "P4_composition_decomposition": {
+    "v2_locality_mixture": {
+      "local-covering": 0.4,
+      "delocalized": 0.4,
+      "decomposable": 0.19
+    },
+    "v3new_locality_mixture": {
+      "delocalized": 0.57,
+      "local-covering": 0.33,
+      "decomposable": 0.1
+    },
+    "predicted_v3new_V_from_mixture_shift": 0.734,
+    "observed_v3new_V": 0.0,
+    "b1_drop": 0.42,
+    "fraction_of_drop_explained_by_mixture": -0.009,
+    "HOLDS": false,
+    "note": "reweight v2's within-class tables to v3-new's locality mixture; does the mixture shift predict >= half the 0.73->0.31 drop? THE CONTAMINATION-ROBUST CORE."
+  },
+  "P5_violator_fingerprint": {
+    "off_diagonal_codes": {
+      "subset-sum": "decomposable",
+      "graph-3-coloring": "delocalized",
+      "group-steiner-tree": "delocalized",
+      "longest-path": "delocalized",
+      "tsp": "delocalized"
+    },
+    "off_delocalized": "4/5",
+    "on_diagonal_delocalized": "6/13",
+    "HOLDS": true,
+    "note": "two-sided: off-diagonal (gradient-bending) should code delocalized MORE than the on-diagonal controls. subset-sum is the dissociation case (decomposable structure) -- a delocalized miss there is two-property-split evidence, not noise."
+  },
+  "P6_kernel_netting": {
+    "status": "PENDING \u2014 L2 kernel_status not yet assembled"
+  }
+}
