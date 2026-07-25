@@ -1,0 +1,27 @@
+{
+  "clarification_of": "prereg_v10",
+  "clarification_id": "01",
+  "date": "2026-07-24",
+  "kind": "declared kill-criterion reframing — filed BEFORE the REVISION-1 recode's kappa is known, not after. Design, not rescue. The distinction is the whole point: written tonight it is the protocol; written after the number it would be a moved goalpost.",
+  "owner_ruling": true,
+  "supersedes": "the second-miss branch of prereg_v10 kill_criteria.instrument_L1 (which read: kappa < 0.6 on the recode => NOT QUALIFIED, no third attempt). That branch is withdrawn and replaced by the resolution ladder below.",
+  "principle": "The question Mosaic asks is whether a REAL STRUCTURAL PROPERTY explains the gradient — not whether two blind coders can operate a five-drawer filing cabinet. Coder disagreement on a fine boundary is a statement about RESOLUTION, not about whether the phenomenon exists. So kappa no longer QUALIFIES-or-KILLS at five classes; it MEASURES the resolution at which the instrument is reliable, and the bets score at that demonstrated resolution.",
+  "the_reframe": {
+    "old": "kappa >= 0.6 at 5 classes qualifies; else (after one revision) NOT QUALIFIED.",
+    "new": "kappa is computed at a GRANULARITY LADDER; the DEMONSTRATED RESOLUTION is the finest level at which kappa >= 0.6; the bets score at that resolution, stated on every label. NOT QUALIFIED is reserved for genuine failure (below)."
+  },
+  "granularity_ladder": {
+    "5-class": "decomposable | local-covering | entangled | mixed | uncodable — the full instrument.",
+    "3-class": "collapse the disputed boundary: decomposable | local-covering | delocalized (= entangled UNION mixed). uncodable stays a non-class. Computed on the SAME recoded 5-class data by mapping entangled->delocalized, mixed->delocalized. This is the level that recovers agreement IF the disagreement is boundary-concentrated (entangled-vs-mixed).",
+    "2-class": "local (= decomposable UNION local-covering) | delocalized (= entangled UNION mixed) — the coarsest structural cut, information-spread near vs far.",
+    "demonstrated_resolution": "the FINEST ladder level at which kappa >= 0.6 (blindness holding). Reported explicitly; every bet number carries its resolution tag."
+  },
+  "outcome_tree": {
+    "A_qualifies_at_5": "kappa >= 0.6 at 5 classes -> full-resolution run; P2-P6 score with 5 classes.",
+    "B_qualifies_at_3_or_2": "kappa < 0.6 at 5 but >= 0.6 at 3 (or only at 2), with the 5-class disagreement CONCENTRATED on entangled/mixed -> the collapse computes on the same recoded data; P2-P6 score at the demonstrated resolution; the resolution is stated everywhere the numbers appear; AND the five-class strain is banked as evidence for the two-property structure (decomposition-locality vs certificate-locality) prereg_v10 already names as the designed follow-up.",
+    "C_NOT_QUALIFIED": "fires ONLY if (i) the blindness/separability gate FAILS (labels are charge-echo — the contamination the gate exists to catch), OR (ii) agreement collapses at EVERY granularity (kappa < 0.6 even at 2-class). This is the true negative: a structural property that cannot be blind-coded at any resolution, or one contaminated by the charges."
+  },
+  "blindness_gate_ABSOLUTE": "The separability / charge-reconstruction gate (prereg_v10 separability_gate) is UNCHANGED and ABSOLUTE. It is not on the resolution ladder. If it fires at ANY resolution, absorption (P3) is reported UNQUALIFIED regardless of kappa, and if the labels are charge-echo the outcome is NOT QUALIFIED (branch C-i). Relaxing the KILL to a resolution measure does NOT relax the contamination defense — that would defeat the study. Coarsening the label granularity must never be a route to smuggling coordinate information past the gate; the gate re-runs at whatever resolution is demonstrated.",
+  "bets_unchanged_in_content": "P1-P7 predictions and their decision rules stand verbatim; only the granularity at which the locality_class factor enters P2/P3/P4/P5/P6 is set by the demonstrated resolution. The B1 payoff (P4) and the absorption (P3) are the same tests, run on 3-class labels if that is the reliable resolution.",
+  "unchanged": "Frozen atlas.jsonl (6d53a4f1), atlas_v2.jsonl (784f4739), atlas_v3.jsonl (e62f3c28) byte-identical. prereg_v10 bets untouched. This clarification changes the KILL semantics only, and is filed pre-result."
+}
