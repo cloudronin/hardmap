@@ -34,7 +34,8 @@ OUT = AT / "anatomy-passports.json"
 # Variance operationalization, stated so it can be argued with:
 MIN_CELL = 5          # Cochran's expected-count floor, applied to observed category counts
 MAX_SHARE = 0.90      # a marginal this lopsided supports no contrast even at full coverage
-NON_CATEGORICAL = {"poly_fingerprint", "class_size", "reduction_out_degree", "decomposition_facts"}
+RECORD_VALUED = {"poly_fingerprint", "decomposition_facts"}      # dicts: not features, only projections
+SCALAR_VALUED = {"class_size", "reduction_out_degree"}            # numeric covariates, no categorical census
 
 # THE RESOLUTION LADDER, APPLIED TO COLUMNS. A column starved at full resolution may still carry a bet at a
 # coarser one -- exactly how `locality_class` qualified at 3-class after failing at 5. Where a collapse is
@@ -47,6 +48,21 @@ ADMISSIBLE_COLLAPSES = {
         "note": ("the 4-way split is dead (few-subpowers-only = 4/4072) but the BINARY is healthy; grid "
                  "Flag 5 already binds G0 to pose the engine bet as a binary. few-subpowers yes/no is "
                  "77/3995 — thin but above the floor.")},
+    "poly_fingerprint": {
+        "collapse": "projection to individual Post's-lattice flags (each a binary), or the sanctioned "
+                    "derived summary `engine_type` and its binaries",
+        "counts": {"see": "prism_v2_charges.json marginals; engine_type binaries recorded above"},
+        "starved": False,
+        "note": ("The ten-flag record is the canonical FEATURE SET, not a single feature. Contrasts are "
+                 "posed on a named flag or on engine_type's binaries -- never on the record.")},
+    "decomposition_facts": {
+        "collapse": "presence binaries: has-citable-bounded-treewidth-class (y/n); has-citable-excluded-minor (y/n)",
+        "counts": {"tw_yes": 48, "tw_no": 17, "minor_yes": 31, "minor_no": 34},
+        "starved": False,
+        "note": ("The RECORD is a reference resource, not a contrast variable: planar_restriction is 94% "
+                 "True (starved), and the other three fields carry 46 distinct values in 48 fills — cited "
+                 "prose, not categories. What IS contrastable is PRESENCE: whether a citable decomposition "
+                 "fact exists at all. Both presence binaries clear the floor comfortably.")},
     "kernel_status": {
         "collapse": "poly-kernel vs no-poly-kernel, WITHIN FPT", "counts": {"poly": 24, "no-poly": 22},
         "starved": False,
@@ -60,9 +76,12 @@ def variance_for(column, values):
     """Returns the variance block. Sentinels are excluded from the contrast test but reported."""
     real = [v for v in values if not (isinstance(v, str) and v in AN.SENTINELS)]
     n = len(real)
-    if column in NON_CATEGORICAL:
-        return {"kind": "non-categorical", "n_cells": len(values), "n_real": n,
-                "starved": None, "note": "record- or scalar-valued; no categorical contrast to census"}
+    if column in RECORD_VALUED:
+        return {"kind": "record-valued", "n_cells": len(values), "n_real": n, "starved": None,
+                "note": "dict-valued: not contrastable as-is; admissible only via a named projection"}
+    if column in SCALAR_VALUED:
+        return {"kind": "non-categorical", "n_cells": len(values), "n_real": n, "starved": None,
+                "note": "scalar covariate; no categorical contrast to census"}
     marg = Counter(v for v in real if isinstance(v, str))
     if not marg:
         return {"kind": "categorical", "n_cells": len(values), "n_real": 0, "marginal": {},
@@ -114,7 +133,8 @@ def main() -> int:
                          {"kind": "not-built", "starved": None,
                           "note": "column not present in the artifact (reserved, or pending S2 citations)"},
              "readability": None,
-             "admissible_collapse": ADMISSIBLE_COLLAPSES.get(col)}
+             "admissible_collapse": ADMISSIBLE_COLLAPSES.get(col),
+             "bet_history": AN.BET_HISTORY.get(col)}
         # readability: coded columns carry measured kappa; the derived twin of a coded column carries it too
         if col == "locality_class":
             lad = mos.get("resolution_ladder", {})

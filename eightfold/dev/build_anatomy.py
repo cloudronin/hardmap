@@ -148,6 +148,8 @@ def build_natural():
     rn = json.loads((AT / "reductions-network-edges.json").read_text())
     outdeg = rn.get("per_problem_outdegree", {})
     v2pins = {r["problem_id"]: r for r in jsonl(AT / "atlas_v2.jsonl") if r.get("objective") is not None}
+    dfp = AT / "anatomy-decomposition-facts.jsonl"
+    decomp = {r["problem_id"]: r for r in jsonl(dfp)} if dfp.exists() else {}
 
     rows = []
     for e in v3:
@@ -189,6 +191,25 @@ def build_natural():
             feats.append(cell("reduction_out_degree", outdeg[pid], AN.PROV_ORACLE,
                               source="reductions-network-edges.json",
                               note=f"pinned commit {rn.get('commit', '')[:8]}; rule: {rn.get('counting_rule', '')[:80]}"))
+
+        # decomposition_facts — CITED R20. A record with all-null fields is the value `open`, never a
+        # half-filled record (SCHEMA §1.4). Four rows carry dated corrections (object drift / unverifiable
+        # source / wrong object for the field) and their nulled fields ship nulled, with the reason.
+        if pid in decomp:
+            d = decomp[pid]
+            rec = {k: d.get(k) for k in ("treewidth_bounded_on", "planar_restriction",
+                                         "minor_excluded", "geometric_embedding")}
+            if any(v is not None for v in rec.values()):
+                feats.append(cell("decomposition_facts", rec, AN.PROV_CITED,
+                                  citation=d.get("citation"), bridge="§2.approximation",
+                                  source="anatomy-decomposition-facts.jsonl",
+                                  note=d.get("correction") or d.get("note")))
+            else:
+                feats.append(cell("decomposition_facts", "open", AN.PROV_STRUCTURAL,
+                                  source="anatomy-decomposition-facts.jsonl",
+                                  reason=(d.get("correction") or d.get("note")
+                                          or "no citable decomposition fact found at R20"),
+                                  note="all four fields null -> the value is `open`, never a partial record"))
 
         # ── S2 DERIVED (natural) ──────────────────────────────────────────────────────────────────────
         ch = {c.charge: c for c in e.charges}

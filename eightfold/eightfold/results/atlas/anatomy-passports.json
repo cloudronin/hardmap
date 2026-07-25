@@ -38,7 +38,13 @@
         "qualifies": false,
         "reading": "low kappa on an ENCODING-RELATIVE column is the theorems talking, not the coders \u2014 there is no invariant fact to read"
       },
-      "admissible_collapse": null
+      "admissible_collapse": null,
+      "bet_history": {
+        "sealed_bets": [],
+        "outcomes": "never resolved to a sidecar; never scored",
+        "exposure": "NONE",
+        "note": "Unspent, but inadmissible on readability \u2014 unspent is not the same as usable."
+      }
     },
     "class_size": {
       "column": "class_size",
@@ -54,10 +60,16 @@
         "n_cells": 4072,
         "n_real": 4072,
         "starved": null,
-        "note": "record- or scalar-valued; no categorical contrast to census"
+        "note": "scalar covariate; no categorical contrast to census"
       },
       "readability": null,
-      "admissible_collapse": null
+      "admissible_collapse": null,
+      "bet_history": {
+        "sealed_bets": [],
+        "outcomes": "used as a weight in the Prism/Lattice rosters",
+        "exposure": "NONE",
+        "note": "Weight, never a feature."
+      }
     },
     "decomposition_facts": {
       "column": "decomposition_facts",
@@ -69,12 +81,30 @@
       "invariance_reason": "The RIGHT level of invariance for anatomy, but still relative -- and the relativity is real, not pedantic: FMR's pinning showed the treewidth bound depends on WHICH graph (primal / incidence / signed-incidence) the encoding pins. Width measures survive re-encoding of the problem in the way arity does not (SCHEMA \u00a78); they do not float free of the chosen representation. Say which graph.",
       "bridge_citation": "\u00a71,\u00a72",
       "variance": {
-        "kind": "not-built",
+        "kind": "record-valued",
+        "n_cells": 77,
+        "n_real": 65,
         "starved": null,
-        "note": "column not present in the artifact (reserved, or pending S2 citations)"
+        "note": "dict-valued: not contrastable as-is; admissible only via a named projection"
       },
       "readability": null,
-      "admissible_collapse": null
+      "admissible_collapse": {
+        "collapse": "presence binaries: has-citable-bounded-treewidth-class (y/n); has-citable-excluded-minor (y/n)",
+        "counts": {
+          "tw_yes": 48,
+          "tw_no": 17,
+          "minor_yes": 31,
+          "minor_no": 34
+        },
+        "starved": false,
+        "note": "The RECORD is a reference resource, not a contrast variable: planar_restriction is 94% True (starved), and the other three fields carry 46 distinct values in 48 fills \u2014 cited prose, not categories. What IS contrastable is PRESENCE: whether a citable decomposition fact exists at all. Both presence binaries clear the floor comfortably."
+      },
+      "bet_history": {
+        "sealed_bets": [],
+        "outcomes": "new at S2",
+        "exposure": "NONE",
+        "note": "Unspent \u2014 and the invariant-level twin of arity_class (SCHEMA \u00a78)."
+      }
     },
     "encoding_type": {
       "column": "encoding_type",
@@ -104,7 +134,13 @@
         "starved_note": null
       },
       "readability": null,
-      "admissible_collapse": null
+      "admissible_collapse": null,
+      "bet_history": {
+        "sealed_bets": [],
+        "outcomes": "new at S2",
+        "exposure": "NONE",
+        "note": null
+      }
     },
     "engine_type": {
       "column": "engine_type",
@@ -141,6 +177,12 @@
         },
         "starved": false,
         "note": "the 4-way split is dead (few-subpowers-only = 4/4072) but the BINARY is healthy; grid Flag 5 already binds G0 to pose the engine bet as a binary. few-subpowers yes/no is 77/3995 \u2014 thin but above the floor."
+      },
+      "bet_history": {
+        "sealed_bets": [],
+        "outcomes": "the 4-way split was RETIRED AT BUILD (grid Flag 5) before any bet was sealed on it",
+        "exposure": "NONE",
+        "note": "Both binaries are UNSPENT. Bridge Ledger \u00a73 marks engine->approx / engine->param as 'prime real estate' and it genuinely still is \u2014 this is the freshest admissible structural contrast the program owns."
       }
     },
     "kernel_status": {
@@ -179,6 +221,14 @@
         },
         "starved": false,
         "note": "the 5-way is starved, but the informative residual Mosaic P6 sealed -- poly vs no-poly within FPT -- is 24/22 and healthy. Ledger \u00a76's correction says exactly this: the FPT<->kernel equivalence carries no efficiency content, so the binary IS the content."
+      },
+      "bet_history": {
+        "sealed_bets": [
+          "prereg_v10 P6 (kernel netting)"
+        ],
+        "outcomes": "V(kernel_status, locality) = 0.28 (weak independence); kernel<->param STRUCTURALLY BLOCKED (kernelization is FPT-only, so param is constant where kernels exist)",
+        "exposure": "MEDIUM",
+        "note": "The admissible collapse (poly vs no-poly WITHIN FPT) is EXACTLY the contrast P6 already scored. Re-posing it is a replication, not a new bet, and must say so."
       }
     },
     "locality_class": {
@@ -211,7 +261,20 @@
         "bar": 0.6,
         "qualifies": true
       },
-      "admissible_collapse": null
+      "admissible_collapse": null,
+      "bet_history": {
+        "sealed_bets": [
+          "prereg_v10 P2 (separate association)",
+          "prereg_v10 P3 (absorption)",
+          "prereg_v10 P4 (composition)",
+          "prereg_v10 P5 (violator fingerprint)",
+          "prereg_v10-addendum-01 (89-row rerun)",
+          "prereg_v13 P3/P4 (Quarry v2 rerun)"
+        ],
+        "outcomes": "P2 two-property SPLIT (V=0.56 approx / 0.14 param); P3 3-class INSUFFICIENT then 2-class powered MISS; P5 HOLDS; P4 INSUFFICIENT",
+        "exposure": "HIGH",
+        "note": "This column's single informative contrast has been spent SIX times across three seals. It is the most-leaned-on column in the program. A new bet on it is very likely a re-test of an already-scored contrast, not fresh evidence \u2014 state explicitly what is NEW about the population or the statistic before sealing."
+      }
     },
     "objective_type": {
       "column": "objective_type",
@@ -242,7 +305,13 @@
         "starved_note": "cells below the Cochran floor (n<5): weighted=2"
       },
       "readability": null,
-      "admissible_collapse": null
+      "admissible_collapse": null,
+      "bet_history": {
+        "sealed_bets": [],
+        "outcomes": "used descriptively in the Strata coverage report (v2)",
+        "exposure": "NONE",
+        "note": "Never carried a sealed bet."
+      }
     },
     "poly_fingerprint": {
       "column": "poly_fingerprint",
@@ -254,14 +323,32 @@
       "invariance_reason": "The Galois connection Pol-Inv (Geiger 1968; Bodnarchuk-Kaluznin-Kotov-Romov 1969): a relation's polymorphisms determine its pp-definable closure and vice versa. Polymorphism flags are therefore invariants of the language, not of any presentation of it -- that is what a polymorphism IS.",
       "bridge_citation": "\u00a73",
       "variance": {
-        "kind": "non-categorical",
+        "kind": "record-valued",
         "n_cells": 4072,
         "n_real": 4072,
         "starved": null,
-        "note": "record- or scalar-valued; no categorical contrast to census"
+        "note": "dict-valued: not contrastable as-is; admissible only via a named projection"
       },
       "readability": null,
-      "admissible_collapse": null
+      "admissible_collapse": {
+        "collapse": "projection to individual Post's-lattice flags (each a binary), or the sanctioned derived summary `engine_type` and its binaries",
+        "counts": {
+          "see": "prism_v2_charges.json marginals; engine_type binaries recorded above"
+        },
+        "starved": false,
+        "note": "The ten-flag record is the canonical FEATURE SET, not a single feature. Contrasts are posed on a named flag or on engine_type's binaries -- never on the record."
+      },
+      "bet_history": {
+        "sealed_bets": [
+          "Prism pred-1a (NPI calibration)",
+          "Prism pred-1b (reproduction gate)",
+          "Prism pred-2 (bounded-width marginal)",
+          "Lattice v3 occupancy"
+        ],
+        "outcomes": "reproduction gate held; pred-3b/4 declared UNTESTABLE at arity<=3 (BW constant)",
+        "exposure": "MEDIUM",
+        "note": "Spent on the Foundry side; unspent against the natural-atlas bridge."
+      }
     },
     "reduction_out_degree": {
       "column": "reduction_out_degree",
@@ -277,10 +364,18 @@
         "n_cells": 31,
         "n_real": 31,
         "starved": null,
-        "note": "record- or scalar-valued; no categorical contrast to census"
+        "note": "scalar covariate; no categorical contrast to census"
       },
       "readability": null,
-      "admissible_collapse": null
+      "admissible_collapse": null,
+      "bet_history": {
+        "sealed_bets": [
+          "prereg_v10 P7 (out-degree probe, 31-row floor, exploratory)"
+        ],
+        "outcomes": "exploratory only; never scored as a confirmatory bet",
+        "exposure": "LOW",
+        "note": "Covariate only in any case (corpus-relative)."
+      }
     },
     "self_reducibility": {
       "column": "self_reducibility",
@@ -306,7 +401,13 @@
         "starved_note": "cells below the Cochran floor (n<5): worst-to-average=3; modal category 'worst-to-average' holds 100% \u2014 no contrast posable"
       },
       "readability": null,
-      "admissible_collapse": null
+      "admissible_collapse": null,
+      "bet_history": {
+        "sealed_bets": [],
+        "outcomes": "never scored",
+        "exposure": "NONE",
+        "note": null
+      }
     },
     "channelness": {
       "column": "channelness",
@@ -323,7 +424,8 @@
         "note": "column not present in the artifact (reserved, or pending S2 citations)"
       },
       "readability": null,
-      "admissible_collapse": null
+      "admissible_collapse": null,
+      "bet_history": null
     },
     "fo_form": {
       "column": "fo_form",
@@ -340,7 +442,8 @@
         "note": "column not present in the artifact (reserved, or pending S2 citations)"
       },
       "readability": null,
-      "admissible_collapse": null
+      "admissible_collapse": null,
+      "bet_history": null
     },
     "tuple_density": {
       "column": "tuple_density",
@@ -357,7 +460,8 @@
         "note": "column not present in the artifact (reserved, or pending S2 citations)"
       },
       "readability": null,
-      "admissible_collapse": null
+      "admissible_collapse": null,
+      "bet_history": null
     },
     "row_relations": {
       "column": "row_relations",
@@ -374,7 +478,8 @@
         "note": "column not present in the artifact (reserved, or pending S2 citations)"
       },
       "readability": null,
-      "admissible_collapse": null
+      "admissible_collapse": null,
+      "bet_history": null
     }
   }
 }

@@ -233,6 +233,63 @@ PASSPORT_INVARIANCE = {
         "the spec's own rule that each edge 'is a claim carrying a warrant' is this relativity restated."),
 }
 
+# ── BET HISTORY: what each column has ALREADY been spent on (SCHEMA §9.6) ─────────────────────────────
+# This turns the passport table from a GATE into a LEDGER. A future prereg reads not only whether a column
+# CAN carry a bet but what it has ALREADY carried — closing the double-dipping variant of the failure
+# class: two preregs independently spending the same column's one informative contrast and reporting the
+# second as fresh evidence.
+BET_HISTORY = {
+    "locality_class": {
+        "sealed_bets": ["prereg_v10 P2 (separate association)", "prereg_v10 P3 (absorption)",
+                        "prereg_v10 P4 (composition)", "prereg_v10 P5 (violator fingerprint)",
+                        "prereg_v10-addendum-01 (89-row rerun)", "prereg_v13 P3/P4 (Quarry v2 rerun)"],
+        "outcomes": ("P2 two-property SPLIT (V=0.56 approx / 0.14 param); P3 3-class INSUFFICIENT then "
+                     "2-class powered MISS; P5 HOLDS; P4 INSUFFICIENT"),
+        "exposure": "HIGH",
+        "note": ("This column's single informative contrast has been spent SIX times across three seals. "
+                 "It is the most-leaned-on column in the program. A new bet on it is very likely a "
+                 "re-test of an already-scored contrast, not fresh evidence — state explicitly what is "
+                 "NEW about the population or the statistic before sealing.")},
+    "kernel_status": {
+        "sealed_bets": ["prereg_v10 P6 (kernel netting)"],
+        "outcomes": ("V(kernel_status, locality) = 0.28 (weak independence); kernel<->param STRUCTURALLY "
+                     "BLOCKED (kernelization is FPT-only, so param is constant where kernels exist)"),
+        "exposure": "MEDIUM",
+        "note": ("The admissible collapse (poly vs no-poly WITHIN FPT) is EXACTLY the contrast P6 already "
+                 "scored. Re-posing it is a replication, not a new bet, and must say so.")},
+    "engine_type": {
+        "sealed_bets": [],
+        "outcomes": "the 4-way split was RETIRED AT BUILD (grid Flag 5) before any bet was sealed on it",
+        "exposure": "NONE",
+        "note": ("Both binaries are UNSPENT. Bridge Ledger §3 marks engine->approx / engine->param as "
+                 "'prime real estate' and it genuinely still is — this is the freshest admissible "
+                 "structural contrast the program owns.")},
+    "poly_fingerprint": {
+        "sealed_bets": ["Prism pred-1a (NPI calibration)", "Prism pred-1b (reproduction gate)",
+                        "Prism pred-2 (bounded-width marginal)", "Lattice v3 occupancy"],
+        "outcomes": "reproduction gate held; pred-3b/4 declared UNTESTABLE at arity<=3 (BW constant)",
+        "exposure": "MEDIUM",
+        "note": "Spent on the Foundry side; unspent against the natural-atlas bridge."},
+    "reduction_out_degree": {
+        "sealed_bets": ["prereg_v10 P7 (out-degree probe, 31-row floor, exploratory)"],
+        "outcomes": "exploratory only; never scored as a confirmatory bet",
+        "exposure": "LOW", "note": "Covariate only in any case (corpus-relative)."},
+    "objective_type": {
+        "sealed_bets": [], "outcomes": "used descriptively in the Strata coverage report (v2)",
+        "exposure": "NONE", "note": "Never carried a sealed bet."},
+    "arity_class": {
+        "sealed_bets": [], "outcomes": "never resolved to a sidecar; never scored",
+        "exposure": "NONE",
+        "note": "Unspent, but inadmissible on readability — unspent is not the same as usable."},
+    "encoding_type": {"sealed_bets": [], "outcomes": "new at S2", "exposure": "NONE", "note": None},
+    "class_size": {"sealed_bets": [], "outcomes": "used as a weight in the Prism/Lattice rosters",
+                   "exposure": "NONE", "note": "Weight, never a feature."},
+    "self_reducibility": {"sealed_bets": [], "outcomes": "never scored", "exposure": "NONE", "note": None},
+    "decomposition_facts": {"sealed_bets": [], "outcomes": "new at S2", "exposure": "NONE",
+                            "note": "Unspent — and the invariant-level twin of arity_class (SCHEMA §8)."},
+}
+
+
 # G0 BINDING (owner ruling, 2026-07-25): a sealed feature list may draw ONLY from columns whose passport
 # reads invariant-or-pinned-relative AND unstarved AND (if coded) qualified. Relativity is not
 # disqualifying -- UNDECLARED relativity is. This is the rule that closes the class all three build-time
@@ -253,6 +310,18 @@ def passport_admissible(column: str, passports: dict) -> tuple:
         bad.append(f"{column}: CORPUS-RELATIVE — a property of a curated snapshot, not of the problem; "
                    f"admissible as a covariate, never as a structural feature")
     var = p.get("variance", {})
+    # A RECORD-VALUED column is not itself a feature — you cannot contrast on a dict. It is admissible only
+    # through a NAMED PROJECTION whose own marginals clear the floor. (Caught by running the gate on real
+    # data: `decomposition_facts` and `poly_fingerprint` both read admissible purely by being typed
+    # non-categorical, which is a pass by omission rather than by evidence.)
+    if var.get("kind") == "record-valued":
+        c = p.get("admissible_collapse")
+        if not c or c.get("starved"):
+            bad.append(f"{column}: RECORD-VALUED — a record cannot be contrasted on; admissible only via a "
+                       f"named projection with its own unstarved marginals, and none is declared")
+        else:
+            bad.append(f"{column}: RECORD-VALUED — not a feature as-is; use the declared projection "
+                       f"({c['collapse']}), which must be sealed in the prereg")
     if var.get("starved"):
         bad.append(f"{column}: STARVED — {var.get('starved_note', 'a cell is below the Cochran floor')}")
     # `starved: None` is NOT a pass. Distinguish "no categorical census applies" from "never censused".
