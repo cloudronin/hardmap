@@ -417,3 +417,38 @@ appearing *in the instrument's plumbing* rather than in the data — a charge th
 construction cannot be an empirical finding about that constant, and a variance decomposition that scores it
 as one is claiming forced credit. The propagation of this into the Mosaic v3 grid's prediction 2 is flagged
 for its I-phase (`docs/specs/mosaic-v3-grid-Iphase-flags.md`).
+
+---
+
+## Instance 17 — 2026-07-24 — object-drift at Gate-4: `geometric-disk-cover`, the folklore gap in a geometric costume
+
+**What happened.** A Channel-B parameterized fill — `geometric-disk-cover` = W[1], dual-pass R20-verified —
+was **retracted to `open` at the owner's Gate-4 sitting**. The atlas problem is the **free-placement** form
+(cover points by k unit disks with *free centres*). The cited warrant was Marx, ESA 2005 — which proves
+W[1]-hardness for covering by unit **squares** (Theorem 5) and *not* disks; Marx extended his
+*independent-set* reduction to disks but pointedly not the *covering* reduction. The genuine disk citations
+(Marx–Pilipczuk 2015 / IWPEC 2006) cover only the **discrete** disk cover (disks from a family / centres at
+input points). Free-placement unit-disk-cover W[1]-hardness is a theorem **widely believed and never
+written** — plausible, unpinned.
+
+**Why it is the same defect twice removed.** This is **object-drift** — the instance-9 lesson
+(`graph-3-coloring`: an audit-touched row conflated with a gradient-bending one) reappearing in a new domain,
+now as *object* drift rather than *role* drift: squares ↔ disks, discrete ↔ free-placement. Two blind agents
+(round-1 research, round-2 adversarial verify) both accepted "the disk case is attributed to Marx via later
+literature" — precisely the folklore-attribution pattern the counting-folklore-gap work taught the program to
+distrust. And the warning was **on the jar the whole time**: the pre-fill cell note read *"W[1]-hardness
+plausible via geometric domination but not pinned,"* the same shape as instance 9's inferred-label caveats.
+The gate that caught it read the **contents** (what Marx's Theorem 5 actually proves — squares) not the
+**label** (a citation that names Marx and a value that is probably true). That is the fix working: ten
+minutes with the PDF, at exactly the gate that exists for it, before promotion rather than after.
+
+**The lesson.** A citation that names the right author and a value that is probably true is not a warrant for
+*that object*. Object-drift — square↔disk, discrete↔free, directed↔undirected, weighted↔unweighted — must be
+checked against the theorem's actual statement at Gate-4, and a pre-fill "plausible but not pinned" note is a
+retraction flag, not a promotion hint. (The retraction changed no sealed absorption verdict; the run stands
+as scored on 22, robustness verified — `quarry-v2-gate4-sitting.md`.)
+
+**One line for the ledger, dated:** the atlas's **first original `proven-here` cell** entered today at the
+same sitting — `minimum-sum-of-squares`, a one-paragraph PARTITION→(m=2) reduction beside a G&J [SP19]
+catalog warrant scoped honestly to what the entry actually asserts (general-K). The theorem factory's first
+production unit, produced incidentally at a Gate-4 sitting, through the front door, at full provenance.

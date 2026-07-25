@@ -190,11 +190,18 @@ the outcome-blind descent ruling.*
   named**: the natural corpus cannot supply the `decomposable × scheme` cell (Channel B exhausted it; the
   three remaining candidates — euclidean-tsp, constrained-shortest-path, number-partitioning — are genuinely
   parameterized-open). Sharp absorption is a **synthetic-grid** question, not a natural-recruitment one.
-- **Channel B's 22 param fills** are at **CLAIMED** (dual-pass R20-verified, in the `quarry-v2-fills.jsonl`
-  sidecar) **awaiting owner confirm sittings** for atlas promotion — **E-track, non-blocking**; the rerun
-  used them as a recruited population, which the R20 dual-pass supports, but atlas promotion is a separate
-  Gate-4 event. Several fills also *correct* frozen `open` cells the literature has since settled
-  (`graph-burning` W[2]-complete, etc.) — errata-adjacent, logged.
+- **Channel B's 22 param fills — Gate-4 sitting complete (2026-07-24):** **21 promoted to `confirmed`**
+  (owner primary-source read, atlas-**v3.1**-track; the program's first owner-`confirmed` cohort since v1),
+  **1 retracted to `open`** — `geometric-disk-cover`, object-drift caught at the gate (free-placement
+  unit-disk-cover W[1] is unpinned; the fill rode a squares citation; methods-thread instance 17). Full
+  record: `quarry-v2-gate4-sitting.md`; promotions: `quarry-v2-gate4-promotions.jsonl`.
+  **Footnote to the sealed run (ruling: footnote, not rerun):** the absorption verdicts stand as scored on
+  the 22-fill population at seal time; `#11` was retracted *after* the run through the designed gate, and no
+  verdict's arithmetic turns on it — **verified**: 3-class 7/9 with or without it (INSUFFICIENT unchanged);
+  the 2-class MISS's sealed CI [−1.15, −0.21] is far from the +0.5 bar (point −60% → −59%); the split CIs are
+  unmoved at n=110 (V(loc,approx) 0.547 → 0.539, V(loc,param) 0.231 → 0.230). Not a defect in the run — a
+  population member retracted through the gate, the system's normal metabolism. Several fills also *correct*
+  frozen `open` cells the literature has since settled (`graph-burning` W[2]-complete, etc.).
 - **Errata candidates** (`bin-packing`, `bin-covering`, `firefighter`) remain on the E-track, independent.
 
 ---
