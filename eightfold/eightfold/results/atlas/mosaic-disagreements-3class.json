@@ -1,0 +1,356 @@
+[
+ {
+  "problem_id": "betweenness",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": false
+ },
+ {
+  "problem_id": "bipartiteness",
+  "A_3class": "delocalized",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "capacitated-dominating-set",
+  "A_3class": "local-covering",
+  "B_3class": "delocalized",
+  "both_real": false
+ },
+ {
+  "problem_id": "capacitated-vertex-cover",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": true
+ },
+ {
+  "problem_id": "cellular-automaton-prediction",
+  "A_3class": "delocalized",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "circuit-sat",
+  "A_3class": "local-covering",
+  "B_3class": "delocalized",
+  "both_real": false
+ },
+ {
+  "problem_id": "circuit-value-problem",
+  "A_3class": "delocalized",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "clique-width",
+  "A_3class": "delocalized",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "cutwidth",
+  "A_3class": "delocalized",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "cycle-packing",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": true
+ },
+ {
+  "problem_id": "cyclic-ordering",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": false
+ },
+ {
+  "problem_id": "determinant",
+  "A_3class": "delocalized",
+  "B_3class": "uncodable",
+  "both_real": false
+ },
+ {
+  "problem_id": "directed-feedback-vertex-set",
+  "A_3class": "local-covering",
+  "B_3class": "delocalized",
+  "both_real": false
+ },
+ {
+  "problem_id": "domatic-number",
+  "A_3class": "local-covering",
+  "B_3class": "delocalized",
+  "both_real": false
+ },
+ {
+  "problem_id": "exact-cover-x3c",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": false
+ },
+ {
+  "problem_id": "feedback-arc-set-tournament",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": true
+ },
+ {
+  "problem_id": "feedback-vertex-set",
+  "A_3class": "local-covering",
+  "B_3class": "delocalized",
+  "both_real": true
+ },
+ {
+  "problem_id": "gcd",
+  "A_3class": "uncodable",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "generalized-assignment",
+  "A_3class": "decomposable",
+  "B_3class": "delocalized",
+  "both_real": false
+ },
+ {
+  "problem_id": "generalized-subset-sum",
+  "A_3class": "delocalized",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "graph-spanner",
+  "A_3class": "local-covering",
+  "B_3class": "delocalized",
+  "both_real": false
+ },
+ {
+  "problem_id": "grundy-number",
+  "A_3class": "local-covering",
+  "B_3class": "delocalized",
+  "both_real": false
+ },
+ {
+  "problem_id": "horn-sat",
+  "A_3class": "local-covering",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "job-interval-selection",
+  "A_3class": "decomposable",
+  "B_3class": "local-covering",
+  "both_real": false
+ },
+ {
+  "problem_id": "k-set-packing",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": true
+ },
+ {
+  "problem_id": "kemeny-rank-aggregation",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": true
+ },
+ {
+  "problem_id": "matching",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": false
+ },
+ {
+  "problem_id": "max-2lin",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": true
+ },
+ {
+  "problem_id": "max-cut",
+  "A_3class": "local-covering",
+  "B_3class": "delocalized",
+  "both_real": true
+ },
+ {
+  "problem_id": "max-flow",
+  "A_3class": "delocalized",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "maximum-induced-matching",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": true
+ },
+ {
+  "problem_id": "maximum-minimal-vertex-cover",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": true
+ },
+ {
+  "problem_id": "min-cost-flow",
+  "A_3class": "delocalized",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "min-spanning-tree",
+  "A_3class": "delocalized",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "minimum-sum-of-squares",
+  "A_3class": "decomposable",
+  "B_3class": "delocalized",
+  "both_real": false
+ },
+ {
+  "problem_id": "minimum-test-cover",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": true
+ },
+ {
+  "problem_id": "minimum-weight-triangulation",
+  "A_3class": "decomposable",
+  "B_3class": "delocalized",
+  "both_real": false
+ },
+ {
+  "problem_id": "monotone-circuit-value",
+  "A_3class": "delocalized",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "nae-sat",
+  "A_3class": "local-covering",
+  "B_3class": "delocalized",
+  "both_real": true
+ },
+ {
+  "problem_id": "odd-cycle-transversal",
+  "A_3class": "local-covering",
+  "B_3class": "delocalized",
+  "both_real": false
+ },
+ {
+  "problem_id": "orienteering",
+  "A_3class": "delocalized",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "pathwidth",
+  "A_3class": "delocalized",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "permanent",
+  "A_3class": "delocalized",
+  "B_3class": "uncodable",
+  "both_real": false
+ },
+ {
+  "problem_id": "planar-matching-count",
+  "A_3class": "decomposable",
+  "B_3class": "delocalized",
+  "both_real": false
+ },
+ {
+  "problem_id": "planarity",
+  "A_3class": "delocalized",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "reachability-stcon",
+  "A_3class": "delocalized",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "red-blue-set-cover",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": false
+ },
+ {
+  "problem_id": "sat",
+  "A_3class": "local-covering",
+  "B_3class": "delocalized",
+  "both_real": true
+ },
+ {
+  "problem_id": "sat-3",
+  "A_3class": "local-covering",
+  "B_3class": "delocalized",
+  "both_real": true
+ },
+ {
+  "problem_id": "sharp-contingency-tables",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": false
+ },
+ {
+  "problem_id": "stable-matching",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": false
+ },
+ {
+  "problem_id": "subgraph-isomorphism",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": false
+ },
+ {
+  "problem_id": "succinct-3-coloring",
+  "A_3class": "delocalized",
+  "B_3class": "uncodable",
+  "both_real": false
+ },
+ {
+  "problem_id": "three-dimensional-matching",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": true
+ },
+ {
+  "problem_id": "treedepth",
+  "A_3class": "delocalized",
+  "B_3class": "decomposable",
+  "both_real": true
+ },
+ {
+  "problem_id": "triangle-packing",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": true
+ },
+ {
+  "problem_id": "unification",
+  "A_3class": "delocalized",
+  "B_3class": "decomposable",
+  "both_real": false
+ },
+ {
+  "problem_id": "upper-domination",
+  "A_3class": "delocalized",
+  "B_3class": "local-covering",
+  "both_real": true
+ },
+ {
+  "problem_id": "weighted-completion-time-scheduling",
+  "A_3class": "decomposable",
+  "B_3class": "delocalized",
+  "both_real": false
+ }
+]

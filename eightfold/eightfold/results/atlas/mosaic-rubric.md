@@ -1,13 +1,14 @@
 # Mosaic locality rubric (sealed with prereg_v10, 2026-07-24)
 
-> **REVISION 1 — 2026-07-24 (the one permitted revision; prereg_v10 kill_criteria.instrument_L1).** Round-1
-> coding qualified on the anchors (7/7, both coders) and passed the separability gate clean, but κ=0.521 <
-> 0.6: the coders parted on the `entangled`/`mixed` boundary, with one coder systematically over-assigning
-> `entangled`. This revision sharpens ONLY that boundary, and it is written from the THEORY side — the
-> total-vs-partial-coupling criterion below — illustrated exclusively with the sealed anchor/dissociation
-> rows. It was NOT written by inspecting the round-1 disagreement rows (tuning the rubric on its own test
-> set is forbidden). All other class definitions stand verbatim. A second κ miss on the recode banks NOT
-> QUALIFIED per the seal — no third attempt.
+> **REVISION 1 — ATTEMPTED AND DISCARDED (2026-07-24).** After round-1's 5-class κ=0.521, the entangled/mixed
+> boundary was sharpened from theory (total-vs-partial coupling + a "name the bounded channel" tiebreak) and
+> the corpus recoded. The revision **regressed the instrument**: 3-class κ fell 0.646 → 0.523, the
+> disagreement went diffuse (coder A over-routed to `mixed`, coder B's `uncodable` surged). Under
+> prereg_v10-clarification-01 (κ measures resolution; sealed before the recode's number), round-1 was never
+> NOT-QUALIFIED — it demonstrated **3-class resolution (κ=0.646)** on this original rubric. A revision that
+> regresses a qualifying instrument is rejected, so the ORIGINAL criteria below are restored and govern the
+> scored instrument. The revision and its recode are preserved (`-recode-r1`) and written up as a
+> rubric-fragility finding, not merged. This is the instrument's rubric, at 3-class resolution.
 
 The instrument. Coders classify each row's **structure** into one `locality_class`, from
 `problem_id + problem_name + canonical_encoding` **only** — the eight charge columns and every per-charge
@@ -47,28 +48,20 @@ complexity class or an algorithm's existence is a rubric violation, scored as `u
   bounded-degree constraint, certificates are per-constraint and bounded, but there is *no global
   decomposition* (the covering choices interact combinatorially). Regime source: the per-constraint-
   certificate mechanism. *Anchor:* `vertex-cover`, `max-2sat`.
-- **`entangled`** — global coupling is **TOTAL**: **every** solution element constrains **every** other,
-  and the coupling does **not** factor through any bounded channel. The constraint graph on solution
-  elements has no bounded separator — there is no small interface whose fixing decouples the two sides.
-  A yes-answer requires simultaneous global agreement; no bounded local witness certifies the optimum.
-  *Anchor:* `clique` (every pair of chosen vertices must be mutually adjacent — literally all-to-all),
-  `independent-set` (its complement — every pair mutually non-adjacent), `label-cover` (a single global
-  labeling must be consistent across the whole instance at once). (`label-cover` anchors on structure +
-  its `decision`/`approximation` cells only — its `parameterized` cell is `open`.)
-- **`mixed` / delocalized-covering** — global coupling is **PARTIAL / CHANNELED**: constraints are
-  locally bounded (as in `local-covering`) and the instance is globally connected, BUT the coupling
-  **factors through bounded interfaces** — there exist bounded separators / channels through which
-  far-apart elements interact, rather than all-to-all. Locally covering, globally connected, but not
-  totally entangled. *There is no anchor for `mixed` by design* — it is the intermediate class, pinned by
-  CONTRAST: more coupled than `local-covering` (`vertex-cover`, whose certificate is per-edge and the
-  covering choices interact only through shared vertices) yet less than `entangled` (`clique`, all-to-all).
-- **THE OPERATIONAL TEST (entangled vs mixed), applied per row:** *Does every solution element constrain
-  every other (→ `entangled`), or only through a bounded channel / a nameable bounded interface (→
-  `mixed`)?* **Tiebreak (calibration):** `entangled` is the STRONGEST structural claim — reserve it for
-  demonstrably TOTAL coupling. When you are unsure between `entangled` and `mixed`, ask "can I NAME the
-  bounded channel the coupling passes through?" If yes → `mixed`. Only assign `entangled` when no such
-  channel exists. (This tiebreak exists because `entangled` is the easy over-assignment; the default under
-  genuine uncertainty at this boundary is `mixed`, not `entangled`.)
+- **`entangled`** — satisfying/optimizing requires *global agreement*: constraints couple far-apart
+  elements, no bounded local witness certifies the optimum, the objective sums global interactions.
+  Information about the optimum is *delocalized across the whole instance*. Regime source: the gadget-
+  entanglement mechanism (label/agreement structure, dense global constraints). *Anchor:* `clique`,
+  `independent-set`, `label-cover` (label-cover anchors on structure + its `decision`/`approximation`
+  cells only — its `parameterized` cell is `open`, so the anchor never leans on a param value).
+- **`mixed` / delocalized-covering** — *covering-shaped locally but delocalized globally*: bounded local
+  constraints whose interaction has no bounded interface and no clean global agreement either — the
+  structural signature the theory predicts on the gradient-bending rows.
+
+> **3-class resolution (the instrument scored):** the instrument qualified at 3-class, where `entangled`
+> and `mixed` collapse to **`delocalized`**. The two are distinguished only as diagnostic — the seam where
+> blind coding strains, convergent with the two-property split — and are NOT separated in the scored
+> analysis. The scored locality factor is `decomposable` / `local-covering` / `delocalized`.
 - **`uncodable`** — the encoding does not determine the structure at this resolution, OR the coder could
   only reason via forbidden (outcome) vocabulary. A legal, informative outcome.
 

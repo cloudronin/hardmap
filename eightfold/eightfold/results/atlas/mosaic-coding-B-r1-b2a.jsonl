@@ -1,0 +1,57 @@
+{"problem_id": "longest-common-subsequence", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "2D DP over prefixes; bounded adjacent-cell recurrence"}
+{"problem_id": "all-pairs-shortest-path", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "DP over intermediate vertices; triangle relaxation bounded"}
+{"problem_id": "3sum", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "Flat unordered set; no locality structure given"}
+{"problem_id": "and-or-graph-accessibility", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Local AND/OR propagation; AND fan-in unbounded"}
+{"problem_id": "context-free-membership", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "Span decomposition over substrings; bounded split interface"}
+{"problem_id": "unification", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "Recursive subterm decomposition; bounded per-symbol interface"}
+{"problem_id": "dfs-lexicographic-ordering", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Local traversal step; order propagates globally"}
+{"problem_id": "lex-first-maximal-matching", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Greedy local decision chains through edge order"}
+{"problem_id": "high-degree-subgraph", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Local degree-pruning cascades through graph"}
+{"problem_id": "generability", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Binary-operation closure; bounded-arity steps, global reach"}
+{"problem_id": "unit-resolution", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Local resolution steps; clause size unbounded"}
+{"problem_id": "datalog-evaluation", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Fixed-arity rules; fixpoint propagates across database"}
+{"problem_id": "cellular-automaton-prediction", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Local neighborhood update, iterated globally over time"}
+{"problem_id": "chip-firing-stabilization", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Local firing rule cascades through neighbors"}
+{"problem_id": "gaussian-elimination-pivoting", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Sequential elimination; column-max spans unbounded rows"}
+{"problem_id": "plane-sweep-triangulation", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "Sweep-order scaffold; bounded local boundary interface"}
+{"problem_id": "lz78-compression", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "Sequential parse; bounded extension per step"}
+{"problem_id": "breadth-depth-search", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Local step order, global traversal dependency"}
+{"problem_id": "deadlock-detection", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Local wait edges; cycle reachability propagates globally"}
+{"problem_id": "lex-first-delta-plus-one-coloring", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Greedy local neighbor check, order-dependent global chain"}
+{"problem_id": "context-free-emptiness", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Local productivity rule; RHS length unbounded"}
+{"problem_id": "type-inference-typability", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "Syntax-directed recursion; bounded per-rule interface"}
+{"problem_id": "chromatic-number", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "Per-edge local constraint; no global decomposition"}
+{"problem_id": "subgraph-isomorphism", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Pattern may force all-pairs mutual consistency"}
+{"problem_id": "feedback-arc-set", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Cycles span unboundedly; no bounded separator"}
+{"problem_id": "metric-dimension", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "All-pairs resolving condition; global distance dependency"}
+{"problem_id": "lex-first-maximal-independent-set", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Local neighbor check, propagates through greedy order"}
+{"problem_id": "path-system-accessibility", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Fixed-arity rules; reachability propagates globally"}
+{"problem_id": "arrowing", "locality_class": "entangled", "arity_class": "n.a.", "rationale": "Universal over colorings; no bounded witness"}
+{"problem_id": "choosability", "locality_class": "entangled", "arity_class": "n.a.", "rationale": "Adversarial lists force unbounded correlated dependency"}
+{"problem_id": "clique-choosability", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Adversarial lists plus unbounded clique constraint"}
+{"problem_id": "clique-coloring", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Maximal-clique constraint has unbounded size"}
+{"problem_id": "covering-radius", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Max-min over whole space and code"}
+{"problem_id": "generalized-graph-coloring", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "Coloring rule linking F, G unspecified"}
+{"problem_id": "generalized-ramsey-number", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "Target relation for k underspecified"}
+{"problem_id": "generalized-subset-sum", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "Additive target; DP over running sum"}
+{"problem_id": "graph-sandwich-pi-property", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Forbidden-path length grows with instance size"}
+{"problem_id": "group-coloring", "locality_class": "entangled", "arity_class": "n.a.", "rationale": "Nested universal over groups, labelings, orientations"}
+{"problem_id": "hereditary-clique-coloring", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Unbounded clique constraint, every induced subgraph"}
+{"problem_id": "integer-expression-inequivalence", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "Succinct representation decouples syntax from structure"}
+{"problem_id": "maxmin-vertex-cover", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Partition selector channels blocks into cover objective"}
+{"problem_id": "minmax-3d-matching", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Partition selector channels blocks; bounded-arity triples"}
+{"problem_id": "minmax-clique", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Selector gates access; inner clique unbounded"}
+{"problem_id": "minmax-sat", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Two-block selector channels bounded-arity clauses"}
+{"problem_id": "pebbling-number", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Worst-case over all distributions; no witness"}
+{"problem_id": "shortest-implicant", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Small candidate; verification spans whole circuit"}
+{"problem_id": "min-equivalent-expression", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Equivalence check spans entire truth table"}
+{"problem_id": "strong-nash-equilibrium", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Payoffs local to neighbor set; coalitions route through it"}
+{"problem_id": "thue-number", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Square-free constraint over unboundedly long paths"}
+{"problem_id": "vc-dimension", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "Succinct circuit decouples encoding from set structure"}
+{"problem_id": "finite-tiling-extension", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Local edge-matching; global consistency emergent"}
+{"problem_id": "succinct-set-cover", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "Succinct formula representation decouples resolution"}
+{"problem_id": "abduction", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Consistency and entailment span whole theory"}
+{"problem_id": "autoepistemic-logic", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Fixpoint requires whole-theory consistency check"}
+{"problem_id": "circumscription", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Minimality compares across all models globally"}
+{"problem_id": "competitive-facility-location", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Nearest-facility assignment is global metric comparison"}
+{"problem_id": "credulous-semistable-argumentation", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Semi-stable maximality compares across whole framework"}

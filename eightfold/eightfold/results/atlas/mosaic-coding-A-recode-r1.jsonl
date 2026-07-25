@@ -1,0 +1,345 @@
+{"problem_id": "sat", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "clauses share variables; per-clause local certificate"}
+{"problem_id": "sat-3", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "width-3 clauses; per-clause bounded certificate"}
+{"problem_id": "sat-2", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "width-2 clauses; per-clause bounded certificate"}
+{"problem_id": "xor-sat", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "bounded-width parity constraints; per-equation local"}
+{"problem_id": "horn-sat", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "Horn clauses; per-clause covering, wide"}
+{"problem_id": "vertex-cover", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "cover every edge; per-edge local certificate"}
+{"problem_id": "clique", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "all chosen pairs mutually adjacent; all-to-all"}
+{"problem_id": "independent-set", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "all chosen pairs non-adjacent; all-to-all"}
+{"problem_id": "graph-3-coloring", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "per-edge inequality constraints; pairwise local"}
+{"problem_id": "tsp", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "spanning tour; weight objective through cuts"}
+{"problem_id": "permanent", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "sum over all permutations; total coupling"}
+{"problem_id": "determinant", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "sum over all permutations; total coupling"}
+{"problem_id": "factoring", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "single opaque integer; structure not exposed"}
+{"problem_id": "graph-isomorphism", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "single global bijection; all adjacencies consistent"}
+{"problem_id": "linear-programming", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "constraints couple variables; optimum at vertex"}
+{"problem_id": "matching", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "edge packing; pairwise endpoint conflicts"}
+{"problem_id": "knapsack", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "capacity DP scaffold; separable value objective"}
+{"problem_id": "number-partitioning", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "subset-sum DP scaffold; separable over items"}
+{"problem_id": "set-cover", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "cover ground set; per-element, sets wide"}
+{"problem_id": "max-cut", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "per-edge disagreement terms; pairwise local"}
+{"problem_id": "php", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "global counting contradiction; no local witness"}
+{"problem_id": "tqbf", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "quantifier alternation; total game dependency"}
+{"problem_id": "random-3sat-refutation", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "proof-space object; structure not resolved"}
+{"problem_id": "dominating-set", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "cover closed neighborhoods; per-vertex local"}
+{"problem_id": "feedback-vertex-set", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "hit all cycles; global acyclicity"}
+{"problem_id": "steiner-tree", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "terminal connectivity; tree through separators"}
+{"problem_id": "hamiltonian-cycle", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "single spanning cycle; connectivity through separators"}
+{"problem_id": "longest-path", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "long simple path; connectivity through separators"}
+{"problem_id": "reachability-stcon", "locality_class": "mixed", "arity_class": "n.a.", "rationale": "s-t connectivity; factors through cuts"}
+{"problem_id": "max-flow", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "conservation local; value factors through cut"}
+{"problem_id": "min-spanning-tree", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "spanning connectivity; factors through cut property"}
+{"problem_id": "treewidth", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "seeks bounded separators; separator-structured"}
+{"problem_id": "k-center", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "cover points by balls; per-point"}
+{"problem_id": "nae-sat", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "per-clause not-all-equal; covering-shaped, wide"}
+{"problem_id": "exact-cover-x3c", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "exact cover by triples; per-element local"}
+{"problem_id": "circuit-sat", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "per-gate constraints; assignment locally checkable"}
+{"problem_id": "circuit-value-problem", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "sequential gate evaluation; threads through circuit"}
+{"problem_id": "tseitin", "locality_class": "entangled", "arity_class": "bounded-local", "rationale": "expander parity constraints; no bounded separator"}
+{"problem_id": "subset-sum", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "target-sum DP scaffold; separable selection"}
+{"problem_id": "integer-programming", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "integer constraints couple; factors through polytope"}
+{"problem_id": "primality", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "single opaque integer; structure not exposed"}
+{"problem_id": "discrete-log", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "opaque group arithmetic; structure not exposed"}
+{"problem_id": "shortest-vector-svp", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "shortest combination; global basis coupling"}
+{"problem_id": "sis", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "dense random system; short solution coupled"}
+{"problem_id": "gcd", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "two opaque integers; structure not exposed"}
+{"problem_id": "network-reliability", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "sum over connectivity states; global counting"}
+{"problem_id": "tutte-polynomial", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "sum over all subgraphs; global"}
+{"problem_id": "bin-packing", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "assign items under per-bin capacity; local"}
+{"problem_id": "makespan-scheduling", "locality_class": "local-covering", "arity_class": "global-objective", "rationale": "assign jobs; minimize global maximum load"}
+{"problem_id": "metric-tsp", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "metric spanning tour; weight through cuts"}
+{"problem_id": "max-coverage", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "cover many elements; per-element, sets wide"}
+{"problem_id": "edge-coloring", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "adjacent edges differ; per-vertex all-distinct"}
+{"problem_id": "min-bisection", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "per-edge cut plus global balance"}
+{"problem_id": "multiway-cut", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "separate terminals; factors through cuts"}
+{"problem_id": "directed-feedback-vertex-set", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "hit all directed cycles; global acyclicity"}
+{"problem_id": "three-dimensional-matching", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "disjoint triples; pairwise element conflicts"}
+{"problem_id": "bipartiteness", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "per-edge two-coloring; pairwise local"}
+{"problem_id": "matrix-multiplication", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "independent per-entry products; separable"}
+{"problem_id": "linear-equations", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "system couples variables; through elimination pivots"}
+{"problem_id": "closest-vector-cvp", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "closest combination; global basis coupling"}
+{"problem_id": "quadratic-residuosity", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "opaque modular arithmetic; structure not exposed"}
+{"problem_id": "tautology", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "validity over all assignments; no witness"}
+{"problem_id": "sigma2-sat", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "quantifier alternation; global dependency"}
+{"problem_id": "monotone-circuit-value", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "sequential gate evaluation; threads through circuit"}
+{"problem_id": "one-in-three-sat", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "width-3 exactly-one clauses; per-clause local"}
+{"problem_id": "max-2lin", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "two-variable equations; pairwise local terms"}
+{"problem_id": "job-shop-scheduling", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "precedence chains plus machine conflicts; channeled"}
+{"problem_id": "lwe", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "dense random noisy system; global coupling"}
+{"problem_id": "mcsp", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "match whole truth table; global consistency"}
+{"problem_id": "planarity", "locality_class": "mixed", "arity_class": "n.a.", "rationale": "global embedding existence; factors through separators"}
+{"problem_id": "planar-matching-count", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "planar graph decomposes; global count objective"}
+{"problem_id": "pi2-sat", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "quantifier alternation; global dependency"}
+{"problem_id": "dnf-minimization", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "equivalence over all assignments; global"}
+{"problem_id": "succinct-3-coloring", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "circuit-succinct graph; implicit global coupling"}
+{"problem_id": "odd-cycle-transversal", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "hit all odd cycles; global bipartiteness"}
+{"problem_id": "cluster-editing", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "forbid conflict triples; per-triple local"}
+{"problem_id": "quadratic-assignment", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "quadratic all-pairs cost; total coupling"}
+{"problem_id": "planar-3-coloring", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "planar layerwise decomposition; per-edge constraints"}
+{"problem_id": "steiner-forest", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "pairwise connectivity; factors through separators"}
+{"problem_id": "group-isomorphism", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "global bijection respecting products; consistent"}
+{"problem_id": "maximum-common-subgraph", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "consistent mapping; all-pairs adjacency agreement"}
+{"problem_id": "first-order-model-checking", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "quantifiers over whole structure; global"}
+{"problem_id": "connected-vertex-cover", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "cover edges plus global connectivity"}
+{"problem_id": "edge-dominating-set", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "dominate every edge; per-edge local"}
+{"problem_id": "hitting-set", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "hit every set; per-set, wide"}
+{"problem_id": "maximum-leaf-spanning-tree", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "spanning connectivity; maximize leaves"}
+{"problem_id": "prize-collecting-steiner-tree", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "tree connectivity plus penalties; global weight"}
+{"problem_id": "feedback-arc-set-tournament", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "acyclic ordering; global through positions"}
+{"problem_id": "kemeny-rank-aggregation", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "consensus ordering; pairwise terms, global transitivity"}
+{"problem_id": "capacitated-vertex-cover", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "cover edges; per-vertex capacity constraints"}
+{"problem_id": "k-set-packing", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "disjoint bounded sets; pairwise element conflicts"}
+{"problem_id": "partial-vertex-cover", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "cover many edges; per-edge pairwise local"}
+{"problem_id": "group-steiner-tree", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "connect groups; tree through separators"}
+{"problem_id": "graph-motif", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "connected subgraph; connectivity through separators"}
+{"problem_id": "induced-subgraph-isomorphism", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "adjacency-preserving map; all-pairs consistency"}
+{"problem_id": "disjoint-paths", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "disjoint routing; connectivity through separators"}
+{"problem_id": "cutwidth", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "linear ordering; maximum cut objective"}
+{"problem_id": "treedepth", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "elimination forest height; separator-structured"}
+{"problem_id": "minimum-fill-in", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "make chordal; clique-separator structure"}
+{"problem_id": "weighted-interval-scheduling", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "intervals on line; ordered DP scaffold"}
+{"problem_id": "densest-k-subgraph", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "maximize induced edges; per-pair terms"}
+{"problem_id": "cluster-vertex-deletion", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "hit conflict triples; per-triple local"}
+{"problem_id": "max-directed-cut", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "per-arc crossing terms; pairwise local"}
+{"problem_id": "d-hitting-set", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "hit bounded-size sets; per-set local"}
+{"problem_id": "bin-covering", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "fill bins to threshold; per-bin local"}
+{"problem_id": "survivable-network-design", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "connectivity requirements; factors through cuts"}
+{"problem_id": "shortest-common-superstring", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "order strings by overlaps; global sequence"}
+{"problem_id": "directed-steiner-tree", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "directed reachability tree; global weight"}
+{"problem_id": "k-median", "locality_class": "local-covering", "arity_class": "global-objective", "rationale": "assign points to shared centers; summed"}
+{"problem_id": "planar-vertex-cover", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "planar layerwise decomposition; per-edge cover"}
+{"problem_id": "planar-dominating-set", "locality_class": "decomposable", "arity_class": "unbounded-fanin", "rationale": "planar layerwise decomposition; neighborhood covering"}
+{"problem_id": "planar-independent-set", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "planar layerwise decomposition; per-edge constraints"}
+{"problem_id": "stable-matching", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "no blocking pair; per-pair local constraints"}
+{"problem_id": "min-cost-flow", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "conservation local; cost-flow through cuts"}
+{"problem_id": "edit-distance", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "grid DP; local edit recurrence"}
+{"problem_id": "longest-common-subsequence", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "grid DP; optimal-substructure separable objective"}
+{"problem_id": "all-pairs-shortest-path", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "subpath DP; optimal-substructure separable"}
+{"problem_id": "3sum", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "triple-sum witness; couples through sum-value channel"}
+{"problem_id": "and-or-graph-accessibility", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "AND/OR reachability; local propagation, graph-channeled"}
+{"problem_id": "context-free-membership", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "CYK interval DP; blockwise-separable parse"}
+{"problem_id": "unification", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "equality propagation via shared-variable channels"}
+{"problem_id": "dfs-lexicographic-ordering", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "sequential DFS; frontier-channeled ordering"}
+{"problem_id": "lex-first-maximal-matching", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "greedy-order matching; shared-endpoint channeled"}
+{"problem_id": "high-degree-subgraph", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "k-core peeling; degree-channeled local propagation"}
+{"problem_id": "generability", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "closure via bounded binary-operation propagation"}
+{"problem_id": "unit-resolution", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "unit propagation; clause-channeled forced assignments"}
+{"problem_id": "datalog-evaluation", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "monotone fixpoint; bounded-rule propagation"}
+{"problem_id": "cellular-automaton-prediction", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "local update; space-time light-cone propagation"}
+{"problem_id": "chip-firing-stabilization", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "local firing; degree-channeled chip propagation"}
+{"problem_id": "gaussian-elimination-pivoting", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "sequential elimination; column-channeled pivot dependency"}
+{"problem_id": "plane-sweep-triangulation", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "sweep-line events; frontier-channeled diagonal"}
+{"problem_id": "lz78-compression", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "greedy sequential parse; dictionary-channeled"}
+{"problem_id": "breadth-depth-search", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "sequential traversal; frontier-channeled ordering"}
+{"problem_id": "deadlock-detection", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "wait-cycle detection; edge-channeled reachability"}
+{"problem_id": "lex-first-delta-plus-one-coloring", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "greedy first-fit; neighbor-color channeled"}
+{"problem_id": "context-free-emptiness", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "productivity fixpoint; production-channeled propagation"}
+{"problem_id": "type-inference-typability", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "type-constraint propagation; shared-variable channels"}
+{"problem_id": "chromatic-number", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "per-edge coloring constraints; shared-vertex interaction"}
+{"problem_id": "subgraph-isomorphism", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "embedding channeled through pattern adjacency"}
+{"problem_id": "feedback-arc-set", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "hit all cycles; arc-channeled connectivity"}
+{"problem_id": "metric-dimension", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "resolving landmarks cover all vertex-pairs"}
+{"problem_id": "lex-first-maximal-independent-set", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "greedy-order independent set; neighbor-channeled"}
+{"problem_id": "path-system-accessibility", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "accessibility rules; bounded-arity propagation"}
+{"problem_id": "arrowing", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "for-all colorings; channeled via target subgraphs"}
+{"problem_id": "choosability", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "list-colorability; for-all-lists channeled"}
+{"problem_id": "clique-choosability", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "clique list-coloring; for-all-lists, clique-channeled"}
+{"problem_id": "clique-coloring", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "maximal cliques non-monochromatic; clique-channeled"}
+{"problem_id": "covering-radius", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "linear-code minimax; all coordinates jointly coupled"}
+{"problem_id": "generalized-graph-coloring", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "partition; parts channeled through forbidden subgraphs"}
+{"problem_id": "generalized-ramsey-number", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Ramsey coloring; channeled via target subgraphs"}
+{"problem_id": "generalized-subset-sum", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "quantified subset-sum; channeled via target sum"}
+{"problem_id": "graph-sandwich-pi-property", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "sandwich graph; channeled via forbidden paths"}
+{"problem_id": "group-coloring", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "group-colorability; for-all-labelings channeled"}
+{"problem_id": "hereditary-clique-coloring", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "induced-subgraph clique-coloring; clique-channeled"}
+{"problem_id": "integer-expression-inequivalence", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "recursive set-expression; witness-integer channeled"}
+{"problem_id": "maxmin-vertex-cover", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "min-max partition; cover-core, selection-channeled"}
+{"problem_id": "minmax-3d-matching", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "min-max partition; matching-core, selection-channeled"}
+{"problem_id": "minmax-clique", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "min-max partition; clique-core all-to-all coupled"}
+{"problem_id": "minmax-sat", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "min-max partition; clause-core, selection-channeled"}
+{"problem_id": "pebbling-number", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "pebbling reachability; for-all-distributions channeled"}
+{"problem_id": "shortest-implicant", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "small implicant; channeled via implied circuit"}
+{"problem_id": "min-equivalent-expression", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "minimal equivalent formula; equivalence-channeled"}
+{"problem_id": "strong-nash-equilibrium", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "graphical-game equilibrium; neighbor-channeled, coalition-checked"}
+{"problem_id": "thue-number", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "square-free path-coloring; path-channeled"}
+{"problem_id": "vc-dimension", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "shatter set; all subsets realized, totally coupled"}
+{"problem_id": "finite-tiling-extension", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "local tile-matching; row/column-channeled propagation"}
+{"problem_id": "succinct-set-cover", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "succinct cover; channeled via DNF on-sets"}
+{"problem_id": "abduction", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "abductive explanation; channeled via theory-entailment"}
+{"problem_id": "autoepistemic-logic", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "stable expansion; fixpoint-channeled brave reasoning"}
+{"problem_id": "circumscription", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "minimal-model inference; model-minimality channeled"}
+{"problem_id": "competitive-facility-location", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "leader-follower location; captured-demand channeled"}
+{"problem_id": "credulous-semistable-argumentation", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "semi-stable extension; attack-graph channeled acceptance"}
+{"problem_id": "credulous-stage-argumentation", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "stage extension; attack-graph channeled acceptance"}
+{"problem_id": "default-logic", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "default extension; fixpoint-channeled brave reasoning"}
+{"problem_id": "disjunctive-asp", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "answer-set existence; stable-model channeled"}
+{"problem_id": "judgment-aggregation", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "collective outcome; agenda-channeled aggregation"}
+{"problem_id": "minimal-model-checking", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "minimality check; smaller-model search channeled"}
+{"problem_id": "min-max-regret", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "min-max regret; worst-scenario channeled"}
+{"problem_id": "network-interdiction", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "interdiction leader-follower; residual-network channeled"}
+{"problem_id": "bilevel-integer-programming", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "bilevel optimization; follower-response channeled"}
+{"problem_id": "robust-csp", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "robust satisfiability; partial-assignment extension channeled"}
+{"problem_id": "3-coloring-extension", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "coloring extension; boundary-coloring channeled"}
+{"problem_id": "skeptical-semistable-argumentation", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "semi-stable skeptical; attack-graph channeled"}
+{"problem_id": "skeptical-stage-argumentation", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "stage skeptical; attack-graph channeled"}
+{"problem_id": "two-stage-adjustable-robust", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "two-stage robust; adversary-scenario channeled"}
+{"problem_id": "conformant-planning", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "conformant plan; belief-state channeled"}
+{"problem_id": "ctl-satisfiability", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "CTL model existence; tableau-channeled"}
+{"problem_id": "dfa-intersection-emptiness", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "product-automaton reachability; joint-state channeled"}
+{"problem_id": "generalized-checkers", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "winning-strategy; move-channeled alternating reachability"}
+{"problem_id": "generalized-chess", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "winning-strategy; move-channeled alternating reachability"}
+{"problem_id": "generalized-go", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "winning-strategy; move-channeled alternating reachability"}
+{"problem_id": "generalized-gomoku", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "winning-strategy; move-channeled alternating reachability"}
+{"problem_id": "generalized-hex", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "winning-strategy; move-channeled alternating reachability"}
+{"problem_id": "independent-set-reconfiguration", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "token-move reachability; solution-graph channeled"}
+{"problem_id": "intuitionistic-propositional-logic", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "intuitionistic validity; Kripke-model channeled"}
+{"problem_id": "ltl-satisfiability", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "LTL model existence; automaton-channeled"}
+{"problem_id": "modal-logic-satisfiability", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "modal satisfiability; Kripke-model channeled"}
+{"problem_id": "nfa-universality", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "NFA universality; subset-construction channeled"}
+{"problem_id": "node-kayles", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "vertex-game winning-strategy; move-channeled"}
+{"problem_id": "nondeterministic-constraint-logic", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "edge-reversal reachability; constraint-graph channeled"}
+{"problem_id": "presburger-arithmetic", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "quantified arithmetic; quantifier-automaton channeled"}
+{"problem_id": "propositional-planning", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "plan reachability; state-transition channeled"}
+{"problem_id": "qcsp", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "quantified CSP; strategy-channeled"}
+{"problem_id": "regex-squaring-inequivalence", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "regex inequivalence; witness-string channeled"}
+{"problem_id": "sat-reconfiguration", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "solution-graph connectivity; single-flip channeled"}
+{"problem_id": "stochastic-sat", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "stochastic SAT; strategy-channeled probabilistic"}
+{"problem_id": "succinct-hamiltonian-cycle", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "succinct Hamiltonicity; circuit-defined edges channeled"}
+{"problem_id": "succinct-sat", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "succinct SAT; circuit-defined clauses channeled"}
+{"problem_id": "abstract-argumentation", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "preferred skeptical; attack-graph channeled"}
+{"problem_id": "generalized-geography", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "winning-strategy; edge-move alternating reachability"}
+{"problem_id": "bilevel-knapsack", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "bilevel knapsack; follower-response channeled"}
+{"problem_id": "3-dimensional-assignment", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "disjoint-triple cover; per-triple metric costs"}
+{"problem_id": "3-partition", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "partition into equal-sum triples; per-triple"}
+{"problem_id": "achromatic-number", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "complete coloring; class-pair-adjacency channeled"}
+{"problem_id": "acyclic-coloring", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "acyclic coloring; bichromatic-cycle channeled"}
+{"problem_id": "art-gallery", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "vertex-guard visibility cover; set-cover structure"}
+{"problem_id": "b-chromatic-number", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "b-coloring; class-dominating-vertex channeled"}
+{"problem_id": "balanced-connected-partition", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "connected partition; connectivity-channeled max-min"}
+{"problem_id": "balanced-vertex-separator", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "balanced separator; component-size channeled"}
+{"problem_id": "bandwidth", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "linear layout; separator-channeled edge-stretch"}
+{"problem_id": "betweenness", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "ternary order-constraints; order-transitivity channeled"}
+{"problem_id": "biclique-cover", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "edge cover by bicliques; set-cover"}
+{"problem_id": "bounded-pcp", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "bounded domino matching; concatenation-channeled"}
+{"problem_id": "boxicity", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "box representation; interval-graph intersection channeled"}
+{"problem_id": "broadcast-time", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "broadcast scheduling; informed-frontier channeled"}
+{"problem_id": "capacitated-dominating-set", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "per-vertex domination coverage with capacity"}
+{"problem_id": "capacitated-facility-location", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "client coverage assignment with facility capacity"}
+{"problem_id": "clique-width", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "clique-width expression; label-class channeled"}
+{"problem_id": "closest-string", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "center string; per-string distance-budget channeled"}
+{"problem_id": "closest-substring", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "center substring; window-and-distance channeled"}
+{"problem_id": "cluster-deletion", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "hit induced P3s by edge deletion; local"}
+{"problem_id": "connectivity-augmentation", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "links cover cuts; coupling channels through separators"}
+{"problem_id": "constrained-shortest-path", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "path DP over resource-budget scaffold; separable"}
+{"problem_id": "crossing-number", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "global drawing; pairwise crossings through embedding channel"}
+{"problem_id": "cycle-packing", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "vertex-disjoint cycles; local sharing conflicts"}
+{"problem_id": "cyclic-ordering", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "ternary betweenness assembled into global cyclic order"}
+{"problem_id": "dissociation-number", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "hit every P3 by vertices; local"}
+{"problem_id": "domatic-number", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "disjoint dominating sets; per-neighborhood covering"}
+{"problem_id": "efficient-domination", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "each vertex dominated exactly once; per-neighborhood"}
+{"problem_id": "equitable-coloring", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "per-edge coloring plus global class-size balance"}
+{"problem_id": "euclidean-tsp", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "planar point tour; geometric dissection separates"}
+{"problem_id": "facility-location", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "clients to nearest open; open-set channel"}
+{"problem_id": "firefighter", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "tree spread; per-round single-protect couples subtrees"}
+{"problem_id": "flow-shop-scheduling", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "fixed-machine pipeline; sequence scaffold DP"}
+{"problem_id": "generalized-assignment", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "per-bin capacities linked by item assignment"}
+{"problem_id": "geometric-bin-packing", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "rectangles into bins; per-bin capacity channel"}
+{"problem_id": "geometric-disk-cover", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "cover points by unit disks; local"}
+{"problem_id": "geometric-independent-set", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "unit-disk packing; local geometric conflicts"}
+{"problem_id": "graph-burning", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "cover vertices by radius-bounded balls"}
+{"problem_id": "graph-genus", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "global surface embedding; rotation-system channel"}
+{"problem_id": "graph-homomorphism", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "per-edge homomorphism constraints; bounded domain"}
+{"problem_id": "graph-spanner", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "each edge needs kept 2-path; covering"}
+{"problem_id": "grundy-number", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "greedy coloring forced by global ordering"}
+{"problem_id": "harmonious-coloring", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "proper plus global color-pair injectivity; channeled"}
+{"problem_id": "independent-dominating-set", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "independent and dominating; per-neighborhood constraints"}
+{"problem_id": "integer-expression-membership", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "expression-tree value DP; target aggregate"}
+{"problem_id": "interval-completion", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "fill to interval graph; clique-path separators"}
+{"problem_id": "job-interval-selection", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "one interval per job disjoint; local conflicts"}
+{"problem_id": "k-edge-connected-subgraph", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "connectivity via cut covering; channeled"}
+{"problem_id": "k-minimum-spanning-tree", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "min tree spanning k; connectivity channeled"}
+{"problem_id": "label-cover", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "single global labeling consistent everywhere; no channel"}
+{"problem_id": "list-coloring", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "per-edge proper coloring with lists; local"}
+{"problem_id": "map-labeling", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "non-overlapping equal squares; local geometric conflicts"}
+{"problem_id": "max-2sat", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "per-clause binary constraints; bounded certificates"}
+{"problem_id": "max-dispersion", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "all-pairs distance sum; total objective coupling"}
+{"problem_id": "max-e3-sat", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "per-clause three-literal constraints; bounded"}
+{"problem_id": "max-k-cut", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "per-edge crossing contributions; local"}
+{"problem_id": "maximum-agreement-forest", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "agreement between two trees; topology channel"}
+{"problem_id": "maximum-csp", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "bounded-arity constraints from fixed family"}
+{"problem_id": "maximum-feasible-linear-subsystem", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "linear relations coupled through shared variables"}
+{"problem_id": "maximum-induced-matching", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "matching with local distance-2 constraints"}
+{"problem_id": "maximum-minimal-vertex-cover", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "cover plus per-vertex private-neighbor; local"}
+{"problem_id": "maximum-planar-subgraph", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "max planar edge subset; global planarity"}
+{"problem_id": "min-communication-cost-spanning-tree", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "all-pairs routing through spanning-tree channel"}
+{"problem_id": "min-degree-spanning-tree", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "spanning tree minimizing max degree; tree channel"}
+{"problem_id": "min-linear-arrangement", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "linear layout; sum factors through positional cuts"}
+{"problem_id": "min-sat", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "per-clause; minimize satisfied; covering-shaped"}
+{"problem_id": "min-sum-set-cover", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "order sets minimizing cover-times; order channel"}
+{"problem_id": "minimum-common-string-partition", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "match block partitions across strings; channeled"}
+{"problem_id": "minimum-consistent-dfa", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "strings coupled through shared automaton states"}
+{"problem_id": "minimum-decision-tree", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "tests split objects globally; tree channel"}
+{"problem_id": "minimum-distance-code", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "min-weight codeword; dense global parity coupling"}
+{"problem_id": "minimum-equivalent-digraph", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "preserve reachability; coupled via paths, SCCs"}
+{"problem_id": "minimum-k-cut", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "partition into k parts; cut-channeled"}
+{"problem_id": "minimum-latency", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "repairman tour; arrival-time sum through tour"}
+{"problem_id": "minimum-sum-coloring", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "proper coloring minimizing color sum; per-edge"}
+{"problem_id": "minimum-sum-of-squares", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "assign items minimizing squared bin loads"}
+{"problem_id": "minimum-test-cover", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "tests separating all item pairs; covering"}
+{"problem_id": "minimum-weight-triangulation", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "planar triangulation; sub-polygon DP separates"}
+{"problem_id": "mixed-chinese-postman", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "cover edges; degree balance plus connectivity"}
+{"problem_id": "multicut", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "separate terminal pairs; cut-channeled"}
+{"problem_id": "multidimensional-knapsack", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "fixed-dimension knapsack; value-DP scaffold"}
+{"problem_id": "multiple-sequence-alignment", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "sum-of-pairs through shared alignment columns"}
+{"problem_id": "nearest-codeword", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "nearest codeword; dense global parity coupling"}
+{"problem_id": "node-multiway-cut", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "separate terminals by vertex cuts; channeled"}
+{"problem_id": "open-shop-scheduling", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "open-shop makespan; coupled via machine schedules"}
+{"problem_id": "orienteering", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "reward walk within budget; path channel"}
+{"problem_id": "pagenumber", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "spine order plus page assignment; ordering channel"}
+{"problem_id": "pathwidth", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "path-decomposition; bounded-separator channel"}
+{"problem_id": "planar-3sat", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "planar incidence; layerwise decomposition separates"}
+{"problem_id": "planar-vertex-deletion", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "delete vertices for planarity; global obstruction"}
+{"problem_id": "power-dominating-set", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "domination plus global propagation; channeled"}
+{"problem_id": "precedence-constrained-scheduling", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "precedence chains plus machine loads; channeled"}
+{"problem_id": "precoloring-extension", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "extend proper coloring; per-edge constraints"}
+{"problem_id": "quadratic-congruences", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "single arithmetic condition; no locality structure"}
+{"problem_id": "quadratic-knapsack", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "pairwise-profit objective; all-pairs coupling among selected"}
+{"problem_id": "radio-coloring", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "labels constrained within distance two; local"}
+{"problem_id": "rectangle-tiling", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "array into rectangular tiles; subarray DP"}
+{"problem_id": "rectilinear-steiner-tree", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "rectilinear Steiner tree; grid dissection separates"}
+{"problem_id": "red-blue-set-cover", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "cover blue minimizing red; set-cover"}
+{"problem_id": "register-sufficiency", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "DAG pebbling; evaluation-schedule channel"}
+{"problem_id": "resource-constrained-scheduling", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "shared-resource contention couples jobs; channeled"}
+{"problem_id": "roman-domination", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "every zero near a two; local domination"}
+{"problem_id": "set-splitting", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "two-color so sets non-monochromatic; per-set"}
+{"problem_id": "shortest-common-supersequence", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "supersequence embedding all inputs; alignment channel"}
+{"problem_id": "sorting-by-reversals", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "reversal distance; breakpoint-graph channel"}
+{"problem_id": "sorting-by-transpositions", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "transposition distance; cycle-structure channel"}
+{"problem_id": "sparsest-cut", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "min-ratio cut; cut structure channel"}
+{"problem_id": "stacker-crane", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "traverse pickup-delivery arcs; tour channel"}
+{"problem_id": "string-folding", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "self-avoiding fold; all-pairs non-overlap and contacts"}
+{"problem_id": "strip-packing", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "pack rectangles in strip; height channel"}
+{"problem_id": "subset-product", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "subset product target; value-DP scaffold"}
+{"problem_id": "target-set-selection", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "threshold cascade activation; propagation channel"}
+{"problem_id": "thickness", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "partition edges into planar parts; global"}
+{"problem_id": "total-coloring", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "proper vertex-edge coloring; per-incidence local"}
+{"problem_id": "total-dominating-set", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "every vertex has set-neighbor; local domination"}
+{"problem_id": "triangle-packing", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "vertex-disjoint triangles; local conflicts"}
+{"problem_id": "ultrametric-tree-fitting", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "fit tree metric; tree-structure channel"}
+{"problem_id": "unrelated-machine-scheduling", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "assign jobs minimizing makespan; load channel"}
+{"problem_id": "unsplittable-flow", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "single-path routing under capacities; cut channel"}
+{"problem_id": "upper-domination", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "maximum minimal dominating set; local constraints"}
+{"problem_id": "vector-bin-packing", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "pack vectors into bins; per-bin load"}
+{"problem_id": "vehicle-routing", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "capacitated depot routes; route/capacity channel"}
+{"problem_id": "weighted-completion-time-scheduling", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "weighted completion; per-machine sequence channel"}
+{"problem_id": "weighted-tardiness", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "single-machine sequence; tardiness via prefix order"}
+{"problem_id": "sharp-acyclic-orientations", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "count acyclic orientations; global acyclicity via cycles"}
+{"problem_id": "sharp-antichains", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "count antichains; per-comparable-pair constraints"}
+{"problem_id": "sharp-contingency-tables", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "matrices with margins; row-column channel"}
+{"problem_id": "sharp-eulerian-circuits", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "count single closed trails; global trail"}
+{"problem_id": "sharp-eulerian-orientations", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "count balanced orientations; per-vertex degree balance"}
+{"problem_id": "sharp-linear-extensions", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "count refining total orders; global-order channel"}
+{"problem_id": "sharp-matchings", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "count matchings; local vertex-disjointness"}
+{"problem_id": "sharp-monotone-2sat", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "count models; per-clause binary constraints"}
+{"problem_id": "sharp-spanning-trees", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "count spanning trees; global connectivity"}
+{"problem_id": "sharp-dnf", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "count models; union of subcubes"}

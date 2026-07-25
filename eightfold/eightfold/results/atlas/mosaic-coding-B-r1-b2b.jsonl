@@ -1,0 +1,58 @@
+{"problem_id": "credulous-stage-argumentation", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Pairwise attacks; extension range-maximality channels through attack graph."}
+{"problem_id": "default-logic", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Defaults couple via shared variables; fixpoint channels through theory."}
+{"problem_id": "disjunctive-asp", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Rules local; stable-model minimality channels through atom dependencies."}
+{"problem_id": "judgment-aggregation", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Per-voter distances separable; agenda consistency channels proposition coupling."}
+{"problem_id": "minimal-model-checking", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "Minimality needs whole-assignment comparison; no bounded local witness."}
+{"problem_id": "min-max-regret", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "Regret couples fixed solution to scenario-optimum via objective."}
+{"problem_id": "network-interdiction", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "Interdiction set channels into follower's residual-network re-optimization."}
+{"problem_id": "bilevel-integer-programming", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "General joint constraints link leader/follower densely; no named channel."}
+{"problem_id": "robust-csp", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Constraints local; forall-extension channels through size-k partial assignment."}
+{"problem_id": "3-coloring-extension", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Edge coloring constraints local; forall-extend channels through boundary set."}
+{"problem_id": "skeptical-semistable-argumentation", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Pairwise attacks; skeptical check channels through every extension's graph."}
+{"problem_id": "skeptical-stage-argumentation", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Pairwise attacks; skeptical stage-check channels through attack graph."}
+{"problem_id": "two-stage-adjustable-robust", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "First-stage and recourse channel through budget-bounded scenario choice."}
+{"problem_id": "conformant-planning", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Actions bounded-local; one plan channels across all belief states."}
+{"problem_id": "ctl-satisfiability", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Operators local; path-quantifier fairness channels through model transitions."}
+{"problem_id": "dfa-intersection-emptiness", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "All k automata must accept same string; totally coupled."}
+{"problem_id": "generalized-checkers", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Piece moves local; win-strategy channels through sequential board transitions."}
+{"problem_id": "generalized-chess", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Long-range moves still bounded checks; strategy channels via board state."}
+{"problem_id": "generalized-go", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Group liberties and ko history channel through board-state comparison."}
+{"problem_id": "generalized-gomoku", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Bounded-window win-check; strategy channels through sequential stone placement."}
+{"problem_id": "generalized-hex", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Vertex claims local; s-t connectivity channels win globally."}
+{"problem_id": "independent-set-reconfiguration", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "One-token moves per step; reachability channels through move sequence."}
+{"problem_id": "intuitionistic-propositional-logic", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "Formula recurses over Kripke tree; bounded parent-child accessibility interface."}
+{"problem_id": "ltl-satisfiability", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Operators local; infinite-trace fairness channels through automaton transitions."}
+{"problem_id": "modal-logic-satisfiability", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "Formula recurses via tree-model; bounded accessibility interface between worlds."}
+{"problem_id": "nfa-universality", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Subset-construction couples all reachable states jointly; no separator."}
+{"problem_id": "node-kayles", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Each pick checks against picked-set; strategy channels via turns."}
+{"problem_id": "nondeterministic-constraint-logic", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Edge reversals local; target-reachability channels through move sequence."}
+{"problem_id": "presburger-arithmetic", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Arithmetic atoms bounded arity; quantifier alternation channels through blocks."}
+{"problem_id": "propositional-planning", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Operators bounded-local; goal-reachability channels through sequential state transitions."}
+{"problem_id": "qcsp", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Constraints bounded; quantifier alternation channels through per-round choice."}
+{"problem_id": "regex-squaring-inequivalence", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "Circuit-like squaring leaves decoded structure undetermined at this resolution."}
+{"problem_id": "sat-reconfiguration", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "One-variable flips per step; reachability channels through flip-path."}
+{"problem_id": "stochastic-sat", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Alternating existential/random quantifiers channel through per-variable branching."}
+{"problem_id": "succinct-hamiltonian-cycle", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "Circuit encoding leaves decoded graph's structure undetermined at this resolution."}
+{"problem_id": "succinct-sat", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "Circuit encoding leaves decoded formula's structure undetermined at this resolution."}
+{"problem_id": "abstract-argumentation", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Pairwise attacks; skeptical preferred-check channels through attack graph."}
+{"problem_id": "generalized-geography", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Edge extension local; no-revisit channels through growing visited-set."}
+{"problem_id": "bilevel-knapsack", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "Leader's choice channels into follower's separate knapsack re-optimization."}
+{"problem_id": "3-dimensional-assignment", "locality_class": "decomposable", "arity_class": "unbounded-fanin", "rationale": "Objective separable per-triple metric sum; matching constraint global."}
+{"problem_id": "3-partition", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "Arity-3 triple sums; disjoint packing combinatorial, no decomposition."}
+{"problem_id": "achromatic-number", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "Every color-class pair must be mutually adjacent; clique-like totality."}
+{"problem_id": "acyclic-coloring", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Each class-pair's induced subgraph must be acyclic; pairwise channel."}
+{"problem_id": "art-gallery", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Guard visibility unbounded-degree; geometry channels coverage, not totality."}
+{"problem_id": "b-chromatic-number", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "Each class needs a vertex touching all other classes; totality."}
+{"problem_id": "balanced-connected-partition", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Per-part connectivity local; max-min channels weights via partition."}
+{"problem_id": "balanced-vertex-separator", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Problem seeks the bounded separator itself; channeled by construction."}
+{"problem_id": "bandwidth", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Edges local; global all-different position labeling channels coupling."}
+{"problem_id": "betweenness", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "Arity-3 betweenness constraints; per-constraint certificates, no global decomposition."}
+{"problem_id": "biclique-cover", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Edge-coverage local-ish; biclique groupings channel unbounded vertex coupling."}
+{"problem_id": "bounded-pcp", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "Bounded-k domino chain; scaffold recursion over sequence position, decomposable."}
+{"problem_id": "boxicity", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "Every vertex-pair's edge/non-edge status constrains box placement; total."}
+{"problem_id": "broadcast-time", "locality_class": "mixed", "arity_class": "bounded-local", "rationale": "Per-round calls bounded-local; spreading channels through evolving informed-set."}
+{"problem_id": "capacitated-dominating-set", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Domination local per-neighbor; capacity channels assignees through shared dominator."}
+{"problem_id": "capacitated-facility-location", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Objective separable; capacity constraints channel clients through shared facility."}
+{"problem_id": "clique-width", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "Expression tree recursively builds G; join ops bounded interface."}
+{"problem_id": "closest-string", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Per-position choices channel through m shared distance budgets."}
+{"problem_id": "closest-substring", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "Per-position/offset choices channel through m substring distance budgets."}
