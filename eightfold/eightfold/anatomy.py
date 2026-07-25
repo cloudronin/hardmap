@@ -337,6 +337,35 @@ def passport_admissible(column: str, passports: dict) -> tuple:
     return (not bad), bad
 
 
+# ── TYPING SENTINELS: rows registered as instruments because they keep catching drift ─────────────────
+# A row that has forced the same class of correction repeatedly is not unlucky — it is the place where the
+# id / object / encoding seams cross, which makes it a TEST CASE. Registered the way `knapsack` became the
+# dissociation exhibit. Any future typing rule, validator, or coder qualification SHOULD include these.
+TYPING_SENTINELS = {
+    "graph-3-coloring": {
+        "role": "standing typing sentinel — the known-hard anchor for id/object/encoding drift",
+        "forced_corrections": [
+            ("methods instance 9", "audit-touched row conflated with a gradient-bending one (role drift)"),
+            ("methods instance 17", "object-drift class named; the pinned task, not the id, defines the object"),
+            ("Anatomy S2", "decomposition_facts: the pinned encoding is a random G(n,m) ENSEMBLE, a.a.s. "
+                           "non-planar with treewidth Theta(n) (Gao, DAM 160:566-578, 2012), so general-problem "
+                           "planar/treewidth facts describe a DIFFERENT object; both fields nulled"),
+        ],
+        "why_it_catches": ("its id names a classic decision problem, its pinned task is a promise/gap "
+                           "version, and its pinned encoding is a random ensemble — three different objects "
+                           "reachable from one row, so any rule that conflates them fails here first"),
+        "use": "include in every typing-rule test set, validator selftest, and coder qualification batch",
+    },
+    "knapsack": {
+        "role": "dissociation exhibit (registered earlier; recorded here for one registry)",
+        "forced_corrections": [("Mosaic L0", "FPTAS x W[1] — decomposable structure, off-diagonal "
+                                             "coordinate; the two-property split's originating case")],
+        "why_it_catches": "structure and charge coordinates provably come apart on this row",
+        "use": "anchor for any locality/structure instrument and any coupling claim",
+    },
+}
+
+
 def is_sociology(column: str) -> bool:
     """§3.4 law: a sociology column may appear only as a control term, never in a structural claim."""
     return column in SOCIOLOGY_COLUMNS

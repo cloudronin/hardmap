@@ -168,6 +168,31 @@ procedure), exactly as locality did — otherwise it is a variable the program c
 
 ---
 
+---
+
+## Flag 7 — `engine_type`'s credentials, for G0's prereg preamble (owner ruling, 2026-07-25)
+
+The passport ledger's `bet_history` field answered a question nobody had asked directly: *which admissible
+structural contrast has never been spent?* The answer lands on the column Bridge Ledger §3 already called
+prime real estate. **Record this verbatim in G0's prereg preamble as the column's credentials:**
+
+> The grid's headline structural bet is posed on a column that is **invariant by the Galois connection**
+> (Pol–Inv: polymorphism properties are invariants of the constraint language, not of any presentation of
+> it), **variance-healthy at its sealed collapse** (bounded-width yes/no = 3178/894 over 4072 arity-≤4
+> symmetry classes), and **never previously leaned on** (`bet_history` exposure: NONE — the 4-way split was
+> retired at build by Flag 5 before any bet was sealed on it).
+
+For contrast, the ledger's other end: **`locality_class` has been spent six times across three seals**
+(prereg_v10 P2/P3/P4/P5, addendum-01, prereg_v13) and is flagged **HIGH** exposure. A further bet on it is
+very likely a re-test of an already-scored contrast; if G0 poses one, it must state explicitly what is new
+about the population or the statistic.
+
+**Why this matters beyond hygiene:** it is the strongest available confirmation that the engine-split bet is
+pointed at the right column. Invariant, unstarved at its collapse, unspent, and sitting on an OPEN ledger
+cell that the I3 pinning pass confirmed is genuinely open. Those four properties rarely co-occur.
+
+---
+
 ## Carry-forward summary
 
 1. Prediction 2 splits: approx×objective empirical; **param×objective definitional (oracle-forced zero) —
