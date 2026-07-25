@@ -89,7 +89,7 @@ mandatory reason**, and that rule bites for real.
 | column | universe | provenance route | value vocabulary | bridge (Ledger §) |
 |---|---|---|---|---|
 | `locality_class` | natural | `coded` | decomposable · local-covering · delocalized · `n.a.` | — (instrument record *is* the provenance) |
-| `arity_class` | natural | `derived:from-verified-field` | bounded-local · unbounded-fanin · global-objective · `n.a.` | — (definitional) |
+| `arity_class` | natural | `derived:from-verified-field` | bounded-local · unbounded-fanin · global-objective · `n.a.` | **not definitional — presentation-relative; see §8.** Invariance anchors are ledger *candidates*, unpinned, therefore not citable |
 | `encoding_type` | natural | `derived:from-verified-field` | graph · cnf-circuit · geometric · matrix-vector · string · numeric-set · other | — (definitional) |
 | `objective_type` | natural | `derived:from-verified-field` / `judged` | Min-Ones · Max-Ones · Max-CSP · weighted · global-numeric · none | — |
 | `kernel_status` | natural | `cited` (R20) | poly-kernel · no-poly-unless-coNP⊆NP/poly · FPT-no-poly-known · no-kernel-W[1]-hard · `open` · `n.a.` | §6 |
@@ -363,7 +363,7 @@ a structural fact is a real and already-realized failure mode (Mosaic P6).
 | `decomposition_facts` | `encoding_type ∈ {graph, geometric}` — and that eligibility is **itself stratified by locality**: decomposable 52%, local-covering 62%, delocalized 81% (grid-relevant population, n=111) | Coverage is **not missing-at-random with respect to locality**. Any association between `decomposition_facts` and a locality-conditioned quantity must be reported against this gradient, or a coverage artifact will be read as structure. |
 | `reduction_out_degree` | membership in the pinned reductions.network snapshot (31 of 345) | Absent ≠ zero. Non-members are `open`. |
 | `objective_type` | 118 rows inherit sealed v2 pins; v3-new rows derive from the Cat-3 lexicon | Two provenance regimes in one column; consumers stratifying on it should check `provenance_status`. |
-| `arity_class` | **RELIABILITY, not coverage: the variable itself is weakly codable** — the two blind coders agree only **198/345 = 57% raw, Cohen κ = 0.360**, far below the 0.6 qualification bar (locality_3class, for contrast, is 0.646). The mechanical lexicon additionally falls through to `open` on **166/345 = 48%**. | The spec typed this column `derived (definitional)`. **It is not definitional** — it is a judgment call that never qualified as an instrument, which is precisely why it was coded twice and never resolved into a sidecar. Ship it with κ attached; **no bet may rest on it** without first demonstrating a resolution at which it qualifies. |
+| `arity_class` | **PRESENTATION-RELATIVE BY THEOREM — a property of the canonical *encoding*, not of the problem.** Measured unreliability is the symptom: two blind coders agree **198/345 = 57% raw, Cohen κ = 0.360** (vs `locality_class` 0.646), and the mechanical lexicon falls through to `open` on **166/345 = 48%**. | The spec typed this `derived (definitional)`. It is **not** definitional, and the reason is a theorem, not a coding failure — see §8. Ships with κ attached, **descriptive only**; no bet may rest on it absent a demonstrated qualifying resolution (grid Flag 6). |
 | `engine_type` | **VARIANCE, not coverage: the 4-way split is degenerate.** Marginals over 4072 classes: bounded-width 3105 · neither 890 · both 73 · **few-subpowers 4 (0.10%)**. | The 4-way cross cannot support a contingency test — one cell has 4 members. **The binaries are healthy** (bounded-width 3178/894; few-subpowers 77/3995) and are what a bet must be posed on. Not fixable by depth: arity 5 is 2^32 relations. |
 
 ---
@@ -408,3 +408,40 @@ The id-level overlap with `postlattice.REGISTRATION_ANCHORS` is a **cross-link, 
 Six anchors, one co-clone with no natural counterpart. They are recorded in the artifact as a registration
 cross-link so the two universes can be *joined* at known points without either column leaking into the
 other's universe.
+
+---
+
+## §8. Why `arity_class` could not work, and why `decomposition_facts` can — the invariance level
+
+Recorded 2026-07-25, after S2 measured the column rather than assumed it.
+
+**The failure was not the coders'.** `arity_class` asks *how wide are the interactions this problem
+imposes?* — a good question. But as specced it reads the answer off the **canonical encoding**, and the
+arity of a presentation is **not a property of the problem**: the same problem re-encoded changes its arity
+class without changing anything about the problem. 3-SAT presented as a CSP over a ternary relation is
+`bounded-local`; the same instance presented as a set-cover-shaped hypergraph problem is `unbounded-fanin`.
+Both presentations are faithful. Nothing about the problem moved.
+
+So there is **no problem-invariant fact in the pinned text to read**, and κ = 0.360 is the *measurement of
+that absence* — not evidence that two coders were careless. No reader, human, model, or regex, can code
+reliably what is not there. The typing was wrong before the instrument ran; the instrument is how we found
+out.
+
+**The constructive half, and it is the useful one.** The problem-invariant version of "how wide are the
+interactions" is not an arity label at all — it is a **width measure of the constraint hypergraph**:
+treewidth, and its generalizations hypertree width and submodular width. Those are invariant under
+re-encoding in exactly the way an arity label is not, and the field settled which structures have that
+property decades ago.
+
+**That is `decomposition_facts`** — the column being cited at R20 in this same milestone.
+
+> **`arity_class` and `decomposition_facts` are the same question asked at the wrong and the right level of
+> invariance.** The instrument strain did not merely flag a bad column; it re-derived a known theorem from
+> the direction of measurement: **anatomy must be read from structure that survives re-encoding.**
+
+**Bridge-citation status — NOT YET PINNED, and therefore not yet citable.** The natural anchors for the
+invariance claim (Feder–Vardi's structural-vs-relational restriction framing, and the tractability
+characterizations by bounded treewidth up to homomorphic equivalence in the bounded-arity case) are **ledger
+candidates, not ledger rows.** Per §3.6 no column may carry them as a `bridge_citation` until they pass the
+I3 pinning pass — which is precisely the gate that just caught ten of fifteen ledger cells. The claim above
+stands as schema prose with its reasoning exposed; it becomes a citable bridge only after pinning.

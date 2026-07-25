@@ -66,10 +66,24 @@ COLUMNS = {
         "universe": NATURAL, "route": PROV_CODED,
         "values": ("decomposable", "local-covering", "delocalized"),
         "bridge": None},
+    # PRESENTATION-RELATIVE BY THEOREM, not definitional (SCHEMA §8). Arity is a property of the CANONICAL
+    # ENCODING, not of the problem: 3-SAT presented as a CSP over a ternary relation is `bounded-local`; the
+    # same instance presented as a hypergraph covering problem is `unbounded-fanin`, and nothing about the
+    # problem moved. So there is no problem-invariant fact in the pinned text to read, and kappa = 0.360
+    # between two blind coders MEASURES that absence rather than their carelessness.
+    # The problem-invariant version of "how wide are the interactions" is a WIDTH MEASURE OF THE CONSTRAINT
+    # HYPERGRAPH (treewidth / hypertree width / submodular width) -- i.e. `decomposition_facts`. The two
+    # columns are the same question asked at the wrong and the right level of invariance.
+    # Descriptive only; no bet may rest on it (grid Flag 6). Invariance anchors are ledger CANDIDATES and
+    # remain unpinned, so they may not be carried as a bridge_citation (§3.6).
     "arity_class": {
         "universe": NATURAL, "route": PROV_FIELD,
         "values": ("bounded-local", "unbounded-fanin", "global-objective"),
-        "bridge": None},
+        "bridge": None,
+        "reliability": {"inter_coder_kappa": 0.360, "raw_agreement": 0.574, "n": 345,
+                        "qualification_bar": 0.6, "qualifies": False,
+                        "contrast": "locality_class kappa = 0.646"},
+        "invariance": "presentation-relative; see Anatomy-SCHEMA §8"},
     "encoding_type": {
         "universe": NATURAL, "route": PROV_FIELD,
         "values": ("graph", "cnf-circuit", "geometric", "matrix-vector", "string", "numeric-set", "other"),
