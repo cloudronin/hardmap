@@ -12,6 +12,8 @@ CLAIM_IDS = {
 INSTANT = [
     "factors.kstar", "natural.v3.v", "natural.prism.residuals",
     "natural.direction.corrected", "census.backbone", "census.plurality",
+    "anatomy.artifact.sha256", "anatomy.passports.verdicts", "anatomy.instrument.kappa",
+    "anatomy.decomposition.coverage",
 ]
 
 

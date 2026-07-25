@@ -213,3 +213,53 @@ claims:
     artifact: eightfold/eightfold/results/atlas/quarry-v2-fills.jsonl
     expected: {n_verified_fills: 22}
     tolerance: {n_verified_fills: {abs: 0}}
+
+  # --- Anatomy (Structure Atlas) — S4. The repo's FIRST artifact-hash claims: `artifact:` has always been
+  # declarative (never read by any code), so the digest is pinned via an adapter that computes it.
+  - id: anatomy.artifact.sha256
+    description: "Anatomy v1 frozen artifact — bytes and shape (4417 rows: 345 natural + 4072 boolean)"
+    tier: fast
+    fast: "hardmap.claims.anatomy_claims:artifact_sha256"
+    artifact: eightfold/eightfold/results/atlas/anatomy_v1.jsonl
+    expected:
+      sha256: "8ff11f8a33bbdce7c6fbd3cf2607aad48462240720b90fa511c2350d9dcb5182"
+      n_rows: 4417
+      n_natural: 345
+      n_boolean: 4072
+    tolerance: exact
+
+  - id: anatomy.passports.verdicts
+    description: "Column passport audit — 3 of 11 columns admissible for a sealed bet as-is, 4 more via collapse"
+    tier: fast
+    fast: "hardmap.claims.anatomy_claims:passport_verdicts"
+    artifact: eightfold/eightfold/results/atlas/anatomy-passports.json
+    expected: {n_columns: 11, n_admissible: 3, n_with_collapse: 4, n_invariant: 2}
+    tolerance:
+      n_columns: {abs: 0}
+      n_admissible: {abs: 0}
+      n_with_collapse: {abs: 0}
+      n_invariant: {abs: 0}
+
+  - id: anatomy.instrument.kappa
+    description: "Coded instrument qualification record (extracted from stdout at S1): kappa 0.646 at 3-class, anchors 7/7"
+    tier: fast
+    fast: "hardmap.claims.anatomy_claims:instrument_kappa"
+    artifact: eightfold/eightfold/results/atlas/anatomy-instruments.json
+    expected: {kappa_3class: 0.6463, demonstrated_resolution: "3-class", anchors_pass: true, separability_fires: false}
+    tolerance:
+      kappa_3class: {abs: 0.001}
+      demonstrated_resolution: exact
+      anchors_pass: exact
+      separability_fires: exact
+
+  - id: anatomy.decomposition.coverage
+    description: "decomposition_facts: kill-2 coverage 84% PASSES while the usability census fails it (planar 94% modal)"
+    tier: fast
+    fast: "hardmap.claims.anatomy_claims:decomposition_coverage"
+    artifact: eightfold/eightfold/results/atlas/anatomy-decomposition-facts.jsonl
+    expected: {n_eligible: 77, n_filled: 65, coverage: 0.844, planar_modal_share: 0.941}
+    tolerance:
+      n_eligible: {abs: 0}
+      n_filled: {abs: 0}
+      coverage: {abs: 0.005}
+      planar_modal_share: {abs: 0.005}

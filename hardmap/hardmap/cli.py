@@ -24,6 +24,12 @@ def build_parser() -> argparse.ArgumentParser:
 
     sub.add_parser("verify", help="run the internal-coherence sweep")
 
+    pan = sub.add_parser("anatomy", help="dump the Structure Atlas (rows, or the column passport table)")
+    pan.add_argument("--format", choices=["jsonl", "csv"], default="jsonl")
+    pan.add_argument("--universe", choices=["natural", "boolean"], help="filter to one universe")
+    pan.add_argument("--column", help="filter to rows carrying this column")
+    pan.add_argument("--passports", action="store_true", help="dump the passport table instead of rows")
+
     pa = sub.add_parser("atlas", help="dump the frozen charge atlas")
     pa.add_argument("--format", choices=["jsonl", "csv"], default="jsonl")
 
@@ -38,6 +44,10 @@ def main(argv: list[str] | None = None) -> int:
         return repro_cmd.run(claim_ids=args.claim, full=args.full, list_only=args.list)
     if args.command == "verify":
         return verify_cmd.run()
+    if args.command == "anatomy":
+        from . import anatomy as anatomy_cmd
+        return anatomy_cmd.run(fmt=args.format, universe=args.universe,
+                               column=args.column, passports=args.passports)
     if args.command == "atlas":
         return atlas_cmd.run(fmt=args.format)
     parser.print_help()

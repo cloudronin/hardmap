@@ -138,7 +138,44 @@ def check_stratified_v_known_answers() -> list[str]:
     return bad
 
 
+def check_anatomy_passports_complete() -> list[str]:
+    """Anatomy S3 freeze gate, enforced in CI: every shipped column carries an invariance verdict, a
+    property_of statement when relative, and RECORDED variance flags. CLEAN means COMPLETE AND HONEST, not
+    all-green -- `starved` and `encoding-relative` are legal; UNDECLARED is not. Also re-checks the
+    pin-before-net rule: no cell may carry a bridge_citation that is not PINNED in the Bridge Ledger."""
+    import json
+    from eightfold import anatomy as AN
+    d = _eightfold_atlas()
+    pp, art = d / "anatomy-passports.json", d / "anatomy_v1.jsonl"
+    if not pp.exists() or not art.exists():
+        return []                       # not built yet; the suite's skipif idiom, one level up
+    bad = []
+    doc = _load(pp)
+    for c in AN.COLUMNS:
+        p = doc.get("columns", {}).get(c)
+        if p is None:
+            bad.append(f"anatomy: shipped column {c!r} has no passport")
+            continue
+        if p.get("invariance") not in AN.INVARIANCE_VERDICTS:
+            bad.append(f"anatomy[{c}]: invariance verdict missing/unrecognized")
+        if p.get("invariance") != AN.INVARIANT and not p.get("property_of"):
+            bad.append(f"anatomy[{c}]: relative column does not say what it is a property of")
+        if "variance" not in p:
+            bad.append(f"anatomy[{c}]: variance flags not recorded")
+    for line in art.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        row = json.loads(line)
+        for cell in row.get("features", []):
+            b = cell.get("bridge_citation")
+            if b and b not in AN.PINNED_BRIDGES:
+                bad.append(f"anatomy[{row['row_key']}.{cell['feature']}]: bridge {b!r} is NOT PINNED "
+                           f"(pin-before-net); fall back to `open` rather than borrow the warrant")
+    return bad
+
+
 CHECKS = [
+    ("Anatomy passports complete + bridges pinned", check_anatomy_passports_complete),
     ("Stratified V known-answer gate (defect #15)", check_stratified_v_known_answers),
     ("Cramér's V in [0,1]", check_cramers_v_range),
     ("Factors k* inside verdict interval", check_factors_kstar_interval),

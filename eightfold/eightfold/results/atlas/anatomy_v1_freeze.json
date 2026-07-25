@@ -1,0 +1,26 @@
+{
+  "artifact": "anatomy_v1.jsonl",
+  "sha256": "8ff11f8a33bbdce7c6fbd3cf2607aad48462240720b90fa511c2350d9dcb5182",
+  "n_rows": 4417,
+  "frozen": "2026-07-25",
+  "schema": "Anatomy-SCHEMA.md",
+  "companions": {
+    "anatomy-passports.json": "5da426c177bb53d73489fda035996ed1c322b298eea620605799485793b5538f",
+    "anatomy-instruments.json": "86e2781e4951099f0337c9cdde0847b681d53d05ce4cd7d1e9bafc45f4b5b2bd",
+    "anatomy-decomposition-facts.jsonl": "0fcb17b20d997a78a3947892981b1bdb1b816a164f7dd300ed80c8ea25f53691",
+    "anatomy-s2-conditionchecks.json": "07649896bd33910e48e187c26301c97a111d8041ba4787598f076312eadb2123"
+  },
+  "gates": {
+    "charge_atlas_bytes_untouched": true,
+    "schema_validation": true,
+    "kill_1_transit_integrity": true,
+    "kill_2_coverage": {
+      "filled": 65,
+      "n": 77,
+      "rate": 0.844
+    },
+    "passport_table_complete": true,
+    "variance_flags_recorded": true
+  },
+  "note": "CLEAN MEANS COMPLETE AND HONEST, NOT ALL-GREEN: encoding-relative and starved are legal statuses. 4 of 11 columns are excluded from sealed bets and that is a recorded property of the artifact, not a defect in it."
+}
