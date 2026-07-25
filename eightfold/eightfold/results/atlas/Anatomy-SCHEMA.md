@@ -445,3 +445,74 @@ characterizations by bounded treewidth up to homomorphic equivalence in the boun
 candidates, not ledger rows.** Per §3.6 no column may carry them as a `bridge_citation` until they pass the
 I3 pinning pass — which is precisely the gate that just caught ten of fifteen ledger cells. The claim above
 stands as schema prose with its reasoning exposed; it becomes a citable bridge only after pinning.
+
+---
+
+## §9. Column passports — every column earns one before S3 freezes
+
+**The prior question.** The program had *census-before-seal* (does it vary?) and the *qualification bar*
+(can it be read?). Neither asks what comes first: **is this column well-defined on its object at all?** A
+column can pass coverage, pass variance, and still be measuring an artifact of presentation — which is what
+`arity_class` turned out to be, by theorem rather than by accident (§8). That gate is §9.
+
+**Three checks per column**, all 11 shipped plus the 4 reserved names (so a future fill inherits the typing):
+
+1. **Invariance** — `invariant` / `encoding-relative` / `parameter-relative` / `corpus-relative`, each with
+   its reason pinned I3-style and a `property_of` statement. Authored in `anatomy.PASSPORT_INVARIANCE`
+   (these are theorem judgments, not computations).
+2. **Variance** — marginals computed from the artifact; any cell under the floor flagged **machine-readably**
+   (`min_cell = 5`, `max_modal_share = 0.90`), so no future prereg can seal on a starved cell without the
+   artifact objecting.
+3. **Readability** — measured κ beside the invariance verdict. **The adjacency is the point:** low κ on an
+   *encoding-relative* column is the theorems talking, not the coders.
+
+Artifact: **`anatomy-passports.json`**. Gate: `anatomy.passport_admissible()`.
+
+### 9.1 The table
+
+| column | invariance | variance | κ | admissible for a sealed bet |
+|---|---|---|---|---|
+| `poly_fingerprint` | **invariant** (Galois connection Pol–Inv) | non-categorical | — | **yes** |
+| `engine_type` | **invariant** (inherits Pol–Inv) | **STARVED** few-subpowers=4 | — | no → **yes at collapse** (bounded-width y/n = 3178/894) |
+| `locality_class` | encoding-relative (the pinned task) | ok | **0.646** | **yes** |
+| `encoding_type` | encoding-relative (definitionally) | ok | — | **yes** |
+| `class_size` | encoding-relative (declared arity) | non-categorical | — | **yes** (weight, not feature) |
+| `arity_class` | encoding-relative (**Feder–Vardi**, §8) | ok | **0.360** | **no** — readability fails |
+| `objective_type` | encoding-relative (objective *as expressed*) | **STARVED** weighted=2 | — | no |
+| `kernel_status` | parameter-relative (pinned parameter) | **STARVED** 4,1 | — | no → **yes at collapse** (poly vs no-poly within FPT = 24/22) |
+| `self_reducibility` | parameter-relative (ensemble/factor) | **STARVED** n=3, 100% modal | — | no |
+| `decomposition_facts` | encoding-relative (pinned representation) | not censused (S2 pending) | — | no *until built* |
+| `reduction_out_degree` | **corpus-relative** (a snapshot) | non-categorical | — | no — covariate only |
+| *reserved:* `channelness`, `fo_form`, `tuple_density`, `row_relations` | encoding-relative (provisional) | not built | — | no |
+
+**4 of 11 admissible as-is; 2 more via a sealed collapse.**
+
+### 9.2 Two audit findings that did not match expectation
+
+- **`class_size` is encoding-relative, not a free pass.** It is an orbit size *at the declared arity*: a
+  relation padded to higher arity is the same constraint with a different number. Usable as a weight, never
+  as a feature.
+- **`reduction_out_degree` forced a fourth status.** It counts reductions *someone recorded* — a fact about
+  a curated corpus at commit `8089fb4f`, not about the problem. A reduction published tomorrow moves it.
+  **`corpus-relative`**, covariate only, quarantined in spirit with the sociology sidecar.
+
+### 9.3 The resolution ladder, applied to columns
+
+A column starved at full resolution may still carry a bet at a coarser one — exactly how `locality_class`
+qualified at 3-class after failing at 5. Where a collapse is meaningful **and** unstarved it is recorded in
+`admissible_collapse`, so the ladder is visible instead of the column reading as dead. **A collapse must be
+sealed in a prereg before use**, like any resolution choice.
+
+### 9.4 The S3 freeze gate, extended
+
+Freeze requires: **passport table complete · no shipped or reserved column without verdicts · variance flags
+recorded.** **Clean means COMPLETE AND HONEST, not all-green** — `encoding-relative` and `starved` are legal
+statuses; *undeclared* ones are not.
+
+### 9.5 Downstream binding (owner ruling, 2026-07-25)
+
+> **G0's sealed feature lists draw only from columns whose passport reads invariant-or-pinned-relative AND
+> unstarved AND (if coded) qualified.** Relativity is not disqualifying; **undeclared** relativity is.
+
+This closes the class all three build-time catches belonged to — the objective-independent param oracle,
+manufactured expansion, and the 4-way engine split: **no bet sealed on a column that could not carry it.**

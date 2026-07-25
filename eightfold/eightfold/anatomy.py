@@ -157,6 +157,117 @@ COVERAGE_CONDITIONING = {
 }
 
 
+# ── COLUMN PASSPORTS: invariance verdicts (SCHEMA §9) ─────────────────────────────────────────────────
+# The prior question no gate asked before: is this column WELL-DEFINED ON ITS OBJECT AT ALL? A column can
+# pass coverage, pass variance, and still be measuring an artifact of presentation. Verdicts are AUDITED
+# here, not inherited from expectation; two landed differently than expected and are marked as such.
+INVARIANT = "invariant"                     # survives re-encoding of the object
+ENCODING_RELATIVE = "encoding-relative"     # a property of the chosen presentation
+PARAMETER_RELATIVE = "parameter-relative"   # meaningful only against a pinned parameter/ensemble
+CORPUS_RELATIVE = "corpus-relative"         # a property of a curated snapshot, not of the problem
+INVARIANCE_VERDICTS = frozenset({INVARIANT, ENCODING_RELATIVE, PARAMETER_RELATIVE, CORPUS_RELATIVE})
+
+PASSPORT_INVARIANCE = {
+    "poly_fingerprint": (INVARIANT, "property_of: the constraint language, up to pp-interdefinability",
+        "The Galois connection Pol-Inv (Geiger 1968; Bodnarchuk-Kaluznin-Kotov-Romov 1969): a relation's "
+        "polymorphisms determine its pp-definable closure and vice versa. Polymorphism flags are therefore "
+        "invariants of the language, not of any presentation of it -- that is what a polymorphism IS."),
+    "engine_type": (INVARIANT, "property_of: the constraint language, up to pp-interdefinability",
+        "Derived entirely from poly_fingerprint, so it inherits that invariance. The characterizations it "
+        "names are themselves language-level: bounded width <-> SD(^) (Barto-Kozik JACM 2014; necessity "
+        "Larose-Zadori 2007), few subpowers <-> k-edge/Maltsev (IMMVW). Bridge cite ONLY in the corrected "
+        "form -- ledger §9.2b."),
+    "class_size": (ENCODING_RELATIVE, "property_of: the relation AT ITS DECLARED ARITY",
+        "AUDIT FINDING, not the expected landing. class_size is the orbit size under coordinate permutation "
+        "at the declared arity. A relation padded to a higher arity is the same constraint with a different "
+        "orbit size, so the number moves without the language moving. Usable as a weight, never as a feature."),
+    "locality_class": (ENCODING_RELATIVE, "property_of: the PINNED canonical task/encoding",
+        "Coded from pinned task text only. Its object is the pinned task, which is exactly why the "
+        "graph-3-coloring precedent (methods instances 9, 17) governs it: when the name and the pinned task "
+        "disagree, the pinned task wins. Qualified at 3-class, kappa 0.646."),
+    "arity_class": (ENCODING_RELATIVE, "property_of: the canonical encoding ONLY",
+        "Feder-Vardi binarization: any CSP re-encodes to a binary CSP preserving the problem, so arity does "
+        "not survive re-encoding -- only the algebraic invariants do. 3-SAT as a ternary CSP is "
+        "bounded-local; as a hypergraph covering problem, unbounded-fanin; the problem did not move. "
+        "kappa=0.360 MEASURES that absence rather than coder carelessness (SCHEMA §8)."),
+    "encoding_type": (ENCODING_RELATIVE, "property_of: the canonical encoding, definitionally",
+        "The column's declared object IS the encoding, so encoding-relativity is not a defect here -- it is "
+        "the column's definition. It is honest as a covariate and as a typing key for which "
+        "decomposition_facts can apply; it is NOT a problem-level fact."),
+    "objective_type": (ENCODING_RELATIVE, "property_of: the objective AS EXPRESSED in the pinned task",
+        "AUDIT FINDING, not a free pass. The class depends on how the objective is written: a cardinality "
+        "of a selected set vs a numeric quantity is a wording call, which is why the sealed Cat-3 pass "
+        "needed 30 owner-judged rows and two reason tags ('structural-parameter objective', "
+        "'constrained-cardinality variant'). The objective is constitutive of the problem; its CLASSIFICATION "
+        "is presentation-relative."),
+    "kernel_status": (PARAMETER_RELATIVE, "property_of: (problem, PINNED parameter)",
+        "Kernelization is defined relative to a parameter: a problem may admit a poly kernel by one "
+        "parameter and none by another. The pinned parameter travels in the cell. Coverage is additionally "
+        "FPT-conditioned (§6)."),
+    "self_reducibility": (PARAMETER_RELATIVE, "property_of: (problem, ensemble/approximation factor)",
+        "Pinned at I3: Ajtai's worst-to-average is one-directional, for gamma = n^O(1) APPROXIMATION "
+        "versions over an ENGINEERED distribution; permanent RSR needs |F| >= deg+2 and tolerates only "
+        "1/poly error. Neither is a bare problem property -- both are relative to a stated ensemble."),
+    "decomposition_facts": (ENCODING_RELATIVE, "property_of: (problem, PINNED structural representation)",
+        "The RIGHT level of invariance for anatomy, but still relative -- and the relativity is real, not "
+        "pedantic: FMR's pinning showed the treewidth bound depends on WHICH graph (primal / incidence / "
+        "signed-incidence) the encoding pins. Width measures survive re-encoding of the problem in the way "
+        "arity does not (SCHEMA §8); they do not float free of the chosen representation. Say which graph."),
+    "reduction_out_degree": (CORPUS_RELATIVE, "property_of: the PINNED reductions.network snapshot",
+        "AUDIT FINDING, and a fourth status the data forced. Out-degree counts reductions SOMEONE RECORDED. "
+        "It is a fact about a curated corpus at commit 8089fb4f, not about the problem: a reduction "
+        "published tomorrow changes it. Legitimate as a sociology-adjacent covariate; never a structural "
+        "feature. Absent is not zero (§2.5)."),
+    # reserved names get passports too, so a future fill inherits the typing (verdicts PROVISIONAL -- no data)
+    "channelness": (ENCODING_RELATIVE, "property_of: the objective as related to the pinned structure",
+        "PROVISIONAL (unmeasured, deferred to G0). Inherits objective_type's relativity: it asks how the "
+        "objective couples to structure, and both terms are presentation-relative."),
+    "fo_form": (ENCODING_RELATIVE, "property_of: the chosen FO formulation",
+        "PROVISIONAL. X-positive/X-negative is a property of a FORMULA, not of a problem; a problem has many "
+        "FO formulations. Ledger §4 anchors are PINNED, but they license a class-level PTAS statement, not "
+        "a per-row label."),
+    "tuple_density": (ENCODING_RELATIVE, "property_of: the relation at its declared arity",
+        "PROVISIONAL. |R|/2^arity moves under arity padding for the same reason class_size does."),
+    "row_relations": (ENCODING_RELATIVE, "property_of: the pinned encodings of BOTH endpoints",
+        "PROVISIONAL (v1.1). A dual_of / complement_of edge is a claim about two pinned presentations; "
+        "the spec's own rule that each edge 'is a claim carrying a warrant' is this relativity restated."),
+}
+
+# G0 BINDING (owner ruling, 2026-07-25): a sealed feature list may draw ONLY from columns whose passport
+# reads invariant-or-pinned-relative AND unstarved AND (if coded) qualified. Relativity is not
+# disqualifying -- UNDECLARED relativity is. This is the rule that closes the class all three build-time
+# catches belonged to: no bet sealed on a column that could not carry it.
+def passport_admissible(column: str, passports: dict) -> tuple:
+    """Returns (admissible: bool, reasons: list[str]) for G0 feature-list eligibility."""
+    p = (passports or {}).get("columns", {}).get(column)
+    if p is None:
+        return False, [f"{column}: no passport — undeclared columns are never admissible"]
+    bad = []
+    if p.get("invariance") not in INVARIANCE_VERDICTS:
+        bad.append(f"{column}: invariance verdict missing or unrecognized")
+    if p.get("invariance") != INVARIANT and not p.get("property_of"):
+        bad.append(f"{column}: relative column must declare what it is a property of")
+    # CORPUS-RELATIVE is declared and pinned, but it is a fact about a curated snapshot rather than about
+    # the problem — a reduction published tomorrow moves it. Covariate only, like the sociology sidecar.
+    if p.get("invariance") == CORPUS_RELATIVE:
+        bad.append(f"{column}: CORPUS-RELATIVE — a property of a curated snapshot, not of the problem; "
+                   f"admissible as a covariate, never as a structural feature")
+    var = p.get("variance", {})
+    if var.get("starved"):
+        bad.append(f"{column}: STARVED — {var.get('starved_note', 'a cell is below the Cochran floor')}")
+    # `starved: None` is NOT a pass. Distinguish "no categorical census applies" from "never censused".
+    elif var.get("starved") is None and var.get("kind") != "non-categorical":
+        bad.append(f"{column}: variance NOT CENSUSED ({var.get('kind')}) — an untested column cannot be "
+                   f"sealed on; it becomes admissible when built and censused")
+    # Readability gates on the PRESENCE of a readability verdict, not on the route. A column can be derived
+    # and still have a measured readability (arity_class), and a failing kappa must exclude it either way.
+    r = p.get("readability")
+    if r is not None and not r.get("qualifies"):
+        bad.append(f"{column}: readability FAILS — kappa {r.get('kappa')} below the "
+                   f"{r.get('bar')} bar, no qualifying resolution demonstrated")
+    return (not bad), bad
+
+
 def is_sociology(column: str) -> bool:
     """§3.4 law: a sociology column may appear only as a control term, never in a structural claim."""
     return column in SOCIOLOGY_COLUMNS

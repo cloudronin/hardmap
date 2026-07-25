@@ -1,0 +1,380 @@
+{
+  "schema": "anatomy-passports/v1",
+  "note": "One passport per column: invariance verdict (is it well-defined on its object?), variance census (can it carry a contrast?), readability (can it be read reliably?). CLEAN means COMPLETE AND HONEST, not all-green: `encoding-relative` and `starved` are legal statuses; undeclared ones are not.",
+  "variance_rule": {
+    "min_cell": 5,
+    "max_modal_share": 0.9,
+    "note": "observed-count proxy for Cochran; sentinels excluded from the test"
+  },
+  "g0_binding": "A sealed feature list may draw ONLY from columns whose passport reads invariant-or-pinned-relative AND unstarved AND (if coded) qualified. Relativity is not disqualifying; UNDECLARED relativity is.",
+  "columns": {
+    "arity_class": {
+      "column": "arity_class",
+      "shipped": true,
+      "universe": "natural",
+      "route": "derived:from-verified-field",
+      "invariance": "encoding-relative",
+      "property_of": "property_of: the canonical encoding ONLY",
+      "invariance_reason": "Feder-Vardi binarization: any CSP re-encodes to a binary CSP preserving the problem, so arity does not survive re-encoding -- only the algebraic invariants do. 3-SAT as a ternary CSP is bounded-local; as a hypergraph covering problem, unbounded-fanin; the problem did not move. kappa=0.360 MEASURES that absence rather than coder carelessness (SCHEMA \u00a78).",
+      "bridge_citation": null,
+      "variance": {
+        "kind": "categorical",
+        "n_cells": 345,
+        "n_real": 179,
+        "marginal": {
+          "global-objective": 101,
+          "bounded-local": 60,
+          "unbounded-fanin": 18
+        },
+        "modal_share": 0.564,
+        "thin_cells": {},
+        "starved": false,
+        "starved_note": null
+      },
+      "readability": {
+        "instrument": "the same two blind coders (never resolved to a sidecar)",
+        "kappa": 0.36,
+        "bar": 0.6,
+        "qualifies": false,
+        "reading": "low kappa on an ENCODING-RELATIVE column is the theorems talking, not the coders \u2014 there is no invariant fact to read"
+      },
+      "admissible_collapse": null
+    },
+    "class_size": {
+      "column": "class_size",
+      "shipped": true,
+      "universe": "boolean",
+      "route": "derived:from-oracle",
+      "invariance": "encoding-relative",
+      "property_of": "property_of: the relation AT ITS DECLARED ARITY",
+      "invariance_reason": "AUDIT FINDING, not the expected landing. class_size is the orbit size under coordinate permutation at the declared arity. A relation padded to a higher arity is the same constraint with a different orbit size, so the number moves without the language moving. Usable as a weight, never as a feature.",
+      "bridge_citation": null,
+      "variance": {
+        "kind": "non-categorical",
+        "n_cells": 4072,
+        "n_real": 4072,
+        "starved": null,
+        "note": "record- or scalar-valued; no categorical contrast to census"
+      },
+      "readability": null,
+      "admissible_collapse": null
+    },
+    "decomposition_facts": {
+      "column": "decomposition_facts",
+      "shipped": true,
+      "universe": "natural",
+      "route": "cited",
+      "invariance": "encoding-relative",
+      "property_of": "property_of: (problem, PINNED structural representation)",
+      "invariance_reason": "The RIGHT level of invariance for anatomy, but still relative -- and the relativity is real, not pedantic: FMR's pinning showed the treewidth bound depends on WHICH graph (primal / incidence / signed-incidence) the encoding pins. Width measures survive re-encoding of the problem in the way arity does not (SCHEMA \u00a78); they do not float free of the chosen representation. Say which graph.",
+      "bridge_citation": "\u00a71,\u00a72",
+      "variance": {
+        "kind": "not-built",
+        "starved": null,
+        "note": "column not present in the artifact (reserved, or pending S2 citations)"
+      },
+      "readability": null,
+      "admissible_collapse": null
+    },
+    "encoding_type": {
+      "column": "encoding_type",
+      "shipped": true,
+      "universe": "natural",
+      "route": "derived:from-verified-field",
+      "invariance": "encoding-relative",
+      "property_of": "property_of: the canonical encoding, definitionally",
+      "invariance_reason": "The column's declared object IS the encoding, so encoding-relativity is not a defect here -- it is the column's definition. It is honest as a covariate and as a typing key for which decomposition_facts can apply; it is NOT a problem-level fact.",
+      "bridge_citation": null,
+      "variance": {
+        "kind": "categorical",
+        "n_cells": 345,
+        "n_real": 345,
+        "marginal": {
+          "graph": 175,
+          "other": 50,
+          "cnf-circuit": 43,
+          "numeric-set": 29,
+          "string": 21,
+          "matrix-vector": 15,
+          "geometric": 12
+        },
+        "modal_share": 0.507,
+        "thin_cells": {},
+        "starved": false,
+        "starved_note": null
+      },
+      "readability": null,
+      "admissible_collapse": null
+    },
+    "engine_type": {
+      "column": "engine_type",
+      "shipped": true,
+      "universe": "boolean",
+      "route": "derived:from-oracle",
+      "invariance": "invariant",
+      "property_of": "property_of: the constraint language, up to pp-interdefinability",
+      "invariance_reason": "Derived entirely from poly_fingerprint, so it inherits that invariance. The characterizations it names are themselves language-level: bounded width <-> SD(^) (Barto-Kozik JACM 2014; necessity Larose-Zadori 2007), few subpowers <-> k-edge/Maltsev (IMMVW). Bridge cite ONLY in the corrected form -- ledger \u00a79.2b.",
+      "bridge_citation": "\u00a73",
+      "variance": {
+        "kind": "categorical",
+        "n_cells": 4072,
+        "n_real": 4072,
+        "marginal": {
+          "bounded-width": 3105,
+          "neither": 890,
+          "both": 73,
+          "few-subpowers": 4
+        },
+        "modal_share": 0.763,
+        "thin_cells": {
+          "few-subpowers": 4
+        },
+        "starved": true,
+        "starved_note": "cells below the Cochran floor (n<5): few-subpowers=4"
+      },
+      "readability": null,
+      "admissible_collapse": {
+        "collapse": "bounded-width yes/no",
+        "counts": {
+          "yes": 3178,
+          "no": 894
+        },
+        "starved": false,
+        "note": "the 4-way split is dead (few-subpowers-only = 4/4072) but the BINARY is healthy; grid Flag 5 already binds G0 to pose the engine bet as a binary. few-subpowers yes/no is 77/3995 \u2014 thin but above the floor."
+      }
+    },
+    "kernel_status": {
+      "column": "kernel_status",
+      "shipped": true,
+      "universe": "natural",
+      "route": "cited",
+      "invariance": "parameter-relative",
+      "property_of": "property_of: (problem, PINNED parameter)",
+      "invariance_reason": "Kernelization is defined relative to a parameter: a problem may admit a poly kernel by one parameter and none by another. The pinned parameter travels in the cell. Coverage is additionally FPT-conditioned (\u00a76).",
+      "bridge_citation": "\u00a76",
+      "variance": {
+        "kind": "categorical",
+        "n_cells": 57,
+        "n_real": 51,
+        "marginal": {
+          "poly-kernel": 24,
+          "no-poly-unless-coNP\u2286NP/poly": 22,
+          "FPT-no-poly-known": 4,
+          "no-kernel-W[1]-hard": 1
+        },
+        "modal_share": 0.471,
+        "thin_cells": {
+          "FPT-no-poly-known": 4,
+          "no-kernel-W[1]-hard": 1
+        },
+        "starved": true,
+        "starved_note": "cells below the Cochran floor (n<5): FPT-no-poly-known=4, no-kernel-W[1]-hard=1"
+      },
+      "readability": null,
+      "admissible_collapse": {
+        "collapse": "poly-kernel vs no-poly-kernel, WITHIN FPT",
+        "counts": {
+          "poly": 24,
+          "no-poly": 22
+        },
+        "starved": false,
+        "note": "the 5-way is starved, but the informative residual Mosaic P6 sealed -- poly vs no-poly within FPT -- is 24/22 and healthy. Ledger \u00a76's correction says exactly this: the FPT<->kernel equivalence carries no efficiency content, so the binary IS the content."
+      }
+    },
+    "locality_class": {
+      "column": "locality_class",
+      "shipped": true,
+      "universe": "natural",
+      "route": "coded",
+      "invariance": "encoding-relative",
+      "property_of": "property_of: the PINNED canonical task/encoding",
+      "invariance_reason": "Coded from pinned task text only. Its object is the pinned task, which is exactly why the graph-3-coloring precedent (methods instances 9, 17) governs it: when the name and the pinned task disagree, the pinned task wins. Qualified at 3-class, kappa 0.646.",
+      "bridge_citation": null,
+      "variance": {
+        "kind": "categorical",
+        "n_cells": 345,
+        "n_real": 338,
+        "marginal": {
+          "delocalized": 236,
+          "local-covering": 56,
+          "decomposable": 46
+        },
+        "modal_share": 0.698,
+        "thin_cells": {},
+        "starved": false,
+        "starved_note": null
+      },
+      "readability": {
+        "instrument": "mosaic-3class-v1",
+        "kappa": 0.6463,
+        "demonstrated_resolution": "3-class",
+        "bar": 0.6,
+        "qualifies": true
+      },
+      "admissible_collapse": null
+    },
+    "objective_type": {
+      "column": "objective_type",
+      "shipped": true,
+      "universe": "natural",
+      "route": "derived:from-verified-field",
+      "invariance": "encoding-relative",
+      "property_of": "property_of: the objective AS EXPRESSED in the pinned task",
+      "invariance_reason": "AUDIT FINDING, not a free pass. The class depends on how the objective is written: a cardinality of a selected set vs a numeric quantity is a wording call, which is why the sealed Cat-3 pass needed 30 owner-judged rows and two reason tags ('structural-parameter objective', 'constrained-cardinality variant'). The objective is constitutive of the problem; its CLASSIFICATION is presentation-relative.",
+      "bridge_citation": null,
+      "variance": {
+        "kind": "categorical",
+        "n_cells": 345,
+        "n_real": 219,
+        "marginal": {
+          "none": 137,
+          "global-numeric": 44,
+          "Min-Ones": 16,
+          "Max-CSP": 11,
+          "Max-Ones": 9,
+          "weighted": 2
+        },
+        "modal_share": 0.626,
+        "thin_cells": {
+          "weighted": 2
+        },
+        "starved": true,
+        "starved_note": "cells below the Cochran floor (n<5): weighted=2"
+      },
+      "readability": null,
+      "admissible_collapse": null
+    },
+    "poly_fingerprint": {
+      "column": "poly_fingerprint",
+      "shipped": true,
+      "universe": "boolean",
+      "route": "derived:from-oracle",
+      "invariance": "invariant",
+      "property_of": "property_of: the constraint language, up to pp-interdefinability",
+      "invariance_reason": "The Galois connection Pol-Inv (Geiger 1968; Bodnarchuk-Kaluznin-Kotov-Romov 1969): a relation's polymorphisms determine its pp-definable closure and vice versa. Polymorphism flags are therefore invariants of the language, not of any presentation of it -- that is what a polymorphism IS.",
+      "bridge_citation": "\u00a73",
+      "variance": {
+        "kind": "non-categorical",
+        "n_cells": 4072,
+        "n_real": 4072,
+        "starved": null,
+        "note": "record- or scalar-valued; no categorical contrast to census"
+      },
+      "readability": null,
+      "admissible_collapse": null
+    },
+    "reduction_out_degree": {
+      "column": "reduction_out_degree",
+      "shipped": true,
+      "universe": "natural",
+      "route": "derived:from-oracle",
+      "invariance": "corpus-relative",
+      "property_of": "property_of: the PINNED reductions.network snapshot",
+      "invariance_reason": "AUDIT FINDING, and a fourth status the data forced. Out-degree counts reductions SOMEONE RECORDED. It is a fact about a curated corpus at commit 8089fb4f, not about the problem: a reduction published tomorrow changes it. Legitimate as a sociology-adjacent covariate; never a structural feature. Absent is not zero (\u00a72.5).",
+      "bridge_citation": null,
+      "variance": {
+        "kind": "non-categorical",
+        "n_cells": 31,
+        "n_real": 31,
+        "starved": null,
+        "note": "record- or scalar-valued; no categorical contrast to census"
+      },
+      "readability": null,
+      "admissible_collapse": null
+    },
+    "self_reducibility": {
+      "column": "self_reducibility",
+      "shipped": true,
+      "universe": "natural",
+      "route": "cited",
+      "invariance": "parameter-relative",
+      "property_of": "property_of: (problem, ensemble/approximation factor)",
+      "invariance_reason": "Pinned at I3: Ajtai's worst-to-average is one-directional, for gamma = n^O(1) APPROXIMATION versions over an ENGINEERED distribution; permanent RSR needs |F| >= deg+2 and tolerates only 1/poly error. Neither is a bare problem property -- both are relative to a stated ensemble.",
+      "bridge_citation": "\u00a77",
+      "variance": {
+        "kind": "categorical",
+        "n_cells": 3,
+        "n_real": 3,
+        "marginal": {
+          "worst-to-average": 3
+        },
+        "modal_share": 1.0,
+        "thin_cells": {
+          "worst-to-average": 3
+        },
+        "starved": true,
+        "starved_note": "cells below the Cochran floor (n<5): worst-to-average=3; modal category 'worst-to-average' holds 100% \u2014 no contrast posable"
+      },
+      "readability": null,
+      "admissible_collapse": null
+    },
+    "channelness": {
+      "column": "channelness",
+      "shipped": false,
+      "universe": null,
+      "route": "(reserved \u2014 not shipped)",
+      "invariance": "encoding-relative",
+      "property_of": "property_of: the objective as related to the pinned structure",
+      "invariance_reason": "PROVISIONAL (unmeasured, deferred to G0). Inherits objective_type's relativity: it asks how the objective couples to structure, and both terms are presentation-relative.",
+      "bridge_citation": null,
+      "variance": {
+        "kind": "not-built",
+        "starved": null,
+        "note": "column not present in the artifact (reserved, or pending S2 citations)"
+      },
+      "readability": null,
+      "admissible_collapse": null
+    },
+    "fo_form": {
+      "column": "fo_form",
+      "shipped": false,
+      "universe": null,
+      "route": "(reserved \u2014 not shipped)",
+      "invariance": "encoding-relative",
+      "property_of": "property_of: the chosen FO formulation",
+      "invariance_reason": "PROVISIONAL. X-positive/X-negative is a property of a FORMULA, not of a problem; a problem has many FO formulations. Ledger \u00a74 anchors are PINNED, but they license a class-level PTAS statement, not a per-row label.",
+      "bridge_citation": null,
+      "variance": {
+        "kind": "not-built",
+        "starved": null,
+        "note": "column not present in the artifact (reserved, or pending S2 citations)"
+      },
+      "readability": null,
+      "admissible_collapse": null
+    },
+    "tuple_density": {
+      "column": "tuple_density",
+      "shipped": false,
+      "universe": null,
+      "route": "(reserved \u2014 not shipped)",
+      "invariance": "encoding-relative",
+      "property_of": "property_of: the relation at its declared arity",
+      "invariance_reason": "PROVISIONAL. |R|/2^arity moves under arity padding for the same reason class_size does.",
+      "bridge_citation": null,
+      "variance": {
+        "kind": "not-built",
+        "starved": null,
+        "note": "column not present in the artifact (reserved, or pending S2 citations)"
+      },
+      "readability": null,
+      "admissible_collapse": null
+    },
+    "row_relations": {
+      "column": "row_relations",
+      "shipped": false,
+      "universe": null,
+      "route": "(reserved \u2014 not shipped)",
+      "invariance": "encoding-relative",
+      "property_of": "property_of: the pinned encodings of BOTH endpoints",
+      "invariance_reason": "PROVISIONAL (v1.1). A dual_of / complement_of edge is a claim about two pinned presentations; the spec's own rule that each edge 'is a claim carrying a warrant' is this relativity restated.",
+      "bridge_citation": null,
+      "variance": {
+        "kind": "not-built",
+        "starved": null,
+        "note": "column not present in the artifact (reserved, or pending S2 citations)"
+      },
+      "readability": null,
+      "admissible_collapse": null
+    }
+  }
+}
