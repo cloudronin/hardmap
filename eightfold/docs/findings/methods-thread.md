@@ -374,3 +374,46 @@ directive.** A number that names an outcome (`MISS`, `94% power`, `0.6% shrinkag
 record until a reproducible run produces it; the source of the number — including the owner — does not
 change that. This is the same rule as defect #15's gate and the three-population law, applied one level up:
 the *record* is sealed against expectation exactly as the *estimator* is.
+
+---
+
+## Instance 16 — 2026-07-24 — the phantom "OR 4.6", and the variance-starved design that could never have produced it
+
+The follow-through on the refusal above. The circulated figure — a paired-discordance **"OR ≈ 4.6"** cited
+in directives and reviewer summaries as support for the objective-channelness reading — had no artifact.
+Directed to execute the analysis *for real* (option c) and seal it before computing, the **census-before-seal
+step caught that the prediction is structurally uncomputable**: sealing it would have been a new kind of
+embarrassment — a prereg for a statistic that cannot exist.
+
+**The mechanical explanation (the incident's closing fact).** The design: over the frozen Lattice-v3 roster's
+symmetry-class pairs (each a relation with its Min-Ones and Max-Ones objectives), is Min-vs-Max
+approximation-discordance associated with parameterized-discordance? It cannot be formed here, because the
+**parameterized oracle is objective-independent by construction** — `objective_oracles.parameterized(rels)`
+is a relation-level Marx/OCSP weak-separability property with no objective argument, so param is identical
+across a class's two objectives whenever both are both-real. The pair census:
+
+| | count |
+|---|---|
+| symmetry classes | 90 |
+| usable pairs (both objectives both-real) | 83 |
+| excluded (one objective feasibility-hard → param `open`) | 7 |
+| approx-flips (Min ≠ Max on approximation) | 37 / 83 |
+| **param-flips (Min ≠ Max on parameterized)** | **0 / 83** |
+
+The param-flip column of the 2×2 is empty → OR undefined, McNemar degenerate (37 vs 0). **The ghost was not
+a lost result; it was an impossible one.** Retired with its reason. (The real coupling on this roster was
+filed the whole time: row-level V(approx,param) = 0.256, CI [0.13, 0.398], prereg v31 — now §4's sixth
+convergence line.)
+
+**The generalizable lesson — census-before-seal is now a named, mandatory gate.** The Mosaic v2 spec *itself*
+carried the defect: it specced predictions about the *covariation* of two outcome variables without either
+drafter or reviewer checking that both variables *could vary* on the intended population. One arm was
+frozen by the instrument's own type signature. The gate that caught it generalizes and is hereby mandatory
+in any future paired/covariation design's I-phase: **confirm every outcome variable actually varies on the
+intended population before any bet about its covariation seals.** It is the marginals-first law pushed one
+step earlier — from "report marginals before the statistic" to "confirm the marginals *can be nonzero*
+before the seal." Related: this is the theorem-forced-credit trap (defect-#15 / Cai-Chen netting family)
+appearing *in the instrument's plumbing* rather than in the data — a charge that is constant by an oracle's
+construction cannot be an empirical finding about that constant, and a variance decomposition that scores it
+as one is claiming forced credit. The propagation of this into the Mosaic v3 grid's prediction 2 is flagged
+for its I-phase (`docs/specs/mosaic-v3-grid-Iphase-flags.md`).

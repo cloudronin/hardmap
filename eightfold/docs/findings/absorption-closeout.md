@@ -111,16 +111,20 @@ decomposable structure, off-diagonal parameterized coordinate), and the **§2 pa
 rising to 0.23 with its CI now touching 0.35). This candidate is **not yet isolated by intervention** — that
 is G0's job, and it is the only thing that can promote it from candidate to claim.
 
-> **[PENDING ARTIFACT — flagged, not fabricated.]** The directive offered a third support for the candidate
-> reading — *"v2's paired-discordance OR 4.6"* — and a third convergence design in §4 — *"oracle-graded
-> discordance on 270 natural pairs."* **Neither exists in the repository or this session's transcript**
-> ("discordance" appears nowhere; OR 4.6 and the 270-pair figure have no backing artifact). They carry the
-> same signature as the void directive placeholders. Per the delegation protocol (methods-thread, 2026-07-24)
-> these numbers do **not** enter the record until an artifact stands behind them. Options: (a) point me to the
-> close-out analysis and I fold in the real values; (b) specify the exact "computed discordance on canon
-> pairs" statistic and I compute it fresh from the frozen atlas, reporting whatever it lands at; (c) the
-> 270-pair oracle-graded design is built as a new analysis. Until then §4's spine rests on the filed evidence
-> below.
+A fourth support arrived from the contamination-free synthetic roster — but as a *row-level* coupling, not
+the paired-discordance figure that circulated: on the frozen Lattice-v3 Boolean roster (166 both-real
+symmetry-class rows, no human curation) **V(approximation, parameterized) = 0.256, CI [0.13, 0.398],
+"COUPLING PRESENT"** (prereg v31, sha `29c517e8`). See §4's sixth line and its caveats.
+
+> **The phantom, retired (incident closed).** A figure "OR ≈ 4.6" from a *paired-discordance* design
+> circulated in reviewer summaries; it had **no artifact, and could never have had one.** The design — over
+> symmetry-class pairs, is Min-vs-Max approximation-discordance associated with parameterized-discordance —
+> is **structurally degenerate on this roster**: the parameterized oracle is objective-*independent* by
+> construction (`objective_oracles.parameterized` is a relation-level Marx/OCSP property, no objective
+> argument), so **param-flip ≡ 0/83** across the usable pairs and the 2×2's param-flip column is empty — OR
+> undefined, McNemar trivial. The ghost was not a lost result but an *impossible* one. Retired with its
+> mechanical reason; the census that caught it and the design lesson are in the methods thread
+> (2026-07-24). The candidate reading loses this leg and keeps the three real ones above plus §4's sixth.
 
 ---
 
@@ -136,12 +140,18 @@ instruments with independent failure modes, agree on the same shape.
 | **Kernel independence (P6)** | R20 kernel-status column, netted | kernel-theorem confound | V(kernel, locality) **0.28** (weak) | certificate-locality partially distinct |
 | **Instrument strain (L1)** | inter-coder specific-agreement | — | coders split cleanly at 3-class, fail the `entangled/mixed` seam (spec-agr 0.16) | the label strains where two properties overlap |
 | **Originating dissociation** | frozen atlas coordinates (pre-coding) | none (mechanical) | `knapsack` FPTAS × W[1]; `subset-sum` decomposable × off-diagonal | structure and coordinate come apart |
+| **Natural-roster coupling (Lattice-v3)** | synthetic Boolean CSP roster, oracle charges, no human curation | proxy-universe validity | **V(approx, param) = 0.256, CI [0.13, 0.398]** — COUPLING PRESENT | coupling exists on an uncurated population |
 
-Five filed lines, taken blind and by different instruments, converge on the same two-dimensional shape: one
-structural property drives approximability, a second (certificate-/objective-side) property is partially
-independent of it. *The directive's third arm — a contamination-free oracle-graded design on 270 natural
-pairs — would strengthen this materially if its artifact is supplied (see §3 flag); it is exactly the
-out-of-sample, canon-free leg the spine most wants.*
+Six filed lines, taken blind and by different instruments, converge on the same shape: one structural
+property drives approximability, a second (certificate-/objective-side) property is partially independent of
+it, and the approx↔param coupling is *present on a population no human curated*. **The sixth line carries two
+caveats, verbatim:** it is a **row-level** association, **not** paired-discordance — the flip design that
+would have been genuinely paired is structurally unavailable on this roster (parameterized is
+objective-independent by oracle construction; see §3's retirement and the methods thread) — and its
+**direction is unresolved** (Spearman ≈ 0.02: the coupling is present but not monotone). It is the
+contamination-free arm the spine wanted from this roster — the coupling *existing at all* on an uncurated
+population — and it was in the record under prereg v31 the whole time, which is its own small lesson about
+reaching for a phantom when a filed number already answers the question.
 
 ---
 
