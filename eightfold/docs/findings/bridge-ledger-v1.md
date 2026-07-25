@@ -244,6 +244,42 @@ Langer et al.'s caution: ALS and Courcelle–Mosbah are **orthogonal** — neith
 **Revised tally: 15 cells — 3 pinned clean, 10 pinned with correction, 2 unpinnable**
 (§5.approximation, §7.ogp).
 
+### 9.6 Second independent pass — corroboration plus three further corrections
+
+A second pass ran on §1.counting / §2.approximation / §2.parameterized from primary full texts (CMR 2001
+from Courcelle's author-hosted PDF; FMR 2008 Elsevier proof; DFHT JACM 2005; DH *Computer Journal* 2008).
+It **independently reproduced** every correction in §9.2–§9.5 — the CMR two-paper hazard, the
+H-minor-free/apex-minor-free split, the separation-property extras, the signed-vs-unsigned incidence
+distinction. Two independent passes converging on the same corrections is the strongest evidence the
+corrections are right. It also found three things neither pass had:
+
+1. **"Enumeration" is itself an overstatement — in §1.counting's own wording.** The ledger row reads "MSO
+   counting/**enumeration** tractable at bounded tw." CMR's **footnote 4** warns that the term "might be
+   misleading, as we do not enumerate the solutions but we count them." No anchor supports enumeration in
+   the delay-bounded sense. **Corrected wording: counting/evaluation, not enumeration.**
+2. **CMR 2001's theorem numbers, and who actually owns the treewidth side.** Theorem 32 = bounded
+   **treewidth**, MSO₂, **linear** time (so the abstract's "polynomial" is the weaker umbrella covering both
+   halves; the treewidth half is linear). Theorem 31 = bounded **clique-width**, MSO₁, plus the poly-time
+   parse-tree hypothesis. Decisively, **CMR introduce Thm 32 as "a generalization of the main theorem of
+   [29,2]"** — Courcelle–Mosbah 1993 and ALS 1991 — which confirms the §9.5 recommendation from the other
+   direction: **Courcelle–Mosbah is the better treewidth anchor, and CMR's own novelty is the clique-width
+   side.**
+3. **§2.parameterized: DFHT's *general framework* theorem is BOUNDED-GENUS, not H-minor-free.** On
+   H-minor-free graphs DFHT deliver only dominating set, vertex cover and set cover at 2^O(√k)·n^h; the
+   general H-minor-free statement rests on the *later* linear grid-minor theorem (Combinatorica 2008), not
+   on DFHT itself. Also the side condition is **h(w)·n^O(1) with subexponentiality needing only
+   h(w) = 2^{o(w²)}** — strictly weaker than the ledger's (and §9.3's) 2^O(tw). So "same machinery"
+   overstates twice over: only the grid-minor theorem and the parameter–treewidth bound are shared.
+4. *(§2.approximation, minor)* the DeVos et al./DHK low-treewidth-partition route is, in Demaine–Hajiaghayi's
+   own words, **"effectively limited to deletion-closed problems"** — another place the unqualified
+   "broad families" leaks.
+
+*Remaining verification gaps on this pass:* Baker's JACM full text and ALS 1991's full text are both
+paywalled — Baker's seven-problem list and running-time form rest on Demaine–Hajiaghayi's Encyclopedia entry
+about that exact paper, and ALS's content on consistent secondary renderings **plus CMR's own primary-source
+characterization of its reference [2]**. All six anchors' bibliographic details check out against
+CrossRef/DBLP.
+
 *Verification gaps carried forward (recorded, not hidden):* Bodlaender–Hagerup theorem numbers are from the
 Utrecht full version (SIAM returns 403; abstract matches verbatim); Cai–Lu–Xia numbering is from arXiv, not
 SICOMP 2017; Baker's internal theorem numbers were not seen (ACM DL blocked) and the O(8^k·k·n) constants
