@@ -88,6 +88,40 @@ def cramers_v(labels_a, labels_b):
     return float(np.sqrt(phi2corr / denom)) if denom > 0 else float("nan")
 
 
+def stratified_cramers_v(triples):
+    """Conditional (within-stratum) Cramér's V for X vs Y controlling for a stratum Z.
+
+    ``triples``: iterable of ``(x, y, stratum)``. POOLS the within-stratum chi-squares (the textbook
+    conditional association), removing the between-stratum association — it reads the within-stratum tables,
+    NEVER the marginal, so it is Simpson-safe. Returns ~0 under conditional independence (X⊥Y within every
+    stratum, even if the marginal X–Y is associated via the stratum confound), and ~1 under perfect
+    within-stratum association. A stratum with no variation in X or Y contributes 0 chi-square but still
+    counts toward n. This is the estimator Mosaic P3 uses; the caller must first clear the power floor
+    (expected within-stratum cell counts), or the pooled chi-square is small-sample-inflated. NEVER average
+    per-stratum V's — that is not a conditional association (defect #15)."""
+    from collections import defaultdict
+    strata = defaultdict(list)
+    allx, ally = set(), set()
+    for x, y, s in triples:
+        strata[s].append((x, y)); allx.add(x); ally.add(y)
+    kmin = min(len(allx), len(ally))
+    if kmin < 2:
+        return float("nan")
+    tot_chi, tot_n = 0.0, 0
+    for prs in strata.values():
+        tot_n += len(prs)
+        xs = sorted({x for x, y in prs}); ys = sorted({y for x, y in prs})
+        if len(xs) < 2 or len(ys) < 2:
+            continue                                   # no variation in this stratum -> 0 chi-square
+        t = np.zeros((len(xs), len(ys)))
+        for x, y in prs:
+            t[xs.index(x), ys.index(y)] += 1
+        n = t.sum()
+        exp = t.sum(1, keepdims=True) @ t.sum(0, keepdims=True) / n
+        tot_chi += ((t - exp) ** 2 / np.where(exp > 0, exp, 1)).sum()
+    return float(np.sqrt((tot_chi / tot_n) / (kmin - 1))) if tot_n else float("nan")
+
+
 def cramers_v_matrix(rows, charges):
     cols = {ch: [r[ch] for r in rows] for ch in charges}
     mat = {}

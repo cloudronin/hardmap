@@ -108,7 +108,38 @@ def check_marginals_sum_to_n() -> list[str]:
     return bad
 
 
+def check_stratified_v_known_answers() -> list[str]:
+    """Defect #15 permanent gate — the conditional (within-stratum) Cramér's V estimator must return the
+    KNOWN answer on constructed tables BEFORE it is trusted on real data. (a) conditional independence ->
+    ~0; (b) Simpson's construction — marginal associated, conditional independent -> ~0 while the marginal V
+    is clearly > 0; (c) perfect within-stratum association -> ~1. Guards against the original bug: averaging
+    per-stratum V's (not a conditional association) and being fooled by the marginal."""
+    from eightfold.structure import stratified_cramers_v, cramers_v
+    bad = []
+    # (a) conditional independence: Y is 80/20 regardless of X within each stratum
+    ci = ([("x1", "y1", "A")] * 16 + [("x1", "y2", "A")] * 4 + [("x2", "y1", "A")] * 16 + [("x2", "y2", "A")] * 4
+          + [("x1", "y1", "B")] * 4 + [("x1", "y2", "B")] * 16 + [("x2", "y1", "B")] * 4 + [("x2", "y2", "B")] * 16)
+    if stratified_cramers_v(ci) > 0.10:
+        bad.append(f"conditional-independence stratified V = {stratified_cramers_v(ci):.3f}, expected ~0")
+    # (b) Simpson: marginal associated, conditional independent
+    sp = ([("x1", "y1", "A")] * 16 + [("x1", "y2", "A")] * 4 + [("x2", "y1", "A")] * 4 + [("x2", "y2", "A")] * 1
+          + [("x1", "y1", "B")] * 1 + [("x1", "y2", "B")] * 4 + [("x2", "y1", "B")] * 4 + [("x2", "y2", "B")] * 16)
+    sv = stratified_cramers_v(sp)
+    mv = cramers_v([x for x, y, s in sp], [y for x, y, s in sp])
+    if sv > 0.10:
+        bad.append(f"Simpson stratified V = {sv:.3f}, expected ~0 (must not be fooled by marginal)")
+    if mv < 0.20:
+        bad.append(f"Simpson marginal V = {mv:.3f}, expected clearly > 0 (test construction is degenerate)")
+    # (c) perfect within-stratum association
+    pf = [(x, {"x1": "y1", "x2": "y2", "x3": "y3"}[x], s)
+          for s in ("A", "B", "C") for x in ("x1", "x2", "x3") for _ in range(10)]
+    if stratified_cramers_v(pf) < 0.90:
+        bad.append(f"perfect-association stratified V = {stratified_cramers_v(pf):.3f}, expected ~1")
+    return bad
+
+
 CHECKS = [
+    ("Stratified V known-answer gate (defect #15)", check_stratified_v_known_answers),
     ("Cramér's V in [0,1]", check_cramers_v_range),
     ("Factors k* inside verdict interval", check_factors_kstar_interval),
     ("Netted association <= raw (Cai-Chen)", check_netted_le_raw),

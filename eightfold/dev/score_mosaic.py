@@ -59,16 +59,20 @@ for _, a, p, l in br2:
         byclass.setdefault(l, []).append((a, p))
 uncond = crucible._both_real_v([{"approximation": a, "parameterized": p} for _, a, p, _ in br2],
                                "approximation", "parameterized", V3.V3_SPEC)
-within, num, den = {}, 0.0, 0
-for l, prs in sorted(byclass.items()):
-    v = cv([a for a, p in prs], [p for a, p in prs])
-    within[l] = {"n": len(prs), "V": rnd(v), "status": ("ok" if v == v else "INSUFFICIENT RESOLUTION (<4 both-real)")}
-    if v == v:
-        num += v * len(prs); den += len(prs)
-pooled = num / den if den else float("nan")
+within = {l: {"n": len(prs), "note": "per-class V is NOT pooled; see stratified V below (defect #15)"}
+          for l, prs in sorted(byclass.items())}
+# CORRECT conditional association: pooled within-stratum chi-square, never the average of per-class V's.
+strat_triples = [(a, p, l) for _, a, p, l in br2 if l not in ("uncodable", "?")]
+pooled = S.stratified_cramers_v(strat_triples)
+# power flag: min expected within-stratum cell for approx charge; <5 -> INSUFFICIENT RESOLUTION
+small = min(len(prs) for prs in byclass.values()) if byclass else 0
 R["P3_absorption"] = {
-    "v2_unconditional_V": rnd(uncond), "within_class": within, "pooled_within_class_V": rnd(pooled),
-    "threshold_absorb_half": 0.37, "HOLDS": bool(pooled == pooled and pooled <= 0.37),
+    "v2_unconditional_V": rnd(uncond), "within_class_n": within,
+    "pooled_within_class_V_stratified": rnd(pooled),
+    "smallest_class_n": small,
+    "power_note": ("INSUFFICIENT RESOLUTION — smallest locality class has too few both-real rows for a "
+                   "reliable within-stratum table (canon-47 is below floor; see the 89-row re-run)" if small < 20 else "ok"),
+    "threshold_absorb_half": 0.37, "HOLDS": bool(pooled == pooled and pooled <= 0.37 and small >= 20),
     "separability_evidence_beside": "L1 gate CLEAR — V(locality,approx)=0.436 < dissociation structure-acc 1.00; the labels code structure, not charge-echo",
     "note": "absorption = does conditioning on locality shrink the 0.73 approx<->param V by >= half? marginals-first."}
 
