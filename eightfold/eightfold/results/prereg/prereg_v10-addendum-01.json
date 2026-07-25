@@ -1,0 +1,16 @@
+{
+  "addendum_of": "prereg_v10",
+  "addendum_id": "01",
+  "date": "2026-07-24",
+  "kind": "sealed re-run of the P3 absorption bet on the 89-row both-real population; committed BEFORE the stratified-V bet statistic is computed (only the marginal power check preceded this, which reveals resolution, not the bet outcome).",
+  "owner_ruling": true,
+  "why": "The canon-47 P3 run was INSUFFICIENT RESOLUTION (9-19 rows per locality class, within-stratum tables small-sample-inflated to V=1.0). The full both-real population (89 = canon 47 + v3-new 42) has more power and -- critically -- v3-new's para-NP-hard mass finally gives the parameterized column variation.",
+  "population": "89 both-real rows (approximation AND parameterized non-sentinel), locality labels from mosaic-locality.jsonl (sha 4c7ef94c, already hashed and committed before this addendum).",
+  "contamination_disclosed": "This bet is sealed AFTER the canon-47 outcome was known (INSUFFICIENT). Disclosed in full; the mitigation is that the bet FORM is unchanged and the estimator + resolution are fixed here before the statistic is computed.",
+  "bet_unchanged_in_form": "Conditioning on locality shrinks the pooled UNCONDITIONAL approx<->param V of this 89-row population by >= half. Same shape as prereg_v10 P3; only the population and the (now-fixed, correct) estimator differ.",
+  "estimator": "structure.stratified_cramers_v -- the pooled within-stratum chi-square conditional association (defect #15 permanent fix, gated by the hardmap-verify known-answer test). NEVER the average of per-class V's.",
+  "resolution_declared_by_power_check": "INSUFFICIENT RESOLUTION. Power check (locality[3] x approx, Cochran floor >=80% of cells with expected>=5 and all>=1): full-approx 6/21=29% (min-exp 0.1, floor FAILED); collapsed-3-approx (scheme/const-or-log/poly-or-worse) 7/9=78% (min-exp 2.0, ONE cell short of 80%). Without collapsing the param column (not sanctioned), the within-stratum approx x param tables also fail (delocalized n=43 -> ~3.6/cell at 3x4). NEITHER granularity clears the floor.",
+  "verdict": "INSUFFICIENT RESOLUTION -- declared, run ends at the power check per prereg_v10 kill-criterion 2. The P3 absorption bet is NOT scored HIT or MISS on this population. Finding: the within-locality absorption test waits for the next expansion's both-real recruitment (89 rows, three locality classes, is below the floor; the collapsed-3 result at 78% suggests it is close, so a modest further expansion may cross it).",
+  "descriptive_still_printed": "Three-population within-stratum V (canon-47 / v3-new-42 / pooled-89) reported DESCRIPTIVELY with the INSUFFICIENT caveat (standing three-population law), and the P2 asymmetry pair re-computed on the 89 rows as a descriptive, adequately-powered look at the two-property split -- both labeled descriptive, neither scored.",
+  "unchanged": "prereg_v10 and clarification-01 bets untouched; frozen atlas bytes byte-identical. This addendum only adds the 89-row re-run attempt and its INSUFFICIENT verdict."
+}
