@@ -298,6 +298,35 @@ early instances, **pre-report** here. The two mechanical habits that did it are 
 and *a clean result from a check you cannot see execute is assumed vacuous until proven live*. The B4 habit
 is the one the program has paid most for all month: **a green light you didn't watch turn green is red.**
 
+## Instance 14 / Defect #15 — a mechanism bet saved from a HIT-then-MISS misscoring by a broken estimator (2026-07-24)
+
+**What happened.** Scoring Mosaic's P3 absorption — the program's FIRST mechanism bet — the scorer computed
+the conditional (within-locality) approx↔param association by **averaging the per-class Cramér's V's**.
+That is not a conditional association at all. It reversed three times before landing: (1) a buggy 0.797
+read alongside a hopeful frame; (2) my over-correction to a mis-normalized 0.911 and a declared MISS, over-
+invoking "don't move the metric" to refuse a legitimate pre-sealed evaluation; (3) the owner's denominator
+challenge, which surfaced the bug and the truth — the correct pooled-within-stratum-χ² estimator plus a
+power check show the verdict is **INSUFFICIENT RESOLUTION** (n=47/89 split three ways is below the floor;
+the within-stratum tables inflate to V=1.0 on 9-row strata).
+
+**Why it is the characteristic mode, twice.** Averaging V's is a *statistic that looks like the right one*
+— it has the right type signature (returns a number in [0,1]) and no check stood between it and a scored
+bet. And the small-strata inflation (V=1.0 at n=9) is *the most dangerous shape of green* again: a number
+that looks decisive because the table is too small to disagree with itself.
+
+**The permanent fix — a gate, not a number (defect #15).** `structure.stratified_cramers_v` pools the
+within-stratum χ² (Simpson-safe: reads within-stratum tables, never the marginal). `hardmap verify` gains a
+**known-answer test**: conditional-independence → ~0, a Simpson construction (marginal V=0.33, conditional
+0.00) → ~0, perfect within-stratum → ~1. The estimator is now tested against constructed answers before it
+touches real data — the mechanical gate that instances 6 and 10 lacked.
+
+**The lesson, and it's the one the owner named.** *The seal decides in BOTH directions — against wishful
+passes and against reflexive conservatism alike*, applied here to a denominator. Optimism would have scored
+P3 a HIT (0.31 conflated from the B1 endpoint); my conservatism scored it a wrong MISS; the seal, with the
+right estimator and a pre-sealed power check, scored it INSUFFICIENT — the only honest verdict. The reversal
+arc under pressure — HIT-ish → MISS → INSUFFICIENT, dated in sequence — is itself the methods contribution,
+whether or not the mechanism bet ever lands.
+
 ---
 
 ## Delegation protocol — the authority boundary held under pressure (2026-07-24)
