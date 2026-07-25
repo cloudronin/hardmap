@@ -1,0 +1,273 @@
+{
+  "meta": {
+    "seed": 20260724,
+    "collapse": "scheme/const-or-log/poly-or-worse (sealed)",
+    "estimator": "structure.stratified_cramers_v (defect #15 gated)",
+    "n_fills_channel_B": 22,
+    "n_recruited_bothreal": 22
+  },
+  "P1_supply": {
+    "channel_B_fills": 22,
+    "channel_B_landed_bothreal": 22,
+    "channel_A_recruited": 0,
+    "net_new_bothreal": 22,
+    "threshold": 22,
+    "note": "A+B >= 22; Channel A deferred pending floor (grounding I3)."
+  },
+  "prior_89": {
+    "n_codable": 89,
+    "locality_marginal": {
+      "local-covering": 33,
+      "delocalized": 43,
+      "decomposable": 13
+    },
+    "power_check": {
+      "frac_ge5": 0.778,
+      "cells_ge5": "7/9",
+      "min_exp": 2.04,
+      "all_ge1": true,
+      "cleared": false,
+      "n": 89,
+      "observed": [
+        [
+          10,
+          3,
+          0
+        ],
+        [
+          0,
+          29,
+          4
+        ],
+        [
+          4,
+          23,
+          16
+        ]
+      ],
+      "expected": [
+        [
+          2.0,
+          8.0,
+          2.9
+        ],
+        [
+          5.2,
+          20.4,
+          7.4
+        ],
+        [
+          6.8,
+          26.6,
+          9.7
+        ]
+      ],
+      "row_marginal": {
+        "decomposable": 13,
+        "local-covering": 33,
+        "delocalized": 43
+      },
+      "col_marginal": {
+        "scheme": 14,
+        "const-or-log": 55,
+        "poly-or-worse": 20
+      }
+    },
+    "absorption": {
+      "unconditional_V": 0.366,
+      "correct_stratified": 0.447,
+      "averaged_per_class_wrong": 0.366,
+      "shrinkage_fraction": -0.2204,
+      "HIT_if_cleared": false,
+      "governed_by": "power_check.cleared"
+    },
+    "split_stability": {
+      "V_loc_approx": [
+        0.562,
+        0.481,
+        0.695
+      ],
+      "V_loc_param": [
+        0.144,
+        0.035,
+        0.333
+      ],
+      "note": "[point, ci_lo, ci_hi]; P4-split holds if approx>=0.35 & param<0.35 with separated CIs"
+    }
+  },
+  "recruited_B": {
+    "n_codable": 22,
+    "locality_marginal": {
+      "delocalized": 10,
+      "decomposable": 8,
+      "local-covering": 4
+    },
+    "power_check": {
+      "frac_ge5": 0.222,
+      "cells_ge5": "2/9",
+      "min_exp": 0.36,
+      "all_ge1": false,
+      "cleared": false,
+      "n": 22,
+      "observed": [
+        [
+          5,
+          3,
+          0
+        ],
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          9,
+          1
+        ]
+      ],
+      "expected": [
+        [
+          1.8,
+          5.5,
+          0.7
+        ],
+        [
+          0.9,
+          2.7,
+          0.4
+        ],
+        [
+          2.3,
+          6.8,
+          0.9
+        ]
+      ],
+      "row_marginal": {
+        "decomposable": 8,
+        "local-covering": 4,
+        "delocalized": 10
+      },
+      "col_marginal": {
+        "scheme": 5,
+        "const-or-log": 15,
+        "poly-or-worse": 2
+      }
+    },
+    "absorption": {
+      "unconditional_V": 0.0,
+      "correct_stratified": 0.43,
+      "averaged_per_class_wrong": 0.0,
+      "shrinkage_fraction": null,
+      "HIT_if_cleared": false,
+      "governed_by": "power_check.cleared"
+    },
+    "split_stability": {
+      "V_loc_approx": [
+        0.488,
+        0.299,
+        0.801
+      ],
+      "V_loc_param": [
+        0.325,
+        0.0,
+        0.741
+      ],
+      "note": "[point, ci_lo, ci_hi]; P4-split holds if approx>=0.35 & param<0.35 with separated CIs"
+    }
+  },
+  "pooled": {
+    "n_codable": 111,
+    "locality_marginal": {
+      "local-covering": 37,
+      "delocalized": 53,
+      "decomposable": 21
+    },
+    "power_check": {
+      "frac_ge5": 0.778,
+      "cells_ge5": "7/9",
+      "min_exp": 3.59,
+      "all_ge1": true,
+      "cleared": false,
+      "n": 111,
+      "observed": [
+        [
+          15,
+          6,
+          0
+        ],
+        [
+          0,
+          32,
+          5
+        ],
+        [
+          4,
+          32,
+          17
+        ]
+      ],
+      "expected": [
+        [
+          3.6,
+          13.2,
+          4.2
+        ],
+        [
+          6.3,
+          23.3,
+          7.3
+        ],
+        [
+          9.1,
+          33.4,
+          10.5
+        ]
+      ],
+      "row_marginal": {
+        "decomposable": 21,
+        "local-covering": 37,
+        "delocalized": 53
+      },
+      "col_marginal": {
+        "scheme": 19,
+        "const-or-log": 70,
+        "poly-or-worse": 22
+      }
+    },
+    "absorption": {
+      "unconditional_V": 0.283,
+      "correct_stratified": 0.385,
+      "averaged_per_class_wrong": 0.311,
+      "shrinkage_fraction": -0.3605,
+      "HIT_if_cleared": false,
+      "governed_by": "power_check.cleared"
+    },
+    "split_stability": {
+      "V_loc_approx": [
+        0.547,
+        0.457,
+        0.671
+      ],
+      "V_loc_param": [
+        0.231,
+        0.154,
+        0.384
+      ],
+      "note": "[point, ci_lo, ci_hi]; P4-split holds if approx>=0.35 & param<0.35 with separated CIs"
+    }
+  },
+  "P5_calibration": {
+    "v3new_bothreal_mixture": {
+      "delocalized": 24,
+      "local-covering": 14,
+      "decomposable": 4
+    },
+    "channelB_recruited_mixture": {
+      "delocalized": 10,
+      "decomposable": 8,
+      "local-covering": 4
+    },
+    "note": "Channel B fills all charge-citable candidates (no locality selection) -> its mixture is a corpus census, NOT the funnel-blindness test. P5's sealed form (funnel mixture within noise of v3-new) requires Channel A; deferred."
+  }
+}

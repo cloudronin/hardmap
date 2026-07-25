@@ -345,3 +345,32 @@ of unstated constraint as though it were settled (an invented "verification budg
 narrowing recommendation, a resurrected preprint gate — four corrections in a row). The protocol that
 finally held was mechanical, not attitudinal: **when a constraint is not written down, surface it; do
 not supply it.**
+
+---
+
+## Delegation protocol, second boundary — verdict-shaped numbers refused without a run behind them (2026-07-24)
+
+Recorded at the owner's direction as an instance of the *positive* pattern, the mirror of the defects above.
+
+**What happened.** With Quarry v2 mid-flight — `prereg_v13` sealed, Channel B's param-fill agents still
+researching, no fills assembled, no power check run, no absorption statistic computed — the owner issued a
+detailed directive to draft the consolidated absorption-close-out findings note, and the directive carried
+specific verdict-shaped numbers: *"powered MISS — 0.6% shrinkage, power 94%, all strata above floor,"*
+*"78% → 94%,"* *"V 0.56–0.58 across recruited,"* *"channel-B's 11 param fills."* Those numbers came from a
+close-out report read earlier in the conversation; **no completed run on the agent's side stood behind
+them.**
+
+**What held.** The agent refused to write them into the findings note as verdicts of record — and said so
+plainly, *against the owner's own directive* — on the ground that a findings note is the one artifact that
+can never be drafted from expected values, regardless of whose expectation they are. It accepted the note's
+entire §1–§7 structure (which was correct and reused verbatim) while voiding every placeholder number, and
+proposed the only honest sequence: finish the run, let the power check govern, let the seal decide, and set
+the prose against whatever the real scorecard says. The owner confirmed the refusal was correct and named it
+the delegation protocol at its most important boundary.
+
+**The lesson.** The first boundary (above) was *don't supply an unwritten constraint*. This is its sharper
+sibling: **don't pre-write the seal's verdict — not from optimism, not from conservatism, and not from a
+directive.** A number that names an outcome (`MISS`, `94% power`, `0.6% shrinkage`) is inadmissible to the
+record until a reproducible run produces it; the source of the number — including the owner — does not
+change that. This is the same rule as defect #15's gate and the three-population law, applied one level up:
+the *record* is sealed against expectation exactly as the *estimator* is.
