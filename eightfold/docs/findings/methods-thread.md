@@ -546,3 +546,49 @@ test author's imagination into a statement about the data.
 
 *(Filed as QA discipline, not a derivation rule: it changes no sealed value or rule, so it needs no new
 sealed schema version — see (a)'s line.)*
+
+---
+
+## Instance 20 — 2026-07-24 — census-before-seal, scored on its own history: three uncomputable bets prevented
+
+Instance 16 introduced the rule — *confirm every outcome variable actually varies on the intended population
+before any bet about its covariation seals* — from a single incident. One project later it has a track
+record, and the record is the entry.
+
+**Three variance-starved features, all caught at build time, all in one project:**
+
+| # | feature | how it could not vary | cost to catch | cost had it sealed |
+|---|---|---|---|---|
+| 1 | parameterized × objective (Mosaic v2) | the param oracle takes **no objective argument** — param-flip ≡ **0/83** by construction | one census | a prereg for a statistic that cannot exist; OR undefined |
+| 2 | expansion as a row predictor (Ledger §5) | Dinur's preprocessing **manufactures** the hypothesis on *any* constraint graph — no instance excluded, none charged | one read of the lemma | a NETTED calibration cell that discriminates nothing |
+| 3 | 4-way `engine_type` (Anatomy S2) | few-subpowers-only = **4 of 4072 (0.10%)**; fails Cochran on arrival | one groupby | a scored engine-split bet on a four-member cell |
+
+**The arithmetic, stated plainly because it is the argument.** Each catch cost roughly one groupby. Each
+miss would have cost a *scored bet plus a retraction* — and, in case 2, an inverted calibration layer that
+would have "corrected" a correct pipeline toward an error. **The rule has positive expected value measured
+on its own history, not on its plausibility.** That is a rare thing to be able to say about a methodological
+rule, and it is why it now runs before every seal rather than after a surprise.
+
+**The generalization S2 forced:** the failure mode is not specific to *coded* or *objective-keyed* columns.
+Case 3 was a **derived** column. A **cited** column can starve identically — 90% `planar_restriction: true`
+at perfect coverage is as unusable for a contrast as a four-member cell. So the census is now two gates,
+both required, both stated with marginals: **coverage** (is there a value at all?) and **usability** (does it
+vary enough to contrast?). A column may pass one and fail the other; failing usability does not delete the
+column, it demotes it to descriptive with its marginal attached (`Anatomy-SCHEMA` §3.3b).
+
+**And a structural note worth keeping:** case 3's ceiling cannot be bought. Arity 4 was *already* forced
+because the affine obstruction is vacuous at arity ≤3; arity 5 is 2³² relations. When a census fails for
+reasons of construction rather than sample size, **no recruitment fixes it** — which is exactly the
+distinction between Quarry v2's corpus-starved INSUFFICIENT (buyable, priced at ~25 rows) and
+unposable-by-construction (not for sale at any price).
+
+### 20b — a side finding: the program now has a measured *codability spectrum*
+
+`arity_class` was specced **`derived (definitional)`**. Two blind coders agree at **κ = 0.360**, and a
+mechanical lexicon agrees with neither — which says the variable **is not reliably readable from pinned text
+by any reader**, human, model, or regex. That is a discovery *about the feature*, not a failure of the
+coders. Set against `locality_class` at **κ = 0.646**, the program can now say something it could not
+before: **candidate anatomy features occupy a codability spectrum, and "definitional-looking" predicts
+nothing about where a feature sits on it.** The spec's confident typing was wrong by exactly the
+overconfidence an instrument record exists to expose — which is why the record now ships attached to the
+column rather than asserted in a schema.

@@ -259,6 +259,26 @@ number beside it, not at G1 when a grid bet lands on it. For v1 this is near-tri
 values are known to vary; natural rows are degenerate single-objective by design and the census records
 exactly that — which is precisely why it is cheap to institutionalize now.
 
+### 3.3b The census covers CITED columns too — coverage and usability are different gates
+
+Extended 2026-07-24, before `decomposition_facts` landed. §3.3's variance census was written for
+objective-keyed columns; S2 showed the failure mode is general — `engine_type` is a *derived* column and its
+4-way split is degenerate anyway (one cell of 4 in 4072). **A cited column can be starved just as easily:**
+one that comes back 90% `planar_restriction: true` is exactly as unusable for contrasts as a four-member
+cell, even at perfect coverage.
+
+**Two independent gates, both required before freeze:**
+
+| gate | asks | fails when |
+|---|---|---|
+| **Kill 2 (coverage)** | how many rows carry a value at all? | < 40% of grid-relevant rows are citable (for `decomposition_facts`: < 45 of the 77 eligible) |
+| **Variance census (usability)** | does the value *vary* enough to support a contrast? | a cell too thin to survive the Cochran floor, or a marginal so lopsided no contrast is posable |
+
+A column may pass coverage and fail usability, or the reverse. **Both verdicts are stated with their
+marginals**, and a column failing usability still ships — it is recorded as descriptive-only, with the
+marginal beside it, exactly as `arity_class` ships with its κ and `engine_type`'s 4-way ships as
+structurally unposable.
+
 ### 3.4 Sociology quarantine
 
 The sociology sidecar exists **solely** so bridge regressions can control for canon-proximity — the
