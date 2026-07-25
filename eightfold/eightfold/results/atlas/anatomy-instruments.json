@@ -1,0 +1,159 @@
+{
+  "schema": "anatomy-instruments/v1",
+  "note": "Machine-readable qualification records for Anatomy's `coded` columns. Every cell with provenance_status 'coded' must carry an instrument_ref resolving here (Anatomy-SCHEMA \u00a71.3). Extracted from dev/mosaic_code.py's computation, which previously persisted only to stdout.",
+  "instruments": {
+    "mosaic-3class-v1": {
+      "instrument_id": "mosaic-3class-v1",
+      "column": "locality_class",
+      "kind": "blind dual-coder structural judgment, resolution-laddered",
+      "seals": [
+        "prereg_v10",
+        "prereg_v10-clarification-01"
+      ],
+      "blindness": "coders received problem_id + problem_name + canonical_encoding ONLY; no charge value and no per-charge task text. Codings were hashed BEFORE the charge join.",
+      "rubric": {
+        "file": "mosaic-rubric.md",
+        "sha256": "ea9c1df5ef12e81b08328be92c4c6319e7c5e03413394d1475bdde5bd3cc2ce6"
+      },
+      "codings": {
+        "A": {
+          "file": "mosaic-coding-A.jsonl",
+          "sha256": "6be07afdd12ad0c800ab4bf1ef1bfc99bd4783295c1f202e52bf656eda9effb5",
+          "n": 345
+        },
+        "B": {
+          "file": "mosaic-coding-B.jsonl",
+          "sha256": "9bfc1b50da721fb9fee10f21089ff02638fdebc040d74f0015430207f08e497b",
+          "n": 345
+        },
+        "C_tiebreak": {
+          "file": "mosaic-coding-C.jsonl",
+          "sha256": "1e0c5e7054d1767407842e5a5c69b30e2f212fca224418b3b471a834eb33b699",
+          "note": "blind third pass on disagreements only; never consulted charges"
+        }
+      },
+      "n_shared_rows": 345,
+      "qualification_threshold": 0.6,
+      "resolution_ladder": {
+        "5-class": {
+          "cohen_kappa": 0.5209,
+          "raw_agreement": 0.7072,
+          "gwet_ac1": 0.6549,
+          "reliable_at_0.6": false
+        },
+        "3-class": {
+          "cohen_kappa": 0.6463,
+          "raw_agreement": 0.829,
+          "gwet_ac1": 0.7962,
+          "reliable_at_0.6": true
+        },
+        "2-class": {
+          "cohen_kappa": 0.6271,
+          "raw_agreement": 0.8348,
+          "gwet_ac1": 0.788,
+          "reliable_at_0.6": true
+        }
+      },
+      "demonstrated_resolution": "3-class",
+      "disagreement_shape_5class": {
+        "n_disagreements": 101,
+        "entangled_mixed_seam": 42,
+        "seam_share": 0.4158,
+        "reading": "the instrument strains exactly where the two structural properties overlap; banked as two-property-split evidence when the seam share is >= 0.5"
+      },
+      "per_class_specific_agreement_5class": {
+        "decomposable": {
+          "both": 33,
+          "either": 57,
+          "rate": 0.58
+        },
+        "local-covering": {
+          "both": 37,
+          "either": 71,
+          "rate": 0.52
+        },
+        "entangled": {
+          "both": 158,
+          "either": 244,
+          "rate": 0.65
+        },
+        "mixed": {
+          "both": 10,
+          "either": 64,
+          "rate": 0.16
+        },
+        "uncodable": {
+          "both": 6,
+          "either": 10,
+          "rate": 0.6
+        }
+      },
+      "anchors": {
+        "planar-vertex-cover": {
+          "expected": "decomposable",
+          "coder_A": "decomposable",
+          "coder_B": "decomposable",
+          "pass": true
+        },
+        "knapsack": {
+          "expected": "decomposable",
+          "coder_A": "decomposable",
+          "coder_B": "decomposable",
+          "pass": true
+        },
+        "vertex-cover": {
+          "expected": "local-covering",
+          "coder_A": "local-covering",
+          "coder_B": "local-covering",
+          "pass": true
+        },
+        "max-2sat": {
+          "expected": "local-covering",
+          "coder_A": "local-covering",
+          "coder_B": "local-covering",
+          "pass": true
+        },
+        "clique": {
+          "expected": "entangled",
+          "coder_A": "entangled",
+          "coder_B": "entangled",
+          "pass": true
+        },
+        "independent-set": {
+          "expected": "entangled",
+          "coder_A": "entangled",
+          "coder_B": "entangled",
+          "pass": true
+        },
+        "label-cover": {
+          "expected": "entangled",
+          "coder_A": "entangled",
+          "coder_B": "entangled",
+          "pass": true
+        }
+      },
+      "anchors_pass": true,
+      "forbidden_vocabulary_audit": {
+        "A_leaks": 0,
+        "B_leaks": 0,
+        "A_rows": [],
+        "B_rows": [],
+        "rule": "a rationale naming an outcome word (has a PTAS / is FPT / inapproximable) leaks"
+      },
+      "separability_gate": {
+        "status": "PINNED (prereg_v10)",
+        "V_locality_approx": 0.4361,
+        "V_locality_param": 0.1781,
+        "dissociation_structure_accuracy": 1.0,
+        "dissociation_rows": [
+          "knapsack",
+          "subset-sum"
+        ],
+        "charge_reconstruction_fires": false,
+        "reading": "FIRES iff the label predicts a charge better than it codes the dissociation set's structure \u2014 i.e. the label is charge-echo, not structure. ABSOLUTE gate."
+      },
+      "coverage_conditioning": null,
+      "caveat": "locality is an APPROXIMATE blind-coded variable; associations built on it are indicative, not precise. `uncodable` is a NON-CLASS and is dropped from associations, never bucketed."
+    }
+  }
+}
