@@ -186,7 +186,9 @@ def validate_feature_cell(cell: dict, universe: str, pinned_bridges=None) -> lis
         errs.append(f"{tag}: defined on universe {meta['universe']!r} but found on a {universe!r} row")
 
     val, prov = cell.get("value"), cell.get("provenance_status")
-    if val in SENTINELS:
+    # a structured record (dict/list) is a legitimate value and is unhashable -- test membership safely
+    is_sentinel = isinstance(val, str) and val in SENTINELS
+    if is_sentinel:
         if val in REASON_REQUIRED_VALUES and not cell.get("reason"):
             errs.append(f"{tag}: value 'n.a.' requires a non-empty reason (mandatory)")
     elif meta["values"] is not None and val not in meta["values"]:
@@ -203,7 +205,7 @@ def validate_feature_cell(cell: dict, universe: str, pinned_bridges=None) -> lis
             errs.append(f"{tag}: provenance_status 'coded' requires an instrument_ref")
         if prov == PROV_JUDGED and not (cell.get("reason") or "").strip():
             errs.append(f"{tag}: provenance_status 'judged' requires a reason")
-        if val in SENTINELS and prov not in (PROV_STRUCTURAL, PROV_CITED, PROV_JUDGED):
+        if is_sentinel and prov not in (PROV_STRUCTURAL, PROV_CITED, PROV_JUDGED):
             errs.append(f"{tag}: sentinel value {val!r} should carry provenance 'structural' (got {prov!r})")
 
     bridge = cell.get("bridge_citation")

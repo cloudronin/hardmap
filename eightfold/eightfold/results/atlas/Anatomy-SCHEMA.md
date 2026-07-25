@@ -60,6 +60,11 @@ carries a machine-readable marker so no downstream analysis can launder it.
    `transition_known` (R17) are structure facts that already live *inside* the charge table, from before
    this law existed. Anatomy's `self_reducibility` column **consolidates them read-only and names them as a
    known pre-law exception**. It does not re-derive them, and it does not present them as new structure.
+   **Counts, verified at S1 against `atlas_v3.jsonl` (erratum, 2026-07-24: this line first read "5 cells"
+   for R18 — the true count is 3):** `worst_to_average_self_reduction` is `true` on **3 cells / 3 rows**
+   (`permanent`, `discrete-log`, `quadratic-residuosity`); `transition_known` is `true` on **13 cells / 13
+   rows**. A miscounted census is an erratum on this contract, corrected in place with its date; a changed
+   *rule* would instead require a new sealed version.
 
 ---
 
