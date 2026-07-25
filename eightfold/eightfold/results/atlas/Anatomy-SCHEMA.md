@@ -245,6 +245,20 @@ membership carry the canon-proximity control adequately; year would be `cited`-a
 compendium membership is speculative. It earns a scoped follow-up only if a bridge regression shows the
 fame covariates matter and year would sharpen them.
 
+### 3.4b Validator selftests must include real rows (QA discipline, added 2026-07-24)
+
+> **Every validator's known-answer suite must include at least one case drawn from REAL rows of each column
+> type it guards — not only synthetic constructions.**
+
+Adopted after S1: `validate_feature_cell`'s 10-case synthetic suite passed while first contact with real
+data crashed it, because every synthetic case used a **scalar** value and `poly_fingerprint`'s value is a
+ten-flag **record**. A known-answer test proves the estimator is right on cases the author *thought of*; a
+real-row case proves it survives the shapes the corpus actually contains. Instance-15's discipline plus a
+representativeness requirement (methods-thread instance 19b).
+
+*This is QA discipline, not a derivation rule — it changes no sealed value or rule and therefore needs no
+new sealed version (see the erratum/rule line in §0.3.3).*
+
 ### 3.5 No value changes; frozen bytes untouched
 
 `atlas.jsonl` (`6d53a4f1`), `atlas_v2.jsonl` (`784f4739`), `atlas_v3.jsonl` (`e62f3c28`) and every source

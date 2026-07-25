@@ -495,3 +495,54 @@ passes converging on the same corrections is what closed it.
 INSUFFICIENT-RESOLUTION and UNTESTABLE as an honest terminus. Both revert to OPEN with their reasons on the
 record — and one of them (expansion is *manufactured* by Dinur's preprocessing, so it cannot discriminate
 rows) is instance 16's shape a third time: **a proposed feature that cannot vary in the way a bet needs.**
+
+---
+
+## Instance 19 — 2026-07-24 — the pinning discipline runs on its own author, at day zero (Anatomy S1)
+
+Two self-caught defects inside the milestone that installed the rule. Both are recorded because *when* they
+were caught matters as much as *that* they were.
+
+### (a) An unverified count, inherited — the same species as instance 18, now mine
+
+The sealed `Anatomy-SCHEMA.md` §0.3.3 stated that `worst_to_average_self_reduction` (R18) appears on **5
+cells**. I had taken that number from an exploring agent's report **instead of counting the artifact**.
+Verified against `atlas_v3.jsonl` at S1, the true count is **3 cells / 3 rows** (`permanent`,
+`discrete-log`, `quadratic-residuosity`). The companion figure (`transition_known`, 13) was correct.
+
+**Attribution, stated plainly:** this is the *same species* as instance 9's inferred labels and as the
+owner's ledger cells in instance 18 — **unverified inheritance**, a number adopted on someone else's
+authority and then asserted as fact. It happened **in the very milestone that installed pin-before-net**,
+which is the honest reading: the rule is not a character trait one acquires, it is a step one executes, and
+skipping it is the default.
+
+**What made it survivable was the day it was caught.** It surfaced at *day zero of the artifact's life* —
+during S1's own verification, before a single consumer read the schema — rather than at freeze, or at G0
+when a bet leaned on it. The pinning pass generalized: having spent S0 correcting the owner's cells, the
+same check was then pointed at my own sealed text.
+
+**The line drawn, and it is the reusable part:** a **miscounted census is an erratum** — corrected *in
+place*, with its date, on the contract itself. A **changed rule requires a new sealed version.** The seal
+exists to stop derivation rules moving after a result; it does not exist to freeze arithmetic errors into
+permanence. Conflating the two would make contracts either unfixable or unsealed.
+
+### (b) A known-answer suite typed too narrowly to catch its own gap → a new build-order rule
+
+`anatomy.validate_feature_cell` carried a 10-case known-answer selftest (instance 15's discipline) and it
+**passed**, while the first contact with real data crashed it: every synthetic case used **scalar** values,
+so `val in SENTINELS` was never exercised against an unhashable value — and `poly_fingerprint`'s value is a
+ten-flag **record**. The suite tested the logic it was written to test and was blind to the type it had
+never imagined.
+
+**The working rule, adopted 2026-07-24 and binding from S2 forward:**
+
+> **Every validator's known-answer suite must include at least one case drawn from REAL rows of each column
+> type it will guard — not only synthetic constructions.**
+
+This is instance 15's known-answer test upgraded with a **representativeness** requirement. A known-answer
+test proves the estimator is right on cases you *thought of*; a real-row case proves it survives the shapes
+the corpus actually contains. Cheap to satisfy, and it converts "the tests pass" from a statement about the
+test author's imagination into a statement about the data.
+
+*(Filed as QA discipline, not a derivation rule: it changes no sealed value or rule, so it needs no new
+sealed schema version — see (a)'s line.)*

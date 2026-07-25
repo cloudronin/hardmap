@@ -318,6 +318,49 @@ def selftest_anatomy(verbose: bool = False) -> int:
     if ok:
         bad.append(f"clean-cell: expected no errors, got {ok}")
 
+    # ── REAL-ROW CASES (SCHEMA §3.4b) ─────────────────────────────────────────────────────────────────
+    # The synthetic cases above all use SCALAR values, and that is exactly how a hashability bug survived
+    # a green 10-case suite until first contact with real data (methods-thread instance 19b). Every column
+    # TYPE this validator guards must therefore be exercised on a shape the corpus actually contains.
+
+    # (h) a real record-valued cell — the ten-flag poly_fingerprint, verbatim shape from prism_v2_charges
+    real_fingerprint = {"0valid": True, "1valid": False, "horn": True, "dualhorn": False,
+                        "bijunctive": True, "affine": False, "width2affine": True,
+                        "strongly0valid": False, "IHSB": True, "general_wsep": False}
+    r = validate_feature_cell(
+        {"feature": "poly_fingerprint", "value": real_fingerprint, "provenance_status": PROV_ORACLE,
+         "bridge_citation": "§3.decision"}, BOOLEAN)
+    if r:
+        bad.append(f"real-record-cell: a ten-flag poly_fingerprint must validate clean, got {r}")
+    # (i) a real integer-valued cell — out-degree is an unbounded scalar, not a vocabulary member
+    r = validate_feature_cell(
+        {"feature": "reduction_out_degree", "value": 15, "provenance_status": PROV_ORACLE}, NATURAL)
+    if r:
+        bad.append(f"real-int-cell: an integer out-degree must validate clean, got {r}")
+
+    # (j) if the artifact exists, validate real rows of BOTH universes end to end
+    try:
+        from pathlib import Path
+        art = Path(__file__).resolve().parent / "results" / "atlas" / "anatomy_v1.jsonl"
+        if art.exists():
+            import json
+            seen = {}
+            for line in art.read_text().splitlines():
+                if not line.strip():
+                    continue
+                row = json.loads(line)
+                seen.setdefault(row["universe"], []).append(row)
+            for uni, rows in seen.items():
+                for row in rows[:25] + rows[-25:]:
+                    errs = validate_anatomy_row(row)
+                    if errs:
+                        bad.append(f"real-row[{uni}/{row['row_key']}]: {errs[:2]}")
+                        break
+            if set(seen) != set(UNIVERSES):
+                bad.append(f"real-row coverage: artifact has universes {sorted(seen)}, expected {list(UNIVERSES)}")
+    except Exception as exc:  # noqa: BLE001 — a selftest must never mask a real failure as a pass
+        bad.append(f"real-row case raised {type(exc).__name__}: {exc}")
+
     if verbose or bad:
         for b in bad:
             print(f"  FAIL {b}")
