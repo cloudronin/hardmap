@@ -41,18 +41,20 @@ REASON_REQUIRED_VALUES = frozenset({"n.a."})   # `open` is honest absence; `n.a.
 # ── the I3 pin gate (SCHEMA §3.6) — outcome of the Bridge Ledger pinning pass, docs/findings/ ─────────
 # A cell may carry a `bridge_citation` ONLY if that ledger row is pinned. "Pinned" includes
 # PINNED-WITH-CORRECTION: the correction IS the pin, and the CORRECTED wording is what may be cited.
-# 15 rows examined; 3 pinned clean, 9 pinned only with correction, 3 unpinnable.
+# 15 rows examined; 3 pinned clean, 10 pinned only with correction, 2 unpinnable.
 PINNED_BRIDGES = frozenset({
-    "§1.decision", "§1.parallelization", "§1.parameterized-tw",
+    "§1.decision", "§1.counting", "§1.parallelization", "§1.parameterized-tw",
     "§2.approximation", "§2.parameterized", "§2.counting",
     "§3.decision", "§4.fo_sparse", "§4.fo_minor_free", "§5.proof_size",
     "§6.kernel", "§7.self_reducibility",
 })
 UNPINNED_BRIDGES = frozenset({
-    "§1.counting",        # open: is Courcelle-Makowsky-Rotics 2001 treewidth or CLIQUE-width?
     "§5.approximation",   # expansion is MANUFACTURED by Dinur's preprocessing -> cannot discriminate rows
     "§7.ogp",             # ensemble-typed, not row-typed; excludes stable algorithms, not P
 })
+# §1.counting carries a CITATION HAZARD (ledger §9.5): "Courcelle-Makowsky-Rotics 2001" must resolve to the
+# DAM 108(1-2):23-52 ENUMERATION paper, NOT the TOCS 33(2):125-150 clique-width OPTIMIZATION paper, which
+# forbids edge-set quantification. Cite the DAM paper or the row is mis-attributed.
 # §1.parameterized-tw is the SAME Courcelle theorem as §1.decision. Citable, but the two together are ONE
 # calibration point — a consumer counting them as independent evidence double-counts one theorem.
 DUPLICATE_BRIDGE_GROUPS = (frozenset({"§1.decision", "§1.parameterized-tw"}),)

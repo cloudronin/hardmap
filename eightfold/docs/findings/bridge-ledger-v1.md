@@ -98,7 +98,7 @@ every correction below is anchored to verbatim primary-source text.
 | ledger cell | status | what the pin changed |
 |---|---|---|
 | §1.decision | **PINNED-WITH-CORRECTION** | anchor is **Grohe 2007 alone**, not "Grohe–Marx"; both scope conditions restored |
-| §1.counting | **UNPINNED** | decisive question open: is CMR 2001 treewidth or **clique-width**? |
+| §1.counting | **PINNED-WITH-CORRECTION** *(resolved after the seal commit; see §9.5)* | CMR 2001 is **both**, asymmetrically — and the citation string is **ambiguous between two CMR papers** |
 | §1.parallelization | **PINNED-WITH-CORRECTION** | three-way conflation; the MSO result **bypasses the decomposition** |
 | §1.parameterized-tw | **PINNED-WITH-CORRECTION** | **duplicate** of §1.decision — not independent evidence |
 | §2.approximation | **PINNED-WITH-CORRECTION** | Baker is planar-only / 7 problems; "minor-free" is **not uniform** |
@@ -196,6 +196,53 @@ the *conjunction* P(G) ∧ tw(G) ≤ k, so the width bound is verified rather th
 4. **No column may cite §1.counting, §5.approximation, or §7.ogp** — they are UNPINNED; per SCHEMA §3.6 the
    citing cell falls back to `open` rather than borrowing an unverified warrant.
 5. **§1.decision and §1.parameterized-tw count as ONE calibration point, not two.**
+
+### 9.5 §1.counting — resolved 2026-07-24, after the S0 seal commit (dated addendum, not a silent edit)
+
+The re-pin returned. **Status: PINNED-WITH-CORRECTION.** The decisive question — treewidth or clique-width —
+has a two-part answer, and a citation hazard sits underneath it.
+
+**The citation is ambiguous between two different CMR papers, and only one is right:**
+- ✅ Courcelle–Makowsky–Rotics, *"On the fixed parameter complexity of graph **enumeration** problems
+  definable in monadic second-order logic"*, **Discrete Applied Mathematics 108(1–2):23–52, 2001** — the
+  counting paper. This is the correct anchor.
+- ❌ Courcelle–Makowsky–Rotics, *"**Linear Time Solvable Optimization** Problems on Graphs of Bounded
+  Clique-Width"*, **Theory of Computing Systems 33(2):125–150, 2000** — optimization on clique-width, and
+  **explicitly forbids edge-set quantification**. If the ledger's string resolves here, the row is
+  MIS-ATTRIBUTED.
+
+**Answer to the open question: BOTH, asymmetrically** (DAM 2001 abstract, verbatim): bounded **treewidth** →
+polynomial time **with edge-set quantification allowed** (MSO₂); bounded **clique-width** → only when the
+decomposition is poly-time computable **and** the formula has **no edge-set quantification** (MSO₁).
+
+Four precision corrections:
+1. **"Linear time" is model-dependent and mildly overstated.** ALS 1991 claims linear for *decision* and for
+   optimization with constant-bounded weights; **counting** is claimed "in linear time **or** polynomial or
+   pseudopolynomial time" — linear only under unit-cost arithmetic. CMR 2001's own abstract says
+   **polynomial**, not linear.
+2. **The decomposition is assumed given** in ALS (explicit in the journal abstract), in CMR's clique-width
+   half, and in every FMR theorem. Removable at fpt-linear cost for treewidth (Bodlaender); **not** removable
+   for clique-width (only Oum–Seymour approximation).
+3. **FMR's graph representation is load-bearing**: the 4^k treewidth bound is on the **incidence** graph
+   (Thm 1.3); the clique-width bound needs the **signed** incidence graph (Thm 1.8), and the *unsigned* case
+   was explicitly left unproved (Remark 6.13).
+4. **The sharp modern constant is 2^k, not 4^k** — Slivovsky–Szeider, SAT 2020 — and it is **optimal under
+   SETH**.
+
+**A mis-attribution to avoid before anyone makes it:** Lokshtanov–Marx–Saurabh 2011 does **not** state a
+lower bound for SAT or #SAT parameterized by treewidth. CNF-SAT is their *hypothesis*, not their
+*conclusion*; their catalogue covers Independent Set, Dominating Set, Max Cut, OCT, q-Coloring, Partition
+Into Triangles. The #SAT-by-treewidth optimality claim is the direct SETH embedding, as invoked by
+Slivovsky–Szeider.
+
+**Cleanest anchor pair** if a single strongest citation is wanted for "MSO counting is FPT by treewidth":
+**Courcelle–Mosbah 1993** (TCS 109(1–2):49–82, the semiring/evaluation framework) + **Courcelle–Engelfriet
+2012, Theorem 6.56** (canonical modern statement: fp-**linear** for treewidth/CMS₂, fp-**cubic** for
+clique-width/CMS — the same asymmetry). Keep ALS 1991 for the EMSO-with-arithmetic flavour. Note
+Langer et al.'s caution: ALS and Courcelle–Mosbah are **orthogonal** — neither subsumes the other.
+
+**Revised tally: 15 cells — 3 pinned clean, 10 pinned with correction, 2 unpinnable**
+(§5.approximation, §7.ogp).
 
 *Verification gaps carried forward (recorded, not hidden):* Bodlaender–Hagerup theorem numbers are from the
 Utrecht full version (SIAM returns 403; abstract matches verbatim); Cai–Lu–Xia numbering is from arXiv, not
