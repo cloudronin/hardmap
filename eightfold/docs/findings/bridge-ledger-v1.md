@@ -1,0 +1,204 @@
+# Bridge Ledger v1 — Proven Feature→Charge Links (netting + calibration basis for the grid)
+
+> **Landing note (2026-07-24, Anatomy S0).** This note was authored by the owner and banked out-of-repo;
+> it is landed here **verbatim** as the in-repo reference both Anatomy v1 and Mosaic v3 G0 cite. Its own
+> pin-before-net rule is unsatisfied at landing time: the `pinned:` column below is filled by the I3
+> pinning pass (one pass, two consumers), and **no cell nets anything or serves as a known-answer value
+> until its row is pinned**. Landing ≠ pinning. Verbatim text follows; the pinning table is appended at
+> §9 and never edits the cells above it.
+
+**Status:** Note, banked 2026-07-24. Every cell below is high-confidence but **pin-before-net**:
+the exact theorem statement and scope conditions get pinned at Strata-v2 / G0 I-phase before any
+cell nets anything or serves as a known-answer value (house rule; memory-cited nothing).
+**Verdict key:** NETTED = proven, do not test, becomes a known-answer calibration cell;
+ISLAND = proven on a restricted class, only the off-island extrapolation is testable;
+OPEN = the grid's real estate.
+
+## 1. Bounded treewidth / tree-decomposability (most-bridged feature in existence)
+
+| → charge | proven content | cite anchors (pin at I-phase) | verdict |
+|---|---|---|---|
+| decision | all MSO properties linear-time at bounded tw; bounded-arity CSP tractability ⟺ bounded tw (up to hom-equiv) | Courcelle 1990; Grohe–Marx | **NETTED** |
+| counting | MSO counting/enumeration tractable at bounded tw; #SAT at bounded tw | Arnborg–Lagergren–Seese 1991; Courcelle–Makowsky–Rotics 2001; Fischer–Makowsky–Ravve 2008 | **NETTED** |
+| parallelization | small-treewidth NC algorithms; optimal-speedup parallel tree decomposition + all MSO decision problems in O(log n) CRCW | Bodlaender 1988; Bodlaender–Hagerup (SICOMP) | **NETTED** — bounded-width decomposability ⟹ parallelizable; the Horn-SAT counterexample is *unbounded-width* local structure. Strata must carry the bounded/unbounded-width distinction or this cell mis-nets |
+| parameterized (tw as parameter) | FPT by treewidth for MSO problems | Courcelle | **NETTED** |
+| parameterized (solution size) | — | — | **OPEN** (the witness-ambiguity split, already tagged in the atlas) |
+| approximation | only via planarity/minor routes | see §2 | ISLAND via §2 |
+
+## 2. Planarity / minor-exclusion / geometric embedding
+
+| → charge | proven | anchors | verdict |
+|---|---|---|---|
+| approximation | PTASs for broad families on planar/minor-free | Baker 1994; Demaine–Hajiaghayi bidimensionality | **ISLAND** — off-island population trend is testable |
+| parameterized | subexponential FPT, same machinery | bidimensionality | **ISLAND, shared-cause** — theory's proof of the coupling's easy end, jointly, on the island |
+| counting | planar matchings/permanent in P and NC (Pfaffian) | FKT; Mahajan et al. 2004; Cai–Lu–Xia planar #CSP dichotomies | **NETTED** as calibration |
+
+## 3. Engine type (Bulatov–Zhuk anatomy; oracle-derivable)
+
+| → charge | proven | anchors | verdict |
+|---|---|---|---|
+| decision | bounded-width ⟺ solvable by local consistency; few-subpowers → algebraic engine | Barto–Kozik; IMMVW | **NETTED** |
+| approximation | — | — | **OPEN — prime real estate** (the grid's sealed engine-split bet) |
+| parameterized | — | — | **OPEN — prime real estate** |
+
+## 4. FO-definability + sparsity (the Gaifman route)
+
+| → charge | proven | anchors | verdict |
+|---|---|---|---|
+| decision/param | FO model-checking FPT on sparse classes | Frick–Grohe 2001; Flum–Grohe | **ISLAND** |
+| approximation | PTAS for X-positive/X-negative FO optimization on minor-free | Dawar–Grohe–Kreutzer–Schweikardt LICS 2006 | **ISLAND, shared-cause** (second jointly-proven easy-end instance; shared Gaifman hypothesis) |
+
+## 5. Expansion (the anti-feature)
+
+| → charge | proven | anchors | verdict |
+|---|---|---|---|
+| proof size | expander formulas resolution-hard via width-size tradeoffs | Ben-Sasson–Wigderson; Urquhart/Tseitin ancestry | **NETTED** |
+| approximation | expansion powers PCP gap amplification | PCP line | NETTED as mechanism; **OPEN as per-row predictor** (typing care: "expander-like instances" is not a row fact without a stated ensemble) |
+
+## 6. Kernel status
+
+| → charge | proven | verdict |
+|---|---|---|
+| parameterized | poly-kernel ⟹ FPT (definitional-adjacent); FPT ⟺ some kernel | **NETTED**; informative residual = poly vs no-poly *within* FPT — **OPEN** (Mosaic P6's form, correct as sealed) |
+
+## 7. Structure → average-case and → landscape
+
+Almost entirely **OPEN**. Only islands: algebraic self-reducibility (permanent random-self-reducibility; lattice worst↔average, Ajtai) and OGP-style ensemble results (Gamarnik line) — the latter *ensemble-typed, not row-typed*. No population-level structure-predicts-average-case exists anywhere. The grid's virgin column if it ever wants one.
+
+## 8. Operational consequences
+
+1. **NETTED cells = the grid's known-answer calibration layer** — theorem-grade expected values,
+   the strongest instrument qualification available to the program; failures there are pipeline
+   bugs by definition.
+2. **ISLAND cells = extrapolation bets**, sealed as "proven on class C; does the trend persist
+   off-island as a population claim?" — sharper and more publishable than testing from scratch.
+3. **OPEN cells = where grid hours concentrate:** engine→approx, engine→param,
+   solution-size-parameter column, anything→average-case/landscape.
+4. Every Strata-v2 column carries its bridge citation(s) from this ledger, so the eventual bridge
+   table distinguishes proven cells from measured ones mechanically.
+
+---
+
+## 9. I3 pinning table (appended by the Anatomy S0 pass — shared with Mosaic v3 G0)
+
+**Rule:** a ledger cell may be cited by an Anatomy column, net anything, or serve as a known-answer
+calibration value **only once its row here reads `PINNED`.** A row that cannot be pinned to an exact
+theorem statement with its scope conditions is demoted to `UNPINNED — do not net`, and the column citing
+it falls back to `open` rather than borrowing an unverified warrant. This is the ledger's own house rule
+(header: "memory-cited nothing"), made operational.
+
+### 9.1 Headline — the gate paid for itself
+
+**15 cells examined. 3 pinned clean (20%). 9 pinned only with correction. 3 unpinnable.**
+The ledger's header promised "memory-cited nothing." The pass found the opposite in nine cells, including
+**two wrong-paper attributions, one claim that a cited-adjacent theorem literally refutes, one tautology
+presented as a theorem, and one confirmed duplicate**. No cell was corrected by weakening it to taste —
+every correction below is anchored to verbatim primary-source text.
+
+| ledger cell | status | what the pin changed |
+|---|---|---|
+| §1.decision | **PINNED-WITH-CORRECTION** | anchor is **Grohe 2007 alone**, not "Grohe–Marx"; both scope conditions restored |
+| §1.counting | **UNPINNED** | decisive question open: is CMR 2001 treewidth or **clique-width**? |
+| §1.parallelization | **PINNED-WITH-CORRECTION** | three-way conflation; the MSO result **bypasses the decomposition** |
+| §1.parameterized-tw | **PINNED-WITH-CORRECTION** | **duplicate** of §1.decision — not independent evidence |
+| §2.approximation | **PINNED-WITH-CORRECTION** | Baker is planar-only / 7 problems; "minor-free" is **not uniform** |
+| §2.parameterized | **PINNED-WITH-CORRECTION** | "same machinery" true of the tool, false of the hypotheses |
+| §2.counting | **PINNED-WITH-CORRECTION** | "planar matchings" is **refuted by Jerrum 1987**; both NC anchors wrong |
+| §3.decision | **PINNED-WITH-CORRECTION** | "bounded-width ⟺ local consistency" is a **definition**, not a theorem |
+| §4.fo_sparse | **PINNED** | — |
+| §4.fo_minor_free | **PINNED** | — |
+| §5.proof_size | **PINNED** | — |
+| §5.approximation | **UNPINNED** | expansion is **manufactured** by the proof; it cannot discriminate rows |
+| §6.kernel | **PINNED-WITH-CORRECTION** | needs **decidability**; kernel size arbitrary ⇒ no efficiency content |
+| §7.self_reducibility | **PINNED-WITH-CORRECTION** | Ajtai is **one-directional**, approximation-version, engineered distribution |
+| §7.ogp | **UNPINNED** | ensemble-typed, not row-typed — the ledger's own call, confirmed |
+
+### 9.2 The four corrections that would have damaged the instrument
+
+**(a) §2.counting — a NETTED calibration cell asserting the opposite of a theorem.**
+The cell reads "planar matchings/permanent in P and NC." But *counting matchings in a planar graph is
+#P-complete* — Jerrum 1987, §1, verbatim: *"the main result of this paper … is that 'counting matchings in
+a planar graph is #P-complete.'"* The tractable object is **planar PERFECT matchings** (FKT / Kasteleyn
+1967, via "every planar graph is Pfaffian" + Cayley's `det A = (Pf A)²`). "Permanent" is false under the
+adjacency/cycle-cover reading (#P-complete for planar graphs of degree ≤ 4). Both NC anchors are
+mis-attributed: the correct chain is **Kasteleyn 1967 + Csanky 1976 (det ∈ NC²) + Vazirani 1989**, not
+Mahajan et al. 2004 / Cai–Lu–Xia — the sign obstruction those solve is a **GapL** obstruction, irrelevant
+to NC, since NC is closed under integer square roots.
+*Why it mattered:* per §8.1, NETTED cells become known-answer calibration values where "failures are
+pipeline bugs by definition." Shipped as-is, every pipeline correctly reporting #P-completeness would have
+been flagged as a bug, and the instrument would have been "fixed" toward the error.
+
+**(b) §3.decision — a tautology presented as the theorem** (and this is Anatomy's own `engine_type` bridge).
+"Bounded-width ⟺ solvable by local consistency" is **Barto–Kozik's definition** (Def. 3.3/3.4: a structure
+*has width (k,l)* iff a nonempty (k,l)-strategy implies a homomorphism), not a result. The theorem content
+is the **algebraic characterization**: sufficiency is Barto–Kozik, *JACM* 61(1) Art. 3, 2014 (SD(∧) ⇒
+bounded width); **necessity is Larose–Zádori 2007**, not Barto–Kozik. Two load-bearing hypotheses were
+dropped: a **finite core template**, and **all singleton unary relations added** (idempotent reduction).
+The relational-width-(2,3) collapse is a *separate* paper (Barto, *JLC* 26(3):923–943, 2016). IMMVW's
+few-subpowers side needs **no** core/idempotency hypothesis — the k-edge identities already force it.
+
+**(c) §5.approximation — UNPINNED for a structural reason, not a missing citation.**
+Dinur's amplification requires λ(G) ≤ λ < d, but her **Preprocessing Lemma 3.1** turns *any* constraint
+graph into a d-regular self-looped graph meeting that bound, at O(1) size blowup. So **expansion is
+manufactured inside the reduction, never observed on the input**: no instance is excluded for lacking it and
+none is charged more for having it. Expansion therefore **cannot be a per-row predictor at all** on this
+route — the deliverable is class-level NP-hardness of gap-3SAT, a statement about a problem, not a charge on
+an instance. The ledger's own typing worry ("not a row fact without a stated ensemble") was correct and is
+in fact stronger than stated. *This is instance-16's shape again: a proposed feature that cannot vary in the
+way the design needs.*
+
+**(d) §1.parallelization — a "+" that fuses three different results.**
+Bodlaender–Hagerup, verbatim: the optimal-speedup decomposition construction is **O((log n)²) on EREW**;
+the MSO results are O(log n log\* n) EREW / **O(log n) CRCW** — and they *"operate without an explicit tree
+decomposition and so bypass the (time) bottleneck of our construction algorithm."* So it is **not**
+decomposition-then-automaton. Those theorems are also **decision-only and nonconstructive**, and they decide
+the *conjunction* P(G) ∧ tw(G) ≤ k, so the width bound is verified rather than promised.
+
+### 9.3 Corrections of record (shorter, still binding)
+
+- **§1.decision** — Courcelle's Prop. (4.14) takes the width-bounded **expression** as input, time O(size(e));
+  the popular "linear in n from G alone" silently imports Bodlaender 1996. Logic is **counting MSO₂**. The
+  constant is **non-elementary** and provably so unless P = NP (Frick–Grohe 2004). Grohe 2007's
+  characterization needs **bounded arity** (he gives an unbounded-arity counterexample) and **FPT ≠ W[1]**.
+- **§1.parameterized-tw** — the same Courcelle theorem read parameterized. **It must not be counted as a
+  second calibration point**, or one theorem is double-counted as two independent bridges.
+- **§2.approximation** — Baker 1994 is **planar-only**, over exactly seven named problems, ratio k/(k+1)
+  (max) / (k+1)/k (min); "minor-free" requires the chain Eppstein 2000 → Grohe 2003 → DeVos et al. 2004 +
+  DHK 2005. Crucially the ceiling is **not uniform**: minor-bidimensional → H-minor-free, but
+  **contraction-bidimensional → apex-minor-free only** (contraction-bidimensionality is *undefined* for
+  general H-minor-free classes — CJ 2008 fn. 1). Two "broad family" characterizations exist (DGKS LICS 2006;
+  bidimensional+separation) and are **explicitly incomparable**; neither extends to MSO (planar
+  3-colourability is MSO-definable and NP-hard).
+- **§2.parameterized** — 2^O(√k)·n^O(1) and the shared grid-theorem engine are correct, but the **FPT side
+  assumes strictly less**: the PTAS side additionally needs the separation property, an α-approximation
+  subroutine, and a treewidth approximation.
+- **§6.kernel** — "FPT ⟺ some kernel" is **false without decidability** (plus non-triviality), and g(k) is an
+  **arbitrary computable** function, so the equivalence "carries no efficiency content; it is a restatement,
+  not a preprocessing guarantee." **Polynomial** kernelization is strictly stronger and *not* equivalent to
+  FPT (k-Path). This **vindicates Mosaic P6's design**: the informative residual really is poly vs no-poly
+  *within* FPT.
+- **§7.self_reducibility** — Ajtai's worst-to-average is **one-directional**, holds for γ = n^O(1)
+  *approximation* versions over an **engineered** distribution; permanent RSR needs |F| ≥ deg + 2 and
+  tolerates only 1/poly error.
+- **§7.ogp** — OGP parameters are ensemble constants; barrier proofs need e-OGP/m-OGP over *sets* of
+  correlated instances; the conclusion excludes only stable/insensitive algorithms, **not P**. Pinnable
+  ensemble-typed representative recorded: Gamarnik–Sudan, *Ann. Prob.* 2017, Thms 2.5/2.6.
+
+### 9.4 Operational consequences for Anatomy v1
+
+1. **`engine_type` may cite §3 only in its corrected form** (§9.2b) — the algebraic characterization with
+   its core + all-singletons hypotheses, never the definitional gloss.
+2. **`kernel_status` may cite §6 only in its corrected form** (§9.3) — and the coverage-conditioning entry
+   in `Anatomy-SCHEMA.md` §6 already records that the poly/no-poly residual within FPT is the only
+   informative contrast.
+3. **`decomposition_facts` must carry the class ceiling per problem type** (§9.3, §2.approximation):
+   H-minor-free vs **apex**-minor-free is a real distinction and belongs in the cited record.
+4. **No column may cite §1.counting, §5.approximation, or §7.ogp** — they are UNPINNED; per SCHEMA §3.6 the
+   citing cell falls back to `open` rather than borrowing an unverified warrant.
+5. **§1.decision and §1.parameterized-tw count as ONE calibration point, not two.**
+
+*Verification gaps carried forward (recorded, not hidden):* Bodlaender–Hagerup theorem numbers are from the
+Utrecht full version (SIAM returns 403; abstract matches verbatim); Cai–Lu–Xia numbering is from arXiv, not
+SICOMP 2017; Baker's internal theorem numbers were not seen (ACM DL blocked) and the O(8^k·k·n) constants
+are attributed-but-unverified — use 2^O(1/ε)·n^O(1); no numbered Cygan et al. theorem exists for the
+H-minor-free/apex generalization (only p. 210 prose) — use Combinatorica 2008 Cor. 3 or CJ 2008 Thm 8.1.

@@ -53,6 +53,45 @@ it — never as a standalone.
 
 ---
 
+---
+
+## Flag 3 — the Bridge Ledger pinning pass (I3) ran; its results bind G0's calibration layer
+
+I3 was specified as **one pass, two consumers** (Anatomy S0 + Mosaic v3 G0). It ran on 2026-07-24 and is
+recorded in full at `docs/findings/bridge-ledger-v1.md` §9. **15 cells examined: 3 pinned clean, 9 pinned
+only with correction, 3 unpinnable.** Four consequences bind G0 directly:
+
+1. **A NETTED calibration cell asserted the opposite of a theorem.** Ledger §2.counting read "planar
+   matchings/permanent in P and NC" — but *counting matchings in a planar graph is #P-complete* (Jerrum
+   1987). The tractable object is planar **perfect** matchings. Per Ledger §8.1, NETTED cells are the grid's
+   known-answer layer where "failures are pipeline bugs by definition" — so shipped as-is, a **correct**
+   pipeline would have been flagged as buggy and the instrument "corrected" toward the error. **G0 must take
+   its calibration values from §9's corrected wording, never from the §1–§7 tables as originally written.**
+
+2. **§1.decision and §1.parameterized-tw are ONE theorem, not two.** Both are Courcelle 1990 Prop. (4.14).
+   Counting them as independent calibration points inflates the known-answer layer with one theorem wearing
+   two hats. `anatomy.independent_bridge_count()` collapses the pair mechanically; G0 should use it or
+   replicate the rule.
+
+3. **Expansion cannot be a per-row feature — this is Flag 1's failure mode a second time.** Ledger
+   §5.approximation is **UNPINNED for a structural reason**: Dinur's Preprocessing Lemma manufactures the
+   expansion hypothesis on *any* constraint graph, so no instance is excluded for lacking it or charged for
+   having it. Like the objective-independent param oracle in Flag 1, this is a proposed feature that
+   **cannot vary in the way a bet would need**. If G0 ever reaches for an expansion covariate, it must first
+   pass the same census-before-seal gate.
+
+4. **§6.kernel's correction vindicates Mosaic P6 as sealed.** "FPT ⟺ some kernel" holds only for
+   **decidable, non-trivial** problems, and g(k) is an arbitrary computable function — so the equivalence
+   "carries no efficiency content." The informative contrast really is **poly- vs no-poly kernel within
+   FPT**, which is exactly what P6 measured. No change to P6; the ledger row is what needed fixing.
+
+**Also carried:** `engine_type`'s bridge (§3.decision) may be cited only in its corrected form — the
+algebraic characterization (SD(∧) sufficiency Barto–Kozik JACM 2014; necessity **Larose–Zádori 2007**) with
+its **finite core + all-singletons** hypotheses. "Bounded width ⟺ local consistency" is Barto–Kozik's
+*definition*, not a theorem, and must not be presented as an empirical bridge.
+
+---
+
 ## Carry-forward summary
 
 1. Prediction 2 splits: approx×objective empirical; **param×objective definitional (oracle-forced zero) —
