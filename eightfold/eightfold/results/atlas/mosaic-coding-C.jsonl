@@ -1,0 +1,59 @@
+{"problem_id": "bipartiteness", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "2-coloring forced along edges; component blocks, bounded interface"}
+{"problem_id": "sat-3", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "bounded-width clauses; per-clause local certificates; shared-variable coupling"}
+{"problem_id": "clique-width", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "minimum labels over whole-graph construction; global functional"}
+{"problem_id": "capacitated-dominating-set", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "neighborhood coverage with local capacities; combinatorial choices"}
+{"problem_id": "sat", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "clauses as local certificates; unbounded clause width"}
+{"problem_id": "feedback-arc-set-tournament", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "dense tournament; global ordering agreement; long cycles"}
+{"problem_id": "min-spanning-tree", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "separable edge-sum; local cut exchange; spanning"}
+{"problem_id": "k-set-packing", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "bounded-size sets; pairwise-disjoint packing; no decomposition"}
+{"problem_id": "circuit-value-problem", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "gatewise evaluation over topological order; bounded interface"}
+{"problem_id": "weighted-completion-time-scheduling", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "per-job weighted completion sum; linear-order scaffold"}
+{"problem_id": "minimum-weight-triangulation", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "recursive subdivision; separable edge-length sum"}
+{"problem_id": "directed-feedback-vertex-set", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "hit all directed cycles; unbounded-length, delocalized"}
+{"problem_id": "cutwidth", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "linear layout; global maximum cut over ordering"}
+{"problem_id": "sharp-contingency-tables", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "row/column margins couple entire lines; whole-matrix count"}
+{"problem_id": "max-flow", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "local conservation constraints; globally-coupled s-t routing"}
+{"problem_id": "three-dimensional-matching", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "disjoint triples; bounded arity; packing/matching"}
+{"problem_id": "gcd", "locality_class": "uncodable", "arity_class": "n.a.", "rationale": "bare integer pair; no combinatorial locality structure"}
+{"problem_id": "generalized-assignment", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "per-bin capacity packing; cross-bin item assignment"}
+{"problem_id": "generalized-subset-sum", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "single sum-to-target; value-axis scaffold"}
+{"problem_id": "feedback-vertex-set", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "hit all cycles; unbounded-length constraints, delocalized"}
+{"problem_id": "exact-cover-x3c", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "exact cover by triples; bounded sets; covering"}
+{"problem_id": "orienteering", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "reward collection along length-budgeted global route"}
+{"problem_id": "horn-sat", "locality_class": "decomposable", "arity_class": "unbounded-fanin", "rationale": "implications force least model; forward propagation"}
+{"problem_id": "upper-domination", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "neighborhood coverage plus per-vertex minimality; maximize"}
+{"problem_id": "minimum-sum-of-squares", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "objective sums per-bin squared loads; assignment"}
+{"problem_id": "cycle-packing", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "pack disjoint cycles; unbounded-length, delocalized"}
+{"problem_id": "monotone-circuit-value", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "monotone gatewise evaluation; local forward propagation"}
+{"problem_id": "betweenness", "locality_class": "entangled", "arity_class": "bounded-local", "rationale": "arity-3 order constraints; global total-order agreement"}
+{"problem_id": "determinant", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "sums over all permutations; whole-matrix functional"}
+{"problem_id": "planarity", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "embeddability decomposes over connectivity; bounded interfaces"}
+{"problem_id": "cellular-automaton-prediction", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "local update rule; bounded spacetime light-cone propagation"}
+{"problem_id": "cyclic-ordering", "locality_class": "entangled", "arity_class": "bounded-local", "rationale": "arity-3 cyclic-order constraints; global order agreement"}
+{"problem_id": "minimum-test-cover", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "cover all item-pairs by distinguishing tests"}
+{"problem_id": "triangle-packing", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "vertex-disjoint triangles; bounded arity; packing"}
+{"problem_id": "maximum-minimal-vertex-cover", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "edge cover, minimal, maximized; covering-shaped"}
+{"problem_id": "treedepth", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "global elimination-forest height; whole-graph parameter"}
+{"problem_id": "pathwidth", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "global path-decomposition width; whole-graph parameter"}
+{"problem_id": "planar-matching-count", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "count perfect matchings; global whole-graph functional"}
+{"problem_id": "graph-spanner", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "all-pairs distance preservation; delocalized covering edges"}
+{"problem_id": "max-cut", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "per-edge cut terms; arity-2; partition coupling"}
+{"problem_id": "max-2lin", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "arity-2 equations; maximize satisfied; covering-shaped"}
+{"problem_id": "permanent", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "sums over all permutations; whole-matrix functional"}
+{"problem_id": "reachability-stcon", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "edge-local reachability; forward closure; deterministic propagation"}
+{"problem_id": "red-blue-set-cover", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "cover blue while minimizing red; delocalized"}
+{"problem_id": "stable-matching", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "pairwise no-blocking-pair constraints; matching"}
+{"problem_id": "succinct-3-coloring", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "succinct circuit-defined graph; global coloring agreement"}
+{"problem_id": "matching", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "disjoint edge packing; bounded arity"}
+{"problem_id": "capacitated-vertex-cover", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "edge cover with vertex-capacity constraints; covering"}
+{"problem_id": "job-interval-selection", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "interval selection; pairwise disjointness; per-job choice"}
+{"problem_id": "nae-sat", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "not-all-equal clauses; per-clause certificate; covering"}
+{"problem_id": "maximum-induced-matching", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "distance-2 disjoint edge packing; induced"}
+{"problem_id": "domatic-number", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "partition into dominating sets; coverage coupled"}
+{"problem_id": "circuit-sat", "locality_class": "entangled", "arity_class": "bounded-local", "rationale": "existence of satisfying input; deep global chains"}
+{"problem_id": "kemeny-rank-aggregation", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "consensus order; sum pairwise disagreements; agreement"}
+{"problem_id": "min-cost-flow", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "local conservation; global min-cost routing objective"}
+{"problem_id": "grundy-number", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "ordering-forced coloring count; global parameter"}
+{"problem_id": "odd-cycle-transversal", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "hit all odd cycles; unbounded-length, delocalized"}
+{"problem_id": "unification", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "recursive term matching; local congruence propagation"}
+{"problem_id": "subgraph-isomorphism", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "consistent injective embedding; global agreement"}
