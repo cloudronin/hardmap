@@ -31,13 +31,30 @@ def load(path):
     return {json.loads(l)["problem_id"]: json.loads(l) for l in Path(path).read_text().splitlines() if l.strip()}
 
 
+# resolution ladder (prereg_v10-clarification-01): kappa MEASURES the granularity at which the instrument
+# is reliable; it does not qualify/kill at five classes. 5 -> 3 (collapse the disputed entangled/mixed
+# boundary) -> 2 (local vs delocalized). Demonstrated resolution = finest level with kappa >= 0.6.
+COLLAPSE = {
+    "5-class": {c: c for c in LEGAL},
+    "3-class": {"decomposable": "decomposable", "local-covering": "local-covering",
+                "entangled": "delocalized", "mixed": "delocalized", "uncodable": "uncodable"},
+    "2-class": {"decomposable": "local", "local-covering": "local",
+                "entangled": "delocalized", "mixed": "delocalized", "uncodable": "uncodable"},
+}
+
+
+def _collapse(coding, m):
+    return {k: {**v, "locality_class": m[v["locality_class"]]} for k, v in coding.items()}
+
+
 def cohen_kappa(a, b, keys):
     la = [a[k]["locality_class"] for k in keys]
     lb = [b[k]["locality_class"] for k in keys]
     n = len(keys)
+    cats = set(la) | set(lb)                       # derive categories (works at any ladder level)
     po = sum(x == y for x, y in zip(la, lb)) / n
     ca, cb = Counter(la), Counter(lb)
-    pe = sum((ca[c] / n) * (cb[c] / n) for c in LEGAL)
+    pe = sum((ca[c] / n) * (cb[c] / n) for c in cats)
     return (po - pe) / (1 - pe) if pe < 1 else 1.0, po
 
 
@@ -48,10 +65,11 @@ def gwet_ac1(a, b, keys):
     la = [a[k]["locality_class"] for k in keys]
     lb = [b[k]["locality_class"] for k in keys]
     n = len(keys)
+    cats = set(la) | set(lb)
+    K = len(cats)
     po = sum(x == y for x, y in zip(la, lb)) / n
-    K = len(LEGAL)
-    pi = {c: (Counter(la)[c] + Counter(lb)[c]) / (2 * n) for c in LEGAL}
-    pe = sum(pi[c] * (1 - pi[c]) for c in LEGAL) / (K - 1)
+    pi = {c: (Counter(la)[c] + Counter(lb)[c]) / (2 * n) for c in cats}
+    pe = (sum(pi[c] * (1 - pi[c]) for c in cats) / (K - 1)) if K > 1 else 0.0
     return (po - pe) / (1 - pe) if pe < 1 else 1.0
 
 
@@ -88,14 +106,24 @@ def main():
               + (f"  ILLEGAL={illegal}" if illegal else ""))
 
     # --- kappa (kill 1) ---
-    kappa, po = cohen_kappa(a, b, keys)
-    print(f"\nCohen's kappa = {kappa:.3f}  (raw agreement {po:.1%})  -> "
-          + ("QUALIFIES (>=0.6)" if kappa >= 0.6 else "KILL: < 0.6 -> NOT QUALIFIED (this is the recode; no third attempt)"))
-    print(f"  [supplementary, context only — kappa is the sealed metric]: Gwet AC1 = {gwet_ac1(a, b, keys):.3f}")
-    pca = per_class_agreement(a, b, keys)
-    print("  per-class specific-agreement (both/either):")
+    # --- the resolution ladder (prereg_v10-clarification-01) ---
+    print("\nresolution ladder (kappa MEASURES the reliable granularity; it does not qualify/kill at 5):")
+    ladder = {}
+    for lvl in ("5-class", "3-class", "2-class"):
+        aa, bb = _collapse(a, COLLAPSE[lvl]), _collapse(b, COLLAPSE[lvl])
+        k, p = cohen_kappa(aa, bb, keys)
+        ladder[lvl] = k
+        print(f"  {lvl}: kappa={k:.3f} (raw {p:.1%}, AC1={gwet_ac1(aa, bb, keys):.3f})  "
+              + (">= 0.6 RELIABLE" if k >= 0.6 else "< 0.6"))
+    demonstrated = next((lvl for lvl in ("5-class", "3-class", "2-class") if ladder[lvl] >= 0.6), None)
+    # is the 5-class disagreement concentrated on the entangled/mixed boundary?
+    dis5 = [(a[k]["locality_class"], b[k]["locality_class"]) for k in keys if a[k]["locality_class"] != b[k]["locality_class"]]
+    em = sum(1 for x, y in dis5 if {x, y} == {"entangled", "mixed"})
+    conc = (em / len(dis5)) if dis5 else 0.0
+    print(f"\n  5-class disagreements: {len(dis5)}; entangled<->mixed: {em} ({conc:.0%} of them)")
+    print("  per-class specific-agreement (both/either), 5-class:")
     for c in ("decomposable", "local-covering", "entangled", "mixed", "uncodable"):
-        both, either, rate = pca[c]
+        both, either, rate = per_class_agreement(a, b, keys)[c]
         print(f"     {c:16} {both}/{either} = {rate}")
 
     # --- P1 anchors ---
@@ -145,8 +173,22 @@ def main():
           f"dissociation structure-acc={acc:.2f} (knapsack+subset-sum coded decomposable)")
     print(f"  charge-reconstruction flag: {'FIRES — absorption (P3) UNQUALIFIED (label tracks coordinates)' if fires else 'clear (structure-coding holds)'}")
 
-    print(f"\nL1 verdict: kappa {'ok' if kappa>=0.6 else 'KILL'}; P1 {'ok' if p1_ok else 'MISS'}; "
-          f"separability {'FLAG' if fires else 'clear'}; {len(disagree)} to third-pass.")
+    # --- outcome tree (prereg_v10-clarification-01) ---
+    print("\n=== L1 OUTCOME (clarification-01 tree) ===")
+    if fires:
+        verdict = "C: NOT QUALIFIED — blindness/separability gate fired (labels are charge-echo). ABSOLUTE."
+    elif demonstrated is None:
+        verdict = "C: NOT QUALIFIED — agreement collapses at every granularity (kappa<0.6 even at 2-class). True negative."
+    elif demonstrated == "5-class":
+        verdict = "A: QUALIFIES at 5 classes -> full-resolution run; P2-P6 at 5-class locality."
+    else:
+        note = ("boundary-concentrated (entangled/mixed) — five-class strain BANKED as two-property-split evidence"
+                if conc >= 0.5 else "NOT boundary-concentrated — the strain is diffuse; report that, split-evidence weaker")
+        verdict = (f"B: demonstrated resolution = {demonstrated} (kappa {ladder[demonstrated]:.3f}); "
+                   f"P2-P6 score at {demonstrated}, resolution tagged on every number; {note}.")
+    print(f"  {verdict}")
+    print(f"  P1 anchors: {'QUALIFIED' if p1_ok else 'MISS'}; separability: {'FIRED' if fires else 'clear'}; "
+          f"5-class disagreements to third-pass: {len(disagree)}.")
     print(f"coding-A sha256 {hashlib.sha256((AT/'mosaic-coding-A.jsonl').read_bytes()).hexdigest()[:16]}; "
           f"coding-B sha256 {hashlib.sha256((AT/'mosaic-coding-B.jsonl').read_bytes()).hexdigest()[:16]} "
           f"(hash the codings BEFORE the charge join — done: join used a read-only copy)")
