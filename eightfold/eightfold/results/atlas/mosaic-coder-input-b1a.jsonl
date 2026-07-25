@@ -1,0 +1,57 @@
+{"problem_id": "sat", "problem_name": "Boolean Satisfiability (CNF-SAT)", "problem_family": "sat-csp", "canonical_encoding": "CNF over n vars; clauses as literal-lists; unbounded width"}
+{"problem_id": "sat-3", "problem_name": "3-SAT", "problem_family": "sat-csp", "canonical_encoding": "CNF with exactly-3-literal clauses; random ensemble at clause density alpha"}
+{"problem_id": "sat-2", "problem_name": "2-SAT", "problem_family": "sat-csp", "canonical_encoding": "CNF with exactly-2-literal clauses; implication-graph view"}
+{"problem_id": "xor-sat", "problem_name": "XOR-SAT (linear equations over GF(2))", "problem_family": "sat-csp", "canonical_encoding": "system of GF(2) linear equations (k-XOR clauses); random k-XORSAT ensemble"}
+{"problem_id": "horn-sat", "problem_name": "Horn-SAT", "problem_family": "sat-csp", "canonical_encoding": "CNF with <=1 positive literal per clause (Horn); unit-propagation view"}
+{"problem_id": "vertex-cover", "problem_name": "Vertex Cover (decision)", "problem_family": "graph", "canonical_encoding": "simple undirected graph, adjacency-list (sparse); size = (n vertices, m edges)"}
+{"problem_id": "clique", "problem_name": "Clique (decision)", "problem_family": "graph", "canonical_encoding": "simple undirected graph, adjacency-list (sparse)"}
+{"problem_id": "independent-set", "problem_name": "Independent Set (decision)", "problem_family": "graph", "canonical_encoding": "simple undirected graph, adjacency-list (sparse)"}
+{"problem_id": "graph-3-coloring", "problem_name": "Graph 3-Coloring", "problem_family": "graph", "canonical_encoding": "simple undirected graph, adjacency-list; random G(n,m) ensemble"}
+{"problem_id": "tsp", "problem_name": "Traveling Salesman (general, decision)", "problem_family": "optimization", "canonical_encoding": "complete graph with arbitrary nonnegative edge weights; decision: tour <= B"}
+{"problem_id": "permanent", "problem_name": "Permanent (0/1 and integer matrices)", "problem_family": "algebraic", "canonical_encoding": "n x n matrix, entries in binary; 0/1 case = bipartite adjacency"}
+{"problem_id": "determinant", "problem_name": "Determinant", "problem_family": "algebraic", "canonical_encoding": "n x n integer matrix, entries in binary"}
+{"problem_id": "factoring", "problem_name": "Integer Factoring (decision)", "problem_family": "number-theoretic", "canonical_encoding": "integer N in binary; decision: does N have a factor in [2, k]?"}
+{"problem_id": "graph-isomorphism", "problem_name": "Graph Isomorphism (decision)", "problem_family": "graph", "canonical_encoding": "two simple undirected graphs, adjacency-list"}
+{"problem_id": "linear-programming", "problem_name": "Linear Programming", "problem_family": "optimization", "canonical_encoding": "rational constraint matrix + objective, entries in binary; feasibility/optimization"}
+{"problem_id": "matching", "problem_name": "Maximum Matching", "problem_family": "graph", "canonical_encoding": "simple undirected graph, adjacency-list; perfect/maximum matching"}
+{"problem_id": "knapsack", "problem_name": "0/1 Knapsack (decision)", "problem_family": "number-theoretic", "canonical_encoding": "n items with integer weights/values in binary; capacity W; decision: value >= V?"}
+{"problem_id": "number-partitioning", "problem_name": "Number Partitioning (PARTITION)", "problem_family": "number-theoretic", "canonical_encoding": "n integers in binary; decision: split into two subsets of equal sum"}
+{"problem_id": "set-cover", "problem_name": "Set Cover (decision)", "problem_family": "optimization", "canonical_encoding": "ground set + set system (incidence lists); decision: cover of size <= k?"}
+{"problem_id": "max-cut", "problem_name": "Maximum Cut", "problem_family": "graph", "canonical_encoding": "simple undirected graph, adjacency-list; random G(n,c/n) ensemble"}
+{"problem_id": "php", "problem_name": "Pigeonhole Principle PHP^{n+1}_n (family)", "problem_family": "logic-proof", "canonical_encoding": "fixed unsatisfiable CNF encoding n+1 pigeons into n holes; parameterized by n"}
+{"problem_id": "tqbf", "problem_name": "True Quantified Boolean Formula (TQBF)", "problem_family": "logic-proof", "canonical_encoding": "fully-quantified Boolean formula; decision: is it true?"}
+{"problem_id": "random-3sat-refutation", "problem_name": "Random unsat 3-SAT: refutation set", "problem_family": "logic-proof", "canonical_encoding": "random unsat 3-SAT near density 4.267; the SET of Resolution refutations (proof-space object)"}
+{"problem_id": "dominating-set", "problem_name": "Dominating Set (decision)", "problem_family": "graph", "canonical_encoding": "simple undirected graph, adjacency-list; decision: dominating set of size <= k?"}
+{"problem_id": "feedback-vertex-set", "problem_name": "Feedback Vertex Set (decision)", "problem_family": "graph", "canonical_encoding": "simple undirected graph, adjacency-list; delete <= k vertices to make acyclic"}
+{"problem_id": "steiner-tree", "problem_name": "Steiner Tree (decision)", "problem_family": "graph", "canonical_encoding": "edge-weighted graph + terminal set; decision: Steiner tree of weight <= B?"}
+{"problem_id": "hamiltonian-cycle", "problem_name": "Hamiltonian Cycle", "problem_family": "graph", "canonical_encoding": "simple undirected graph, adjacency-list; decision: does a Hamiltonian cycle exist?"}
+{"problem_id": "longest-path", "problem_name": "Longest Path", "problem_family": "graph", "canonical_encoding": "simple undirected graph, adjacency-list; decision: simple path of length >= k?"}
+{"problem_id": "reachability-stcon", "problem_name": "s-t Reachability (STCON)", "problem_family": "graph", "canonical_encoding": "directed graph, adjacency-list; decision: is t reachable from s?"}
+{"problem_id": "max-flow", "problem_name": "Maximum Flow", "problem_family": "graph", "canonical_encoding": "directed graph with integer capacities in binary; s-t max flow"}
+{"problem_id": "min-spanning-tree", "problem_name": "Minimum Spanning Tree", "problem_family": "graph", "canonical_encoding": "edge-weighted undirected graph, adjacency-list"}
+{"problem_id": "treewidth", "problem_name": "Treewidth (compute)", "problem_family": "graph", "canonical_encoding": "simple undirected graph, adjacency-list; decision: treewidth <= k?"}
+{"problem_id": "k-center", "problem_name": "k-Center", "problem_family": "optimization", "canonical_encoding": "metric on n points (distance matrix); decision: cover with k radius-r balls?"}
+{"problem_id": "nae-sat", "problem_name": "Not-All-Equal SAT", "problem_family": "sat-csp", "canonical_encoding": "CNF; a clause is satisfied iff its literals are not all equal"}
+{"problem_id": "exact-cover-x3c", "problem_name": "Exact Cover by 3-Sets (X3C)", "problem_family": "sat-csp", "canonical_encoding": "universe of 3n elements + triples; decision: exact cover?"}
+{"problem_id": "circuit-sat", "problem_name": "Circuit SAT", "problem_family": "sat-csp", "canonical_encoding": "Boolean circuit; decision: is there a satisfying input?"}
+{"problem_id": "circuit-value-problem", "problem_name": "Circuit Value Problem (CVP)", "problem_family": "logic-proof", "canonical_encoding": "Boolean circuit + input; decision: circuit output value"}
+{"problem_id": "tseitin", "problem_name": "Tseitin Formulas (family)", "problem_family": "logic-proof", "canonical_encoding": "unsatisfiable CNF from a graph with odd total charge; parameterized by an expander family"}
+{"problem_id": "subset-sum", "problem_name": "Subset Sum (decision)", "problem_family": "number-theoretic", "canonical_encoding": "n integers in binary + target; decision: subset summing to target?"}
+{"problem_id": "integer-programming", "problem_name": "Integer Linear Programming (feasibility)", "problem_family": "optimization", "canonical_encoding": "rational constraint matrix in binary; decision: integer point in the polytope?"}
+{"problem_id": "primality", "problem_name": "Primality Testing", "problem_family": "number-theoretic", "canonical_encoding": "integer N in binary; decision: is N prime?"}
+{"problem_id": "discrete-log", "problem_name": "Discrete Logarithm", "problem_family": "number-theoretic", "canonical_encoding": "cyclic group (prime modulus) in binary; find/verify the exponent"}
+{"problem_id": "shortest-vector-svp", "problem_name": "Shortest Vector Problem (SVP)", "problem_family": "lattice", "canonical_encoding": "lattice basis (integer matrix in binary); find/verify a shortest nonzero vector"}
+{"problem_id": "sis", "problem_name": "Short Integer Solution (SIS)", "problem_family": "lattice", "canonical_encoding": "random A in Z_q^{n x m}; find a short nonzero integer x with Ax = 0 mod q (average-case-defined)"}
+{"problem_id": "gcd", "problem_name": "Greatest Common Divisor", "problem_family": "number-theoretic", "canonical_encoding": "two integers in binary"}
+{"problem_id": "network-reliability", "problem_name": "Network Reliability", "problem_family": "graph", "canonical_encoding": "graph with edge-failure probabilities; probability that s and t stay connected"}
+{"problem_id": "tutte-polynomial", "problem_name": "Tutte Polynomial (evaluation)", "problem_family": "algebraic", "canonical_encoding": "graph; evaluate the Tutte polynomial at a fixed point"}
+{"problem_id": "bin-packing", "problem_name": "Bin Packing", "problem_family": "optimization", "canonical_encoding": "n item sizes in binary + bin capacity; decision: pack into <= k bins?"}
+{"problem_id": "makespan-scheduling", "problem_name": "Makespan Scheduling (P||Cmax)", "problem_family": "optimization", "canonical_encoding": "n job lengths in binary + m machines; decision: makespan <= T?"}
+{"problem_id": "metric-tsp", "problem_name": "Metric TSP (decision)", "problem_family": "optimization", "canonical_encoding": "complete graph, edge weights obey the triangle inequality; tour <= B?"}
+{"problem_id": "max-coverage", "problem_name": "Maximum Coverage", "problem_family": "optimization", "canonical_encoding": "set system + budget k; decision: k sets covering >= t elements?"}
+{"problem_id": "edge-coloring", "problem_name": "Edge Coloring (Chromatic Index)", "problem_family": "graph", "canonical_encoding": "simple undirected graph, adjacency-list; decision: edge-colorable with Delta colors?"}
+{"problem_id": "min-bisection", "problem_name": "Minimum Bisection", "problem_family": "graph", "canonical_encoding": "simple undirected graph, adjacency-list; split into two equal halves minimizing cut"}
+{"problem_id": "multiway-cut", "problem_name": "Multiway Cut", "problem_family": "graph", "canonical_encoding": "edge-weighted graph + terminal set; separate all terminals minimizing cut"}
+{"problem_id": "directed-feedback-vertex-set", "problem_name": "Directed Feedback Vertex Set", "problem_family": "graph", "canonical_encoding": "directed graph, adjacency-list; delete <= k vertices to make acyclic"}
+{"problem_id": "three-dimensional-matching", "problem_name": "3-Dimensional Matching (3DM)", "problem_family": "graph", "canonical_encoding": "tripartite hypergraph (triples over X,Y,Z); decision: perfect matching?"}
+{"problem_id": "bipartiteness", "problem_name": "Bipartiteness (2-Coloring)", "problem_family": "graph", "canonical_encoding": "simple undirected graph, adjacency-list; decision: is the graph 2-colorable?"}

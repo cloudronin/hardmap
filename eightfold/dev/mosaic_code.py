@@ -41,6 +41,30 @@ def cohen_kappa(a, b, keys):
     return (po - pe) / (1 - pe) if pe < 1 else 1.0, po
 
 
+def gwet_ac1(a, b, keys):
+    """Gwet's AC1 — SUPPLEMENTARY context only. Robust to the marginal skew that inflates Cohen's chance
+    term (the kappa paradox). Reported BESIDE kappa, never substituting it: the sealed threshold is kappa
+    >= 0.6 and only kappa qualifies or kills (prereg_v10; the metric does not move after the result)."""
+    la = [a[k]["locality_class"] for k in keys]
+    lb = [b[k]["locality_class"] for k in keys]
+    n = len(keys)
+    po = sum(x == y for x, y in zip(la, lb)) / n
+    K = len(LEGAL)
+    pi = {c: (Counter(la)[c] + Counter(lb)[c]) / (2 * n) for c in LEGAL}
+    pe = sum(pi[c] * (1 - pi[c]) for c in LEGAL) / (K - 1)
+    return (po - pe) / (1 - pe) if pe < 1 else 1.0
+
+
+def per_class_agreement(a, b, keys):
+    """For each class, of the times EITHER coder used it, how often did BOTH? (specific-agreement)."""
+    out = {}
+    for c in LEGAL:
+        either = sum(a[k]["locality_class"] == c or b[k]["locality_class"] == c for k in keys)
+        both = sum(a[k]["locality_class"] == c and b[k]["locality_class"] == c for k in keys)
+        out[c] = (both, either, round(both / either, 2) if either else None)
+    return out
+
+
 def forbidden_audit(coding):
     bad = []
     for k, v in coding.items():
@@ -66,7 +90,13 @@ def main():
     # --- kappa (kill 1) ---
     kappa, po = cohen_kappa(a, b, keys)
     print(f"\nCohen's kappa = {kappa:.3f}  (raw agreement {po:.1%})  -> "
-          + ("QUALIFIES (>=0.6)" if kappa >= 0.6 else "KILL 1: < 0.6, rubric revision or NOT QUALIFIED"))
+          + ("QUALIFIES (>=0.6)" if kappa >= 0.6 else "KILL: < 0.6 -> NOT QUALIFIED (this is the recode; no third attempt)"))
+    print(f"  [supplementary, context only — kappa is the sealed metric]: Gwet AC1 = {gwet_ac1(a, b, keys):.3f}")
+    pca = per_class_agreement(a, b, keys)
+    print("  per-class specific-agreement (both/either):")
+    for c in ("decomposable", "local-covering", "entangled", "mixed", "uncodable"):
+        both, either, rate = pca[c]
+        print(f"     {c:16} {both}/{either} = {rate}")
 
     # --- P1 anchors ---
     print("\nP1 anchor qualification:")

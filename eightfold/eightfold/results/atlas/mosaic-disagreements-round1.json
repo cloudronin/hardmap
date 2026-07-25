@@ -1,0 +1,507 @@
+[
+ {
+  "problem_id": "and-or-graph-accessibility",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "balanced-vertex-separator",
+  "A": "mixed",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "bandwidth",
+  "A": "mixed",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "betweenness",
+  "A": "entangled",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "bipartiteness",
+  "A": "entangled",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "broadcast-time",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "capacitated-dominating-set",
+  "A": "local-covering",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "capacitated-facility-location",
+  "A": "mixed",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "capacitated-vertex-cover",
+  "A": "mixed",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "cellular-automaton-prediction",
+  "A": "entangled",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "chip-firing-stabilization",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "circuit-sat",
+  "A": "local-covering",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "circuit-value-problem",
+  "A": "entangled",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "clique-width",
+  "A": "entangled",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "connectivity-augmentation",
+  "A": "mixed",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "context-free-emptiness",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "cutwidth",
+  "A": "entangled",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "cycle-packing",
+  "A": "entangled",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "cyclic-ordering",
+  "A": "entangled",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "datalog-evaluation",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "deadlock-detection",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "determinant",
+  "A": "entangled",
+  "B": "uncodable"
+ },
+ {
+  "problem_id": "directed-feedback-vertex-set",
+  "A": "local-covering",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "domatic-number",
+  "A": "local-covering",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "exact-cover-x3c",
+  "A": "entangled",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "facility-location",
+  "A": "mixed",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "feedback-arc-set-tournament",
+  "A": "mixed",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "feedback-vertex-set",
+  "A": "local-covering",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "finite-tiling-extension",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "gcd",
+  "A": "uncodable",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "generability",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "generalized-assignment",
+  "A": "decomposable",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "generalized-subset-sum",
+  "A": "entangled",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "graph-3-coloring",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "graph-spanner",
+  "A": "local-covering",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "grundy-number",
+  "A": "local-covering",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "harmonious-coloring",
+  "A": "mixed",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "high-degree-subgraph",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "horn-sat",
+  "A": "local-covering",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "integer-expression-inequivalence",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "job-interval-selection",
+  "A": "decomposable",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "job-shop-scheduling",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "k-edge-connected-subgraph",
+  "A": "mixed",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "k-minimum-spanning-tree",
+  "A": "mixed",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "k-set-packing",
+  "A": "entangled",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "kemeny-rank-aggregation",
+  "A": "entangled",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "matching",
+  "A": "entangled",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "max-2lin",
+  "A": "entangled",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "max-cut",
+  "A": "local-covering",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "max-flow",
+  "A": "entangled",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "maximum-induced-matching",
+  "A": "entangled",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "maximum-minimal-vertex-cover",
+  "A": "entangled",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "min-cost-flow",
+  "A": "entangled",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "min-degree-spanning-tree",
+  "A": "mixed",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "min-linear-arrangement",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "min-spanning-tree",
+  "A": "entangled",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "min-sum-set-cover",
+  "A": "mixed",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "minimum-equivalent-digraph",
+  "A": "mixed",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "minimum-fill-in",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "minimum-k-cut",
+  "A": "mixed",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "minimum-sum-of-squares",
+  "A": "decomposable",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "minimum-test-cover",
+  "A": "mixed",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "minimum-weight-triangulation",
+  "A": "decomposable",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "monotone-circuit-value",
+  "A": "entangled",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "multicut",
+  "A": "mixed",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "multiway-cut",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "nae-sat",
+  "A": "local-covering",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "node-multiway-cut",
+  "A": "mixed",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "nondeterministic-constraint-logic",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "odd-cycle-transversal",
+  "A": "local-covering",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "open-shop-scheduling",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "orienteering",
+  "A": "entangled",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "pagenumber",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "path-system-accessibility",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "pathwidth",
+  "A": "entangled",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "permanent",
+  "A": "entangled",
+  "B": "uncodable"
+ },
+ {
+  "problem_id": "planar-matching-count",
+  "A": "decomposable",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "planarity",
+  "A": "entangled",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "precedence-constrained-scheduling",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "propositional-planning",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "reachability-stcon",
+  "A": "entangled",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "red-blue-set-cover",
+  "A": "mixed",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "sat",
+  "A": "local-covering",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "sat-3",
+  "A": "local-covering",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "sat-reconfiguration",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "sharp-contingency-tables",
+  "A": "entangled",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "stable-matching",
+  "A": "entangled",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "subgraph-isomorphism",
+  "A": "entangled",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "succinct-3-coloring",
+  "A": "entangled",
+  "B": "uncodable"
+ },
+ {
+  "problem_id": "succinct-set-cover",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "target-set-selection",
+  "A": "mixed",
+  "B": "entangled"
+ },
+ {
+  "problem_id": "three-dimensional-matching",
+  "A": "entangled",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "treedepth",
+  "A": "entangled",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "treewidth",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "triangle-packing",
+  "A": "entangled",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "type-inference-typability",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "unification",
+  "A": "entangled",
+  "B": "decomposable"
+ },
+ {
+  "problem_id": "unit-resolution",
+  "A": "entangled",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "upper-domination",
+  "A": "entangled",
+  "B": "local-covering"
+ },
+ {
+  "problem_id": "weighted-completion-time-scheduling",
+  "A": "decomposable",
+  "B": "mixed"
+ },
+ {
+  "problem_id": "xor-sat",
+  "A": "entangled",
+  "B": "mixed"
+ }
+]

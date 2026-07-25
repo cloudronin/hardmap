@@ -1,0 +1,115 @@
+{"problem_id": "longest-common-subsequence", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "grid DP; local recurrence over adjacent positions"}
+{"problem_id": "all-pairs-shortest-path", "locality_class": "decomposable", "arity_class": "global-objective", "rationale": "subpath optimality; distances compose blockwise"}
+{"problem_id": "3sum", "locality_class": "local-covering", "arity_class": "bounded-local", "rationale": "single bounded-arity sum relation; three-element witness"}
+{"problem_id": "and-or-graph-accessibility", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "AND/OR closure; derivation spans whole graph"}
+{"problem_id": "context-free-membership", "locality_class": "decomposable", "arity_class": "bounded-local", "rationale": "interval DP; parse from adjacent subintervals"}
+{"problem_id": "unification", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "shared variables couple distant subterms; global consistency"}
+{"problem_id": "dfs-lexicographic-ordering", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "sequential traversal; order depends on whole history"}
+{"problem_id": "lex-first-maximal-matching", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "greedy sequential order; long dependency chain"}
+{"problem_id": "high-degree-subgraph", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "iterative peeling; survival depends on whole graph"}
+{"problem_id": "generability", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "closure under operation; whole-instance fixpoint"}
+{"problem_id": "unit-resolution", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "propagation closure; delocalized derivation"}
+{"problem_id": "datalog-evaluation", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "least fixpoint over database; delocalized"}
+{"problem_id": "cellular-automaton-prediction", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "iterated local updates; growing dependency cone"}
+{"problem_id": "chip-firing-stabilization", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "stabilization is global iterative process"}
+{"problem_id": "gaussian-elimination-pivoting", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "sequential elimination; pivot depends on prior steps"}
+{"problem_id": "plane-sweep-triangulation", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "sequential sweep; diagonal depends on whole order"}
+{"problem_id": "lz78-compression", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "greedy sequential parse; dictionary depends on prefix"}
+{"problem_id": "breadth-depth-search", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "sequential traversal order; long dependency chain"}
+{"problem_id": "deadlock-detection", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "wait-cycle detection spans whole graph"}
+{"problem_id": "lex-first-delta-plus-one-coloring", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "greedy sequential colouring; depends on predecessors"}
+{"problem_id": "context-free-emptiness", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "productivity closure over grammar; hypergraph fixpoint"}
+{"problem_id": "type-inference-typability", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "type constraints couple whole term; global unification"}
+{"problem_id": "chromatic-number", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "global proper-colouring agreement; minimize palette"}
+{"problem_id": "subgraph-isomorphism", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "pattern embedding couples far-apart host vertices"}
+{"problem_id": "feedback-arc-set", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "acyclicity is global; minimum arc removal"}
+{"problem_id": "metric-dimension", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "cover all pairs via global distances"}
+{"problem_id": "lex-first-maximal-independent-set", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "greedy sequential selection; dependency chain"}
+{"problem_id": "path-system-accessibility", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "AND-rule accessibility closure; whole-instance fixpoint"}
+{"problem_id": "arrowing", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "every edge-2-colouring forces monochromatic copy"}
+{"problem_id": "choosability", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "every list assignment admits proper colouring"}
+{"problem_id": "clique-choosability", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "every list admits clique-colouring; global"}
+{"problem_id": "clique-coloring", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "no maximal clique monochromatic; large-set constraints"}
+{"problem_id": "covering-radius", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "max-min Hamming distance over all words"}
+{"problem_id": "generalized-graph-coloring", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "partition avoiding forbidden subgraphs; global agreement"}
+{"problem_id": "generalized-ramsey-number", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "extend edge-colouring avoiding monochromatic targets; global"}
+{"problem_id": "generalized-subset-sum", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "quantified linear relation over all assignments"}
+{"problem_id": "graph-sandwich-pi-property", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "choose sandwich graph; global path-free property"}
+{"problem_id": "group-coloring", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "every group-labelling admits nowhere-zero colouring"}
+{"problem_id": "hereditary-clique-coloring", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "clique-colouring over all induced subgraphs"}
+{"problem_id": "integer-expression-inequivalence", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "expressions denote exponential sets; global inequivalence"}
+{"problem_id": "maxmin-vertex-cover", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "min-max selection over restricted covers"}
+{"problem_id": "minmax-3d-matching", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "min-max selection over restricted matchings"}
+{"problem_id": "minmax-clique", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "min-max selection over restricted cliques"}
+{"problem_id": "minmax-sat", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "two-block quantified formula; global agreement"}
+{"problem_id": "pebbling-number", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "every distribution reaches every target; global"}
+{"problem_id": "shortest-implicant", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "implicant implies circuit over all assignments"}
+{"problem_id": "min-equivalent-expression", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "equivalent over all assignments; minimize size"}
+{"problem_id": "strong-nash-equilibrium", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "coalition-proof stability; global equilibrium"}
+{"problem_id": "thue-number", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "square-free along every path; global"}
+{"problem_id": "vc-dimension", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "shattered set; succinct system; global"}
+{"problem_id": "finite-tiling-extension", "locality_class": "entangled", "arity_class": "bounded-local", "rationale": "local adjacency agreement; global tiling consistency"}
+{"problem_id": "succinct-set-cover", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "cover exponential universe by succinct sets"}
+{"problem_id": "abduction", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "explanation entails manifestations; global consistency"}
+{"problem_id": "autoepistemic-logic", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "stable-expansion fixpoint; global reasoning"}
+{"problem_id": "circumscription", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "subset-minimal-model inference; global"}
+{"problem_id": "competitive-facility-location", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "leader-follower capture; two-level global"}
+{"problem_id": "credulous-semistable-argumentation", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "some semi-stable extension; global range-maximality"}
+{"problem_id": "credulous-stage-argumentation", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "some stage extension; global range-maximality"}
+{"problem_id": "default-logic", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "default extension fixpoint; global reasoning"}
+{"problem_id": "disjunctive-asp", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "answer-set existence; global stability/minimality"}
+{"problem_id": "judgment-aggregation", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "consistent collective outcome over agenda; global"}
+{"problem_id": "minimal-model-checking", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "minimality over all smaller models; global"}
+{"problem_id": "min-max-regret", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "min-max regret over all scenarios; two-level"}
+{"problem_id": "network-interdiction", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "interdictor-then-follower; two-level optimization"}
+{"problem_id": "bilevel-integer-programming", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "bilevel leader-follower optimum; global"}
+{"problem_id": "robust-csp", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "every consistent partial extends; global"}
+{"problem_id": "3-coloring-extension", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "every boundary colouring extends; global"}
+{"problem_id": "skeptical-semistable-argumentation", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "every semi-stable extension; global"}
+{"problem_id": "skeptical-stage-argumentation", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "every stage extension; global"}
+{"problem_id": "two-stage-adjustable-robust", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "first-stage, adversary, recourse; three-level global"}
+{"problem_id": "conformant-planning", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "one plan from all initial states; global"}
+{"problem_id": "ctl-satisfiability", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "build branching model; global consistency"}
+{"problem_id": "dfa-intersection-emptiness", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "product-automaton reachability; global emptiness"}
+{"problem_id": "generalized-checkers", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "alternating-move strategy; whole board"}
+{"problem_id": "generalized-chess", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "winning strategy; whole board alternation"}
+{"problem_id": "generalized-go", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "winning strategy under ko; whole board"}
+{"problem_id": "generalized-gomoku", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "winning strategy; whole board alternation"}
+{"problem_id": "generalized-hex", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "connection-game strategy; whole graph"}
+{"problem_id": "independent-set-reconfiguration", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "path through configuration space; global reachability"}
+{"problem_id": "intuitionistic-propositional-logic", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "valid in all Kripke models; global"}
+{"problem_id": "ltl-satisfiability", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "infinite trace satisfying formula; global"}
+{"problem_id": "modal-logic-satisfiability", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "build Kripke model; global modal consistency"}
+{"problem_id": "nfa-universality", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "accepts all strings; global universality"}
+{"problem_id": "node-kayles", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "vertex-selection game strategy; whole graph"}
+{"problem_id": "nondeterministic-constraint-logic", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "edge-reversal reachability; global config space"}
+{"problem_id": "presburger-arithmetic", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "quantified arithmetic sentence; global truth"}
+{"problem_id": "propositional-planning", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "state-space reachability; global plan"}
+{"problem_id": "qcsp", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "alternating quantified constraints; global strategy"}
+{"problem_id": "regex-squaring-inequivalence", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "succinct regex languages differ; global"}
+{"problem_id": "sat-reconfiguration", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "path through assignment graph; global reachability"}
+{"problem_id": "stochastic-sat", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "existential-randomized alternation; global threshold"}
+{"problem_id": "succinct-hamiltonian-cycle", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "succinct exponential graph; global cycle"}
+{"problem_id": "succinct-sat", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "succinct exponential formula; global satisfiability"}
+{"problem_id": "abstract-argumentation", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "every preferred extension; global"}
+{"problem_id": "generalized-geography", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "path-game strategy on digraph; global"}
+{"problem_id": "bilevel-knapsack", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "leader-follower two-level packing; global"}
+{"problem_id": "3-dimensional-assignment", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "disjoint-triple assignment; global matching; sum cost"}
+{"problem_id": "3-partition", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "partition all integers into equal-sum triples"}
+{"problem_id": "achromatic-number", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "complete colouring; every class-pair adjacent"}
+{"problem_id": "acyclic-coloring", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "proper colouring; every two classes acyclic"}
+{"problem_id": "art-gallery", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "cover polygon via long-range visibility"}
+{"problem_id": "b-chromatic-number", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "b-colouring; each class dominates others"}
+{"problem_id": "balanced-connected-partition", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "connected balanced partition; global connectivity"}
+{"problem_id": "balanced-vertex-separator", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "remove set to balance components; delocalized"}
+{"problem_id": "bandwidth", "locality_class": "mixed", "arity_class": "global-objective", "rationale": "linear layout; edge stretch delocalized by positions"}
+{"problem_id": "betweenness", "locality_class": "entangled", "arity_class": "bounded-local", "rationale": "ternary order constraints; global total-order agreement"}
+{"problem_id": "biclique-cover", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "cover edges by large bicliques; delocalized"}
+{"problem_id": "bounded-pcp", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "matching concatenation; global string equality"}
+{"problem_id": "boxicity", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "box-intersection representation; global embedding dimension"}
+{"problem_id": "broadcast-time", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "broadcast schedule; global rounds to inform"}
+{"problem_id": "capacitated-dominating-set", "locality_class": "local-covering", "arity_class": "unbounded-fanin", "rationale": "cover each vertex by capacitated neighbour"}
+{"problem_id": "capacitated-facility-location", "locality_class": "mixed", "arity_class": "unbounded-fanin", "rationale": "assign clients to capacitated facilities; metric distances"}
+{"problem_id": "clique-width", "locality_class": "entangled", "arity_class": "global-objective", "rationale": "expression builds whole graph; global width"}
+{"problem_id": "closest-string", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "one string within budget of all; couples positions"}
+{"problem_id": "closest-substring", "locality_class": "entangled", "arity_class": "unbounded-fanin", "rationale": "substring selection plus common-string budget; global"}
