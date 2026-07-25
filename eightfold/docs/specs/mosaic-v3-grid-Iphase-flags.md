@@ -121,6 +121,53 @@ they are unpinnable-as-stated, a legal terminal status, and revert to OPEN.
 
 ---
 
+---
+
+## Flag 5 — the engine-split bet must be posed on a BINARY; the 4-way engine_type is degenerate
+
+Bridge Ledger §3 marks engine→approximation and engine→parameterized as **"OPEN — prime real estate"**, the
+grid's sealed engine-split bet. Anatomy S2 derived `engine_type` over all **4072** arity-≤4 symmetry classes
+(reconciling **exactly** with Prism's persisted marginals — bounded-width 3178 / unbounded 894, and
+few-subpowers-only = 4 = `purely_affine_unbounded_classes_total`). The distribution:
+
+| engine_type | classes | share |
+|---|---|---|
+| bounded-width | 3105 | 76.3% |
+| neither | 890 | 21.9% |
+| both | 73 | 1.8% |
+| **few-subpowers** | **4** | **0.10%** |
+
+**The 4-way split cannot carry a contingency test** — one cell has four members, so any engine × charge
+table fails the Cochran floor on arrival. **The binaries are fine:** bounded-width yes/no = 3178/894
+(healthy); few-subpowers yes/no = 77/3995 (thin but usable).
+
+**And this is not fixable by going deeper.** Arity 4 was already chosen because the affine obstruction is
+*vacuous* at arity ≤3 (Flag 3 / Prism's UNTESTABLE 3b-4). Arity 5 means 2^32 relations — infeasible. The
+ceiling is structural.
+
+**Binding on G0:** pose the engine bet as **bounded-width yes/no** (or few-subpowers yes/no, with its
+thinness stated), never as the 4-way class. State the marginal in the prereg so the resolution is sealed
+before the statistic, not chosen after it.
+
+> **This is instance-16's shape for the third time in one project** — after the objective-independent param
+> oracle (Flag 1) and manufactured expansion (Flag 3). Three separate proposed features, each unable to vary
+> in the way its bet required, each caught at build time by a variance check rather than at scoring time by
+> a failed bet. The check is earning its place.
+
+## Flag 6 — `arity_class` never qualified as an instrument; no bet may rest on it
+
+The spec typed `arity_class` **`derived (definitional)`**. It is not definitional. The two blind coders,
+who coded it on all 345 rows, agree **198/345 = 57% raw, Cohen κ = 0.360** — far below the program's 0.6
+qualification bar, and well under `locality_3class`'s 0.646. That is *why* it was coded twice and never
+resolved into a sidecar: it never passed. Anatomy's mechanical lexicon additionally falls through to `open`
+on 48% of rows.
+
+**Binding on G0:** `arity_class` ships with its κ attached and is usable as descriptive context only. Any
+bet leaning on it must first demonstrate a coarser resolution at which it qualifies (the resolution-ladder
+procedure), exactly as locality did — otherwise it is a variable the program cannot reliably measure.
+
+---
+
 ## Carry-forward summary
 
 1. Prediction 2 splits: approx×objective empirical; **param×objective definitional (oracle-forced zero) —

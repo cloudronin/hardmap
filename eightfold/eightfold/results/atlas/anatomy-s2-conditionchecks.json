@@ -1,0 +1,579 @@
+{
+  "engine_reconciliation": {
+    "derived": {
+      "bounded-width": 3178,
+      "unbounded-width": 894
+    },
+    "persisted": {
+      "bounded-width": 3178,
+      "unbounded-width": 894
+    },
+    "match": true,
+    "purely_affine_unbounded_persisted": 4
+  },
+  "engine_type_marginals": {
+    "both": 73,
+    "bounded-width": 3105,
+    "neither": 890,
+    "few-subpowers": 4
+  },
+  "column_marginals": {
+    "encoding_type": {
+      "cnf-circuit": 43,
+      "graph": 175,
+      "matrix-vector": 15,
+      "numeric-set": 29,
+      "other": 50,
+      "geometric": 12,
+      "string": 21
+    },
+    "arity_class": {
+      "unbounded-fanin": 18,
+      "open": 166,
+      "bounded-local": 60,
+      "global-objective": 101
+    },
+    "objective_type": {
+      "Max-CSP": 11,
+      "Min-Ones": 16,
+      "Max-Ones": 9,
+      "global-numeric": 44,
+      "none": 137,
+      "weighted": 2,
+      "open": 126
+    }
+  },
+  "arity_class_coder_cross_check": {
+    "n_compared": 179,
+    "agree_coder_A": 77,
+    "agree_coder_B": 46,
+    "agree_both": 31,
+    "agree_neither": 87,
+    "rate_A": 0.43,
+    "rate_B": 0.257,
+    "task_text_ambiguities": [
+      {
+        "problem_id": "graph-3-coloring",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "max-cut",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "feedback-vertex-set",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "steiner-tree",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "k-center",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "bin-packing",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "makespan-scheduling",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "edge-coloring",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "three-dimensional-matching",
+        "derived": "unbounded-fanin",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "bipartiteness",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "max-2lin",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "succinct-3-coloring",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "n.a."
+      },
+      {
+        "problem_id": "planar-3-coloring",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "connected-vertex-cover",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "feedback-arc-set-tournament",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "k-set-packing",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "group-steiner-tree",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "disjoint-paths",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "minimum-fill-in",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "densest-k-subgraph",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "global-objective"
+      },
+      {
+        "problem_id": "max-directed-cut",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "d-hitting-set",
+        "derived": "unbounded-fanin",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "survivable-network-design",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "directed-steiner-tree",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "lex-first-maximal-matching",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "plane-sweep-triangulation",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "lex-first-delta-plus-one-coloring",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "metric-dimension",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "arrowing",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "choosability",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "clique-choosability",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "clique-coloring",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "covering-radius",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "generalized-graph-coloring",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "generalized-ramsey-number",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "group-coloring",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "hereditary-clique-coloring",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "pebbling-number",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "strong-nash-equilibrium",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "thue-number",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "vc-dimension",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "competitive-facility-location",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "global-objective"
+      },
+      {
+        "problem_id": "network-interdiction",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "global-objective"
+      },
+      {
+        "problem_id": "3-coloring-extension",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "independent-set-reconfiguration",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "node-kayles",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "succinct-hamiltonian-cycle",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "biclique-cover",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "bounded-pcp",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "cluster-deletion",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "connectivity-augmentation",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "crossing-number",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "global-objective"
+      },
+      {
+        "problem_id": "cycle-packing",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "dissociation-number",
+        "derived": "unbounded-fanin",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "equitable-coloring",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "generalized-assignment",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "graph-burning",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "graph-homomorphism",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "graph-spanner",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "grundy-number",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "harmonious-coloring",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "interval-completion",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "k-edge-connected-subgraph",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "label-cover",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "list-coloring",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "max-dispersion",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "max-k-cut",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "maximum-agreement-forest",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "maximum-planar-subgraph",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "minimum-common-string-partition",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "minimum-distance-code",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "minimum-sum-coloring",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "minimum-test-cover",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "mixed-chinese-postman",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "multicut",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "multiple-sequence-alignment",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "node-multiway-cut",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "precoloring-extension",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "quadratic-knapsack",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "resource-constrained-scheduling",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "roman-domination",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "set-splitting",
+        "derived": "global-objective",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "target-set-selection",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "thickness",
+        "derived": "bounded-local",
+        "coder_A": "global-objective",
+        "coder_B": "unbounded-fanin"
+      },
+      {
+        "problem_id": "total-coloring",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "triangle-packing",
+        "derived": "global-objective",
+        "coder_A": "bounded-local",
+        "coder_B": "bounded-local"
+      },
+      {
+        "problem_id": "unsplittable-flow",
+        "derived": "bounded-local",
+        "coder_A": "unbounded-fanin",
+        "coder_B": "unbounded-fanin"
+      }
+    ]
+  }
+}
