@@ -65,10 +65,18 @@ def test_prediction_files_are_outside_the_research_input_surface():
     assert leaked, "the guard must FIRE when a prediction file reaches the research surface"
 
 
-def test_registry_declares_insufficient_until_its_floor_is_pinned():
+def test_registry_declares_insufficient_until_its_floor_is_cleared():
+    """Tests the DURABLE invariant, not a transient state. The first version asserted
+    'UNPINNED' in threshold_status and went red the moment the threshold was correctly pinned —
+    it encoded a moment rather than a rule. What must always hold: no cell enters the scored n
+    before a wave is sealed predict-then-fill, the floor is monotone once grading starts, and the
+    21 pre-registry cells stay descriptive-only."""
     import grid_registry as R
     reg = R.load()
-    assert "UNPINNED" in reg["threshold_status"]
+    ta = reg.get("threshold_arithmetic")
+    if ta is not None:                                   # once pinned, the floor must be a real number
+        assert isinstance(ta["FLOOR_scored"]["n"], int) and ta["FLOOR_scored"]["n"] > 0
+        assert "MONOTONE" in ta["UPDATE_RULE"], "the floor must never be relaxable after grading"
     scored = [e for e in reg["entries"] if e.get("counts_in_scored_n")]
     assert scored == [], "no cell may enter the scored n before a wave is sealed predict-then-fill"
     pre = [e for e in reg["entries"] if e.get("temporal_class") == "clean-but-pre-registry"]
