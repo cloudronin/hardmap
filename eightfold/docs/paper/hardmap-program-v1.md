@@ -1,12 +1,47 @@
 # The hardmap program — a consolidated account
 
-**Draft status: W1. Sections 2–4 only.** §§1, 5–7 are outlined but unwritten (see
-[the outline](hardmap-program-v1-outline.md)). Every number below was extracted from its artifact during
-drafting and carries a row in [the claims map](claims-map.md); none was transcribed from a prior note.
+**Draft status: W3 — complete draft, pre-review.** Every number was extracted from its artifact during
+drafting and carries a row in [the claims map](claims-map.md); none was transcribed from a prior note. The
+number audit (`dev/audit_writeup.py`) passes with zero orphans and is itself probe-tested against
+fabricated values.
 
-**One conditional, stated once and not repeated.** Every hardness label in this program is conditional on
-the standard separation conjectures. An `NPC` cell means *hard if P ≠ NP*. Nothing below is unconditional,
-and where a result is theorem-grade it is the *classification* that is proven, not the separation.
+---
+
+## 1. The question and the object
+
+**What this work cannot do, stated first.** Every hardness label here is conditional on the standard
+separation conjectures: an `NPC` cell means *hard if P ≠ NP*. A model fitted on conditional labels
+interpolates the assumption; it cannot out-know its training labels, and no amount of resolution turns an
+interpolation into a separation proof. P versus NP is a single universally quantified statement about all
+algorithms — the class of fact that only a theorem reaches. Nothing in this program bears on it, and where a
+result below is theorem-grade it is the *classification* that is proven, never the separation. This
+paragraph is not a disclaimer appended to the work; it is a boundary the work was designed inside.
+
+**The question.** Complexity theory classifies problems by proving theorems about them one at a time. The
+resulting body of knowledge is enormous, precise, and almost entirely unexamined *as a body*. Ask what
+hardness is made of — whether the many ways a problem can be hard are one thing or several, whether they
+can be predicted from what a problem *is* — and the field has no assembled object to answer from. This
+program builds one and measures it.
+
+**Two campaigns.** The **two-table program** asks the question of problems: it records what the literature
+has proven about each problem's fate, records separately what each problem structurally *is*, and measures
+the bridge between. The **proof census** asks the same question of refutation space: how plural the ways of
+refuting an unsatisfiable instance are, and whether the ways converge as instances get hard. Different
+objects, different instruments, one method. The paper's subject is the pair.
+
+**The object.** Two tables and a law. The charge atlas records *fate* — eight charges per problem, each a
+cited fact about the literature. The Structure Atlas records *what a problem is* — coordinates derived from
+the problem's own statement, never from its fate. The founding law is the separation itself: **structure
+never enters the charge table, and no charge value ever informs a structure cell.** The bridge between them
+is the research object, and the law exists so that measuring it cannot be circular. Nearly every negative
+result in §4 is the law refusing to let a question be asked the easy way.
+
+**A frame, offered as exposition and carrying no claim.** Closure analysis is feasible-region analysis.
+Convexity is itself a closure property — stability of a region under blending its points — and the
+classification theorems that decide tractability are statements about which blends a solution set survives.
+Read that way, this program's negatives say something geometric: the region's shape is what decides
+hardness, and that shape is not visible from the syntax of the problem's statement. The frame is a teaching
+device, sourced to a dated note; no result below depends on it.
 
 ---
 
@@ -284,4 +319,144 @@ absence. The closure question is not answered here. It is unasked for want of a 
 
 ---
 
-*Sections 1, 5–7 follow at W3. The number audit (W2) runs against this text before they are written.*
+## 5. The methods contribution
+
+The most transferable output of this program may not be any of its findings. It is a ledger of the ways
+careful measurement went wrong, kept as a first-class artifact and converted into gates that now run in
+continuous integration.
+
+The ledger holds **27 numbered entries spanning 6–32**, with instances 1–5 predating the file. It is not
+renumbered, because an instance number is a citation target. Every entry follows one shape: what happened,
+why the disconfirming information was already present, and what rule now prevents it. The program's
+characteristic failure mode has a name — **metadata already recorded, inference not drawn**. In almost every
+case the fact needed to avoid the error was written down somewhere in the artifact and nobody joined it up.
+
+**The taxonomy.**
+
+*Errors in both directions.* A discipline that only catches flattering errors is indistinguishable from
+pessimism. The ledger records bugs that would have manufactured hits — an averaged-per-class statistic
+reading 0.797, a lookup with a 100% ceiling, an arithmetic leak recovering a flag at exactly 1.0000 — and
+bugs that manufactured misses: a hash-coded categorical fed to a threshold-splitting model, whose repair
+moved a result from +0.009 to +0.068. Only once both directions appeared could the ledger claim to be
+measuring rather than merely doubting.
+
+*The tidy-number tell.* Both directions had the same signature: the number was too tidy. A recovery of
+exactly 1.0000 is not learning, it is reading; a null of exactly +0.009 on a designed-for signal is not a
+result, it is a dead encoder. This became a mechanical gate — any headline statistic exactly extremal, or
+exactly equal to its own null, must carry an acknowledgement in its own artifact explaining why the
+exactness is expected. Unacknowledged exactness fails the build.
+
+*Census before seal.* No column may carry a bet before its marginals are counted. The rule caught columns
+too concentrated to support a contrast, and then — when a genuinely high-cardinality column arrived — caught
+the opposite failure it had been blind to: a column with as many distinct values as rows is a row
+identifier, and carries exactly as little contrast as a constant does. Both ends are starvation; the gate
+had learned only the end it had been burned by.
+
+*Denominator matching.* A lift is `accuracy − null`, and the subtraction means nothing unless both terms
+were computed on the same rows. Three separate occurrences — a conditional shrinkage, a sociology increment
+on a different population, and a within-family null paired with an all-rows accuracy — turned this from
+anecdote into a gate that fails the build when a lift's terms do not share a declared row set.
+
+*Expression, not artifact.* An exactly-extremal value has at least three causes that look identical in
+serialized output: an estimator clamping at its boundary, a p-value at the limit of its own form, and a
+statistic whose expression makes it constant regardless of input. They are separable only by reading the
+code path. Two diagnoses made from the shape of the artifact were both wrong; two made by reading the
+expression were both right.
+
+*It pointed the unflattering way.* One defect survived review specifically because its output was
+disappointing. A block computing `acc[k̂] − acc[1]` at k̂ = 1 was computing a value minus itself: identically
+zero on the real data and on all 150 nulls it drew and discarded, and reporting a negative result that no
+input could have changed. A bug that manufactures a null attracts less scrutiny than one that manufactures a
+finding, and that asymmetry is itself a bias the ledger now names.
+
+*Chat is not an artifact.* A claim whose only provenance is a conversation is unsourced by definition,
+however confidently stated and whoever stated it. When this document's own claim list was assembled, three
+of nine entries arrived from conversational synthesis rather than from a record. Building the
+claims-to-artifacts map **before** writing prose caught all three; a map written afterwards would have
+caught none of them, because each would have been handed a plausible-looking pointer by the same synthesis
+that produced it.
+
+**The census's methods exhibit.** The two proof samplers occupy regions of proof space separated by orders
+of magnitude — tree refutations at n = 60 run to 6,976 median resolutions where DAG refutations run to 48.
+The replication standard declares that gap **a finding, not an artifact**, and judges sampler agreement on
+*trends* rather than levels. That standard then did real work: of twelve trend comparisons, the single
+divergence was explained mechanistically rather than excused — proof size explodes 22.1× toward the
+threshold, so a growing shared core becomes a shrinking *fraction* of a much longer proof, and the overlap
+metric falls while the backbone rises. **Divergences are explained, or the verdict does not ship.**
+
+**The delegation protocol.** Several entries in the ledger record a directive being measured before it was
+executed, and the measurement changing it. An instruction to merge two absence markers turned out to be a
+no-op on three of four columns and destructive on the fourth. An instruction to seal a prediction was
+refused because the prediction was circular by construction. The protocol that emerged is narrow and
+specific: *execute the ruling, but measure the instruction first, and report when the measurement
+contradicts it.*
+
+**The gates.** `hardmap verify` runs **ten** coherence checks on every artifact set — including the two the
+program added after being caught by their absence. Each was written to fail loudly, and the two newest were
+probe-tested by planting a defect and confirming the gate fires, on the principle that **a check never
+observed to fail is not known to work.**
+
+---
+
+## 6. Open instruments and the standing state
+
+**The prospective registry.** One instrument remains live and is confound-free by construction. It records
+predictions from fitted models *before* the corresponding literature research is done, hashed and committed
+so the ordering is verifiable, and grades them as cells fill. Its floor is pinned at **n = 57** — the count
+a one-sided binomial needs to detect a lift of +0.15 over the base rate at 80% power. It currently holds
+**21 descriptive entries and zero scored cells**: the 21 predate the registry's sealing and are marked
+descriptive-only, and no cell may enter the scored count before its wave is sealed predict-then-fill.
+
+The registry also carries the rules that govern what an eventual hit may claim. A hit is
+*foresight-certified* by the ordering alone; to be *mechanism-attributed* it must additionally survive the
+within-family cut and the closure-versus-surface contrast. Those rules were written before any cell was
+graded, precisely so that a positive result could not be re-interpreted into significance after arrival.
+
+**The two-verdict stack.** Surface anatomy was measured on natural problems and answered no (§3.6). Closure
+anatomy cannot be measured there at all, for want of a population (§3.6, §4.6). Retrospection is therefore
+closed at both grades, and the mechanism question now lives **exclusively prospectively** — in the registry,
+at zero of fifty-seven.
+
+That is the measurement phase completing rather than a defeat. The question was asked at the resolution the
+available evidence supports, answered where it could be, and declared unanswerable where it could not.
+
+**Banked directions, none committed.** Three are named with their fill routes and their limits.
+*Geometry probes* would measure feasible-region shape directly — blend-violation rates and relaxation
+tightness — reaching the rows the closure admission bar excludes; their qualification study on the Boolean
+roster, where true closure is oracle-known for every relation, is the one cheap executable thread.
+*The relaxation-resistance certificate* would add a derived column for predicates whose solution sets
+support a balanced pairwise-independent distribution; it is at survey confidence and **must be pinned before
+any claim leans on it**. *The frontier map* would sample anatomy space to sketch the conditional
+tractability boundary, gated behind a validated bridge model and inheriting the scope limit at the head of
+§1.
+
+**And the census is the natural seed of a separate paper**, if the backbone line extends to larger n, to
+other proof systems, or to the width-lower-bound connection. Banked as an option, not committed here; this
+document keeps it as one campaign of two.
+
+---
+
+## 7. Related work
+
+The program positions against five lines, recorded as dated obligations in its own specifications.
+
+The **meta-problem line** (Bulatov; Creignou–Khanna–Sudan; the AutCSP work) is the nearest existing claim
+and the supplier of this program's oracles: it asks, given a constraint language, to decide its complexity —
+the same bridge question, answered by theorem on the territory where theorems exist. **ISA/EHM** provides
+the instance-level contrast: hardness measured per instance rather than per problem. **ISGCI** is the
+transposed structural cousin — a curated graph-class catalogue with its own `Unknown` status, aligned here
+with the `open` sentinel. **CoRCoD** and the structure-to-dynamics machine-learning literature are pattern
+precedents for predicting behaviour from structural descriptors. And the **dichotomy program** itself —
+Schaefer through Bulatov–Zhuk — is the lineage: it is what a complete answer looks like on the territory
+where one is possible, and §3.4 is this program confirming its computation rather than extending its reach.
+
+**The program's dated position, labelled as a position.** Its own specifications record that a two-table
+object with a measured, out-of-sample bridge remains unclaimed territory, per literature hunts conducted
+during design. That statement is offered as **the program's dated position and not as reproducible
+evidence** — the hunts' results are not in the repository, and re-running them now would be new work
+requiring its own seal rather than synthesis of existing records. A position honestly labelled is worth more
+than a search theatrically repeated.
+
+---
+
+*Complete draft. The number audit passes at zero orphans; the claims map carries every value's artifact.*

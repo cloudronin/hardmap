@@ -375,7 +375,11 @@ def test_writeup_number_audit_actually_fires():
               "The model recovers **+0.0417** on the invented set.",
               "The census covers **7431** invented records.",
               "The lookup scores **88.12%** on the invented holdout.",
-              "Jaccard spans **0.044 to 0.199** across all cells."]
+              "Jaccard spans **0.044 to 0.199** across all cells.",
+              # THE ONE THAT SLIPPED: with a 500-value registry, a fabricated 2-decimal figure found a
+              # genuine unrelated 0.6065 rounding to it. Rounding now counts only at >=3 decimals, so a
+              # 2-decimal figure must appear literally in an artifact. This probe pins that fix.
+              "The coupling reads **0.61** on the invented population, near a real 0.6065."]
     try:
         for line in probes:
             d.write_text(orig + "\n\n" + line + "\n", encoding="utf-8")

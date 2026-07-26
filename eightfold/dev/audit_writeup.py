@@ -47,6 +47,19 @@ def build_registry():
         add(sum(1 for r in rows if r["universe"] == "natural"), f"{f} natural rows")
         add(sum(1 for r in rows if r["universe"] == "boolean"), f"{f} boolean rows")
     add((REPO / "docs" / "seal-chain.md").read_text().count("prereg_v"), "seal-chain prereg count")
+    # the ledger's size is DERIVED from its headers, never quoted — a hardcoded count in a growing file
+    # is stale the next time someone appends (it was, within a day)
+    mt = (ROOT / "docs" / "findings" / "methods-thread.md").read_text()
+    inst = [int(x) for x in re.findall(r"^## Instance (\d+)", mt, re.M)]
+    add(len(inst), "ledger: numbered entries")
+    add(min(inst), "ledger: first number"); add(max(inst), "ledger: last number")
+    # the registry's pinned floor
+    regj = json.loads((AT / "grid-prospective-registry.json").read_text())
+    ta = regj.get("threshold_arithmetic") or {}
+    if ta.get("FLOOR_scored"):
+        add(ta["FLOOR_scored"]["n"], "registry: pinned scored floor")
+    add(len(regj.get("entries", [])), "registry: entries")
+    add(sum(1 for e in regj.get("entries", []) if e.get("counts_in_scored_n")), "registry: scored cells")
     manifest = (REPO / "repro" / "manifest.yaml").read_text()
     add(manifest.count("\n  - id:"), "manifest claim count")
     from hardmap import verify as V
@@ -120,7 +133,12 @@ def build_registry():
                      ("eightfold/docs/findings/absorption-closeout.md", "absorption-closeout.md"),
                      ("eightfold/docs/findings/quarry-v3-V4-battery.md", "quarry-v3-V4-battery.md"),
                      ("eightfold/docs/findings/counting-folklore-gap.md", "counting-folklore-gap.md"),
-                     ("proof-census/docs/findings/C3-verdict.md", "C3-verdict.md")):
+                     ("proof-census/docs/findings/C3-verdict.md", "C3-verdict.md"),
+                     ("eightfold/docs/findings/methods-thread.md", "methods-thread.md"),
+                     ("eightfold/docs/findings/Factors-v1.md", "Factors-v1.md"),
+                     ("eightfold/docs/findings/errata.md", "errata.md"),
+                     ("eightfold/docs/findings/terroir-v1-findings.md", "terroir-v1-findings.md"),
+                     ("eightfold/docs/findings/marrow-i0-census.md", "marrow-i0-census.md")):
         f = REPO / rel
         if f.exists():
             for v in re.findall(r"[-+]?\d+\.\d+|(?<![\w.])\d{1,6}(?![\w.])", f.read_text()):
@@ -165,14 +183,19 @@ def audit():
         if EXEMPT_CONTEXT.search(line):
             continue
         checked += 1
-        # a prose value matches if it EQUALS a registry value, or if some registry value ROUNDS to it
-        # (writing 0.73 for a measured 0.7293 is legal; writing 0.73 for nothing is not)
+        # MATCHING RULE, tightened after the probe caught it going slack.
+        # Exact match always counts. Rounding counts ONLY at >= 3 decimals: with a registry of several
+        # hundred values, a 2-decimal prose figure will find SOME value rounding to it by coincidence —
+        # a fabricated 0.61 matched a genuine, unrelated 0.6065. So a 2-decimal figure must appear
+        # literally in an artifact. The burden sits where it belongs: the draft quotes the precision the
+        # artifact carries, rather than the audit guessing which coarse value was meant.
         cands = {val, num(abs(val))}
         if raw.endswith("%"):
             cands |= {num(val / 100)}
         decs = len(tok.split(".")[1]) if "." in tok else 0
-        hit = bool(cands & set(reg)) or any(
-            round(r, decs) in cands or round(abs(r), decs) in cands for r in reg)
+        hit = bool(cands & set(reg))
+        if not hit and decs >= 3:
+            hit = any(round(r, decs) in cands or round(abs(r), decs) in cands for r in reg)
         if not hit:
             orphans.append((raw, line.strip()[:105]))
     return reg, checked, orphans

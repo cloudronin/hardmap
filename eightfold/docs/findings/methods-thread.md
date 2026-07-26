@@ -6,12 +6,15 @@ the error was *already written down somewhere in the artifact*, and nobody joine
 dated and numbered continuously. (Instances 1–5 predate this file; 6 and 7 are recorded below at the
 owner's direction, from the Atlas v3 V2 confirm-pass of 2026-07-23/24.)
 
-**Numbering history, stated so the count is never guessed (added 2026-07-26).** This file holds **26
-numbered entries spanning 6–31**. Instances **1–5 predate it**, as above. **15 is absent** and **6 carries
-an addendum sharing its number** — both artefacts of how entries were written at the time. *The past is
-never renumbered:* an instance number is a citation target, and prior documents point at these. Anything
-quoting a ledger size uses the derived form — *"26 numbered entries, 6–31, five predating the file"* — and
-never a round total.
+**Numbering history, stated so the count is never guessed (added 2026-07-26).** Instances **1–5 predate
+this file**, as above. **15 is absent**, and **6 carries an addendum sharing its number** — both artefacts
+of how entries were written at the time. *The past is never renumbered:* an instance number is a citation
+target, and prior documents point at these.
+
+**No document states a ledger size as a literal.** A hardcoded count in a file that grows is stale the next
+time someone appends — this note said "26 entries, 6–31" and was wrong within a day. Anything quoting the
+ledger's size **derives it from the headers at the time of writing**, and states the convention rather than
+a round total: *N numbered entries spanning a–b, five predating the file.*
 
 ---
 
