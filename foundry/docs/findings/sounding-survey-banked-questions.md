@@ -7,32 +7,42 @@ design can pose it properly. **Nothing here may be cited as a result.**
 
 ---
 
-## Q1 — the FORCED table is hand-maintained, and the survey shows it is incomplete
+## Q1 — RESOLVED 2026-07-26: forcedness is now derived, and the fix had a second half
 
-**This is the one with an operational consequence, so it goes first.**
+**Closed by ruling.** `theorem_forced` is no longer a hand-written list. It is **derived from Marrow's
+pinned templates** — bijunctive ⇒ majority-forced, affine ⇒ minority, horn ⇒ min, dualhorn ⇒ max — the
+join both artifacts already computed and nobody had made. **62 flags changed**; the four plainly-forced
+readings (`bipartiteness`, `vertex-cover`, `independent-set`, `clique`, all majority) now carry the right
+flag with derived provenance.
 
-Ten readings return a measured rate of **exactly 0.0** while *not* being flagged `theorem_forced`. At least
-five are plainly forced and were simply missing from the list:
+Two boundaries were needed, and collapsing either would have replaced one wrong flag with another:
 
-| row | region | flavour | why it is forced |
-|---|---|---|---|
-| `vertex-cover` | feasible | majority | Γ = {OR₂}; a 2-clause is bijunctive, hence majority-closed |
-| `independent-set` | feasible | majority | Γ = {NAND₂}, likewise a 2-clause |
-| `clique` | feasible | majority | same, on the complement |
-| `bipartiteness` | solutions | majority | CSP(K₂) is 2-CNF-expressible |
-| `matching` | feasible | majority | to be checked, but the pattern is the same shape |
+- **Region kind.** `solutions` and `feasible` inherit the template's guarantee; an **`optimal` region is a
+  sub-level set and carries none**. Optimal regions are never forced.
+- **Three states, not two.** Only **11 of 20** rows have a pinned template. For the rest forcedness is
+  `null` — **UNDERIVABLE, which is not `false`.**
 
-**The consequence.** Design law 3 — *forced flavours excluded from any discovery statistic by schema* — is
-enforced in code against `FORCED`, **a hand-written dictionary**. Schema enforcement is only as good as the
-table it consults, and a hand-maintained list of theorem-forced pairings is precisely the *rules that live
-in recall* failure the program keeps naming.
+### The second half, which the same run exposed
 
-**The question to pose properly:** should forcedness be **derived** — compute the closure of the row's
-pinned template and mark every flavour it is closed under — rather than listed? Marrow already pins
-templates for 28 rows and already computes exactly this. The two artifacts have never been connected.
+**Derived forcedness is a LOWER BOUND.** `matching`/feasible/min reads exactly 0.0, the template route
+calls it underivable — and matchings *are* subset-closed by a one-line argument (a subset of a matching is
+a matching), with no finite template involved. **The old hand list had that entry and it was true.**
 
-*(Round 2's F2 was not scored, so nothing published depends on the omission. It would have mattered had it
-been.)*
+So the fix is not derive-*instead-of*-assert. It is **derive ∪ assert-with-its-argument**. Three asserted
+entries now ship carrying the proof sketch that justifies them (`matching` and `three-dimensional-matching`
+under intersection, `dominating-set` under union). The rule the survey actually earned:
+
+> **No entry without a reason — derived in code, or written as an argument. What is banned is the
+> unjustified entry, not the human one.**
+
+### Residual, banked rather than adjudicated
+
+Four exact-zero readings remain neither derived-forced nor asserted: `matching`/feasible/majority,
+`max-flow`/feasible/minority, `max-flow`/optimal/minority, `three-dimensional-matching`/feasible/majority.
+Each looks adjudicable by a short argument — flow conservation is a parity condition, for instance, and XOR
+preserves parity. **They are not adjudicated here.** Asserting them would be doing the analysis a survey is
+not entitled to do, and the point of the flag hygiene was to make a residual meaningful, not to keep
+shrinking it until it vanished.
 
 ## Q2 — some regions are *anti*-blendable relative to random sets of their own size
 

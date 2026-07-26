@@ -456,6 +456,14 @@ every rate was mechanically capped at the all-distinct fraction. At small relati
 severe, and it manufactured the apparent result. Recomputed against its typed null, the distribution is
 reported as data in the probe's artifact and **no shape is claimed for it here**. See §5.
 
+**And the licence has since paid out on the population it was bought for.** A survey run of the probe
+carries measured solution-space geometry for `dominating-set`, `exact-cover-x3c` and
+`three-dimensional-matching` — three rows whose constraint scopes are unbounded-arity, so no fixed finite
+template exists and closure anatomy is **underivable for them by theorem**. The probe enumerates solutions
+directly and does not need one. The claim that a measured instrument reaches where a derived one cannot is
+now demonstrated on real rows rather than argued. *(Survey readings are exploratory and carry no scored
+prediction; what is asserted here is reach, not result.)*
+
 The licence is narrow and the boundary is the point: the probe is cleared for natural-row ensembles *with
 its accuracy characterised*, and **deployment there is not authorised by that run** — it needs its own
 spec, sized for affordability. What qualification buys is the possibility of reaching the **317**

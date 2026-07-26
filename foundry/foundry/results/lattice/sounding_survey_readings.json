@@ -87,7 +87,8 @@
    "control_draws": 40,
    "theorem_forced": true,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
   },
   {
    "row": "sat-2",
@@ -110,7 +111,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "sat-2",
@@ -133,7 +135,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "sat-2",
@@ -156,7 +159,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "sat-3",
@@ -179,7 +183,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "sat-3",
@@ -202,7 +207,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "sat-3",
@@ -225,7 +231,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "sat-3",
@@ -248,7 +255,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "horn-sat",
@@ -271,7 +279,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "horn-sat",
@@ -294,7 +303,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "horn-sat",
@@ -317,7 +327,8 @@
    "control_draws": 40,
    "theorem_forced": true,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
   },
   {
    "row": "horn-sat",
@@ -340,7 +351,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "xor-sat",
@@ -363,7 +375,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "xor-sat",
@@ -386,7 +399,8 @@
    "control_draws": 40,
    "theorem_forced": true,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
   },
   {
    "row": "xor-sat",
@@ -409,7 +423,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "xor-sat",
@@ -432,7 +447,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "nae-sat",
@@ -455,7 +471,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "nae-sat",
@@ -478,7 +495,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "nae-sat",
@@ -501,7 +519,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "nae-sat",
@@ -524,7 +543,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "bipartiteness",
@@ -545,9 +565,10 @@
    "uniform_tuple_cap_for_reference": 0.8203,
    "n_instances": 1,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": true,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
   },
   {
    "row": "bipartiteness",
@@ -570,7 +591,8 @@
    "control_draws": 40,
    "theorem_forced": true,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
   },
   {
    "row": "bipartiteness",
@@ -593,7 +615,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "bipartiteness",
@@ -616,7 +639,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "graph-3-coloring",
@@ -639,7 +663,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "graph-3-coloring",
@@ -662,7 +687,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "graph-3-coloring",
@@ -685,7 +711,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "graph-3-coloring",
@@ -708,7 +735,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "subset-sum",
@@ -729,9 +757,10 @@
    "uniform_tuple_cap_for_reference": 0.9859,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "subset-sum",
@@ -752,9 +781,10 @@
    "uniform_tuple_cap_for_reference": 0.9859,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "subset-sum",
@@ -775,9 +805,10 @@
    "uniform_tuple_cap_for_reference": 0.9953,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "subset-sum",
@@ -798,9 +829,10 @@
    "uniform_tuple_cap_for_reference": 0.9953,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "vertex-cover",
@@ -821,9 +853,10 @@
    "uniform_tuple_cap_for_reference": 0.9805,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": true,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
   },
   {
    "row": "vertex-cover",
@@ -846,7 +879,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "vertex-cover",
@@ -869,7 +903,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "vertex-cover",
@@ -892,7 +927,8 @@
    "control_draws": 40,
    "theorem_forced": true,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
   },
   {
    "row": "vertex-cover",
@@ -915,7 +951,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
   },
   {
    "row": "vertex-cover",
@@ -938,7 +975,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
   },
   {
    "row": "vertex-cover",
@@ -961,7 +999,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
   },
   {
    "row": "vertex-cover",
@@ -984,7 +1023,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
   },
   {
    "row": "independent-set",
@@ -1005,9 +1045,10 @@
    "uniform_tuple_cap_for_reference": 0.9789,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": true,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
   },
   {
    "row": "independent-set",
@@ -1030,7 +1071,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "independent-set",
@@ -1053,7 +1095,8 @@
    "control_draws": 40,
    "theorem_forced": true,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
   },
   {
    "row": "independent-set",
@@ -1076,7 +1119,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "independent-set",
@@ -1099,7 +1143,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
   },
   {
    "row": "independent-set",
@@ -1122,7 +1167,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
   },
   {
    "row": "independent-set",
@@ -1145,7 +1191,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
   },
   {
    "row": "independent-set",
@@ -1168,7 +1215,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
   },
   {
    "row": "clique",
@@ -1189,9 +1237,10 @@
    "uniform_tuple_cap_for_reference": 0.9268,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": true,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
   },
   {
    "row": "clique",
@@ -1214,7 +1263,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "clique",
@@ -1237,7 +1287,8 @@
    "control_draws": 40,
    "theorem_forced": true,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
   },
   {
    "row": "clique",
@@ -1260,7 +1311,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "derived: the pinned template is not closed under this flavour"
   },
   {
    "row": "clique",
@@ -1283,7 +1335,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
   },
   {
    "row": "clique",
@@ -1306,7 +1359,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
   },
   {
    "row": "clique",
@@ -1329,7 +1383,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
   },
   {
    "row": "clique",
@@ -1352,7 +1407,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
   },
   {
    "row": "max-cut",
@@ -1375,7 +1431,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
   },
   {
    "row": "max-cut",
@@ -1398,7 +1455,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
   },
   {
    "row": "max-cut",
@@ -1421,7 +1479,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
   },
   {
    "row": "max-cut",
@@ -1444,7 +1503,8 @@
    "control_draws": 40,
    "theorem_forced": false,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
   },
   {
    "row": "number-partitioning",
@@ -1465,9 +1525,10 @@
    "uniform_tuple_cap_for_reference": 0.9566,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "number-partitioning",
@@ -1488,9 +1549,10 @@
    "uniform_tuple_cap_for_reference": 0.9566,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "number-partitioning",
@@ -1511,9 +1573,10 @@
    "uniform_tuple_cap_for_reference": 0.9854,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "number-partitioning",
@@ -1534,9 +1597,10 @@
    "uniform_tuple_cap_for_reference": 0.9854,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "min-spanning-tree",
@@ -1557,9 +1621,10 @@
    "uniform_tuple_cap_for_reference": 0.9852,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "min-spanning-tree",
@@ -1580,9 +1645,10 @@
    "uniform_tuple_cap_for_reference": 0.9852,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "min-spanning-tree",
@@ -1603,9 +1669,10 @@
    "uniform_tuple_cap_for_reference": 0.995,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "min-spanning-tree",
@@ -1626,9 +1693,10 @@
    "uniform_tuple_cap_for_reference": 0.995,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "min-spanning-tree",
@@ -1649,9 +1717,10 @@
    "uniform_tuple_cap_for_reference": 0.2604,
    "n_instances": 4,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "min-spanning-tree",
@@ -1672,9 +1741,10 @@
    "uniform_tuple_cap_for_reference": 0.2604,
    "n_instances": 4,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "min-spanning-tree",
@@ -1695,9 +1765,10 @@
    "uniform_tuple_cap_for_reference": 0.6072,
    "n_instances": 7,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "min-spanning-tree",
@@ -1718,9 +1789,10 @@
    "uniform_tuple_cap_for_reference": 0.6072,
    "n_instances": 7,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "matching",
@@ -1741,9 +1813,10 @@
    "uniform_tuple_cap_for_reference": 0.9421,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "matching",
@@ -1764,9 +1837,10 @@
    "uniform_tuple_cap_for_reference": 0.9421,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "matching",
@@ -1789,7 +1863,8 @@
    "control_draws": 40,
    "theorem_forced": true,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "ASSERTED with argument (no template route): a subset of a matching is a matching \u2014 the feasible set is closed downward under intersection. No finite bounded-arity template exists for this row, so the template route cannot see it."
   },
   {
    "row": "matching",
@@ -1810,9 +1885,10 @@
    "uniform_tuple_cap_for_reference": 0.9803,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "matching",
@@ -1833,9 +1909,10 @@
    "uniform_tuple_cap_for_reference": 0.8494,
    "n_instances": 7,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "matching",
@@ -1856,9 +1933,10 @@
    "uniform_tuple_cap_for_reference": 0.8494,
    "n_instances": 7,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "matching",
@@ -1879,9 +1957,10 @@
    "uniform_tuple_cap_for_reference": 0.9476,
    "n_instances": 7,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "matching",
@@ -1902,9 +1981,10 @@
    "uniform_tuple_cap_for_reference": 0.9476,
    "n_instances": 7,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "reachability-stcon",
@@ -1925,9 +2005,10 @@
    "uniform_tuple_cap_for_reference": 0.8807,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "reachability-stcon",
@@ -1948,9 +2029,10 @@
    "uniform_tuple_cap_for_reference": 0.8807,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "reachability-stcon",
@@ -1971,9 +2053,10 @@
    "uniform_tuple_cap_for_reference": 0.9584,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "reachability-stcon",
@@ -1994,9 +2077,10 @@
    "uniform_tuple_cap_for_reference": 0.9584,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "reachability-stcon",
@@ -2017,9 +2101,10 @@
    "uniform_tuple_cap_for_reference": 0.2986,
    "n_instances": 2,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "reachability-stcon",
@@ -2040,9 +2125,10 @@
    "uniform_tuple_cap_for_reference": 0.2986,
    "n_instances": 2,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "reachability-stcon",
@@ -2063,9 +2149,10 @@
    "uniform_tuple_cap_for_reference": 0.7084,
    "n_instances": 2,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "reachability-stcon",
@@ -2086,9 +2173,10 @@
    "uniform_tuple_cap_for_reference": 0.7084,
    "n_instances": 2,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "max-flow",
@@ -2109,9 +2197,10 @@
    "uniform_tuple_cap_for_reference": 0.9158,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "max-flow",
@@ -2132,9 +2221,10 @@
    "uniform_tuple_cap_for_reference": 0.9158,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "max-flow",
@@ -2155,9 +2245,10 @@
    "uniform_tuple_cap_for_reference": 0.9702,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "max-flow",
@@ -2178,9 +2269,10 @@
    "uniform_tuple_cap_for_reference": 0.9702,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "max-flow",
@@ -2201,9 +2293,10 @@
    "uniform_tuple_cap_for_reference": 0.8221,
    "n_instances": 7,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "max-flow",
@@ -2224,9 +2317,10 @@
    "uniform_tuple_cap_for_reference": 0.8221,
    "n_instances": 7,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "max-flow",
@@ -2247,9 +2341,10 @@
    "uniform_tuple_cap_for_reference": 0.8789,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "max-flow",
@@ -2270,9 +2365,10 @@
    "uniform_tuple_cap_for_reference": 0.8789,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": false,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "dominating-set",
@@ -2293,9 +2389,10 @@
    "uniform_tuple_cap_for_reference": 0.9967,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": true,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "dominating-set",
@@ -2316,9 +2413,10 @@
    "uniform_tuple_cap_for_reference": 0.9967,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": true,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "dominating-set",
@@ -2339,9 +2437,10 @@
    "uniform_tuple_cap_for_reference": 0.9989,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": true,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "dominating-set",
@@ -2362,9 +2461,10 @@
    "uniform_tuple_cap_for_reference": 0.9989,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": true,
    "marrow_excluded_row": true,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "ASSERTED with argument (no template route): a superset of a dominating set is a dominating set \u2014 closed upward under union. Unbounded-arity neighbourhood scopes put it outside the template route."
   },
   {
    "row": "dominating-set",
@@ -2385,9 +2485,10 @@
    "uniform_tuple_cap_for_reference": 0.4481,
    "n_instances": 4,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": true,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "dominating-set",
@@ -2408,9 +2509,10 @@
    "uniform_tuple_cap_for_reference": 0.4481,
    "n_instances": 4,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": true,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "dominating-set",
@@ -2431,9 +2533,10 @@
    "uniform_tuple_cap_for_reference": 0.772,
    "n_instances": 4,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": true,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "dominating-set",
@@ -2454,9 +2557,10 @@
    "uniform_tuple_cap_for_reference": 0.772,
    "n_instances": 4,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": true,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "exact-cover-x3c",
@@ -2477,9 +2581,10 @@
    "uniform_tuple_cap_for_reference": 0.5,
    "n_instances": 3,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": true,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "exact-cover-x3c",
@@ -2500,9 +2605,10 @@
    "uniform_tuple_cap_for_reference": 0.5,
    "n_instances": 3,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": true,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "three-dimensional-matching",
@@ -2523,9 +2629,10 @@
    "uniform_tuple_cap_for_reference": 0.9484,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": true,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "three-dimensional-matching",
@@ -2546,9 +2653,10 @@
    "uniform_tuple_cap_for_reference": 0.9484,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": true,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "three-dimensional-matching",
@@ -2569,9 +2677,10 @@
    "uniform_tuple_cap_for_reference": 0.9826,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": true,
    "marrow_excluded_row": true,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "ASSERTED with argument (no template route): a subset of a 3D matching is a 3D matching \u2014 closed downward, same argument as `matching`."
   },
   {
    "row": "three-dimensional-matching",
@@ -2592,9 +2701,10 @@
    "uniform_tuple_cap_for_reference": 0.9826,
    "n_instances": 8,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": true,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "three-dimensional-matching",
@@ -2615,9 +2725,10 @@
    "uniform_tuple_cap_for_reference": 0.742,
    "n_instances": 5,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": true,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "three-dimensional-matching",
@@ -2638,9 +2749,10 @@
    "uniform_tuple_cap_for_reference": 0.742,
    "n_instances": 5,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": true,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "three-dimensional-matching",
@@ -2661,9 +2773,10 @@
    "uniform_tuple_cap_for_reference": 0.7906,
    "n_instances": 7,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": true,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   },
   {
    "row": "three-dimensional-matching",
@@ -2684,9 +2797,536 @@
    "uniform_tuple_cap_for_reference": 0.7906,
    "n_instances": 7,
    "control_draws": 40,
-   "theorem_forced": false,
+   "theorem_forced": null,
    "marrow_excluded_row": true,
-   "insufficient": null
+   "insufficient": null,
+   "forced_provenance": "underivable \u2014 no pinned template for this row"
   }
- ]
+ ],
+ "forced_flag_provenance": {
+  "method": "DERIVED from Marrow's pinned templates, not listed. bijunctive=>majority, affine=>minority, horn=>min, dualhorn=>max; a polymorphism of Gamma holds on every instance's solution set.",
+  "region_rule": "`solutions` and `feasible` inherit the template's guarantee; `optimal` regions are sub-level sets and are never forced",
+  "three_states": "true = forced \u00b7 false = derived not forced \u00b7 null = UNDERIVABLE by the template route and not asserted. `null` is not `false`.",
+  "derived_is_a_lower_bound": "the template route sees only template-expressible closure. Regions can be provably closed for reasons no finite template carries \u2014 matchings under intersection, dominating sets under union. Those ship as ASSERTED entries CARRYING THEIR ARGUMENT. The rule the survey earned is not 'derive instead of assert', it is 'no entry without a reason, derived or written'.",
+  "template_coverage": "11 of 20 survey rows have a pinned template",
+  "n_flags_changed": 58,
+  "changed": [
+   {
+    "row": "subset-sum",
+    "region": "solutions",
+    "flavor": "majority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "subset-sum",
+    "region": "solutions",
+    "flavor": "minority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "subset-sum",
+    "region": "solutions",
+    "flavor": "min",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "subset-sum",
+    "region": "solutions",
+    "flavor": "max",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "number-partitioning",
+    "region": "optimal",
+    "flavor": "majority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "number-partitioning",
+    "region": "optimal",
+    "flavor": "minority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "number-partitioning",
+    "region": "optimal",
+    "flavor": "min",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "number-partitioning",
+    "region": "optimal",
+    "flavor": "max",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "min-spanning-tree",
+    "region": "feasible",
+    "flavor": "majority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "min-spanning-tree",
+    "region": "feasible",
+    "flavor": "minority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "min-spanning-tree",
+    "region": "feasible",
+    "flavor": "min",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "min-spanning-tree",
+    "region": "feasible",
+    "flavor": "max",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "min-spanning-tree",
+    "region": "optimal",
+    "flavor": "majority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "min-spanning-tree",
+    "region": "optimal",
+    "flavor": "minority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "min-spanning-tree",
+    "region": "optimal",
+    "flavor": "min",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "min-spanning-tree",
+    "region": "optimal",
+    "flavor": "max",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "matching",
+    "region": "feasible",
+    "flavor": "majority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "matching",
+    "region": "feasible",
+    "flavor": "minority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "matching",
+    "region": "feasible",
+    "flavor": "min",
+    "was": null,
+    "now": true,
+    "provenance": "ASSERTED with argument (no template route): a subset of a matching is a matching \u2014 the feasible set is closed downward under intersection. No finite bounded-arity template exists for this row, so the template route cannot see it."
+   },
+   {
+    "row": "matching",
+    "region": "feasible",
+    "flavor": "max",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "matching",
+    "region": "optimal",
+    "flavor": "majority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "matching",
+    "region": "optimal",
+    "flavor": "minority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "matching",
+    "region": "optimal",
+    "flavor": "min",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "matching",
+    "region": "optimal",
+    "flavor": "max",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "reachability-stcon",
+    "region": "feasible",
+    "flavor": "majority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "reachability-stcon",
+    "region": "feasible",
+    "flavor": "minority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "reachability-stcon",
+    "region": "feasible",
+    "flavor": "min",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "reachability-stcon",
+    "region": "feasible",
+    "flavor": "max",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "reachability-stcon",
+    "region": "optimal",
+    "flavor": "majority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "reachability-stcon",
+    "region": "optimal",
+    "flavor": "minority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "reachability-stcon",
+    "region": "optimal",
+    "flavor": "min",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "reachability-stcon",
+    "region": "optimal",
+    "flavor": "max",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "max-flow",
+    "region": "feasible",
+    "flavor": "majority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "max-flow",
+    "region": "feasible",
+    "flavor": "minority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "max-flow",
+    "region": "feasible",
+    "flavor": "min",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "max-flow",
+    "region": "feasible",
+    "flavor": "max",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "max-flow",
+    "region": "optimal",
+    "flavor": "majority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "max-flow",
+    "region": "optimal",
+    "flavor": "minority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "max-flow",
+    "region": "optimal",
+    "flavor": "min",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "max-flow",
+    "region": "optimal",
+    "flavor": "max",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "dominating-set",
+    "region": "feasible",
+    "flavor": "majority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "dominating-set",
+    "region": "feasible",
+    "flavor": "minority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "dominating-set",
+    "region": "feasible",
+    "flavor": "min",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "dominating-set",
+    "region": "feasible",
+    "flavor": "max",
+    "was": null,
+    "now": true,
+    "provenance": "ASSERTED with argument (no template route): a superset of a dominating set is a dominating set \u2014 closed upward under union. Unbounded-arity neighbourhood scopes put it outside the template route."
+   },
+   {
+    "row": "dominating-set",
+    "region": "optimal",
+    "flavor": "majority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "dominating-set",
+    "region": "optimal",
+    "flavor": "minority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "dominating-set",
+    "region": "optimal",
+    "flavor": "min",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "dominating-set",
+    "region": "optimal",
+    "flavor": "max",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "exact-cover-x3c",
+    "region": "solutions",
+    "flavor": "min",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "exact-cover-x3c",
+    "region": "solutions",
+    "flavor": "max",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "three-dimensional-matching",
+    "region": "feasible",
+    "flavor": "majority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "three-dimensional-matching",
+    "region": "feasible",
+    "flavor": "minority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "three-dimensional-matching",
+    "region": "feasible",
+    "flavor": "min",
+    "was": null,
+    "now": true,
+    "provenance": "ASSERTED with argument (no template route): a subset of a 3D matching is a 3D matching \u2014 closed downward, same argument as `matching`."
+   },
+   {
+    "row": "three-dimensional-matching",
+    "region": "feasible",
+    "flavor": "max",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "three-dimensional-matching",
+    "region": "optimal",
+    "flavor": "majority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "three-dimensional-matching",
+    "region": "optimal",
+    "flavor": "minority",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "three-dimensional-matching",
+    "region": "optimal",
+    "flavor": "min",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "three-dimensional-matching",
+    "region": "optimal",
+    "flavor": "max",
+    "was": null,
+    "now": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   }
+  ]
+ },
+ "changelog": [
+  {
+   "date": "2026-07-26",
+   "kind": "FLAG CORRECTION \u2014 NOT A RE-MEASUREMENT",
+   "what": "`theorem_forced` recomputed from Marrow's pinned templates. Readings, seeds, controls and every measured value are byte-identical; only the forced metadata changed.",
+   "why": "the hand-written FORCED list was incomplete \u2014 the survey found ten exact-zero readings unflagged, several plainly forced. A hand-maintained list of theorem-forced pairings is rules-that-live-in-recall wearing the costume of the fix for it."
+  },
+  {
+   "date": "2026-07-26",
+   "kind": "FLAG CORRECTION \u2014 NOT A RE-MEASUREMENT",
+   "what": "`theorem_forced` recomputed from Marrow's pinned templates. Readings, seeds, controls and every measured value are byte-identical; only the forced metadata changed.",
+   "why": "the hand-written FORCED list was incomplete \u2014 the survey found ten exact-zero readings unflagged, several plainly forced. A hand-maintained list of theorem-forced pairings is rules-that-live-in-recall wearing the costume of the fix for it."
+  }
+ ],
+ "residual_unforced_exact_zeros": {
+  "n": 4,
+  "note": "exact-zero readings that are NOT derived-forced, AFTER the flag correction. These are the genuinely interesting ones \u2014 which is exactly why the flag hygiene had to come first. Not interpreted here; banked.",
+  "readings": [
+   {
+    "row": "matching",
+    "region": "feasible",
+    "flavor": "majority",
+    "excess": -0.8919,
+    "forced": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "max-flow",
+    "region": "feasible",
+    "flavor": "minority",
+    "excess": -0.974,
+    "forced": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "max-flow",
+    "region": "optimal",
+    "flavor": "minority",
+    "excess": -0.9931,
+    "forced": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   },
+   {
+    "row": "three-dimensional-matching",
+    "region": "feasible",
+    "flavor": "majority",
+    "excess": -0.9242,
+    "forced": null,
+    "provenance": "underivable \u2014 no pinned template for this row"
+   }
+  ]
+ }
 }

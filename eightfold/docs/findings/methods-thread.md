@@ -1295,3 +1295,43 @@ the rule was applied *first* rather than after a wrong diagnosis.
 **Scores 1 and 2 were never in question and are untouched:** the battery is a binary that repeats cannot
 flip, and sensitivity asks only whether *any* violation was found. The instrument is still QUALIFIED. What
 failed was the free question's answer, which is the part that was free.
+
+---
+
+## Instance 36 — 2026-07-26 — a fix that was the failure it fixed, and the half of it that survived
+
+Design law 3 excludes theorem-forced flavours from any discovery statistic **by schema** — written into the
+emitting code after the pilot found 42% of an apparent separation was forced zeros leaking into the
+measured mean. Enforced in code, which was the right instinct.
+
+Enforced *against a hand-written dictionary*.
+
+The survey found it: ten readings returning **exactly 0.0** while not flagged forced, several of them
+plainly forced and simply absent from the list. `vertex-cover`, `independent-set` and `clique` feasible
+regions under majority are all Γ of 2-clauses — bijunctive, hence majority-closed — and none was listed.
+
+> **A hand-maintained list of theorem-forced pairings is rules-that-live-in-recall wearing the costume of
+> the fix for it.**
+
+The closure was a join neither artifact had made though both computed its inputs: Marrow pins a template
+per row and derives its closure flags; a polymorphism of Γ holds on every instance's solution set. So
+forcedness becomes **derived provenance instead of remembered provenance**, with two boundaries that had to
+be kept apart — `optimal` regions are sub-level sets and inherit nothing, and *underivable* is a third
+state that is not *false*.
+
+### The part worth the entry: the derivation lost something true
+
+`matching`/feasible/min reads exactly 0.0. The template route calls it underivable. **But matchings are
+subset-closed by a one-line argument**, and no finite template is involved — the old hand list had that
+entry and **it was correct**.
+
+The clean-sounding rule *"derive, don't list"* would have deleted a true fact in the name of rigour. The
+rule that actually survives contact is narrower and less satisfying:
+
+> **No entry without a reason — derived in code, or written as an argument that ships with it. What is
+> banned is the unjustified entry, not the human one.**
+
+Three asserted entries now carry their proof sketches. Four residual exact-zeros were left **unadjudicated
+and banked**, because asserting them would have been doing the analysis a survey is not entitled to do —
+and because the point of flag hygiene is to make a residual *meaningful*, not to keep shrinking it until
+nothing is left to explain.
