@@ -903,13 +903,20 @@ Adding `*factors*.json` to the watched set surfaced **16 unacknowledged extremal
 in a project this pass had not examined — including an `excess_over_null.null_envelope` whose real, mean,
 p2.5 and p97.5 are **all exactly 0.0** beside a one-sided p of exactly **1.0**.
 
-*(Written first as "the signature of the never-ran-but-reported-as-measured pattern found in
-`quarry_v2_results.json`". Instance 26 refutes that reading of the quarry zeros — they were Bergsma
-bias-correction floors — so the analogy is withdrawn. The better hypothesis, and the one the backlog task
-should test first, is that these are **the same kind of floor**: a clamped estimator at small n, plus a
-`k/M` permutation p that reports exactly 1.0 for the same reason `crucible._envelope` reported exactly 0.
-Two independent instances of "an exact extremal is usually an estimator hitting its own boundary" is a
-better prior than "the block never ran", and this entry had the wrong one.)*
+*(This entry guessed the cause twice and was wrong twice; the adjudication is instance 31 and both
+guesses are withdrawn. First guess: "the never-ran-but-reported-as-measured pattern found in
+`quarry_v2_results.json`" — refuted by instance 26, where those zeros turned out to be Bergsma
+bias-correction floors. Second guess, written as the correction and passed to the backlog task as its
+prior: "the same kind of floor — a clamped estimator at small n, plus a `k/M` p reporting exactly 1.0."
+Also wrong, and CHECKED rather than accepted: nothing on that path clamps, n is 114 not 22, and `_envelope`
+already uses the plus-one form. The true cause was a third species entirely — a VACUOUS COMPARISON, the
+statistic `acc[k_hat] - acc[1]` evaluated at k*=1.*
+
+*The reusable part is not either wrong guess but what they had in common: **both diagnosed from the SHAPE
+of the artifact — a 0.0 sitting next to a null, a cluster of extremals — instead of from the EXPRESSION
+that produced it.** An exact extremal has at least three causes that look identical in JSON (a clamp, a
+boundary p-form, a vacuous expression) and are told apart only by reading the code path. Guessing from the
+artifact was fast and wrong twice; reading the expression was decisive both times.)*
 
 Two bad options and one good one:
 
