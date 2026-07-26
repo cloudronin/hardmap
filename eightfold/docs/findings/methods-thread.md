@@ -733,14 +733,16 @@ and nothing announces it. Widened, it immediately found seven unacknowledged ext
 two of them real:
 
 - a permutation p reported as **exactly 0** (the honest form is `< 1/N`; 0 asserts an impossibility);
-- an absorption block that **never ran** — `governed_by: power_check.cleared`, INSUFFICIENT-terminal — yet
-  left `0.0` in two fields that read as measured values. The same block writes `shrinkage_fraction: null`,
-  which is the correct idiom, so **the file's own author knew it and applied it inconsistently.** A
-  not-computed value encoded as `0.0` is indistinguishable from a measured null to every downstream reader.
+- ~~an absorption block that **never ran** — `governed_by: power_check.cleared`, INSUFFICIENT-terminal —
+  yet left `0.0` in two fields that read as measured values. The same block writes `shrinkage_fraction:
+  null`, which is the correct idiom, so **the file's own author knew it and applied it inconsistently.**~~
+  → **THIS SECOND READING WAS WRONG. Corrected in [instance 26](#instance-26--2026-07-25--the-gate-was-right-the-triage-was-not).**
+  The block ran; both zeros are bias-correction floors and are the estimator's correct output.
 
 Both are itemised in the gate's `LEGACY` table with their readings rather than waived, and the gate stays
 live on those files for anything new. **Recording what a widened gate finds in the gate itself is the
-difference between paying a debt and hiding one.**
+difference between paying a debt and hiding one.** (The quarry pair has since left the table — not waived,
+*paid*: see instance 26. The permutation p remains, scorer fixed and artifact awaiting a locked-env re-run.)
 
 ---
 
@@ -782,3 +784,58 @@ nominally hit — and the artifact **declares its own specification weakness**: 
 rate degrades the matrix by construction, making the prediction nearly unfalsifiable, so the hit is weak
 evidence and the sealed *secondary* (+0.0188, no imputation) is the informative number. **Scoring a hit down
 because the test was badly posed is the same discipline as scoring a miss.**
+
+---
+
+## Instance 26 — 2026-07-25 — the gate was right, the triage was not
+
+Instance 24 widened the tidy-number gate, and the widened gate did its job: it flagged
+`recruited_B.absorption.unconditional_V = 0.0` and `averaged_per_class_wrong = 0.0` in
+`quarry_v2_results.json`. Then the triage read the surrounding JSON and wrote down a cause — **an
+uninitialised placeholder from a block that never ran** — and itemised it in the `LEGACY` table as a REAL
+FLAW, with a remedy: encode the two fields as `null`.
+
+**The cause was wrong, and the remedy would have destroyed information.** The block ran. Both zeros are
+**bias-correction floors**. `structure.cramers_v` is the Bergsma-corrected V: it subtracts
+`(k−1)(r−1)/(n−1)` from φ² and clamps at zero. On the 22-row recruited-B population against a 5×4 table the
+correction is **0.5714** against a φ² of **0.4464** — the correction exceeds the signal, the clamp bites, and
+the estimator returns **exactly 0** where the uncorrected V is **0.3857**. The same thing happens in all
+three strata of the averaged-per-class estimator (n = 10 / 8 / 4). Writing `null` would have asserted *not
+computed* about a statistic that was computed, and thrown away the one fact that makes the zero legible.
+
+`shrinkage_fraction: null` was not an author's correct idiom applied inconsistently either. It is the
+`uncond > 0` divide-by-zero guard in the scorer tripping **on the same floor** — shrinkage is
+`(uncond − cond)/uncond`, undefined at zero. The two encodings were never in conflict; they have one cause.
+
+**The contradiction was visible without re-running anything.** The same block reports
+`correct_stratified: 0.43`. A block that never ran cannot produce 0.43. One number in the triage's own
+evidence refuted its conclusion, and it was read past — because by then the conclusion already had a
+narrative, and the narrative was a good one: a placeholder bug is a better find than an estimator behaving
+as documented.
+
+**The rule.** *A gate that flags a number has not diagnosed it.* The flag is a question. The triage is an
+answer, and an answer needs the evidentiary standard of the finding it replaces — for these two fields, one
+re-run of the estimator, which is what eventually produced every number in this entry. Confident, specific,
+wrong causal stories are the failure mode of triage-by-reading, and they are *more* dangerous than an
+unexplained flag, because they close the question.
+
+**Direction matters here too.** The ledger has recorded bugs that manufactured hits (defect #15, rev-3's P4
+ceiling, the Arm A flag leak) and bugs that manufactured misses (instance 22's two encoder bugs). This is a
+third kind: **an error in the error-finding machinery**, whose proposed fix wore the costume of humility.
+Replacing a number with `null` *looks* like restraint. It was an unmeasured claim.
+
+**Resolution.** `score_quarry_v2.py` now emits an `extremal_acknowledged` entry carrying the floor
+arithmetic (n, table shape, φ², the correction term, the uncorrected V), generated from the run rather than
+hardcoded — so if a larger population stops flooring, the acknowledgement disappears with it instead of
+lingering as a stale excuse. That is the mechanism instance 22 built the gate around, used as intended: the
+zero stays, because the zero is what the estimator returns, and the artifact now says why. Both quarry
+entries are **removed** from `LEGACY` — a legacy table is for debt, and this one is paid. The Quarry v2
+verdict is untouched (pooled n = 111, power 7/9, min-exp 3.59, **BELOW FLOOR — INSUFFICIENT**); every
+pre-existing byte of the artifact is unchanged.
+
+The *other* real flaw from instance 24 survived scrutiny. `crucible._envelope` computed `one_sided_p_ge` as
+`k/M`, which reports **exactly 0** when no null reaches the real statistic — an impossibility M draws cannot
+establish. Fixed to the plus-one form `(k+1)/(M+1)` that `_perm_p_gradient` in the same file already used;
+S1's p becomes `1/1001 = 0.000999`, and the RESIZED verdict and both excess flags are unchanged. **A
+codebase that already contains the correct estimator, one function away, is the cheapest kind of defect to
+find and the easiest kind to walk past.**

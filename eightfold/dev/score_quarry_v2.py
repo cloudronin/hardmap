@@ -126,6 +126,63 @@ def three_p3_estimators(tr):
 
 def _rnd(x): return None if (x != x) else round(float(x), 3)
 
+
+def _bias_floor(xs, ys):
+    """WHY an exactly-zero Cramér's V is zero — the arithmetic, or None if the zero is not a floor.
+
+    `structure.cramers_v` is BIAS-CORRECTED (Bergsma): it subtracts (k-1)(r-1)/(n-1) from phi^2 and clamps
+    the result at zero. At small n against a wide table the correction can exceed the signal, and the
+    estimator then returns EXACTLY 0 — a FLOOR, not a measured null. The two readings differ completely
+    ("too few rows to license a bias-corrected estimate" vs "these charges are unassociated"), so the tidy-
+    number gate (methods 22) requires the distinction be stated in the artifact rather than left to whoever
+    reads the zero. Returns the numbers that produced the floor so the acknowledgement can cite them."""
+    from scipy.stats import chi2_contingency
+    ca, cb = sorted(set(xs)), sorted(set(ys))
+    if len(ca) < 2 or len(cb) < 2: return None
+    ia = {c: i for i, c in enumerate(ca)}; ib = {c: i for i, c in enumerate(cb)}
+    T = np.zeros((len(ca), len(cb)))
+    for a, b in zip(xs, ys): T[ia[a], ib[b]] += 1
+    n = T.sum(); r, k = T.shape
+    phi2 = float(chi2_contingency(T, correction=False)[0]) / n
+    corr = (k - 1) * (r - 1) / (n - 1)
+    if phi2 > corr: return None                     # not floored — an exact zero from some other cause
+    return {"n": int(n), "table": f"{r}x{k}", "phi2": round(phi2, 4), "bias_correction": round(corr, 4),
+            "uncorrected_v": round(float(np.sqrt(phi2 / min(r - 1, k - 1))), 4)}
+
+
+def _acknowledge_extremals(name, tr, ab):
+    """Tidy-number gate (methods 22): an exactly-extremal statistic must say why it is exact, IN ITS OWN
+    ARTIFACT. Generated from the run, not hardcoded — if a later population stops flooring, the
+    acknowledgement disappears with it rather than lingering as a stale excuse."""
+    out = []
+    if ab.get("unconditional_V") == 0.0:
+        d = _bias_floor([a for l, a, p, a3 in tr], [p for l, a, p, a3 in tr])
+        if d:
+            out.append({"stat": f"{name}.absorption.unconditional_V", "value": 0.0, "floor_arithmetic": d,
+                        "why": f"BIAS-CORRECTION FLOOR, not a measured null. structure.cramers_v subtracts "
+                               f"(k-1)(r-1)/(n-1) from phi^2 and clamps at zero; here the correction is "
+                               f"{d['bias_correction']} against phi^2 = {d['phi2']} (n={d['n']}, {d['table']} "
+                               f"table), so the estimator returns EXACTLY 0. The UNCORRECTED V is "
+                               f"{d['uncorrected_v']}. Read this as 'n too small to license a bias-corrected "
+                               f"estimate', NOT as 'approximation and parameterized are unassociated' — the "
+                               f"same block's power_check already says cleared=false and the absorption bet "
+                               f"is INSUFFICIENT-terminal. The sibling `shrinkage_fraction: null` is CAUSED "
+                               f"by this floor: shrinkage is (uncond - cond)/uncond, undefined at uncond=0."})
+    if ab.get("averaged_per_class_wrong") == 0.0:
+        byc = {}
+        for l, a, p, a3 in tr: byc.setdefault(l, []).append((a, p))
+        det = {l: _bias_floor([a for a, _ in v], [p for _, p in v]) for l, v in byc.items() if len(v) >= 4}
+        if det and all(det.values()):
+            out.append({"stat": f"{name}.absorption.averaged_per_class_wrong", "value": 0.0,
+                        "floor_arithmetic": det,
+                        "why": f"BIAS-CORRECTION FLOOR IN EVERY STRATUM — same cause as "
+                               f"{name}.absorption.unconditional_V, applied per class. This is the "
+                               f"historically-wrong averaged-per-class estimator (defect #15), printed for "
+                               f"the record and never scored; its value is the mean of the per-class V's, "
+                               f"and each one floored to exactly 0 at n="
+                               f"{'/'.join(str(d['n']) for d in det.values())}. Not a measured zero."})
+    return out
+
 def score():
     R = {"meta": {"seed": SEED, "collapse": "scheme/const-or-log/poly-or-worse (sealed)",
                   "estimator": "structure.stratified_cramers_v (defect #15 gated)",
@@ -134,6 +191,7 @@ def score():
     R["P1_supply"] = {"channel_B_fills": len(FILLS), "channel_B_landed_bothreal": len(recruited),
                       "channel_A_recruited": 0, "net_new_bothreal": len(recruited),
                       "threshold": 22, "note": "A+B >= 22; Channel A deferred pending floor (grounding I3)."}
+    ACK = []                                    # tidy-number gate: exact extremals, explained where they land
     for name, pop in POPS.items():
         tr = triples(pop)
         loc_marg = Counter(l for l, a, p, a3 in tr)
@@ -155,12 +213,14 @@ def score():
             blk["split_stability"] = {"V_loc_approx": [round(x, 3) if x == x else None for x in la],
                                       "V_loc_param": [round(x, 3) if x == x else None for x in lp],
                                       "note": "[point, ci_lo, ci_hi]; P4-split holds if approx>=0.35 & param<0.35 with separated CIs"}
+            ACK.extend(_acknowledge_extremals(name, tr, blk["absorption"]))
         R[name] = blk
     # prediction 5 — calibration (Channel B mixture is a corpus census; funnel-blindness check needs Channel A)
     v3new_mix = Counter(LOC.get(pid) for pid, a, p in prior89 if pid not in KIDS and LOC.get(pid) not in ("uncodable", "?"))
     recr_mix = Counter(LOC.get(pid) for pid, a, p in recruited if LOC.get(pid) not in ("uncodable", "?"))
     R["P5_calibration"] = {"v3new_bothreal_mixture": dict(v3new_mix), "channelB_recruited_mixture": dict(recr_mix),
                            "note": "Channel B fills all charge-citable candidates (no locality selection) -> its mixture is a corpus census, NOT the funnel-blindness test. P5's sealed form (funnel mixture within noise of v3-new) requires Channel A; deferred."}
+    R["extremal_acknowledged"] = ACK
     out = AT / "quarry_v2_results.json"
     out.write_text(json.dumps(R, indent=2))
     print(json.dumps(R, indent=2))

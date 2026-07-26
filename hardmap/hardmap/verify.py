@@ -196,9 +196,14 @@ def check_suspicious_cleanliness() -> list[str]:
         ("crucible_results.json", "S1.envelope.approx_param_v.null_p2.5"):
             "benign — V >= 0, so a null envelope's 2.5th percentile legitimately bottoms out at 0",
         ("crucible_results.json", "S1.envelope.approx_param_v.one_sided_p_ge"):
-            "REAL FLAW, minor: a permutation p is reported as exactly 0. With N permutations the honest "
-            "form is < 1/N or (k+1)/(N+1); 0 asserts an impossibility. Does not change the S1 verdict "
-            "(the real V is far outside the envelope either way).",
+            "REAL FLAW, minor: a resampling p is reported as exactly 0. With M nulls the honest form is "
+            "(k+1)/(M+1); 0 asserts an impossibility M draws cannot establish. Does not change the S1 "
+            "verdict (the real V is far outside the envelope either way). SCORER FIXED 2026-07-25 — "
+            "crucible._envelope now uses the plus-one form already used by _perm_p_gradient, and a re-run "
+            "emits 1/1001 = 0.000999 here. The ARTIFACT is deliberately not regenerated in this worktree: "
+            "a no-change regen drifts S1.envelope.mca_full_dims.null_mean 16.533 -> 16.534 because the "
+            "environment carries scipy 1.14.0 against requirements.lock's scipy==1.17.1. This entry stays "
+            "until crucible_results.json is regenerated under the lock, and should be removed then.",
         ("crucible_results.json", "S3.amplification_bootstrap_caveated.permdet_amp_pos_frac_where_present"):
             "plausible — a fraction conditioned on presence (present_frac 0.416); the block is already "
             "labelled _caveated. Unacknowledged, not wrong.",
@@ -208,13 +213,15 @@ def check_suspicious_cleanliness() -> list[str]:
             "an observed association of exactly 0 alongside a predicted 0.734. The block's own verdict is "
             "HOLDS=false and P4 was declared INSUFFICIENT, so nothing downstream rests on it — but exactly "
             "0.0 for a measured V is the tell this gate exists for and it is recorded as unresolved.",
-        ("quarry_v2_results.json", "recruited_B.absorption.unconditional_V"):
-            "REAL FLAW: this block never ran — `governed_by: power_check.cleared` and the absorption was "
-            "declared INSUFFICIENT-terminal. The 0.0 is an UNINITIALISED PLACEHOLDER read as a measured "
-            "value. The same block writes `shrinkage_fraction: null`, which is the correct idiom, so the "
-            "file's own author knew it and applied it inconsistently. Verdict unaffected; encoding wrong.",
-        ("quarry_v2_results.json", "recruited_B.absorption.averaged_per_class_wrong"):
-            "REAL FLAW — same not-computed placeholder as above",
+        # RETIRED 2026-07-25: the two quarry_v2_results.json entries. The itemisation read them as
+        # UNINITIALISED PLACEHOLDERS from a block that never ran. That diagnosis was WRONG — the block ran,
+        # and both zeros are BIAS-CORRECTION FLOORS: structure.cramers_v subtracts (k-1)(r-1)/(n-1) from
+        # phi^2 and clamps at zero, and at n=22 the correction (0.5714) exceeds the signal (phi^2 0.4464),
+        # so the estimator returns exactly 0 where the uncorrected V is 0.3857. `shrinkage_fraction: null`
+        # was not an author's idiom either; it is the uncond>0 divide-by-zero guard tripping on the same
+        # floor. score_quarry_v2.py now emits an `extremal_acknowledged` entry carrying that arithmetic,
+        # so the gate clears them on the evidence rather than on an exemption. Both entries removed rather
+        # than reworded: a legacy list is for debt, and this is paid.
     }
     d = _eightfold_atlas()
     roots.append(d)

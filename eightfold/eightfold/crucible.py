@@ -99,7 +99,12 @@ def _battery(ids, families, rows):
 
 def _envelope(real_val, null_vals):
     """Where the real statistic sits vs the null distribution: the 95% envelope [p2.5, p97.5], a one-sided
-    high flag (structure ABOVE typing — for the gradient), and a two-sided flag (for the dims)."""
+    high flag (structure ABOVE typing — for the gradient), and a two-sided flag (for the dims).
+
+    `one_sided_p_ge` uses the PLUS-ONE form (k+1)/(M+1), the same estimator `_perm_p_gradient` already uses
+    below. The naive k/M reports p = 0 whenever no null reaches the real statistic, and an exactly-zero
+    resampling p asserts an impossibility: M draws cannot establish that no draw could ever reach it. The
+    honest floor is 1/(M+1) — the real value is bounded by the resolution the resampling bought."""
     vals = [x for x in null_vals if x is not None and x == x]
     if real_val is None or real_val != real_val or len(vals) < 2:
         return {"real": real_val, "null_mean": None, "null_p2.5": None, "null_p97.5": None,
@@ -109,7 +114,7 @@ def _envelope(real_val, null_vals):
         "real": real_val, "null_mean": float(np.mean(vals)), "null_p2.5": p2, "null_p97.5": p97,
         "real_above_p97_5": bool(real_val > p97),
         "real_outside_95": bool(real_val < p2 or real_val > p97),
-        "one_sided_p_ge": float(np.mean([1.0 if x >= real_val else 0.0 for x in vals])),
+        "one_sided_p_ge": (sum(1 for x in vals if x >= real_val) + 1) / (len(vals) + 1),
     }
 
 

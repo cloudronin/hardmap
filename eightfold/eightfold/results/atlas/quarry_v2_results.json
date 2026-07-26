@@ -269,5 +269,47 @@
       "local-covering": 4
     },
     "note": "Channel B fills all charge-citable candidates (no locality selection) -> its mixture is a corpus census, NOT the funnel-blindness test. P5's sealed form (funnel mixture within noise of v3-new) requires Channel A; deferred."
-  }
+  },
+  "extremal_acknowledged": [
+    {
+      "stat": "recruited_B.absorption.unconditional_V",
+      "value": 0.0,
+      "floor_arithmetic": {
+        "n": 22,
+        "table": "5x4",
+        "phi2": 0.4464,
+        "bias_correction": 0.5714,
+        "uncorrected_v": 0.3857
+      },
+      "why": "BIAS-CORRECTION FLOOR, not a measured null. structure.cramers_v subtracts (k-1)(r-1)/(n-1) from phi^2 and clamps at zero; here the correction is 0.5714 against phi^2 = 0.4464 (n=22, 5x4 table), so the estimator returns EXACTLY 0. The UNCORRECTED V is 0.3857. Read this as 'n too small to license a bias-corrected estimate', NOT as 'approximation and parameterized are unassociated' \u2014 the same block's power_check already says cleared=false and the absorption bet is INSUFFICIENT-terminal. The sibling `shrinkage_fraction: null` is CAUSED by this floor: shrinkage is (uncond - cond)/uncond, undefined at uncond=0."
+    },
+    {
+      "stat": "recruited_B.absorption.averaged_per_class_wrong",
+      "value": 0.0,
+      "floor_arithmetic": {
+        "delocalized": {
+          "n": 10,
+          "table": "4x4",
+          "phi2": 0.6667,
+          "bias_correction": 1.0,
+          "uncorrected_v": 0.4714
+        },
+        "decomposable": {
+          "n": 8,
+          "table": "3x3",
+          "phi2": 0.525,
+          "bias_correction": 0.5714,
+          "uncorrected_v": 0.5123
+        },
+        "local-covering": {
+          "n": 4,
+          "table": "2x2",
+          "phi2": 0.3333,
+          "bias_correction": 0.3333,
+          "uncorrected_v": 0.5774
+        }
+      },
+      "why": "BIAS-CORRECTION FLOOR IN EVERY STRATUM \u2014 same cause as recruited_B.absorption.unconditional_V, applied per class. This is the historically-wrong averaged-per-class estimator (defect #15), printed for the record and never scored; its value is the mean of the per-class V's, and each one floored to exactly 0 at n=10/8/4. Not a measured zero."
+    }
+  ]
 }
