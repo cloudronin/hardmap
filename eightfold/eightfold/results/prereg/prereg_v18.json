@@ -1,0 +1,64 @@
+{
+ "prereg_version": "v18",
+ "project": "Sounding v2 — the fleet. Blend probe on natural rows, four-cell design",
+ "owner": "Vishnu",
+ "date": "2026-07-26",
+ "authorises": "fleet expansion of prereg_v17's pilot, on the design brief the pilot earned",
+ "committed_before_analysis": "TRUE — sealed before any fleet instance is generated. The pilot's 13 rows are re-run under the corrected scoring; no new row has a rate at sealing time.",
+
+ "why_this_expansion_is_different": {
+  "statement": "for the first time in this programme's history the blocker is SAMPLE DESIGN, not population existence.",
+  "terroir_c": "died because the rows did not exist — 0 admissible families under every reading.",
+  "sounding_S2": "was INSUFFICIENT because nine scored rows confounded region-kind with hardness. Decision-easy optimisation rows EXIST IN ABUNDANCE — the atlas's tractable canon. This wall is made of recruitment, not mathematics."
+ },
+
+ "the_design_brief_as_sealed_law": {
+  "1_four_cell_occupancy": {
+   "rule": "the region-kind x hardness design must have ALL FOUR CELLS occupied: {solutions, optimal} x {decision-easy, decision-hard}.",
+   "the_pilot_gap": "easy x optimal was EMPTY (0 rows). All 5 optimal-region rows were decision-hard and all 4 decision-easy rows were solutions-region, so region kind and hardness were not separable and no amount of n would have separated them.",
+   "recruits_targeted": ["min-spanning-tree", "matching", "reachability-stcon", "max-flow"],
+   "generator_census_done_before_sealing": "MST enumerates 297 spanning trees at n=7 in <0.01s; matching 66 at n=6 in 0.01s; s-t paths need a denser generator than the census probe used; max-flow at unit capacity shares the edge-vector encoding. LINEAR-PROGRAMMING and GAUSSIAN-ELIMINATION are CONTINUOUS regions and ship `n.a.-encoding` per design law 2."
+  },
+  "2_region_size": {
+   "ruling_required_stating_which": "BOTH, with the primary named.",
+   "PRIMARY": "ENSEMBLE TUNING. Per-row instance parameters are tuned so region sizes land in a declared target band, killing the confound at source rather than adjusting for it after.",
+   "target_band_r": [25, 250],
+   "SECONDARY": "explicit r-stratification, reported as the CHECK THAT THE TUNING WORKED — the residual corr(log r, rate) and the gap within each r stratum. If the strata still disagree, the tuning failed and the statistic is not scored.",
+   "why_tuning_is_primary": "with ~17 rows, modelling r from 17 points is weak. Removing the confound beats estimating it."
+  },
+  "3_forced_flavours_excluded_BY_SCHEMA": {
+   "rule": "S-2's statistic is computed over NON-FORCED flavours only, enforced in the emitting code, not by remembering at scoring time.",
+   "why": "in the pilot, 42% of the apparent separation was S-1's theorem-forced zeros bleeding into S-2's mean — every decision-easy row is a CSP carrying exactly one forced zero that dragged it down.",
+   "the_law_this_generalises": "THE NETTING LAW AT FLAVOUR LEVEL. Theorem-forced credit has been netted inside a statistic (defect #15), inside an instrument's type signature (grid Flag 1), inside a study design (instance 21), and now inside a PER-FLAVOUR MEAN. Same error, four scales. A forced flavour is excluded from any discovery statistic by construction."
+  },
+  "4_S3_inherited_sealed": "the within-family cut, Terroir vocabulary verbatim (FAMILY-BORNE / GEOMETRY-RESIDUAL / MIXED / INSUFFICIENT), sealed from birth as in v17.",
+  "5_S4_registry": "probe-feature predictions filed before any literature contact. Standing."
+ },
+
+ "sealed_bets": {
+  "F1_calibration": {
+   "claim": "every theorem-forced pairing returns EXACTLY 0.0, on the fleet including the four new rows",
+   "on_failure": "HALT — instrument, encoder or enumerator bug",
+   "credit": "NONE beyond implementation correctness. Forced by the polymorphism definition."
+  },
+  "F2_mechanism_four_cell": {
+   "claim": "with all four cells occupied and forced flavours excluded by schema, decision-hard rows show higher violation rates than decision-easy rows WITHIN region kind",
+   "direction_sealed": "harder rows louder, tested WITHIN each region kind separately and never pooled across them",
+   "scored_either_way": true
+  },
+  "F3_within_family": {"claim": "F2's separation, if any, evaluated inside families against within-family nulls",
+                       "expected": "INSUFFICIENT on most families; declared, never argued past"},
+  "F4_registry": {"claim": "predictions filed before literature contact for any open cell in scope"}
+ },
+
+ "kill_criteria": {
+  "four_cell_floor": "if the design does not actually fill — any cell with zero rows after the generator census — THE CENSUS IS THE FINDING and F2 is not scored. No forcing.",
+  "tuning_floor": "if ensemble tuning cannot bring region sizes into the target band, say so and score nothing that depends on comparability.",
+  "box": "2-4 h paired, $0 compute. Stated BEFORE starting, per the ruling. The four generators are ~30 lines each and enumerate sub-second; the cost is the scoring rework, not the recruitment."
+ },
+
+ "boundary_held": {
+  "statement": "this authorises the fleet DESIGN and its run. It does not touch the write-up.",
+  "W_review": "remains open independently. The paper waits on the owner's read, not on this run, and neither blocks the other."
+ }
+}

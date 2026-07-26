@@ -1,0 +1,255 @@
+{
+ "schema": "sounding-v2/v1",
+ "prereg": "prereg_v18",
+ "seed": 20260726,
+ "design_law_3_enforced_in_code": "discovery_rate() cannot see a forced flavour \u2014 the pilot's 42% leak is impossible at this schema, not merely avoided",
+ "n_rows": 17,
+ "row_table": [
+  {
+   "row": "sat-2",
+   "family": "sat-csp",
+   "decision": "P",
+   "region_kind": "solutions",
+   "discovery_rate": 0.384,
+   "mean_r": 29.0,
+   "in_target_band": true
+  },
+  {
+   "row": "sat-3",
+   "family": "sat-csp",
+   "decision": "NPC",
+   "region_kind": "solutions",
+   "discovery_rate": 0.4956,
+   "mean_r": 459.2,
+   "in_target_band": false
+  },
+  {
+   "row": "horn-sat",
+   "family": "sat-csp",
+   "decision": "P",
+   "region_kind": "solutions",
+   "discovery_rate": 0.5037,
+   "mean_r": 443.1,
+   "in_target_band": false
+  },
+  {
+   "row": "xor-sat",
+   "family": "sat-csp",
+   "decision": "P",
+   "region_kind": "solutions",
+   "discovery_rate": 0.7577,
+   "mean_r": 18.9,
+   "in_target_band": false
+  },
+  {
+   "row": "nae-sat",
+   "family": "sat-csp",
+   "decision": "NPC",
+   "region_kind": "solutions",
+   "discovery_rate": 0.7071,
+   "mean_r": 75.7,
+   "in_target_band": true
+  },
+  {
+   "row": "bipartiteness",
+   "family": "graph",
+   "decision": "P",
+   "region_kind": "solutions",
+   "discovery_rate": 0.4762,
+   "mean_r": 8,
+   "in_target_band": false
+  },
+  {
+   "row": "graph-3-coloring",
+   "family": "graph",
+   "decision": "NPC",
+   "region_kind": "solutions",
+   "discovery_rate": 0.7792,
+   "mean_r": 119.4,
+   "in_target_band": true
+  },
+  {
+   "row": "subset-sum",
+   "family": "number-theoretic",
+   "decision": "NPC",
+   "region_kind": "solutions",
+   "discovery_rate": 0.9583,
+   "mean_r": 211.8,
+   "in_target_band": true
+  },
+  {
+   "row": "vertex-cover",
+   "family": "graph",
+   "decision": "NPC",
+   "region_kind": "optimal",
+   "discovery_rate": 0.7681,
+   "mean_r": 7.2,
+   "in_target_band": false
+  },
+  {
+   "row": "independent-set",
+   "family": "graph",
+   "decision": "NPC",
+   "region_kind": "optimal",
+   "discovery_rate": 0.7423,
+   "mean_r": 7.8,
+   "in_target_band": false
+  },
+  {
+   "row": "clique",
+   "family": "graph",
+   "decision": "NPC",
+   "region_kind": "optimal",
+   "discovery_rate": 0.8749,
+   "mean_r": 6.2,
+   "in_target_band": false
+  },
+  {
+   "row": "max-cut",
+   "family": "graph",
+   "decision": "NPC",
+   "region_kind": "optimal",
+   "discovery_rate": 0.6567,
+   "mean_r": 11.1,
+   "in_target_band": false
+  },
+  {
+   "row": "number-partitioning",
+   "family": "number-theoretic",
+   "decision": "NPC",
+   "region_kind": "optimal",
+   "discovery_rate": 0.8962,
+   "mean_r": 99,
+   "in_target_band": true
+  },
+  {
+   "row": "min-spanning-tree",
+   "family": "graph",
+   "decision": "P",
+   "region_kind": "optimal",
+   "discovery_rate": 0.7911,
+   "mean_r": 6.0,
+   "in_target_band": false
+  },
+  {
+   "row": "matching",
+   "family": "graph",
+   "decision": "P",
+   "region_kind": "optimal",
+   "discovery_rate": 0.8849,
+   "mean_r": 19.3,
+   "in_target_band": false
+  },
+  {
+   "row": "reachability-stcon",
+   "family": "graph",
+   "decision": "P",
+   "region_kind": "optimal",
+   "discovery_rate": 1.0,
+   "mean_r": 2.6,
+   "in_target_band": false
+  },
+  {
+   "row": "max-flow",
+   "family": "graph",
+   "decision": "P",
+   "region_kind": "optimal",
+   "discovery_rate": 0.6497,
+   "mean_r": 73,
+   "in_target_band": true
+  }
+ ],
+ "four_cell_occupancy": {
+  "optimal|easy": 4,
+  "optimal|hard": 5,
+  "solutions|easy": 4,
+  "solutions|hard": 4
+ },
+ "four_cell_filled": true,
+ "within_region_kind": {
+  "solutions": {
+   "n_easy": 4,
+   "n_hard": 4,
+   "mean_easy": 0.5304,
+   "mean_hard": 0.735,
+   "gap": 0.2046
+  },
+  "optimal": {
+   "n_easy": 4,
+   "n_hard": 5,
+   "mean_easy": 0.8314,
+   "mean_hard": 0.7876,
+   "gap": -0.0438
+  }
+ },
+ "region_size_control": {
+  "primary": "ensemble tuning",
+  "target_band": [
+   25,
+   250
+  ],
+  "n_in_band": 6,
+  "n_rows": 17,
+  "secondary_check_residual_corr_log_r_rate": -0.2932
+ },
+ "_meta": {
+  "target_band_r": {
+   "value": 25,
+   "literal": true,
+   "note": "prereg_v18 declared band lower bound"
+  }
+ },
+ "scores": {
+  "F1_calibration": {
+   "verdict": "PASS",
+   "note": "forced pairings exact; inherited from the pilot's battery and re-run on the fleet"
+  },
+  "F2_mechanism": {
+   "verdict": "NOT SCORED \u2014 tuning floor fired",
+   "four_cell_filled": true,
+   "occupancy": {
+    "optimal|easy": 4,
+    "optimal|hard": 5,
+    "solutions|easy": 4,
+    "solutions|hard": 4
+   },
+   "why_not_scored": "prereg_v18's tuning floor: 'if ensemble tuning cannot bring region sizes into the target band, say so and score nothing that depends on comparability.' Only 6 of 17 rows landed in [25, 250], residual corr(log r, rate) = -0.2932, and r spans 8..459.2 within the solutions stratum alone. The within-region-kind gap depends on exactly the comparability the tuning failed to deliver.",
+   "observation_recorded_not_claimed": {
+    "within_region_kind": {
+     "solutions": {
+      "n_easy": 4,
+      "n_hard": 4,
+      "mean_easy": 0.5304,
+      "mean_hard": 0.735,
+      "gap": 0.2046
+     },
+     "optimal": {
+      "n_easy": 4,
+      "n_hard": 5,
+      "mean_easy": 0.8314,
+      "mean_hard": 0.7876,
+      "gap": -0.0438
+     }
+    },
+    "status": "DATA FOR THE NEXT DESIGN, NOT A FINDING",
+    "note": "the gap's SIGN differs between region kinds (+ on solutions, - on optimal). That is what the four-cell design was built to be able to see, and it is exactly the comparison the tuning floor forbids scoring. Recorded so round 2 can target it; not narrated as a result."
+   }
+  },
+  "F3_within_family": {
+   "verdict": "NOT SCORED",
+   "why": "depends on F2, which is unscored"
+  },
+  "F4_registry": {
+   "verdict": "NOT FILED",
+   "why": "no open cell in scope \u2014 every fleet row's decision charge is cited"
+  }
+ },
+ "verdict": "FOUR-CELL DESIGN FILLED; REGION-SIZE TUNING FAILED; F2 NOT SCORED",
+ "extremal_acknowledged": [
+  {
+   "stat": "row_table[15].discovery_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "`reachability-stcon` has mean r = 2.6 \u2014 a near-degenerate region with almost no distinct subsets to blend. Every blend escapes because there is essentially nothing to stay inside. This is the region-size problem in its purest form and is itself evidence the tuning failed."
+  }
+ ]
+}
