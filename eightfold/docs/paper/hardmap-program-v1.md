@@ -158,8 +158,15 @@ could not test what was already proven.
 
 If closure decides fate where it is readable, the question is whether it can be read off a problem's
 surface description. It cannot. Surface-combinatorial features recover *membership* facts nearly perfectly
-— **0.983 and 1.000** on the positive control — and recover *closure* properties not at all: **every
-closure target scored at or below its null.**
+— **0.983** and **1.000** on the positive control, against fold-weighted nulls of 0.306 and 0.116 — and
+recover *closure* properties essentially not at all.
+
+Five of the eight closure targets score **below** their achievable baseline, several far below
+(`dualhorn` −0.171, `general_wsep` −0.162, `IHSB` −0.141). **Three score nominally above it** —
+`strongly0valid` +0.044, `width2affine` +0.011, `affine` +0.010 — and are not counted, because their nulls
+sit at **0.95–0.98**: on a flag that is already near-constant, a lift of one point is noise, not recovery.
+The exceptions are stated rather than absorbed; the claim is that closure is not recoverable, not that
+every cell fell the same way.
 
 The positive control is what makes this a type boundary rather than a broken pipeline. The same features,
 the same fits, the same folds recover one class of fact and not the other. What decides hardness cannot be
@@ -420,10 +427,29 @@ at zero of fifty-seven.
 That is the measurement phase completing rather than a defeat. The question was asked at the resolution the
 available evidence supports, answered where it could be, and declared unanswerable where it could not.
 
-**Banked directions, none committed.** Three are named with their fill routes and their limits.
-*Geometry probes* would measure feasible-region shape directly — blend-violation rates and relaxation
-tightness — reaching the rows the closure admission bar excludes; their qualification study on the Boolean
-roster, where true closure is oracle-known for every relation, is the one cheap executable thread.
+**One banked instrument has since been qualified.** *(Added after the W3 draft; qualification ran
+2026-07-26 on a surface disjoint from these sections.)* **Probe A** measures blendability directly — for a
+region and a blending operation, the fraction of sampled blends that leave the region. On the 4,072-class
+Boolean roster, where true closure is oracle-known for every relation, it is **QUALIFIED**: one hundred
+sampled blends detect non-closure at **≥ 0.987** sensitivity on every operation, with specificity forced
+at 1.0 and reported as forced.
+
+Its pre-registered free question returned a finding. Asked whether blendability is **bimodal** — matching
+the dichotomy's binary — or whether a populated "almost-closed" middle exists, the answer is emphatic:
+the middle band from 0.05 to 0.50 holds **0.854** of nonzero rates for majority-closure and **0.992** for
+affine, and **not one** of 4028 admissible classes violates majority-closure above 0.50. The typical not-closed relation is *slightly* unblendable,
+not shattered. **The classification's binary is carving a continuum near its bottom end** — an exact,
+exhaustively computed fact about the Boolean universe that the theorems are structurally unable to express.
+
+The licence is narrow and the boundary is the point: the probe is cleared for natural-row ensembles *with
+its accuracy characterised*, and **deployment there is not authorised by that run** — it needs its own
+spec, sized for affordability. What qualification buys is the possibility of reaching the **317**
+natural rows the closure admission bar excludes — 345 less the 28 that carry closure columns. *(The banked
+note says 311, computed from the census's 34 before that milestone's closer look reduced the presentable
+set to 28. The note is a dated position and is not edited; the current count is derived here.)*
+
+**Banked directions, none committed.** *Probe B* would measure relaxation tightness — integrality gaps as
+a distance from the convex hull.
 *The relaxation-resistance certificate* would add a derived column for predicates whose solution sets
 support a balanced pairwise-independent distribution; it is at survey confidence and **must be pinned before
 any claim leans on it**. *The frontier map* would sample anatomy space to sketch the conditional

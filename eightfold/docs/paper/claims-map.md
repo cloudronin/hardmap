@@ -53,7 +53,7 @@ Where wording and artifact differ, the artifact governs and the difference is re
 | 2 | the coupling is roster-conditional | two statistics — see the note below | MEASURED | **SOURCED, conflation hazard** |
 | 3 | "locality" is two properties | repro `mosaic.split.pooled` → **n 111, V_loc_approx 0.547, V_loc_param 0.231** | MEASURED | **SOURCED** |
 | 4 | where structure is fully readable it determines fate, **as theorems — and closure under blending operations is what characterizes the tractable side** | `prereg_v12` C3 (**46 flag-vectors → 46 profiles, zero ambiguity**) · Bridge Ledger pinned `§3.decision` (Bulatov–Zhuk / Barto–Kozik cells) · `postlattice.py` `_MAJ`/`_MINORITY`, anchors green at both domain sizes | PROVEN | **SOURCED — now carries the recut easy pole** |
-| 5 | that structure is surface-invisible | `arm-a-surface-vs-closure.md` — positive control **0.983 / 1.000**, every closure ≤ its null | MEASURED | **SOURCED** |
+| 5 | that structure is surface-invisible | `grid_arm_a_results_clean.json` · `arm-a-surface-vs-closure.md` — positive control **0.983 / 1.000** against nulls 0.306 / 0.116; **5 of 8 closures below null**, 3 nominally above on nulls of 0.95–0.98 (noise, stated not absorbed) | MEASURED | **SOURCED · gate-checked 2026-07-26** |
 | 6 | on natural rows, surface anatomy adds nothing to fame | `terroir_v1_results.json` (**+0.0685 headline; within-family +0.0000**, 170/255; logic-proof **−7, p 0.0359**) · `terroir_v1_ablations.json` (**+0.0188** within coverage) · `marrow-i0-census.json` (**34 of 345**) | MEASURED | **SOURCED** |
 | 7 | **the proof census** — the second campaign. Freedom in the large, compulsion in the core | full chain below | MEASURED | **SOURCED — both hypotheses** |
 | 8 | the literature's hardness bookkeeping fails audit | `errata-v1.json` / `errata.md` · `counting-folklore-gap.md` · **the unwritten theorem**, chain below · **#19** minimum-sum-of-squares, first original `proven-here` cell | CITED + one PROVEN-HERE | **SOURCED** |
@@ -129,6 +129,19 @@ Three links, all verified 2026-07-26:
 3. **The rationale** — Marx ESA 2005 Thm 5 proves **squares**, not disks; the disk-specific line
    (Marx–Pilipczuk 2015 / IWPEC 2006) covers only the **discrete-centres** form. The free-placement
    statement the literature cites is **unwritten**.
+
+### #5 — the correction this row records
+
+The draft first read *"every closure target scored at or below its null."* **Three score above it** —
+`strongly0valid` +0.0439, `width2affine` +0.0108, `affine` +0.0103 — and the source findings note had
+always said so, dismissing them as noise on nulls of 0.95–0.98. The draft dropped the qualification. Now
+restored: five below, three nominally above and not counted, with the reason.
+
+**`gate-checked` is a new field, and it exists because of what it caught.** Until 2026-07-26 the
+tidy-number gate had **never inspected** `grid_arm_a_results*.json` — its lattice path was one `.parent`
+short and `if lat.exists()` silenced the miss. Assertion 5's evidence was quoted from a file no gate had
+ever opened. Any claims-map row whose numbers come from an artifact now records the date a gate actually
+watched it; absence of the field means nobody has checked.
 
 ## §4 — The negative results
 

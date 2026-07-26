@@ -463,3 +463,59 @@ def test_tidy_number_gate_actually_watches_the_lattice_directory():
     watched = {p.name for p in V._watched(lat)}
     assert "geometry_probe_a_results.json" in watched
     assert "grid_arm_a_results.json" in watched
+
+
+def test_meta_gate_fails_when_a_gate_inspected_nothing():
+    """THE META-GATE, probe-tested. It exists because one gate silently watched nothing in three distinct
+    ways, all of which FAIL OPEN. Verification that verified nothing must say so — so an empty scope must
+    be a build failure, not a green light."""
+    import tempfile
+    from pathlib import Path
+    from hardmap import verify as V
+    orig = V._numeric_gate_roots
+    try:
+        with tempfile.TemporaryDirectory() as td:
+            V._numeric_gate_roots = lambda: orig() + [Path(td)]
+            assert V.check_gates_inspected_something(), "a root with zero artifacts did not fail the gate"
+        V._numeric_gate_roots = lambda: []
+        assert V.check_gates_inspected_something(), "resolving zero roots did not fail the gate"
+    finally:
+        V._numeric_gate_roots = orig
+    assert V.check_gates_inspected_something() == [], "live scope should be clean"
+
+
+def test_arm_a_extremals_are_adjudicated_by_expression():
+    """The three Arm A extremals, verdicted 2026-07-26. Pinned because BOTH first readings were wrong and
+    the decisive evidence is one comparison: if the arithmetic leak had caused 1valid's 1.0000, dropping
+    the leak moments would have moved it. It does not move."""
+    import json
+    from pathlib import Path
+    import foundry
+    lat = Path(foundry.__file__).resolve().parent / "results" / "lattice"
+    pre = json.loads((lat / "grid_arm_a_results.json").read_text(encoding="utf-8"))
+    clean = json.loads((lat / "grid_arm_a_results_clean.json").read_text(encoding="utf-8"))
+    # 1valid is MEMBERSHIP: unchanged by dropping the leak moments, so the leak is not the mechanism
+    assert pre["per_flag_recovery"]["1valid"]["acc"] == 1.0
+    assert clean["per_flag_recovery"]["1valid"]["acc"] == 1.0
+    assert clean["arithmetic_closure"]["clean_run"] is True
+    assert set(clean["arithmetic_closure"]["dropped_moments"]) == {"weight_mean", "weight_spread"}
+    # and it is a positive control: its null is low, so the recovery is real signal not a constant flag
+    assert clean["per_flag_recovery"]["1valid"]["modal_null_foldweighted"] < 0.20
+
+
+def test_assertion_5_states_its_exceptions():
+    """The draft first claimed EVERY closure target fell at or below its null. Three do not. The source
+    note always said so; the draft had dropped the qualification. Pinned so it cannot drop again."""
+    from pathlib import Path
+    import json, foundry
+    lat = Path(foundry.__file__).resolve().parent / "results" / "lattice"
+    clean = json.loads((lat / "grid_arm_a_results_clean.json").read_text(encoding="utf-8"))
+    above = [f for f, v in clean["per_flag_recovery"].items()
+             if f not in ("0valid", "1valid") and v["acc"] > v["modal_null_foldweighted"]]
+    assert len(above) == 3, f"expected 3 nominal positives, got {above}"
+    for f in above:
+        assert clean["per_flag_recovery"][f]["modal_null_foldweighted"] >= 0.95, \
+            f"{f} is above null on a null below 0.95 — the 'noise' reading would no longer hold"
+    draft = (Path(__file__).parents[2] / "eightfold" / "docs" / "paper"
+             / "hardmap-program-v1.md").read_text(encoding="utf-8")
+    assert "nominally above" in draft, "the draft must state the exceptions, not absorb them"

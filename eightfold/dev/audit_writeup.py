@@ -82,6 +82,13 @@ def build_registry():
     add(json.loads((AT / "anatomy_v2_freeze.json").read_text())["n_rows_carrying_v2_columns"],
         "v2 rows carrying closure columns")
 
+    # the closure-bar EXCLUSION count, derived — never quoted. The geometry-probes note carries 311,
+    # computed from the census's 34 BEFORE M1's closer look reduced the presentable set to 28.
+    npin = json.loads((AT / "marrow-presentations.json").read_text())["n_pinned"]
+    nnat = sum(1 for l in (AT / "anatomy_v1.jsonl").read_text().splitlines()
+               if l.strip() and json.loads(l)["universe"] == "natural")
+    add(nnat - npin, "derived: natural rows excluded by the closure admission bar")
+
     # ── manifest expected values (§3 and §4 claims) ──────────────────────────────────────────────
     for m in re.finditer(r"- id: (\S+)\n(.*?)(?=\n  - id:|\Z)", manifest, re.S):
         cid, blk = m.group(1), m.group(2)
@@ -123,6 +130,19 @@ def build_registry():
         add(agree, "c3 derived: trends agreeing")
         add(c3["n_records"] - len(c3["coverage"]), "c3 derived: covered records")
 
+    # ── Foundry lattice results: Arm A and the geometry probe. NOTE these were invisible to the
+    # tidy-number gate until 2026-07-26 (its lattice path resolved nowhere), so the draft was quoting
+    # numbers no gate had watched. The audit registry opens them explicitly.
+    try:
+        import foundry
+        latd = Path(foundry.__file__).resolve().parent / "results" / "lattice"
+        for f in ("grid_arm_a_results.json", "grid_arm_a_results_clean.json",
+                  "geometry_probe_a_results.json"):
+            if (latd / f).exists():
+                deep(json.loads((latd / f).read_text()), f)
+    except ImportError:
+        pass
+
     # ── findings PROSE artifacts (Pebble, Arm A) — the draft quotes numbers that live only here ──
     for rel, tag in (("foundry/docs/findings/Pebble-findings.md", "Pebble-findings.md"),
                      ("foundry/docs/findings/generation-cannot-reach-the-gradient.md", "generation-note"),
@@ -138,7 +158,13 @@ def build_registry():
                      ("eightfold/docs/findings/Factors-v1.md", "Factors-v1.md"),
                      ("eightfold/docs/findings/errata.md", "errata.md"),
                      ("eightfold/docs/findings/terroir-v1-findings.md", "terroir-v1-findings.md"),
-                     ("eightfold/docs/findings/marrow-i0-census.md", "marrow-i0-census.md")):
+                     ("eightfold/docs/findings/marrow-i0-census.md", "marrow-i0-census.md"),
+                     # BANKED NOTES are artifacts too. A number quoted AS THE NOTE'S — including a stale
+                     # one the draft flags as stale — resolves here. Notes are dated positions, never
+                     # evidence (claims-map rule 8), so a value sourced from one may only ever be
+                     # attributed to it.
+                     ("eightfold/docs/notes/geometry-probes-note.md", "notes/geometry-probes-note.md"),
+                     ("eightfold/docs/notes/frontier-map-note.md", "notes/frontier-map-note.md")):
         f = REPO / rel
         if f.exists():
             for v in re.findall(r"[-+]?\d+\.\d+|(?<![\w.])\d{1,6}(?![\w.])", f.read_text()):

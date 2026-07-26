@@ -174,6 +174,20 @@ def check_anatomy_passports_complete() -> list[str]:
     return bad
 
 
+def _numeric_gate_roots():
+    """The roots the numeric gates inspect, resolved THROUGH THEIR PACKAGES. Shared by the gates and by
+    the meta-gate, so a scope that silently empties fails the build rather than passing it."""
+    roots = [_eightfold_atlas()]
+    try:
+        import foundry
+        lat = Path(foundry.__file__).resolve().parent / "results" / "lattice"
+        if lat.exists():
+            roots.append(lat)
+    except ImportError:
+        pass
+    return roots
+
+
 def _watched(root):
     """Artifacts the numeric gates inspect.
 
@@ -233,17 +247,23 @@ def check_suspicious_cleanliness() -> list[str]:
         # the `if lat.exists()` guard made the miss silent. All three are explainable, and the third is a
         # defect deliberately preserved as evidence.
         ("grid_arm_a_results.json", "ceiling"):
-            "benign and load-bearing — the 100% determinism ceiling (46 flag-vectors -> 46 charge profiles, "
-            "zero ambiguity). Exactly 1.0 IS the finding: the joint profile is a deterministic function of "
-            "the flags, which is why Arm A's headline is a ceiling statement and not a score.",
+            "ADJUDICATED BY EXPRESSION 2026-07-26. `ceiling` is a HARDCODED LITERAL — grid_arm_a.py:112 "
+            "writes `\"ceiling\":1.0` into the results dict; nothing computes it. It records the 100% "
+            "determinism ceiling stated in advance (46 flag-vectors -> 46 profiles, zero ambiguity), so it "
+            "is benign AND it is not a measurement. A NEW SPECIES for this gate: a documentation constant "
+            "living in a results artifact, indistinguishable to any reader from a computed value.",
         ("grid_arm_a_results_clean.json", "ceiling"):
             "benign — the same determinism ceiling in the post-fix `clean` run",
         ("grid_arm_a_results.json", "per_flag_recovery.1valid.acc"):
-            "THE DOCUMENTED LEAK, RETAINED ON PURPOSE. `1valid` was recovered at exactly 1.0000 by the "
-            "arithmetic flag leak — weight_mean x n_tuples reconstructs the excluded weight-0/weight-arity "
-            "bins, so excluding the flags by NAME did not exclude the information. This file is the PRE-fix "
-            "run kept for the record; grid_arm_a_results_clean.json is the run after the membership/closure "
-            "reclassification. The 1.0 is the defect preserved as evidence, not a result.",
+            "ADJUDICATED BY EXPRESSION 2026-07-26, and the first reading written here was WRONG. It said "
+            "'the documented arithmetic flag leak'. The decisive test refutes that in one line: the CLEAN "
+            "run drops exactly the leak moments (weight_mean, weight_spread) and 1valid.acc is STILL "
+            "1.0000. The leak is not the mechanism. The real one is the finding itself — `1valid` is "
+            "MEMBERSHIP of one specific tuple (is the all-ones tuple in R), which surface order structure "
+            "determines exactly, and Arm A's whole result is that surfaces see membership and not closure. "
+            "This 1.0 is assertion 5's POSITIVE CONTROL, benign and load-bearing.",
+        ("grid_arm_a_results_clean.json", "per_flag_recovery.1valid.acc"):
+            "same value, same mechanism, in the post-reclassification run — see above",
         ("crucible_results.json", "S1.envelope.approx_param_v.null_p2.5"):
             "benign — V >= 0, so a null envelope's 2.5th percentile legitimately bottoms out at 0",
         ("crucible_results.json", "S1.envelope.approx_param_v.one_sided_p_ge"):
@@ -381,7 +401,43 @@ def check_lift_denominators_match() -> list[str]:
     return bad
 
 
+def check_gates_inspected_something() -> list[str]:
+    """THE META-GATE (2026-07-26, after the third fail-open). A gate that inspected ZERO files must FAIL,
+    not pass.
+
+    This one gate has now silently watched nothing in three distinct ways:
+      1. a glob scoped to one project's filename convention, blind to the next project's results;
+      2. a walker that descends into dicts only, so a float inside a JSON array is unreachable;
+      3. a path one `.parent` short, resolving to a directory that has never existed — with the
+         `if lat.exists()` guard turning the miss into SILENCE.
+    All three FAIL OPEN: they report a clean pass over files they never opened. The failure is
+    indistinguishable from success, which is the only property that matters here.
+
+    THE RULE: an existence guard around a load-bearing scope is a silence generator. Resolve a scope
+    through its package, never by counting directory levels from a sibling — and then ASSERT THE SCOPE IS
+    NON-EMPTY, because verification that verified nothing must say so.
+
+    This converts all three historical fail-opens into one impossible class: whatever the mechanism, an
+    empty inspection set is now a build failure rather than a green light."""
+    bad = []
+    roots = _numeric_gate_roots()
+    if not roots:
+        return ["meta-gate: the numeric gates resolved NO roots at all — scope is empty"]
+    total = 0
+    for r in roots:
+        n = len(_watched(r))
+        total += n
+        if n == 0:
+            bad.append(f"meta-gate: root {r} is watched but contains ZERO inspectable artifacts — "
+                       f"either the path is wrong or the pattern set is. A gate over nothing passes "
+                       f"vacuously, which is the failure this check exists to make impossible.")
+    if total == 0:
+        bad.append("meta-gate: ZERO files inspected across all roots — every numeric gate passed vacuously")
+    return bad
+
+
 CHECKS = [
+    ("Gates inspected something (meta-gate)", check_gates_inspected_something),
     ("Suspicious cleanliness (tidy-number gate)", check_suspicious_cleanliness),
     ("Lift denominators match (acc and null share rows)", check_lift_denominators_match),
     ("Anatomy passports complete + bridges pinned", check_anatomy_passports_complete),

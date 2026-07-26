@@ -1191,3 +1191,55 @@ functions above the bug.
 The permanent test asserts the real lattice directory is in the watched set and names both files that were
 missing. That is the pattern from the denominator gate and the fabrication probe: **a check never observed
 to fail is not known to work**, and a check whose *scope* can silently empty needs its scope pinned too.
+
+---
+
+## Instance 34 — 2026-07-26 — the gate that never looked was guarding a number in the paper
+
+Instance 33 fixed the tidy-number gate's lattice path and surfaced three extremals in Arm A's results that
+had **never been inspected**. This entry is what adjudicating them found, and it is worse and better than
+expected.
+
+### Both first readings were wrong, and the same way
+
+Writing the LEGACY entries, I read the *narrative* — Arm A had a documented arithmetic flag leak, and
+`1valid` recovered at exactly 1.0000, so I recorded the leak as the mechanism. **One comparison refutes it.**
+The `clean` run drops precisely the leak moments (`weight_mean`, `weight_spread`) and `1valid.acc` is
+**still 1.0000**. Dropping the cause did not move the effect.
+
+The real mechanism is the finding itself: `1valid` is **membership of one specific tuple** — is the all-ones
+tuple in the relation — and surface order structure determines that exactly. Arm A's whole result is that
+surfaces see membership and not closure. **The 1.0 is assertion 5's positive control**, not a defect.
+
+And `ceiling` is not a measurement at all: `grid_arm_a.py:112` writes `"ceiling":1.0` as a **hardcoded
+literal**. A new species for this gate — *a documentation constant living in a results artifact*,
+indistinguishable to any reader from a computed value.
+
+> **Third time diagnosing from artifact shape instead of expression** (instances 26, 28, and now this).
+> The rule was already written. Applying it is a separate act from recording it, and the gap between the
+> two is where these keep happening.
+
+### The catch underneath: the draft had overstated a negative
+
+Adjudicating forced a comparison of every per-flag recovery against its null, and that surfaced something
+the extremal check was not looking for. The draft said *"every closure target scored at or below its
+null."* **Three score above it** — `strongly0valid` +0.0439, `width2affine` +0.0108, `affine` +0.0103.
+
+The source findings note had **always** said so, and dismissed them correctly: those nulls sit at 0.95–0.98,
+so a one-point lift on a near-constant flag is noise. **The draft dropped the qualification and kept the
+conclusion.** That is inflation of a negative result — the both-directions failure in its less obvious
+direction, where a clean sweep reads stronger than an honest five-of-eight.
+
+**W3's both-directions read did not catch it**, and the reason is instructive: that pass was a regex for
+softening and overclaim *words*. No vocabulary check can catch a claim that is confidently worded, sourced
+to a real artifact, and simply broader than what the artifact says. **Comparing a claim against its source
+is a different operation from scanning it for hedging**, and only the first would have found this.
+
+### What now exists because of it
+
+- **`gate-checked: <date>`** on claims-map rows. Assertion 5's evidence was quoted from a file no gate had
+  ever opened; absence of the field now means nobody has checked.
+- **The meta-gate.** `hardmap verify` asserts that every numeric gate inspected a non-empty file set, and
+  **fails** on zero. Three historical fail-opens — a glob scoped to one project's filenames, a walker that
+  descends into dicts only, a path resolving nowhere — become one impossible class: *verification that
+  verified nothing must say so.* Probe-tested by planting an empty root and by resolving none at all.
