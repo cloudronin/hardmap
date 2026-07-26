@@ -42,66 +42,60 @@ through `docs/hash-map.txt`. Preregs on disk: `prereg_v1` … `prereg_v15` plus 
 | reproducibility: N claims, `hardmap verify` 10/10 | `repro/manifest.yaml` (**28 claims**), `hardmap/verify.py` | SOURCED — **README's "eight" is stale; do not quote it** |
 | 43 sealed preregistrations | `docs/seal-chain.md` | SOURCED |
 
-## §3 — The nine assertions (enumeration supplied 2026-07-26)
+## §3 — The eight assertions (enumeration 2026-07-26; recut from nine, see below)
 
-Every numeric literal below was **extracted from an artifact during W0**, not transcribed from the
-enumeration. Where the enumeration's wording and the artifact differ, the artifact governs and the
-difference is recorded.
+Every numeric literal below was **extracted from an artifact**, not transcribed from the enumeration.
+Where wording and artifact differ, the artifact governs and the difference is recorded.
 
-| # | assertion | artifact → value | status |
-|---|---|---|---|
-| 1 | hardness is a vector; k*=1 at three scales | `factors_v1.json::k_star` (**k_hat_1se 1, verdict_interval [1]**, canon) · repro `bets.b2.kstar.v3new` (**k_star 1**, 3× roster) · `factors_v1_1.json` low-rank arms (generated) | **SOURCED** |
-| 2 | the coupling is roster-conditional | see the two-statistic note below | **SOURCED, with a conflation hazard** |
-| 3 | "locality" is two properties | repro `mosaic.split.pooled` → **n 111, V_loc_approx 0.547, V_loc_param 0.231**; ranges span three populations | **SOURCED** |
-| 4 | fully-readable structure determines fate, as theorems | `prereg_v12` C3 — **46 flag-vectors → 46 profiles, zero ambiguity**; arity≤3 lookup scores 93.87% exact on the 3,982-class arity-4 holdout | **SOURCED** |
-| 5 | that structure is surface-invisible | `arm-a-surface-vs-closure.md` — positive control **0.983 / 1.000**, every closure ≤ its null | **SOURCED** |
-| 6 | on natural rows, surface anatomy adds nothing to fame | `terroir_v1_results.json` (**+0.0685 headline; within-family +0.0000**, 170/255 both ways; logic-proof **−7, p 0.0359**) · `terroir_v1_ablations.json` (**within-coverage +0.0188**) · `marrow-i0-census.json` (**34 of 345**) | **SOURCED** |
-| 7 | certified anatomy at both poles | **easy pole** = the Post/Schaefer machinery (`postlattice.py` `_MAJ`/`_MINORITY`; same evidence as #4). **Hard pole: NO ARTIFACT** — see below | **SPLIT: easy SOURCED, hard UNSOURCED** |
-| 8 | refutation difficulty concentrates where hardness does | repro `census.backbone` → **backbone_n60_over_constrained 1.0 → near_threshold 272.6**, two samplers | **SOURCED** |
-| 9 | the literature's bookkeeping fails audit | `errata-v1.json` / `errata.md` (inapprox cells) · `counting-folklore-gap.md` (per-problem counting coverage) · `quarry-v2-gate4-sitting.md` **#11** free-placement disk cover retracted to `open` — Marx ESA 2005 Thm 5 proves **squares**, Marx–Pilipczuk covers the **discrete** form only · **#19** minimum-sum-of-squares, the first original `proven-here` cell | **SOURCED** |
+| # | assertion | artifact → value | class | status |
+|---|---|---|---|---|
+| 1 | hardness is a vector; k*=1 at three scales | `factors_v1.json::k_star` (**k_hat_1se 1, verdict_interval [1]**) · repro `bets.b2.kstar.v3new` (**k_star 1**, 3× roster) · `factors_v1_1.json` low-rank arms | MEASURED | **SOURCED** |
+| 2 | the coupling is roster-conditional | two statistics — see the note below | MEASURED | **SOURCED, conflation hazard** |
+| 3 | "locality" is two properties | repro `mosaic.split.pooled` → **n 111, V_loc_approx 0.547, V_loc_param 0.231** | MEASURED | **SOURCED** |
+| 4 | where structure is fully readable it determines fate, **as theorems — and closure under blending operations is what characterizes the tractable side** | `prereg_v12` C3 (**46 flag-vectors → 46 profiles, zero ambiguity**) · Bridge Ledger pinned `§3.decision` (Bulatov–Zhuk / Barto–Kozik cells) · `postlattice.py` `_MAJ`/`_MINORITY`, anchors green at both domain sizes | PROVEN | **SOURCED — now carries the recut easy pole** |
+| 5 | that structure is surface-invisible | `arm-a-surface-vs-closure.md` — positive control **0.983 / 1.000**, every closure ≤ its null | MEASURED | **SOURCED** |
+| 6 | on natural rows, surface anatomy adds nothing to fame | `terroir_v1_results.json` (**+0.0685 headline; within-family +0.0000**, 170/255; logic-proof **−7, p 0.0359**) · `terroir_v1_ablations.json` (**+0.0188** within coverage) · `marrow-i0-census.json` (**34 of 345**) | MEASURED | **SOURCED** |
+| 7 | **the census backbone** — refutation difficulty concentrates where hardness does | repro `census.backbone` → **over_constrained 1.0 → near_threshold 272.6**; two structurally different samplers agreeing; planted-core calibration passed | MEASURED | **SOURCED** |
+| 8 | the literature's hardness bookkeeping fails audit | `errata-v1.json` / `errata.md` · `counting-folklore-gap.md` · **the unwritten theorem**, chain below · **#19** minimum-sum-of-squares, first original `proven-here` cell | CITED + one PROVEN-HERE | **SOURCED** |
 
-### #2 — two distinct statistics, which the prose must not merge
+### The recut: nine → eight
 
-The enumeration cites both a *sealed falsification* and a *measured arc*. They are different quantities on
-different populations and only one is a sealed bet:
+Old assertion 7 ("certified anatomy at both poles") is **withdrawn as a single claim** and split:
 
-- **Sealed out-of-sample falsification** — repro `bets.b1.gradient.v3new`: v3-new corrected
-  **V = 0.0**, against the v2 CI **[0.53, 0.92]**. Verdict FALSIFIED.
-- **The four-population arc** — `quarry-v3-V4-battery.md` (table, and named "the four-population arc" in
-  its own text): canon core **0.73** (repro `canon.gradient.v` full_v **0.7293**) → in-network
-  (v3-new, rn-present) **0.39** → generated universe **0.26** (repro `natural.v3.v` v **0.2555**, CI
-  [0.13, 0.398]) → periphery (v3-new, rn-absent) **0.10**.
+- **Easy pole — folded into assertion 4.** Closure under blending operations (majority, affine) as the
+  characterization of tractability is the Bridge Ledger's *pinned* `§3` cells and the Post-lattice machinery
+  this program computes and tests. It was already load-bearing inside assertion 4; a separate assertion
+  double-counted one evidence base.
+- **Hard pole — moved to §6 (banked), not §3.** Austrin–Mossel (pairwise-independent support ⇒
+  approximation resistance) is a literature fact at **survey confidence, never pinned**, from a bridge hunt
+  whose note is not in-repo. Under the governing law it cannot be a §3 claim.
 
-The arc's 0.10 and the falsification's 0.0 are **not the same number restated**: 0.10 is the rn-absent
-*stratum* of v3-new; 0.0 is the corrected V on the *whole* v3-new population. Prose that runs them together
-would be reporting one result twice.
+**Why it was in the list:** it entered from chat synthesis rather than from an artifact. Recorded because
+the recut is evidence the map works, not bookkeeping — see methods instance 32.
 
-### #7 — the hard pole has no receipt in this repository
+### #2 — two distinct statistics, which never share a sentence
 
-The **easy pole** is fully grounded: solution sets closed under majority/affine operations are exactly the
-Post-lattice machinery this program computes and tests (`postlattice.py`, anchors green at both domain
-sizes), and it is the same evidence base as assertion 4.
+- **Sealed out-of-sample falsification** — repro `bets.b1.gradient.v3new`: v3-new corrected **V = 0.0**
+  against the v2 CI **[0.53, 0.92]**. Verdict FALSIFIED.
+- **The four-population arc** — `quarry-v3-V4-battery.md`: canon core **0.73** (repro `canon.gradient.v`
+  full_v **0.7293**) → in-network (rn-present) **0.39** → generated universe **0.26** (repro
+  `natural.v3.v` v **0.2555**, CI [0.13, 0.398]) → periphery (rn-absent) **0.10**.
 
-The **hard pole** — *solution sets supporting pairwise-independent distributions, relaxation-resistant,
-finite-LP-checkable, manufacturable on expanders* — returns **zero matches** repo-wide for
-`pairwise`, `approximation-resistant`, `featureless`, `relaxation-resistant`. Its components exist only as
-scattered ingredients (an Austrin citation in `reductions-network-source.json`; UGC mentions in
-`foundry/CHANGELOG.md` and `domain3.py`; expander instance generation in `desert-map/instance.py`) — no
-document states the claim, and no ledger cell carries it.
+The arc's 0.10 is the rn-absent *stratum* of v3-new; the 0.0 is the *whole* v3-new population corrected.
+Running them together reports one result twice.
 
-**And the ledger's nearest cell is UNPINNED for a reason that bears on the wording.** Bridge Ledger §9.1
-records `§5.approximation` as **UNPINNED**: *"expansion is manufactured by the proof; it cannot discriminate
-rows."* §9.2(c) is explicit — Dinur's Preprocessing Lemma 3.1 turns any constraint graph into one meeting
-the expansion bound at O(1) blowup, so *"expansion is manufactured inside the reduction, never observed on
-the input… Expansion therefore cannot be a per-row predictor at all on this route."*
+### #8 — the unwritten theorem, full artifact chain
 
-That does **not** refute the assertion — a theorem about which predicates are approximation-resistant is a
-different claim from a per-row anatomy column. But the assertion's phrase *"manufacturable on expanders"*
-names precisely the property the ledger identified as fatal to row-level use, so the two must be kept
-distinct in prose or the ledger will appear to contradict the assertion it is cited to support.
+Three links, all verified 2026-07-26:
 
-**Disposition needed:** either a source for the hard pole, or the assertion ships as its easy pole plus a
-declared literature-side statement carrying no repo receipt.
+1. **The sitting record** — `quarry-v2-gate4-sitting.md`: *"21 promoted to `confirmed`, 1 retracted to
+   `open`"*, the retraction named as **#11 geometric-disk-cover (object-drift; free-placement W[1] not
+   pinned)**, dated with owner authority.
+2. **The cell** — `atlas_v3.jsonl::geometric-disk-cover.parameterized` stands at **`open`**, and the row is
+   **absent** from the 21-cell `quarry-v2-gate4-promotions.jsonl`.
+3. **The rationale** — Marx ESA 2005 Thm 5 proves **squares**, not disks; the disk-specific line
+   (Marx–Pilipczuk 2015 / IWPEC 2006) covers only the **discrete-centres** form. The free-placement
+   statement the literature cites is **unwritten**.
 
 ## §4 — The negative results
 
@@ -135,7 +129,8 @@ declared literature-side statement carrying no repo receipt.
 | registry at 0/57, mechanism-attribution rules | `grid-prospective-registry.json`, `grid_registry.py` | SOURCED |
 | the two-verdict stack | `terroir-v1-findings.md` §6, `marrow-i0-census.md` §7 | SOURCED |
 | frontier map | `arm-a-surface-vs-closure.md` | NEEDS-EXTRACTION |
-| **geometry probes** | — | **UNSOURCED** |
+| **hard-pole certificate** (Austrin–Mossel: pairwise-independent support ⇒ approximation resistance) | recut from assertion 7 | **BANKED — survey confidence, never pinned. PIN BEFORE ANY CLAIM LEANS ON IT.** Note not in-repo. |
+| **geometry probes** · **frontier map** | chat-generated notes on the owner's side | **BANKED-IN-CONVERSATION** — §6 describes them as such until they land as dated commits, then cites them |
 
 ## §7 — Related work — sourced to the SPECS, not the repo
 
@@ -160,6 +155,12 @@ findings-side document so the writeup cites an in-repo artifact rather than a fi
 
 ---
 
+## Expository framing (not claims)
+
+| item | disposition |
+|---|---|
+| the convex-analysis teaching frame (§1) | `framing (origin: owner exchange, 2026-07-25)` — **no artifact required, no claim rides on it.** The governing law binds claims and numbers; expository frames may be new prose. |
+
 ## Audit rules carried into W2
 
 1. Every numeric literal in the prose has a row here, or the draft halts.
@@ -171,3 +172,6 @@ findings-side document so the writeup cites an in-repo artifact rather than a fi
 5. `UNSOURCED` blocks the claim, not merely its citation.
 6. **Two statistics that answer different questions never share a sentence** — assertion 2's 0.0 and 0.10
    are the standing example.
+7. **Chat is not an artifact.** A claim whose only provenance is a conversation summary is UNSOURCED by
+   definition, however confidently stated and whoever stated it. Three of nine assertion-candidates entered
+   that way and were caught here; see methods instance 32.

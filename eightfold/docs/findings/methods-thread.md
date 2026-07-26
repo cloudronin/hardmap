@@ -1076,3 +1076,57 @@ once and will surface a fresh batch of unread numbers, and that batch deserves t
 adjudication these 16 got. **The lesson of instance 26 was that a flag is a question, not an answer. The
 lesson here is that widening a gate faster than you can answer it just relocates the debt** — which is the
 same lesson instance 28 drew when it held this pattern back, now closed from the other end.
+
+---
+
+## Instance 32 — 2026-07-26 — chat is not an artifact, and the gate got cheaper again
+
+The consolidation writeup opened with one law: *every number traces to a frozen artifact by hash, and the
+draft contains no claim not already in a scored, sealed, or frozen record.* W0's first deliverable was
+therefore not prose but the **claims-to-artifacts map** — and the map's first act was to reject three of
+the nine assertions it was given.
+
+**All three arrived the same way: from reviewer chat synthesis, not from a record.**
+
+| candidate | what the search found | resolution |
+|---|---|---|
+| two-pole certificates (blending / pairwise-independence) | zero repo matches, any spelling; only scattered ingredients | **recut** — easy pole folded into an assertion where it was already load-bearing; hard pole demoted to banked, survey-confidence |
+| "the unwritten theorem" | zero matches for the phrase | **receipts existed under a different name** — the free-placement disk-cover retraction; assertion stands |
+| "census localization" | `localization` in the repo means only the Boolean-engine sense | **renamed** to the repo's own word, `backbone` |
+
+Three distinct outcomes from one cause, which is the useful part: **an unsourced claim is not automatically
+a false claim.** One was over-claimed and had to shrink, one was correct but misnamed, one was correct and
+merely pointed at the wrong vocabulary. A gate that only ever deleted would have destroyed the second and
+third.
+
+### The trend line, which is the entry's real content
+
+This is the **fourth** catch of the same species, and the cost curve is the point:
+
+| # | catch | cost to catch | cost had it landed |
+|---|---|---|---|
+| 1 | the phantom OR | a directive refused mid-flight | a fabricated effect size in a verdict |
+| 2 | the void close-out numbers | a directive refused mid-flight | a fabricated close-out |
+| 3 | the Marrow forward-reference | one search, before planning | a spec asserted into existence in a findings note |
+| 4 | **three assertion-candidates** | **one search pass, before any prose** | **three unsourced claims in the program's headline document** |
+
+Each catch has come **earlier in the pipeline and cost less**, because each one moved the check further
+upstream: from refusing a directive, to searching before planning, to a map that must be built before a
+sentence may be written. **The ledger predicts this shape and this is the first time it has been visible
+across four instances of one class.**
+
+### The rule, stated so it binds the next document
+
+> **A claim whose only provenance is a conversation is UNSOURCED by definition** — however confidently
+> stated, however senior the speaker, and however true it may turn out to be. Chat summarises artifacts;
+> it does not become one. The remedy is never "trust the summary", it is *find the artifact, rename the
+> claim to match it, or bank the claim until one exists.*
+
+The corollary that made this cheap: **build the map before the prose.** A claims-to-artifacts map written
+first is a filter; the same map written afterwards is a citation exercise that finds what it was pointed
+at. Every one of these three would have survived a retrofitted map, because each would have been handed a
+plausible-looking pointer by the same synthesis that produced it.
+
+**And the distinction that keeps the law usable:** it binds *claims and numbers*, not exposition. An
+expository frame introduced to teach a result is new prose and is allowed to be — recorded as `framing`
+with its origin, carrying no claim. A law that forbade new sentences would forbid writing the document.
