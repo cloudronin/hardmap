@@ -66,7 +66,7 @@ chain (43 sealed preregistrations resolved through `docs/hash-map.txt`), and rep
 (`pip install hardmap && hardmap repro`). What each froze, when, at which hash.
 *Evidence class: frozen bytes. Every hash in the map is verified at W1, not quoted from here.*
 
-### §3 — The assertions — **BLOCKED, see A above**
+### §3 — The nine assertions — **UNBLOCKED 2026-07-26**
 Structure is ready: each assertion gets its evidence class (PROVEN / MEASURED / CITED) and artifact
 pointer. The enumeration itself must come from the owner. Seven of the nine are locatable from what the
 directive names; two are not (§A). Draft order will follow the owner's list, not mine.
@@ -91,7 +91,7 @@ banked notes (**geometry probes pending A above**; the frontier map is in
 `arm-a-surface-vs-closure.md`). Closes on the honest sentence: **the mechanism question now lives
 exclusively prospectively.**
 
-### §7 — Related work — **BLOCKED, see A above**
+### §7 — Related work — **UNBLOCKED: sourced to the specs**
 No sourced content exists. Every named obligation returns zero matches. This section cannot be drafted
 from the repository and needs either the owner's reading notes or a fresh, dated literature pass declared
 as new work — which would breach the "synthesizes, never discovers" law unless sealed separately.

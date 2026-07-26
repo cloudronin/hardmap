@@ -42,21 +42,66 @@ through `docs/hash-map.txt`. Preregs on disk: `prereg_v1` … `prereg_v15` plus 
 | reproducibility: N claims, `hardmap verify` 10/10 | `repro/manifest.yaml` (**28 claims**), `hardmap/verify.py` | SOURCED — **README's "eight" is stale; do not quote it** |
 | 43 sealed preregistrations | `docs/seal-chain.md` | SOURCED |
 
-## §3 — The assertions — **enumeration BLOCKED**
+## §3 — The nine assertions (enumeration supplied 2026-07-26)
 
-Mapped against what the directive names, so the owner can see which of the nine already have receipts.
+Every numeric literal below was **extracted from an artifact during W0**, not transcribed from the
+enumeration. Where the enumeration's wording and the artifact differ, the artifact governs and the
+difference is recorded.
 
-| assertion (directive wording) | candidate artifact | status |
-|---|---|---|
-| the vector result | `A4-charge-atlas-move-one.md`, `I1-I4-investigation.md`, `A2-setup.md` | NEEDS-EXTRACTION — three candidate docs, claim not yet pinned |
-| roster-conditionality | `absorption-closeout.md`, `quarry-v3-V4-battery.md` | NEEDS-EXTRACTION |
-| the two-property split | `mosaic-findings.md`, `mosaic-L1-findings.md`; `anatomy.py::BET_HISTORY["locality_class"]` records *V = 0.56 approx / 0.14 param* | SOURCED |
-| theorem-determinism on the Boolean universe | `mosaic-v3-findings.md`; `prereg_v12` C3 (46 flag-vectors → 46 profiles, zero ambiguity) | SOURCED |
-| surface-invisibility of closure | `arm-a-surface-vs-closure.md` | SOURCED |
-| FAMILY-BORNE + the unaskable closure retest | `terroir_v1_results.json`, `marrow-terroir-c-power.json`; repro `terroir.a4.*`, `marrow.census.*` | SOURCED |
-| **two-pole certificates (blending / pairwise-independence)** | — | **UNSOURCED** |
-| census localization | ambiguous: Mosaic `localization` vs proof-census `census.backbone` / `census.plurality` | **AMBIGUOUS — needs disambiguation** |
-| literature audit: errata · folklore gap · **unwritten theorem** · proven-here cell | `errata.md`; `counting-folklore-gap.md`; — ; `quarry-v2-gate4-promotions.jsonl` | 3 of 4 SOURCED; **"unwritten theorem" UNSOURCED** |
+| # | assertion | artifact → value | status |
+|---|---|---|---|
+| 1 | hardness is a vector; k*=1 at three scales | `factors_v1.json::k_star` (**k_hat_1se 1, verdict_interval [1]**, canon) · repro `bets.b2.kstar.v3new` (**k_star 1**, 3× roster) · `factors_v1_1.json` low-rank arms (generated) | **SOURCED** |
+| 2 | the coupling is roster-conditional | see the two-statistic note below | **SOURCED, with a conflation hazard** |
+| 3 | "locality" is two properties | repro `mosaic.split.pooled` → **n 111, V_loc_approx 0.547, V_loc_param 0.231**; ranges span three populations | **SOURCED** |
+| 4 | fully-readable structure determines fate, as theorems | `prereg_v12` C3 — **46 flag-vectors → 46 profiles, zero ambiguity**; arity≤3 lookup scores 93.87% exact on the 3,982-class arity-4 holdout | **SOURCED** |
+| 5 | that structure is surface-invisible | `arm-a-surface-vs-closure.md` — positive control **0.983 / 1.000**, every closure ≤ its null | **SOURCED** |
+| 6 | on natural rows, surface anatomy adds nothing to fame | `terroir_v1_results.json` (**+0.0685 headline; within-family +0.0000**, 170/255 both ways; logic-proof **−7, p 0.0359**) · `terroir_v1_ablations.json` (**within-coverage +0.0188**) · `marrow-i0-census.json` (**34 of 345**) | **SOURCED** |
+| 7 | certified anatomy at both poles | **easy pole** = the Post/Schaefer machinery (`postlattice.py` `_MAJ`/`_MINORITY`; same evidence as #4). **Hard pole: NO ARTIFACT** — see below | **SPLIT: easy SOURCED, hard UNSOURCED** |
+| 8 | refutation difficulty concentrates where hardness does | repro `census.backbone` → **backbone_n60_over_constrained 1.0 → near_threshold 272.6**, two samplers | **SOURCED** |
+| 9 | the literature's bookkeeping fails audit | `errata-v1.json` / `errata.md` (inapprox cells) · `counting-folklore-gap.md` (per-problem counting coverage) · `quarry-v2-gate4-sitting.md` **#11** free-placement disk cover retracted to `open` — Marx ESA 2005 Thm 5 proves **squares**, Marx–Pilipczuk covers the **discrete** form only · **#19** minimum-sum-of-squares, the first original `proven-here` cell | **SOURCED** |
+
+### #2 — two distinct statistics, which the prose must not merge
+
+The enumeration cites both a *sealed falsification* and a *measured arc*. They are different quantities on
+different populations and only one is a sealed bet:
+
+- **Sealed out-of-sample falsification** — repro `bets.b1.gradient.v3new`: v3-new corrected
+  **V = 0.0**, against the v2 CI **[0.53, 0.92]**. Verdict FALSIFIED.
+- **The four-population arc** — `quarry-v3-V4-battery.md` (table, and named "the four-population arc" in
+  its own text): canon core **0.73** (repro `canon.gradient.v` full_v **0.7293**) → in-network
+  (v3-new, rn-present) **0.39** → generated universe **0.26** (repro `natural.v3.v` v **0.2555**, CI
+  [0.13, 0.398]) → periphery (v3-new, rn-absent) **0.10**.
+
+The arc's 0.10 and the falsification's 0.0 are **not the same number restated**: 0.10 is the rn-absent
+*stratum* of v3-new; 0.0 is the corrected V on the *whole* v3-new population. Prose that runs them together
+would be reporting one result twice.
+
+### #7 — the hard pole has no receipt in this repository
+
+The **easy pole** is fully grounded: solution sets closed under majority/affine operations are exactly the
+Post-lattice machinery this program computes and tests (`postlattice.py`, anchors green at both domain
+sizes), and it is the same evidence base as assertion 4.
+
+The **hard pole** — *solution sets supporting pairwise-independent distributions, relaxation-resistant,
+finite-LP-checkable, manufacturable on expanders* — returns **zero matches** repo-wide for
+`pairwise`, `approximation-resistant`, `featureless`, `relaxation-resistant`. Its components exist only as
+scattered ingredients (an Austrin citation in `reductions-network-source.json`; UGC mentions in
+`foundry/CHANGELOG.md` and `domain3.py`; expander instance generation in `desert-map/instance.py`) — no
+document states the claim, and no ledger cell carries it.
+
+**And the ledger's nearest cell is UNPINNED for a reason that bears on the wording.** Bridge Ledger §9.1
+records `§5.approximation` as **UNPINNED**: *"expansion is manufactured by the proof; it cannot discriminate
+rows."* §9.2(c) is explicit — Dinur's Preprocessing Lemma 3.1 turns any constraint graph into one meeting
+the expansion bound at O(1) blowup, so *"expansion is manufactured inside the reduction, never observed on
+the input… Expansion therefore cannot be a per-row predictor at all on this route."*
+
+That does **not** refute the assertion — a theorem about which predicates are approximation-resistant is a
+different claim from a per-row anatomy column. But the assertion's phrase *"manufacturable on expanders"*
+names precisely the property the ledger identified as fatal to row-level use, so the two must be kept
+distinct in prose or the ledger will appear to contradict the assertion it is cited to support.
+
+**Disposition needed:** either a source for the hard pole, or the assertion ships as its easy pole plus a
+declared literature-side statement carrying no repo receipt.
 
 ## §4 — The negative results
 
@@ -92,11 +137,26 @@ Mapped against what the directive names, so the owner can see which of the nine 
 | frontier map | `arm-a-surface-vs-closure.md` | NEEDS-EXTRACTION |
 | **geometry probes** | — | **UNSOURCED** |
 
-## §7 — Related work — **fully UNSOURCED**
+## §7 — Related work — sourced to the SPECS, not the repo
 
-| obligation | status |
-|---|---|
-| meta-problem line · ISGCI · ISA/EHM · CoRCoD · dichotomy-program lineage · "the dated hunts" | **UNSOURCED — zero matches for every term** |
+| obligation | source | status |
+|---|---|---|
+| meta-problem line (Bulatov; Creignou–Khanna–Sudan; AutCSP) — nearest claim + oracle supply | `mosaic-v3-objective-intervention-grid-spec.md` §7 "Related-work obligations (dated hunts; mandatory in the writeup)" | SOURCED to spec |
+| ISA/EHM — the instance-level contrast | same | SOURCED to spec |
+| ISGCI — the transposed structural cousin | same; plus `strata-v2-structure-atlas-spec.md` §I2 (graphclasses.org, Unknown⟷`open` alignment noted) | SOURCED to spec |
+| CoRCoD + structure→dynamics ML — pattern precedents | same | SOURCED to spec |
+| *"the two-table object with a measured, out-of-sample bridge remains unclaimed territory per the hunts"* | same | **SOURCED AS A POSITION, NOT AS EVIDENCE** — the hunts' results are not in the repo, so the claim is citable to the spec but its underlying search is not reproducible. State it as the program's position, dated, or re-run the hunt as declared new work. |
+
+**Spec-to-repo gap:** none of §7 was ever copied into the repository. W1 should land these obligations as a
+findings-side document so the writeup cites an in-repo artifact rather than a file in `~/Downloads`.
+
+## Abstentions (the three, all sourced)
+
+| abstention | artifact | status |
+|---|---|---|
+| no measured mechanism for the coupling on natural problems; the one live instrument is the registry at 0/57 | `grid-prospective-registry.json`; `terroir_v1_results.json` (FAMILY-BORNE) | SOURCED |
+| no verdict on whether closure anatomy transfers — unaskable at current population | `marrow-terroir-c-power.json` (0 admissible families under every reading) | SOURCED |
+| nothing unconditional — every hardness label rides the standard conjectures | schema-level; stated once per the tone constraint | SOURCED |
 
 ---
 
@@ -109,3 +169,5 @@ Mapped against what the directive names, so the owner can see which of the nine 
 3. A hash quoted in prose is re-verified in the same pass that quotes it.
 4. PROVEN / MEASURED / CITED is carried per claim, not per section.
 5. `UNSOURCED` blocks the claim, not merely its citation.
+6. **Two statistics that answer different questions never share a sentence** — assertion 2's 0.0 and 0.10
+   are the standing example.
