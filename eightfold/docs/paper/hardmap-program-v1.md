@@ -149,11 +149,36 @@ The closure-grade retest is unaskable. Only **34 of 345** natural rows possess a
 relational presentation over a fixed finite bounded-arity template — and a closer pass pinning those
 templates as explicit tuple-sets reduced it further, to **28**.
 
-### 3.7 The census backbone — refutation difficulty concentrates where hardness concentrates — MEASURED
+### 3.7 The proof census — freedom in the large, compulsion in the core — MEASURED
 
-Proof contradictions localize toward the satisfiability threshold. Mean forced-core contradictions at
-n = 60 run from **1.0** on over-constrained instances to **272.6** approaching the threshold, with two
-structurally different samplers agreeing and planted-core calibration passed.
+*This is the program's second empirical campaign, and it is structurally unlike the six assertions above.*
+Its object is refutation space rather than problem hardness; its instrument is a pair of structurally
+different proof samplers, one building DAG refutations and one building tree refutations; it carries its
+own sealed hypotheses (H1 diversity, H2 geometry, H3 sampler-independence), its own kill criteria, and its
+own compute campaign. It is also **the program's one fully-positive result — both scored hypotheses
+confirmed, neither kill criterion fired.** It is included here as the existence proof that the method
+produces positives and not only well-characterised negatives.
+
+The sweep covers n ∈ {20, 30, 40, 60} against clause-to-variable ratios α ∈ {4.5, 5.0, 6.0, 8.0, 10.0}, 50
+instances per cell, 200 verified refutations per sampler per instance — **400,000 verified proofs** across
+1,000 records.
+
+**Freedom in the large.** Refutation sets are genuinely plural. Median pairwise Jaccard overlap between
+independently sampled refutations of the *same* instance spans **0.044 to 0.165** across every cell and
+both samplers — nowhere near the 0.95 line at which the plurality hypothesis would have been killed. There
+is no single canonical proof waiting to be found; there are many, and they are mostly different.
+
+**Compulsion in the core.** A forced core nevertheless emerges as instances approach the satisfiability
+threshold. At n = 60 the mean backbone — clauses appearing in nearly all sampled refutations — runs from
+**1.0** on over-constrained instances to **272.6** near the threshold, peaking at **283.28**. Over the same
+range, median proof length grows from 315 to 6,976, a **22.1×** lengthening.
+
+Both effects are real at once, and that is the finding: the proofs get long and various, and yet they are
+increasingly compelled to share a core. **Freedom in the large, compulsion in the core.**
+
+**Replication.** Twelve trend comparisons across four sizes and three metrics; **eleven agree** between the
+two samplers. The single divergence is discussed in §5 — it is explained mechanistically rather than
+excused, which is what the replication standard was written to force.
 
 ### 3.8 The literature's hardness bookkeeping fails audit — CITED, plus one proven-here cell
 

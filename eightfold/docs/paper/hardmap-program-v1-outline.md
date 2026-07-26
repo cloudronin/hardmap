@@ -39,6 +39,11 @@ existed. Resolutions ruled 2026-07-26:
 ## Outline
 
 ### §1 — The question and the object
+**The paper's object is a pair of campaigns, and §1 and the abstract name both.** The **two-table
+program** asks what hardness is made of, on problems. The **proof census** asks the same question of
+refutation space — how plural the ways of refuting an instance are, and whether a forced core emerges.
+Different objects, different instruments, one method.
+
 The two-table design: charge atlas = **fate** (cited facts about the literature), Anatomy = **what a
 problem is**; the bridge between them as the research object. The founding law — *structure never enters
 the charge table, and no charge value informs a structure cell* — and why it is a law rather than a
@@ -58,6 +63,13 @@ chain (43 sealed preregistrations resolved through `docs/hash-map.txt`), and rep
 ### §3 — The eight assertions — **enumeration supplied 2026-07-26, recut from nine**
 Each assertion carries its evidence class (PROVEN / MEASURED / CITED) and artifact pointer; every numeric
 literal was extracted from an artifact at W0, not transcribed. **All eight source cleanly after the recut.**
+**Structural note on assertion 7 (owner ruling 2026-07-26).** It drafts as **the second empirical
+campaign**, with its own one-paragraph preamble — own object (refutation space), own instrument (two
+structurally different samplers), own seal chain (H1–H3, the R1 trend-not-level standard, kill criteria
+that never fired) — **not as item seven of a list**. Draft order is unchanged; only 7's framing changes.
+It is the program's **one fully-positive both-hypotheses-confirmed result**, and it earns its place here as
+the existence proof that the method produces positives, not only well-characterised negatives.
+
 **The eight, in draft order:**
 1. hardness is a vector — k*=1 at three scales *(MEASURED)*
 2. the field's flagship regularity is roster-conditional *(MEASURED)*
@@ -66,7 +78,9 @@ literal was extracted from an artifact at W0, not transcribed. **All eight sourc
    operations is what characterizes the tractable side *(PROVEN, both halves cited)*
 5. that determining structure is invisible from the surface *(MEASURED)*
 6. on natural problems, surface anatomy predicts nothing fame didn't already *(MEASURED)*
-7. the census backbone — refutation difficulty concentrates where hardness does *(MEASURED)*
+7. **the proof census** — *freedom in the large, compulsion in the core*: refutation sets are genuinely
+   plural everywhere (H1), and a forced core emerges toward threshold (H2), replicated across two samplers
+   (H3) *(MEASURED — both hypotheses confirmed)*
 8. the literature's hardness bookkeeping fails audit *(CITED + one proven-here cell)*
 
 Then the meta-assertion the arc earns, and the three abstentions with their reasons.
@@ -84,6 +98,12 @@ Two prose-level constraints carry into W1:
 The honest arc, each with its **sealed verdict quoted verbatim**: Pebble's absorption; the unaskable
 conditioning; the powered locality MISS; the circular P4; Terroir's FAMILY-BORNE; Marrow's unaskable
 closure retest. Framed as *the map of where the answer isn't*.
+**One cross-reference, and it is the both-directions principle carried by example.** C3's honest-caveats
+block — 998/1000 coverage with both shortfall cells named in the JSON, the S1 budget documented as a filter
+rather than hidden, a worker crash resumed with zero record loss — shows **a positive result audited to the
+same standard the negatives in this section got.** The discipline is not something the program applies only
+when the answer disappoints.
+
 *Evidence class: scored verdicts. This section is the most heavily sourced in the document and the one
 where softening is most tempting — the both-directions check at W3 targets it first.*
 
@@ -92,6 +112,15 @@ The ledger as first-class: 26 numbered entries (6–31; five predate the file), 
 (both-directions errors · the tidy-number tell · census-before-seal · denominator matching ·
 **expression-not-artifact** · *"it pointed the unflattering way"*), the delegation protocol, and the gates
 now running in CI (`hardmap verify`, 10/10). Written as the most durable section, per the directive.
+**The census's methods exhibit (two sentences, owner ruling).** *Province separation:* the DAG and tree
+samplers occupy different regions of proof space by orders of magnitude, and R1 declares that gap **a
+finding, not an artifact** — which is why H3 is judged on trends rather than levels. *The R1 standard doing
+real work:* the single trend divergence in twelve comparisons (n = 60 Jaccard) is **mechanistically
+explained** — tree-proof size explodes 22× toward threshold, so a growing backbone becomes a shrinking
+*fraction* — rather than waved off.
+**Taxonomy entry:** sampler-relative claims · trend-grade replication · *divergences explained, or the
+verdict does not ship.*
+
 *Evidence class: the ledger itself plus the gate code. Failures included as content.*
 
 ### §6 — Open instruments and the standing state
@@ -99,7 +128,9 @@ The prospective registry (design, 0/57, the mechanism-attribution rules); the tw
 banked directions, all three now in-repo and citable: **the hard-pole certificate** recut out of §3
 (`notes/geometry-probes-note.md` §3.1, reserved-not-built, *pin-before-leaning*), the **geometry probes**
 whose Boolean qualification study is the one executable thread, and the **frontier map** behind its
-post-grid gate. Closes on the honest sentence: **the mechanism
+post-grid gate. **Also banked, not committed:** the proof census is the natural seed of a standalone paper
+if the backbone line extends — larger n, other proof systems, the width-lower-bound connection. Banked as
+an option; this consolidation keeps it as one campaign of two. Closes on the honest sentence: **the mechanism
 question now lives exclusively prospectively.**
 
 ### §7 — Related work — **sourced to the specs, not the repo**

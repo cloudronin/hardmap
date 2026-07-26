@@ -55,7 +55,7 @@ Where wording and artifact differ, the artifact governs and the difference is re
 | 4 | where structure is fully readable it determines fate, **as theorems — and closure under blending operations is what characterizes the tractable side** | `prereg_v12` C3 (**46 flag-vectors → 46 profiles, zero ambiguity**) · Bridge Ledger pinned `§3.decision` (Bulatov–Zhuk / Barto–Kozik cells) · `postlattice.py` `_MAJ`/`_MINORITY`, anchors green at both domain sizes | PROVEN | **SOURCED — now carries the recut easy pole** |
 | 5 | that structure is surface-invisible | `arm-a-surface-vs-closure.md` — positive control **0.983 / 1.000**, every closure ≤ its null | MEASURED | **SOURCED** |
 | 6 | on natural rows, surface anatomy adds nothing to fame | `terroir_v1_results.json` (**+0.0685 headline; within-family +0.0000**, 170/255; logic-proof **−7, p 0.0359**) · `terroir_v1_ablations.json` (**+0.0188** within coverage) · `marrow-i0-census.json` (**34 of 345**) | MEASURED | **SOURCED** |
-| 7 | **the census backbone** — refutation difficulty concentrates where hardness does | repro `census.backbone` → **over_constrained 1.0 → near_threshold 272.6**; two structurally different samplers agreeing; planted-core calibration passed | MEASURED | **SOURCED** |
+| 7 | **the proof census** — the second campaign. Freedom in the large, compulsion in the core | full chain below | MEASURED | **SOURCED — both hypotheses** |
 | 8 | the literature's hardness bookkeeping fails audit | `errata-v1.json` / `errata.md` · `counting-folklore-gap.md` · **the unwritten theorem**, chain below · **#19** minimum-sum-of-squares, first original `proven-here` cell | CITED + one PROVEN-HERE | **SOURCED** |
 
 ### The recut: nine → eight
@@ -72,6 +72,39 @@ Old assertion 7 ("certified anatomy at both poles") is **withdrawn as a single c
 
 **Why it was in the list:** it entered from chat synthesis rather than from an artifact. Recorded because
 the recut is evidence the map works, not bookkeeping — see methods instance 32.
+
+### #7 — the second campaign, full artifact chain
+
+Different object (refutation space, not problem hardness), different instrument, its own seal chain and
+kill criteria. **The program's one fully-positive both-hypotheses-confirmed result**, and the map carries
+both halves rather than the backbone alone.
+
+**Artifacts:** `proof-census/proofcensus/results/c3/c3_summary.json` · `.../c3/checkpoint.jsonl` ·
+`.../c3/progress.json` · `docs/findings/C3-verdict.md` · `docs/specs/proof-census-v1-spec.md` · repro
+claims `census.backbone`, `census.plurality`.
+
+**Sweep parameters, quoted from `c3_summary.json::grid`:** n ∈ {20, 30, 40, 60} × α ∈ {4.5, 5.0, 6.0, 8.0,
+10.0}, **50 instances per cell**, **K = 200** verified refutations per sampler, **1,000 records** →
+**400,000 verified proofs** (1000 × 200 × 2 samplers, computed not quoted).
+
+**H1 — plurality.** Refutation sets are genuinely plural everywhere. Median pairwise Jaccard spans
+**0.044 – 0.165** across all cells and both samplers, nowhere near the **0.95** no-plurality kill line.
+
+**H2 — the backbone.** A forced core emerges toward threshold. At n = 60 the S2 mean backbone runs
+**1.0** (over-constrained, α = 10) → **272.6** (α = 4.5), while S2 median proof length runs **315 → 6,976**,
+a **22.1×** lengthening. *Precision for prose:* 272.6 is the α = 4.5 value; the **peak is 283.28 at
+α = 5.0**. Do not write 272.6 as the maximum.
+
+**H3 — sampler independence.** **12 trend comparisons** (4 sizes × 3 metrics), **11 agree**. The single
+divergence is `n60 · mean_jaccard` (trend_s1 = +1, trend_s2 = −1) — see §5's methods exhibit.
+
+**Kill criteria: neither fired.** Stated in `C3-verdict.md`.
+
+**Honest-caveats block (the §4 cross-reference):** coverage **998/1000**, the two shortfall cells named in
+the JSON itself (`n60_a5.0_s1`, `n60_a6.0_s1`, each 49/50 at the max-attempts cap); the S1 4000-resolution
+budget documented as **a filter, not a defect** (binding at n = 60 hard cells, budget-exceeded rate up to
+~70%, consistent across all cells); and a `BrokenProcessPool` worker-OOM crash at instance 894 resumed with
+**zero record loss**, ≈ 44 h + ~13 h wall-clock.
 
 ### #2 — two distinct statistics, which never share a sentence
 
