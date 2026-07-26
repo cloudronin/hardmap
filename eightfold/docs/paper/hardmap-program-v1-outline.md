@@ -40,7 +40,8 @@ existed. Resolutions ruled 2026-07-26:
 The two-table design: charge atlas = **fate** (cited facts about the literature), Anatomy = **what a
 problem is**; the bridge between them as the research object. The founding law — *structure never enters
 the charge table, and no charge value informs a structure cell* — and why it is a law rather than a
-convention. Convex-analysis framing **pending B-2 above**.
+convention. The convex-analysis teaching frame enters here as declared exposition
+(`framing`, origin owner exchange 2026-07-25) — it carries no claim and no number.
 *Evidence class: design, not measurement. Sources are the sealed schemas.*
 
 ### §2 — The artifacts
@@ -52,6 +53,19 @@ chain (43 sealed preregistrations resolved through `docs/hash-map.txt`), and rep
 ### §3 — The eight assertions — **enumeration supplied 2026-07-26, recut from nine**
 Each assertion carries its evidence class (PROVEN / MEASURED / CITED) and artifact pointer; every numeric
 literal was extracted from an artifact at W0, not transcribed. **All eight source cleanly after the recut.**
+**The eight, in draft order:**
+1. hardness is a vector — k*=1 at three scales *(MEASURED)*
+2. the field's flagship regularity is roster-conditional *(MEASURED)*
+3. "locality" is two properties *(MEASURED)*
+4. where structure is fully readable it determines fate, as theorems — and closure under blending
+   operations is what characterizes the tractable side *(PROVEN, both halves cited)*
+5. that determining structure is invisible from the surface *(MEASURED)*
+6. on natural problems, surface anatomy predicts nothing fame didn't already *(MEASURED)*
+7. the census backbone — refutation difficulty concentrates where hardness does *(MEASURED)*
+8. the literature's hardness bookkeeping fails audit *(CITED + one proven-here cell)*
+
+Then the meta-assertion the arc earns, and the three abstentions with their reasons.
+
 Two prose-level constraints carry into W1:
 - **#2 cites two different statistics** — the sealed B1 falsification (v3-new corrected **V = 0.0**) and
   the four-population arc (**0.73 → 0.39 → 0.26 → 0.10**). The arc's 0.10 is a *stratum* of v3-new; the
