@@ -194,12 +194,28 @@ def knapsack(rng, frac):
 
 
 # ── carried rows, now ramp-parameterised ──────────────────────────────────────────────────────────────
+LAST_CLAUSES = []          # the clauses the most recent sat() call emitted — read by the conformance
+                           # sweep so it can inspect the REAL generator instead of a reimplementation
+
+
 def sat(rng, ratio, k, mode, n=12):
     m = max(1, int(ratio * n))
     cls = []
     for _ in range(m):
         vs = rng.sample(range(n), k)
-        cls.append((tuple(vs), tuple(rng.randint(0, 1) for _ in range(k))))
+        if mode == "horn":
+            # A HORN CLAUSE HAS AT MOST ONE POSITIVE LITERAL. This branch previously drew signs
+            # uniformly at random and was byte-identical to `plain`, so the row emitted uniform random
+            # k-CNF while carrying a pinned Horn template — object drift at the generator level
+            # (methods 40). Every reading produced BEFORE this fix is frozen, annotated
+            # `instance_object_drift`, and excluded from anything consuming the row's identity; true
+            # horn-sat re-enters as NEW readings at the next survey increment.
+            pos = rng.randrange(k + 1)                      # k+1 choices: no positive, or one at pos
+            sg = tuple(1 if i == pos else 0 for i in range(k))
+        else:
+            sg = tuple(rng.randint(0, 1) for _ in range(k))
+        cls.append((tuple(vs), sg))
+    LAST_CLAUSES.clear(); LAST_CLAUSES.extend(cls)
     out = []
     for a in product((0, 1), repeat=n):
         ok = True

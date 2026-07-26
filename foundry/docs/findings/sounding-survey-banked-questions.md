@@ -237,3 +237,18 @@ the qualified control — a within-reading shift of −0.1586, statistically ind
 **The question is answered: a cardinality-and-marginal-matched control does exist for dense regions, and
 the untested remainder behaves like the tested part.** Terrain's verdict does not relabel; the retirement
 is stated as a two-artifact conclusion in both artifacts.
+
+---
+
+## Q10 — CLOSED, 2026-07-26
+
+**PREVALENCE**, and size-driven. At the sealed ratio, Horn formulas occur at 0.85 % (prior: 0.42 %) while
+min-closed solution sets occur at **51.7 %**, of which **120 of 122 are not Horn**. Conditioned on size:
+**64.5 % of solution sets with r < 25 are min-closed**, falling to 19.7 % at 25 ≤ r < 100 and 0 % above.
+
+The original reading sits at r = 22. It reads 0.0 because that is the ordinary outcome at that size.
+
+**A gap in the zero-hunt's vocabulary, recorded rather than patched:** `THIN-SATURATION` asks whether a
+nonzero rate was *observable*. Here 231 distinct pairs were available and a nonzero rate was perfectly
+observable — it simply did not occur. **A reading can clear every thinness floor and still be
+unremarkable.** Whether that deserves its own verdict term is a design question, not answered here.

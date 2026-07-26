@@ -1,6 +1,6 @@
 # N3 — the sat-2 zero
 
-**Status: DRAFT AWAITING SEAL. Ruled "go" 2026-07-26; prereg number reserved `prereg_v21`, minted at seal.**
+**Status: SEALED as `prereg_v21`, 2026-07-26. Gate satisfied: the conformance sweep certifies sat-2's generator (bijunctive 6/6 semantic, 6/6 syntactic), which these re-draws depend on.**
 **Closes:** one of the two GENUINE-READING zeros the zero-hunt left standing (Q10).
 
 ---

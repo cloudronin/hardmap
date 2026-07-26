@@ -1,0 +1,1914 @@
+{
+ "schema": "n3-sat2-zero/v1",
+ "prereg": "prereg_v21",
+ "sealed": "2026-07-26",
+ "scored_once": true,
+ "prior_computed_before_data": {
+  "clauses": 19,
+  "p_clause_horn": 0.75,
+  "p_formula_horn": 0.00423
+ },
+ "n_draws": 300,
+ "n_usable": 236,
+ "horn_rate": 0.0085,
+ "min_closed_rate": 0.5169,
+ "n_min_closed": 122,
+ "n_min_closed_and_NOT_horn": 120,
+ "joint_table": {
+  "horn & min-closed": 2,
+  "horn & not-min-closed": 0,
+  "not-horn & min-closed": 120,
+  "not-horn & not-min-closed": 114
+ },
+ "min_closed_rate_by_region_size": {
+  "25<=r<100": {
+   "n": 66,
+   "min_closed": 13
+  },
+  "r<25": {
+   "n": 169,
+   "min_closed": 109
+  },
+  "r>=100": {
+   "n": 1,
+   "min_closed": 0
+  }
+ },
+ "original_reading": {
+  "row": "sat-2",
+  "region": "solutions",
+  "flavor": "min",
+  "r": 22,
+  "measured_rate": 0.0,
+  "ramp_value": 1.6,
+  "seed": 20265280
+ },
+ "VERDICT": "PREVALENCE",
+ "why": "min-closure appears at 51.7% against a Horn rate of 0.8%, and 120 of 122 min-closed formulas are NOT Horn. The Horn route cannot carry the explanation.",
+ "trials": [
+  {
+   "trial": 0,
+   "r": 26,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 1,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 2,
+   "r": 24,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 3,
+   "r": 8,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 4,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 5,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 6,
+   "r": 36,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 7,
+   "r": 26,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 8,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 9,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 10,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 11,
+   "r": 17,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 12,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 13,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 14,
+   "r": 28,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 15,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 16,
+   "r": 2,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 17,
+   "r": 10,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 18,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 19,
+   "r": 4,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 20,
+   "r": 40,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 21,
+   "r": 7,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 22,
+   "r": 8,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 23,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 24,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 25,
+   "r": 80,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 26,
+   "r": 27,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 27,
+   "r": 4,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 28,
+   "r": 13,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 29,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 30,
+   "r": 42,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 31,
+   "r": 10,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 32,
+   "r": 174,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 33,
+   "r": 14,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 34,
+   "r": 16,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 35,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 36,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 37,
+   "r": 4,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 38,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 39,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 40,
+   "r": 18,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 41,
+   "r": 11,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 42,
+   "r": 18,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 43,
+   "r": 6,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 44,
+   "r": 15,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 45,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 46,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 47,
+   "r": 30,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 48,
+   "r": 15,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 49,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 50,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 51,
+   "r": 12,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 52,
+   "r": 14,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 53,
+   "r": 70,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 54,
+   "r": 2,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 55,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 56,
+   "r": 2,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 57,
+   "r": 4,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 58,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 59,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 60,
+   "r": 20,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 61,
+   "r": 2,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 62,
+   "r": 4,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 63,
+   "r": 36,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 64,
+   "r": 16,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 65,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 66,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 67,
+   "r": 14,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 68,
+   "r": 10,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 69,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 70,
+   "r": 24,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 71,
+   "r": 14,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 72,
+   "r": 16,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 73,
+   "r": 40,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 74,
+   "r": 7,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 75,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 76,
+   "r": 22,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 77,
+   "r": 12,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 78,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 79,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 80,
+   "r": 20,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 81,
+   "r": 22,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 82,
+   "r": 24,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 83,
+   "r": 20,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 84,
+   "r": 20,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 85,
+   "r": 8,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 86,
+   "r": 10,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 87,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 88,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 89,
+   "r": 48,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 90,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 91,
+   "r": 6,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 92,
+   "r": 4,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 93,
+   "r": 2,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 94,
+   "r": 16,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 95,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 96,
+   "r": 12,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 97,
+   "r": 7,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 98,
+   "r": 9,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 99,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 100,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 101,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 102,
+   "r": 4,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 103,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 104,
+   "r": 42,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 105,
+   "r": 72,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 106,
+   "r": 12,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 107,
+   "r": 49,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 108,
+   "r": 30,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 109,
+   "r": 1,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 110,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 111,
+   "r": 3,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 112,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 113,
+   "r": 48,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 114,
+   "r": 40,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 115,
+   "r": 24,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 116,
+   "r": 10,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 117,
+   "r": 12,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 118,
+   "r": 76,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 119,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 120,
+   "r": 10,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 121,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 122,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 123,
+   "r": 37,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 124,
+   "r": 18,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 125,
+   "r": 9,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 126,
+   "r": 20,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 127,
+   "r": 4,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 128,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 129,
+   "r": 26,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 130,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 131,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 132,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 133,
+   "r": 7,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 134,
+   "r": 12,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 135,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 136,
+   "r": 15,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 137,
+   "r": 18,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 138,
+   "r": 79,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 139,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 140,
+   "r": 42,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 141,
+   "r": 22,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 142,
+   "r": 10,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 143,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 144,
+   "r": 9,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 145,
+   "r": 4,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 146,
+   "r": 12,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 147,
+   "r": 52,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 148,
+   "r": 20,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 149,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 150,
+   "r": 25,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 151,
+   "r": 18,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 152,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 153,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 154,
+   "r": 10,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 155,
+   "r": 2,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 156,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 157,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 158,
+   "r": 20,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 159,
+   "r": 32,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 160,
+   "r": 14,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 161,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 162,
+   "r": 12,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 163,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 164,
+   "r": 32,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 165,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 166,
+   "r": 22,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 167,
+   "r": 2,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 168,
+   "r": 54,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 169,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 170,
+   "r": 4,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 171,
+   "r": 88,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 172,
+   "r": 20,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 173,
+   "r": 12,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 174,
+   "r": 45,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 175,
+   "r": 16,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 176,
+   "r": 2,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 177,
+   "r": 61,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 178,
+   "r": 39,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 179,
+   "r": 16,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 180,
+   "r": 41,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 181,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 182,
+   "r": 42,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 183,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 184,
+   "r": 18,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 185,
+   "r": 12,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 186,
+   "r": 15,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 187,
+   "r": 60,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 188,
+   "r": 61,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 189,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 190,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 191,
+   "r": 32,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 192,
+   "r": 70,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 193,
+   "r": 44,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 194,
+   "r": 20,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 195,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 196,
+   "r": 12,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 197,
+   "r": 48,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 198,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 199,
+   "r": 11,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 200,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 201,
+   "r": 35,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 202,
+   "r": 12,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 203,
+   "r": 16,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 204,
+   "r": 18,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 205,
+   "r": 34,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 206,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 207,
+   "r": 2,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 208,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 209,
+   "r": 18,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 210,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 211,
+   "r": 16,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 212,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 213,
+   "r": 10,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 214,
+   "r": 34,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 215,
+   "r": 6,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 216,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 217,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 218,
+   "r": 56,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 219,
+   "r": 4,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 220,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 221,
+   "r": 27,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 222,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 223,
+   "r": 30,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 224,
+   "r": 22,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 225,
+   "r": 12,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 226,
+   "r": 34,
+   "horn": true,
+   "min_closed": true
+  },
+  {
+   "trial": 227,
+   "r": 6,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 228,
+   "r": 12,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 229,
+   "r": 84,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 230,
+   "r": 26,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 231,
+   "r": 12,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 232,
+   "r": 4,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 233,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 234,
+   "r": 35,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 235,
+   "r": 40,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 236,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 237,
+   "r": 44,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 238,
+   "r": 40,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 239,
+   "r": 90,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 240,
+   "r": 26,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 241,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 242,
+   "r": 50,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 243,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 244,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 245,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 246,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 247,
+   "r": 46,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 248,
+   "r": 68,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 249,
+   "r": 12,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 250,
+   "r": 6,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 251,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 252,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 253,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 254,
+   "r": 22,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 255,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 256,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 257,
+   "r": 10,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 258,
+   "r": 4,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 259,
+   "r": 12,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 260,
+   "r": 36,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 261,
+   "r": 28,
+   "horn": true,
+   "min_closed": true
+  },
+  {
+   "trial": 262,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 263,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 264,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 265,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 266,
+   "r": 20,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 267,
+   "r": 4,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 268,
+   "r": 16,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 269,
+   "r": 8,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 270,
+   "r": 24,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 271,
+   "r": 24,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 272,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 273,
+   "r": 2,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 274,
+   "r": 13,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 275,
+   "r": 35,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 276,
+   "r": 29,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 277,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 278,
+   "r": 16,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 279,
+   "r": 60,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 280,
+   "r": 16,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 281,
+   "r": 8,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 282,
+   "r": 16,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 283,
+   "r": 12,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 284,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 285,
+   "r": 2,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 286,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 287,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 288,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 289,
+   "r": 60,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 290,
+   "r": 19,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 291,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 292,
+   "r": 18,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 293,
+   "r": 6,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 294,
+   "r": 16,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 295,
+   "r": 9,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 296,
+   "r": 26,
+   "horn": false,
+   "min_closed": true
+  },
+  {
+   "trial": 297,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  },
+  {
+   "trial": 298,
+   "r": 14,
+   "horn": false,
+   "min_closed": false
+  },
+  {
+   "trial": 299,
+   "r": 0,
+   "horn": false,
+   "min_closed": null,
+   "skipped": "fewer than 2 solutions"
+  }
+ ]
+}

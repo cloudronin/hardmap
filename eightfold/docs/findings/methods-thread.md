@@ -1537,3 +1537,56 @@ regenerated, nothing re-measured.** Renaming a survey row is a ruling, not a hyg
 Terrain is unaffected — none of the five had positive excess, so none would have entered its anomaly set.
 Checked rather than assumed, because "my earlier result is probably fine" is exactly the inference this
 ledger exists to distrust.
+
+---
+
+## Instance 41 — 2026-07-26 — the retrofit sweep, and a conformance test that tested a copy
+
+Instance 40 found one drifted generator by accident, while grounding an unrelated study. The general form
+was ruled immediately: **every generator with a pinned template is suspect until checked**, because the
+same four-line copy-paste could sit anywhere.
+
+### The check had to be semantic, not syntactic
+
+The tempting version reads clause shapes — Horn means ≤1 positive literal, bijunctive means width 2. That
+tests a proxy and only works on clausal generators, which is 3 of the 9 templated rows.
+
+The universal form is the implication the join actually consumes: **if the pinned template is closed under
+f, every emitted instance's solution set must be closed under f.** That is what a polymorphism *is*. It
+holds for graph generators, packing generators and clause generators alike, and a generator failing it has
+drifted whatever its source looks like.
+
+Both run where both apply: **semantics detect drift, syntax localises it.** A row failing semantics with
+clean syntax means the template is wrong; failing both means the generator is. `horn-sat` failed both.
+
+**Result: 9 templated rows swept, 1 drifted, 8 clean on both axes.** The fleet is now conformance-checked
+by schema rather than by accident.
+
+### The part worth the entry: the first version tested a copy
+
+To read clause shapes the sweep needed the clause list, which the generator did not return. So the sweep
+**reimplemented the generator** — and that is a conformance test of a copy, which certifies nothing about
+the thing in service.
+
+It proved the point within minutes. After the real `horn` branch was fixed, the sweep **still reported
+`horn-sat` as drifted**, because it was checking the reimplementation, which still had the old emission
+rule. Had the fix and the copy happened to agree, the sweep would have reported PASS while testing nothing
+that ships.
+
+> **A test that reimplements its subject tests the reimplementation. The subject must be called, not
+> mirrored — and where that requires the subject to expose something, expose it.**
+
+The generator now publishes `LAST_CLAUSES` and the sweep reads it. The fix is small; the failure mode it
+closes is the same fail-open species as the silent gate and interpolation-by-absence, one layer further
+out: **the check ran, reported, and was about the wrong object.**
+
+### The standing practice this installs
+
+New machinery gets built to the current standard while old machinery grandfathers in. `forced_saturated`
+was born with an observation-comparison check; its elder sibling `theorem_forced` never had one and served
+the whole survey sequence unchecked.
+
+> **When a new check class is invented, ask which existing instruments predate it.**
+
+That question is now standing practice rather than a thing that happens when something breaks. This sweep
+is its first discharge, and it found the fleet clean apart from the row already known.

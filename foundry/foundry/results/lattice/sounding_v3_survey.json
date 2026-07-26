@@ -1842,7 +1842,11 @@
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": null,
-   "forced_saturated": false
+   "forced_saturated": false,
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -1873,7 +1877,11 @@
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": null,
-   "forced_saturated": false
+   "forced_saturated": false,
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -1905,7 +1913,11 @@
    "new_in_v3": false,
    "insufficient": null,
    "forced_saturated": false,
-   "forced_flag_erratum": "generator-defect/horn-not-horn/2026-07-26"
+   "forced_flag_erratum": "generator-defect/horn-not-horn/2026-07-26",
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -1936,7 +1948,11 @@
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": null,
-   "forced_saturated": false
+   "forced_saturated": false,
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -1967,7 +1983,11 @@
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": null,
-   "forced_saturated": false
+   "forced_saturated": false,
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -1998,7 +2018,11 @@
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": null,
-   "forced_saturated": false
+   "forced_saturated": false,
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -2030,7 +2054,11 @@
    "new_in_v3": false,
    "insufficient": null,
    "forced_saturated": false,
-   "forced_flag_erratum": "generator-defect/horn-not-horn/2026-07-26"
+   "forced_flag_erratum": "generator-defect/horn-not-horn/2026-07-26",
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -2061,7 +2089,11 @@
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": null,
-   "forced_saturated": false
+   "forced_saturated": false,
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -2092,7 +2124,11 @@
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": null,
-   "forced_saturated": false
+   "forced_saturated": false,
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -2123,7 +2159,11 @@
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": null,
-   "forced_saturated": false
+   "forced_saturated": false,
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -2155,7 +2195,11 @@
    "new_in_v3": false,
    "insufficient": null,
    "forced_saturated": false,
-   "forced_flag_erratum": "generator-defect/horn-not-horn/2026-07-26"
+   "forced_flag_erratum": "generator-defect/horn-not-horn/2026-07-26",
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -2186,7 +2230,11 @@
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": null,
-   "forced_saturated": false
+   "forced_saturated": false,
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -2217,7 +2265,11 @@
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": null,
-   "forced_saturated": false
+   "forced_saturated": false,
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -2248,7 +2300,11 @@
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": null,
-   "forced_saturated": false
+   "forced_saturated": false,
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -2280,7 +2336,11 @@
    "new_in_v3": false,
    "insufficient": null,
    "forced_saturated": false,
-   "forced_flag_erratum": "generator-defect/horn-not-horn/2026-07-26"
+   "forced_flag_erratum": "generator-defect/horn-not-horn/2026-07-26",
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -2311,7 +2371,11 @@
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": null,
-   "forced_saturated": false
+   "forced_saturated": false,
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -2342,7 +2406,11 @@
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_saturated": false
+   "forced_saturated": false,
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -2373,7 +2441,11 @@
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_saturated": false
+   "forced_saturated": false,
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -2405,7 +2477,11 @@
    "new_in_v3": false,
    "insufficient": "INSUFFICIENT-r",
    "forced_saturated": false,
-   "forced_flag_erratum": "generator-defect/horn-not-horn/2026-07-26"
+   "forced_flag_erratum": "generator-defect/horn-not-horn/2026-07-26",
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "horn-sat",
@@ -2436,7 +2512,11 @@
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_saturated": false
+   "forced_saturated": false,
+   "instance_object_drift": true,
+   "measured_object": "uniform random 3-CNF (NOT Horn)",
+   "drift_note": "the generator's `horn` branch was byte-identical to `plain` and drew signs uniformly at random, so this reading measures uniform random 3-CNF while carrying the row name `horn-sat`. The MEASUREMENT is honest; the row IDENTITY is not. Frozen as-is, excluded from anything consuming the row's identity \u2014 including its decision charge. True horn-sat re-enters as NEW readings under the corrected generator at the next survey increment.",
+   "excluded_from_studies": "EXCLUDED-drift"
   },
   {
    "row": "xor-sat",
@@ -17442,6 +17522,12 @@
    "kind": "FLAG CORRECTION \u2014 NOT A RE-MEASUREMENT",
    "what": "`theorem_forced` corrected on 5 readings; measured values verified unmoved by fingerprint compare.",
    "why": "a generator defect made the row's pinned template inapplicable to its own data."
+  },
+  {
+   "date": "2026-07-26",
+   "kind": "ERRATA ANNOTATION \u2014 NOT A RE-MEASUREMENT",
+   "what": "20 horn-sat readings annotated `instance_object_drift`, measured object named, marked EXCLUDED-drift. Measured values fingerprinted and verified unmoved.",
+   "why": "object drift at the generator level (methods 40); the row name does not describe the objects measured."
   }
  ],
  "zero_hunt": {

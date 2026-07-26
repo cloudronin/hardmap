@@ -1,0 +1,269 @@
+{
+ "schema": "generator-conformance/v1",
+ "STATUS": "INSTRUMENT HYGIENE \u2014 no bet, no prereg",
+ "the_check": "if a row's pinned template is closed under f, EVERY emitted instance's solution set must be closed under f. That is what a polymorphism is, it holds for any constraint shape, and it is the exact implication the forcedness join consumes.",
+ "why_semantic_not_syntactic": "a clause-shape rule tests a proxy and only works on clausal generators. Both run where both apply: semantics DETECT drift, syntax LOCALISES it to the emission rule.",
+ "standing_practice": "new machinery is built to the current standard while old machinery grandfathers in. When a new check class is invented, ask which existing instruments predate it. This is that retrofit for the generator fleet.",
+ "n_rows_checked": 9,
+ "n_drifted": 0,
+ "drifted": [],
+ "rows": [
+  {
+   "row": "bipartiteness",
+   "template_flags": [
+    "bijunctive",
+    "affine"
+   ],
+   "semantic": {
+    "bijunctive": {
+     "pass": 2,
+     "fail": 0,
+     "checked": 4004
+    },
+    "affine": {
+     "pass": 2,
+     "fail": 0,
+     "checked": 4004
+    }
+   },
+   "syntactic": {
+    "bijunctive": {
+     "pass": 0,
+     "fail": 0,
+     "rule": "every clause of width <= 2"
+    }
+   },
+   "CONFORMS": true,
+   "failing_flags": [],
+   "example": null
+  },
+  {
+   "row": "clique",
+   "template_flags": [
+    "bijunctive",
+    "horn"
+   ],
+   "semantic": {
+    "bijunctive": {
+     "pass": 6,
+     "fail": 0,
+     "checked": 82390
+    },
+    "horn": {
+     "pass": 6,
+     "fail": 0,
+     "checked": 5722
+    }
+   },
+   "syntactic": {
+    "bijunctive": {
+     "pass": 0,
+     "fail": 0,
+     "rule": "every clause of width <= 2"
+    },
+    "horn": {
+     "pass": 0,
+     "fail": 0,
+     "rule": "at most one POSITIVE literal per clause"
+    }
+   },
+   "CONFORMS": true,
+   "failing_flags": [],
+   "example": null
+  },
+  {
+   "row": "horn-sat",
+   "template_flags": [
+    "horn"
+   ],
+   "semantic": {
+    "horn": {
+     "pass": 6,
+     "fail": 0,
+     "checked": 24000
+    }
+   },
+   "syntactic": {
+    "horn": {
+     "pass": 6,
+     "fail": 0,
+     "rule": "at most one POSITIVE literal per clause"
+    }
+   },
+   "CONFORMS": true,
+   "failing_flags": [],
+   "example": null
+  },
+  {
+   "row": "independent-set",
+   "template_flags": [
+    "bijunctive",
+    "horn"
+   ],
+   "semantic": {
+    "bijunctive": {
+     "pass": 6,
+     "fail": 0,
+     "checked": 24000
+    },
+    "horn": {
+     "pass": 6,
+     "fail": 0,
+     "checked": 24000
+    }
+   },
+   "syntactic": {
+    "bijunctive": {
+     "pass": 0,
+     "fail": 0,
+     "rule": "every clause of width <= 2"
+    },
+    "horn": {
+     "pass": 0,
+     "fail": 0,
+     "rule": "at most one POSITIVE literal per clause"
+    }
+   },
+   "CONFORMS": true,
+   "failing_flags": [],
+   "example": null
+  },
+  {
+   "row": "max-cut",
+   "template_flags": [
+    "bijunctive",
+    "affine"
+   ],
+   "semantic": {
+    "bijunctive": {
+     "pass": 6,
+     "fail": 0,
+     "checked": 24000
+    },
+    "affine": {
+     "pass": 6,
+     "fail": 0,
+     "checked": 24000
+    }
+   },
+   "syntactic": {
+    "bijunctive": {
+     "pass": 0,
+     "fail": 0,
+     "rule": "every clause of width <= 2"
+    }
+   },
+   "CONFORMS": true,
+   "failing_flags": [],
+   "example": null
+  },
+  {
+   "row": "sat-2",
+   "template_flags": [
+    "bijunctive"
+   ],
+   "semantic": {
+    "bijunctive": {
+     "pass": 6,
+     "fail": 0,
+     "checked": 24000
+    }
+   },
+   "syntactic": {
+    "bijunctive": {
+     "pass": 6,
+     "fail": 0,
+     "rule": "every clause of width <= 2"
+    }
+   },
+   "CONFORMS": true,
+   "failing_flags": [],
+   "example": null
+  },
+  {
+   "row": "sharp-monotone-2sat",
+   "template_flags": [
+    "bijunctive",
+    "dualhorn"
+   ],
+   "semantic": {
+    "bijunctive": {
+     "pass": 6,
+     "fail": 0,
+     "checked": 24000
+    },
+    "dualhorn": {
+     "pass": 6,
+     "fail": 0,
+     "checked": 24000
+    }
+   },
+   "syntactic": {
+    "bijunctive": {
+     "pass": 0,
+     "fail": 0,
+     "rule": "every clause of width <= 2"
+    },
+    "dualhorn": {
+     "pass": 0,
+     "fail": 0,
+     "rule": "at most one NEGATIVE literal per clause"
+    }
+   },
+   "CONFORMS": true,
+   "failing_flags": [],
+   "example": null
+  },
+  {
+   "row": "vertex-cover",
+   "template_flags": [
+    "bijunctive",
+    "dualhorn"
+   ],
+   "semantic": {
+    "bijunctive": {
+     "pass": 6,
+     "fail": 0,
+     "checked": 24000
+    },
+    "dualhorn": {
+     "pass": 6,
+     "fail": 0,
+     "checked": 24000
+    }
+   },
+   "syntactic": {
+    "bijunctive": {
+     "pass": 0,
+     "fail": 0,
+     "rule": "every clause of width <= 2"
+    },
+    "dualhorn": {
+     "pass": 0,
+     "fail": 0,
+     "rule": "at most one NEGATIVE literal per clause"
+    }
+   },
+   "CONFORMS": true,
+   "failing_flags": [],
+   "example": null
+  },
+  {
+   "row": "xor-sat",
+   "template_flags": [
+    "affine"
+   ],
+   "semantic": {
+    "affine": {
+     "pass": 5,
+     "fail": 0,
+     "checked": 2800
+    }
+   },
+   "syntactic": null,
+   "CONFORMS": true,
+   "failing_flags": [],
+   "example": null
+  }
+ ]
+}

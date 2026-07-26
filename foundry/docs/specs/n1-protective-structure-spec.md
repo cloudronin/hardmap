@@ -1,6 +1,8 @@
 # N1 — the protective-structure seal, re-posed
 
-**Status: DRAFT AWAITING SEAL. Design ruled 2026-07-26; prereg number reserved `prereg_v20`, minted at seal.**
+**Status: SEALED as `prereg_v20`, 2026-07-26, after the conformance sweep and the population recount.**
+**Gate satisfied:** generator-conformance sweep run across the fleet — 9 templated rows, 1 drifted
+(`horn-sat`), fixed and regression-guarded; every other generator conforms on semantics and syntax.
 **Supersedes:** the queue note's N1 as written, which was ruled not losable.
 **Inherits:** Terrain (`prereg_v19`, CONTROL-MISMATCH@1.5) · N2 (qualified CP control) · N4 (property schema)
 
@@ -37,13 +39,15 @@ agreement, mean |difference| 0.0228.
 
 | | |
 |---|---:|
-| disclosed tier-0 mean, at the primary unit | **−0.2053** |
-| its 95 % CI | [−0.2416, −0.1690] |
-| the primary FAILS if fair-null absorption reaches | **+0.1690** |
+| disclosed tier-0 mean, at the primary unit | **−0.1975** |
+| its 95 % CI | [−0.2346, −0.1604] |
+| the primary FAILS if fair-null absorption reaches | **+0.1604** |
 | absorption measured by Terrain (sparse, positive-excess readings) | **+0.1297** |
 | absorption measured by N2 (dense, positive-excess readings) | **+0.1586** |
 
-**The larger of the two measured absorptions is within 0.011 of flipping this bet.** The seal is not a
+**The larger of the two measured absorptions is within 0.0018 of flipping this bet** — and it moved
+*closer* when the drifted rows were removed, because the drift exclusion took readings whose excess was
+more negative than the population mean. The seal is not a
 formality; it sits on a knife edge, and which side it lands on turns on whether absorption behaves the same
 on negative-excess readings as on the positive-excess ones where it was measured. That is the question.
 
@@ -68,17 +72,23 @@ stratification stands — on the corrected warrant.
 
 | | n |
 |---|---:|
-| eligible: unforced, unsaturated, admissible, binary | 305 |
-| − v2 readings with no per-reading seed (`INSUFFICIENT-replay`) | −56 |
-| **scored population** | **249** |
-| — sparse, tier-1.5 route | 143 |
-| — dense, CP route | 106 |
+| eligible: unforced, unsaturated, admissible, binary | 309 |
+| − `EXCLUDED-drift` (horn-sat: object drift at the generator level, methods 40) | −19 |
+| − v2 readings with no per-reading seed (`INSUFFICIENT-replay`) | −53 |
+| **scored population** | **237** |
+| — sparse, tier-1.5 route | 134 |
+| — dense, CP route | 103 |
 
-**N2's qualification is load-bearing.** Without it the dense 106 are unreachable and the population is 143.
+The eligible count *rose* from 305 to 309 before falling: the forced-closed check corrected five horn-sat
+readings from `theorem_forced = True` to `false`, admitting them — and the drift exclusion then removed
+them along with the rest of the row. **A correction that admitted readings and an exclusion that removed
+them, in that order, and both are recorded rather than netted.**
+
+**N2's qualification is load-bearing.** Without it the dense 103 are unreachable and the population is 134.
 This is the first study whose scope depends on an instrument qualified in a previous one, and it is stated
 rather than absorbed.
 
-Composition: `feasible` 145 · `solutions` 76 · `optimal` 28 · four families · all four flavours.
+Composition: `feasible` 145 · `solutions` 64 · `optimal` 28 · four families · all four flavours.
 
 ## 4. Power, pre-declared
 
@@ -86,9 +96,9 @@ From the **disclosed tier-0 spread**, never the sealed fair-null statistic.
 
 | unit | n | tier-0 SD | MDE (α .05, power .80) |
 |---|---:|---:|---:|
-| reading | 249 | 0.2634 | +0.0471 |
-| **(row, region, step)** — primary | **86** | **0.1718** | **+0.0531** |
-| row-clustered — robustness | 16 | 0.1157 | +0.0918 |
+| reading | 237 | 0.2624 | +0.0481 |
+| **(row, region, step)** — primary | **82** | **0.1714** | **+0.0543** |
+| row-clustered — robustness | 15 | 0.1123 | +0.0929 |
 
 **INSUFFICIENT is not evidence of absence.**
 
@@ -117,8 +127,8 @@ out to be one control defect.
 
 ## 7. Box, stated before building
 
-**3–6 h compute.** Terrain took 75 min for 27 readings across 16 ramp steps; N1 covers 249 readings across
-**72** steps. Naive scaling gives 5.6 h. CP is cheaper than a frozen 30-sweep chain, but tier-1 rejection
+**3–6 h compute.** Terrain took 75 min for 27 readings across 16 ramp steps; N1 covers 237 readings across
+**68** steps. Naive scaling gives 5.3 h. CP is cheaper than a frozen 30-sweep chain, but tier-1 rejection
 sampling on the 20 readings with r > 3000 (`knapsack`, `set-cover`) was Terrain's other bottleneck and is
 unchanged. **This is the largest compute item the program has run and it is stated before sealing, not
 discovered during.**
