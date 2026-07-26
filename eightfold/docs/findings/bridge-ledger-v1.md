@@ -89,7 +89,10 @@ it falls back to `open` rather than borrowing an unverified warrant. This is the
 
 ### 9.1 Headline — the gate paid for itself
 
-**15 cells examined. 3 pinned clean (20%). 9 pinned only with correction. 3 unpinnable.**
+**15 cells examined. 3 pinned clean (20%). 10 pinned only with correction. 2 unpinnable.**
+*(Erratum, 2026-07-25: this headline first read "9 corrected / 3 unpinnable" — the pre-addendum count. It
+was not updated when §1.counting resolved in §9.5. Corrected in place with its date; the §9.1 table row and
+§9.5's revised tally were already right. Caught at Mosaic v3's grounding pass, which anchors to this file.)*
 The ledger's header promised "memory-cited nothing." The pass found the opposite in nine cells, including
 **two wrong-paper attributions, one claim that a cited-adjacent theorem literally refutes, one tautology
 presented as a theorem, and one confirmed duplicate**. No cell was corrected by weakening it to taste —

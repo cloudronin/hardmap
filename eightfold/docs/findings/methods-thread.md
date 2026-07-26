@@ -592,3 +592,42 @@ before: **candidate anatomy features occupy a codability spectrum, and "definiti
 nothing about where a feature sits on it.** The spec's confident typing was wrong by exactly the
 overconfidence an instrument record exists to expose — which is why the record now ships attached to the
 column rather than asserted in a schema.
+
+---
+
+## Instance 21 — 2026-07-25 — a reviewer DESIGN defect: the theorem-forced-credit trap at design scale
+
+**Attribution first, at the owner's direction.** Mosaic v3 rev-3's P4 — the spec's *flagship* estimator,
+declared primary by owner ruling — was **circular by construction**, and it was designed that way without
+the defect being visible to its author.
+
+**What the defect was.** On the Boolean universe the charges are *computed from* the Post's-lattice flags by
+the dichotomy oracles. So "predict the joint charge profile from coordinates including `poly_fingerprint`"
+asked a model to recover a function **from its own inputs**. Measured at grounding: **46 distinct
+flag-vectors over 4072 classes, zero mapping to more than one profile — a 100% lookup ceiling**, with
+**93.87% exact-profile reachable from the 90 arity-≤3 rows alone**. The spec measured a theorem.
+
+**Three things make it worth its own entry.**
+
+1. **The spec's own netting rule zeroed its own headline.** §0.4 read *"theorem-forced coordinates earn
+   calibration credit only; headline accuracy is net-of-forced."* Applied honestly to the real population,
+   *every* point of P4's accuracy is theorem-forced, so netting leaves nothing. **The discipline caught its
+   author** — which is the strongest evidence a rule is doing work rather than decorating a document.
+
+2. **It is the theorem-forced-credit trap one level up — the same error at three scales.** Defect #15 and
+   the Cai–Chen audit net forced credit *inside a statistic*. Grid Flag 1 nets it *inside an instrument's
+   type signature* (the param oracle takes no objective argument). This nets it *inside a study design*.
+   The lesson generalizes: **ask what computes the outcome before choosing the features**, because a feature
+   set that includes the outcome's own determinants is not a weak design, it is a tautology with error bars.
+
+3. **Third design-level catch, and the strongest.** After degenerate pairs (instance 16) and manufactured
+   expansion (Ledger §5), this is the third proposed measurement killed before sealing — and the first to
+   have been the *flagship*. Cost to catch: three read-only audits. Cost had it sealed: a scored primary bet
+   whose accuracy was a lookup, published against a null it was guaranteed to beat.
+
+**The finding underneath is larger than the defect.** The reason P1 was a tautology and P4 a lookup is one
+fact: **on the Boolean universe the dichotomy theorems ARE the bridge, proven cell by cell.** That universe
+cannot test the bridge hypothesis because there it is not a hypothesis. The empirical question therefore
+lives entirely on the natural side, where charges are *cited facts about the literature* rather than
+computed functions of structure — which inverts the rev-3 design, promoting its banked sideshow to the main
+event. **That inversion is a discovery about the question, not a concession.**
