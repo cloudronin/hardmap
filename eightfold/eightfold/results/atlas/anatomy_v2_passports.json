@@ -1,0 +1,105 @@
+{
+ "schema": "anatomy-v2-passports/v1",
+ "prereg": "prereg_v15",
+ "note": "v2 columns ONLY. v1's passports are untouched and still authoritative for the eleven v1 columns.",
+ "columns": {
+  "presentation": {
+   "column": "presentation",
+   "shipped": true,
+   "universe": "natural",
+   "route": "cited",
+   "invariance": "encoding-relative",
+   "property_of": "property_of: the CHOSEN standard relational form",
+   "invariance_reason": "The column's declared object IS the choice of presentation, so encoding-relativity is not a defect here -- it is the column's definition. Exactly the reading `encoding_type` already carries.",
+   "bridge_citation": "the standard relational form, cited per row (R20)",
+   "variance": {
+    "kind": "categorical",
+    "n_cells": 28,
+    "n_real": 28,
+    "n_levels": 28,
+    "marginal": {
+     "__suppressed__": "28 levels, all count<= 1"
+    },
+    "modal_share": 0.0357,
+    "thin_cells": 28,
+    "starved": true,
+    "starved_note": "OVER-DISPERSED \u2014 28 levels over 28 rows and NOT ONE clears the Cochran floor of 5. This is a row identifier, not a feature; descriptive-only."
+   },
+   "readability": null,
+   "admissible_collapse": null,
+   "bet_history": {
+    "sealed_bets": [],
+    "outcomes": "UNSPENT \u2014 no bet has been sealed on any v2 column. Terroir-C, the test they were built for, is INSUFFICIENT-as-sealed (prereg_v15 M0b) and this build does not reopen it.",
+    "exposure": "NONE"
+   },
+   "admissible_for_a_sealed_bet": false,
+   "admissibility_reasons": [
+    "presentation: STARVED \u2014 OVER-DISPERSED \u2014 28 levels over 28 rows and NOT ONE clears the Cochran floor of 5. This is a row identifier, not a feature; descriptive-only."
+   ]
+  },
+  "poly_fingerprint_natural": {
+   "column": "poly_fingerprint_natural",
+   "shipped": true,
+   "universe": "natural",
+   "route": "derived:from-oracle",
+   "invariance": "parameter-relative",
+   "property_of": "property_of: the constraint language AT THE PINNED PRESENTATION",
+   "invariance_reason": "Pol-Inv makes polymorphisms an invariant OF A LANGUAGE (Geiger 1968; BKKR 1969). On the Boolean universe the relation IS the object, so `poly_fingerprint` is `invariant` outright. On a natural row the language exists only once a human pins a presentation, and two standard presentations that are not pp-interdefinable give different fingerprints with both pins correct. Invariant GIVEN the pin; parameter-relative without it.",
+   "bridge_citation": "Pol-Inv at the pinned presentation (Geiger; BKKR)",
+   "variance": {
+    "kind": "record-valued",
+    "n_cells": 28,
+    "n_real": 28,
+    "starved": null,
+    "note": "a dict is not a feature \u2014 admissible only through a NAMED PROJECTION whose own marginals clear the floor (the rule that moved v1's poly_fingerprint)"
+   },
+   "readability": null,
+   "admissible_collapse": null,
+   "bet_history": {
+    "sealed_bets": [],
+    "outcomes": "UNSPENT \u2014 no bet has been sealed on any v2 column. Terroir-C, the test they were built for, is INSUFFICIENT-as-sealed (prereg_v15 M0b) and this build does not reopen it.",
+    "exposure": "NONE"
+   },
+   "admissible_for_a_sealed_bet": false,
+   "admissibility_reasons": [
+    "poly_fingerprint_natural: RECORD-VALUED \u2014 a record cannot be contrasted on; admissible only via a named projection with its own unstarved marginals, and none is declared",
+    "poly_fingerprint_natural: variance NOT CENSUSED (record-valued) \u2014 an untested column cannot be sealed on; it becomes admissible when built and censused"
+   ]
+  },
+  "engine_type_natural": {
+   "column": "engine_type_natural",
+   "shipped": true,
+   "universe": "natural",
+   "route": "derived:from-oracle",
+   "invariance": "parameter-relative",
+   "property_of": "property_of: inherits from poly_fingerprint_natural",
+   "invariance_reason": "Derived entirely from the fingerprint, so it inherits that column's relativity. The |D|=2 collapse few-subpowers <=> Maltsev <=> affine is NOT applied above |D|=2.",
+   "bridge_citation": "Barto-Kozik / IMMVW at the pinned presentation -- ledger \u00a79.2b corrected form",
+   "variance": {
+    "kind": "categorical",
+    "n_cells": 28,
+    "n_real": 28,
+    "n_levels": 4,
+    "marginal": {
+     "neither": 11,
+     "bounded-width": 11,
+     "both": 4,
+     "few-subpowers": 2
+    },
+    "modal_share": 0.3929,
+    "thin_cells": 2,
+    "starved": false,
+    "starved_note": "ok \u2014 modal 39%, 4 levels; 2 cell(s) below the Cochran floor of 5"
+   },
+   "readability": null,
+   "admissible_collapse": null,
+   "bet_history": {
+    "sealed_bets": [],
+    "outcomes": "UNSPENT \u2014 no bet has been sealed on any v2 column. Terroir-C, the test they were built for, is INSUFFICIENT-as-sealed (prereg_v15 M0b) and this build does not reopen it.",
+    "exposure": "NONE"
+   },
+   "admissible_for_a_sealed_bet": true,
+   "admissibility_reasons": []
+  }
+ }
+}

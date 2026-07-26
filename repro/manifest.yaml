@@ -308,3 +308,45 @@ claims:
       a2_secondary_lift: {abs: 0.001}
       a2_secondary_n: {abs: 0}
       n_starved_under_imputation: {abs: 0}
+
+  - id: marrow.census.presentation_poor
+    description: "Marrow I0: 34 of 345 natural rows carry a citable standard presentation over a FIXED finite bounded-arity template (band 34/41/45). Kill 1 fires — the natural atlas is presentation-poor at closure grade."
+    tier: fast
+    fast: "hardmap.claims.terroir_claims:marrow_census"
+    artifact: eightfold/eightfold/results/atlas/marrow-i0-census.json
+    expected: {n_rows: 345, principled: 34, as_censused: 41, kill_1: "FIRES", direct_csp: 23, vcsp_shaped: 18}
+    tolerance:
+      n_rows: {abs: 0}
+      principled: {abs: 0}
+      as_censused: {abs: 0}
+      kill_1: exact
+      direct_csp: {abs: 0}
+      vcsp_shaped: {abs: 0}
+
+  - id: marrow.build.v2_without_moving_v1
+    description: "Marrow M1-M4: M1's closer look corrects 34 -> 28; all 7 Kill-2 anchors green before derivation; Anatomy v2 frozen with anatomy_v1.jsonl still at 8ff11f8a; one v2 column admissible for a sealed bet."
+    tier: fast
+    fast: "hardmap.claims.terroir_claims:marrow_build"
+    artifact: eightfold/eightfold/results/atlas/anatomy_v2_freeze.json
+    expected: {pinned: 28, census_principled: 34, anchors_pass: true, n_anchors: 7, v1_sha_unmoved: "8ff11f8a33bbdce7", admissible_v2_columns: ["engine_type_natural"]}
+    tolerance:
+      pinned: {abs: 0}
+      census_principled: {abs: 0}
+      anchors_pass: exact
+      n_anchors: {abs: 0}
+      v1_sha_unmoved: exact
+      admissible_v2_columns: exact
+
+  - id: marrow.audit.computed_vs_cited
+    description: "The presentation audit, posable on 15 of 28 rows (the oracle must match the objective; Min-Ones/Max-Ones decision has no pinned oracle). 12 agree / 3 disagree, of which exactly one is a genuine errata candidate."
+    tier: fast
+    fast: "hardmap.claims.terroir_claims:marrow_audit"
+    artifact: eightfold/eightfold/results/atlas/marrow-presentation-audit.json
+    expected: {pinned: 28, posable: 15, not_posable: 13, agree: 12, disagree: 3, errata_candidates: 1}
+    tolerance:
+      pinned: {abs: 0}
+      posable: {abs: 0}
+      not_posable: {abs: 0}
+      agree: {abs: 0}
+      disagree: {abs: 0}
+      errata_candidates: {abs: 0}

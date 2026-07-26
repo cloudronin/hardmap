@@ -51,3 +51,36 @@ def ablation_scoring() -> dict:
                                   ["within_coverage_lift"]),
             "a2_secondary_n": r["A2_secondary_coverage_stratified"]["pooled_admissible_only"]["n"],
             "n_starved_under_imputation": len(r["A2_indicator_free"]["starved_under_imputation"])}
+
+
+# ── Marrow v1 ─────────────────────────────────────────────────────────────────────────────────────────
+
+def marrow_census() -> dict:
+    """I0: the natural atlas is presentation-poor at closure grade. Kill 1 fires on the principled read."""
+    d = _load("marrow-i0-census.json")
+    return {"n_rows": d["n_rows"],
+            "principled": d["readings"]["PRINCIPLED — fixed template required, omissions corrected"]["n"],
+            "as_censused": d["readings"]["AS-CENSUSED — CSP-shaped, template-fixedness not applied"]["n"],
+            "kill_1": d["kill_1"]["verdict"],
+            "direct_csp": d["by_stratum"]["direct-csp"],
+            "vcsp_shaped": d["by_stratum"]["vcsp-shaped"]}
+
+
+def marrow_build() -> dict:
+    """M1 corrected the census downward; M2's anchors gated; M4 froze v2 without moving v1."""
+    p = _load("marrow-presentations.json")
+    d = _load("marrow-derived.json")
+    f = _load("anatomy_v2_freeze.json")
+    return {"pinned": p["n_pinned"], "census_principled": p["census_principled_count"],
+            "anchors_pass": d["kill_2_anchors"]["all_pass"], "n_anchors": d["kill_2_anchors"]["n"],
+            "v1_sha_unmoved": f["version_class"]["v1_untouched"]["sha256_16"],
+            "admissible_v2_columns": f["admissible_for_a_sealed_bet"]}
+
+
+def marrow_audit() -> dict:
+    """The presentation audit: posable only where the oracle matches the objective."""
+    d = _load("marrow-presentation-audit.json")
+    return {"pinned": d["scope"]["pinned_rows"], "posable": d["scope"]["posable"],
+            "not_posable": d["scope"]["not_posable"],
+            "agree": d["result"]["agree"], "disagree": d["result"]["disagree"],
+            "errata_candidates": len(d["the_one_candidate"])}

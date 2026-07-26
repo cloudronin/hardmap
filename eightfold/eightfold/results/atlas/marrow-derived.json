@@ -1,0 +1,78 @@
+{
+ "schema": "marrow-derived/v1",
+ "prereg": "prereg_v15",
+ "milestone": "M2",
+ "kill_2_anchors": {
+  "all_pass": true,
+  "n": 7,
+  "detail": [
+   {
+    "domain": 2,
+    "anchor": "3-SAT -> no tractable polymorphism",
+    "pass": true
+   },
+   {
+    "domain": 2,
+    "anchor": "Horn-SAT -> semilattice (MIN)",
+    "pass": true
+   },
+   {
+    "domain": 2,
+    "anchor": "2-SAT -> majority (bijunctive)",
+    "pass": true
+   },
+   {
+    "domain": 2,
+    "anchor": "XOR-SAT -> affine (minority)",
+    "pass": true
+   },
+   {
+    "domain": 3,
+    "anchor": "CSP(K_3) 3-colouring -> NO tractable polymorphism",
+    "pass": true,
+    "profile": [],
+    "bounded_width": false
+   },
+   {
+    "domain": 3,
+    "anchor": "linear equations over Z_3 -> tractable but UNBOUNDED width (Maltsev only)",
+    "pass": true,
+    "profile": [
+     "affine-maltsev-Z3"
+    ],
+    "bounded_width": false
+   },
+   {
+    "domain": 3,
+    "anchor": "the order relation on {0,1,2} -> tractable AND bounded width (semilattice)",
+    "pass": true,
+    "profile": [
+     "max-semilattice",
+     "median-majority",
+     "min-semilattice"
+    ],
+    "bounded_width": true
+   }
+  ],
+  "rule": "anchors run FIRST and govern; a miss sends that domain to `open`"
+ },
+ "n_rows": 28,
+ "by_domain": {
+  "3": 4,
+  "2": 24
+ },
+ "engine_type_marginal": {
+  "neither": 11,
+  "both": 4,
+  "bounded-width": 11,
+  "few-subpowers": 2
+ },
+ "boolean_only_flags_na_on_non_boolean": [
+  "width2affine",
+  "strongly0valid",
+  "IHSB",
+  "general_wsep"
+ ],
+ "derive_engine_type_not_reused": "build_anatomy.derive_engine_type was NOT called. Its `fs = bool(flags['affine'])` encodes the |D|=2 collapse few-subpowers <=> Maltsev <=> affine, which breaks at k>2. The D3 path uses domain3's own operations.",
+ "passport_note": "PARAMETER-RELATIVE: an invariant of the constraint language AT THE PINNED PRESENTATION. Boolean poly_fingerprint earns `invariant` because there the relation IS the object; here a human pinned the presentation."
+}

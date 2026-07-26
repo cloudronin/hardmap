@@ -1,0 +1,267 @@
+{
+ "schema": "marrow-presentation-audit/v1",
+ "milestone": "Marrow (diagnostic)",
+ "status": "DIAGNOSTIC, NOT SCORED. The scored instrument is Quarry v3 Z5 under prereg_v16, which is not sealed. Run here to demonstrate the consumer works.",
+ "scope": {
+  "pinned_rows": 28,
+  "posable": 15,
+  "not_posable": 13,
+  "why_not_posable": "the oracle must match the objective. Schaefer answers 'is CSP(Gamma) satisfiable in P'; for Min-Ones/Max-Ones that is the wrong question, and this repo pins no decision oracle for them."
+ },
+ "auditor_error_caught_and_recorded": "the first run derived decision from satisfiability for ALL rows and reported 14/28 disagreements. Thirteen of those were the auditor's mis-specification, not the atlas's error. Caught because a disagreement PREDICTION had been written down first (M1: 'disagreements should concentrate on instance-restricted rows') and the observed pattern did not match it \u2014 half the disagreements were on unrestricted rows, all of them VCSP-shaped.",
+ "result": {
+  "agree": 12,
+  "disagree": 3,
+  "n": 15
+ },
+ "disagreements": [
+  {
+   "problem_id": "3-coloring-extension",
+   "stratum": "direct-csp",
+   "computed_decision": "NPC",
+   "cited_decision": "PH-complete",
+   "agree": false,
+   "instance_restriction": null,
+   "verdict": "DISAGREE",
+   "reading": "GENUINE ERRATA CANDIDATE \u2014 computed and cited differ with no encoding or restriction to explain the gap. Investigate to verdict per the F-2 sweep's logic, with the theorem-side derivation as second witness."
+  },
+  {
+   "problem_id": "succinct-3-coloring",
+   "stratum": "direct-csp",
+   "computed_decision": "NPC",
+   "cited_decision": "beyond-PSPACE",
+   "agree": false,
+   "instance_restriction": "succinct (circuit) input encoding",
+   "verdict": "DISAGREE",
+   "reading": "PREDICTED IN ADVANCE at M1 as a disagreement BY CONSTRUCTION: the template is K_3 exactly as plain 3-colouring, so closure derives NPC while the cited charge reflects the succinct input encoding the template cannot see. A scope limit of closure anatomy, not an errata candidate."
+  },
+  {
+   "problem_id": "tseitin",
+   "stratum": "direct-csp",
+   "computed_decision": "P",
+   "cited_decision": "n.a.",
+   "agree": false,
+   "instance_restriction": "expander instances",
+   "verdict": "DISAGREE",
+   "reading": "NOT A DISAGREEMENT: the cited decision cell is `n.a.`, so there is no value to disagree with. Comparing against a non-value."
+  }
+ ],
+ "the_one_candidate": [
+  "3-coloring-extension"
+ ],
+ "rows": [
+  {
+   "problem_id": "3-coloring-extension",
+   "stratum": "direct-csp",
+   "computed_decision": "NPC",
+   "cited_decision": "PH-complete",
+   "agree": false,
+   "instance_restriction": null,
+   "verdict": "DISAGREE"
+  },
+  {
+   "problem_id": "bipartiteness",
+   "stratum": "direct-csp",
+   "computed_decision": "P",
+   "cited_decision": "P",
+   "agree": true,
+   "instance_restriction": null,
+   "verdict": "AGREE"
+  },
+  {
+   "problem_id": "clique",
+   "stratum": "vcsp-shaped",
+   "verdict": "NOT-POSABLE",
+   "reason": "Min-Ones/Max-Ones decision has no pinned oracle in this repo; KSTW Thm 2.12/2.14 classify APPROXIMABILITY. `open` per not-pinned-is-not-cited."
+  },
+  {
+   "problem_id": "d-hitting-set",
+   "stratum": "vcsp-shaped",
+   "verdict": "NOT-POSABLE",
+   "reason": "Min-Ones/Max-Ones decision has no pinned oracle in this repo; KSTW Thm 2.12/2.14 classify APPROXIMABILITY. `open` per not-pinned-is-not-cited."
+  },
+  {
+   "problem_id": "geometric-independent-set",
+   "stratum": "vcsp-shaped",
+   "verdict": "NOT-POSABLE",
+   "reason": "Min-Ones/Max-Ones decision has no pinned oracle in this repo; KSTW Thm 2.12/2.14 classify APPROXIMABILITY. `open` per not-pinned-is-not-cited."
+  },
+  {
+   "problem_id": "graph-3-coloring",
+   "stratum": "direct-csp",
+   "computed_decision": "NPC",
+   "cited_decision": "NPC",
+   "agree": true,
+   "instance_restriction": null,
+   "verdict": "AGREE"
+  },
+  {
+   "problem_id": "horn-sat",
+   "stratum": "direct-csp",
+   "computed_decision": "P",
+   "cited_decision": "P",
+   "agree": true,
+   "instance_restriction": null,
+   "verdict": "AGREE"
+  },
+  {
+   "problem_id": "independent-set",
+   "stratum": "vcsp-shaped",
+   "verdict": "NOT-POSABLE",
+   "reason": "Min-Ones/Max-Ones decision has no pinned oracle in this repo; KSTW Thm 2.12/2.14 classify APPROXIMABILITY. `open` per not-pinned-is-not-cited."
+  },
+  {
+   "problem_id": "max-2lin",
+   "stratum": "vcsp-shaped",
+   "verdict": "NOT-POSABLE",
+   "reason": "Min-Ones/Max-Ones decision has no pinned oracle in this repo; KSTW Thm 2.12/2.14 classify APPROXIMABILITY. `open` per not-pinned-is-not-cited."
+  },
+  {
+   "problem_id": "max-2sat",
+   "stratum": "vcsp-shaped",
+   "verdict": "NOT-POSABLE",
+   "reason": "Min-Ones/Max-Ones decision has no pinned oracle in this repo; KSTW Thm 2.12/2.14 classify APPROXIMABILITY. `open` per not-pinned-is-not-cited."
+  },
+  {
+   "problem_id": "max-cut",
+   "stratum": "vcsp-shaped",
+   "verdict": "NOT-POSABLE",
+   "reason": "Min-Ones/Max-Ones decision has no pinned oracle in this repo; KSTW Thm 2.12/2.14 classify APPROXIMABILITY. `open` per not-pinned-is-not-cited."
+  },
+  {
+   "problem_id": "max-directed-cut",
+   "stratum": "vcsp-shaped",
+   "verdict": "NOT-POSABLE",
+   "reason": "Min-Ones/Max-Ones decision has no pinned oracle in this repo; KSTW Thm 2.12/2.14 classify APPROXIMABILITY. `open` per not-pinned-is-not-cited."
+  },
+  {
+   "problem_id": "max-e3-sat",
+   "stratum": "vcsp-shaped",
+   "verdict": "NOT-POSABLE",
+   "reason": "Min-Ones/Max-Ones decision has no pinned oracle in this repo; KSTW Thm 2.12/2.14 classify APPROXIMABILITY. `open` per not-pinned-is-not-cited."
+  },
+  {
+   "problem_id": "min-sat",
+   "stratum": "vcsp-shaped",
+   "verdict": "NOT-POSABLE",
+   "reason": "Min-Ones/Max-Ones decision has no pinned oracle in this repo; KSTW Thm 2.12/2.14 classify APPROXIMABILITY. `open` per not-pinned-is-not-cited."
+  },
+  {
+   "problem_id": "nae-sat",
+   "stratum": "direct-csp",
+   "computed_decision": "NPC",
+   "cited_decision": "NPC",
+   "agree": true,
+   "instance_restriction": null,
+   "verdict": "AGREE"
+  },
+  {
+   "problem_id": "one-in-three-sat",
+   "stratum": "direct-csp",
+   "computed_decision": "NPC",
+   "cited_decision": "NPC",
+   "agree": true,
+   "instance_restriction": null,
+   "verdict": "AGREE"
+  },
+  {
+   "problem_id": "planar-3-coloring",
+   "stratum": "direct-csp",
+   "computed_decision": "NPC",
+   "cited_decision": "NPC",
+   "agree": true,
+   "instance_restriction": "planar input graphs",
+   "verdict": "AGREE"
+  },
+  {
+   "problem_id": "planar-3sat",
+   "stratum": "direct-csp",
+   "computed_decision": "NPC",
+   "cited_decision": "NPC",
+   "agree": true,
+   "instance_restriction": "planar incidence graph",
+   "verdict": "AGREE"
+  },
+  {
+   "problem_id": "planar-independent-set",
+   "stratum": "vcsp-shaped",
+   "verdict": "NOT-POSABLE",
+   "reason": "Min-Ones/Max-Ones decision has no pinned oracle in this repo; KSTW Thm 2.12/2.14 classify APPROXIMABILITY. `open` per not-pinned-is-not-cited."
+  },
+  {
+   "problem_id": "planar-vertex-cover",
+   "stratum": "vcsp-shaped",
+   "verdict": "NOT-POSABLE",
+   "reason": "Min-Ones/Max-Ones decision has no pinned oracle in this repo; KSTW Thm 2.12/2.14 classify APPROXIMABILITY. `open` per not-pinned-is-not-cited."
+  },
+  {
+   "problem_id": "sat",
+   "stratum": "direct-csp",
+   "computed_decision": "NPC",
+   "cited_decision": "NPC",
+   "agree": true,
+   "instance_restriction": null,
+   "verdict": "AGREE"
+  },
+  {
+   "problem_id": "sat-2",
+   "stratum": "direct-csp",
+   "computed_decision": "P",
+   "cited_decision": "P",
+   "agree": true,
+   "instance_restriction": null,
+   "verdict": "AGREE"
+  },
+  {
+   "problem_id": "sat-3",
+   "stratum": "direct-csp",
+   "computed_decision": "NPC",
+   "cited_decision": "NPC",
+   "agree": true,
+   "instance_restriction": null,
+   "verdict": "AGREE"
+  },
+  {
+   "problem_id": "sharp-monotone-2sat",
+   "stratum": "direct-csp",
+   "computed_decision": "P",
+   "cited_decision": "P",
+   "agree": true,
+   "instance_restriction": null,
+   "verdict": "AGREE"
+  },
+  {
+   "problem_id": "succinct-3-coloring",
+   "stratum": "direct-csp",
+   "computed_decision": "NPC",
+   "cited_decision": "beyond-PSPACE",
+   "agree": false,
+   "instance_restriction": "succinct (circuit) input encoding",
+   "verdict": "DISAGREE"
+  },
+  {
+   "problem_id": "tseitin",
+   "stratum": "direct-csp",
+   "computed_decision": "P",
+   "cited_decision": "n.a.",
+   "agree": false,
+   "instance_restriction": "expander instances",
+   "verdict": "DISAGREE"
+  },
+  {
+   "problem_id": "vertex-cover",
+   "stratum": "vcsp-shaped",
+   "verdict": "NOT-POSABLE",
+   "reason": "Min-Ones/Max-Ones decision has no pinned oracle in this repo; KSTW Thm 2.12/2.14 classify APPROXIMABILITY. `open` per not-pinned-is-not-cited."
+  },
+  {
+   "problem_id": "xor-sat",
+   "stratum": "direct-csp",
+   "computed_decision": "P",
+   "cited_decision": "P",
+   "agree": true,
+   "instance_restriction": null,
+   "verdict": "AGREE"
+  }
+ ]
+}

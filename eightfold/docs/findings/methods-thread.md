@@ -923,3 +923,68 @@ Two bad options and one good one:
 > **A watched set that grows only as fast as someone actually adjudicates it is the honest kind.** The
 > gate's docstring now carries what it is *not* watching and why — because the place a reader looks to find
 > out what is checked is the same place that must tell them what isn't.
+
+---
+
+## Instance 29 — 2026-07-25 — a prediction that was half wrong, and the half that was wrong caught the auditor
+
+Marrow's presentation audit compares a decision value **computed from the pinned template** against the
+**cited** cell — the atlas's first check against computed ground truth rather than against other citations.
+Before deriving anything, M1 wrote a prediction down: *disagreements should concentrate on
+instance-restricted rows, because the template cannot see a restriction on inputs.*
+
+The first run reported **14 disagreements out of 28** — and the split was 7 restricted, 7 unrestricted. The
+prediction had called the restricted half and missed the other half entirely, which is what sent me back to
+look instead of forward to write.
+
+**The unrestricted seven were all VCSP-shaped, and the error was mine.** Deriving "decision" from the
+constraint language's SATISFIABILITY is the right question for a plain CSP and the wrong one for a
+value-optimisation problem: `CSP({OR2})` is trivially satisfiable — set every variable to 1 — while
+**`Min-Ones({OR2})` IS vertex cover.** Schaefer answers a question the row was not asking. Thirteen of the
+fourteen "disagreements" were the auditor's mis-specification, not the atlas's error.
+
+Re-posed with the oracle matched to the objective, the audit is **well-posed on 15 of 28 rows** and returns
+**12 agree / 3 disagree** — of which one is a scope limit predicted in advance, one compares against an
+`n.a.`, and exactly **one is a genuine errata candidate**.
+
+Three things make it worth an entry:
+
+1. **A wrong prediction did more work than a right one would have.** Had the prediction been silent, a 50%
+   disagreement rate would have read as a spectacular finding about the atlas's cited cells — the sort of
+   number that travels. Had it been fully right, it would have confirmed and moved on. It was the MISMATCH
+   between predicted and observed pattern that located a defect in the instrument.
+2. **The failure mode is the netting trap wearing a third hat.** The audit was measuring an oracle against
+   a question it does not answer — the same shape as scoring a lookup as a prediction (instance 21) or
+   scoring recruitment bookkeeping as sociology (instance 23). *Ask what the oracle actually classifies
+   before comparing its output to anything.*
+3. **The honest consequence shrinks the instrument.** The 13 VCSP rows are `open`: this repo pins no
+   decision oracle for Min-Ones/Max-Ones, and KSTW Thm 2.12/2.14 classify APPROXIMABILITY. Under
+   not-pinned-is-not-cited that is the end of it, and the audit ships covering 15 rows rather than
+   pretending to 28.
+
+---
+
+## Instance 30 — 2026-07-25 — the starvation gate was one-sided for eleven columns before anything noticed
+
+The census-before-seal rule (`Anatomy-SCHEMA` §3.3b) starves a column whose **modal value swamps the
+population** — `starved = modal_share > 0.90 or n_levels < 2`. It has governed every Anatomy column since
+S0.
+
+Marrow's `presentation` column walked straight through it: modal share **4%**, eleven levels' worth of
+headroom under the ceiling, `starved = False`, admissible for a sealed bet. It has **28 distinct values on
+28 rows** and not one cell clears the Cochran floor of 5.
+
+> **A column with as many levels as rows is a ROW IDENTIFIER, and carries exactly as little contrast as a
+> constant does. Both ends are starvation; only one end was being checked.**
+
+The gate was written against the failure that had actually occurred — `self_reducibility` at 342/345 modal,
+`objective_type` with a 2-row level — so it learned one direction. Nothing in v1 was dispersed enough to
+expose the other; the first genuinely high-cardinality column found it immediately. The fix is one
+condition, and it uses a floor the schema already carries: **if no level clears the Cochran floor, no
+contrast is posable.** `presentation` now ships correctly as descriptive-only.
+
+**The reusable form:** a gate built from the errors you have seen checks the directions you have seen. When
+a new column is the first of its KIND rather than the first of its topic, re-derive the gate's condition
+from the principle rather than trusting that it generalised. The principle here was never "modal share must
+be low" — it was always *"some cell must clear the Cochran floor,"* and only one of its two failures had
+ever been written down.

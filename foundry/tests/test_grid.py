@@ -266,3 +266,82 @@ def test_tidy_number_watch_set_is_declared_not_globbed_per_project():
     for required in ("terroir_v1_results.json", "terroir_v1_ablations.json",
                      "marrow-i0-census.json", "marrow-terroir-c-power.json"):
         assert required in watched, f"{required} is not watched by the numeric gates"
+
+
+# ── Marrow v1 M1–M4 (Anatomy v2) ──────────────────────────────────────────────────────────────────────
+
+def test_anatomy_v1_is_untouched_by_v2():
+    """THE PROOF OF NON-EDIT. v2 is a new sealed version, not an additive v1.1, so v1's bytes and v1's
+    registry must both be exactly what they were. v1's OWN tests passing unchanged is the other half of
+    this evidence and lives in eightfold/tests/test_anatomy.py."""
+    import hashlib, sys
+    sys.path.insert(0, "eightfold")
+    from eightfold import anatomy as AN
+    assert hashlib.sha256((ATLAS / "anatomy_v1.jsonl").read_bytes()).hexdigest()[:16] == "8ff11f8a33bbdce7"
+    assert len(AN.COLUMNS) == 11, "v2 leaked into v1's registry"
+    assert not (set(AN.V2_COLUMNS) & set(AN.COLUMNS)), "a v2 column shadows a v1 column"
+
+
+def test_v2_passports_are_not_invariant():
+    """The arity_class lesson applied BEFORE the failure. The Marrow spec expected `invariant` on all
+    shipped columns; a fingerprint computed from a HUMAN-PINNED presentation cannot earn it."""
+    import sys
+    sys.path.insert(0, "eightfold")
+    from eightfold import anatomy as AN
+    assert AN.V2_PASSPORT_INVARIANCE["presentation"][0] == AN.ENCODING_RELATIVE
+    for c in ("poly_fingerprint_natural", "engine_type_natural"):
+        assert AN.V2_PASSPORT_INVARIANCE[c][0] == AN.PARAMETER_RELATIVE
+        assert "PINNED" in AN.V2_PASSPORT_INVARIANCE[c][1].upper() or \
+               "inherits" in AN.V2_PASSPORT_INVARIANCE[c][1]
+
+
+def test_boolean_only_flags_are_na_on_non_boolean_rows():
+    """Boolean BY THEOREM — KSTW/Marx do not transfer to |D|>2. This boundary must not erode silently."""
+    import json, sys
+    sys.path.insert(0, "eightfold")
+    from eightfold import anatomy as AN
+    rows = [json.loads(l) for l in (ATLAS / "marrow-derived.jsonl").read_text().splitlines() if l.strip()]
+    nonbool = [r for r in rows if r.get("domain_size") not in (2, None)]
+    assert nonbool, "no non-Boolean rows — the guard would be vacuous"
+    for r in nonbool:
+        fp = r["poly_fingerprint_natural"]
+        for flag in AN.V2_BOOLEAN_ONLY_FLAGS:
+            assert fp.get(flag) == "n.a.", f"{r['problem_id']}: {flag} must be n.a. at |D|>2, got {fp.get(flag)}"
+
+
+def test_kill_2_anchors_gate_the_derivation():
+    """Kill 2: anchors run FIRST and govern. A miss sends that domain to `open`, never to an approximation.
+    Re-runs the script so the assertion is on live behaviour, not on a recorded claim."""
+    import json, subprocess, sys, os
+    d = json.loads((ATLAS / "marrow-derived.json").read_text())
+    assert d["kill_2_anchors"]["all_pass"] and d["kill_2_anchors"]["n"] >= 7
+    env = dict(os.environ, PYTHONPATH="eightfold:foundry:hardmap:proof-census:desert-map")
+    r = subprocess.run([sys.executable, "eightfold/dev/marrow_derive.py"], capture_output=True,
+                       cwd=str(ATLAS.parents[3]), env=env)
+    assert r.returncode == 0, f"derivation failed its own anchors:\n{r.stderr.decode()[-1500:]}"
+
+
+def test_starvation_gate_catches_over_dispersion_not_just_over_concentration():
+    """The gate was one-sided for eleven columns: it starved a column whose modal value SWAMPED the
+    population and said nothing about one with as many levels as rows. `presentation` has 28 distinct
+    values on 28 rows and must read STARVED."""
+    import json
+    p = json.loads((ATLAS / "anatomy_v2_passports.json").read_text())["columns"]
+    var = p["presentation"]["variance"]
+    assert var["starved"] is True, "an all-singleton column must starve"
+    assert "OVER-DISPERSED" in var["starved_note"]
+    assert p["presentation"]["admissible_for_a_sealed_bet"] is False
+    # and the gate must still catch the original direction
+    assert p["engine_type_natural"]["variance"]["starved"] is False
+
+
+def test_presentation_audit_is_posable_only_where_the_oracle_matches_the_objective():
+    """Schaefer answers 'is CSP(Gamma) satisfiable in P'. For Min-Ones/Max-Ones that is the wrong question
+    — CSP({OR2}) is trivially satisfiable while Min-Ones({OR2}) IS vertex cover. The vcsp rows must be
+    declared NOT-POSABLE rather than scored as disagreements."""
+    import json
+    d = json.loads((ATLAS / "marrow-presentation-audit.json").read_text())
+    assert d["scope"]["posable"] + d["scope"]["not_posable"] == d["scope"]["pinned_rows"]
+    npos = [r for r in d["rows"] if r["verdict"] == "NOT-POSABLE"]
+    assert npos and all(r["stratum"] == "vcsp-shaped" for r in npos)
+    assert d["result"]["agree"] + d["result"]["disagree"] == d["scope"]["posable"]

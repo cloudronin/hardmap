@@ -157,6 +157,31 @@ COVERAGE_CONDITIONING = {
 }
 
 
+# ── ANATOMY v2 — the Marrow closure columns (prereg_v15) ──────────────────────────────────────────────
+# A SEPARATE REGISTRY, NOT AN EXTENSION OF `COLUMNS`. Anatomy-SCHEMA §4 pre-authorises additive fills for
+# RESERVED NAMES ONLY, and none of these are reserved; §0.3.3 then governs -- "a changed rule is a new
+# sealed version, never an in-place edit." So v1's registry, passports, artifact and sha stay untouched,
+# and V1'S EXISTING TESTS PASSING UNCHANGED IS THE EVIDENCE that v2 is a new artifact rather than an edit.
+# Anything reading `COLUMNS` keeps seeing exactly the eleven v1 columns.
+#
+# The passports are NOT the `invariant` the Marrow spec expected, and the reason is the arity_class lesson
+# applied before the failure instead of after: Boolean `poly_fingerprint` earns `invariant` because on that
+# universe THE RELATION IS THE OBJECT -- there is no presentation to choose. On a natural row a human pins
+# the presentation, so the fingerprint is an invariant OF THAT PIN. That is what `parameter-relative`
+# ("meaningful only against a pinned parameter/ensemble") exists to say.
+V2_COLUMNS = {
+    "presentation": {
+        "universe": NATURAL, "route": PROV_CITED, "values": None,
+        "bridge": "the standard relational form, cited per row (R20)"},
+    "poly_fingerprint_natural": {
+        "universe": NATURAL, "route": PROV_ORACLE, "values": None,
+        "bridge": "Pol-Inv at the pinned presentation (Geiger; BKKR)"},
+    "engine_type_natural": {
+        "universe": NATURAL, "route": PROV_ORACLE,
+        "values": ("bounded-width", "few-subpowers", "both", "neither"),
+        "bridge": "Barto-Kozik / IMMVW at the pinned presentation -- ledger §9.2b corrected form"},
+}
+
 # ── ABSENCE MARKERS (prereg_v14, Terroir v1) ──────────────────────────────────────────────────────────
 # THE DEFECT THIS NAMES: a model reading these columns cannot tell EITHER KIND OF ABSENCE from a
 # substantive answer, because every one of them is a live input. `__missing__` is a one-hot column
@@ -257,6 +282,28 @@ PASSPORT_INVARIANCE = {
         "PROVISIONAL (v1.1). A dual_of / complement_of edge is a claim about two pinned presentations; "
         "the spec's own rule that each edge 'is a claim carrying a warrant' is this relativity restated."),
 }
+
+
+V2_PASSPORT_INVARIANCE = {
+    "presentation": (ENCODING_RELATIVE, "property_of: the CHOSEN standard relational form",
+        "The column's declared object IS the choice of presentation, so encoding-relativity is not a defect "
+        "here -- it is the column's definition. Exactly the reading `encoding_type` already carries."),
+    "poly_fingerprint_natural": (PARAMETER_RELATIVE,
+        "property_of: the constraint language AT THE PINNED PRESENTATION",
+        "Pol-Inv makes polymorphisms an invariant OF A LANGUAGE (Geiger 1968; BKKR 1969). On the Boolean "
+        "universe the relation IS the object, so `poly_fingerprint` is `invariant` outright. On a natural "
+        "row the language exists only once a human pins a presentation, and two standard presentations that "
+        "are not pp-interdefinable give different fingerprints with both pins correct. Invariant GIVEN the "
+        "pin; parameter-relative without it."),
+    "engine_type_natural": (PARAMETER_RELATIVE,
+        "property_of: inherits from poly_fingerprint_natural",
+        "Derived entirely from the fingerprint, so it inherits that column's relativity. The |D|=2 collapse "
+        "few-subpowers <=> Maltsev <=> affine is NOT applied above |D|=2."),
+}
+
+# Boolean BY THEOREM -- KSTW and Marx do not transfer to |D| > 2. On any non-Boolean row these ship `n.a.`
+# with a reason, never ported and never approximated (prereg_v15, Kill 2).
+V2_BOOLEAN_ONLY_FLAGS = ("width2affine", "strongly0valid", "IHSB", "general_wsep")
 
 # ── BET HISTORY: what each column has ALREADY been spent on (SCHEMA §9.6) ─────────────────────────────
 # This turns the passport table from a GATE into a LEDGER. A future prereg reads not only whether a column

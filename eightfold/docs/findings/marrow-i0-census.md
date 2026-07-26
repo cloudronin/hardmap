@@ -157,3 +157,93 @@ kind.
 
 **Frozen and untouched:** `anatomy_v1.jsonl` `8ff11f8a`, `atlas_v3.jsonl` `e62f3c28`,
 `grid_arm_b_predictions.json` `cc5bb389`. Marrow built no column and moved no byte of the sealed atlas.
+
+---
+
+## 7. Rulings (2026-07-25) and the build they authorised
+
+### Ruling 1 — the principled 34, and the question it answers
+
+**This is answer-believability, not taxonomy.** Where the template is input, `poly_fingerprint_natural` is
+not *hard to compute* — it is **undefined**, and a derived column carrying undefined values dressed as facts
+would be the `arity_class` failure at derivation grade. The clearing reading (41) was available and would
+have been wrong to take.
+
+Band recorded with the ruling: **34 principled / 41 as-censused / 45 permissive.** And the verdict is
+**per-corpus, not permanent** — the Zoo wave's tier-1 rows (QBF variants, succinct and counting SAT forms)
+are largely fixed-template by construction, so the presentable population grows through ordinary
+recruitment rather than through re-reading the rule.
+
+### Ruling 2 — the two-verdict stack
+
+> **Surface answered no, and closure cannot be asked: Terroir returned FAMILY-BORNE at surface grade, and
+> Marrow's census shows the natural atlas has no population on which to pose the closure question — so the
+> retrospective route to the mechanism question is closed at both grades, and the question now lives
+> exclusively in the prospective registry.**
+
+That is the measurement phase completing, not a defeat. The program's active posture is
+**registry-plus-writeup**.
+
+### Ruling 3 — M1–M4 built, scoped to the 34, for two consumers
+
+Terroir-C stays INSUFFICIENT-as-sealed; nothing in the build reopens it. If the Zoo wave later grows the
+fixed-template population past the floors, a Terroir-C revival is a **new seal on a new census**, not a
+resurrection.
+
+---
+
+## 8. What the build produced
+
+**M1 corrected the census downward, 34 → 28.** Writing the templates out as explicit tuple-sets made the
+bounded-arity test *checkable* rather than asserted, and six admitted rows failed the same test that
+excluded `set-cover`: `exact-cover-x3c`, `three-dimensional-matching`, `3-dimensional-assignment` and
+`k-set-packing` all carry a per-element constraint over unboundedly many sets; `set-splitting` has one NAE
+constraint per set and sets are unbounded; `minimum-sum-coloring` draws colours from an unbounded palette.
+
+**Three of the four "self-caught omissions" the census *added* are in that list.** Only `d-hitting-set` was
+correctly added. The census's additions were less reliable than its exclusions — worth knowing about the
+next sizing pass. No verdict moves: Kill 1 had already fired at 34 against a floor of 40, and fires harder
+at 28.
+
+**M2 — all 7 Kill-2 anchors green** before a single natural row was derived (3-SAT → no tractable
+polymorphism; Horn → semilattice; 2-SAT → majority; XOR → affine; CSP(K₃) → none; lin-eq-Z₃ → tractable but
+unbounded width; order-on-3 → bounded width). `engine_type_natural` marginal: **neither 11 · bounded-width
+11 · both 4 · few-subpowers 2.**
+
+**M4 — Anatomy v2 frozen at `f802f2e5`, and `anatomy_v1.jsonl` still reads `8ff11f8a`.** v2 is a separate
+registry (`V2_COLUMNS`), a separate passports file and a separate freeze record; v1's `COLUMNS` and
+passports are untouched, and **v1's own tests passing unchanged is the evidence of non-edit.**
+
+| column | passport | variance | admissible |
+|---|---|---|---|
+| `presentation` | encoding-relative | **STARVED — over-dispersed** | no (descriptive-only) |
+| `poly_fingerprint_natural` | parameter-relative | record-valued | no (needs a named projection) |
+| `engine_type_natural` | parameter-relative | categorical, modal 39% | **yes** |
+
+**The starvation gate was one-sided, and `presentation` is what exposed it.** The inherited rule starves a
+column whose modal value swamps the population. It said nothing about the opposite failure: `presentation`
+has **28 distinct values on 28 rows**, modal share 4%, and not one cell clears the Cochran floor. A column
+with as many levels as rows is a *row identifier* and carries exactly as little contrast as a constant does.
+Both ends are starvation; only one was being checked. Fixed, and `presentation` correctly ships
+descriptive-only.
+
+## 9. The presentation audit — the second consumer, demonstrated
+
+Run as a **diagnostic**; the scored instrument is Quarry v3 Z5 under `prereg_v16`.
+
+**12 agree / 3 disagree, on the 15 rows where it is posable.** The three:
+
+- `succinct-3-coloring` — **predicted at M1 before the derivation ran** as a disagreement *by
+  construction*: the template is K₃ exactly as plain 3-colouring, so closure derives NPC while the cited
+  charge reflects an input encoding the template cannot see. A scope limit, not an errata candidate.
+- `tseitin` — the cited decision cell is `n.a.`, so there is no value to disagree with.
+- **`3-coloring-extension` — the one genuine errata candidate**, computed NPC against a cited PH-complete
+  with no restriction or encoding to explain the gap. For investigation to verdict.
+
+**And the audit caught its own auditor first.** The initial run derived decision from satisfiability for
+*all* rows and reported 14/28 disagreements. Thirteen were mis-specification: `CSP({OR2})` is trivially
+satisfiable while `Min-Ones({OR2})` **is** vertex cover, so Schaefer answers the wrong question on every
+VCSP row. It was caught because a disagreement *prediction* had been written down first — M1 said
+disagreements should concentrate on instance-restricted rows, and the observed pattern didn't match, which
+sent me back to the oracle instead of to the atlas. The 13 VCSP rows are `open`: this repo pins no decision
+oracle for Min-Ones/Max-Ones, and KSTW Thm 2.12/2.14 classify approximability.

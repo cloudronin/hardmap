@@ -1,0 +1,30 @@
+{
+ "schema": "anatomy-v2-freeze/v1",
+ "artifact": "anatomy_v2.jsonl",
+ "sha256_16": "f802f2e50c73f2fe",
+ "frozen": "2026-07-25",
+ "prereg": "prereg_v15",
+ "n_rows": 4417,
+ "n_rows_carrying_v2_columns": 28,
+ "version_class": {
+  "ruling": "NEW SEALED VERSION, not an additive v1.1",
+  "why": "Anatomy-SCHEMA \u00a74 licenses additive fills for RESERVED NAMES ONLY and none of these are reserved; \u00a70.3.3 \u2014 a changed rule is a new sealed version.",
+  "v1_untouched": {
+   "artifact": "anatomy_v1.jsonl",
+   "sha256_16": "8ff11f8a33bbdce7",
+   "asserted_here": true,
+   "proof_of_non_edit": "v1's own tests pass UNCHANGED \u2014 that is the evidence, not this sentence"
+  }
+ },
+ "gates": {
+  "v1_bytes_unmoved": true,
+  "kill_2_anchors": "7/7 green at M2 \u2014 see marrow-derived.json",
+  "passport_completeness": true,
+  "variance_recorded": true
+ },
+ "admissible_for_a_sealed_bet": [
+  "engine_type_natural"
+ ],
+ "honest_note": "CLEAN MEANS COMPLETE AND HONEST, NOT ALL-GREEN. `presentation` and `poly_fingerprint_natural` are record-/prose-valued and are not themselves features; `engine_type_natural` is the one contrastable column.",
+ "scope": "28 of 345 natural rows carry v2 columns. The other 317 have no fixed finite bounded-arity template and are absent from these columns by construction, not by omission \u2014 see marrow-i0-census.json."
+}

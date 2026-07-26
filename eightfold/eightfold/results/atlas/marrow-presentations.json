@@ -1,0 +1,68 @@
+{
+ "schema": "marrow-presentations/v1",
+ "prereg": "prereg_v15",
+ "milestone": "M1",
+ "n_pinned": 28,
+ "census_principled_count": 34,
+ "M1_closer_look": {
+  "correction": "34 -> 28",
+  "why": "writing the templates out as tuple-sets made the bounded-arity test CHECKABLE rather than asserted, and six admitted rows failed the same test the census used to exclude set-cover / hitting-set / the domination family",
+  "demoted": {
+   "exact-cover-x3c": "variables are the sets; the per-ELEMENT constraint ranges over every set containing that element -- UNBOUNDED arity, the same shape that excluded set-cover",
+   "three-dimensional-matching": "per-element constraint over every triple containing it -- UNBOUNDED",
+   "3-dimensional-assignment": "3DM with costs; inherits the unbounded per-element constraint",
+   "k-set-packing": "sets are bounded at k, but an ELEMENT sits in unboundedly many sets and the at-most-one constraint ranges over those -- UNBOUNDED",
+   "set-splitting": "one NAE constraint per SET, and sets have unbounded size (only the 3-set restriction is NAE-3SAT)",
+   "minimum-sum-coloring": "colours are drawn from an UNBOUNDED palette -- no fixed finite domain"
+  },
+  "self_correction_direction": "THREE OF THE FOUR 'self-caught omissions' the census ADDED are in the demoted list (k-set-packing, three-dimensional-matching, 3-dimensional-assignment). Only d-hitting-set was correctly added. The census's additions were less reliable than its exclusions, which is worth knowing about the next sizing pass.",
+  "verdict_unaffected": "Kill 1 had already fired at 34 against a floor of 40; it fires harder at 28. Terroir-C was already declared INSUFFICIENT under every reading. No verdict moves."
+ },
+ "by_domain": {
+  "2": 24,
+  "3": 4
+ },
+ "instance_restricted_rows": {
+  "clique": "complement graph",
+  "d-hitting-set": "sets of size <= d, pinned d=3",
+  "geometric-independent-set": "geometric intersection graphs",
+  "planar-3-coloring": "planar input graphs",
+  "planar-3sat": "planar incidence graph",
+  "planar-independent-set": "planar input graphs",
+  "planar-vertex-cover": "planar input graphs",
+  "succinct-3-coloring": "succinct (circuit) input encoding",
+  "tseitin": "expander instances"
+ },
+ "audit_prediction_stated_in_advance": "the presentation audit (Quarry v3 \u00a74) compares the closure-derived decision value against the cited cell. DISAGREEMENTS SHOULD CONCENTRATE ON THE INSTANCE-RESTRICTED ROWS, because the template cannot see a restriction on inputs. `succinct-3-coloring` is the sharpest case: its template is K_3 exactly as plain 3-colouring, so closure derives NPC while the cited charge is far higher \u2014 a DISAGREEMENT BY CONSTRUCTION, and a scope limit of closure anatomy rather than an errata candidate. Stated before the audit runs.",
+ "status": "DRAFTED for owner sitting \u2014 the Quarry v2 Channel B pattern",
+ "rows": [
+  "3-coloring-extension",
+  "bipartiteness",
+  "clique",
+  "d-hitting-set",
+  "geometric-independent-set",
+  "graph-3-coloring",
+  "horn-sat",
+  "independent-set",
+  "max-2lin",
+  "max-2sat",
+  "max-cut",
+  "max-directed-cut",
+  "max-e3-sat",
+  "min-sat",
+  "nae-sat",
+  "one-in-three-sat",
+  "planar-3-coloring",
+  "planar-3sat",
+  "planar-independent-set",
+  "planar-vertex-cover",
+  "sat",
+  "sat-2",
+  "sat-3",
+  "sharp-monotone-2sat",
+  "succinct-3-coloring",
+  "tseitin",
+  "vertex-cover",
+  "xor-sat"
+ ]
+}
