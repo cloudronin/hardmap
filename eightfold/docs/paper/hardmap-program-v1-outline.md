@@ -9,47 +9,30 @@ document synthesizes; it never discovers. The map is [claims-map.md](claims-map.
 
 ---
 
-## What W0 found before anything else
+## What W0 found
 
-The map's first job is to say what *cannot* be sourced. Ten items, in three classes.
+The map's first job is to say what cannot be sourced. The enumeration arrived 2026-07-26 and closed most of
+it; four items remain, and two of them are findings rather than gaps.
 
-### A. Named in the directive, no artifact anywhere in the repo
+### Still open
 
-| item | directive §| search result |
+| item | § | state |
 |---|---|---|
-| **"the standing summary"** (the stated source for the nine assertions) | §3 | no file, no heading, no match |
-| **two-pole certificates — "blending" / "pairwise-independence"** | §3 | zero matches, any spelling |
-| **"geometry probes"** (banked notes) | §6 | zero matches |
-| **"the unwritten theorem"** | §3 | zero matches |
-| **ISGCI · CoRCoD · ISA/EHM · "meta-problem" line · "the dated hunts"** | §7 | zero matches — §7 has **no** sourced content |
+| **assertion 7's hard pole** — pairwise-independent-supporting solution sets | 3 | **UNSOURCED.** Zero repo matches; only scattered ingredients. The easy pole is fully grounded. See the map's #7 note — the nearest ledger cell is UNPINNED for a reason that touches the wording. |
+| **"geometry probes"** (banked notes) | 6 | zero matches; drop or supply |
+| **"census localization"** | 3 | resolved to `census.backbone` by the enumeration's own wording ("forced-core contradictions, 1 → 273"); the earlier Mosaic-`localization` reading is retired |
+| **the convex-analysis framing** | 1 | one incidental hit, no framing document — position or intention? |
 
-**§3 has no enumeration to draft against, and §7 has no bibliography.** Both are blocked on the owner.
-This is the same class as the Marrow forward-reference: I am not treating "the standing summary" as
-existing because it was named, and I am not reconstructing the nine assertions from memory — reconstructing
-them is exactly the failure the map exists to prevent.
+### Stale records the draft would otherwise inherit
 
-### B. Locatable but ambiguous — needs the owner to disambiguate, not me to guess
-
-- **"census localization"** resolves two ways. `localization` appears only in the *Mosaic/Boolean engine*
-  sense (`absorption-closeout.md`, `mosaic-L*-findings.md`); the *proof-census* claims in the manifest are
-  `census.backbone` and `census.plurality`, neither named localization. One of these is meant; they are
-  different results in different subprojects.
-- **"the convex-analysis framing"** as a teaching frame (§1) has one incidental hit in
-  `v3-confirm/verdicts8.json` and no framing document. It may be an unwritten intention rather than a
-  recorded position.
-
-### C. Stale or non-contiguous records the draft would otherwise inherit
-
-- **`README.md` says the CLI "reproduces all eight paper-cited numbers."** The manifest now carries **28
-  claims**. The README also refers to "the accompanying preprint" in the present tense. Both are stale and
-  would contradict §2 if quoted.
-- **The methods ledger's numbering is not contiguous.** 26 headers spanning numbers **6–31**: instances
-  **1–5 predate the file** (stated in its own preamble), **15 is absent**, and **6 appears twice** (once as
-  an instance, once as a "6–7 addendum"). The directive's "~28 instances" is therefore not a number any
-  artifact supports. §5 must quote a derived count with its convention stated — the honest form is *"26
-  numbered entries, 6–31, five predating the ledger."*
-
----
+- **`README.md` claims the CLI reproduces "all eight paper-cited numbers."** The manifest carries **28**,
+  and the README refers to "the accompanying preprint" in the present tense. Both stale.
+- **The methods ledger's numbering is not contiguous:** 26 headers spanning **6–31**, instances **1–5
+  predate the file** (its own preamble says so), **15 absent**, **6 appears twice**. "~28 instances" is not
+  a number any artifact supports; the honest form is *"26 numbered entries, 6–31, five predating the
+  ledger."*
+- **§7's obligations were never copied into the repo** — they live in the Mosaic v3 and Strata v2 specs.
+  W1 lands them as a findings artifact so the writeup cites in-repo.
 
 ## Outline
 
@@ -66,10 +49,18 @@ chain (43 sealed preregistrations resolved through `docs/hash-map.txt`), and rep
 (`pip install hardmap && hardmap repro`). What each froze, when, at which hash.
 *Evidence class: frozen bytes. Every hash in the map is verified at W1, not quoted from here.*
 
-### §3 — The nine assertions — **UNBLOCKED 2026-07-26**
-Structure is ready: each assertion gets its evidence class (PROVEN / MEASURED / CITED) and artifact
-pointer. The enumeration itself must come from the owner. Seven of the nine are locatable from what the
-directive names; two are not (§A). Draft order will follow the owner's list, not mine.
+### §3 — The nine assertions — **enumeration supplied 2026-07-26**
+Each assertion carries its evidence class (PROVEN / MEASURED / CITED) and artifact pointer; every numeric
+literal was extracted from an artifact at W0, not transcribed. **Eight of nine source cleanly.** Two
+prose-level constraints carry into W1:
+- **#2 cites two different statistics** — the sealed B1 falsification (v3-new corrected **V = 0.0**) and
+  the four-population arc (**0.73 → 0.39 → 0.26 → 0.10**). The arc's 0.10 is a *stratum* of v3-new; the
+  0.0 is the *whole population* corrected. They never share a sentence.
+- **#7 ships split** — easy pole grounded in the Post-lattice machinery, hard pole carrying no repo
+  receipt, and the ledger's `§5.approximation` cell UNPINNED for a reason that names the assertion's own
+  "manufacturable on expanders" phrasing. Kept distinct in prose, or the ledger appears to contradict the
+  assertion it is cited to support.
+*Evidence class: mixed — #4 and #7-easy are PROVEN, #1/#2/#3/#5/#6/#8 MEASURED, #9 CITED + one proven-here.*
 
 ### §4 — The negative results, with their receipts
 The honest arc, each with its **sealed verdict quoted verbatim**: Pebble's absorption; the unaskable
@@ -91,18 +82,21 @@ banked notes (**geometry probes pending A above**; the frontier map is in
 `arm-a-surface-vs-closure.md`). Closes on the honest sentence: **the mechanism question now lives
 exclusively prospectively.**
 
-### §7 — Related work — **UNBLOCKED: sourced to the specs**
-No sourced content exists. Every named obligation returns zero matches. This section cannot be drafted
-from the repository and needs either the owner's reading notes or a fresh, dated literature pass declared
-as new work — which would breach the "synthesizes, never discovers" law unless sealed separately.
+### §7 — Related work — **sourced to the specs, not the repo**
+The obligations are recorded in `mosaic-v3-...-spec.md` §7 ("Related-work obligations (dated hunts;
+mandatory in the writeup)") and `strata-v2-...-spec.md` §I2: the meta-problem line (Bulatov;
+Creignou–Khanna–Sudan; AutCSP), ISA/EHM, ISGCI, CoRCoD and structure→dynamics ML.
+**One scope limit:** the spec's claim that the two-table object "remains unclaimed territory per the hunts"
+is citable as *the program's dated position*, not as reproducible evidence — the hunts' results are not in
+the repo. Stated as a position or re-run as declared new work; not asserted as a finding.
 
 ---
 
 ## Draft-order consequence
 
-§2, §4, §5, §6 are drafted from artifacts that exist. **§1 is partially blocked, §3 and §7 are fully
-blocked.** W1's scope as directed (§§2–4) is therefore *§2 and §4 in full, §3 held* — which is a change to
-the milestone table and needs ruling.
+**W1's scope as directed (§§2–4) is now drafts in full**, with #7 shipping split unless its hard pole gets
+a source. §1 needs only the convex-framing disposition; §6 needs the geometry-probes disposition or a drop.
+No change to the milestone table.
 
 ## Tone constraints carried into W1
 Plain declarative prose. No superlatives. Negatives at full strength with their seals. Conditionals on
