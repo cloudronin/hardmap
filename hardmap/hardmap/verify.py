@@ -433,6 +433,25 @@ def check_gates_inspected_something() -> list[str]:
                        f"vacuously, which is the failure this check exists to make impossible.")
     if total == 0:
         bad.append("meta-gate: ZERO files inspected across all roots — every numeric gate passed vacuously")
+
+    # SECOND REMIT (2026-07-26): results artifacts contain COMPUTED VALUES ONLY. A hardcoded constant
+    # living beside measurements is labelling debt — indistinguishable from a measurement to every reader
+    # and to the tidy-number gate, which is how `ceiling: 1.0` sat unexamined in Arm A's results. Declared
+    # constants belong in a `_meta` block carrying `literal: true`; anything so marked is exempt from the
+    # extremal check, and anything NOT marked is treated as computed.
+    import json as _json
+    for r in roots:
+        for p in sorted(_watched(r)):
+            try:
+                doc = _json.loads(p.read_text(encoding="utf-8"))
+            except Exception:  # noqa: BLE001
+                continue
+            meta = doc.get("_meta")
+            if isinstance(meta, dict):
+                for k, v_ in meta.items():
+                    if isinstance(v_, dict) and "value" in v_ and not v_.get("literal"):
+                        bad.append(f"{p.name}: _meta.{k} carries a value without `literal: true` — a "
+                                   f"constant in a results artifact must say it is one")
     return bad
 
 

@@ -109,7 +109,14 @@ def main():
     # ---- score ----
     res={"seed":SEED,"n_classes":len(keys),"features_used":feats,"n_features":len(feats),
          "prediction_sha256":ph,"model":f"CART depth<={DEPTH} minleaf={MINLEAF}",
-         "fold_key":"46 poly-fingerprint groups, hash-ordered into 5 folds","ceiling":1.0}
+         "fold_key":"46 poly-fingerprint groups, hash-ordered into 5 folds",
+         # RESULTS ARTIFACTS CONTAIN COMPUTED VALUES ONLY (rule added 2026-07-26). `ceiling` is a declared
+         # constant, not a measurement -- it records the 100% determinism stated in advance. Left bare it
+         # was indistinguishable from a computed 1.0 to every reader AND to the tidy-number gate, which is
+         # labelling debt, the fourth species in the extremal taxonomy and the first that is neither bug
+         # nor floor. Constants live in `_meta` with `literal: true`.
+         "_meta":{"ceiling":{"value":1.0,"literal":True,
+                             "note":"stated in advance: 46 flag-vectors -> 46 profiles, zero ambiguity"}}}
     charge_acc={}; nulls={}
     for c in CHARGES:
         y=targets[c]; yp=preds[c]

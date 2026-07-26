@@ -376,6 +376,19 @@ zero on the real data and on all 150 nulls it drew and discarded, and reporting 
 input could have changed. A bug that manufactures a null attracts less scrutiny than one that manufactures a
 finding, and that asymmetry is itself a bias the ledger now names.
 
+*Verify the shape is not forced by the denominator.* Before narrating the shape of a distribution, check
+that the statistic could physically have taken the values its shape excludes. A violation rate computed
+over all tuples is capped by the fraction of tuples capable of violating; a "middle band" and a "ceiling"
+can both be that cap wearing a finding's clothes. The typed null for a rate is the rate conditioned on the
+cases that could have moved it.
+
+*Quantifier claims get their source pulled and diffed.* A universally quantified sentence — *every*, *all*,
+*none*, *no*, *not one* — is an audit trigger the way an exact extremal is. Vocabulary scanning cannot
+catch a claim that is confidently worded, correctly sourced, and simply broader than its source; only
+comparing the claim to the source can. **And the direction matters: this program's instance of it was
+inflation of a NEGATIVE** — the draft made a result look more decisively null than the evidence supported.
+Overclaiming against yourself reads as rigour and is still overclaiming.
+
 *Chat is not an artifact.* A claim whose only provenance is a conversation is unsourced by definition,
 however confidently stated and whoever stated it. When this document's own claim list was assembled, three
 of nine entries arrived from conversational synthesis rather than from a record. Building the
@@ -428,18 +441,20 @@ That is the measurement phase completing rather than a defeat. The question was 
 available evidence supports, answered where it could be, and declared unanswerable where it could not.
 
 **One banked instrument has since been qualified.** *(Added after the W3 draft; qualification ran
-2026-07-26 on a surface disjoint from these sections.)* **Probe A** measures blendability directly — for a
+2026-07-26 on a surface disjoint from these sections. Its free-question finding was retracted the same day
+by a pre-claim check — the qualification verdict below is unaffected and was never in question.)* **Probe A** measures blendability directly — for a
 region and a blending operation, the fraction of sampled blends that leave the region. On the 4,072-class
 Boolean roster, where true closure is oracle-known for every relation, it is **QUALIFIED**: one hundred
 sampled blends detect non-closure at **≥ 0.987** sensitivity on every operation, with specificity forced
 at 1.0 and reported as forced.
 
-Its pre-registered free question returned a finding. Asked whether blendability is **bimodal** — matching
-the dichotomy's binary — or whether a populated "almost-closed" middle exists, the answer is emphatic:
-the middle band from 0.05 to 0.50 holds **0.854** of nonzero rates for majority-closure and **0.992** for
-affine, and **not one** of 4028 admissible classes violates majority-closure above 0.50. The typical not-closed relation is *slightly* unblendable,
-not shattered. **The classification's binary is carving a continuum near its bottom end** — an exact,
-exhaustively computed fact about the Boolean universe that the theorems are structurally unable to express.
+Its pre-registered free question asked whether blendability is bimodal or has a populated
+"almost-closed" middle. **The first answer was retracted before it was cited anywhere.** Violation rates
+had been computed over uniform tuples, but the blend operations are idempotent on repeats — `maj(a,a,b)`
+returns `a`, which is in the region by construction — so a tuple containing a repeat *cannot* violate, and
+every rate was mechanically capped at the all-distinct fraction. At small relation sizes that cap is
+severe, and it manufactured the apparent result. Recomputed against its typed null, the distribution is
+reported as data in the probe's artifact and **no shape is claimed for it here**. See §5.
 
 The licence is narrow and the boundary is the point: the probe is cleared for natural-row ensembles *with
 its accuracy characterised*, and **deployment there is not authorised by that run** — it needs its own

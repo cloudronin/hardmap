@@ -1243,3 +1243,55 @@ is a different operation from scanning it for hedging**, and only the first woul
   **fails** on zero. Three historical fail-opens — a glob scoped to one project's filenames, a walker that
   descends into dicts only, a path resolving nowhere — become one impossible class: *verification that
   verified nothing must say so.* Probe-tested by planting an empty root and by resolving none at all.
+
+---
+
+## Instance 35 — 2026-07-26 — a shape forced by its denominator, caught before first citation
+
+The Geometry Probe's qualification study answered its pre-registered free question with what looked like a
+real finding: 85–99% of nonzero blend-violation rates in a 0.05–0.50 "almost-closed" middle band, **not one**
+of 4,028 classes violating majority-closure above 0.50, and the reading that *the dichotomy's binary carves
+a continuum near its bottom end*. A pre-claim check was directed before it was quoted anywhere. **It does
+not survive.**
+
+**The mechanism.** The blend operations are idempotent on repeats — `maj(a,a,b) = a`, `minority(a,a,b) = b`,
+`min(a,a) = a` — so a tuple containing a repeat lands back inside the region *by construction* and **cannot
+violate**. Rates were computed over `product(rel, repeat=m)`, the full Cartesian product. Every denominator
+therefore carried a large block of tuples incapable of moving the numerator, and each rate was capped at the
+all-distinct fraction `r(r−1)…(r−m+1)/r^m`.
+
+**The ceiling was the cap, and the arithmetic says so exactly.** At r = 3, 4 and 5 the maximum observed raw
+rate *equals the cap* — 0.2222, 0.3750, 0.4800 — meaning those relations violate on **every** distinct
+triple and their true rate is **1.0**. 527 classes sit at r ≤ 5, capped below 0.50 by counting alone. Under
+the typed null, **341 classes** exceed 0.50 on majority rather than none, and the middle-band range is
+0.31–0.90 rather than 0.85–0.99, with minority — the most striking raw figure — collapsing hardest, 0.99 to
+0.31.
+
+Retracted before first citation, per the rule sealed with the check.
+
+### Why this is its own species
+
+The tidy-number family has been about a single value being too clean. **This is the distribution-grade
+member: the SHAPE was forced, not the value.** No individual rate was wrong — every one was correctly
+computed — and no extremal check would ever have fired, because the numbers were unremarkable. It was the
+*pattern across them* that carried a claim the denominator had already determined.
+
+> **Before narrating the shape of a distribution, verify the shape is not forced by the denominator.** The
+> typed null for a rate is the rate conditioned on the cases that could have moved it. A statistic whose
+> range is mechanically bounded will produce a "band" and a "ceiling" whether or not the world has either.
+
+### Two things that made the catch cheap
+
+**The concern arrived as an alternative mechanism, not as doubt.** "Idempotent operations cap the rate at
+the all-distinct fraction" is checkable in one expression and one division. Vague scepticism would have cost
+a re-run; a named mechanism cost an arithmetic identity — `bad_raw == bad_distinct`, so
+`rate_distinct = rate_raw / cap`, no re-enumeration at all.
+
+**And reading the expression first was the whole of part 1.** `for ts in product(rel, repeat=m)` settles
+whether the concern is live before any recomputation is designed. That is the third consecutive incident
+where the expression answered in one line what the artifact could not answer at all — and the first where
+the rule was applied *first* rather than after a wrong diagnosis.
+
+**Scores 1 and 2 were never in question and are untouched:** the battery is a binary that repeats cannot
+flip, and sensitivity asks only whether *any* violation was found. The instrument is still QUALIFIED. What
+failed was the free question's answer, which is the part that was free.

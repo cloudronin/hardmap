@@ -519,3 +519,46 @@ def test_assertion_5_states_its_exceptions():
     draft = (Path(__file__).parents[2] / "eightfold" / "docs" / "paper"
              / "hardmap-program-v1.md").read_text(encoding="utf-8")
     assert "nominally above" in draft, "the draft must state the exceptions, not absorb them"
+
+
+def test_score_3_finding_is_retracted_not_quoted():
+    """The 'continuum, not binary' reading was retracted before first citation: its rates were computed over
+    tuples including repeats, and repeats cannot violate an idempotent blend. Pinned so the retracted
+    numbers cannot creep back into the draft."""
+    from pathlib import Path
+    draft = (Path(__file__).parents[2] / "eightfold" / "docs" / "paper"
+             / "hardmap-program-v1.md").read_text(encoding="utf-8")
+    assert "retracted before it was cited" in draft
+    for gone in ("85–99%", "not one** of 4028", "carving a continuum", "slightly* unblendable"):
+        assert gone not in draft, f"retracted claim {gone!r} is back in the draft"
+
+
+def test_deflator_shows_the_ceiling_was_the_cap():
+    """The decisive arithmetic: at small r the maximum RAW rate equals the mechanical cap exactly, so those
+    relations violate on every distinct tuple and their true rate is 1.0."""
+    import json
+    from pathlib import Path
+    import foundry
+    lat = Path(foundry.__file__).resolve().parent / "results" / "lattice"
+    d = json.loads((lat / "geometry_probe_deflator_results.json").read_text(encoding="utf-8"))
+    mj = d["per_flavor"]["majority"]
+    for r in ("3", "4", "5"):
+        b = mj["by_relation_size"][r]
+        assert abs(b["max_raw"] - b["cap"]) < 1e-9, f"r={r}: max raw no longer equals the cap"
+        assert b["max_distinct"] == 1.0
+    raw = mj["raw"]["histogram"]; dis = mj["distinct_conditioned"]["histogram"]
+    assert raw["050_to_075"] + raw["075_to_1"] == 0, "the raw ceiling claim's basis has changed"
+    assert dis["050_to_075"] + dis["075_to_1"] > 300, "the typed null no longer refutes the ceiling"
+
+
+def test_quantifier_claims_are_enumerable_for_diffing():
+    """W3 gains claim-to-source diffing on universally-quantified sentences — the operation that would have
+    caught the 'every closure target' inflation, which no vocabulary scan can. This asserts the trigger set
+    is non-empty and finite, so the diff is a bounded manual pass rather than an aspiration."""
+    import re
+    from pathlib import Path
+    draft = (Path(__file__).parents[2] / "eightfold" / "docs" / "paper"
+             / "hardmap-program-v1.md").read_text(encoding="utf-8")
+    Q = re.compile(r"\b(every|all|none|no |not one|zero|always|never)\b", re.I)
+    flagged = [p for p in draft.split("\n\n") if Q.search(p) and re.search(r"\d", p)]
+    assert 5 < len(flagged) < 60, f"quantifier trigger set is {len(flagged)} — not a bounded pass"
