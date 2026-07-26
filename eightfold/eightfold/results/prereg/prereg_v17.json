@@ -1,0 +1,86 @@
+{
+ "prereg_version": "v17",
+ "project": "Sounding v1 — the blend probe deployed on natural rows (pilot S1)",
+ "owner": "Vishnu",
+ "date": "2026-07-26",
+ "committed_before_analysis": "TRUE — sealed before any natural-row instance is generated. No violation rate on a natural row exists at sealing time.",
+ "instrument": "Geometry Probe A, QUALIFIED 2026-07-26 under prereg_v16 (battery exact 4072/4072; sampled sensitivity >= 0.987 at budget 100)",
+
+ "what_this_is": {
+  "statement": "the qualified probe taken to the population it was built for: natural problems, where closure anatomy is underivable for 317 of 345 rows.",
+  "and_named_plainly": "this is the LEGITIMATE REVIVAL of Terroir-C's question — does measured solution-space geometry predict cited charges? — on a NEW INSTRUMENT and a NEW POPULATION. New seal, new census. Nothing sealed shut is reopened: Terroir-C stays INSUFFICIENT-as-sealed on its own population, and prereg_v15's verdict is untouched.",
+  "the_honest_cost": "the probe needs, per problem, an instance generator AND a solution enumerator. That is per-row engineering, which is why this is a pilot and not a fleet."
+ },
+
+ "design_laws_inherited_and_applied_from_birth": {
+  "1_distinct_tuples_only": {
+   "rule": "every violation rate is computed over ALL-DISTINCT m-subsets of the region, and ships beside r (the solution count), the number of distinct m-subsets, and the uniform-tuple cap r(r-1)...(r-m+1)/r^m for reference.",
+   "why": "the deflator species (methods 35) dies at the schema level. Blend operations are idempotent on repeats, so a tuple containing a repeat cannot violate; a rate over uniform tuples is mechanically capped and its SHAPE is forced by the denominator. The typed null is built in, not retrofitted."
+  },
+  "2_encoding_rule": {
+   "rule": "the probe applies to any row whose per-instance solutions encode as FIXED-LENGTH VECTORS — vertex subsets as characteristic vectors, assignments directly.",
+   "excluded": "permutation-structured rows (TSP tours and kin) ship as `n.a.-encoding`. Typed out, not forced."
+  },
+  "3_region_declaration": {
+   "decision_rows": "the region is the full solution set.",
+   "optimization_rows": "TWO regions, measured separately and NEVER pooled: the FEASIBLE set and the OPTIMAL set. They have different geometry — feasible vertex covers are union-tolerant, optimal ones are not — and conflating them would be the region-choice version of the wrong-question error."
+  },
+  "4_ensembles_declared_per_row": "generator family, parameters, sizes small enough for exhaustive solution enumeration, seeds, instance counts. All F2-typed: ensemble-relative, never impersonating worst-case charges."
+ },
+
+ "THE_FORCED_ARM_NAMED_BEFORE_RUNNING": {
+  "statement": "S-1 is THEOREM-FORCED on CSP rows and on feasible regions, and is calibration only.",
+  "why": "if Gamma is closed under f then EVERY instance's solution set is closed under f — that is what a polymorphism IS. So a 2-SAT instance's solution set is majority-closed by theorem, and a feasible vertex-cover set is union-closed by theorem (Gamma = {OR2} is max-closed). Agreement there verifies the generator, the enumerator and the encoding. It earns nothing beyond that.",
+  "what_is_NOT_forced": "the OPTIMAL regions. An optimal set is a sub-level set of an objective over a solution set, not the solution set of a CSP, so its closure is not forced by any polymorphism. Optimal-region geometry is genuinely measured.",
+  "sealed_so_it_cannot_be_discovered": "the same trap as prereg_v16's exhaustive arm, named in advance for the same reason."
+ },
+
+ "pilot_population_S1": {
+  "target": "12-18 rows, chosen for generator cheapness and family spread",
+  "planned": ["sat-2", "sat-3", "horn-sat", "xor-sat", "nae-sat", "one-in-three-sat",
+              "vertex-cover", "independent-set", "clique", "max-cut", "graph-3-coloring",
+              "bipartiteness", "subset-sum", "number-partitioning"],
+  "calibration_overlap_required": "rows also carrying Marrow's derived closure columns are the natural-side known-answer battery. 14 of the planned rows qualify (engine_type_natural derived at prereg_v15 M2)."
+ },
+
+ "sealed_bets": {
+  "S1_calibration": {
+   "claim": "on rows with derived closure facts, the probe's violation profile agrees with the known engine type: XOR-SAT near-zero minority-violation; 2-SAT near-zero majority-violation; Horn semilattice-quiet (min); 3-SAT / NAE / 1-in-3 loud on every flavour.",
+   "threshold": "on a theorem-forced pairing the rate must be EXACTLY 0.0 — the closure is guaranteed, so any nonzero value is an instrument, encoding or enumerator bug.",
+   "on_failure": "HALT. Not a finding.",
+   "credit": "NONE beyond implementation correctness (see THE_FORCED_ARM_NAMED_BEFORE_RUNNING)."
+  },
+  "S2_the_mechanism_question": {
+   "claim": "measured violation profiles separate decision-easy from decision-hard rows above a family-blind null",
+   "direction_sealed": "HARDER ROWS LOUDER — higher violation rates on decision-hard rows",
+   "scored_either_way": true
+  },
+  "S3_the_discriminator_from_birth": {
+   "claim": "S-2's separation, if any, evaluated INSIDE the largest family against within-family nulls",
+   "vocabulary_inherited_verbatim_from_terroir": ["FAMILY-BORNE", "GEOMETRY-RESIDUAL", "MIXED", "INSUFFICIENT"],
+   "expected": "n will be thin. INSUFFICIENT is legal and expected on most families; declared per family, never argued past.",
+   "why_from_birth": "Terroir had to bolt this on after a headline existed. Here it is sealed before the headline can."
+  },
+  "S4_registry": {
+   "claim": "probe-feature predictions are filed for any open cells in scope BEFORE any literature work touches them, per the standing predict-then-fill protocol"
+  }
+ },
+
+ "kill_criteria": {
+  "generator_floor": "fewer than 12 pilot rows with a working generator AND enumerator inside the box -> ship the GENERATOR CENSUS as the finding ('the probe's reach on the natural corpus is N rows at current cost'). No forcing.",
+  "box": "8-12 h paired for S1, $0 compute",
+  "fleet_expansion": "more rows, bigger ensembles — a SEPARATE authorisation gated on this pilot's verdict. Not granted here."
+ },
+
+ "standing_discipline": {
+  "distribution_shape_rule": "any shape claim about the profiles states its typed null IN THE SAME BREATH (methods 35).",
+  "gates": "meta-gate and tidy-number gates live on the new artifacts; results carry computed values only, constants in `_meta` with `literal: true`.",
+  "frozen_bytes": "untouched. No charge cell is written; no atlas or anatomy artifact is modified."
+ },
+
+ "the_stake_recorded_without_assuming_it": {
+  "if_S1_passes_and_S2_S3_show_residual": "the mechanism programme has its first positive on the population that was always missing",
+  "if_S1_passes_and_S2_is_null": "measured geometry joins surface features in the doesn't-predict pile — a clean, powered negative on fresh ground",
+  "either_way": "the 317 locked rooms get their first instrument reading"
+ }
+}

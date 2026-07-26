@@ -1,0 +1,1348 @@
+{
+ "schema": "sounding-v1/v1",
+ "prereg": "prereg_v17",
+ "seed": 20260726,
+ "F2_law": "a violation rate is a property of (problem, ensemble). It NEVER impersonates a worst-case charge.",
+ "design_law_1": "all rates over DISTINCT m-subsets only; r, subset count and the uniform-tuple cap ship beside every rate so the deflator species cannot recur",
+ "design_law_3": "optimization rows report FEASIBLE and OPTIMAL regions separately, never pooled",
+ "n_rows_attempted": 14,
+ "rows": {
+  "sat-2": {
+   "family": "sat-csp",
+   "domain": 2,
+   "kind": "decision",
+   "n_instances_usable": 10,
+   "profile": {
+    "solutions": {
+     "majority": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 10,
+      "mean_r": 111.2,
+      "mean_uniform_cap_for_reference": 0.9472,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.5854,
+      "max_rate": 0.8204,
+      "n_instances": 10,
+      "mean_r": 111.2,
+      "mean_uniform_cap_for_reference": 0.9472,
+      "distinct_subsets_only": true
+     },
+     "min": {
+      "mean_rate": 0.2763,
+      "max_rate": 0.6154,
+      "n_instances": 10,
+      "mean_r": 111.2,
+      "mean_uniform_cap_for_reference": 0.982,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 0.2884,
+      "max_rate": 0.5841,
+      "n_instances": 10,
+      "mean_r": 111.2,
+      "mean_uniform_cap_for_reference": 0.982,
+      "distinct_subsets_only": true
+     }
+    }
+   }
+  },
+  "sat-3": {
+   "family": "sat-csp",
+   "domain": 2,
+   "kind": "decision",
+   "n_instances_usable": 12,
+   "profile": {
+    "solutions": {
+     "majority": {
+      "mean_rate": 0.1949,
+      "max_rate": 0.2847,
+      "n_instances": 12,
+      "mean_r": 444.5,
+      "mean_uniform_cap_for_reference": 0.993,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.8108,
+      "max_rate": 0.8538,
+      "n_instances": 12,
+      "mean_r": 444.5,
+      "mean_uniform_cap_for_reference": 0.993,
+      "distinct_subsets_only": true
+     },
+     "min": {
+      "mean_rate": 0.4016,
+      "max_rate": 0.5636,
+      "n_instances": 12,
+      "mean_r": 444.5,
+      "mean_uniform_cap_for_reference": 0.9977,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 0.4957,
+      "max_rate": 0.7034,
+      "n_instances": 12,
+      "mean_r": 444.5,
+      "mean_uniform_cap_for_reference": 0.9977,
+      "distinct_subsets_only": true
+     }
+    }
+   }
+  },
+  "horn-sat": {
+   "family": "sat-csp",
+   "domain": 2,
+   "kind": "decision",
+   "n_instances_usable": 12,
+   "profile": {
+    "solutions": {
+     "majority": {
+      "mean_rate": 0.1307,
+      "max_rate": 0.1883,
+      "n_instances": 12,
+      "mean_r": 639.9,
+      "mean_uniform_cap_for_reference": 0.9952,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.7734,
+      "max_rate": 0.8086,
+      "n_instances": 12,
+      "mean_r": 639.9,
+      "mean_uniform_cap_for_reference": 0.9952,
+      "distinct_subsets_only": true
+     },
+     "min": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 12,
+      "mean_r": 639.9,
+      "mean_uniform_cap_for_reference": 0.9984,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 0.4857,
+      "max_rate": 0.6181,
+      "n_instances": 12,
+      "mean_r": 639.9,
+      "mean_uniform_cap_for_reference": 0.9984,
+      "distinct_subsets_only": true
+     }
+    }
+   }
+  },
+  "xor-sat": {
+   "family": "sat-csp",
+   "domain": 2,
+   "kind": "decision",
+   "n_instances_usable": 12,
+   "profile": {
+    "solutions": {
+     "majority": {
+      "mean_rate": 0.7316,
+      "max_rate": 0.9143,
+      "n_instances": 12,
+      "mean_r": 17.3,
+      "mean_uniform_cap_for_reference": 0.8276,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 12,
+      "mean_r": 17.3,
+      "mean_uniform_cap_for_reference": 0.8276,
+      "distinct_subsets_only": true
+     },
+     "min": {
+      "mean_rate": 0.8548,
+      "max_rate": 0.9833,
+      "n_instances": 12,
+      "mean_r": 17.3,
+      "mean_uniform_cap_for_reference": 0.9401,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 0.8548,
+      "max_rate": 0.9833,
+      "n_instances": 12,
+      "mean_r": 17.3,
+      "mean_uniform_cap_for_reference": 0.9401,
+      "distinct_subsets_only": true
+     }
+    }
+   }
+  },
+  "nae-sat": {
+   "family": "sat-csp",
+   "domain": 2,
+   "kind": "decision",
+   "n_instances_usable": 12,
+   "profile": {
+    "solutions": {
+     "majority": {
+      "mean_rate": 0.3437,
+      "max_rate": 0.4319,
+      "n_instances": 12,
+      "mean_r": 76.0,
+      "mean_uniform_cap_for_reference": 0.9513,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.8049,
+      "max_rate": 0.8643,
+      "n_instances": 12,
+      "mean_r": 76.0,
+      "mean_uniform_cap_for_reference": 0.9513,
+      "distinct_subsets_only": true
+     },
+     "min": {
+      "mean_rate": 0.8761,
+      "max_rate": 0.9204,
+      "n_instances": 12,
+      "mean_r": 76.0,
+      "mean_uniform_cap_for_reference": 0.9836,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 0.8761,
+      "max_rate": 0.9204,
+      "n_instances": 12,
+      "mean_r": 76.0,
+      "mean_uniform_cap_for_reference": 0.9836,
+      "distinct_subsets_only": true
+     }
+    }
+   }
+  },
+  "one-in-three-sat": {
+   "family": "sat-csp",
+   "domain": 2,
+   "kind": "decision",
+   "n_instances_usable": 1,
+   "profile": {}
+  },
+  "bipartiteness": {
+   "family": "graph",
+   "domain": 2,
+   "kind": "decision",
+   "n_instances_usable": 5,
+   "profile": {
+    "solutions": {
+     "majority": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 5,
+      "mean_r": 37.6,
+      "mean_uniform_cap_for_reference": 0.7473,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 5,
+      "mean_r": 37.6,
+      "mean_uniform_cap_for_reference": 0.7473,
+      "distinct_subsets_only": true
+     },
+     "min": {
+      "mean_rate": 0.8061,
+      "max_rate": 1.0,
+      "n_instances": 5,
+      "mean_r": 37.6,
+      "mean_uniform_cap_for_reference": 0.9047,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 0.8061,
+      "max_rate": 1.0,
+      "n_instances": 5,
+      "mean_r": 37.6,
+      "mean_uniform_cap_for_reference": 0.9047,
+      "distinct_subsets_only": true
+     }
+    }
+   }
+  },
+  "graph-3-coloring": {
+   "family": "graph",
+   "domain": 3,
+   "kind": "decision",
+   "n_instances_usable": 12,
+   "profile": {
+    "solutions": {
+     "median": {
+      "mean_rate": 0.6209,
+      "max_rate": 0.7049,
+      "n_instances": 12,
+      "mean_r": 137.5,
+      "mean_uniform_cap_for_reference": 0.9553,
+      "distinct_subsets_only": true
+     },
+     "maltsev3": {
+      "mean_rate": 0.7617,
+      "max_rate": 0.879,
+      "n_instances": 12,
+      "mean_r": 137.5,
+      "mean_uniform_cap_for_reference": 0.9553,
+      "distinct_subsets_only": true
+     },
+     "min": {
+      "mean_rate": 0.8701,
+      "max_rate": 0.9724,
+      "n_instances": 12,
+      "mean_r": 137.5,
+      "mean_uniform_cap_for_reference": 0.9848,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 0.869,
+      "max_rate": 0.9724,
+      "n_instances": 12,
+      "mean_r": 137.5,
+      "mean_uniform_cap_for_reference": 0.9848,
+      "distinct_subsets_only": true
+     }
+    }
+   }
+  },
+  "vertex-cover": {
+   "family": "graph",
+   "domain": 2,
+   "kind": "optimization",
+   "n_instances_usable": 12,
+   "profile": {
+    "feasible": {
+     "majority": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 12,
+      "mean_r": 120.1,
+      "mean_uniform_cap_for_reference": 0.9735,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.8074,
+      "max_rate": 0.865,
+      "n_instances": 12,
+      "mean_r": 120.1,
+      "mean_uniform_cap_for_reference": 0.9735,
+      "distinct_subsets_only": true
+     },
+     "min": {
+      "mean_rate": 0.7012,
+      "max_rate": 0.7597,
+      "n_instances": 12,
+      "mean_r": 120.1,
+      "mean_uniform_cap_for_reference": 0.9911,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 12,
+      "mean_r": 120.1,
+      "mean_uniform_cap_for_reference": 0.9911,
+      "distinct_subsets_only": true
+     }
+    },
+    "optimal": {
+     "majority": {
+      "mean_rate": 0.1214,
+      "max_rate": 0.4857,
+      "n_instances": 4,
+      "mean_r": 6.0,
+      "mean_uniform_cap_for_reference": 0.5014,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.8,
+      "max_rate": 1.0,
+      "n_instances": 4,
+      "mean_r": 6.0,
+      "mean_uniform_cap_for_reference": 0.5014,
+      "distinct_subsets_only": true
+     },
+     "min": {
+      "mean_rate": 1.0,
+      "max_rate": 1.0,
+      "n_instances": 5,
+      "mean_r": 5.2,
+      "mean_uniform_cap_for_reference": 0.7425,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 1.0,
+      "max_rate": 1.0,
+      "n_instances": 5,
+      "mean_r": 5.2,
+      "mean_uniform_cap_for_reference": 0.7425,
+      "distinct_subsets_only": true
+     }
+    }
+   }
+  },
+  "independent-set": {
+   "family": "graph",
+   "domain": 2,
+   "kind": "optimization",
+   "n_instances_usable": 12,
+   "profile": {
+    "feasible": {
+     "majority": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 12,
+      "mean_r": 123.4,
+      "mean_uniform_cap_for_reference": 0.9746,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.8073,
+      "max_rate": 0.8487,
+      "n_instances": 12,
+      "mean_r": 123.4,
+      "mean_uniform_cap_for_reference": 0.9746,
+      "distinct_subsets_only": true
+     },
+     "min": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 12,
+      "mean_r": 123.4,
+      "mean_uniform_cap_for_reference": 0.9915,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 0.7023,
+      "max_rate": 0.7531,
+      "n_instances": 12,
+      "mean_r": 123.4,
+      "mean_uniform_cap_for_reference": 0.9915,
+      "distinct_subsets_only": true
+     }
+    },
+    "optimal": {
+     "majority": {
+      "mean_rate": 0.139,
+      "max_rate": 0.6167,
+      "n_instances": 8,
+      "mean_r": 6.5,
+      "mean_uniform_cap_for_reference": 0.5295,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.7262,
+      "max_rate": 1.0,
+      "n_instances": 8,
+      "mean_r": 6.5,
+      "mean_uniform_cap_for_reference": 0.5295,
+      "distinct_subsets_only": true
+     },
+     "min": {
+      "mean_rate": 1.0,
+      "max_rate": 1.0,
+      "n_instances": 11,
+      "mean_r": 5.3,
+      "mean_uniform_cap_for_reference": 0.7302,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 1.0,
+      "max_rate": 1.0,
+      "n_instances": 11,
+      "mean_r": 5.3,
+      "mean_uniform_cap_for_reference": 0.7302,
+      "distinct_subsets_only": true
+     }
+    }
+   }
+  },
+  "clique": {
+   "family": "graph",
+   "domain": 2,
+   "kind": "optimization",
+   "n_instances_usable": 12,
+   "profile": {
+    "feasible": {
+     "majority": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 12,
+      "mean_r": 39.1,
+      "mean_uniform_cap_for_reference": 0.9221,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.878,
+      "max_rate": 0.9172,
+      "n_instances": 12,
+      "mean_r": 39.1,
+      "mean_uniform_cap_for_reference": 0.9221,
+      "distinct_subsets_only": true
+     },
+     "min": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 12,
+      "mean_r": 39.1,
+      "mean_uniform_cap_for_reference": 0.9736,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 0.7393,
+      "max_rate": 0.786,
+      "n_instances": 12,
+      "mean_r": 39.1,
+      "mean_uniform_cap_for_reference": 0.9736,
+      "distinct_subsets_only": true
+     }
+    },
+    "optimal": {
+     "min": {
+      "mean_rate": 1.0,
+      "max_rate": 1.0,
+      "n_instances": 9,
+      "mean_r": 4.0,
+      "mean_uniform_cap_for_reference": 0.6821,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 1.0,
+      "max_rate": 1.0,
+      "n_instances": 9,
+      "mean_r": 4.0,
+      "mean_uniform_cap_for_reference": 0.6821,
+      "distinct_subsets_only": true
+     },
+     "majority": {
+      "mean_rate": 0.6508,
+      "max_rate": 1.0,
+      "n_instances": 6,
+      "mean_r": 5.0,
+      "mean_uniform_cap_for_reference": 0.4324,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.8254,
+      "max_rate": 1.0,
+      "n_instances": 6,
+      "mean_r": 5.0,
+      "mean_uniform_cap_for_reference": 0.4324,
+      "distinct_subsets_only": true
+     }
+    }
+   }
+  },
+  "max-cut": {
+   "family": "graph",
+   "domain": 2,
+   "kind": "optimization",
+   "n_instances_usable": 12,
+   "profile": {
+    "feasible": {
+     "majority": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 12,
+      "mean_r": 2048.0,
+      "mean_uniform_cap_for_reference": 0.9985,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 12,
+      "mean_r": 2048.0,
+      "mean_uniform_cap_for_reference": 0.9985,
+      "distinct_subsets_only": true
+     },
+     "min": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 12,
+      "mean_r": 2048.0,
+      "mean_uniform_cap_for_reference": 0.9995,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 12,
+      "mean_r": 2048.0,
+      "mean_uniform_cap_for_reference": 0.9995,
+      "distinct_subsets_only": true
+     }
+    },
+    "optimal": {
+     "min": {
+      "mean_rate": 0.8489,
+      "max_rate": 1.0,
+      "n_instances": 12,
+      "mean_r": 7.2,
+      "mean_uniform_cap_for_reference": 0.7836,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 0.8489,
+      "max_rate": 1.0,
+      "n_instances": 12,
+      "mean_r": 7.2,
+      "mean_uniform_cap_for_reference": 0.7836,
+      "distinct_subsets_only": true
+     },
+     "majority": {
+      "mean_rate": 0.0955,
+      "max_rate": 0.3571,
+      "n_instances": 10,
+      "mean_r": 8.2,
+      "mean_uniform_cap_for_reference": 0.5836,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.2632,
+      "max_rate": 0.7273,
+      "n_instances": 10,
+      "mean_r": 8.2,
+      "mean_uniform_cap_for_reference": 0.5836,
+      "distinct_subsets_only": true
+     }
+    }
+   }
+  },
+  "subset-sum": {
+   "family": "number-theoretic",
+   "domain": 2,
+   "kind": "decision",
+   "n_instances_usable": 12,
+   "profile": {
+    "solutions": {
+     "majority": {
+      "mean_rate": 0.9073,
+      "max_rate": 0.9413,
+      "n_instances": 12,
+      "mean_r": 67.7,
+      "mean_uniform_cap_for_reference": 0.9522,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.9074,
+      "max_rate": 0.9413,
+      "n_instances": 12,
+      "mean_r": 67.7,
+      "mean_uniform_cap_for_reference": 0.9522,
+      "distinct_subsets_only": true
+     },
+     "min": {
+      "mean_rate": 1.0,
+      "max_rate": 1.0,
+      "n_instances": 12,
+      "mean_r": 67.7,
+      "mean_uniform_cap_for_reference": 0.9839,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 1.0,
+      "max_rate": 1.0,
+      "n_instances": 12,
+      "mean_r": 67.7,
+      "mean_uniform_cap_for_reference": 0.9839,
+      "distinct_subsets_only": true
+     }
+    }
+   }
+  },
+  "number-partitioning": {
+   "family": "number-theoretic",
+   "domain": 2,
+   "kind": "optimization",
+   "n_instances_usable": 12,
+   "profile": {
+    "feasible": {
+     "majority": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 12,
+      "mean_r": 4096.0,
+      "mean_uniform_cap_for_reference": 0.9993,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 12,
+      "mean_r": 4096.0,
+      "mean_uniform_cap_for_reference": 0.9993,
+      "distinct_subsets_only": true
+     },
+     "min": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 12,
+      "mean_r": 4096.0,
+      "mean_uniform_cap_for_reference": 0.9998,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 0.0,
+      "max_rate": 0.0,
+      "n_instances": 12,
+      "mean_r": 4096.0,
+      "mean_uniform_cap_for_reference": 0.9998,
+      "distinct_subsets_only": true
+     }
+    },
+    "optimal": {
+     "majority": {
+      "mean_rate": 0.7857,
+      "max_rate": 0.8444,
+      "n_instances": 12,
+      "mean_r": 56.2,
+      "mean_uniform_cap_for_reference": 0.9405,
+      "distinct_subsets_only": true
+     },
+     "minority": {
+      "mean_rate": 0.8036,
+      "max_rate": 0.877,
+      "n_instances": 12,
+      "mean_r": 56.2,
+      "mean_uniform_cap_for_reference": 0.9405,
+      "distinct_subsets_only": true
+     },
+     "min": {
+      "mean_rate": 1.0,
+      "max_rate": 1.0,
+      "n_instances": 12,
+      "mean_r": 56.2,
+      "mean_uniform_cap_for_reference": 0.9798,
+      "distinct_subsets_only": true
+     },
+     "max": {
+      "mean_rate": 1.0,
+      "max_rate": 1.0,
+      "n_instances": 12,
+      "mean_r": 56.2,
+      "mean_uniform_cap_for_reference": 0.9798,
+      "distinct_subsets_only": true
+     }
+    }
+   }
+  }
+ },
+ "scores": {
+  "S1_calibration": {
+   "verdict": "PASS",
+   "n_forced_pairings": 7,
+   "n_exact_zero": 7,
+   "detail": [
+    {
+     "row": "sat-2",
+     "region": "solutions",
+     "flavor": "majority",
+     "mean_rate": 0.0,
+     "max_rate": 0.0,
+     "pass": true
+    },
+    {
+     "row": "horn-sat",
+     "region": "solutions",
+     "flavor": "min",
+     "mean_rate": 0.0,
+     "max_rate": 0.0,
+     "pass": true
+    },
+    {
+     "row": "xor-sat",
+     "region": "solutions",
+     "flavor": "minority",
+     "mean_rate": 0.0,
+     "max_rate": 0.0,
+     "pass": true
+    },
+    {
+     "row": "bipartiteness",
+     "region": "solutions",
+     "flavor": "minority",
+     "mean_rate": 0.0,
+     "max_rate": 0.0,
+     "pass": true
+    },
+    {
+     "row": "vertex-cover",
+     "region": "feasible",
+     "flavor": "max",
+     "mean_rate": 0.0,
+     "max_rate": 0.0,
+     "pass": true
+    },
+    {
+     "row": "independent-set",
+     "region": "feasible",
+     "flavor": "min",
+     "mean_rate": 0.0,
+     "max_rate": 0.0,
+     "pass": true
+    },
+    {
+     "row": "clique",
+     "region": "feasible",
+     "flavor": "min",
+     "mean_rate": 0.0,
+     "max_rate": 0.0,
+     "pass": true
+    }
+   ],
+   "status": "THEOREM-FORCED \u2014 calibration only, sealed as such. Verifies generator, enumerator, encoding."
+  },
+  "S2_mechanism": {
+   "verdict": "INSUFFICIENT \u2014 CONFOUNDED, not scored",
+   "sealed_direction": "harder rows louder",
+   "raw_gap": 0.3282,
+   "gap_forced_excluded": 0.1908,
+   "confound_1_forced_zero_leak": {
+    "effect": 0.1374,
+    "share_of_raw_gap": 0.4186,
+    "note": "every decision-EASY row is a CSP carrying exactly one theorem-forced zero, which drags its mean down. S-1's calibration arm was leaking into S-2's statistic."
+   },
+   "confound_2_region_size": {
+    "gap_large_r": 0.3431,
+    "gap_small_r": 0.0319,
+    "median_r": 56.2,
+    "note": "the separation is carried by the large-r stratum and nearly vanishes in the small-r stratum"
+   },
+   "confound_3_region_kind": {
+    "solutions": {
+     "n": 8,
+     "easy": 4,
+     "hard": 4
+    },
+    "optimal": {
+     "n": 5,
+     "easy": 0,
+     "hard": 5
+    },
+    "note": "STRUCTURAL: every optimal-region row in this pilot is decision-hard and every decision-easy row is a solutions-region row. Region kind and hardness are not separable in this sample."
+   }
+  },
+  "S3_within_family": {
+   "verdict": "INSUFFICIENT",
+   "vocabulary": "inherited verbatim from Terroir (FAMILY-BORNE / GEOMETRY-RESIDUAL / MIXED / INSUFFICIENT)",
+   "per_family": {
+    "graph": {
+     "n": 6,
+     "easy": 1,
+     "hard": 5
+    },
+    "number-theoretic": {
+     "n": 2,
+     "easy": 0,
+     "hard": 2
+    },
+    "sat-csp": {
+     "n": 5,
+     "easy": 3,
+     "hard": 2
+    }
+   },
+   "note": "no family carries enough label-varying rows to separate geometry from family at this n, and the graph family's contrast is region-kind confounded. Declared, not argued past."
+  },
+  "S4_registry": {
+   "verdict": "NOT FILED \u2014 no open cell was in scope; every pilot row's decision charge is already cited, so there was nothing to predict-then-fill."
+  },
+  "row_table": [
+   {
+    "row": "sat-2",
+    "family": "sat-csp",
+    "decision": "P",
+    "region": "solutions",
+    "rate_all_flavors": 0.2875,
+    "rate_forced_excluded": 0.3834,
+    "mean_r": 111.2
+   },
+   {
+    "row": "sat-3",
+    "family": "sat-csp",
+    "decision": "NPC",
+    "region": "solutions",
+    "rate_all_flavors": 0.4758,
+    "rate_forced_excluded": 0.4758,
+    "mean_r": 444.5
+   },
+   {
+    "row": "horn-sat",
+    "family": "sat-csp",
+    "decision": "P",
+    "region": "solutions",
+    "rate_all_flavors": 0.3474,
+    "rate_forced_excluded": 0.4633,
+    "mean_r": 639.9
+   },
+   {
+    "row": "xor-sat",
+    "family": "sat-csp",
+    "decision": "P",
+    "region": "solutions",
+    "rate_all_flavors": 0.6103,
+    "rate_forced_excluded": 0.8137,
+    "mean_r": 17.3
+   },
+   {
+    "row": "nae-sat",
+    "family": "sat-csp",
+    "decision": "NPC",
+    "region": "solutions",
+    "rate_all_flavors": 0.7252,
+    "rate_forced_excluded": 0.7252,
+    "mean_r": 76.0
+   },
+   {
+    "row": "bipartiteness",
+    "family": "graph",
+    "decision": "P",
+    "region": "solutions",
+    "rate_all_flavors": 0.4031,
+    "rate_forced_excluded": 0.5374,
+    "mean_r": 37.6
+   },
+   {
+    "row": "graph-3-coloring",
+    "family": "graph",
+    "decision": "NPC",
+    "region": "solutions",
+    "rate_all_flavors": 0.7804,
+    "rate_forced_excluded": 0.7804,
+    "mean_r": 137.5
+   },
+   {
+    "row": "vertex-cover",
+    "family": "graph",
+    "decision": "NPC",
+    "region": "optimal",
+    "rate_all_flavors": 0.7304,
+    "rate_forced_excluded": 0.7304,
+    "mean_r": 5.6
+   },
+   {
+    "row": "independent-set",
+    "family": "graph",
+    "decision": "NPC",
+    "region": "optimal",
+    "rate_all_flavors": 0.7163,
+    "rate_forced_excluded": 0.7163,
+    "mean_r": 5.9
+   },
+   {
+    "row": "clique",
+    "family": "graph",
+    "decision": "NPC",
+    "region": "optimal",
+    "rate_all_flavors": 0.869,
+    "rate_forced_excluded": 0.869,
+    "mean_r": 4.5
+   },
+   {
+    "row": "max-cut",
+    "family": "graph",
+    "decision": "NPC",
+    "region": "optimal",
+    "rate_all_flavors": 0.5141,
+    "rate_forced_excluded": 0.5141,
+    "mean_r": 7.7
+   },
+   {
+    "row": "subset-sum",
+    "family": "number-theoretic",
+    "decision": "NPC",
+    "region": "solutions",
+    "rate_all_flavors": 0.9537,
+    "rate_forced_excluded": 0.9537,
+    "mean_r": 67.7
+   },
+   {
+    "row": "number-partitioning",
+    "family": "number-theoretic",
+    "decision": "NPC",
+    "region": "optimal",
+    "rate_all_flavors": 0.8973,
+    "rate_forced_excluded": 0.8973,
+    "mean_r": 56.2
+   }
+  ]
+ },
+ "_meta": {
+  "pilot_row_floor": {
+   "value": 12,
+   "literal": true,
+   "note": "prereg_v17 kill criterion"
+  }
+ },
+ "extremal_acknowledged": [
+  {
+   "stat": "scores.S1_calibration.detail[0].mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "theorem-forced: if Gamma is closed under f then EVERY instance's solution set is closed under f. Exactly 0.0 is the definition of a polymorphism, not a measurement."
+  },
+  {
+   "stat": "scores.S1_calibration.detail[1].mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "theorem-forced: if Gamma is closed under f then EVERY instance's solution set is closed under f. Exactly 0.0 is the definition of a polymorphism, not a measurement."
+  },
+  {
+   "stat": "scores.S1_calibration.detail[2].mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "theorem-forced: if Gamma is closed under f then EVERY instance's solution set is closed under f. Exactly 0.0 is the definition of a polymorphism, not a measurement."
+  },
+  {
+   "stat": "scores.S1_calibration.detail[3].mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "theorem-forced: if Gamma is closed under f then EVERY instance's solution set is closed under f. Exactly 0.0 is the definition of a polymorphism, not a measurement."
+  },
+  {
+   "stat": "scores.S1_calibration.detail[4].mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "theorem-forced: if Gamma is closed under f then EVERY instance's solution set is closed under f. Exactly 0.0 is the definition of a polymorphism, not a measurement."
+  },
+  {
+   "stat": "scores.S1_calibration.detail[5].mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "theorem-forced: if Gamma is closed under f then EVERY instance's solution set is closed under f. Exactly 0.0 is the definition of a polymorphism, not a measurement."
+  },
+  {
+   "stat": "scores.S1_calibration.detail[6].mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "theorem-forced: if Gamma is closed under f then EVERY instance's solution set is closed under f. Exactly 0.0 is the definition of a polymorphism, not a measurement."
+  },
+  {
+   "stat": "rows.sat-2.profile.solutions.majority.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.sat-2.profile.solutions.majority.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.horn-sat.profile.solutions.min.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.horn-sat.profile.solutions.min.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.xor-sat.profile.solutions.minority.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.xor-sat.profile.solutions.minority.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.bipartiteness.profile.solutions.majority.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.bipartiteness.profile.solutions.majority.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.bipartiteness.profile.solutions.minority.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.bipartiteness.profile.solutions.minority.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.vertex-cover.profile.feasible.majority.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.vertex-cover.profile.feasible.majority.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.vertex-cover.profile.feasible.max.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.vertex-cover.profile.feasible.max.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.independent-set.profile.feasible.majority.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.independent-set.profile.feasible.majority.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.independent-set.profile.feasible.min.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.independent-set.profile.feasible.min.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.clique.profile.feasible.majority.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.clique.profile.feasible.majority.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.clique.profile.feasible.min.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.clique.profile.feasible.min.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.max-cut.profile.feasible.majority.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.max-cut.profile.feasible.majority.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.max-cut.profile.feasible.minority.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.max-cut.profile.feasible.minority.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.max-cut.profile.feasible.min.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.max-cut.profile.feasible.min.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.max-cut.profile.feasible.max.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.max-cut.profile.feasible.max.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.number-partitioning.profile.feasible.majority.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.number-partitioning.profile.feasible.majority.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.number-partitioning.profile.feasible.minority.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.number-partitioning.profile.feasible.minority.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.number-partitioning.profile.feasible.min.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.number-partitioning.profile.feasible.min.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.number-partitioning.profile.feasible.max.mean_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.number-partitioning.profile.feasible.max.max_rate",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "THEOREM-FORCED, and sealed as forced in prereg_v17 before running. If Gamma is closed under f then EVERY instance's solution set is closed under f \u2014 that is the definition of a polymorphism. Exactly 0.0 here verifies the generator, the enumerator and the encoding, and earns nothing beyond that. S-1's whole arm is calibration."
+  },
+  {
+   "stat": "rows.bipartiteness.profile.solutions.min.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct min-blend of the `solutions` region escapes it. The region is thin (mean r = 37.6), and thin regions have little room to be blend-stable \u2014 the solutions set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.bipartiteness.profile.solutions.max.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct max-blend of the `solutions` region escapes it. The region is thin (mean r = 37.6), and thin regions have little room to be blend-stable \u2014 the solutions set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.vertex-cover.profile.optimal.minority.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct minority-blend of the `optimal` region escapes it. The region is thin (mean r = 6.0), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.vertex-cover.profile.optimal.min.mean_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct min-blend of the `optimal` region escapes it. The region is thin (mean r = 5.2), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.vertex-cover.profile.optimal.min.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct min-blend of the `optimal` region escapes it. The region is thin (mean r = 5.2), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.vertex-cover.profile.optimal.max.mean_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct max-blend of the `optimal` region escapes it. The region is thin (mean r = 5.2), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.vertex-cover.profile.optimal.max.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct max-blend of the `optimal` region escapes it. The region is thin (mean r = 5.2), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.independent-set.profile.optimal.minority.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct minority-blend of the `optimal` region escapes it. The region is thin (mean r = 6.5), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.independent-set.profile.optimal.min.mean_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct min-blend of the `optimal` region escapes it. The region is thin (mean r = 5.3), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.independent-set.profile.optimal.min.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct min-blend of the `optimal` region escapes it. The region is thin (mean r = 5.3), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.independent-set.profile.optimal.max.mean_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct max-blend of the `optimal` region escapes it. The region is thin (mean r = 5.3), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.independent-set.profile.optimal.max.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct max-blend of the `optimal` region escapes it. The region is thin (mean r = 5.3), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.clique.profile.optimal.min.mean_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct min-blend of the `optimal` region escapes it. The region is thin (mean r = 4.0), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.clique.profile.optimal.min.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct min-blend of the `optimal` region escapes it. The region is thin (mean r = 4.0), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.clique.profile.optimal.max.mean_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct max-blend of the `optimal` region escapes it. The region is thin (mean r = 4.0), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.clique.profile.optimal.max.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct max-blend of the `optimal` region escapes it. The region is thin (mean r = 4.0), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.clique.profile.optimal.majority.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct majority-blend of the `optimal` region escapes it. The region is thin (mean r = 5.0), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.clique.profile.optimal.minority.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct minority-blend of the `optimal` region escapes it. The region is thin (mean r = 5.0), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.max-cut.profile.optimal.min.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct min-blend of the `optimal` region escapes it. The region is thin (mean r = 7.2), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.max-cut.profile.optimal.max.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct max-blend of the `optimal` region escapes it. The region is thin (mean r = 7.2), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.subset-sum.profile.solutions.min.mean_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct min-blend of the `solutions` region escapes it. The region is thin (mean r = 67.7), and thin regions have little room to be blend-stable \u2014 the solutions set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.subset-sum.profile.solutions.min.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct min-blend of the `solutions` region escapes it. The region is thin (mean r = 67.7), and thin regions have little room to be blend-stable \u2014 the solutions set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.subset-sum.profile.solutions.max.mean_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct max-blend of the `solutions` region escapes it. The region is thin (mean r = 67.7), and thin regions have little room to be blend-stable \u2014 the solutions set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.subset-sum.profile.solutions.max.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct max-blend of the `solutions` region escapes it. The region is thin (mean r = 67.7), and thin regions have little room to be blend-stable \u2014 the solutions set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.number-partitioning.profile.optimal.min.mean_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct min-blend of the `optimal` region escapes it. The region is thin (mean r = 56.2), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.number-partitioning.profile.optimal.min.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct min-blend of the `optimal` region escapes it. The region is thin (mean r = 56.2), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.number-partitioning.profile.optimal.max.mean_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct max-blend of the `optimal` region escapes it. The region is thin (mean r = 56.2), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  },
+  {
+   "stat": "rows.number-partitioning.profile.optimal.max.max_rate",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "a MEASURED saturation, not a definition: on this ensemble EVERY distinct max-blend of the `optimal` region escapes it. The region is thin (mean r = 56.2), and thin regions have little room to be blend-stable \u2014 the optimal set of an optimisation row is a sub-level set, which carries no closure guarantee at all. Rates here are over DISTINCT subsets, so this is not the repeat-inflation species (methods 35); r ships beside every rate so the reader can see the room it had."
+  }
+ ]
+}
