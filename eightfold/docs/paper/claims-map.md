@@ -101,10 +101,13 @@ Three links, all verified 2026-07-26:
 
 | result | artifact | status |
 |---|---|---|
-| Pebble's absorption | `absorption-closeout.md` | NEEDS-EXTRACTION |
-| the unaskable conditioning | `absorption-closeout.md`, `mosaic-L3-L4-findings.md` | NEEDS-EXTRACTION |
+| **Pebble's absorption** | `foundry/docs/findings/Pebble-findings.md` — reach ≈ f(`tuple_dispersion`), proxy **corr 0.78**; geometry term **+0.003…0.023** (noise); terrain increment **+0.096 held-out, p ≈ 0**; parity diagnostic **0.03** at maximal propagation → pairwise instruments DISQUALIFIED; sealed verdict *"a characterization, not a keep"*; self-caveat *"structurally uneven, not a fair fight reach won on merit"* | **EXTRACTED** |
+| **the unaskable conditioning** | `foundry/docs/findings/generation-cannot-reach-the-gradient.md` — Foundry **I6**, *"unaskable in the Boolean single-relation domain at **any** arity"*; on param-real rows unbounded-width = purely-affine (Schaefer); **dropped from the seal** at Prism v2; domain ≥ 3 its smallest well-posed home | **EXTRACTED** — **note the near-miss**: first attributed to Mosaic P6 (kernel↔param structurally blocked, `mosaic-L3-L4-findings.md`). Two different unaskable results; the halt rule caught the misattribution before prose. |
 | powered locality MISS (3-class INSUFFICIENT → 2-class powered MISS) | `quarry_v2_results.json`; repro `mosaic.absorption.2class`, `mosaic.power.3class` | SOURCED |
-| the circular P4 | `prereg_v12` (C3/C4), methods instance 21 | SOURCED |
+| the circular P4 | `prereg_v12` (C3/C4), methods instance 21 — 46→46, 100% ceiling; the spec's own netting rule zeroed its own headline | SOURCED |
+| the anti-gradient residual | repro `natural.direction.corrected` → **−0.564** v1 anchor, **−0.140** arity-4, CI **(−0.166, −0.114)** | SOURCED |
+| Terroir's sealed MISS + the demoted hit | `terroir_v1_ablations.json::sealed_prediction_scoring` → A1 **+0.0476**, p **0.0010**, verdict MISS; A2 primary −0.1339 demoted, secondary **+0.0188** | SOURCED |
+| Marrow's three blockers | `marrow-terroir-c-power.json` (0 admissible families, every reading) · `marrow-i0-census.json` (**34**) · `marrow-presentations.json` (**28** after template pinning) · stratum-2 constant **18/18** | SOURCED |
 | Terroir — FAMILY-BORNE | `terroir_v1_results.json` (within-family lift **+0.0000**, 170/255 both ways) | SOURCED |
 | Terroir — A1 reported as a MISS | `terroir_v1_ablations.json::sealed_prediction_scoring` | SOURCED |
 | Marrow — closure retest unaskable | `marrow-terroir-c-power.json` (0 admissible families, every reading) | SOURCED |

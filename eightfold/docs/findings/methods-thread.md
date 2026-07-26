@@ -6,6 +6,13 @@ the error was *already written down somewhere in the artifact*, and nobody joine
 dated and numbered continuously. (Instances 1–5 predate this file; 6 and 7 are recorded below at the
 owner's direction, from the Atlas v3 V2 confirm-pass of 2026-07-23/24.)
 
+**Numbering history, stated so the count is never guessed (added 2026-07-26).** This file holds **26
+numbered entries spanning 6–31**. Instances **1–5 predate it**, as above. **15 is absent** and **6 carries
+an addendum sharing its number** — both artefacts of how entries were written at the time. *The past is
+never renumbered:* an instance number is a citation target, and prior documents point at these. Anything
+quoting a ledger size uses the derived form — *"26 numbered entries, 6–31, five predating the file"* — and
+never a round total.
+
 ---
 
 ## Instance 6 — 2026-07-24 — a drafter-prompt hint asserted as fact, inherited by four rows

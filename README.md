@@ -2,14 +2,15 @@
 
 Reproducible evidence for the charge-atlas / proof-space program. This repository
 consolidates four research projects into one installable package whose CLI
-regenerates **every statistic the accompanying preprint cites** — either from
+regenerates **every statistic the write-up cites** — either from
 committed, verified artifacts (fast tier, seconds–minutes) or from scratch
 (full tier, wall-clock documented per claim). The repo *is* the paper's
 evidence: the seal chain, the ledgers, and the numbers, checkable without
 trusting the author.
 
-> **v1.0.0.** `pip install hardmap && hardmap repro --all` reproduces all eight
-> paper-cited numbers, and `hardmap verify` passes the internal-coherence sweep.
+> **`pip install hardmap && hardmap repro --all`** reproduces every cited number in the
+> manifest — **28 claims** as of 2026-07-26, growing as results land — and `hardmap verify`
+> passes the internal-coherence sweep (**10 checks**).
 > The sealed verification pass is complete ([H4-verification.md](docs/findings/H4-verification.md)).
 
 ## Provenance & the seal chain
@@ -71,6 +72,6 @@ expected value, tolerance, tier) is [`repro/manifest.yaml`](repro/manifest.yaml)
 
 Dual-licensed. Source code under **Apache-2.0** ([`LICENSE`](LICENSE)); research
 data and prose (the atlas datasets, results, preregistrations, findings, and
-specs) under **CC-BY-4.0** with citation of the preprint as the attribution
+specs) under **CC-BY-4.0** with citation of the write-up as the attribution
 condition. See [`NOTICE`](NOTICE) for the exact split and
 [`CITATION.cff`](CITATION.cff) to cite.
