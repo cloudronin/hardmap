@@ -81,3 +81,113 @@ def test_registry_declares_insufficient_until_its_floor_is_cleared():
     assert scored == [], "no cell may enter the scored n before a wave is sealed predict-then-fill"
     pre = [e for e in reg["entries"] if e.get("temporal_class") == "clean-but-pre-registry"]
     assert len(pre) == 21 and all(e["counts_in_descriptive"] for e in pre)
+
+
+# ── Terroir v1 (prereg_v14) ───────────────────────────────────────────────────────────────────────────
+
+def _terroir(name):
+    import json
+    return json.loads((ATLAS / name).read_text(encoding="utf-8"))
+
+
+def test_a4_within_family_decomposition_is_pinned_to_its_integer_counts():
+    """A4 IS the verdict, so it is pinned to the counts that produce it rather than to a rounded float.
+    The pooled +-0 is a difference of two small integers; if any of them moves, FAMILY-BORNE has to be
+    re-argued rather than silently inherited."""
+    d = _terroir("terroir_v1_results.json")["A4_within_family_residual"]
+    pf = d["per_family"]
+    for fam, modal, model, n in (("graph", 106, 112, 148), ("logic-proof", 17, 10, 49),
+                                 ("optimization", 47, 48, 58)):
+        assert pf[fam]["admissible"], f"{fam} must clear the n>=30 / modal<0.90 screen"
+        assert (pf[fam]["n"], pf[fam]["modal_correct"], pf[fam]["model_correct"]) == (n, modal, model)
+    pool = d["pooled_admissible_only"]
+    assert pool["n"] == 255 and pool["modal_correct"] == pool["model_correct"] == 170
+    assert pool["within_family_lift"] == 0.0
+    assert d["verdict"] == "FAMILY-BORNE"
+    # the anti-signal edge: logic-proof is significantly WORSE than its own modal
+    assert pf["logic-proof"]["delta"] < 0 and pf["logic-proof"]["exact_binomial_p"] < 0.05
+
+
+def test_a4_declares_insufficient_rather_than_arguing_past_the_power_floor():
+    d = _terroir("terroir_v1_results.json")["A4_within_family_residual"]
+    ins = [f for f, r in d["per_family"].items() if not r["admissible"]]
+    assert len(ins) == 7, "seven families fail the screen and must each be declared, not pooled in"
+    assert all("INSUFFICIENT" in d["per_family"][f]["status"] for f in ins)
+
+
+def test_a4_asserts_the_seal_and_the_fold_warrant():
+    """A4 is arithmetic on FROZEN predictions. If the prediction file ever moves, or the fold key stops
+    being problem_family, the analysis is not the one that was reported."""
+    import subprocess, sys, os
+    d = _terroir("terroir_v1_results.json")["A4_within_family_residual"]
+    assert d["predictions_sha256_asserted"] == "cc5bb3895a44a043"
+    assert "problem_family" in d["fold_key_warrant"]
+    env = dict(os.environ, PYTHONPATH="eightfold:foundry:hardmap:proof-census:desert-map")
+    r = subprocess.run([sys.executable, "eightfold/dev/terroir_a4.py"], capture_output=True,
+                       cwd=str(ATLAS.parents[3]), env=env)
+    assert r.returncode == 0, f"A4 re-run failed its own seal assertions:\n{r.stderr.decode()[-2000:]}"
+
+
+def test_a2_strips_every_absence_marker_not_just_the_named_one():
+    """THE LOAD-BEARING CHECK. Exclusion must be closed under the CONCEPT, not under the name: `open` is
+    absence just as much as `__missing__` is, and -1.0 is an exact missingness test under a threshold
+    split. A2 that stripped only `__missing__` would still be reading coverage."""
+    import sys
+    sys.path.insert(0, "eightfold/dev"); sys.path.insert(0, "foundry/dev")
+    import terroir_ablate as T
+    from eightfold.anatomy import COVERAGE_ABSENCE_MARKERS
+    assert set(COVERAGE_ABSENCE_MARKERS) == {"__missing__", "open", -1.0}
+    v3, an, pids, fam, folds = T.load()
+    enc, levels = T.make_encoder(an, pids, T.FEATS, impute_folds=True, folds=folds)
+    for f, lv in levels.items():
+        assert not (set(lv) & T.ABSENCE_STRINGS), f"{f} still carries an absence level: {lv}"
+    import numpy as np
+    X = np.array([enc(p, 0) for p in pids], dtype=float)
+    assert not (X == T.ABSENCE_NUMERIC).any(), "the -1.0 sentinel survived into A2's matrix"
+
+
+def test_a2_imputation_is_fold_local():
+    """A global modal would let a test row inform its own imputation. The fill value must depend only on
+    the TRAIN fold — so the encoding of the same row must be allowed to differ across folds."""
+    import sys
+    sys.path.insert(0, "eightfold/dev"); sys.path.insert(0, "foundry/dev")
+    import terroir_ablate as T
+    import numpy as np
+    v3, an, pids, fam, folds = T.load()
+    enc, _ = T.make_encoder(an, pids, T.FEATS, impute_folds=True, folds=folds)
+    mats = [np.array([enc(p, f) for p in pids], dtype=float) for f in range(T.NFOLD)]
+    assert any(not np.array_equal(mats[0], m) for m in mats[1:]), \
+        "A2's encoding is identical across folds — the imputation is not fold-local"
+
+
+def test_terroir_reports_its_miss():
+    """A1's sealed prediction FAILED. The artifact must say so; a seal that only records its hits is a
+    press release."""
+    s = _terroir("terroir_v1_ablations.json")["sealed_prediction_scoring"]
+    assert s["A1_encoding_ablation"]["verdict"] == "MISS"
+    assert s["A1_encoding_ablation"]["observed"] > 0.0342
+    assert "specification_weakness_declared" in s["A2_indicator_free_primary"]
+
+
+def test_ablations_reproduce_the_sealed_baseline_exactly():
+    """Every delta is measured against a matched re-run. If the baseline stops reproducing the sealed
+    accuracy, the deltas mean nothing and the run must fail rather than report them."""
+    b = _terroir("terroir_v1_ablations.json")["runs"]["baseline"]
+    assert b["acc"] == 0.6607 and b["null"] == 0.5923
+    assert b["reproduces_sealed"]["lift_as_sealed"] == 0.0684
+
+
+def test_denominator_gate_catches_a_mismatched_lift():
+    """The gate promoted at T4 after three instances. It must FIRE on a planted mismatch, not merely
+    pass on clean files — a check that has never been seen to fail is not known to work."""
+    import json, tempfile, pathlib
+    from hardmap import verify
+    assert verify.check_lift_denominators_match() == []
+    bad = {"block": {"n": 100, "acc": 0.90, "null": 0.50, "lift": 0.10}}   # 0.90-0.50 != 0.10
+    p = ATLAS / "_tmp_denominator_probe_results.json"
+    try:
+        p.write_text(json.dumps(bad), encoding="utf-8")
+        out = verify.check_lift_denominators_match()
+        assert any("_tmp_denominator_probe" in m for m in out), "the denominator gate failed to fire"
+    finally:
+        p.unlink(missing_ok=True)

@@ -668,3 +668,117 @@ recovered `1valid` at exactly 1.0000 (Arm A) — and now bugs that manufactured 
 **The tell was the same both times: the number was too tidy.** `1.0000` recovery is not learning, it is
 reading; `+0.009` on a designed-for signal is not a null, it is a dead encoder. **A number that lands exactly
 where a bug would put it deserves the same suspicion as one that lands exactly where a hypothesis would.**
+
+---
+
+## Instance 23 — 2026-07-25 — the recruitment-artifact trap: when the corpus's construction guarantees the answer
+
+Terroir's A3 was to regress `decision` on the quarantined sociology sidecar — the exact analysis the sidecar
+was quarantined *for*, finally cashed. Grounding disqualified it before it ran, and the reason generalizes
+well past this study.
+
+**The atlas was expanded in charge-stratified waves.** Wave W3 is **123/123 NPC**; W4 is **10/10 P**. So
+`admission_wave` — pure administrative bookkeeping, a record of *when we added the row* — scores **0.8711
+against a 0.5644 null. A +0.31 "sociology lift" that is entirely recruitment artifact.** Published, it
+would have read as the most decisive result the program has produced.
+
+**The general form, which is the entry's content:**
+
+> **Any covariate correlated with how the corpus was built is a label proxy to the exact degree the
+> building was outcome-stratified.**
+
+This binds every future use of provenance fields on every wave-built artifact, here or elsewhere. It is the
+**recruitment-design sibling of the theorem-forced-credit trap** (instance 21): there the *theorem* computed
+the outcome from the features; here the *sampling plan* did. Same failure, different mechanism — the study's
+construction, not the world, guaranteeing the answer. Instance 21 was caught by asking *what computes the
+outcome*; this one by asking *what determined which rows exist*. **Both questions belong before feature
+selection, and neither is a statistical question.**
+
+**The quarantine law is what blocked it, and it blocked a case its author never imagined.** `Anatomy-SCHEMA`
+§3.4 ("a sociology column never enters a structural claim") and the sidecar's own `provenance_note`
+(stratification permitted on `rn_membership`, not `source_funnel`) were both written long before this
+regression was contemplated. **A rule that only forbids what its author foresaw is a preference; a rule that
+blocks a case its author never imagined is a law.** Cost to catch: one read-only audit.
+
+---
+
+## Instance 24 — 2026-07-25 — denominator mismatch reaches three, and becomes a gate
+
+A lift is `accuracy − null`. The subtraction means nothing unless **both terms were computed on the same
+rows**. Three separate times in this program they were not:
+
+1. **Quarry v2's conditional shrinkage** — unconditional and conditional statistics on different supports.
+2. **Terroir A3** — a sociology increment on 225 rows compared against a 336-row headline. Caught before it
+   ran; the analysis was retired for a worse reason anyway (instance 23).
+3. **Terroir A4's own first pass** — an *admissible-only* within-family null against an *all-rows* accuracy,
+   reporting **+0.0060** where the matched statistic is **exactly 0**. Including families of n = 2 and n = 4
+   whose in-sample modal is trivially 1.0000 inflated the null's denominator and nothing else.
+
+**Three instances is a class, not an anecdote series**, and the third one nearly softened a verdict:
+"+0.0060, not significant" and "exactly zero" carry different weight in a sentence, and only one of them is
+what the data says.
+
+**Promoted to `check_lift_denominators_match()` in `hardmap verify`.** Any artifact block carrying
+`acc`/`null`/`lift` must declare the row count those terms share; `lift` must equal `acc − null` to
+rounding; and a block pooling across a screen must additionally carry a `denominator_rule` naming the shared
+row set — that being exactly the case where the mismatch is easiest to make and hardest to see. **The test
+plants a mismatch and asserts the gate fires**, because a check never observed to fail is not known to work.
+
+### The gate that had an expiry date
+
+Widening the tidy-number gate's glob was a side-effect of this work and produced its own finding. The gate
+watched `grid_*results*.json` — so `terroir_v1_results.json` was invisible to it. **A gate scoped to one
+project's filename convention silently stops working the moment the next project names a file differently**,
+and nothing announces it. Widened, it immediately found seven unacknowledged extremals in older artifacts,
+two of them real:
+
+- a permutation p reported as **exactly 0** (the honest form is `< 1/N`; 0 asserts an impossibility);
+- an absorption block that **never ran** — `governed_by: power_check.cleared`, INSUFFICIENT-terminal — yet
+  left `0.0` in two fields that read as measured values. The same block writes `shrinkage_fraction: null`,
+  which is the correct idiom, so **the file's own author knew it and applied it inconsistently.** A
+  not-computed value encoded as `0.0` is indistinguishable from a measured null to every downstream reader.
+
+Both are itemised in the gate's `LEGACY` table with their readings rather than waived, and the gate stays
+live on those files for anything new. **Recording what a widened gate finds in the gate itself is the
+difference between paying a debt and hiding one.**
+
+---
+
+## Instance 25 — 2026-07-25 — chosen ignorance, and a ruling corrected by measuring it first
+
+Two small process notes from Terroir, both about the boundary between grounding and sealing.
+
+**Chosen ignorance.** Terroir's grounding pass computed A4's answer and disqualified A3 — leaving A1 and A2
+as the only genuinely sealable content. Measuring `encoding_type` ↔ `problem_family` would have pre-empted
+A1 too. **It was deliberately not measured.** A2's *premise* (missingness is family-patterned) was measured
+because the seal needed it; A2's *outcome* was not. Where knowing a thing would destroy the last sealable
+content, the grounding pass can choose not to know it — and must then say that it chose, or the restraint is
+indistinguishable from an oversight.
+
+The corresponding disclosure: **A4's answer was known before the seal.** Re-analysing frozen, hashed
+predictions is not peeking, but the analyst knew. `prereg_v14` therefore splits its own analyses into
+**DISCLOSED** (no predictive credit) and **SEALED** (full credit) rather than claiming uniform
+pre-commitment. A prereg that overstates its own discipline is worse than one that admits a partial seal,
+because the overstatement is undetectable from the artifact.
+
+**A ruling corrected by measuring it before executing it.** The instruction was: *route `open` to
+`__missing__` before any refit.* Measured first:
+
+- on `arity_class`, `objective_type` and `locality_class` there is **no `__missing__` level at all**, so the
+  routing is a **pure relabel** — byte-identical one-hot partition, identical fit. A no-op on three of four
+  columns.
+- on `kernel_status` it would have **merged two different facts**: `open` = the literature has no answer;
+  `__missing__` = the row was not coded.
+
+The defect was never that the levels should be merged — it was that **the model could not tell either kind of
+absence from a substantive answer**, since all of them are live inputs. Ruling updated to classify all three
+absence forms (`__missing__`, `open`, `−1.0`) in the *analysis* layer while preserving the distinction in the
+artifact. **Measuring an instruction before executing it is not hesitation; it is the only way to find out
+that the instruction was a no-op.** Logged against the owner, one line.
+
+**And the seal produced a miss.** A1 predicted the lift would fall below half its size; it landed at +0.0476,
+still significant at p = 0.0010. Reported as a MISS, with a test asserting the artifact says so. A2's primary
+nominally hit — and the artifact **declares its own specification weakness**: imputation at a ~50% absence
+rate degrades the matrix by construction, making the prediction nearly unfalsifiable, so the hit is weak
+evidence and the sealed *secondary* (+0.0188, no imputation) is the informative number. **Scoring a hit down
+because the test was badly posed is the same discipline as scoring a miss.**

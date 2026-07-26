@@ -188,13 +188,44 @@ def check_suspicious_cleanliness() -> list[str]:
     violation. Where it cannot be mechanised, it remains a standing review line."""
     import json
     bad, roots = [], []
+    # LEGACY DEBT, itemised rather than waived (2026-07-25, Terroir T4). Widening the glob pointed the gate
+    # at artifacts sealed before it existed. Their verdicts stand and their bytes are not rewritten here,
+    # but the gate's own output is the wrong place to bury what it found, so each is named with its reading.
+    # This list is PER-PATH: any NEW extremal in these same files still fails.
+    LEGACY = {
+        ("crucible_results.json", "S1.envelope.approx_param_v.null_p2.5"):
+            "benign — V >= 0, so a null envelope's 2.5th percentile legitimately bottoms out at 0",
+        ("crucible_results.json", "S1.envelope.approx_param_v.one_sided_p_ge"):
+            "REAL FLAW, minor: a permutation p is reported as exactly 0. With N permutations the honest "
+            "form is < 1/N or (k+1)/(N+1); 0 asserts an impossibility. Does not change the S1 verdict "
+            "(the real V is far outside the envelope either way).",
+        ("crucible_results.json", "S3.amplification_bootstrap_caveated.permdet_amp_pos_frac_where_present"):
+            "plausible — a fraction conditioned on presence (present_frac 0.416); the block is already "
+            "labelled _caveated. Unacknowledged, not wrong.",
+        ("crucible_results.json", "S3.amplification_bootstrap_caveated.vcclique_amp_pos_frac_where_present"):
+            "plausible — as above (present_frac 0.369)",
+        ("mosaic_L3_results.json", "P4_composition_decomposition.observed_v3new_V"):
+            "an observed association of exactly 0 alongside a predicted 0.734. The block's own verdict is "
+            "HOLDS=false and P4 was declared INSUFFICIENT, so nothing downstream rests on it — but exactly "
+            "0.0 for a measured V is the tell this gate exists for and it is recorded as unresolved.",
+        ("quarry_v2_results.json", "recruited_B.absorption.unconditional_V"):
+            "REAL FLAW: this block never ran — `governed_by: power_check.cleared` and the absorption was "
+            "declared INSUFFICIENT-terminal. The 0.0 is an UNINITIALISED PLACEHOLDER read as a measured "
+            "value. The same block writes `shrinkage_fraction: null`, which is the correct idiom, so the "
+            "file's own author knew it and applied it inconsistently. Verdict unaffected; encoding wrong.",
+        ("quarry_v2_results.json", "recruited_B.absorption.averaged_per_class_wrong"):
+            "REAL FLAW — same not-computed placeholder as above",
+    }
     d = _eightfold_atlas()
     roots.append(d)
     lat = d.parent.parent.parent / "foundry" / "foundry" / "results" / "lattice"
     if lat.exists():
         roots.append(lat)
     for root in roots:
-        for p in sorted(root.glob("grid_*results*.json")):
+        # WIDENED 2026-07-25 (Terroir T4): the original glob was `grid_*results*.json`, which stopped
+        # watching the moment a result file was named anything else — terroir_v1_results.json was invisible
+        # to it. A gate scoped to one project's filename convention is a gate with an expiry date.
+        for p in sorted(set(root.glob("*results*.json")) | set(root.glob("*ablations*.json"))):
             try:
                 doc = json.loads(p.read_text(encoding="utf-8"))
             except Exception:  # noqa: BLE001
@@ -205,6 +236,8 @@ def check_suspicious_cleanliness() -> list[str]:
                     for k, v in node.items():
                         walk(v, f"{path}.{k}" if path else k)
                 elif isinstance(node, float) and node in (0.0, 1.0):
+                    if (p.name, path) in LEGACY:
+                        return                      # itemised above, not silently waived
                     if not any(path.endswith(a) or a.endswith(path) for a in ack):
                         bad.append(f"{p.name}: {path} is EXACTLY {node} and is not in "
                                    f"extremal_acknowledged — tidy-number gate (methods 22)")
@@ -212,8 +245,67 @@ def check_suspicious_cleanliness() -> list[str]:
     return bad
 
 
+def check_lift_denominators_match() -> list[str]:
+    """THE DENOMINATOR GATE (promoted 2026-07-25, Terroir T4).
+
+    A lift is `accuracy - null`. The subtraction is only meaningful if BOTH TERMS WERE COMPUTED ON THE SAME
+    ROWS. Three times in this program they were not:
+
+      1. Quarry v2's conditional shrinkage — unconditional and conditional statistics on different supports
+      2. Terroir A3 — a sociology increment on 225 rows compared against a 336-row headline (caught before
+         it ran; the analysis was retired)
+      3. Terroir A4's first pass — an admissible-only within-family NULL against an all-rows ACCURACY,
+         reporting +0.0060 where the matched statistic is exactly 0
+
+    Three instances is a class, not an anecdote series. So: any artifact block carrying `acc`/`null`/`lift`
+    must declare the row count `n` those terms share, and `lift` must equal `acc - null` to rounding. A
+    block that pools across a screen must additionally carry a `denominator_rule` naming the shared row
+    set, because that is exactly the case where the mismatch is easiest to make and hardest to see."""
+    import json
+    bad, roots = [], []
+    d = _eightfold_atlas()
+    roots.append(d)
+    lat = d.parent.parent.parent / "foundry" / "foundry" / "results" / "lattice"
+    if lat.exists():
+        roots.append(lat)
+    for root in roots:
+        for p in sorted(set(root.glob("*results*.json")) | set(root.glob("*ablations*.json"))):
+            try:
+                doc = json.loads(p.read_text(encoding="utf-8"))
+            except Exception:  # noqa: BLE001
+                continue
+
+            def walk(node, path):
+                if not isinstance(node, dict):
+                    if isinstance(node, list):
+                        for i, v in enumerate(node):
+                            walk(v, f"{path}[{i}]")
+                    return
+                keys = set(node)
+                acc_k = keys & {"acc", "accuracy"}
+                null_k = keys & {"null", "fold_weighted_null", "modal_null"}
+                lift_ks = [k for k in keys if k.startswith("lift") or k.endswith("_lift")]
+                if acc_k and null_k and lift_ks:
+                    a, nl = node[next(iter(acc_k))], node[next(iter(null_k))]
+                    if isinstance(a, (int, float)) and isinstance(nl, (int, float)):
+                        for lk in lift_ks:
+                            lv = node[lk]
+                            if isinstance(lv, (int, float)) and abs((a - nl) - lv) > 5e-4:
+                                bad.append(f"{p.name}: {path}.{lk} = {lv} but acc - null = {a - nl:.4f} "
+                                           f"— denominator gate: the two terms may not share a row set")
+                    if "n" not in keys and "denominator_rule" not in keys:
+                        bad.append(f"{p.name}: {path} reports acc/null/lift without an `n` or a "
+                                   f"`denominator_rule` — denominator gate: the shared row set is "
+                                   f"undeclared")
+                for k, v in node.items():
+                    walk(v, f"{path}.{k}" if path else k)
+            walk(doc, "")
+    return bad
+
+
 CHECKS = [
     ("Suspicious cleanliness (tidy-number gate)", check_suspicious_cleanliness),
+    ("Lift denominators match (acc and null share rows)", check_lift_denominators_match),
     ("Anatomy passports complete + bridges pinned", check_anatomy_passports_complete),
     ("Stratified V known-answer gate (defect #15)", check_stratified_v_known_answers),
     ("Cramér's V in [0,1]", check_cramers_v_range),

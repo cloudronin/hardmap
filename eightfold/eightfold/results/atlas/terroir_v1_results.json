@@ -1,0 +1,272 @@
+{
+ "schema": "terroir-v1-results/v1",
+ "prereg": "prereg_v14",
+ "milestone": "T1",
+ "A4_within_family_residual": {
+  "status": "DISCLOSED \u2014 computed at grounding 2026-07-25, before prereg_v14 was sealed",
+  "charge": "decision",
+  "predictions_sha256_asserted": "cc5bb3895a44a043",
+  "fold_key_warrant": "problem_family \u2014 VERIFIED: every family sits entirely inside one fold, so the model never trains on a family it predicts and must INFER that family's base rate from anatomy features alone",
+  "headline_being_decomposed": {
+   "n": 336,
+   "acc": 0.6607,
+   "global_fold_weighted_null": 0.5923,
+   "lift_exact": 0.0685,
+   "lift_as_sealed": 0.0684,
+   "rounding_erratum": "the sealed artifact records 0.0684; the exact difference is 23/336 = 0.068452, which rounds to 0.0685. grid_arm_b.py computed the lift from the ALREADY-ROUNDED accuracy (round(0.6607 - 0.5922619, 4) = 0.0684) rather than from the exact values. A 0.0001 double-rounding artifact with no bearing on any verdict. Recorded rather than silently reconciled; THE SEALED NUMBER IS NOT CHANGED. Terroir quotes the sealed 0.0684 when referring to the Mosaic v3 result and the exact 0.0685 when doing its own arithmetic, and says which is which."
+  },
+  "screen": {
+   "rule": "n >= 30 AND modal_share < 0.9",
+   "admissible": [
+    "graph",
+    "logic-proof",
+    "optimization"
+   ],
+   "n_admissible_families": 3,
+   "n_insufficient_families": 7
+  },
+  "per_family": {
+   "algebraic": {
+    "n": 7,
+    "modal_label": "PH-complete",
+    "modal_correct": 2,
+    "modal_share": 0.2857,
+    "model_correct": 3,
+    "delta": 1,
+    "admissible": false,
+    "status": "INSUFFICIENT \u2014 n < 30"
+   },
+   "geometric": {
+    "n": 12,
+    "modal_label": "NPC",
+    "modal_correct": 9,
+    "modal_share": 0.75,
+    "model_correct": 11,
+    "delta": 2,
+    "admissible": false,
+    "status": "INSUFFICIENT \u2014 n < 30"
+   },
+   "graph": {
+    "n": 148,
+    "modal_label": "NPC",
+    "modal_correct": 106,
+    "modal_share": 0.7162,
+    "model_correct": 112,
+    "delta": 6,
+    "admissible": true,
+    "exact_binomial_p": 0.3158
+   },
+   "lattice": {
+    "n": 2,
+    "modal_label": "NPC",
+    "modal_correct": 2,
+    "modal_share": 1.0,
+    "model_correct": 2,
+    "delta": 0,
+    "admissible": false,
+    "status": "INSUFFICIENT \u2014 n < 30"
+   },
+   "logic-proof": {
+    "n": 49,
+    "modal_label": "PH-complete",
+    "modal_correct": 17,
+    "modal_share": 0.3469,
+    "model_correct": 10,
+    "delta": -7,
+    "admissible": true,
+    "exact_binomial_p": 0.0359
+   },
+   "matrix": {
+    "n": 4,
+    "modal_label": "P",
+    "modal_correct": 4,
+    "modal_share": 1.0,
+    "model_correct": 4,
+    "delta": 0,
+    "admissible": false,
+    "status": "INSUFFICIENT \u2014 n < 30"
+   },
+   "number-theoretic": {
+    "n": 14,
+    "modal_label": "NPC",
+    "modal_correct": 7,
+    "modal_share": 0.5,
+    "model_correct": 6,
+    "delta": -1,
+    "admissible": false,
+    "status": "INSUFFICIENT \u2014 n < 30"
+   },
+   "optimization": {
+    "n": 58,
+    "modal_label": "NPC",
+    "modal_correct": 47,
+    "modal_share": 0.8103,
+    "model_correct": 48,
+    "delta": 1,
+    "admissible": true,
+    "exact_binomial_p": 0.8674
+   },
+   "sat-csp": {
+    "n": 25,
+    "modal_label": "NPC",
+    "modal_correct": 15,
+    "modal_share": 0.6,
+    "model_correct": 13,
+    "delta": -2,
+    "admissible": false,
+    "status": "INSUFFICIENT \u2014 n < 30"
+   },
+   "string": {
+    "n": 17,
+    "modal_label": "NPC",
+    "modal_correct": 11,
+    "modal_share": 0.6471,
+    "model_correct": 13,
+    "delta": 2,
+    "admissible": false,
+    "status": "INSUFFICIENT \u2014 n < 30"
+   }
+  },
+  "pooled_admissible_only": {
+   "denominator_rule": "accuracy and null share THE SAME ROW SET (admissible families only)",
+   "n": 255,
+   "modal_correct": 170,
+   "model_correct": 170,
+   "null": 0.6667,
+   "acc": 0.6667,
+   "within_family_lift": 0.0
+  },
+  "attribution": {
+   "headline_lift": 0.0685,
+   "within_family_lift": 0.0,
+   "share_of_lift_from_family_composition": 1.0,
+   "reading": "family composition accounts for the ENTIRE scored lift. Within admissible families the model recovers exactly nothing."
+  },
+  "sharpest_edge": {
+   "family": "logic-proof",
+   "finding": "SIGNIFICANTLY WORSE than its own modal (10/49 vs 17/49, exact binomial p = 0.0359). On the one admissible family with a genuinely spread label, the model imports a cross-family rule that is ACTIVELY WRONG.",
+   "why_it_matters": "this is ANTI-SIGNAL, not absence of signal, and it is the strongest single FAMILY-BORNE exhibit: a model with real anatomy signal would not degrade below the base rate on the family where the label actually varies."
+  },
+  "verdict": "FAMILY-BORNE"
+ },
+ "A3_retirement_record": {
+  "status": "RETIRED \u2014 DISQUALIFIED at grounding, before prereg_v14 was sealed",
+  "reason_1_different_population": {
+   "sociology_coverage": "227 of 345 natural rows (v3-new only; the 118 legacy v2 rows carry no provenance record)",
+   "decision_fit_n": 336,
+   "decision_fit_intersect_sociology_n": 225,
+   "note": "the nested increment would be computed on 225 rows against a 0.5644 null and then compared to a 336-row statistic against a 0.5923 null. Not commensurable."
+  },
+  "reason_2_THE_DISQUALIFIER": {
+   "mechanism": "the atlas was expanded in CHARGE-STRATIFIED WAVES, so admission bookkeeping ENCODES THE CHARGE",
+   "admission_wave_x_decision": {
+    "W1": {
+     "n": 25,
+     "modal_label": "P",
+     "modal_correct": 21,
+     "purity": 0.84,
+     "breakdown": {
+      "P": 21,
+      "NPC": 4
+     }
+    },
+    "W2": {
+     "n": 67,
+     "modal_label": "PH-complete",
+     "modal_correct": 42,
+     "purity": 0.6269,
+     "breakdown": {
+      "PH-complete": 42,
+      "PSPACE-complete": 15,
+      "beyond-PSPACE": 9,
+      "coNP-complete": 1
+     }
+    },
+    "W3": {
+     "n": 123,
+     "modal_label": "NPC",
+     "modal_correct": 123,
+     "purity": 1.0,
+     "breakdown": {
+      "NPC": 123
+     }
+    },
+    "W4": {
+     "n": 10,
+     "modal_label": "P",
+     "modal_correct": 10,
+     "purity": 1.0,
+     "breakdown": {
+      "P": 10
+     }
+    }
+   },
+   "admission_wave_alone": {
+    "n": 225,
+    "denominator_rule": "acc and null computed on the same 225 rows \u2014 the decision-fit INTERSECT sociology population, which is NOT the 336-row population the headline lives on",
+    "acc": 0.8711,
+    "fold_weighted_null": 0.5644,
+    "lift": 0.3067
+   },
+   "reading": "a +0.31 'sociology lift' that is PURE RECRUITMENT ARTIFACT. Published, it would have looked like the most decisive result in the program."
+  },
+  "reason_3_already_forbidden": {
+   "Anatomy-SCHEMA \u00a73.4": "a sociology column never enters a structural claim",
+   "provenance_note": "permits stratification on rn_membership; does NOT permit it on source_funnel",
+   "rn_membership_is_degenerate": {
+    "present": 16,
+    "labels": {
+     "NPC": 16
+    },
+    "lift": 0.0,
+    "note": "the one blessed field is uniform on the global modal label, so stratifying on it is arithmetically identical to not stratifying"
+   },
+   "quarry_member_is_constant": "True on all 225 fit-sociology rows \u2014 carries no information"
+  },
+  "the_finding_that_replaces_it": "ANY COVARIATE CORRELATED WITH HOW THE CORPUS WAS BUILT IS A LABEL PROXY TO THE EXACT DEGREE THE BUILDING WAS OUTCOME-STRATIFIED. This binds every future use of provenance fields on every wave-built artifact, and it is the recruitment-design sibling of the theorem-forced-credit trap: the study's construction, not the world, guaranteeing the answer.",
+  "quarantine_law_vindicated": "the two rules that blocked this were written before anyone could have anticipated this specific regression. A rule that only forbids what its author foresaw is a preference; a rule that blocks a case its author never imagined is a law."
+ },
+ "extremal_acknowledged": [
+  {
+   "stat": "A4_within_family_residual.pooled_admissible_only.within_family_lift",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "not a coincidence of rounding \u2014 an exact integer identity. Across the three admissible families the model gets 170 of 255 right and the within-family modal baseline gets 170 of 255: graph +6, logic-proof -7, optimization +1, summing to 0. The statistic is a difference of two small integers that happen to be equal, and each term is printed above so the identity can be checked by hand.",
+   "direction_note": "flagged and discharged in the UNFLATTERING direction: this exactness makes the result MORE decisive against the anatomy claim, and a gate that only interrogates flattering numbers is indistinguishable from optimism."
+  },
+  {
+   "stat": "A4_within_family_residual.attribution.share_of_lift_from_family_composition",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "exactly 1.0 is FORCED BY the entry above, not independently remarkable: the share is 1 - (within_family_lift / headline_lift), and the numerator is exactly 0. One extremal fact, reported twice \u2014 acknowledged separately so the gate is not satisfied by silence."
+  },
+  {
+   "stat": "A4_within_family_residual.attribution.within_family_lift",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "the same statistic as the pooled entry above, restated in the attribution block. Flagged separately by design \u2014 the gate matches on path, so one number reported at two paths owes two acknowledgements rather than one."
+  },
+  {
+   "stat": "A4_within_family_residual.per_family.lattice.modal_share",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "the `lattice` family has n=2 and both rows carry NPC, so its in-sample modal share is 1.0 by arithmetic. This is WHY the family is declared INSUFFICIENT rather than scored \u2014 the modal<0.90 screen exists to catch exactly this. Same for `matrix` (n=4, all P)."
+  },
+  {
+   "stat": "A4_within_family_residual.per_family.matrix.modal_share",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "n=4, all P \u2014 see the `lattice` entry above"
+  },
+  {
+   "stat": "A3_retirement_record.reason_2_THE_DISQUALIFIER.admission_wave_x_decision.W3.purity",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "THIS EXACTNESS IS THE FINDING, not an artifact to explain away. Wave W3 is 123/123 NPC and W4 is 10/10 P because the atlas was expanded in CHARGE-STRATIFIED waves. A purity of exactly 1.0 is what a recruitment label proxy looks like, and it is why A3 is retired."
+  },
+  {
+   "stat": "A3_retirement_record.reason_2_THE_DISQUALIFIER.admission_wave_x_decision.W4.purity",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "10/10 P \u2014 see the W3 entry above"
+  },
+  {
+   "stat": "A3_retirement_record.reason_3_already_forbidden.rn_membership_is_degenerate.lift",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "rn_membership is `present` on 16 rows and ALL 16 carry the global modal label (NPC), so the within-stratum modal and the global modal are the same label on every row. Stratifying on it is arithmetically identical to not stratifying \u2014 the zero is a degeneracy of the covariate, not a measured null."
+  }
+ ]
+}

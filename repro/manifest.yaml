@@ -263,3 +263,48 @@ claims:
       n_filled: {abs: 0}
       coverage: {abs: 0.005}
       planar_modal_share: {abs: 0.005}
+
+  - id: terroir.a4.within_family_residual
+    description: "Terroir A4 (the verdict): within admissible families the model recovers exactly 0 — 170 of 255 both ways. FAMILY-BORNE. logic-proof is significantly WORSE than its own modal."
+    tier: fast
+    fast: "hardmap.claims.terroir_claims:within_family_residual"
+    artifact: eightfold/eightfold/results/atlas/terroir_v1_results.json
+    expected: {n_admissible_families: 3, n_insufficient_families: 7, pooled_n: 255, modal_correct: 170, model_correct: 170, within_family_lift: 0.0, logic_proof_delta: -7, logic_proof_p: 0.0359, verdict: "FAMILY-BORNE"}
+    tolerance:
+      n_admissible_families: {abs: 0}
+      n_insufficient_families: {abs: 0}
+      pooled_n: {abs: 0}
+      modal_correct: {abs: 0}
+      model_correct: {abs: 0}
+      within_family_lift: {abs: 0.0001}
+      logic_proof_delta: {abs: 0}
+      logic_proof_p: {abs: 0.001}
+      verdict: exact
+
+  - id: terroir.a3.recruitment_artifact
+    description: "Terroir A3 retired: admission_wave is a label proxy by construction (W3 123/123 NPC, W4 10/10 P) worth +0.31 of pure recruitment artifact, on a 225-row population the 336-row headline does not live on."
+    tier: fast
+    fast: "hardmap.claims.terroir_claims:sociology_is_a_recruitment_artifact"
+    artifact: eightfold/eightfold/results/atlas/terroir_v1_results.json
+    expected: {sociology_n: 225, headline_n: 336, admission_wave_lift: 0.3067, W3_purity: 1.0, W4_purity: 1.0}
+    tolerance:
+      sociology_n: {abs: 0}
+      headline_n: {abs: 0}
+      admission_wave_lift: {abs: 0.001}
+      W3_purity: {abs: 0.0001}
+      W4_purity: {abs: 0.0001}
+
+  - id: terroir.ablations.scored_including_the_miss
+    description: "Terroir A1/A2 scored against the seal: A1 MISSES (+0.0476, above the half threshold); the sealed A2 secondary lands +0.0188 within coverage profile; three features starve under indicator-free imputation."
+    tier: fast
+    fast: "hardmap.claims.terroir_claims:ablation_scoring"
+    artifact: eightfold/eightfold/results/atlas/terroir_v1_ablations.json
+    expected: {baseline_acc: 0.6607, baseline_null: 0.5923, a1_lift: 0.0476, a1_verdict: "MISS", a2_secondary_lift: 0.0188, a2_secondary_n: 266, n_starved_under_imputation: 3}
+    tolerance:
+      baseline_acc: {abs: 0.0001}
+      baseline_null: {abs: 0.0001}
+      a1_lift: {abs: 0.001}
+      a1_verdict: exact
+      a2_secondary_lift: {abs: 0.001}
+      a2_secondary_n: {abs: 0}
+      n_starved_under_imputation: {abs: 0}

@@ -1,0 +1,141 @@
+{
+ "prereg_version": "v14",
+ "project": "Terroir v1 — The Anatomy-vs-Sociology Probe, RE-SCOPED against measured ground",
+ "owner": "Vishnu",
+ "date": "2026-07-25",
+ "committed_before_analysis": "PARTIAL — AND THE SPLIT IS THE POINT. See `disclosure` below. Two of the four analyses were COMPUTED DURING GROUNDING and enter as DISCLOSED FINDINGS, not bets. Two are genuinely unrun and are SEALED HERE as predictions. A seal that claimed all four were pre-committed would be false, and the falsehood would be undetectable from the artifact — so it is stated instead.",
+ "supersedes": "nothing. Terroir ATTRIBUTES an already-scored statistic (prereg_v12 B1 / Arm B `decision`). No prior verdict, prereg, or frozen byte is touched or rescored.",
+
+ "anchors_by_hash": {
+  "grid_arm_b_predictions.json": "cc5bb3895a44a043",
+  "grid_arm_b_results.json": "bf561910af4854a2",
+  "atlas_v3.jsonl": "e62f3c284b408a26",
+  "anatomy_v1.jsonl": "8ff11f8a33bbdce7",
+  "note": "all four verified at grounding, 2026-07-25, before this seal was written. The predictions file's sha recorded INSIDE grid_arm_b_results.json matches its sha on disk — the Arm B seal is intact and A4 is arithmetic on frozen bytes."
+ },
+
+ "the_statistic_being_attributed": {
+  "source": "prereg_v12 B1, scored at Mosaic v3 G3",
+  "charge": "decision",
+  "n": 336,
+  "acc": 0.6607,
+  "fold_weighted_null": 0.5923,
+  "lift": 0.0684,
+  "permutation_p": 0.0033,
+  "status": "FROZEN. Terroir does not rescore it. Every Terroir number is either arithmetic on the frozen predictions (A4) or a refit reported as a DELTA against a matched internal baseline (A1/A2)."
+ },
+
+ "disclosure": {
+  "statement": "A4's answer and A3's disqualification were both established during the grounding pass, BEFORE this seal was written. Re-analysing frozen, hashed predictions is not peeking — the predictions cannot move. But the analyst knew the answer before sealing, and a prereg that did not say so would misrepresent the epistemic status of its own headline.",
+  "consequence": "A4 and A3 are recorded as DISCLOSED COMPUTED FINDINGS. They carry no predictive credit. A1 and A2 are unrun and carry full predictive credit.",
+  "chosen_ignorance": "The association between `encoding_type` and `problem_family` was DELIBERATELY NOT MEASURED during grounding, specifically so that A1 would remain sealable. A2's PREMISE (missingness is family-patterned: V=0.2924, perm p=0.0002, 9 patterns) was measured; A2's OUTCOME was not. Where knowing a thing would have destroyed the only remaining sealable content, the grounding pass chose not to know it."
+ },
+
+ "verdict_vocabulary_sealed": {
+  "FAMILY-BORNE": "lift collapses under the sociology tier and A4 shows no admissible within-family residual",
+  "ANATOMY-RESIDUAL": "lift survives the controls at >= half its size AND A4's admissible families show positive within-family lift",
+  "MIXED": "partial survival; the decomposition table is the finding, reported without a headline adjective",
+  "INSUFFICIENT": "the controls cannot be estimated at this n — legal, declared, and the prospective registry carries the question",
+  "source": "Terroir v1 spec §2, quoted unchanged"
+ },
+
+ "admissibility_screen": {
+  "rule": "a family is ADMISSIBLE for within-family scoring iff n >= 30 AND modal_share < 0.90",
+  "provenance": "NOT a new choice. n>=30 is the binomial power floor the spec's A4 already invokes; modal_share<0.90 is the census-before-seal starvation line already sealed at Anatomy-SCHEMA §3.3/§3.3b and applied in build_surface_features.census().",
+  "pooling_rule": "the pooled within-family statistic uses THE SAME ROW SET for accuracy and for null — admissible families only. Mixing an admissible-only null with an all-rows accuracy is a denominator mismatch and is the error this rule exists to prevent.",
+  "declared_in_advance": "families failing the screen are declared INSUFFICIENT and are NOT argued past, per the program's standing rule."
+ },
+
+ "disclosed_findings": {
+  "A4_within_family_residual": {
+   "status": "DISCLOSED — COMPUTED AT GROUNDING, 2026-07-25, before this seal",
+   "method": "score the frozen `decision:with_locality` predictions within each problem_family against that family's own modal null; pool over admissible families only",
+   "structural_fact_that_makes_it_sharp": "the Arm B fold key IS problem_family, so every family sits entirely inside one fold. The model NEVER trains on a family it predicts. It cannot memorise 'graph -> NPC'; it must INFER a family's base rate from anatomy features. A4 therefore asks the hardest available version of the question.",
+   "result": {
+    "admissible_families": 3,
+    "inadmissible_declared_insufficient": 7,
+    "n_admissible": 255,
+    "modal_correct": 170,
+    "model_correct": 170,
+    "within_family_lift": 0.0,
+    "per_family": {
+     "graph": {"n": 148, "modal_correct": 106, "model_correct": 112, "delta": 6, "exact_binomial_p": 0.3158},
+     "logic-proof": {"n": 49, "modal_correct": 17, "model_correct": 10, "delta": -7, "exact_binomial_p": 0.0359},
+     "optimization": {"n": 58, "modal_correct": 47, "model_correct": 48, "delta": 1, "exact_binomial_p": 0.8674}
+    }
+   },
+   "reading": "family composition accounts for 100% of the scored +0.0684. Within families the model recovers exactly nothing.",
+   "sharpest_edge": "logic-proof is SIGNIFICANTLY WORSE than its own modal (10/49 vs 17/49, p=0.0359). On the one admissible family with a genuinely spread label, the model imports a cross-family rule that is ACTIVELY WRONG. That is anti-signal, not absence of signal, and it is the strongest single FAMILY-BORNE exhibit.",
+   "tidy_number_gate": "the +-0 is EXACTLY equal to its own null and therefore trips check_suspicious_cleanliness(). It is DISCHARGED, not waived, by its complete integer explanation: +6 - 7 + 1 = 0. An `extremal_acknowledged` entry carrying that arithmetic is a required artifact field.",
+   "correction_recorded": "an earlier pass reported +0.0060 by pooling within-family nulls over ALL TEN families while using the ALL-336 accuracy — including families of n=2 and n=4 whose in-sample modal is trivially 1.0000. The matched statistic is exactly 0."
+  },
+
+  "A3_covariate_hierarchy": {
+   "status": "RETIRED — DISQUALIFIED AT GROUNDING, before this seal",
+   "as_specced": "three nested fits: null -> sociology-only (source_funnel, compendium memberships, rn-presence) -> sociology + anatomy; the anatomy claim is the increment",
+   "why_it_cannot_run": {
+    "1_different_population": "sociology covers 227 of 345 natural rows (v3-new only; the 118 legacy v2 rows carry none). decision-fit INTERSECT sociology = 225, not 336, with null 0.5644 vs 0.5923. The increment would not be commensurable with the statistic it claims to decompose.",
+    "2_THE_DISQUALIFIER_label_proxy_by_construction": "the atlas was expanded in CHARGE-STRATIFIED WAVES, so admission bookkeeping ENCODES THE CHARGE. W3 -> 123/123 NPC. W4 -> 10/10 P. `admission_wave` alone scores 0.8711 against a 0.5644 null — a +0.31 'sociology lift' that is PURE RECRUITMENT ARTIFACT. Published, it would have looked like the most decisive result in the program.",
+    "3_already_forbidden_by_two_sealed_rules": "Anatomy-SCHEMA §3.4 ('a sociology column never enters a structural claim'); and the sociology sidecar's own provenance_note, which permits stratification on `rn_membership` but NOT on `source_funnel`. rn_membership is the one blessed field and it has exactly zero lift (16 positives, all NPC)."
+   },
+   "the_finding_that_replaces_it": "ANY COVARIATE CORRELATED WITH HOW THE CORPUS WAS BUILT IS A LABEL PROXY TO THE EXACT DEGREE THE BUILDING WAS OUTCOME-STRATIFIED. This binds every future use of provenance fields on every wave-built artifact, and it is the recruitment-design sibling of the theorem-forced-credit trap: the study's construction, not the world, guaranteeing the answer.",
+   "quarantine_law_vindicated": "the two rules that blocked this were written before anyone could have anticipated this specific regression. A rule that only forbids what its author foresaw is a preference; a rule that blocks a case its author never imagined is a law."
+  }
+ },
+
+ "sealed_predictions": {
+  "A1_encoding_ablation": {
+   "status": "SEALED — UNRUN. Full predictive credit.",
+   "method": "refit `decision` dropping `encoding_type`. Identical folds (problem_family, seed 20260725), identical model (CART depth<=5, minleaf 6, 5 folds), identical per-charge exclusion map, identical one-hot encoder.",
+   "prediction": "the headline lift falls BELOW HALF its sealed size, i.e. below +0.0342 — the spec's own ANATOMY-RESIDUAL survival threshold FAILS.",
+   "scored_either_way": true,
+   "prior_information_disclosed_because_it_weakens_the_bet": "the SEALED Arm B run already reports that dropping ONE feature (`locality_class`) moves the lift +0.0684 -> +0.0327, already below the half threshold. So the lift is ALREADY KNOWN to be fragile to single-feature removal, and this prediction is correspondingly less bold than it looks. Stated here so the credit claimed at T4 is the credit earned."
+  },
+
+  "A2_indicator_free_refit": {
+   "status": "SEALED — UNRUN. Full predictive credit.",
+   "premise_measured_at_grounding": "missingness is family-patterned (Cramer's V = 0.2924, permutation p = 0.0002, 9 distinct coverage patterns); logic-proof's 52 rows are UNIFORMLY all-missing on kernel_status and reduction_out_degree, so the tree can isolate that family through absence alone.",
+   "absence_is_already_a_live_input_four_ways": {
+    "kernel_status.__missing__": "one-hot column firing on 288/345",
+    "self_reducibility": "PURELY an absence flag — 342 missing / 3 positives",
+    "reduction_out_degree": "-1.0 sentinel on 314/345, an exact missingness test under a threshold split",
+    "the_level_literally_named_open": "arity_class 166/345 (plurality), objective_type 126/345, locality_class 7, kernel_status 6"
+   },
+   "method": "strip the ABSENCE SET from the matrix by FOLD-LOCAL MODAL IMPUTATION — each absent cell is replaced by the modal SUBSTANTIVE level of that feature computed on the TRAIN FOLD ONLY. Global imputation would leak test rows into the fit and is forbidden here by the same discipline that makes the null fold-weighted. Then run census-before-seal on the imputed matrix and DECLARE which features starve. Secondarily: stratify by the 9 coverage profiles.",
+   "prediction": "the headline lift falls BELOW HALF its sealed size, i.e. below +0.0342.",
+   "scored_either_way": true,
+   "expected_side_effect_declared_in_advance": "`self_reducibility` will starve under imputation (342/345 -> one level, modal share 99.1% > 0.90) and `reduction_out_degree` will lose 314/345 of its distinctness. That is not a failure of A2, it is A2's content: those columns were carrying absence, not anatomy."
+  }
+ },
+
+ "absence_set_ruling": {
+  "sealed_set": ["__missing__", "open", -1.0],
+  "rule": "all three are ABSENCE MARKERS for analysis purposes and are stripped TOGETHER in A2. The SEMANTIC DISTINCTION IS PRESERVED IN THE ARTIFACT and is never merged: `open` means THE LITERATURE HAS NO ANSWER; `__missing__` means THIS ROW WAS NOT CODED; -1.0 is the numeric encoder's stand-in. Those are three different facts about the world.",
+  "ruling_history": {
+   "original_instruction": "route `open` to `__missing__` before any refit (owner, 2026-07-25)",
+   "measurement_that_corrected_it": "on arity_class, objective_type and locality_class there is NO `__missing__` level at all, so the routing is a PURE RELABEL — the one-hot partition is byte-identical and the fit does not move. Only kernel_status changes (6 rows merge into 288). And the merge would DESTROY a real distinction.",
+   "updated_ruling": "classify all three absence forms in the ANALYSIS layer rather than merging levels in the encoder (owner, 2026-07-25, after measurement). The merge achieves ~nothing; the classification is what makes A2 honest.",
+   "logged": "instruction measured before execution; correction accepted and logged against the owner. Recorded here because a ruling that changed under measurement is exactly the kind of thing a seal exists to preserve."
+  }
+ },
+
+ "recorded_not_fixed": {
+  "decomposition_facts": "the only Anatomy natural column absent from Arm B's FEATS (77 rows populated). Recorded as a COVERAGE GAP and deliberately NOT added — adding it would change the feature matrix and break comparability with the sealed run Terroir exists to attribute."
+ },
+
+ "bet_history_update": {
+  "column": "locality_class",
+  "entry": "prereg_v14 (Terroir v1 attribution) — DISCLOSED, not a bet. The Arm B `decision` lift is decomposed, not re-tested; A4 is arithmetic on frozen predictions. No new contrast on this column is spent.",
+  "exposure_unchanged": "HIGH"
+ },
+
+ "what_A1_and_A2_can_and_cannot_do": {
+  "cannot": "overturn the verdict. Even total collapse under both ablations is a MECHANISM finding; even total survival would leave within-family lift at exactly 0. A4 is the discriminator precisely because it is immune to what the ablations do.",
+  "can": "answer HOW the model identifies a family it never trained on — the one question A4 leaves open."
+ },
+
+ "kill_criteria": {
+  "box": "$0 compute, no new dependency. A4 is arithmetic on a frozen file; A1/A2 are two refits of existing machinery.",
+  "if_all_analyses_land_INSUFFICIENT": "the verdict is 'the lift is not decomposable on this population', recorded, with the prospective registry (0/57, confound-free by construction) named as the instrument that inherits the question. No forcing."
+ }
+}

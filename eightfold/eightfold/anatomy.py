@@ -157,6 +157,31 @@ COVERAGE_CONDITIONING = {
 }
 
 
+# ── ABSENCE MARKERS (prereg_v14, Terroir v1) ──────────────────────────────────────────────────────────
+# THE DEFECT THIS NAMES: a model reading these columns cannot tell EITHER KIND OF ABSENCE from a
+# substantive answer, because every one of them is a live input. `__missing__` is a one-hot column
+# (kernel_status: 288/345). `-1.0` is an exact missingness test under a threshold split (314/345). And a
+# level LITERALLY NAMED `open` is the PLURALITY value of arity_class (166/345) and the second-largest of
+# objective_type (126/345) -- carried as if it were substantive coding.
+#
+# THE DISTINCTION IS PRESERVED, NOT MERGED. These are three different facts about the world:
+#   `open`        -- THE LITERATURE HAS NO ANSWER (a fact about the field)
+#   `__missing__` -- THIS ROW WAS NOT CODED      (a fact about our coverage)
+#   -1.0          -- the numeric encoder's stand-in for either
+# The original ruling was "route `open` to `__missing__`". Measured before executing: on arity_class,
+# objective_type and locality_class there is NO `__missing__` level at all, so the routing is a PURE
+# RELABEL -- identical one-hot partition, identical fit -- and on kernel_status it would MERGE two
+# distinct facts. Ruling updated: classify in the ANALYSIS layer, never merge in the encoder.
+#
+# Consumers stripping absence (Terroir A2's indicator-free refit) must strip ALL THREE TOGETHER, by the
+# same rule that made the Arm A flag exclusion close under arithmetic derivation rather than under naming.
+COVERAGE_ABSENCE_MARKERS = {
+    "__missing__": "this row was not coded — a fact about our coverage",
+    "open": "the literature has no answer — a fact about the field",
+    -1.0: "numeric encoder stand-in for either of the above",
+}
+
+
 # ── COLUMN PASSPORTS: invariance verdicts (SCHEMA §9) ─────────────────────────────────────────────────
 # The prior question no gate asked before: is this column WELL-DEFINED ON ITS OBJECT AT ALL? A column can
 # pass coverage, pass variance, and still be measuring an artifact of presentation. Verdicts are AUDITED
@@ -246,6 +271,11 @@ BET_HISTORY = {
         "outcomes": ("P2 two-property SPLIT (V=0.56 approx / 0.14 param); P3 3-class INSUFFICIENT then "
                      "2-class powered MISS; P5 HOLDS; P4 INSUFFICIENT"),
         "exposure": "HIGH",
+        "attribution_not_a_bet": (
+            "prereg_v14 (Terroir v1) DECOMPOSES the Arm B `decision` lift this column participates in; it "
+            "does not re-test it. A4 is arithmetic on frozen predictions and is DISCLOSED (computed before "
+            "the seal), so it spends no contrast. Verdict: FAMILY-BORNE — within admissible families the "
+            "model recovers exactly 0 (170 of 255 both ways)."),
         "note": ("This column's single informative contrast has been spent SIX times across three seals. "
                  "It is the most-leaned-on column in the program. A new bet on it is very likely a "
                  "re-test of an already-scored contrast, not fresh evidence — state explicitly what is "

@@ -1,0 +1,479 @@
+{
+ "schema": "terroir-v1-ablations/v1",
+ "prereg": "prereg_v14",
+ "milestone": "T2+T3",
+ "seed": 20260725,
+ "model": "CART depth<=5 minleaf=6",
+ "n": 336,
+ "charge": "decision",
+ "fold_key": "problem_family",
+ "runs": {
+  "baseline": {
+   "role": "MATCHED RE-RUN of the sealed configuration \u2014 the reference for all deltas",
+   "features": [
+    "locality_class",
+    "encoding_type",
+    "objective_type",
+    "arity_class",
+    "kernel_status",
+    "self_reducibility",
+    "reduction_out_degree"
+   ],
+   "n": 336,
+   "denominator_rule": "acc and null computed on the same 336 decision-real rows",
+   "acc": 0.6607,
+   "null": 0.5923,
+   "lift": 0.0685,
+   "reproduces_sealed": {
+    "n": 336,
+    "acc": 0.6607,
+    "null": 0.5923,
+    "lift_as_sealed": 0.0684,
+    "denominator_rule": "same 336 rows as the sealed Arm B run",
+    "note": "sealed lift is double-rounded; exact is 0.0685"
+   }
+  },
+  "A1_encoding_ablation": {
+   "sealed_prediction": "lift falls below half its sealed size (< +0.0342)",
+   "features": [
+    "locality_class",
+    "objective_type",
+    "arity_class",
+    "kernel_status",
+    "self_reducibility",
+    "reduction_out_degree"
+   ],
+   "dropped": [
+    "encoding_type"
+   ],
+   "n": 336,
+   "denominator_rule": "acc and null computed on the same 336 decision-real rows",
+   "acc": 0.6399,
+   "null": 0.5923,
+   "lift": 0.0476,
+   "permutation_p": 0.001,
+   "n_permutations": 1000,
+   "delta_vs_baseline": -0.0208,
+   "prediction_hit": false
+  },
+  "A2_indicator_free": {
+   "sealed_prediction": "lift falls below half its sealed size (< +0.0342)",
+   "features": [
+    "locality_class",
+    "encoding_type",
+    "objective_type",
+    "arity_class",
+    "kernel_status",
+    "self_reducibility",
+    "reduction_out_degree"
+   ],
+   "absence_set_stripped": {
+    "strings": [
+     "__missing__",
+     "open"
+    ],
+    "numeric_sentinel": -1.0
+   },
+   "n": 336,
+   "denominator_rule": "acc and null computed on the same 336 decision-real rows",
+   "imputation": "fold-local modal substantive level \u2014 the fill value for a row is computed on its own TRAIN fold only, never on the fold being predicted",
+   "acc": 0.4583,
+   "null": 0.5923,
+   "lift": -0.1339,
+   "permutation_p": 0.9321,
+   "n_permutations": 1000,
+   "delta_vs_baseline": -0.2024,
+   "prediction_hit": true,
+   "census_after_imputation": {
+    "locality_class": {
+     "n_absent_imputed": 7,
+     "modal_substantive": "delocalized",
+     "effective_modal_share": 0.7043,
+     "starved": false,
+     "note": "ok"
+    },
+    "encoding_type": {
+     "n_absent_imputed": 0,
+     "modal_substantive": "graph",
+     "effective_modal_share": 0.5072,
+     "starved": false,
+     "note": "ok"
+    },
+    "objective_type": {
+     "n_absent_imputed": 126,
+     "modal_substantive": "none",
+     "effective_modal_share": 0.7623,
+     "starved": false,
+     "note": "ok"
+    },
+    "arity_class": {
+     "n_absent_imputed": 166,
+     "modal_substantive": "global-objective",
+     "effective_modal_share": 0.7739,
+     "starved": false,
+     "note": "ok"
+    },
+    "kernel_status": {
+     "n_absent_imputed": 294,
+     "modal_substantive": "poly-kernel",
+     "effective_modal_share": 0.9217,
+     "starved": true,
+     "note": "STARVED \u2014 after imputation the modal level holds 92%; this column was carrying ABSENCE, not anatomy"
+    },
+    "self_reducibility": {
+     "n_absent_imputed": 342,
+     "modal_substantive": "worst-to-average",
+     "effective_modal_share": 1.0,
+     "starved": true,
+     "note": "STARVED \u2014 after imputation the modal level holds 100%; this column was carrying ABSENCE, not anatomy"
+    },
+    "reduction_out_degree": {
+     "n_absent_imputed": 314,
+     "modal_substantive": "0.0",
+     "effective_modal_share": 0.9449,
+     "starved": true,
+     "note": "STARVED \u2014 after imputation the modal level holds 94%; this column was carrying ABSENCE, not anatomy"
+    }
+   },
+   "starved_under_imputation": [
+    "kernel_status",
+    "self_reducibility",
+    "reduction_out_degree"
+   ]
+  },
+  "A2_secondary_coverage_stratified": {
+   "role": "SEALED SECONDARY (prereg_v14 A2, 'secondarily, stratification by coverage profile')",
+   "why_it_is_the_cleaner_test": "within a coverage profile absence is CONSTANT, so it cannot be what distinguishes rows. This asks A2's question WITHOUT imputing anything, and is therefore free of the magnitude confound that limits the primary.",
+   "n_profiles": 19,
+   "n_admissible": 4,
+   "per_profile": {
+    "0000010": {
+     "n": 11,
+     "features_absent": [
+      "self_reducibility"
+     ],
+     "modal_label": "NPC",
+     "modal_correct": 11,
+     "model_correct": 11,
+     "delta": 0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "0000011": {
+     "n": 15,
+     "features_absent": [
+      "self_reducibility",
+      "reduction_out_degree"
+     ],
+     "modal_label": "NPC",
+     "modal_correct": 15,
+     "model_correct": 15,
+     "delta": 0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "0000110": {
+     "n": 2,
+     "features_absent": [
+      "kernel_status",
+      "self_reducibility"
+     ],
+     "modal_label": "NPC",
+     "modal_correct": 2,
+     "model_correct": 2,
+     "delta": 0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "0000111": {
+     "n": 57,
+     "features_absent": [
+      "kernel_status",
+      "self_reducibility",
+      "reduction_out_degree"
+     ],
+     "modal_label": "NPC",
+     "modal_correct": 30,
+     "model_correct": 33,
+     "delta": 3,
+     "admissible": true
+    },
+    "0001010": {
+     "n": 4,
+     "features_absent": [
+      "arity_class",
+      "self_reducibility"
+     ],
+     "modal_label": "NPC",
+     "modal_correct": 4,
+     "model_correct": 4,
+     "delta": 0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "0001011": {
+     "n": 6,
+     "features_absent": [
+      "arity_class",
+      "self_reducibility",
+      "reduction_out_degree"
+     ],
+     "modal_label": "NPC",
+     "modal_correct": 6,
+     "model_correct": 6,
+     "delta": 0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "0001101": {
+     "n": 1,
+     "features_absent": [
+      "arity_class",
+      "kernel_status",
+      "reduction_out_degree"
+     ],
+     "modal_label": "P",
+     "modal_correct": 1,
+     "model_correct": 0,
+     "delta": -1,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "0001110": {
+     "n": 5,
+     "features_absent": [
+      "arity_class",
+      "kernel_status",
+      "self_reducibility"
+     ],
+     "modal_label": "NPC",
+     "modal_correct": 5,
+     "model_correct": 5,
+     "delta": 0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "0001111": {
+     "n": 103,
+     "features_absent": [
+      "arity_class",
+      "kernel_status",
+      "self_reducibility",
+      "reduction_out_degree"
+     ],
+     "modal_label": "P",
+     "modal_correct": 38,
+     "model_correct": 39,
+     "delta": 1,
+     "admissible": true
+    },
+    "0010010": {
+     "n": 3,
+     "features_absent": [
+      "objective_type",
+      "self_reducibility"
+     ],
+     "modal_label": "NPC",
+     "modal_correct": 3,
+     "model_correct": 3,
+     "delta": 0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "0010011": {
+     "n": 10,
+     "features_absent": [
+      "objective_type",
+      "self_reducibility",
+      "reduction_out_degree"
+     ],
+     "modal_label": "NPC",
+     "modal_correct": 10,
+     "model_correct": 10,
+     "delta": 0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "0010110": {
+     "n": 4,
+     "features_absent": [
+      "objective_type",
+      "kernel_status",
+      "self_reducibility"
+     ],
+     "modal_label": "NPC",
+     "modal_correct": 4,
+     "model_correct": 4,
+     "delta": 0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "0010111": {
+     "n": 75,
+     "features_absent": [
+      "objective_type",
+      "kernel_status",
+      "self_reducibility",
+      "reduction_out_degree"
+     ],
+     "modal_label": "NPC",
+     "modal_correct": 61,
+     "model_correct": 62,
+     "delta": 1,
+     "admissible": true
+    },
+    "0011010": {
+     "n": 1,
+     "features_absent": [
+      "objective_type",
+      "arity_class",
+      "self_reducibility"
+     ],
+     "modal_label": "NPC",
+     "modal_correct": 1,
+     "model_correct": 1,
+     "delta": 0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "0011011": {
+     "n": 1,
+     "features_absent": [
+      "objective_type",
+      "arity_class",
+      "self_reducibility",
+      "reduction_out_degree"
+     ],
+     "modal_label": "NPC",
+     "modal_correct": 1,
+     "model_correct": 1,
+     "delta": 0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "0011110": {
+     "n": 1,
+     "features_absent": [
+      "objective_type",
+      "arity_class",
+      "kernel_status",
+      "self_reducibility"
+     ],
+     "modal_label": "NPC",
+     "modal_correct": 1,
+     "model_correct": 1,
+     "delta": 0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "0011111": {
+     "n": 31,
+     "features_absent": [
+      "objective_type",
+      "arity_class",
+      "kernel_status",
+      "self_reducibility",
+      "reduction_out_degree"
+     ],
+     "modal_label": "NPC",
+     "modal_correct": 23,
+     "model_correct": 23,
+     "delta": 0,
+     "admissible": true
+    },
+    "1001101": {
+     "n": 2,
+     "features_absent": [
+      "locality_class",
+      "arity_class",
+      "kernel_status",
+      "reduction_out_degree"
+     ],
+     "modal_label": "NPI-candidate",
+     "modal_correct": 2,
+     "model_correct": 0,
+     "delta": -2,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "1001111": {
+     "n": 4,
+     "features_absent": [
+      "locality_class",
+      "arity_class",
+      "kernel_status",
+      "self_reducibility",
+      "reduction_out_degree"
+     ],
+     "modal_label": "P",
+     "modal_correct": 2,
+     "model_correct": 2,
+     "delta": 0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    }
+   },
+   "pooled_admissible_only": {
+    "denominator_rule": "accuracy and null share THE SAME row set (admissible profiles only)",
+    "n": 266,
+    "modal_correct": 152,
+    "model_correct": 157,
+    "null": 0.5714,
+    "acc": 0.5902,
+    "within_coverage_lift": 0.0188
+   }
+  },
+  "POSTHOC_drop_absence_bearing_columns": {
+   "status": "POST-HOC DIAGNOSTIC \u2014 not sealed, not a bet, no predictive credit claimed",
+   "motivation": "separates 'removed true information' from 'asserted false information', which A2's primary confounds at a ~50% absence rate",
+   "features_kept": [
+    "encoding_type"
+   ],
+   "features_dropped": [
+    "locality_class",
+    "objective_type",
+    "arity_class",
+    "kernel_status",
+    "self_reducibility",
+    "reduction_out_degree"
+   ],
+   "n": 336,
+   "denominator_rule": "acc and null computed on the same 336 decision-real rows",
+   "acc": 0.5685,
+   "null": 0.5923,
+   "lift": -0.0238,
+   "delta_vs_baseline": -0.0923
+  }
+ },
+ "sealed_prediction_scoring": {
+  "A1_encoding_ablation": {
+   "sealed_prediction": "lift < +0.0342",
+   "observed": 0.0476,
+   "verdict": "MISS",
+   "reading": "the prediction was WRONG. `encoding_type` carries about 30% of the lift (-0.0208 of +0.0685), not the majority, and what remains is still significant at p = 0.0010. The bluntest family channel is NOT the carrier.",
+   "recorded_because_it_is_a_miss": "scored against the seal and reported as a miss. The bet was disclosed as weakened in advance by the known locality_class ablation; it still failed."
+  },
+  "A2_indicator_free_primary": {
+   "sealed_prediction": "lift < +0.0342",
+   "observed": -0.1339,
+   "verdict": "HIT \u2014 nominally",
+   "specification_weakness_declared": "THE TEST WAS POORLY SPECIFIED AND THE HIT IS WORTH LESS THAN IT LOOKS. Imputation at a ~50% absence rate does two things at once: it REMOVES absence information (the hypothesis) and it ASSERTS A FALSE SUBSTANTIVE VALUE on 166/345 arity_class rows and 126/345 objective_type rows (not the hypothesis). A manipulation that degrades the matrix by construction makes the prediction nearly unfalsifiable, so passing it is weak evidence. Quantified by the post-hoc control: dropping the absence-bearing columns costs -0.0923, while imputing them costs -0.2024 \u2014 so roughly half the primary's collapse is the injected false values, not the removed absence.",
+   "consequence": "the informative test is the SEALED SECONDARY below, not this one"
+  },
+  "A2_secondary_coverage_stratified": {
+   "sealed_prediction": "lift < +0.0342 (same prediction, cleaner instrument)",
+   "observed": 0.0188,
+   "verdict": "HIT",
+   "reading": "within a coverage profile \u2014 where absence is CONSTANT and nothing is imputed \u2014 the lift falls from +0.0685 to +0.0188, about 73% of it gone. Five extra correct predictions across 266 rows in four profiles. This is the number A2 was designed to produce and the only one free of the imputation confound."
+  }
+ },
+ "converging_picture": "two INDEPENDENT stratifications each dissolve the lift and neither leaves a residual: within problem_family it is exactly +0.0000 (A4, 255 rows), within coverage profile it is +0.0188 (A2 secondary, 266 rows). The two strata are themselves correlated (V = 0.2924, p = 0.0002), so these are not independent explanations so much as two views of one fact: the model is reading which literature recorded the row, not what the problem is.",
+ "extremal_acknowledged": [
+  {
+   "stat": "runs.A2_indicator_free.census_after_imputation.self_reducibility.effective_modal_share",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "`self_reducibility` has exactly ONE substantive level (`worst-to-average`, 3 rows) against 342 absent ones, so fold-local modal imputation sends every absent row to that single level and the column becomes CONSTANT. A modal share of exactly 1.0 is the arithmetic consequence. prereg_v14 DECLARED this starvation in advance as an expected side effect \u2014 the column was carrying absence, not anatomy, and imputation makes that visible by leaving nothing behind."
+  }
+ ],
+ "scope_limit_stated_in_advance": "these are MECHANISM, not verdict. A4's within-family lift is exactly 0 regardless of what these return; no ablation result can move it."
+}
