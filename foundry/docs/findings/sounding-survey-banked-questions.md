@@ -221,3 +221,19 @@ member cardinality, those regions violate *less* than the null.
 The seal bet on positive excess and this is its opposite, which is why it is reported rather than
 interpreted. Whether it is the two-pole picture's "easy rows blend better than featureless sets" showing up
 under a fairer control than the survey ever had is exactly the question a later design would pose.
+
+---
+
+## Q12 — CLOSED, 2026-07-26
+
+The nine readings with no fair control now have one. N2's conditional-Poisson sampler qualified against
+criteria pinned before any number was computed (18/18 agreement with tier 1.5 on shared ground, mean
+|difference| 0.0228 against a 0.05 ceiling, zero degenerate controls), and was deployed once.
+
+Those nine carried a mean tier-1 excess of **+0.1222** and read **−0.0364, CI [−0.0603, −0.0125]** under
+the qualified control — a within-reading shift of −0.1586, statistically indistinguishable from the
+−0.1297 Terrain measured on the sparse half.
+
+**The question is answered: a cardinality-and-marginal-matched control does exist for dense regions, and
+the untested remainder behaves like the tested part.** Terrain's verdict does not relabel; the retirement
+is stated as a two-artifact conclusion in both artifacts.

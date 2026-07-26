@@ -1568,5 +1568,17 @@
   "ANTI_BLENDABILITY_UNREFUTED_not_awarded": "the verdict requires surviving tier 1.5, and the excess did not survive it. The proposed verdict goes unused on this run.",
   "note_on_optimization": "the `optimization` family is significantly NEGATIVE under Holm (p<0.00001 against its 0.01000 threshold, the smallest in the family): those regions blend BETTER than a marginal- and cardinality-matched control. That is the opposite of the sealed direction and is reported as measured."
  },
- "not_a_second_run": "every value here is computed from the ladder the scoring run wrote. No region rebuilt, no control redrawn, no measured value moved."
+ "not_a_second_run": "every value here is computed from the ladder the scoring run wrote. No region rebuilt, no control redrawn, no measured value moved.",
+ "RETIREMENT": {
+  "statement": "CONTROL-MISMATCH@1.5 (Terrain, 18 of 27 readings) + a qualified follow-on measurement (N2, the 9 dense readings, same mechanism, statistically indistinguishable shift) = THE ANOMALY IS FULLY RETIRED.",
+  "the_verdict_does_not_relabel": "Terrain scored once and its verdict is scoped to 18 of 27. That label is PERMANENT. The seal exists to protect verdicts from post-hoc upgrade by later evidence a program likes, and relabelling here would spend that protection on the first occasion it cost anything.",
+  "why_the_follow_on_still_counts": "the N2 measurement is not evidence anyone went shopping for: the instrument was qualified against criteria pinned BEFORE any number was computed, agreed 18/18 with tier 1.5 on shared ground, and was deployed once. Two artifacts, each cited, neither absorbing the other.",
+  "the_two_artifacts": {
+   "terrain_v1_results.json": "18 of 27 readings, tier 1.5, CONTROL-MISMATCH@1.5, within-reading delta -0.1297 CI [-0.1699, -0.0895]",
+   "n2_dense_control_qualification.json": "the 9 dense readings, qualified CP control, CP excess -0.0364 CI [-0.0603, -0.0125], within-reading delta -0.1586 CI [-0.2289, -0.0883]"
+  },
+  "epitaph_number": "knapsack: tier-0 excess +0.4825, tier-1 +0.2224, fair-null -0.0014. The single reading that carried the largest apparent anti-blendability in the whole column reads essentially zero once the control matches cardinality.",
+  "Q12_status": "CLOSED by the N2 qualification and deployment.",
+  "ruled": "2026-07-26"
+ }
 }

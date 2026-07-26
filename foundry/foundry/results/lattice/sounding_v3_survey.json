@@ -1899,12 +1899,13 @@
    "uniform_tuple_cap_for_reference": 0.9992,
    "n_instances": 3,
    "control_draws": 25,
-   "theorem_forced": true,
-   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)",
+   "theorem_forced": false,
+   "forced_provenance": "CORRECTED \u2014 the derivation was sound and its INPUT was not. sounding_v3_survey.sat(..., mode='horn') is byte-identical to the plain branch \u2014 `ok = any(vals[i] == sg[i] for i in range(k))` with signs drawn uniformly at random. A Horn clause has at most one positive literal and nothing enforces it, so the row emits plain random 3-CNF. Marrow's pinned Horn template is correct for the NAME and wrong for the DATA, so every flag derived from it is invalid on this row.",
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": null,
-   "forced_saturated": false
+   "forced_saturated": false,
+   "forced_flag_erratum": "generator-defect/horn-not-horn/2026-07-26"
   },
   {
    "row": "horn-sat",
@@ -2023,12 +2024,13 @@
    "uniform_tuple_cap_for_reference": 0.9979,
    "n_instances": 3,
    "control_draws": 25,
-   "theorem_forced": true,
-   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)",
+   "theorem_forced": false,
+   "forced_provenance": "CORRECTED \u2014 the derivation was sound and its INPUT was not. sounding_v3_survey.sat(..., mode='horn') is byte-identical to the plain branch \u2014 `ok = any(vals[i] == sg[i] for i in range(k))` with signs drawn uniformly at random. A Horn clause has at most one positive literal and nothing enforces it, so the row emits plain random 3-CNF. Marrow's pinned Horn template is correct for the NAME and wrong for the DATA, so every flag derived from it is invalid on this row.",
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": null,
-   "forced_saturated": false
+   "forced_saturated": false,
+   "forced_flag_erratum": "generator-defect/horn-not-horn/2026-07-26"
   },
   {
    "row": "horn-sat",
@@ -2147,12 +2149,13 @@
    "uniform_tuple_cap_for_reference": 0.9942,
    "n_instances": 3,
    "control_draws": 25,
-   "theorem_forced": true,
-   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)",
+   "theorem_forced": false,
+   "forced_provenance": "CORRECTED \u2014 the derivation was sound and its INPUT was not. sounding_v3_survey.sat(..., mode='horn') is byte-identical to the plain branch \u2014 `ok = any(vals[i] == sg[i] for i in range(k))` with signs drawn uniformly at random. A Horn clause has at most one positive literal and nothing enforces it, so the row emits plain random 3-CNF. Marrow's pinned Horn template is correct for the NAME and wrong for the DATA, so every flag derived from it is invalid on this row.",
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": null,
-   "forced_saturated": false
+   "forced_saturated": false,
+   "forced_flag_erratum": "generator-defect/horn-not-horn/2026-07-26"
   },
   {
    "row": "horn-sat",
@@ -2271,12 +2274,13 @@
    "uniform_tuple_cap_for_reference": 0.9652,
    "n_instances": 3,
    "control_draws": 25,
-   "theorem_forced": true,
-   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)",
+   "theorem_forced": false,
+   "forced_provenance": "CORRECTED \u2014 the derivation was sound and its INPUT was not. sounding_v3_survey.sat(..., mode='horn') is byte-identical to the plain branch \u2014 `ok = any(vals[i] == sg[i] for i in range(k))` with signs drawn uniformly at random. A Horn clause has at most one positive literal and nothing enforces it, so the row emits plain random 3-CNF. Marrow's pinned Horn template is correct for the NAME and wrong for the DATA, so every flag derived from it is invalid on this row.",
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": null,
-   "forced_saturated": false
+   "forced_saturated": false,
+   "forced_flag_erratum": "generator-defect/horn-not-horn/2026-07-26"
   },
   {
    "row": "horn-sat",
@@ -2395,12 +2399,13 @@
    "uniform_tuple_cap_for_reference": 0.8926,
    "n_instances": 3,
    "control_draws": 25,
-   "theorem_forced": true,
-   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)",
+   "theorem_forced": false,
+   "forced_provenance": "CORRECTED \u2014 the derivation was sound and its INPUT was not. sounding_v3_survey.sat(..., mode='horn') is byte-identical to the plain branch \u2014 `ok = any(vals[i] == sg[i] for i in range(k))` with signs drawn uniformly at random. A Horn clause has at most one positive literal and nothing enforces it, so the row emits plain random 3-CNF. Marrow's pinned Horn template is correct for the NAME and wrong for the DATA, so every flag derived from it is invalid on this row.",
    "marrow_excluded_row": false,
    "new_in_v3": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_saturated": false
+   "forced_saturated": false,
+   "forced_flag_erratum": "generator-defect/horn-not-horn/2026-07-26"
   },
   {
    "row": "horn-sat",
@@ -17431,6 +17436,12 @@
    "kind": "FLAG ADDITION \u2014 NOT A RE-MEASUREMENT",
    "what": "`forced_saturated` derived and stamped; measured values verified unmoved.",
    "why": "Terrain's I-phase found 58 of 92 positive-excess readings at measured_rate exactly 1.0, carrying 45.5% of the anomaly's excess. Their violation is a theorem."
+  },
+  {
+   "date": "2026-07-26",
+   "kind": "FLAG CORRECTION \u2014 NOT A RE-MEASUREMENT",
+   "what": "`theorem_forced` corrected on 5 readings; measured values verified unmoved by fingerprint compare.",
+   "why": "a generator defect made the row's pinned template inapplicable to its own data."
   }
  ],
  "zero_hunt": {
@@ -17607,5 +17618,15 @@
    "note": "SUFFICIENT, NOT COMPLETE \u2014 stated rather than discovered. A region forced to leave on 99% of blends is not caught by this derivation and would not be caught by an exact-1.0 screen either. Both are lower bounds on forcing."
   },
   "n_flagged": 120
+ },
+ "forced_closed_check": {
+  "what": "`theorem_forced = True` asserts violation is forced to 0. This check compares that implication to the measured rate on every flagged reading.",
+  "why_it_did_not_exist": "the forced-SATURATED direction shipped with a two-way check when it was built; its older sibling never got one. Five contradictions sat unread from the day the join landed.",
+  "contradictions_found": 5,
+  "cause": {
+   "horn-sat": "sounding_v3_survey.sat(..., mode='horn') is byte-identical to the plain branch \u2014 `ok = any(vals[i] == sg[i] for i in range(k))` with signs drawn uniformly at random. A Horn clause has at most one positive literal and nothing enforces it, so the row emits plain random 3-CNF. Marrow's pinned Horn template is correct for the NAME and wrong for the DATA, so every flag derived from it is invalid on this row."
+  },
+  "what_was_NOT_done": "no row renamed, no instance regenerated, no rate re-measured. The readings are valid measurements of a plain 3-CNF row; the label and the flag derived from it were wrong. Renaming a survey row is a ruling, not a hygiene fix.",
+  "downstream": "Terrain is UNAFFECTED: none of the wrongly-excluded readings had positive excess, so none would have entered its anomaly set. N1's population grows by the corrected readings that are otherwise admissible."
  }
 }

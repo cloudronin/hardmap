@@ -1447,3 +1447,93 @@ tier-2 coverage with them**, because the saturated readings were disproportionat
 is the only kind where a matched-object control exists. The kill clause fired at 1/34 rather than 31/92,
 and the design went single-armed. A screen applied for honesty made the study weaker, which is the correct
 order of operations and worth recording as such.
+
+---
+
+## Instance 39 — 2026-07-26 — two rules that make a declared property as safe as a derived one
+
+N4 converted the zero-hunt's 29 prose adjudications into a standing schema: a region declares a structural
+property, and its forced flavours derive mechanically in both directions. That is only safe because of two
+design choices, and both are promoted here because either one softened would reintroduce the disease the
+derivation was built to cure.
+
+### Contradictory implications are a HARD ERROR, never a precedence rule
+
+A region may declare several properties. `upward_closed` implies `max`-closed; `fixed_cardinality` implies
+`max`-**saturated**. If both were declared on one region, the flavour has two incompatible derived flags.
+
+The tempting fix is a precedence rule — prefer the more specific, prefer the later, prefer the verified-
+first. **Every one of those hides the actual fact, which is that one of the two declarations is wrong.** A
+precedence rule turns a detected contradiction into a silently-resolved one, and the check exists precisely
+to surface the wrong declaration. So the contradiction halts.
+
+### An unverified declaration is DROPPED, not downgraded
+
+A declared property is a hand-written entry wearing derivation's clothes unless it is mechanically
+verified. The obvious softening is to keep an unverified declaration with a warning flag — and that is the
+`rules-that-live-in-recall` failure returning under a new name, because a warning that ships is a warning
+nobody reads.
+
+So verification is a gate, not an annotation: `upward_closed` and `downward_closed` are checked
+exhaustively over every single-bit raise and clear; `pairwise_exclusion` derives the conflict set from the
+region and then confirms it **characterises** membership, so a region with any non-pairwise constraint
+fails rather than passing on a coincidence.
+
+    derive  UNION  assert-with-argument  UNION  verify-on-declare
+
+### What made the pair necessary rather than tidy
+
+The property route is strictly more powerful than the template route — it reaches rows with no finite
+bounded-arity template, which is where 29 of the survey's zeros lived. Power is exactly why it needed the
+guard: a route that can express more can express more that is wrong, and the template route's authority
+came from being checkable rather than from being narrow.
+
+15 of 15 declarations verified on first run once two builder mistakes of mine were fixed. Zero
+contradictions. Zero derived flags disagreeing with observation.
+
+---
+
+## Instance 40 — 2026-07-26 — the flag was right about the template and wrong about the data
+
+`theorem_forced = True` asserts that violation is **forced to zero**: a polymorphism of the pinned template
+is closed on every instance's solution set. The flag was derived, stamped, and used to exclude readings
+from every discovery statistic in the program.
+
+**Five readings flagged forced-to-zero measure 0.1177, 0.4358, 0.4532, 0.5343 and 0.6074.**
+
+All are `horn-sat · solutions · min`, and the cause is four lines into the generator:
+
+```python
+elif mode == "horn": ok = any(vals[i] == sg[i] for i in range(k))
+else:                ok = any(vals[i] == sg[i] for i in range(k))
+```
+
+The branches are **byte-identical**, and `sg` is drawn uniformly at random. A Horn clause has at most one
+positive literal; nothing enforces it. **`horn-sat` emits plain random 3-CNF.** Marrow pinned a Horn
+template for the row, the join correctly derived `horn ⟹ min forced`, and the derivation was sound.
+**The instances were not what the row said they were.**
+
+### What actually failed is the check that never existed
+
+When `forced_saturated` was built (instance 38) it shipped with a two-way comparison against observation —
+claims saturation where the data disagrees, and exact-1.0 readings the derivation misses. It found zero
+contradictions and that felt like diligence.
+
+**Its older sibling never got one.** `theorem_forced` had been in service for the whole survey sequence
+without anyone once asking whether a flag that says *"this reads zero"* sits on a reading that reads zero.
+The contradiction was one comparison away from the day the join landed, and the comparison was written only
+because a *different* direction of the same flag got built later and got a check by habit.
+
+> **A derived flag is only as good as its comparison to the thing it predicts — and the first version of a
+> flag is the one least likely to have one, because nothing has gone wrong with it yet.**
+
+### The boundary the fix respected
+
+The readings are **valid measurements of a plain 3-CNF row**. What was wrong is the label and the flag
+derived from it. So: the flag was corrected with provenance naming the defect, measured values were
+fingerprinted before and after and verified unmoved, and **the row was not renamed, no instance
+regenerated, nothing re-measured.** Renaming a survey row is a ruling, not a hygiene fix.
+
+Terrain is unaffected — none of the five had positive excess, so none would have entered its anomaly set.
+Checked rather than assumed, because "my earlier result is probably fine" is exactly the inference this
+ledger exists to distrust.
