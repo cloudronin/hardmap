@@ -109,6 +109,40 @@
     "4_seal_ordering": "prediction files are hashed BEFORE oracles run. If that ordering cannot be demonstrated, the arm is not scored."
   },
 
+  "G1_addendum_prospective_registry": {
+    "sealed": "2026-07-25, at G1, BEFORE any model is fit. This is design, not rescue.",
+    "origin": "The owner asked whether the 21 temporally-clean cells could be promoted to a scored holdout. RULED NO: the barrier is n, not design role — renaming an exhibit a holdout adds no rows, and G0's INSUFFICIENT declaration stands on unchanged information. But the question surfaced the real asset.",
+    "the_asset": "Every FUTURE Gate-4 fill is temporally clean BY CONSTRUCTION: Anatomy's coordinates froze at 8ff11f8a before any future citation work exists. A model that calls open cells correctly BEFORE anyone looks up the answers is immune to every leakage story — the answer did not exist to leak. This is the strongest validation design available to the program, it compounds with every wave the atlas was going to run anyway, and it converts the promotion pipeline from maintenance into the endgame validation instrument.",
+
+    "rule_1_predict_then_fill": "Before any future recruitment or fill wave's citation research begins, the current fitted Arm-B model FILES PREDICTIONS for every open cell in that wave's scope — full profiles where the model emits them, per-charge where that is what exists. Predictions are hashed and committed BEFORE the first literature query of the wave. This is the mosaic_code.py:192 seal-ordering idiom applied at WAVE granularity.",
+
+    "rule_2_blind_research": "The pipeline then runs untouched: research -> dual-pass -> owner Gate-4 sitting -> promotion. The citation work proceeds BLIND to the predictions. ENFORCED BY CONSTRUCTION, not by convention: prediction files live OUTSIDE the research agents' input surface, and a test asserts it.",
+
+    "rule_3_grading": "Promoted values grade against the pre-filed predictions. Retracted or open-remaining cells grade as NO-CONTEST, recorded. Every graded cell enters the registry with: prediction_hash, prediction_date, fill_date, sitting_date, verdict.",
+
+    "rule_4_scoring_discipline": {
+      "accumulation": "The registry accumulates as DECLARED-INSUFFICIENT until it clears the Cochran floor at the registry's own class spread.",
+      "estimate": "~50-60 graded cells at current proportions — an ESTIMATE, not the threshold.",
+      "threshold_pinning": "the exact arithmetic is pinned when the FIRST wave's class spread is known, and BEFORE any accumulation is scored.",
+      "scores_once": "At floor-clearance it scores ONCE as the sealed prospective test, against the same nulls as Arm B's retrospective run.",
+      "no_interim_peeks": "no interim scoring that could steer recruitment.",
+      "blindness_law_extended": "wave scopes are chosen by the STANDING RECRUITMENT CRITERIA (charge-citability), NEVER by where the model is confident. This is the Quarry v2 blindness law extended into prospective territory."
+    },
+
+    "rule_5_the_21_existing_cells": {
+      "status": "remain the qualitative exhibit exactly as sealed at G0",
+      "registry_entry": "additionally enter the registry retroactively-flagged temporal_class: 'clean-but-pre-registry'",
+      "countable_in": "descriptive tables",
+      "EXCLUDED_from": "the registry's SCORED n — their predictions postdate their labels' research, even though their coordinates predate their labels."
+    },
+
+    "build_items_at_G1": [
+      "the registry file (schema above)",
+      "the enforcement test: research-agent input surface EXCLUDES prediction files",
+      "the wave-granularity seal script (hash predictions -> commit -> only then research)"
+    ]
+  },
+
   "ships_regardless_of_either_arm": [
     "THE COVERAGE WALL: the objective axis is one charge wide (C1 + C2). A grid whose treatment is the objective has a 1-charge x 2-level design space on this universe.",
     "THE DETERMINISM: the synthetic universe cannot test the bridge, because there the bridge is a theorem (C3). This re-centers the program — the empirical bridge question lives entirely on the natural side."
