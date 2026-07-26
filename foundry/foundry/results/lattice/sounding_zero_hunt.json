@@ -8,7 +8,7 @@
  "verdict_counts": {
   "HIDDEN-CLOSURE": 29,
   "THIN-SATURATION": 12,
-  "GENUINE-READING": 2
+  "ORDINARY-AT-SIZE": 2
  },
  "why_unforced_is_not_unexplained": "on Marrow-excluded rows there is NO pinned template, so forced=null means UNDERIVABLE. Closure there is argued from the region's construction, and each argument IS the artifact \u2014 no join will ever supply these flags mechanically.",
  "thinness_uses_a_pre_declared_floor": "THIN-SATURATION is adjudicated primarily against the v3 spec's INSUFFICIENT-r floor of r < 10, SEALED BEFORE any of these readings existed. Inventing a thinness threshold at adjudication time would be discovering the rule at scoring time. The secondary distinct-subset floor of 10 applies only ABOVE it.",
@@ -169,11 +169,13 @@
    "distinct_subsets": 354,
    "ramp_position": 4,
    "marrow_excluded": false,
-   "verdict": "GENUINE-READING",
+   "verdict": "ORDINARY-AT-SIZE",
    "producing_expression": "sounding_v2.sat: plain 2-clause CNF, `any(vals[i] == sg[i] for i in range(k))`",
    "argument": "2-SAT is bijunctive, so MAJORITY is forced \u2014 and it is, and the join flags it. MIN is not forced: a general 2-CNF is not Horn. This reading is at r = 22, giving C(22,2) = 231 distinct pairs, so it is not thin. Either the sampled formula happened to be min-closed (a Horn-like draw), or something about min on 2-CNF solution sets at this size is not accounted for. UNEXPLAINED; stays a measurement and stays in the bank.",
-   "q1_consequence": "STAYS a measurement in the scored set, and stays in the bank",
-   "closure_test": null
+   "q1_consequence": "LEAVES the scored set \u2014 unremarkable against the size-conditioned base rate. Not a finding, and not thin either: the instrument could have spoken and what it said was ordinary.",
+   "closure_test": null,
+   "verdict_original": "GENUINE-READING",
+   "verdict_superseded_by": "N3 (prereg_v21, n3_sat2_zero.json): 64.5% of random 2-CNF solution sets with r<25 are min-closed; the reading is at r=22. Horn rate 0.85%, and 120 of 122 min-closed formulas are NOT Horn \u2014 the prevalence is size-driven, not structural."
   },
   {
    "row": "xor-sat",
@@ -281,10 +283,10 @@
    "distinct_subsets": 282,
    "ramp_position": 0,
    "marrow_excluded": false,
-   "verdict": "GENUINE-READING",
+   "verdict": "ORDINARY-AT-SIZE",
    "producing_expression": "sounding_v2.is_sets: feasible = `all(not (s[i] and s[j]) for i,j in edges)`; optimal = max cardinality",
    "argument": "CLOSURE CLAIM FALSIFIED BY ITS OWN TEST \u2014 the argued premise or the closure it implies fails brute force on freshly built regions. The verdict reverses to unexplained. Prior argument, kept for the record: argument (A) applies to the FEASIBLE family, and independence is what majority preserves. NOTE THE BOUNDARY HONESTLY: the majority of three MAXIMUM independent sets is independent by (A) but need not be maximum \u2014 so closure of the OPTIMAL region is not implied by (A) alone. Every observed majority happened to land back in the optimal set at these r; recorded as hidden-closure of the feasible structure showing through, and flagged as the weakest entry in this table.",
-   "q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "q1_consequence": "LEAVES the scored set \u2014 unremarkable against the size-conditioned base rate. Not a finding, and not thin either: the instrument could have spoken and what it said was ordinary.",
    "closure_test": {
     "tested": true,
     "n_regions": 3,
@@ -296,7 +298,9 @@
     "premise_kind": "excl",
     "premise_holds": null,
     "closure_holds_brute_force": false
-   }
+   },
+   "verdict_original": "GENUINE-READING",
+   "verdict_superseded_by": "ordinary_at_size.json: 24.5% of freshly drawn maximum-independent-set regions in the size band around r=10 read exactly 0. NOTE THE MARGIN \u2014 this clears the pre-declared 0.20 floor by 0.045, where sat-2 cleared it by 0.445. The call is correct by the declared rule and is the weaker of the two."
   },
   {
    "row": "independent-set",
@@ -1140,5 +1144,12 @@
     "closure_holds_brute_force": true
    }
   }
- ]
+ ],
+ "ORDINARY_AT_SIZE": {
+  "term": "admissible by every floor, unexplained by theorem or artifact, and unremarkable against the size-conditioned base rate of the phenomenon.",
+  "why_the_hunt_needed_it": "GENUINE-READING was defined as 'nothing explains this'. N3 demonstrated a fourth explanation class the hunt's vocabulary could not name: the base rate itself. THIN-SATURATION asks whether the instrument COULD have spoken; this asks whether what it said was unusual. 'Notable' requires a base rate the same way an excess requires a control.",
+  "applied_retroactively_to": 2,
+  "residue_after_application": 0,
+  "ruled": "2026-07-26"
+ }
 }

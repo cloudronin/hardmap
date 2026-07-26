@@ -1573,8 +1573,13 @@ It proved the point within minutes. After the real `horn` branch was fixed, the 
 rule. Had the fix and the copy happened to agree, the sweep would have reported PASS while testing nothing
 that ships.
 
-> **A test that reimplements its subject tests the reimplementation. The subject must be called, not
-> mirrored — and where that requires the subject to expose something, expose it.**
+> **A check must consume the shipping artifact, never a reconstruction of it.**
+
+That is **chat-is-not-an-artifact (instance 32) turned instrument-side**. There the rule was that a claim
+must cite a record rather than a recollection; here it is that a check must exercise the code in service
+rather than a parallel copy of it. Same principle, two faces: *the thing verified must be the thing that
+ships.* A test that reimplements its subject tests the reimplementation — the subject must be called, not
+mirrored, and where that requires the subject to expose something, expose it.
 
 The generator now publishes `LAST_CLAUSES` and the sweep reads it. The fix is small; the failure mode it
 closes is the same fail-open species as the silent gate and interpolation-by-absence, one layer further
@@ -1590,3 +1595,46 @@ the whole survey sequence unchecked.
 
 That question is now standing practice rather than a thing that happens when something breaks. This sweep
 is its first discharge, and it found the fleet clean apart from the row already known.
+
+---
+
+## Instance 42 — 2026-07-26 — "notable" needs a base rate the way an excess needs a control
+
+The zero-hunt's vocabulary had three ways to explain a zero — a theorem (HIDDEN-CLOSURE), the instrument
+(ENCODING-ARTIFACT), or too few subsets for a nonzero rate to be **observable** (THIN-SATURATION) — and
+GENUINE-READING for *none of the above*. Two readings survived as genuine.
+
+**Both were ordinary.**
+
+N3 found the fourth class by measuring it: at r = 22, 231 distinct pairs were available and a nonzero rate
+was perfectly observable. It did not occur because **64.5 % of random 2-CNF solution sets with r < 25 are
+min-closed**. The same lens applied to the other survivor returned 24.5 % at r ≈ 10. **The hunt's residue
+is zero.**
+
+    ORDINARY-AT-SIZE — admissible by every floor, unexplained by theorem or artifact, and unremarkable
+    against the size-conditioned base rate of the phenomenon.
+
+### The distinction the old vocabulary blurred
+
+THIN-SATURATION asks **could the instrument have spoken?** ORDINARY-AT-SIZE asks **was what it said
+unusual?** Those are different questions and the hunt only had machinery for the first. A reading can clear
+every observability floor — sufficient r, sufficient distinct subsets, a control that varies — and still be
+exactly what typically happens at its size.
+
+> **"Notable" requires a base rate the same way an excess requires a control.**
+
+The program had internalised the second half completely: every reading in the survey column carries a
+size-matched null, and Terrain exists because that null was not fair enough. It had not noticed that the
+same demand applies to *categorical* claims. An exact zero was treated as self-evidently interesting; it
+needed a denominator too.
+
+### Two things this cost, and both are recorded
+
+**The residue was the point.** The zero-hunt's value was partly that it left something unexplained — a
+residue is what tells you the screen was not tuned until nothing remained. That residue is now gone, which
+is the honest outcome and also a loss: the hunt no longer has a witness that it was not over-fitted. What
+replaces it is that the dissolution was *measured*, with a rule declared before the measurement.
+
+**One of the two calls is weak.** sat-2 cleared the 0.20 floor by 0.445; independent-set cleared it by
+0.045. Both are correct by the declared rule, and the second is the one to re-examine first if the floor is
+ever revisited. Recorded in the artifact rather than left to be rediscovered.

@@ -252,3 +252,18 @@ The original reading sits at r = 22. It reads 0.0 because that is the ordinary o
 nonzero rate was *observable*. Here 231 distinct pairs were available and a nonzero rate was perfectly
 observable — it simply did not occur. **A reading can clear every thinness floor and still be
 unremarkable.** Whether that deserves its own verdict term is a design question, not answered here.
+
+---
+
+## STANDING CAUTION — closure prevalence is size-driven
+
+**Measured, not conjectured (N3, `prereg_v21`):** 64.5 % of random 2-CNF solution sets with r < 25 are
+min-closed, falling to 19.7 % at 25 ≤ r < 100 and 0 % at r ≥ 100. The same shape appears in the
+independent-set base rate (24.5 % at r ≈ 10).
+
+**Small solution sets are often accidentally closed. Closure at small r is the ordinary condition, not a
+structural signal.**
+
+This is a confounder with teeth. **Any future claim about closure rates must condition on region size, or
+it is reading the base rate and calling it structure** — including anything the almost-closed-middle
+question becomes, and any Marrow-adjacent prevalence statement.

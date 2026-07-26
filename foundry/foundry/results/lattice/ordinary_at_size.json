@@ -1,0 +1,32 @@
+{
+ "schema": "ordinary-at-size/v1",
+ "STATUS": "verdict-term application \u2014 the base-rate lens",
+ "the_term": "ORDINARY-AT-SIZE: admissible by every floor, unexplained by theorem or artifact, and unremarkable against the size-conditioned base rate of the phenomenon.",
+ "why_it_is_needed": "THIN-SATURATION asks whether the instrument COULD have spoken. This asks whether what it said was unusual. 'Notable' requires a base rate the same way an excess requires a control.",
+ "decision_declared_before_running": {
+  "ordinary_at_size_if_base_rate_at_or_above": 0.2,
+  "stays_genuine_if_base_rate_at_or_below": 0.05,
+  "otherwise": "INSUFFICIENT-baserate, reported and not forced"
+ },
+ "results": [
+  {
+   "reading": "independent-set\u00b7optimal\u00b7majority",
+   "region_kind": "optimal",
+   "flavor": "majority",
+   "target_r": 10,
+   "n_draws": 239,
+   "n_in_band": 139,
+   "base_rate_in_band": 0.2446,
+   "base_rate_overall": 0.4561,
+   "by_size_band": {
+    "r<25": {
+     "n": 239,
+     "zeros": 109,
+     "rate": 0.4561
+    }
+   },
+   "VERDICT": "ORDINARY-AT-SIZE",
+   "why": "24.5% of freshly drawn regions in this size band read exactly 0. The reading is what typically happens at its size."
+  }
+ ]
+}

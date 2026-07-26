@@ -15,8 +15,9 @@ region's construction are quoted **before** any verdict is stated.
 |---|---:|
 | **HIDDEN-CLOSURE** | 29 |
 | **THIN-SATURATION** | 12 |
-| **GENUINE-READING** | 2 |
+| **ORDINARY-AT-SIZE** | 2 *(was GENUINE-READING; see the addendum)* |
 | ENCODING-ARTIFACT | 0 |
+| **GENUINE-READING** | **0** |
 
 **Unadjudicated units: 0.**
 
@@ -88,14 +89,16 @@ closure and not evidence against it.
 
 A secondary distinct-subset floor of 10 applies only *above* the pre-declared one.
 
-## The residue — 2 readings
+## The residue as first adjudicated — 2 readings, both later dissolved
 
 | row | region | flavour | r | subsets | why it survives |
 |---|---|---|---:|---:|---|
 | `sat-2` | solutions | min | 22 | 354 | 2-SAT is bijunctive, so *majority* is forced and the join flags it. **min is not**: a general 2-CNF is not Horn. 231 distinct pairs available. Either the sampled formula drew Horn-like, or min on 2-CNF solution sets at this size is unaccounted for. |
 | `independent-set` | optimal | majority | 10 | 282 | closure argued, then **falsified by brute force**. The feasible family is majority-closed; the optimal region is not, and the test found the counterexample. Why the measurement still read 0.0 at this r is open. |
 
-These stay as measurements and stay in the bank.
+*These were the residue as of the hunt. Both were superseded by ORDINARY-AT-SIZE on 2026-07-26 —
+see the addendum. The table is kept as written because the reasoning that made them look
+genuine is the part worth reading.*
 
 ## The Q1 consequence, per entry
 
@@ -105,7 +108,9 @@ Recorded on every adjudication and re-stamped into both survey artifacts:
   discovery statistic must not count it. Flagged `closure_explained: true` so exclusion happens **by
   schema** rather than by anyone remembering to.
 - **THIN-SATURATION (12)** → **leaves** as uninformative; migrates to `INSUFFICIENT-r`.
-- **GENUINE-READING (2)** → **stays** as a measurement.
+- **ORDINARY-AT-SIZE (2)** → **leaves** the scored set. Superseded from GENUINE-READING by the
+  addendum: unremarkable against the size-conditioned base rate. Not a finding, and not thin
+  either — the instrument could have spoken and what it said was ordinary.
 
 ## The re-stamp
 
@@ -120,3 +125,28 @@ Nothing here scores anything. That 29 of 43 unforced zeros turn out to be closur
 cannot see is a statement about **the derivation's reach**, not about geometry, hardness, or the survey's
 substance. Whether the reach can be extended — whether (A), (B) and (C) should become derived flags rather
 than adjudicated ones — is a design question, and it is banked, not answered.
+
+
+---
+
+## Addendum, 2026-07-26 — the residue is zero, and a fourth verdict term
+
+Both GENUINE-READINGs have been superseded by **ORDINARY-AT-SIZE**: *admissible by every floor,
+unexplained by theorem or artifact, and unremarkable against the size-conditioned base rate of the
+phenomenon.*
+
+| reading | base rate at its size | warrant |
+|---|---:|---|
+| `sat-2 · solutions · min` (r = 22) | **64.5 %** of r < 25 solution sets are min-closed | N3, `prereg_v21` |
+| `independent-set · optimal · majority` (r ≈ 10) | **24.5 %** in the size band | `ordinary_at_size.json` |
+
+**The distinction the original vocabulary blurred:** `THIN-SATURATION` asks whether the instrument *could*
+have spoken. This asks whether what it said was *unusual*. A reading can clear every observability floor —
+sufficient r, sufficient distinct subsets, a varying control — and still be exactly what typically happens
+at its size. **"Notable" requires a base rate the same way an excess requires a control.**
+
+Two honest notes. **The residue was worth something** — it was the witness that this screen had not been
+tuned until nothing survived, and it is now gone; what replaces it is that the dissolution was measured
+against a rule declared beforehand. And **one call is weak**: sat-2 cleared the 0.20 floor by 0.445,
+`independent-set` by 0.045. Both correct by the declared rule; the second is the one to re-examine first if
+the floor is ever revisited.
