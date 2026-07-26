@@ -1140,3 +1140,54 @@ plausible-looking pointer by the same synthesis that produced it.
 **And the distinction that keeps the law usable:** it binds *claims and numbers*, not exposition. An
 expository frame introduced to teach a result is new prose and is allowed to be — recorded as `framing`
 with its origin, carrying no claim. A law that forbade new sentences would forbid writing the document.
+
+---
+
+## Instance 33 — 2026-07-26 — the third way one gate silently did not watch
+
+The Geometry Probe qualification study put a new results file in `foundry/foundry/results/lattice/`. The
+tidy-number gate passed it — while the file contained four sensitivities of **exactly 1.0**.
+
+**The gate's lattice path was wrong, and had always been wrong.** It read
+`d.parent.parent.parent / "foundry" / "foundry" / "results" / "lattice"`, one `.parent` short, resolving to
+`eightfold/foundry/foundry/results/lattice` — a directory that has never existed. And then:
+
+```python
+if lat.exists():
+    roots.append(lat)
+```
+
+**the guard made the miss silent.** No error, no warning, no empty-directory complaint. The gate reported
+PASS over files it had never opened, and had been doing so since it was written.
+
+Every Foundry lattice artifact was uninspected, including `grid_arm_a_results.json` — whose `1.000`
+positive control is quoted in the write-up as assertion 5. Fixing the path surfaced three previously-unseen
+extremals immediately; all three are explainable and now itemised, and one is the documented arithmetic
+flag leak retained deliberately as evidence.
+
+### Three distinct mechanisms, one shape
+
+This is the **third** way this single gate has silently failed to watch something:
+
+| # | mechanism | how it was found |
+|---|---|---|
+| 1 | glob scoped to one project's filenames (`grid_*results*.json`) | Terroir's own results file was invisible to it |
+| 2 | walker descends into dicts only — a float inside a JSON array is unreachable | found by reading the walker while adjudicating another project's extremals |
+| 3 | path resolved to a directory that does not exist, guarded by `if exists()` | a new file in the unwatched directory passed while carrying four exact 1.0s |
+
+> **All three FAIL OPEN.** Each reports a clean pass over things it never inspected. **A gate that cannot
+> distinguish "inspected and clean" from "never looked" is not a gate** — it is a green light wired to
+> nothing.
+
+### The rule this earns
+
+*An existence guard around a scope is a silence generator.* `if path.exists()` is the correct idiom for an
+artifact that may legitimately not be built yet; it is the **wrong** idiom for a directory the gate's
+coverage depends on, because the failure it hides is indistinguishable from success. Where a gate's scope is
+load-bearing, **assert the scope is non-empty and resolve it through the package rather than by counting
+directory levels from a sibling** — which is the idiom `_eightfold_atlas()` had used correctly all along, two
+functions above the bug.
+
+The permanent test asserts the real lattice directory is in the watched set and names both files that were
+missing. That is the pattern from the denominator gate and the fabrication probe: **a check never observed
+to fail is not known to work**, and a check whose *scope* can silently empty needs its scope pinned too.

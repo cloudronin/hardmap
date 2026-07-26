@@ -1,0 +1,86 @@
+{
+ "prereg_version": "v16",
+ "project": "Geometry Probe A — the Boolean qualification study",
+ "owner": "Vishnu",
+ "date": "2026-07-26",
+ "spec": "eightfold/docs/notes/geometry-probes-note.md §4 (banked 2026-07-25, landed in-repo 2026-07-26)",
+ "committed_before_analysis": "TRUE — sealed before any probe output exists. No violation rate has been computed at the time of sealing.",
+ "supersedes": "nothing. A new instrument, on a disjoint surface from the write-up's W-milestones.",
+
+ "what_is_being_qualified": {
+  "instrument": "Probe A — blend-violation. For a feasible region R and a blending operation f of arity m, the VIOLATION RATE is the fraction of m-tuples drawn from R whose coordinatewise blend f(t1..tm) falls outside R.",
+  "why_it_matters": "the program proved the region's geometry is invisible from constraint syntax (assertion 5) and that closure anatomy exists for only 28 of 345 natural rows (assertion 6). A probe that MEASURES blendability rather than deriving it would reach the 311 excluded rows. This study grades the looking before it is trusted anywhere that matters.",
+  "flavors_and_their_oracle_counterparts": {
+   "majority": {"arity": 3, "op": "coordinatewise majority", "oracle_flag": "bijunctive"},
+   "minority": {"arity": 3, "op": "coordinatewise a XOR b XOR c", "oracle_flag": "affine"},
+   "min": {"arity": 2, "op": "coordinatewise AND (semilattice meet)", "oracle_flag": "horn"},
+   "max": {"arity": 2, "op": "coordinatewise OR (dual semilattice)", "oracle_flag": "dualhorn"}
+  }
+ },
+
+ "THE_DESIGN_NOTE_SEALED_BEFORE_RUNNING": {
+  "the_problem": "on this roster |R| <= 15 and arity <= 4, so the violation rate is computable EXHAUSTIVELY (at most 15^3 = 3375 blends). Exhaustively computed, `rate == 0` is EQUIVALENT to the oracle flag by definition of closure. A known-answer battery scored on the exhaustive probe therefore passes BY CONSTRUCTION, and a separation score against oracle labels is 100% BY CONSTRUCTION.",
+  "why_this_is_named_here": "that is the theorem-forced-credit trap (methods instance 21) wearing an instrument's costume. Scoring it and reporting the result as a qualification would be measuring a definition. Named in the seal so it cannot be discovered in the results.",
+  "the_split_this_forces": {
+   "exhaustive_arm": "CALIBRATION ONLY. Verifies the implementation computes what closure means. Forced, worth exactly one sentence, and reported as calibration credit per the netting rule — which the note already anticipated: 'on rows where the algebra proves closure, probe agreement is calibration credit, never discovery; here it is also the qualification design.'",
+   "sampled_arm": "THE ACTUAL QUALIFICATION. The instrument that would deploy on natural rows cannot enumerate a region; it samples it. So the qualification question is about the SAMPLED estimator's resolution at a declared budget, and that is not forced by any theorem.",
+   "and_one_direction_is_still_forced": "SPECIFICITY IS 1.0 BY CONSTRUCTION and is not claimed as a result: if R is closed under f then NO m-tuple violates, so every sample returns rate 0 and a closed class can never be called open. The measurable quantity is SENSITIVITY — on classes the oracle marks NOT closed, does a budget-B sample find a violation at all?"
+  }
+ },
+
+ "sealed_scores": {
+  "1_known_answer_battery": {
+   "claim": "the exhaustive probe returns violation rate EXACTLY 0.0 on every class the oracle marks closed under that flavor, and strictly greater than 0.0 on every class it marks not-closed",
+   "threshold": "exact. Not '~zero' — the computation is exhaustive, so any deviation is a probe bug, not noise.",
+   "status_if_it_fails": "PROBE BUG by definition. Fix and rerun is legal at this gate and is logged.",
+   "credit_earned": "NONE beyond implementation correctness. This is a definition check."
+  },
+  "2_separation_the_measured_resolution": {
+   "claim": "SENSITIVITY of the sampled probe: on classes the oracle marks NOT closed under flavor f, the fraction detected (>= 1 violation observed) at each declared budget.",
+   "budgets_pinned": [10, 30, 100, 300],
+   "sampling": "uniform with replacement over R^m, seeded",
+   "reported": "one sensitivity number per flavor per budget, against the oracle labels. WHATEVER IT IS, it is the probe's measured resolution — the accuracy statement is the deliverable, not a bar to clear.",
+   "specificity_note": "reported as 1.0 and marked FORCED, never as an achievement"
+  },
+  "3_the_distribution_shape": {
+   "status": "PRE-REGISTERED AS A QUESTION, NOT A BET. No direction is predicted.",
+   "question": "across the roster, is the distribution of nonzero exhaustive violation rates BIMODAL (mass at 0 and mass near the maximum, matching the dichotomy's binary) or is there a POPULATED MIDDLE — an 'almost-closed' band that the theorems binarize away?",
+   "how_reported": "per-flavor histogram of exhaustive rates over admissible classes, plus the fraction of nonzero rates falling in the middle band (0.05 <= rate <= 0.50). Both answers report; neither is a hit or a miss."
+  }
+ },
+
+ "INSUFFICIENT_vocabulary": {
+  "rule": "a (class, flavor) cell is INSUFFICIENT-DEGREE when |R|^m < 20 — fewer than 20 possible blends means the rate is quantised coarser than 0.05 and its position in a distribution is not estimable.",
+  "consequence": "INSUFFICIENT cells are counted and reported, are STILL scored in the known-answer battery (the binary is exact regardless of quantisation), and are EXCLUDED from the distribution-shape analysis.",
+  "never": "no cell is dropped silently, and no INSUFFICIENT count is argued past."
+ },
+
+ "census_before_seal_on_the_probes_own_quantities": {
+  "rule": "the standing law applies to instruments too (Anatomy-SCHEMA §3.3/§3.3b). The violation rate per flavor is a NEW DERIVED QUANTITY and gets its marginals counted before it is scored.",
+  "reports": "per flavor: n cells, n real, modal share, distinct values, and a starvation verdict at the standing lines (modal > 0.90 OR no level clearing the Cochran floor of 5 — BOTH ends, per the one-sided-gate finding at Marrow M4)."
+ },
+
+ "typing_and_standing_law": {
+  "F2_verbatim": "probe values NEVER impersonate worst-case charges. A low violation rate on an ensemble is not a tractability claim; it is a measured geometric property that may ASSOCIATE with charges, and the association is the research object. This sentence ships in the artifact docstring.",
+  "passport_if_ever_shipped_as_a_column": "parameter-relative — a property of (region, blending operation, sampling budget), never of the problem alone. NOT shipped as a column by this run.",
+  "netting": "on rows where the algebra proves closure, probe agreement is CALIBRATION CREDIT, never discovery. At this gate that is the entire point of the exhaustive arm.",
+  "ensembles_and_seeds": "the region is the relation itself — this roster needs no instance generator, which is why it is the cheap thread. The SAMPLED arm declares its seed (20260726) and its budgets in the results artifact.",
+  "results_schema": "per-flavor distributions are emitted as DICTS KEYED BY BAND, never as bare arrays — the tidy-number walker descends into dicts only, and a float inside a JSON array is invisible to it (known blind spot, recorded 2026-07-26)."
+ },
+
+ "verdict_vocabulary": {
+  "QUALIFIED": "the battery is exact AND the sampled sensitivity is stated per flavor per budget. The probe is licensed for natural-row ensembles WITH ITS ACCURACY CHARACTERISED — and natural-row deployment is explicitly NOT authorised by this run; it needs its own spec.",
+  "NOT-QUALIFIED": "after two redesigns the battery still fails. The geometry-measurement route closes at instrument grade, is recorded, and the note stands as the map of why.",
+  "redesign_budget": 2
+ },
+
+ "kill_criteria": {
+  "box": "4-6 h paired, $0 compute",
+  "scope": "the Boolean roster only. No natural row is touched, no column is shipped, no charge is read."
+ },
+
+ "disjointness": {
+  "statement": "this runs on a surface disjoint from the write-up's W-milestones. No W-milestone moves, no draft section is edited, no frozen byte is touched.",
+  "the_stake": "if the probe qualifies, the program owns a measured closure-proxy needing only an instance generator — which would reach the 311 rows the closure admission bar excluded, the mechanism programme's entire missing population. This seal does not assume that outcome and does not authorise that deployment."
+ }
+}

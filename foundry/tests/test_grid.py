@@ -388,3 +388,78 @@ def test_writeup_number_audit_actually_fires():
     finally:
         d.write_text(orig, encoding="utf-8")
     assert d.read_text(encoding="utf-8") == orig, "probe did not restore the draft"
+
+
+# ── Geometry Probe A (prereg_v16) ─────────────────────────────────────────────────────────────────────
+
+def _probe():
+    import json
+    from pathlib import Path
+    import foundry
+    p = Path(foundry.__file__).resolve().parent / "results" / "lattice" / "geometry_probe_a_results.json"
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+def test_probe_battery_is_exact_on_every_roster_class():
+    """Score 1. Exhaustively computed, rate==0 IS the oracle flag by definition — so any disagreement is a
+    probe bug, not noise. Pinned at zero."""
+    d = _probe()
+    for fl, v in d["score_1_known_answer_battery"]["result"].items():
+        assert v["disagree"] == 0, f"{fl}: {v['disagree']} classes disagree with the oracle"
+        assert v["agree"] == d["n_classes"]
+
+
+def test_probe_forced_arms_are_labelled_forced():
+    """The battery and specificity are theorem-forced. They must SAY so in the artifact — an unlabelled
+    forced score is the theorem-forced-credit trap (methods 21) in an instrument's costume."""
+    d = _probe()
+    assert "FORCED" in d["score_1_known_answer_battery"]["status"].upper()
+    assert d["score_2_sampled_sensitivity"]["specificity"]["value"] == 1.0
+    assert "FORCED" in d["score_2_sampled_sensitivity"]["specificity"]["status"].upper()
+
+
+def test_probe_sensitivity_has_live_dynamic_range():
+    """The qualification is only meaningful if the measurement can move. Sensitivity at the smallest budget
+    must be strictly below the largest — a statistic saturated at every budget would be measuring nothing."""
+    d = _probe()
+    b = [str(x) for x in d["budgets"]]
+    for fl, v in d["score_2_sampled_sensitivity"]["result"].items():
+        lo, hi = v[b[0]]["sensitivity"], v[b[-1]]["sensitivity"]
+        assert lo < hi, f"{fl}: sensitivity flat at {lo} across all budgets"
+        assert hi >= 0.99, f"{fl}: sensitivity only {hi} at the largest budget"
+
+
+def test_probe_distribution_is_not_bimodal():
+    """Score 3, the pre-registered question. Pinned because the answer is the finding: the middle band holds
+    the overwhelming majority of nonzero rates, so the dichotomy's binary is carving a continuum."""
+    d = _probe()
+    for fl, v in d["score_3_distribution_shape"]["result"].items():
+        assert v["middle_band_fraction_of_nonzero"] > 0.80, \
+            f"{fl}: middle band holds only {v['middle_band_fraction_of_nonzero']} of nonzero rates"
+    maj = d["score_3_distribution_shape"]["result"]["majority"]["histogram"]
+    assert maj["050_to_075"] == 0 and maj["075_to_1"] == 0, \
+        "majority violations above 0.50 would contradict the reported shape"
+
+
+def test_min_max_distributions_match_by_complement_symmetry():
+    """A free consistency check: the roster is closed under complementation, which exchanges horn and
+    dual-horn, so min and max must have IDENTICAL distributions. If they ever diverge, the roster or the
+    operation pair has changed underneath."""
+    d = _probe()["score_3_distribution_shape"]["result"]
+    assert d["min"]["histogram"] == d["max"]["histogram"]
+    assert d["min"]["mean_nonzero"] == d["max"]["mean_nonzero"]
+
+
+def test_tidy_number_gate_actually_watches_the_lattice_directory():
+    """THE DEFECT THIS PINS. The gate's lattice path was one `.parent` short and resolved to a directory
+    that never existed; `if lat.exists()` then made the miss silent, so every Foundry lattice artifact went
+    uninspected — including the 1.000 the write-up quotes. A gate that cannot tell 'inspected and clean'
+    from 'never looked' is not a gate."""
+    from pathlib import Path
+    import foundry
+    from hardmap import verify as V
+    lat = Path(foundry.__file__).resolve().parent / "results" / "lattice"
+    assert lat.exists(), "the real lattice directory moved"
+    watched = {p.name for p in V._watched(lat)}
+    assert "geometry_probe_a_results.json" in watched
+    assert "grid_arm_a_results.json" in watched

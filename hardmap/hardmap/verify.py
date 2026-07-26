@@ -228,6 +228,22 @@ def check_suspicious_cleanliness() -> list[str]:
     # but the gate's own output is the wrong place to bury what it found, so each is named with its reading.
     # This list is PER-PATH: any NEW extremal in these same files still fails.
     LEGACY = {
+        # SURFACED 2026-07-26 when the lattice path was fixed. These had NEVER been inspected: the gate
+        # pointed at `eightfold/foundry/foundry/results/lattice`, one `.parent` short of the real path, and
+        # the `if lat.exists()` guard made the miss silent. All three are explainable, and the third is a
+        # defect deliberately preserved as evidence.
+        ("grid_arm_a_results.json", "ceiling"):
+            "benign and load-bearing — the 100% determinism ceiling (46 flag-vectors -> 46 charge profiles, "
+            "zero ambiguity). Exactly 1.0 IS the finding: the joint profile is a deterministic function of "
+            "the flags, which is why Arm A's headline is a ceiling statement and not a score.",
+        ("grid_arm_a_results_clean.json", "ceiling"):
+            "benign — the same determinism ceiling in the post-fix `clean` run",
+        ("grid_arm_a_results.json", "per_flag_recovery.1valid.acc"):
+            "THE DOCUMENTED LEAK, RETAINED ON PURPOSE. `1valid` was recovered at exactly 1.0000 by the "
+            "arithmetic flag leak — weight_mean x n_tuples reconstructs the excluded weight-0/weight-arity "
+            "bins, so excluding the flags by NAME did not exclude the information. This file is the PRE-fix "
+            "run kept for the record; grid_arm_a_results_clean.json is the run after the membership/closure "
+            "reclassification. The 1.0 is the defect preserved as evidence, not a result.",
         ("crucible_results.json", "S1.envelope.approx_param_v.null_p2.5"):
             "benign — V >= 0, so a null envelope's 2.5th percentile legitimately bottoms out at 0",
         ("crucible_results.json", "S1.envelope.approx_param_v.one_sided_p_ge"):
@@ -260,9 +276,19 @@ def check_suspicious_cleanliness() -> list[str]:
     }
     d = _eightfold_atlas()
     roots.append(d)
-    lat = d.parent.parent.parent / "foundry" / "foundry" / "results" / "lattice"
-    if lat.exists():
-        roots.append(lat)
+    # FIXED 2026-07-26: this read `d.parent.parent.parent / "foundry" / ...`, one `.parent` short, and
+    # resolved to `eightfold/foundry/foundry/results/lattice` — a path that has never existed. The
+    # `if lat.exists()` guard then made the miss SILENT: the gate reported PASS while watching nothing, so
+    # every Foundry lattice artifact went uninspected, including grid_arm_a_results.json whose 1.000
+    # positive control is quoted in the write-up. Resolve via the package, the same idiom as
+    # _eightfold_atlas(), instead of counting directory levels from a sibling.
+    try:
+        import foundry
+        lat = Path(foundry.__file__).resolve().parent / "results" / "lattice"
+        if lat.exists():
+            roots.append(lat)
+    except ImportError:
+        pass
     for root in roots:
         # WIDENED 2026-07-25 (Terroir T4): the original glob was `grid_*results*.json`, which stopped
         # watching the moment a result file was named anything else — terroir_v1_results.json was invisible
@@ -307,9 +333,19 @@ def check_lift_denominators_match() -> list[str]:
     bad, roots = [], []
     d = _eightfold_atlas()
     roots.append(d)
-    lat = d.parent.parent.parent / "foundry" / "foundry" / "results" / "lattice"
-    if lat.exists():
-        roots.append(lat)
+    # FIXED 2026-07-26: this read `d.parent.parent.parent / "foundry" / ...`, one `.parent` short, and
+    # resolved to `eightfold/foundry/foundry/results/lattice` — a path that has never existed. The
+    # `if lat.exists()` guard then made the miss SILENT: the gate reported PASS while watching nothing, so
+    # every Foundry lattice artifact went uninspected, including grid_arm_a_results.json whose 1.000
+    # positive control is quoted in the write-up. Resolve via the package, the same idiom as
+    # _eightfold_atlas(), instead of counting directory levels from a sibling.
+    try:
+        import foundry
+        lat = Path(foundry.__file__).resolve().parent / "results" / "lattice"
+        if lat.exists():
+            roots.append(lat)
+    except ImportError:
+        pass
     for root in roots:
         for p in sorted(_watched(root)):
             try:

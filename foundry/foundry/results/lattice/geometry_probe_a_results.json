@@ -1,0 +1,291 @@
+{
+ "schema": "geometry-probe-a/v1",
+ "prereg": "prereg_v16",
+ "seed": 20260726,
+ "F2_law": "probe values NEVER impersonate worst-case charges. A low violation rate is a measured geometric property that may ASSOCIATE with charges; the association is the research object. No charge is read or written by this instrument.",
+ "n_classes": 4072,
+ "flavors": [
+  "majority",
+  "minority",
+  "min",
+  "max"
+ ],
+ "budgets": [
+  10,
+  30,
+  100,
+  300
+ ],
+ "score_1_known_answer_battery": {
+  "result": {
+   "majority": {
+    "agree": 4072,
+    "disagree": 0
+   },
+   "minority": {
+    "agree": 4072,
+    "disagree": 0
+   },
+   "min": {
+    "agree": 4072,
+    "disagree": 0
+   },
+   "max": {
+    "agree": 4072,
+    "disagree": 0
+   }
+  },
+  "status": "CALIBRATION ONLY \u2014 FORCED BY CONSTRUCTION",
+  "why_forced": "exhaustively computed, rate == 0 is equivalent to the oracle's closure flag by definition. This verifies the implementation computes what closure means and earns no credit beyond that. Sealed as forced in prereg_v16 before running."
+ },
+ "score_2_sampled_sensitivity": {
+  "result": {
+   "majority": {
+    "10": {
+     "n_open_classes": 3708,
+     "detected": 2426,
+     "sensitivity": 0.6543
+    },
+    "30": {
+     "n_open_classes": 3708,
+     "detected": 3330,
+     "sensitivity": 0.8981
+    },
+    "100": {
+     "n_open_classes": 3708,
+     "detected": 3661,
+     "sensitivity": 0.9873
+    },
+    "300": {
+     "n_open_classes": 3708,
+     "detected": 3707,
+     "sensitivity": 0.9997
+    }
+   },
+   "minority": {
+    "10": {
+     "n_open_classes": 3995,
+     "detected": 3908,
+     "sensitivity": 0.9782
+    },
+    "30": {
+     "n_open_classes": 3995,
+     "detected": 3993,
+     "sensitivity": 0.9995
+    },
+    "100": {
+     "n_open_classes": 3995,
+     "detected": 3995,
+     "sensitivity": 1.0
+    },
+    "300": {
+     "n_open_classes": 3995,
+     "detected": 3995,
+     "sensitivity": 1.0
+    }
+   },
+   "min": {
+    "10": {
+     "n_open_classes": 3660,
+     "detected": 3029,
+     "sensitivity": 0.8276
+    },
+    "30": {
+     "n_open_classes": 3660,
+     "detected": 3480,
+     "sensitivity": 0.9508
+    },
+    "100": {
+     "n_open_classes": 3660,
+     "detected": 3637,
+     "sensitivity": 0.9937
+    },
+    "300": {
+     "n_open_classes": 3660,
+     "detected": 3660,
+     "sensitivity": 1.0
+    }
+   },
+   "max": {
+    "10": {
+     "n_open_classes": 3660,
+     "detected": 3004,
+     "sensitivity": 0.8208
+    },
+    "30": {
+     "n_open_classes": 3660,
+     "detected": 3471,
+     "sensitivity": 0.9484
+    },
+    "100": {
+     "n_open_classes": 3660,
+     "detected": 3639,
+     "sensitivity": 0.9943
+    },
+    "300": {
+     "n_open_classes": 3660,
+     "detected": 3660,
+     "sensitivity": 1.0
+    }
+   }
+  },
+  "status": "THE ACTUAL QUALIFICATION \u2014 not forced",
+  "specificity": {
+   "value": 1.0,
+   "status": "FORCED, NOT AN ACHIEVEMENT",
+   "why": "if R is closed under f then no m-tuple violates, so every sample returns 0 and a closed class can never be called open"
+  }
+ },
+ "score_3_distribution_shape": {
+  "result": {
+   "majority": {
+    "n_admissible": 4028,
+    "n_insufficient": 44,
+    "histogram": {
+     "zero": 320,
+     "0_to_005": 540,
+     "005_to_015": 2157,
+     "015_to_030": 893,
+     "030_to_050": 118,
+     "050_to_075": 0,
+     "075_to_1": 0
+    },
+    "n_nonzero": 3708,
+    "middle_band_fraction_of_nonzero": 0.8544,
+    "mean_nonzero": 0.1207
+   },
+   "minority": {
+    "n_admissible": 4028,
+    "n_insufficient": 44,
+    "histogram": {
+     "zero": 33,
+     "0_to_005": 0,
+     "005_to_015": 56,
+     "015_to_030": 875,
+     "030_to_050": 3031,
+     "050_to_075": 33,
+     "075_to_1": 0
+    },
+    "n_nonzero": 3995,
+    "middle_band_fraction_of_nonzero": 0.9917,
+    "mean_nonzero": 0.3669
+   },
+   "min": {
+    "n_admissible": 3801,
+    "n_insufficient": 271,
+    "histogram": {
+     "zero": 317,
+     "0_to_005": 330,
+     "005_to_015": 794,
+     "015_to_030": 1027,
+     "030_to_050": 1149,
+     "050_to_075": 108,
+     "075_to_1": 2
+    },
+    "n_nonzero": 3484,
+    "middle_band_fraction_of_nonzero": 0.8737,
+    "mean_nonzero": 0.2457
+   },
+   "max": {
+    "n_admissible": 3801,
+    "n_insufficient": 271,
+    "histogram": {
+     "zero": 317,
+     "0_to_005": 330,
+     "005_to_015": 794,
+     "015_to_030": 1027,
+     "030_to_050": 1149,
+     "050_to_075": 108,
+     "075_to_1": 2
+    },
+    "n_nonzero": 3484,
+    "middle_band_fraction_of_nonzero": 0.8737,
+    "mean_nonzero": 0.2457
+   }
+  },
+  "status": "PRE-REGISTERED AS A QUESTION, NOT A BET \u2014 no direction was predicted",
+  "middle_band": [
+   0.05,
+   0.5
+  ]
+ },
+ "census_before_seal": {
+  "majority": {
+   "n_cells": 4072,
+   "n_distinct": 138,
+   "modal_value": 0.0,
+   "modal_share": 0.0894,
+   "starved": false,
+   "note": "ok"
+  },
+  "minority": {
+   "n_cells": 4072,
+   "n_distinct": 22,
+   "modal_value": 0.4219,
+   "modal_share": 0.1277,
+   "starved": false,
+   "note": "ok"
+  },
+  "min": {
+   "n_cells": 4072,
+   "n_distinct": 170,
+   "modal_value": 0.0,
+   "modal_share": 0.1012,
+   "starved": false,
+   "note": "ok"
+  },
+  "max": {
+   "n_cells": 4072,
+   "n_distinct": 170,
+   "modal_value": 0.0,
+   "modal_share": 0.1012,
+   "starved": false,
+   "note": "ok"
+  }
+ },
+ "insufficient_rule": "|R|^m < 20; counted, still battery-scored, excluded from the distribution",
+ "verdict": "QUALIFIED",
+ "verdict_scope": "licensed for natural-row ensembles WITH ITS ACCURACY CHARACTERISED. Natural-row deployment is explicitly NOT authorised by this run and needs its own spec.",
+ "extremal_acknowledged": [
+  {
+   "stat": "score_2_sampled_sensitivity.specificity.value",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "FORCED, and sealed as forced before running. If R is closed under f then NO m-tuple violates, so every sample returns rate 0 and a closed class can NEVER be called open. This 1.0 is a property of the definition, not a measurement."
+  },
+  {
+   "stat": "score_2_sampled_sensitivity.result.minority.100.sensitivity",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "at budget 100, all 3995 classes the oracle marks not-closed under minority were detected. Saturation, not a definition: the SAME statistic is 0.9782 at budget 10, so the measurement has a live dynamic range and this budget sits at its top."
+  },
+  {
+   "stat": "score_2_sampled_sensitivity.result.minority.300.sensitivity",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "at budget 300, all 3995 classes the oracle marks not-closed under minority were detected. Saturation, not a definition: the SAME statistic is 0.9782 at budget 10, so the measurement has a live dynamic range and this budget sits at its top."
+  },
+  {
+   "stat": "score_2_sampled_sensitivity.result.min.300.sensitivity",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "at budget 300, all 3660 classes the oracle marks not-closed under min were detected. Saturation, not a definition: the SAME statistic is 0.8276 at budget 10, so the measurement has a live dynamic range and this budget sits at its top."
+  },
+  {
+   "stat": "score_2_sampled_sensitivity.result.max.300.sensitivity",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "at budget 300, all 3660 classes the oracle marks not-closed under max were detected. Saturation, not a definition: the SAME statistic is 0.8208 at budget 10, so the measurement has a live dynamic range and this budget sits at its top."
+  },
+  {
+   "stat": "census_before_seal.majority.modal_value",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "the modal violation rate is exactly 0 because the closed classes form the largest single level (9% of 4072). Rate 0 IS closure; that a plurality of classes are closed under majority is a fact about the roster, and the column is not starved (138 distinct values)."
+  },
+  {
+   "stat": "census_before_seal.min.modal_value",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "the modal violation rate is exactly 0 because the closed classes form the largest single level (10% of 4072). Rate 0 IS closure; that a plurality of classes are closed under min is a fact about the roster, and the column is not starved (170 distinct values)."
+  },
+  {
+   "stat": "census_before_seal.max.modal_value",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "the modal violation rate is exactly 0 because the closed classes form the largest single level (10% of 4072). Rate 0 IS closure; that a plurality of classes are closed under max is a fact about the roster, and the column is not starved (170 distinct values)."
+  }
+ ]
+}
