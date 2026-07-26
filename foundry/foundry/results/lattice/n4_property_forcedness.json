@@ -1,0 +1,531 @@
+{
+ "schema": "n4-property-forcedness/v1",
+ "STATUS": "INSTRUMENT HYGIENE \u2014 no prereg, no bet, no scored prediction",
+ "what": "structural properties declared per (row, region), MECHANICALLY VERIFIED, and forced flavours derived from the verified properties in both directions (closed / saturated)",
+ "the_disease_guard": "a declared property is a hand-written entry wearing derivation's clothes unless it is verified. Every declaration is brute-force checked and an unverified declaration is DROPPED, not downgraded.",
+ "property_vocabulary": {
+  "upward_closed": {
+   "max": "closed"
+  },
+  "downward_closed": {
+   "min": "closed"
+  },
+  "pairwise_exclusion": {
+   "majority": "closed"
+  },
+  "parity": {
+   "minority": "closed"
+  },
+  "fixed_cardinality": {
+   "min": "saturated",
+   "max": "saturated"
+  },
+  "exact_equality": {
+   "min": "saturated",
+   "max": "saturated"
+  }
+ },
+ "n_declarations": 15,
+ "n_verified": 15,
+ "n_dropped": 0,
+ "contradictions": [],
+ "entries_whose_derived_flags_disagree_with_observation": [],
+ "entries": [
+  {
+   "row": "dominating-set",
+   "region": "feasible",
+   "declared": [
+    "upward_closed"
+   ],
+   "verified": [
+    {
+     "property": "upward_closed",
+     "checked_on_regions": 3,
+     "detail": "exhaustive: every single-bit raise stays inside"
+    }
+   ],
+   "dropped_declarations": [],
+   "derived_forced": {
+    "max": {
+     "kind": "closed",
+     "property": "upward_closed",
+     "argument": "union of two members is a member"
+    }
+   },
+   "flags_agree_with_observation": [
+    {
+     "flavour": "max",
+     "expected": "closed",
+     "observed_rates": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "flags_DISAGREE_with_observation": []
+  },
+  {
+   "row": "feedback-vertex-set",
+   "region": "feasible",
+   "declared": [
+    "upward_closed"
+   ],
+   "verified": [
+    {
+     "property": "upward_closed",
+     "checked_on_regions": 3,
+     "detail": "exhaustive: every single-bit raise stays inside"
+    }
+   ],
+   "dropped_declarations": [],
+   "derived_forced": {
+    "max": {
+     "kind": "closed",
+     "property": "upward_closed",
+     "argument": "union of two members is a member"
+    }
+   },
+   "flags_agree_with_observation": [
+    {
+     "flavour": "max",
+     "expected": "closed",
+     "observed_rates": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "flags_DISAGREE_with_observation": []
+  },
+  {
+   "row": "hitting-set",
+   "region": "feasible",
+   "declared": [
+    "upward_closed"
+   ],
+   "verified": [
+    {
+     "property": "upward_closed",
+     "checked_on_regions": 3,
+     "detail": "exhaustive: every single-bit raise stays inside"
+    }
+   ],
+   "dropped_declarations": [],
+   "derived_forced": {
+    "max": {
+     "kind": "closed",
+     "property": "upward_closed",
+     "argument": "union of two members is a member"
+    }
+   },
+   "flags_agree_with_observation": [
+    {
+     "flavour": "max",
+     "expected": "closed",
+     "observed_rates": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "flags_DISAGREE_with_observation": []
+  },
+  {
+   "row": "independent-set",
+   "region": "feasible",
+   "declared": [
+    "downward_closed",
+    "pairwise_exclusion"
+   ],
+   "verified": [
+    {
+     "property": "downward_closed",
+     "checked_on_regions": 3,
+     "detail": "exhaustive: every single-bit clear stays inside"
+    },
+    {
+     "property": "pairwise_exclusion",
+     "checked_on_regions": 3,
+     "detail": "derived 17 conflicting pairs and they characterise membership"
+    }
+   ],
+   "dropped_declarations": [],
+   "derived_forced": {
+    "min": {
+     "kind": "closed",
+     "property": "downward_closed",
+     "argument": "intersection of two members is a member"
+    },
+    "majority": {
+     "kind": "closed",
+     "property": "pairwise_exclusion",
+     "argument": "a conflicting pair in the majority forces some single member to contain both"
+    }
+   },
+   "flags_agree_with_observation": [
+    {
+     "flavour": "min",
+     "expected": "closed",
+     "observed_rates": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "flavour": "majority",
+     "expected": "closed",
+     "observed_rates": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "flags_DISAGREE_with_observation": []
+  },
+  {
+   "row": "knapsack",
+   "region": "feasible",
+   "declared": [
+    "downward_closed"
+   ],
+   "verified": [
+    {
+     "property": "downward_closed",
+     "checked_on_regions": 3,
+     "detail": "exhaustive: every single-bit clear stays inside"
+    }
+   ],
+   "dropped_declarations": [],
+   "derived_forced": {
+    "min": {
+     "kind": "closed",
+     "property": "downward_closed",
+     "argument": "intersection of two members is a member"
+    }
+   },
+   "flags_agree_with_observation": [
+    {
+     "flavour": "min",
+     "expected": "closed",
+     "observed_rates": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "flags_DISAGREE_with_observation": []
+  },
+  {
+   "row": "matching",
+   "region": "feasible",
+   "declared": [
+    "downward_closed",
+    "pairwise_exclusion"
+   ],
+   "verified": [
+    {
+     "property": "downward_closed",
+     "checked_on_regions": 3,
+     "detail": "exhaustive: every single-bit clear stays inside"
+    },
+    {
+     "property": "pairwise_exclusion",
+     "checked_on_regions": 3,
+     "detail": "derived 51 conflicting pairs and they characterise membership"
+    }
+   ],
+   "dropped_declarations": [],
+   "derived_forced": {
+    "min": {
+     "kind": "closed",
+     "property": "downward_closed",
+     "argument": "intersection of two members is a member"
+    },
+    "majority": {
+     "kind": "closed",
+     "property": "pairwise_exclusion",
+     "argument": "a conflicting pair in the majority forces some single member to contain both"
+    }
+   },
+   "flags_agree_with_observation": [
+    {
+     "flavour": "min",
+     "expected": "closed",
+     "observed_rates": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "flavour": "majority",
+     "expected": "closed",
+     "observed_rates": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "flags_DISAGREE_with_observation": []
+  },
+  {
+   "row": "max-flow",
+   "region": "feasible",
+   "declared": [
+    "parity"
+   ],
+   "verified": [
+    {
+     "property": "parity",
+     "checked_on_regions": 3,
+     "detail": "sampled: XOR of three members stayed inside"
+    }
+   ],
+   "dropped_declarations": [],
+   "derived_forced": {
+    "minority": {
+     "kind": "closed",
+     "property": "parity",
+     "argument": "XOR preserves every mod-2 linear condition"
+    }
+   },
+   "flags_agree_with_observation": [
+    {
+     "flavour": "minority",
+     "expected": "closed",
+     "observed_rates": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "flags_DISAGREE_with_observation": []
+  },
+  {
+   "row": "min-spanning-tree",
+   "region": "feasible",
+   "declared": [
+    "fixed_cardinality"
+   ],
+   "verified": [
+    {
+     "property": "fixed_cardinality",
+     "checked_on_regions": 3,
+     "detail": "all members have weight 6"
+    }
+   ],
+   "dropped_declarations": [],
+   "derived_forced": {
+    "min": {
+     "kind": "saturated",
+     "property": "fixed_cardinality",
+     "argument": "intersection has strictly fewer elements"
+    },
+    "max": {
+     "kind": "saturated",
+     "property": "fixed_cardinality",
+     "argument": "union has strictly more elements"
+    }
+   },
+   "flags_agree_with_observation": [
+    {
+     "flavour": "min",
+     "expected": "saturated",
+     "observed_rates": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "flavour": "max",
+     "expected": "saturated",
+     "observed_rates": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "flags_DISAGREE_with_observation": []
+  },
+  {
+   "row": "odd-cycle-transversal",
+   "region": "feasible",
+   "declared": [
+    "upward_closed"
+   ],
+   "verified": [
+    {
+     "property": "upward_closed",
+     "checked_on_regions": 3,
+     "detail": "exhaustive: every single-bit raise stays inside"
+    }
+   ],
+   "dropped_declarations": [],
+   "derived_forced": {
+    "max": {
+     "kind": "closed",
+     "property": "upward_closed",
+     "argument": "union of two members is a member"
+    }
+   },
+   "flags_agree_with_observation": [
+    {
+     "flavour": "max",
+     "expected": "closed",
+     "observed_rates": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "flags_DISAGREE_with_observation": []
+  },
+  {
+   "row": "set-cover",
+   "region": "feasible",
+   "declared": [
+    "upward_closed"
+   ],
+   "verified": [
+    {
+     "property": "upward_closed",
+     "checked_on_regions": 2,
+     "detail": "exhaustive: every single-bit raise stays inside"
+    }
+   ],
+   "dropped_declarations": [],
+   "derived_forced": {
+    "max": {
+     "kind": "closed",
+     "property": "upward_closed",
+     "argument": "union of two members is a member"
+    }
+   },
+   "flags_agree_with_observation": [
+    {
+     "flavour": "max",
+     "expected": "closed",
+     "observed_rates": [
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "flags_DISAGREE_with_observation": []
+  },
+  {
+   "row": "subset-sum",
+   "region": "solutions",
+   "declared": [
+    "exact_equality"
+   ],
+   "verified": [
+    {
+     "property": "exact_equality",
+     "checked_on_regions": 3,
+     "detail": "sampled: no blend of two distinct members stayed inside"
+    }
+   ],
+   "dropped_declarations": [],
+   "derived_forced": {
+    "min": {
+     "kind": "saturated",
+     "property": "exact_equality",
+     "argument": "intersection breaks the equality"
+    },
+    "max": {
+     "kind": "saturated",
+     "property": "exact_equality",
+     "argument": "union breaks the equality"
+    }
+   },
+   "flags_agree_with_observation": [
+    {
+     "flavour": "min",
+     "expected": "saturated",
+     "observed_rates": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    },
+    {
+     "flavour": "max",
+     "expected": "saturated",
+     "observed_rates": [
+      1.0,
+      1.0,
+      1.0
+     ]
+    }
+   ],
+   "flags_DISAGREE_with_observation": []
+  },
+  {
+   "row": "three-dimensional-matching",
+   "region": "feasible",
+   "declared": [
+    "downward_closed",
+    "pairwise_exclusion"
+   ],
+   "verified": [
+    {
+     "property": "downward_closed",
+     "checked_on_regions": 3,
+     "detail": "exhaustive: every single-bit clear stays inside"
+    },
+    {
+     "property": "pairwise_exclusion",
+     "checked_on_regions": 3,
+     "detail": "derived 55 conflicting pairs and they characterise membership"
+    }
+   ],
+   "dropped_declarations": [],
+   "derived_forced": {
+    "min": {
+     "kind": "closed",
+     "property": "downward_closed",
+     "argument": "intersection of two members is a member"
+    },
+    "majority": {
+     "kind": "closed",
+     "property": "pairwise_exclusion",
+     "argument": "a conflicting pair in the majority forces some single member to contain both"
+    }
+   },
+   "flags_agree_with_observation": [
+    {
+     "flavour": "min",
+     "expected": "closed",
+     "observed_rates": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "flavour": "majority",
+     "expected": "closed",
+     "observed_rates": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "flags_DISAGREE_with_observation": []
+  }
+ ],
+ "dropped": []
+}
