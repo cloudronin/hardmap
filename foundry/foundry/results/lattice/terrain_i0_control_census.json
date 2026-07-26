@@ -1,0 +1,938 @@
+{
+ "schema": "terrain-i0-control-census/v1",
+ "STATUS": "I-PHASE GROUNDING \u2014 no bet, no score, no prereg text fixed by this",
+ "purpose": "settle computability and variance of every control tier before the seal's text fixes, and evaluate the kill condition on tier-2 coverage",
+ "tier_definitions": {
+  "tier0": "uniform random subset of the ambient space at matched r",
+  "tier1": "matched-marginal \u2014 size r, per-coordinate inclusion frequencies matched",
+  "tier2": "matched-object \u2014 r random members of the region's own containing species"
+ },
+ "tier2_is_structurally_unavailable_for": {
+  "feasible": "the region IS the species; a species-drawn control at matched r is the region",
+  "solutions": "the only natural containing family is the ambient space, i.e. tier 0"
+ },
+ "sibling_instance_control_is_barred_from_the_primary": "drawing the control from a different instance of the same generator would make tier 2 available everywhere, and it is a RIGGED null: the survey's measured rate is already a mean over several instances of that generator, so the control estimates the same quantity and the excess is zero by construction. Kept only as a calibration diagnostic.",
+ "per_row": {
+  "knapsack": {
+   "feasible\u00b7majority": {
+    "r_range": [
+     5841,
+     6085
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": false,
+    "tier2_why": "no containing species larger than the region for this region kind",
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 6085,
+     "n": 14,
+     "measured": 0.03205,
+     "tier0": {
+      "computable": true,
+      "mean": 0.5935,
+      "sd": 0.0022,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.3396,
+      "sd": 0.00583,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": false,
+      "why": "no containing species larger than the region for this region kind"
+     }
+    }
+   },
+   "feasible\u00b7max": {
+    "r_range": [
+     5841,
+     6085
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": false,
+    "tier2_why": "no containing species larger than the region for this region kind",
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 6085,
+     "n": 14,
+     "measured": 0.89045,
+     "tier0": {
+      "computable": true,
+      "mean": 0.6024,
+      "sd": 0.01721,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.8057,
+      "sd": 0.00471,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": false,
+      "why": "no containing species larger than the region for this region kind"
+     }
+    }
+   },
+   "optimal\u00b7majority": {
+    "r_range": [
+     387,
+     436
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": true,
+    "tier2_why": null,
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 400,
+     "n": 14,
+     "measured": 0.907,
+     "tier0": {
+      "computable": true,
+      "mean": 0.9232,
+      "sd": 0.00275,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.9159,
+      "sd": 0.00297,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": true,
+      "mean": 0.8723,
+      "sd": 0.00476,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     }
+    }
+   },
+   "optimal\u00b7max": {
+    "r_range": [
+     387,
+     436
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": true,
+    "tier2_why": null,
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 400,
+     "n": 14,
+     "measured": 1.0,
+     "tier0": {
+      "computable": true,
+      "mean": 0.9418,
+      "sd": 0.00703,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.946,
+      "sd": 0.00499,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": true,
+      "mean": 0.9766,
+      "sd": 0.00404,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     }
+    }
+   }
+  },
+  "set-cover": {
+   "feasible\u00b7majority": {
+    "r_range": [
+     94,
+     128
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": false,
+    "tier2_why": "no containing species larger than the region for this region kind",
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 114,
+     "n": 9,
+     "measured": 0.02175,
+     "tier0": {
+      "computable": true,
+      "mean": 0.6011,
+      "sd": 0.01222,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.2602,
+      "sd": 0.02888,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": false,
+      "why": "no containing species larger than the region for this region kind"
+     }
+    }
+   },
+   "feasible\u00b7max": {
+    "r_range": [
+     94,
+     128
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": false,
+    "tier2_why": "no containing species larger than the region for this region kind",
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 114,
+     "n": 9,
+     "measured": 0.0,
+     "tier0": {
+      "computable": true,
+      "mean": 0.6803,
+      "sd": 0.0485,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.1224,
+      "sd": 0.04356,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": false,
+      "why": "no containing species larger than the region for this region kind"
+     }
+    }
+   },
+   "optimal\u00b7majority": {
+    "r_range": [
+     8,
+     8
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": true,
+    "tier2_why": null,
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 8,
+     "n": 9,
+     "measured": 0.32142857142857145,
+     "tier0": {
+      "computable": true,
+      "mean": 0.7887,
+      "sd": 0.06635,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.4226,
+      "sd": 0.18577,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": true,
+      "mean": 0.6131,
+      "sd": 0.15556,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     }
+    }
+   },
+   "optimal\u00b7max": {
+    "r_range": [
+     8,
+     8
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": true,
+    "tier2_why": null,
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 8,
+     "n": 9,
+     "measured": 1.0,
+     "tier0": {
+      "computable": true,
+      "mean": 0.8601,
+      "sd": 0.06432,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.619,
+      "sd": 0.16645,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": true,
+      "mean": 0.8036,
+      "sd": 0.13794,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     }
+    }
+   }
+  },
+  "hitting-set": {
+   "feasible\u00b7majority": {
+    "r_range": [
+     540,
+     548
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": false,
+    "tier2_why": "no containing species larger than the region for this region kind",
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 540,
+     "n": 10,
+     "measured": 0.0492,
+     "tier0": {
+      "computable": true,
+      "mean": 0.3971,
+      "sd": 0.00689,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.293,
+      "sd": 0.01221,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": false,
+      "why": "no containing species larger than the region for this region kind"
+     }
+    }
+   },
+   "feasible\u00b7max": {
+    "r_range": [
+     540,
+     548
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": false,
+    "tier2_why": "no containing species larger than the region for this region kind",
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 540,
+     "n": 10,
+     "measured": 0.0,
+     "tier0": {
+      "computable": true,
+      "mean": 0.43,
+      "sd": 0.0385,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.1037,
+      "sd": 0.02308,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": false,
+      "why": "no containing species larger than the region for this region kind"
+     }
+    }
+   },
+   "optimal\u00b7majority": {
+    "r_range": [
+     10,
+     11
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": true,
+    "tier2_why": null,
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 10,
+     "n": 10,
+     "measured": 0.43333333333333335,
+     "tier0": {
+      "computable": true,
+      "mean": 0.8063,
+      "sd": 0.05476,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.5021,
+      "sd": 0.14989,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": true,
+      "mean": 0.8292,
+      "sd": 0.04201,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     }
+    }
+   },
+   "optimal\u00b7max": {
+    "r_range": [
+     10,
+     11
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": true,
+    "tier2_why": null,
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 10,
+     "n": 10,
+     "measured": 1.0,
+     "tier0": {
+      "computable": true,
+      "mean": 0.8389,
+      "sd": 0.0866,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.5981,
+      "sd": 0.18425,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": true,
+      "mean": 0.9296,
+      "sd": 0.05198,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     }
+    }
+   }
+  },
+  "feedback-vertex-set": {
+   "feasible\u00b7majority": {
+    "r_range": [
+     502,
+     698
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": false,
+    "tier2_why": "no containing species larger than the region for this region kind",
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 698,
+     "n": 10,
+     "measured": 0.04905,
+     "tier0": {
+      "computable": true,
+      "mean": 0.2665,
+      "sd": 0.00231,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.2208,
+      "sd": 0.00595,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": false,
+      "why": "no containing species larger than the region for this region kind"
+     }
+    }
+   },
+   "feasible\u00b7max": {
+    "r_range": [
+     502,
+     698
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": false,
+    "tier2_why": "no containing species larger than the region for this region kind",
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 698,
+     "n": 10,
+     "measured": 0.0,
+     "tier0": {
+      "computable": true,
+      "mean": 0.314,
+      "sd": 0.0428,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.096,
+      "sd": 0.02585,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": false,
+      "why": "no containing species larger than the region for this region kind"
+     }
+    }
+   },
+   "optimal\u00b7majority": {
+    "r_range": [
+     5,
+     10
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": true,
+    "tier2_why": null,
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 10,
+     "n": 10,
+     "measured": 0.5833333333333334,
+     "tier0": {
+      "computable": true,
+      "mean": 0.8535,
+      "sd": 0.05176,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.3396,
+      "sd": 0.11854,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": true,
+      "mean": 0.8083,
+      "sd": 0.06641,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     }
+    }
+   },
+   "optimal\u00b7max": {
+    "r_range": [
+     5,
+     10
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": true,
+    "tier2_why": null,
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 10,
+     "n": 10,
+     "measured": 1.0,
+     "tier0": {
+      "computable": true,
+      "mean": 0.8778,
+      "sd": 0.07115,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.5537,
+      "sd": 0.14781,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": true,
+      "mean": 0.863,
+      "sd": 0.13482,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     }
+    }
+   }
+  },
+  "odd-cycle-transversal": {
+   "feasible\u00b7majority": {
+    "r_range": [
+     620,
+     1024
+    ],
+    "tier0_computable": false,
+    "tier1_computable": true,
+    "tier2_computable": false,
+    "tier2_why": "no containing species larger than the region for this region kind",
+    "tier1_varies": false,
+    "tier2_varies": true,
+    "example": {
+     "r": 620,
+     "n": 10,
+     "measured": 0.03485,
+     "tier0": {
+      "computable": true,
+      "mean": 0.3325,
+      "sd": 0.0054,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.2475,
+      "sd": 0.00744,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": false,
+      "why": "no containing species larger than the region for this region kind"
+     }
+    }
+   },
+   "feasible\u00b7max": {
+    "r_range": [
+     620,
+     1024
+    ],
+    "tier0_computable": false,
+    "tier1_computable": true,
+    "tier2_computable": false,
+    "tier2_why": "no containing species larger than the region for this region kind",
+    "tier1_varies": false,
+    "tier2_varies": true,
+    "example": {
+     "r": 620,
+     "n": 10,
+     "measured": 0.0,
+     "tier0": {
+      "computable": true,
+      "mean": 0.3746,
+      "sd": 0.04721,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.1012,
+      "sd": 0.0126,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": false,
+      "why": "no containing species larger than the region for this region kind"
+     }
+    }
+   }
+  },
+  "independent-dominating-set": {
+   "feasible\u00b7majority": {
+    "r_range": [
+     6,
+     10
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": false,
+    "tier2_why": "no containing species larger than the region for this region kind",
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 9,
+     "n": 10,
+     "measured": 0.6666666666666666,
+     "tier0": {
+      "computable": true,
+      "mean": 0.8145,
+      "sd": 0.07783,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.6746,
+      "sd": 0.12621,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": false,
+      "why": "no containing species larger than the region for this region kind"
+     }
+    }
+   },
+   "feasible\u00b7max": {
+    "r_range": [
+     6,
+     10
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": false,
+    "tier2_why": "no containing species larger than the region for this region kind",
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 9,
+     "n": 10,
+     "measured": 1.0,
+     "tier0": {
+      "computable": true,
+      "mean": 0.8773,
+      "sd": 0.0889,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.7801,
+      "sd": 0.12185,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": false,
+      "why": "no containing species larger than the region for this region kind"
+     }
+    }
+   }
+  },
+  "subset-sum": {
+   "solutions\u00b7majority": {
+    "r_range": [
+     31,
+     37
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": false,
+    "tier2_why": "no containing species larger than the region for this region kind",
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 33,
+     "n": 13,
+     "measured": 0.8665689149560117,
+     "tier0": {
+      "computable": true,
+      "mean": 0.9223,
+      "sd": 0.01031,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.8837,
+      "sd": 0.01757,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": false,
+      "why": "no containing species larger than the region for this region kind"
+     }
+    }
+   },
+   "solutions\u00b7max": {
+    "r_range": [
+     31,
+     37
+    ],
+    "tier0_computable": true,
+    "tier1_computable": true,
+    "tier2_computable": false,
+    "tier2_why": "no containing species larger than the region for this region kind",
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 33,
+     "n": 13,
+     "measured": 1.0,
+     "tier0": {
+      "computable": true,
+      "mean": 0.9424,
+      "sd": 0.01236,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier1": {
+      "computable": true,
+      "mean": 0.934,
+      "sd": 0.02267,
+      "n_draws": 12,
+      "degenerate_zero_variance": false
+     },
+     "tier2": {
+      "computable": false,
+      "why": "no containing species larger than the region for this region kind"
+     }
+    }
+   }
+  },
+  "graph-3-coloring": {
+   "solutions\u00b7majority": {
+    "r_range": [
+     192,
+     360
+    ],
+    "tier0_computable": false,
+    "tier1_computable": false,
+    "tier2_computable": false,
+    "tier2_why": "no containing species larger than the region for this region kind",
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 360,
+     "n": 8,
+     "measured": 0.96475,
+     "tier0": {
+      "computable": false,
+      "why": "control could not be drawn at this r and n"
+     },
+     "tier1": {
+      "computable": false,
+      "why": "control could not be drawn at this r and n"
+     },
+     "tier2": {
+      "computable": false,
+      "why": "no containing species larger than the region for this region kind"
+     }
+    }
+   },
+   "solutions\u00b7max": {
+    "r_range": [
+     192,
+     360
+    ],
+    "tier0_computable": false,
+    "tier1_computable": false,
+    "tier2_computable": false,
+    "tier2_why": "no containing species larger than the region for this region kind",
+    "tier1_varies": true,
+    "tier2_varies": true,
+    "example": {
+     "r": 360,
+     "n": 8,
+     "measured": 0.67605,
+     "tier0": {
+      "computable": false,
+      "why": "control could not be drawn at this r and n"
+     },
+     "tier1": {
+      "computable": false,
+      "why": "control could not be drawn at this r and n"
+     },
+     "tier2": {
+      "computable": false,
+      "why": "no containing species larger than the region for this region kind"
+     }
+    }
+   }
+  }
+ },
+ "extremal_acknowledged": [
+  {
+   "stat": "per_row.knapsack.optimal\u00b7max.example.measured",
+   "value": 1.0,
+   "why": "EXACT 1.0 IS FORCED BY THE CONSTRUCTION, and is the mirror of the case above: the union of two optimal members is feasible but strictly larger, hence never optimal, so EVERY blend leaves the optimal region. Saturation is the expected value."
+  },
+  {
+   "stat": "per_row.set-cover.feasible\u00b7max.example.measured",
+   "value": 0.0,
+   "why": "EXACT 0.0 IS FORCED BY THE CONSTRUCTION: these feasible families are upward-closed (adding elements never destroys membership), so max = union stays inside and no blend can violate. Independently established and brute-force tested in the zero-hunt as HIDDEN-CLOSURE. An exact zero here is the expected value, not a tell."
+  },
+  {
+   "stat": "per_row.set-cover.optimal\u00b7max.example.measured",
+   "value": 1.0,
+   "why": "EXACT 1.0 IS FORCED BY THE CONSTRUCTION, and is the mirror of the case above: the union of two optimal members is feasible but strictly larger, hence never optimal, so EVERY blend leaves the optimal region. Saturation is the expected value."
+  },
+  {
+   "stat": "per_row.hitting-set.feasible\u00b7max.example.measured",
+   "value": 0.0,
+   "why": "EXACT 0.0 IS FORCED BY THE CONSTRUCTION: these feasible families are upward-closed (adding elements never destroys membership), so max = union stays inside and no blend can violate. Independently established and brute-force tested in the zero-hunt as HIDDEN-CLOSURE. An exact zero here is the expected value, not a tell."
+  },
+  {
+   "stat": "per_row.hitting-set.optimal\u00b7max.example.measured",
+   "value": 1.0,
+   "why": "EXACT 1.0 IS FORCED BY THE CONSTRUCTION, and is the mirror of the case above: the union of two optimal members is feasible but strictly larger, hence never optimal, so EVERY blend leaves the optimal region. Saturation is the expected value."
+  },
+  {
+   "stat": "per_row.feedback-vertex-set.feasible\u00b7max.example.measured",
+   "value": 0.0,
+   "why": "EXACT 0.0 IS FORCED BY THE CONSTRUCTION: these feasible families are upward-closed (adding elements never destroys membership), so max = union stays inside and no blend can violate. Independently established and brute-force tested in the zero-hunt as HIDDEN-CLOSURE. An exact zero here is the expected value, not a tell."
+  },
+  {
+   "stat": "per_row.feedback-vertex-set.optimal\u00b7max.example.measured",
+   "value": 1.0,
+   "why": "EXACT 1.0 IS FORCED BY THE CONSTRUCTION, and is the mirror of the case above: the union of two optimal members is feasible but strictly larger, hence never optimal, so EVERY blend leaves the optimal region. Saturation is the expected value."
+  },
+  {
+   "stat": "per_row.odd-cycle-transversal.feasible\u00b7max.example.measured",
+   "value": 0.0,
+   "why": "EXACT 0.0 IS FORCED BY THE CONSTRUCTION: these feasible families are upward-closed (adding elements never destroys membership), so max = union stays inside and no blend can violate. Independently established and brute-force tested in the zero-hunt as HIDDEN-CLOSURE. An exact zero here is the expected value, not a tell."
+  },
+  {
+   "stat": "per_row.independent-dominating-set.feasible\u00b7max.example.measured",
+   "value": 1.0,
+   "why": "EXACT 1.0 IS FORCED BY THE CONSTRUCTION: the region is an INTERSECTION of an upward-closed property (dominating) and a downward-closed one (independent). Union preserves domination and destroys independence as soon as the two members differ, so max leaves the region."
+  },
+  {
+   "stat": "per_row.subset-sum.solutions\u00b7max.example.measured",
+   "value": 1.0,
+   "why": "EXACT 1.0 IS FORCED BY THE CONSTRUCTION: membership is an EXACT-SUM equality. The union of two distinct equal-sum subsets has a strictly larger sum, so it overshoots the target and max always leaves the region."
+  }
+ ],
+ "extremal_acknowledgment_is_derived": "every entry above was produced by matching the value's own path against a small set of structurally-explicable patterns at run time. An extremal matching none of them halts this script rather than being waved through."
+}
