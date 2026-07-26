@@ -207,3 +207,28 @@ secondary + control) · `terroir_a4.py` · `terroir_ablate.py` · 8 tests in `fo
 
 **Frozen and untouched:** `grid_arm_b_predictions.json` `cc5bb389` (asserted at every A4 run),
 `atlas_v3.jsonl` `e62f3c28`, `anatomy_v1.jsonl` `8ff11f8a`.
+
+---
+
+## 6. Where this leaves the program
+
+Terroir answers what Mosaic v3 could not: **the natural-side lift was fame all the way down.** On every
+stratification available to these features — by family, by coverage profile — it dissolves, and nothing
+worth the name survives.
+
+The convergence with Arm A is worth stating, because neither arm knew about the other when it was sealed.
+Arm A asked whether the algebraic classification is recoverable from raw combinatorics and **answered no:
+surfaces see membership, not closure.** Terroir now closes the natural side at *exactly that resolution*.
+Both arms failed at the same boundary, from opposite directions — one on a universe where the bridge is a
+theorem, one on a universe where the charges are cited facts. **The retrospective route is closed at
+surface grade, and the reason is the same reason both times.**
+
+What that leaves open is correspondingly sharp, and it is genuinely open rather than merely unrun:
+**whether closure-grade invariants — computed from pinned presentations rather than read off surface
+descriptions — carry within-family signal.** Nothing measured here bears on that question. Terroir tested
+surface-grade coordinates and found them to be sociology; it did not test, and could not have tested, the
+anatomy the dichotomy theorems say is real. That is the shape of the next instrument, and no artifact in
+this repository pre-registers it yet.
+
+The one confound-free instrument already armed is the prospective registry (0/57, predict-then-fill,
+clean by construction). It inherits the retrospective question. It does not answer the closure-grade one.
