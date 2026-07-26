@@ -1,7 +1,11 @@
 # Terrain v1 — the anti-blendability seal
 
-**Status: DRAFT AWAITING OWNER RULING. Nothing scores until this is sealed.**
-**Date:** 2026-07-26 · **Prereg number reserved:** `prereg_v19`, minted **at ruling**, not now.
+**Status: SEALED as `prereg_v19`, 2026-07-26. All six open items ruled; scored once against the frozen column.**
+**Date:** 2026-07-26 · **Prereg:** `eightfold/eightfold/results/prereg/prereg_v19.json`
+**Rulings applied:** THEOREM-SATURATED screen approved with the instrument fix · single-arm design approved ·
+tier 1.5 admitted with its `max(50, r/4)` mixing floor · the non-binary readings ship `INSUFFICIENT-encoding`
+with the domain-general tier 1 banked · §0.2 confirmed (the seal proceeds on the anomaly as measured) ·
+`ANTI-BLENDABILITY-UNREFUTED` approved, its definition naming what an upgrade would require.
 **Supersedes:** nothing. The survey column keeps its readings and its exploratory status.
 **I-phase artifact:** `terrain_i0_control_census.json` · **I-phase code:** `foundry/dev/terrain_i0_controls.py`
 
@@ -348,9 +352,11 @@ and Q1's seal are untouched. W-review remains open independently.
 
 ---
 
-## 9. Open items for the ruling
+## 9. Open items — ALL RULED 2026-07-26
 
-1. **The `THEOREM-SATURATED` screen** (§0.3) — it removes 58 of 92 readings and is the single largest
+**All six approved.** Recorded as ruled rather than deleted, since the questions are what the seal answered.
+
+1. **RULED: approved, with the instrument fix.** The `THEOREM-SATURATED` screen (§0.3) — it removes 58 of 92 readings and is the single largest
    judgement in this draft. It also implies a fix to a standing instrument: the forcedness join gains a
    `forced_saturated` direction. Ruling needed on both the screen and the instrument fix.
 2. **The single-arm design.** The first draft proposed stratification; after the screen there is 1 optimal

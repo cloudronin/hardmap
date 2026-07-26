@@ -88,7 +88,8 @@
    "theorem_forced": true,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)",
+   "forced_saturated": false
   },
   {
    "row": "sat-2",
@@ -112,7 +113,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "sat-2",
@@ -136,7 +138,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "sat-2",
@@ -160,7 +163,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "sat-3",
@@ -184,7 +188,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "sat-3",
@@ -208,7 +213,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "sat-3",
@@ -232,7 +238,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "sat-3",
@@ -256,7 +263,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "horn-sat",
@@ -280,7 +288,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "horn-sat",
@@ -304,7 +313,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "horn-sat",
@@ -328,7 +338,8 @@
    "theorem_forced": true,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)",
+   "forced_saturated": false
   },
   {
    "row": "horn-sat",
@@ -352,7 +363,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "xor-sat",
@@ -376,7 +388,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "xor-sat",
@@ -400,7 +413,8 @@
    "theorem_forced": true,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)",
+   "forced_saturated": false
   },
   {
    "row": "xor-sat",
@@ -424,7 +438,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "xor-sat",
@@ -448,7 +463,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "nae-sat",
@@ -472,7 +488,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "nae-sat",
@@ -496,7 +513,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "nae-sat",
@@ -520,7 +538,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "nae-sat",
@@ -544,7 +563,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "bipartiteness",
@@ -568,7 +588,8 @@
    "theorem_forced": true,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)",
+   "forced_saturated": false
   },
   {
    "row": "bipartiteness",
@@ -592,7 +613,8 @@
    "theorem_forced": true,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)",
+   "forced_saturated": false
   },
   {
    "row": "bipartiteness",
@@ -616,7 +638,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "bipartiteness",
@@ -640,7 +663,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "graph-3-coloring",
@@ -664,7 +688,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "graph-3-coloring",
@@ -688,7 +713,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "graph-3-coloring",
@@ -712,7 +738,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "graph-3-coloring",
@@ -736,7 +763,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "subset-sum",
@@ -760,7 +788,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "subset-sum",
@@ -784,7 +813,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "subset-sum",
@@ -808,7 +838,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S2",
+   "forced_saturated_argument": "membership is an EXACT-SUM equality `sum(w_i x_i) == target`. The union of two distinct equal-sum subsets sums strictly higher and the intersection strictly lower, so both blends break the equality that defines the region."
   },
   {
    "row": "subset-sum",
@@ -832,7 +865,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S2",
+   "forced_saturated_argument": "membership is an EXACT-SUM equality `sum(w_i x_i) == target`. The union of two distinct equal-sum subsets sums strictly higher and the intersection strictly lower, so both blends break the equality that defines the region."
   },
   {
    "row": "vertex-cover",
@@ -856,7 +892,8 @@
    "theorem_forced": true,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)",
+   "forced_saturated": false
   },
   {
    "row": "vertex-cover",
@@ -880,7 +917,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "vertex-cover",
@@ -904,7 +942,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "vertex-cover",
@@ -928,7 +967,8 @@
    "theorem_forced": true,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)",
+   "forced_saturated": false
   },
   {
    "row": "vertex-cover",
@@ -952,7 +992,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee",
+   "forced_saturated": false
   },
   {
    "row": "vertex-cover",
@@ -976,7 +1017,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee",
+   "forced_saturated": false
   },
   {
    "row": "vertex-cover",
@@ -1000,7 +1042,10 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 vertex-set cardinality (minimised). min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "vertex-cover",
@@ -1024,7 +1069,10 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 vertex-set cardinality (minimised). min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "independent-set",
@@ -1048,7 +1096,8 @@
    "theorem_forced": true,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)",
+   "forced_saturated": false
   },
   {
    "row": "independent-set",
@@ -1072,7 +1121,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "independent-set",
@@ -1096,7 +1146,8 @@
    "theorem_forced": true,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)",
+   "forced_saturated": false
   },
   {
    "row": "independent-set",
@@ -1120,7 +1171,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "independent-set",
@@ -1144,7 +1196,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee",
+   "forced_saturated": false
   },
   {
    "row": "independent-set",
@@ -1168,7 +1221,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee",
+   "forced_saturated": false
   },
   {
    "row": "independent-set",
@@ -1192,7 +1246,10 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 vertex-set cardinality (maximised). min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "independent-set",
@@ -1216,7 +1273,10 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 vertex-set cardinality (maximised). min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "clique",
@@ -1240,7 +1300,8 @@
    "theorem_forced": true,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)",
+   "forced_saturated": false
   },
   {
    "row": "clique",
@@ -1264,7 +1325,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "clique",
@@ -1288,7 +1350,8 @@
    "theorem_forced": true,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)"
+   "forced_provenance": "derived from the pinned template's closure flags (Marrow M2)",
+   "forced_saturated": false
   },
   {
    "row": "clique",
@@ -1312,7 +1375,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "derived: the pinned template is not closed under this flavour"
+   "forced_provenance": "derived: the pinned template is not closed under this flavour",
+   "forced_saturated": false
   },
   {
    "row": "clique",
@@ -1336,7 +1400,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee",
+   "forced_saturated": false
   },
   {
    "row": "clique",
@@ -1360,7 +1425,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee",
+   "forced_saturated": false
   },
   {
    "row": "clique",
@@ -1384,7 +1450,10 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 vertex-set cardinality (maximised). min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "clique",
@@ -1408,7 +1477,10 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 vertex-set cardinality (maximised). min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "max-cut",
@@ -1432,7 +1504,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee",
+   "forced_saturated": false
   },
   {
    "row": "max-cut",
@@ -1456,7 +1529,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee",
+   "forced_saturated": false
   },
   {
    "row": "max-cut",
@@ -1480,7 +1554,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee",
+   "forced_saturated": false
   },
   {
    "row": "max-cut",
@@ -1504,7 +1579,8 @@
    "theorem_forced": false,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee"
+   "forced_provenance": "not applicable \u2014 an optimal region is a sub-level set and carries no closure guarantee",
+   "forced_saturated": false
   },
   {
    "row": "number-partitioning",
@@ -1528,7 +1604,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "number-partitioning",
@@ -1552,7 +1629,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "number-partitioning",
@@ -1576,7 +1654,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 an exact-balance objective on a positive-weight sum. min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "number-partitioning",
@@ -1600,7 +1681,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 an exact-balance objective on a positive-weight sum. min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "min-spanning-tree",
@@ -1624,7 +1708,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "min-spanning-tree",
@@ -1648,7 +1733,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "min-spanning-tree",
@@ -1672,7 +1758,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S4",
+   "forced_saturated_argument": "every spanning tree has exactly n-1 edges. max of two distinct trees has strictly more edges and min strictly fewer, so neither blend is a spanning tree."
   },
   {
    "row": "min-spanning-tree",
@@ -1696,7 +1785,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S4",
+   "forced_saturated_argument": "every spanning tree has exactly n-1 edges. max of two distinct trees has strictly more edges and min strictly fewer, so neither blend is a spanning tree."
   },
   {
    "row": "min-spanning-tree",
@@ -1720,7 +1812,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "min-spanning-tree",
@@ -1744,7 +1837,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "min-spanning-tree",
@@ -1768,7 +1862,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 total edge WEIGHT, a positive-weight sum (minimised). min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "min-spanning-tree",
@@ -1792,7 +1889,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 total edge WEIGHT, a positive-weight sum (minimised). min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "matching",
@@ -1820,7 +1920,8 @@
    "zero_hunt_verdict": "HIDDEN-CLOSURE",
    "zero_hunt_argument": "argument (A): for maj(M1,M2,M3) to contain two edges sharing a vertex, each edge must lie in >= 2 of the three matchings; by pigeonhole some single matching contains both, contradicting that it is a matching. So the majority never contains a conflicting pair.",
    "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
-   "closure_explained": true
+   "closure_explained": true,
+   "forced_saturated": false
   },
   {
    "row": "matching",
@@ -1844,7 +1945,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "matching",
@@ -1868,7 +1970,8 @@
    "theorem_forced": true,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "ASSERTED with argument (no template route): a subset of a matching is a matching \u2014 the feasible set is closed downward under intersection. No finite bounded-arity template exists for this row, so the template route cannot see it."
+   "forced_provenance": "ASSERTED with argument (no template route): a subset of a matching is a matching \u2014 the feasible set is closed downward under intersection. No finite bounded-arity template exists for this row, so the template route cannot see it.",
+   "forced_saturated": false
   },
   {
    "row": "matching",
@@ -1892,7 +1995,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "matching",
@@ -1916,7 +2020,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "matching",
@@ -1940,7 +2045,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "matching",
@@ -1964,7 +2070,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 edge-set cardinality (maximised). min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "matching",
@@ -1988,7 +2097,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 edge-set cardinality (maximised). min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "reachability-stcon",
@@ -2012,7 +2124,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "reachability-stcon",
@@ -2036,7 +2149,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "reachability-stcon",
@@ -2060,7 +2174,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S5",
+   "forced_saturated_argument": "a blend of two distinct s-t paths is not a path: the union branches, the intersection disconnects."
   },
   {
    "row": "reachability-stcon",
@@ -2084,7 +2201,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S5",
+   "forced_saturated_argument": "a blend of two distinct s-t paths is not a path: the union branches, the intersection disconnects."
   },
   {
    "row": "reachability-stcon",
@@ -2108,7 +2228,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "reachability-stcon",
@@ -2132,7 +2253,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "reachability-stcon",
@@ -2156,7 +2278,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 path length, an edge-set cardinality. min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "reachability-stcon",
@@ -2180,7 +2305,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 path length, an edge-set cardinality. min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "max-flow",
@@ -2204,7 +2332,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "max-flow",
@@ -2232,7 +2361,8 @@
    "zero_hunt_verdict": "HIDDEN-CLOSURE",
    "zero_hunt_argument": "argument: conservation here is a PARITY condition on internal-node degree, and minority is coordinatewise XOR. XOR of three vectors preserves every mod-2 linear condition, so the blend satisfies conservation whenever all three do. This is the affine/Maltsev argument reaching a row with no pinned template.",
    "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
-   "closure_explained": true
+   "closure_explained": true,
+   "forced_saturated": false
   },
   {
    "row": "max-flow",
@@ -2256,7 +2386,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "max-flow",
@@ -2280,7 +2411,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "max-flow",
@@ -2304,7 +2436,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "max-flow",
@@ -2332,7 +2465,8 @@
    "zero_hunt_verdict": "HIDDEN-CLOSURE",
    "zero_hunt_argument": "the parity argument holds on the feasible family; on the optimal region it is again not implied (XOR of three max flows need not be max). Same boundary caveat as independent-set/optimal.",
    "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
-   "closure_explained": true
+   "closure_explained": true,
+   "forced_saturated": false
   },
   {
    "row": "max-flow",
@@ -2356,7 +2490,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "max-flow",
@@ -2380,7 +2515,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "dominating-set",
@@ -2404,7 +2540,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": true,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "dominating-set",
@@ -2428,7 +2565,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": true,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "dominating-set",
@@ -2452,7 +2590,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": true,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "dominating-set",
@@ -2476,7 +2615,8 @@
    "theorem_forced": true,
    "marrow_excluded_row": true,
    "insufficient": null,
-   "forced_provenance": "ASSERTED with argument (no template route): a superset of a dominating set is a dominating set \u2014 closed upward under union. Unbounded-arity neighbourhood scopes put it outside the template route."
+   "forced_provenance": "ASSERTED with argument (no template route): a superset of a dominating set is a dominating set \u2014 closed upward under union. Unbounded-arity neighbourhood scopes put it outside the template route.",
+   "forced_saturated": false
   },
   {
    "row": "dominating-set",
@@ -2500,7 +2640,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": true,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "dominating-set",
@@ -2524,7 +2665,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": true,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "dominating-set",
@@ -2548,7 +2690,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": true,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 vertex-set cardinality (minimised). min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "dominating-set",
@@ -2572,7 +2717,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": true,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 vertex-set cardinality (minimised). min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "exact-cover-x3c",
@@ -2596,7 +2744,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": true,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "exact-cover-x3c",
@@ -2620,7 +2769,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": true,
    "insufficient": "INSUFFICIENT-r",
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "three-dimensional-matching",
@@ -2648,7 +2798,8 @@
    "zero_hunt_verdict": "HIDDEN-CLOSURE",
    "zero_hunt_argument": "argument (A), identical shape: a conflicting pair in the majority forces some single member to contain both.",
    "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
-   "closure_explained": true
+   "closure_explained": true,
+   "forced_saturated": false
   },
   {
    "row": "three-dimensional-matching",
@@ -2672,7 +2823,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": true,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "three-dimensional-matching",
@@ -2696,7 +2848,8 @@
    "theorem_forced": true,
    "marrow_excluded_row": true,
    "insufficient": null,
-   "forced_provenance": "ASSERTED with argument (no template route): a subset of a 3D matching is a 3D matching \u2014 closed downward, same argument as `matching`."
+   "forced_provenance": "ASSERTED with argument (no template route): a subset of a 3D matching is a 3D matching \u2014 closed downward, same argument as `matching`.",
+   "forced_saturated": false
   },
   {
    "row": "three-dimensional-matching",
@@ -2720,7 +2873,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": true,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "three-dimensional-matching",
@@ -2744,7 +2898,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": true,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "three-dimensional-matching",
@@ -2768,7 +2923,8 @@
    "theorem_forced": null,
    "marrow_excluded_row": true,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": false
   },
   {
    "row": "three-dimensional-matching",
@@ -2792,7 +2948,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": true,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 triple-set cardinality (maximised). min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   },
   {
    "row": "three-dimensional-matching",
@@ -2816,7 +2975,10 @@
    "theorem_forced": null,
    "marrow_excluded_row": true,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "forced_saturated": true,
+   "forced_saturated_rule": "S1",
+   "forced_saturated_argument": "OPTIMAL REGION with a coordinatewise-monotone objective \u2014 triple-set cardinality (maximised). min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum and every non-trivial blend leaves the region."
   }
  ],
  "forced_flag_provenance": {
@@ -3313,6 +3475,18 @@
    "why": "an unforced zero is not an unexplained one. 29 of 43 are explained by a closure the template route cannot see, and leaving them unflagged would let a future discovery statistic count them as findings.",
    "proof_readings_untouched": "every measured field was fingerprinted before and after this edit and compared; the script refuses to write on any change.",
    "n_readings_stamped": 4
+  },
+  {
+   "date": "2026-07-26",
+   "kind": "FLAG ADDITION \u2014 NOT A RE-MEASUREMENT",
+   "what": "`forced_saturated` derived and stamped; measured values verified unmoved.",
+   "why": "Terrain's I-phase found 58 of 92 positive-excess readings at measured_rate exactly 1.0, carrying 45.5% of the anomaly's excess. Their violation is a theorem."
+  },
+  {
+   "date": "2026-07-26",
+   "kind": "FLAG ADDITION \u2014 NOT A RE-MEASUREMENT",
+   "what": "`forced_saturated` derived and stamped; measured values verified unmoved.",
+   "why": "Terrain's I-phase found 58 of 92 positive-excess readings at measured_rate exactly 1.0, carrying 45.5% of the anomaly's excess. Their violation is a theorem."
   }
  ],
  "residual_unforced_exact_zeros": {
@@ -3362,5 +3536,170 @@
    "GENUINE-READING": 2
   },
   "note": "adjudication of every exact-zero reading not flagged theorem-forced. Closure claims were TESTED by brute force, not asserted; one claim was falsified by its own test and reversed."
+ },
+ "forced_saturated_provenance": {
+  "what": "the join's SECOND direction. `theorem_forced` excludes flavours a region is closed under (violation forced to 0); `forced_saturated` excludes flavours a region is forced to LEAVE (violation forced to 1).",
+  "why": "the join was one-sided: built to stop a theorem manufacturing a null, blind to a theorem manufacturing a hit. The same asymmetry wearing the other face.",
+  "rules": {
+   "S1": "OPTIMAL REGIONS WITH A COORDINATEWISE-MONOTONE OBJECTIVE (cardinality or a positive-weight sum). min of two optima is strictly smaller in that objective and max strictly larger, so neither attains the optimum. NOT valid for non-monotone objectives \u2014 max-cut (a quadratic form, optima in complementary pairs) and max-flow (value under conservation) are excluded with their reasons, and the data agrees: they read 0.9429 and 0.9064, not 1.0.",
+   "S2": "EXACT-EQUALITY REGIONS. Both blends break the equality the region is defined by.",
+   "S3": "OPPOSED-CLOSURE INTERSECTIONS. max kills the downward-closed conjunct, min the upward-closed.",
+   "S4": "FIXED-CARDINALITY REGIONS. Both blends change the weight every member shares.",
+   "S5": "PATH REGIONS. Union branches, intersection disconnects."
+  },
+  "S1_objective_per_row": {
+   "clique": "vertex-set cardinality (maximised)",
+   "dominating-set": "vertex-set cardinality (minimised)",
+   "independent-dominating-set": "vertex-set cardinality (minimised)",
+   "independent-set": "vertex-set cardinality (maximised)",
+   "matching": "edge-set cardinality (maximised)",
+   "three-dimensional-matching": "triple-set cardinality (maximised)",
+   "vertex-cover": "vertex-set cardinality (minimised)",
+   "feedback-vertex-set": "deleted-set cardinality (minimised)",
+   "odd-cycle-transversal": "deleted-set cardinality (minimised)",
+   "hitting-set": "element-set cardinality (minimised)",
+   "set-cover": "chosen-set cardinality (minimised)",
+   "knapsack": "total item VALUE, a positive-weight sum (maximised)",
+   "min-spanning-tree": "total edge WEIGHT, a positive-weight sum (minimised)",
+   "number-partitioning": "an exact-balance objective on a positive-weight sum",
+   "reachability-stcon": "path length, an edge-set cardinality",
+   "subset-sum": "an exact-sum objective on a positive-weight sum"
+  },
+  "S1_excluded_rows": {
+   "max-cut": "cut size is a QUADRATIC FORM in the vertex assignment, not monotone in it \u2014 flipping a vertex can raise or lower the cut. Max-cut optima also come in complementary pairs, so a coordinatewise blend can land back inside the optimal set. Measured 0.9429, not 1.0.",
+   "max-flow": "the objective is flow VALUE subject to conservation, which is not monotone in the edge indicator \u2014 adding an edge can break conservation rather than raise the value. Measured 0.9064, not 1.0."
+  },
+  "scope": "semilattice flavours only. `majority` and `minority` do not move the vector strictly in one direction, so none of the five arguments applies to them. majority/minority readings DO reach 1.0 in the column \u2014 but every one of them sits below the pre-declared INSUFFICIENT-r floor (r = 2-6, often a single distinct subset), so those are small-sample saturation rather than theorem saturation and the derivation correctly declines to claim them.",
+  "checked_against_observation": {
+   "derived_saturated_but_measured_below_1": 0,
+   "measured_1_but_not_derived": 15,
+   "of_those_already_excluded_by_the_pre_declared_r_floor": 15,
+   "ADMISSIBLE_AND_UNCOVERED": [],
+   "completeness_on_the_admissible_set": "every exact-1.0 reading that is NOT already excluded by the pre-declared r floor is covered by one of the five arguments. The derivation is therefore COMPLETE where it matters and the residual is entirely small-sample saturation below the floor.",
+   "incomplete_cases": [
+    {
+     "row": "reachability-stcon",
+     "region": "optimal",
+     "flavor": "majority",
+     "measured_rate": 1.0,
+     "r": 3.5,
+     "already_insufficient": true
+    },
+    {
+     "row": "reachability-stcon",
+     "region": "optimal",
+     "flavor": "minority",
+     "measured_rate": 1.0,
+     "r": 3.5,
+     "already_insufficient": true
+    },
+    {
+     "row": "exact-cover-x3c",
+     "region": "solutions",
+     "flavor": "min",
+     "measured_rate": 1.0,
+     "r": 2,
+     "already_insufficient": true
+    },
+    {
+     "row": "exact-cover-x3c",
+     "region": "solutions",
+     "flavor": "max",
+     "measured_rate": 1.0,
+     "r": 2,
+     "already_insufficient": true
+    },
+    {
+     "row": "vertex-cover",
+     "region": "optimal",
+     "flavor": "minority",
+     "measured_rate": 1.0,
+     "r": 3,
+     "already_insufficient": true
+    },
+    {
+     "row": "independent-set",
+     "region": "optimal",
+     "flavor": "minority",
+     "measured_rate": 1.0,
+     "r": 6,
+     "already_insufficient": true
+    },
+    {
+     "row": "feedback-vertex-set",
+     "region": "optimal",
+     "flavor": "majority",
+     "measured_rate": 1.0,
+     "r": 3,
+     "already_insufficient": true
+    },
+    {
+     "row": "feedback-vertex-set",
+     "region": "optimal",
+     "flavor": "minority",
+     "measured_rate": 1.0,
+     "r": 3,
+     "already_insufficient": true
+    },
+    {
+     "row": "odd-cycle-transversal",
+     "region": "optimal",
+     "flavor": "majority",
+     "measured_rate": 1.0,
+     "r": 3,
+     "already_insufficient": true
+    },
+    {
+     "row": "odd-cycle-transversal",
+     "region": "optimal",
+     "flavor": "minority",
+     "measured_rate": 1.0,
+     "r": 3,
+     "already_insufficient": true
+    },
+    {
+     "row": "independent-dominating-set",
+     "region": "optimal",
+     "flavor": "minority",
+     "measured_rate": 1.0,
+     "r": 4,
+     "already_insufficient": true
+    },
+    {
+     "row": "hitting-set",
+     "region": "optimal",
+     "flavor": "majority",
+     "measured_rate": 1.0,
+     "r": 3,
+     "already_insufficient": true
+    },
+    {
+     "row": "hitting-set",
+     "region": "optimal",
+     "flavor": "minority",
+     "measured_rate": 1.0,
+     "r": 3,
+     "already_insufficient": true
+    },
+    {
+     "row": "sudoku",
+     "region": "solutions",
+     "flavor": "median",
+     "measured_rate": 1.0,
+     "r": 3,
+     "already_insufficient": true
+    },
+    {
+     "row": "sudoku",
+     "region": "solutions",
+     "flavor": "maltsev4",
+     "measured_rate": 1.0,
+     "r": 3,
+     "already_insufficient": true
+    }
+   ],
+   "note": "SUFFICIENT, NOT COMPLETE \u2014 stated rather than discovered. A region forced to leave on 99% of blends is not caught by this derivation and would not be caught by an exact-1.0 screen either. Both are lower bounds on forcing."
+  },
+  "n_flagged": 24
  }
 }

@@ -185,3 +185,39 @@ row is not closed under, while the same row's `max` and `min` trajectories are b
 Whether that is the ramp parameter interacting with 3-colouring's phase behaviour, or an artefact of how
 `maltsev3` behaves on regions of rapidly changing size, is not diagnosed. It is the most eye-catching
 single shape in the report and is recorded as such, without a story attached.
+
+---
+
+*Banked from Terrain v1 (2026-07-26), after the seal scored.*
+
+## Q12 — nine readings have no fair control anyone currently knows how to build
+
+Terrain's verdict covers 18 of 27 scored readings. The other 9 froze at tier 1.5: at high density a
+distinctness-preserving swap chain cannot move (knapsack's region is 10,316 of 16,384 vectors and accepts
+zero swaps). **Those 9 carry a mean tier-1 excess of +0.1222 against +0.0430 for the testable ones** — the
+part of the anomaly that looks largest is the part with no fair null.
+
+Neither tier 2 (definitionally unavailable for feasible regions) nor tier 1.5 (frozen) reaches them. The
+open question is whether a cardinality-and-marginal-matched control exists for dense regions at all —
+conditional Poisson sampling and Ising-model fits are candidates, neither grounded here.
+
+**This is a question about the instrument, not the objects**, and it is the honest residue of a seal that
+otherwise resolved cleanly.
+
+## Q13 — the domain-general tier 1, with its known-answer requirement
+
+A |D| > 2 matched-marginal control, banked rather than built mid-seal. Ruled out of Terrain because the 5
+`graph-3-coloring` readings top out at +0.0260 against a +0.0624 MDE — power-dead regardless of control.
+
+**Requirement written into the bank entry:** on binary rows the general variant must **reproduce tier 1
+exactly**. A generalisation that cannot recover its own special case is a new instrument, not a wider one.
+
+## Q14 — `optimization` blends BETTER than a matched control, and that was not the direction bet
+
+`optimization`'s sealed primary is **−0.0754, CI [−0.0872, −0.0636]**, the only family to survive
+Holm–Bonferroni — in the **negative** direction. Against a control matched on size, coordinate marginals and
+member cardinality, those regions violate *less* than the null.
+
+The seal bet on positive excess and this is its opposite, which is why it is reported rather than
+interpreted. Whether it is the two-pole picture's "easy rows blend better than featureless sets" showing up
+under a fairer control than the survey ever had is exactly the question a later design would pose.

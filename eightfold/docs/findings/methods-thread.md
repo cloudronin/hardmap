@@ -1394,3 +1394,56 @@ Within the same session's zero-hunt:
 The first is fail-open by omission again. The second is its mirror — **fail-closed by mutilation**, where a
 check corrupts its own input and reports the corruption as a finding about the world. Both were caught only
 because the output was read against what it should have looked like, not merely for whether it was green.
+
+---
+
+## Instance 38 — 2026-07-26 — the same asymmetry wearing the other face
+
+The derived forcedness join excludes flavours a region is **closed under** — violation forced to 0. It had
+no exclusion for flavours a region is forced to **leave** — violation forced to 1.
+
+It was built to stop a theorem manufacturing a **null**. The same theorem manufactures a **hit**, and for
+as long as the join existed it was blind to that direction.
+
+Terrain's I-phase found it while grounding a seal, not while auditing the instrument: **58 of 92 admissible
+positive-excess readings sat at `measured_rate` exactly 1.0.** Not near it — *at* it, with zero readings in
+[0.99, 1.0). They were **29 `min` and 29 `max`, never `majority` or `minority`**, arriving in pairs on the
+same (row, region), which is the signature of a region whose defining constraint is broken by *both* union
+and intersection. Their excess is `1.0 − control_mean`, positive against any non-saturated control. **They
+carried 45.5 % of the anomaly's total positive excess.**
+
+The forced-credit trap is now netted at **five** scales: statistic, type signature, study design,
+per-flavour mean, and **the join's own direction**.
+
+### What made it findable
+
+Not vigilance. The **tidy-number gate**, pointed at a new census artifact and refusing to accept
+acknowledgments it could not tie to a structural argument. Two extremals halted the script; reading them
+produced the constructive arguments; the arguments generalised into the screen. A gate whose acknowledgment
+block accepts anything would have passed all of it silently.
+
+### The fix, and the check that narrowed it
+
+`forced_saturated` ships as a derived direction with the same schema exclusion, resting on five one-line
+theorems (optimal regions, exact-equality regions, opposed-closure intersections, fixed-cardinality
+regions, path regions). 144 readings flagged.
+
+**The first version of the argument was too strong and the data caught it.** Rule S1 said "min of two optima
+is smaller and max is larger, so neither is optimal" — true only when the objective is **coordinatewise
+monotone**. `max-cut` (a quadratic form, optima in complementary pairs) and `max-flow` (value under
+conservation) read 0.9429 and 0.9064, not 1.0. The derivation now **names the objective per row** and
+excludes the two non-monotone ones with their reasons.
+
+The check that caught it is the entry's second half: a derived flag nobody tests is a hand list wearing a
+derivation's costume. The derivation is compared to observation in **both** directions — claims saturation
+where the data disagrees (halt), and exact-1.0 readings the derivation misses (report). The final state is
+0 contradictions and 0 admissible-and-uncovered; the 15 uncovered exact-1.0 readings all sit below the
+pre-declared `INSUFFICIENT-r` floor, which is small-sample saturation rather than theorem saturation.
+
+### The seal it changed
+
+Removing the 58 dropped the anomaly from 92 readings to 34 — and **stripped almost all of the study's
+tier-2 coverage with them**, because the saturated readings were disproportionately `optimal`-region, which
+is the only kind where a matched-object control exists. The kill clause fired at 1/34 rather than 31/92,
+and the design went single-armed. A screen applied for honesty made the study weaker, which is the correct
+order of operations and worth recording as such.

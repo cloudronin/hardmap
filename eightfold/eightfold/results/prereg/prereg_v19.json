@@ -1,0 +1,87 @@
+{
+ "prereg_version": "v19",
+ "project": "hardmap / Terrain v1 — the anti-blendability seal",
+ "owner": "Vishnu Vettrivel",
+ "date": "2026-07-26",
+ "spec": "foundry/docs/specs/terrain-v1-anti-blendability-spec.md",
+ "committed_before_analysis": true,
+ "scores_once_against": "the FROZEN survey column. No new readings. Measured rates are inputs.",
+ "supersedes": "nothing. The survey column keeps its readings and its exploratory status.",
+
+ "THE_QUESTION": {
+  "H_real": "anti-blendability is a genuine third position in the geometry picture — structure that actively repels blending, beyond mere structurelessness",
+  "H_artifact": "the uniform-random control is unfair to structured supports, and the right null for them sits at higher violation, making the excess a control-mismatch"
+ },
+
+ "WHAT_THE_I_PHASE_CHANGED_BEFORE_THIS_SEALED": {
+  "the_decisive_finding": "58 of the 92 admissible positive-excess readings sit at measured_rate EXACTLY 1.0 — 29 min and 29 max, never majority or minority, arriving in pairs on the same (row, region). Their violation is a theorem, not a measurement: excess is 1.0 minus control_mean, positive against any non-saturated control. They carried 45.5% of the anomaly's total positive excess.",
+  "the_instrument_defect": "the derived forcedness join excluded flavours a region is CLOSED UNDER (violation forced to 0) and had no exclusion for flavours a region is forced to LEAVE (violation forced to 1). Built to stop a theorem manufacturing a null, blind to a theorem manufacturing a hit — the same asymmetry wearing the other face. The forced-credit trap is now netted at FIVE scales: statistic, type signature, study design, per-flavour mean, and the join's own direction.",
+  "the_fix": "`forced_saturated` built as a derived direction with the same schema exclusion (foundry/dev/sounding_forced_saturated.py). 144 readings flagged, 0 contradictions against observation, 0 admissible-and-uncovered exact-1.0 readings.",
+  "the_concentration_claim_did_not_hold": "the directive attributed the anomaly to spanning trees and dominating sets. min-spanning-tree contributed 2 of 92 and after the screen leaves the set ENTIRELY — both readings theorem-saturated. The mass was knapsack (13), subset-sum (12), set-cover (10). H-artifact is un-anchored from its motivating example WITHOUT being declared refuted; the ladder adjudicates.",
+  "the_kill_fired": "tier 2 is definitionally unavailable for feasible regions (the region IS the species) and for solutions regions (the only container is the ambient space, i.e. tier 0). Available for 31/92 pre-screen but only 1/34 on the scored set, because the screened-out readings were disproportionately optimal — exactly where tier 2 existed."
+ },
+
+ "THE_SCORED_SET_FIXED_BEFORE_RUNNING": {
+  "definition": "readings with excess > 0, not theorem_forced, not INSUFFICIENT by a pre-declared floor, not forced_saturated, binary domain",
+  "n": 29,
+  "residual_before_encoding_screen": 34,
+  "insufficient_encoding": "5 graph-3-coloring readings. Non-binary domain; the domain-general tier-1 variant is BANKED as an instrument extension, not built mid-seal. Their excesses top out at +0.0260, below the +0.0624 MDE — power-dead regardless of control.",
+  "composition": "26 feasible, 7 solutions, 1 optimal in the residual 34; 28 of 34 are `min`. The flavour skew is BANKED, not interpreted."
+ },
+
+ "THE_CONTROL_LADDER": {
+  "tier0": "uniform random subset of the ambient space at matched r — already frozen in the column",
+  "tier1": "matched-marginal: size r, per-coordinate inclusion frequencies matched, coordinates drawn independently",
+  "tier1_5": "swap-randomised: preserves every column marginal, every member cardinality, AND distinctness. Admitted because tier 1 does NOT preserve cardinality, and fixed-cardinality regions (hitting-set/optimal has cardinality SD exactly 0; spanning trees the same) are the very structure H-artifact is about.",
+  "tier1_5_mixing_floor": "max(50, r/4) accepted swaps. Below it the control is declared INSUFFICIENT-degenerate. Found necessary in the I-phase: knapsack/feasible at 38% density accepted 0 swaps in 140263 attempts and the control was byte-identical to the region — an excess of zero by construction.",
+  "tier2": "matched-object: r random members of the region's own containing species. Reachable for 1 of 34.",
+  "sibling_instance_control_BARRED": "drawing the control from a different instance of the same generator would make tier 2 available everywhere and is a RIGGED null: the measured rate is already a mean over instances of that generator, so excess is zero by construction. A null the bet could not win is the mirror image of a null the bet could not lose. Retained as a calibration diagnostic only."
+ },
+
+ "SEALED_BET": {
+  "primary": "mean tier-1 excess (tier 1.5 where it clears the mixing floor) over the scored set is POSITIVE with a 95% CI clear of zero, per family and pooled, at the (row, region, ramp-step) unit",
+  "secondary": "the tier 0 -> 1 -> 1.5 -> 2 ladder is reported for EVERY scored reading. The ladder's shape is the mechanism: dies at tier 1 => coordinate marginals explain it; dies at 1.5 => cardinality structure; dies at 2 => species membership; survives => unrefuted.",
+  "unit_of_analysis": "(row, region, ramp-step). Flavours inside one region are computed on the same region and are not independent. Row-clustered results ship as the robustness check.",
+  "single_armed": "the directive's stated fallback IS the design. An earlier draft proposed stratification; the saturation screen left 33 non-optimal readings and 1 optimal one, and a two-armed design with one reading in the second arm is a pretence."
+ },
+
+ "VERDICT_VOCABULARY": {
+  "ANTI-BLENDABILITY-REAL": "survives tier 2. DECLARED UNREACHABLE BY THIS DESIGN in advance (1 of 34 readings has a tier-2 control); retained only so a future design can use it.",
+  "ANTI-BLENDABILITY-UNREFUTED": "survives tier 1.5 with no tier-2 test available. Means: not explained by coordinate marginals, cardinality, or size, and NOT tested against species membership. AN UPGRADE TO -REAL WOULD REQUIRE a tier-2-capable design for feasible regions, which does not exist even in principle today — the unavailability is definitional, not a compute limit. UNREFUTED is not REAL-minus-paperwork.",
+  "CONTROL-MISMATCH@<tier>": "dies at a named tier; the tier is part of the verdict",
+  "MIXED": "family-dependent; the table is the finding",
+  "INSUFFICIENT": "per the standing floors — INSUFFICIENT-r, INSUFFICIENT-degenerate, INSUFFICIENT-encoding, INSUFFICIENT-replay",
+  "THEOREM-SATURATED": "violation forced to 1.0 by the region's construction. 58 readings. Excluded from every statistic, reported with its argument."
+ },
+
+ "POWER_PRE_DECLARED": {
+  "source": "the ALREADY-DISCLOSED tier-0 excess spread on the residual 34, never the sealed tier-1/tier-1.5 statistic",
+  "MDE_primary_unit": 0.0642,
+  "MDE_row_clustered": 0.1232,
+  "disclosed_tier0_mean": 0.1537,
+  "the_honest_asymmetry_stated_before_the_result": "if fairer controls absorb even 20% of the tier-0 excess, the row-clustered arm goes INSUFFICIENT rather than negative. This design is well powered to detect SURVIVAL and poorly powered to distinguish partial absorption from total absorption. That is a limitation of scoring 9 rows, not a defect to be fixed by choosing a friendlier unit.",
+  "INSUFFICIENT_is_not_evidence_of_absence": true
+ },
+
+ "MULTIPLE_COMPARISONS_LEDGER": {
+  "opened_by": "this study — the sequence's first true seal (Q4 was hygiene, Q3 descriptive)",
+  "family_size": 5,
+  "members": "1 pooled primary + 4 per-family",
+  "correction": "Holm-Bonferroni at FWER 0.05; smallest threshold 0.01000",
+  "ladder_readings_are_descriptive_not_tests": "stated now so they cannot be promoted to tests after the fact",
+  "Q1_closes_over_this_ledger": true
+ },
+
+ "REPLAY_ASSERTION": {
+  "why": "computing a new control tier requires REGENERATING the regions; the artifact stores summaries, not members",
+  "rule": "a replayed region whose recomputed rate does not match the frozen reading to 5e-4 drops that reading to INSUFFICIENT-replay. Regions are never substituted.",
+  "v2_coverage": "v2 readings carry no per-reading seed and are not regenerable; 2 of the 29 are v2 and drop to INSUFFICIENT-replay."
+ },
+
+ "BANKED_NOT_BUILT": {
+  "domain_general_tier1": "a |D|>2 matched-marginal control. Banked as an instrument extension. KNOWN-ANSWER REQUIREMENT written into the bank entry: on binary rows the general variant must reproduce tier 1 exactly.",
+  "the_min_skew": "28 of 34 residual readings are `min`. Banked, not interpreted — this seal tests whether excess survives fairer controls, not why intersection is special."
+ },
+
+ "NOT_AUTHORISED": "no new rows, no new encodings, no re-measurement of any frozen rate, no second scoring run. The Q2 fork and Q1's seal are untouched. W-review remains open independently."
+}
