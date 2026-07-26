@@ -1,0 +1,133 @@
+{
+ "seed": 20260725,
+ "model": "CART depth<=5",
+ "n_rows_total": 345,
+ "fold_key": "problem_family",
+ "nulls": "fold-weighted (train-fold mode -> test fold)",
+ "protocol": "prereg_v12 contamination_protocol_arm_B",
+ "per_charge": {
+  "decision": {
+   "with_locality": {
+    "n": 336,
+    "features": [
+     "locality_class",
+     "encoding_type",
+     "objective_type",
+     "arity_class",
+     "kernel_status",
+     "self_reducibility",
+     "reduction_out_degree"
+    ],
+    "acc": 0.6607
+   },
+   "without_locality": {
+    "n": 336,
+    "features": [
+     "encoding_type",
+     "objective_type",
+     "arity_class",
+     "kernel_status",
+     "self_reducibility",
+     "reduction_out_degree"
+    ],
+    "acc": 0.625
+   },
+   "fold_weighted_null": 0.5923,
+   "lift_with": 0.0684,
+   "lift_without": 0.0327,
+   "channel_2_locality_dependence": 0.0357
+  },
+  "counting": {
+   "with_locality": {
+    "n": 51,
+    "features": [
+     "locality_class",
+     "encoding_type",
+     "objective_type",
+     "arity_class",
+     "kernel_status",
+     "self_reducibility",
+     "reduction_out_degree"
+    ],
+    "acc": 0.8627
+   },
+   "without_locality": {
+    "n": 51,
+    "features": [
+     "encoding_type",
+     "objective_type",
+     "arity_class",
+     "kernel_status",
+     "self_reducibility",
+     "reduction_out_degree"
+    ],
+    "acc": 0.8627
+   },
+   "fold_weighted_null": 0.8627,
+   "lift_with": -0.0,
+   "lift_without": -0.0,
+   "channel_2_locality_dependence": 0.0
+  },
+  "approximation": {
+   "with_locality": {
+    "n": 154,
+    "features": [
+     "locality_class",
+     "encoding_type",
+     "kernel_status",
+     "self_reducibility",
+     "reduction_out_degree"
+    ],
+    "acc": 0.4286
+   },
+   "without_locality": {
+    "n": 154,
+    "features": [
+     "encoding_type",
+     "kernel_status",
+     "self_reducibility",
+     "reduction_out_degree"
+    ],
+    "acc": 0.4026
+   },
+   "fold_weighted_null": 0.4221,
+   "lift_with": 0.0065,
+   "lift_without": -0.0195,
+   "channel_2_locality_dependence": 0.026
+  },
+  "parameterized": {
+   "with_locality": {
+    "n": 129,
+    "features": [
+     "locality_class",
+     "encoding_type",
+     "objective_type",
+     "arity_class",
+     "self_reducibility",
+     "reduction_out_degree"
+    ],
+    "acc": 0.5969
+   },
+   "without_locality": {
+    "n": 129,
+    "features": [
+     "encoding_type",
+     "objective_type",
+     "arity_class",
+     "self_reducibility",
+     "reduction_out_degree"
+    ],
+    "acc": 0.5659
+   },
+   "fold_weighted_null": 0.6434,
+   "lift_with": -0.0465,
+   "lift_without": -0.0775,
+   "channel_2_locality_dependence": 0.031
+  },
+  "average_case": {
+   "status": "SKIPPED \u2014 too few real cells",
+   "n": 24
+  }
+ },
+ "prediction_sha256": "cc5bb3895a44a043c4b49c3344b5bda75a5bbb4d314220261ac07e646723f888"
+}
