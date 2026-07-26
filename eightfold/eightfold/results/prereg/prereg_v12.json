@@ -1,11 +1,10 @@
 {
   "prereg_version": "v12",
-  "project": "Mosaic v3 — The Bridge Grid, RE-POSED against measured ground",
+  "project": "Mosaic v3 \u2014 The Bridge Grid, RE-POSED against measured ground",
   "committed_before_analysis": true,
   "owner": "Vishnu",
   "date": "2026-07-25",
   "supersedes": "the Mosaic v3 rev-3 spec's P1-P7 in full. Nothing prior is rescored; prereg_v10/v11/v13 verdicts stand exactly as scored.",
-
   "anchors_by_hash": {
     "anatomy_v1.jsonl": "8ff11f8a",
     "atlas_v3.jsonl": "e62f3c28",
@@ -13,36 +12,32 @@
     "gate4_promotions": "21 cells, atlas-v3.1 track, sitting 2026-07-24",
     "note": "all four verified at grounding, 2026-07-25, before this seal was written"
   },
-
   "why_this_supersedes": {
     "root_cause": "On the Boolean universe these charges ARE classified by polymorphism conditions (Schaefer; Barto-Kozik; KSTW; Creignou-Hermann). The dichotomy theorems ARE the bridge, proven cell by cell. 'Does structure predict fate?' is a THEOREM there, not a hypothesis. rev-3's P1 tautology and P4 lookup are that one fact wearing two hats.",
-    "the_designs_own_rule_killed_it": "rev-3 §0.4 stated 'headline accuracy is net-of-forced'. Applied honestly: the joint profile is a deterministic function of the 10 Post flags (46 flag-vectors -> 46 profiles, ZERO ambiguity, 100% ceiling; 93.87% exact from arity<=3's 90 rows alone). Every point of P4's accuracy is theorem-forced. The netting rule zeroes the headline it was written to protect."
+    "the_designs_own_rule_killed_it": "rev-3 \u00a70.4 stated 'headline accuracy is net-of-forced'. Applied honestly: the joint profile is a deterministic function of the 10 Post flags (46 flag-vectors -> 46 profiles, ZERO ambiguity, 100% ceiling; 93.87% exact from arity<=3's 90 rows alone). Every point of P4's accuracy is theorem-forced. The netting rule zeroes the headline it was written to protect."
   },
-
   "grounding_corrections_recorded": {
-    "C1_kill1_fires": "objectives with PINNED oracle coverage = 2 (Min-Ones KSTW Thm 2.14; Max-Ones Thm 2.12). Floor was 3. Max-CSP is theory-available but repo-unpinned BY CHOICE (KSTW Thm 2.11 named, excluded from the R20 pin set; is_2monotone 'deliberately NOT here', owner spec-defect #3; Creignou-Khanna-Sudan cited 'not read interior'). It would add a 2-VALUED column collinear with flags already driving decision/localization/parallelization — a COUNT of three without a third independent partition.",
+    "C1_kill1_fires": "objectives with PINNED oracle coverage = 2 (Min-Ones KSTW Thm 2.14; Max-Ones Thm 2.12). Floor was 3. Max-CSP is theory-available but repo-unpinned BY CHOICE (KSTW Thm 2.11 named, excluded from the R20 pin set; is_2monotone 'deliberately NOT here', owner spec-defect #3; Creignou-Khanna-Sudan cited 'not read interior'). It would add a 2-VALUED column collinear with flags already driving decision/localization/parallelization \u2014 a COUNT of three without a third independent partition.",
     "C2_objective_axis_is_one_charge_wide": "only `approximation` responds to the objective. `parameterized` is objective-independent by construction AND by pin; the other six are relation-level. Flag 1 was a special case: SEVEN of eight charge x objective components are DEFINITIONALLY zero.",
     "C3_determinism": "46 distinct flag-vectors over 4072 classes; 0 map to more than one profile. Lookup ceiling 100.00%. Arity<=3 lookup (90 rows) scores 93.87% exact / 95.38% Hamming on the 3982-class arity-4 holdout. poly_fingerprint IS those flags and is passport-admissible.",
     "C4_P1_tautology": "bounded-width => decision in P holds 3178/3178 because both derive from the same Post-class membership. The BICONDITIONAL rev-3 stated is FALSE: 4 arity-4 affine classes are unbounded-width yet tractable.",
     "C5_P3_definitional_tie": "the engine-split 2x2's association IS the NPC => feasibility-hard tie (all 890 unbounded-width SAME rows are exactly the NPC rows). Netted, the unbounded arm has 4 rows and one EMPTY cell. prereg_v33 already dropped this same confound as its preds 3 & 4.",
     "C6_nulls": "joint-modal null is weak (21.86%); the HONEST Hamming null is per-charge modal = 74.45%. counting (98.1%) and approx_counting (96.8%) are near-constant, ~24 points of free Hamming. decision=NPC structurally entails four other charges on 21.9% of rows.",
-    "C7_erratum": "bridge-ledger-v1.md §9.1's headline read '9 corrected / 3 unpinnable' (pre-addendum). True tally 3 clean / 10 corrected / 2 unpinnable. Corrected in place, dated, at this seal."
+    "C7_erratum": "bridge-ledger-v1.md \u00a79.1's headline read '9 corrected / 3 unpinnable' (pre-addendum). True tally 3 clean / 10 corrected / 2 unpinnable. Corrected in place, dated, at this seal."
   },
-
   "retired_with_reasons": {
-    "P2_variance_decomposition": "RETIRED — seven of eight charges have a definitionally-zero objective component (C2). A decomposition whose treatment moves one charge is not the design that was specced.",
-    "P3_engine_split": "RETIRED — C5. Re-running it would also be the double-dipping the bet_history ledger exists to stop: prereg_v33 dropped this confound once already.",
-    "P7_generative_arm": "DROPPED — it was gated on P4 landing, and P4 as specced does not exist.",
-    "P1": "RELABELLED, not retired: it is a PIPELINE GATE (a corruption detector with no inferential content), direction corrected — the implication holds 3178/3178, the converse fails at 4/4072."
+    "P2_variance_decomposition": "RETIRED \u2014 seven of eight charges have a definitionally-zero objective component (C2). A decomposition whose treatment moves one charge is not the design that was specced.",
+    "P3_engine_split": "RETIRED \u2014 C5. Re-running it would also be the double-dipping the bet_history ledger exists to stop: prereg_v33 dropped this confound once already.",
+    "P7_generative_arm": "DROPPED \u2014 it was gated on P4 landing, and P4 as specced does not exist.",
+    "P1": "RELABELLED, not retired: it is a PIPELINE GATE (a corruption detector with no inferential content), direction corrected \u2014 the implication holds 3178/3178, the converse fails at 4/4072."
   },
-
   "sealed_predictions": {
     "A1_surface_recovers_algebra": {
       "arm": "A (Boolean, 4072 arity<=4 symmetry classes)",
       "question": "Is the algebraic classification recoverable from RAW COMBINATORICS?",
-      "features": "SURFACE ONLY — arity, tuple density, orbit/class size, tuple-set shape. ALL 10 Post flags and everything derived from them (engine_type, localization) are EXCLUDED BY SEALED RULE.",
+      "features": "SURFACE ONLY \u2014 arity, tuple density, orbit/class size, tuple-set shape. ALL 10 Post flags and everything derived from them (engine_type, localization) are EXCLUDED BY SEALED RULE.",
       "prediction": "surface features recover the joint charge profile on held-out folds above the per-charge modal null (74.45% Hamming), with CIs clear.",
-      "ceiling_stated_in_advance": "100% — the profile is a deterministic function of the flags (C3). The ceiling is a property of the population, not a result.",
+      "ceiling_stated_in_advance": "100% \u2014 the profile is a deterministic function of the flags (C3). The ceiling is a property of the population, not a result.",
       "null": "PER-CHARGE modal baseline (74.45% Hamming), NOT joint-modal (41.20%). Joint-modal would flatter the result.",
       "scored_either_way": "a MISS is a clean result: it would say the algebraic invariants are IRREDUCIBLE from surface combinatorics, which is itself the answer to why the natural atlas has no engine column."
     },
@@ -52,14 +47,13 @@
       "deliverable": "per-flag recovery reported BESIDE profile accuracy. If surface combinatorics recover affine-ness but not bounded-width (or the reverse), that is the finding at its natural resolution. Free given the machinery."
     },
     "B1_natural_prediction": {
-      "arm": "B (natural atlas, 345 rows — PROMOTED from exploratory to sealed, owner ruling 2026-07-25)",
+      "arm": "B (natural atlas, 345 rows \u2014 PROMOTED from exploratory to sealed, owner ruling 2026-07-25)",
       "question": "Do Anatomy coordinates predict CITED charges out-of-sample?",
       "why_this_is_now_the_main_event": "the synthetic universe cannot test the bridge because there the bridge is a theorem (C3). The empirical bridge question therefore lives ENTIRELY on the natural side, where charges are cited facts about the literature rather than computed functions of structure.",
       "prediction": "Anatomy coordinates predict held-out natural rows' cited charges above each charge's own marginal mode, with CIs clear, under the full contamination protocol.",
       "scored_either_way": true
     }
   },
-
   "contamination_protocol_arm_B": {
     "status": "SEALED. Three channels, each VERIFIED ON DISK at grounding, each with a control that is a MEASUREMENT rather than an assurance.",
     "channel_1_target_leakage_via_task_text": {
@@ -67,86 +61,90 @@
       "reading": "the circularity carve-out authorised these derivations as TYPING. It never authorised them as PREDICTION FEATURES. This is that carve-out applied one level down.",
       "control": "PER-CHARGE FEATURE-EXCLUSION MAP, sealed here and ENFORCED IN CODE with a loudly-failing test",
       "map": {
-        "approximation": ["objective_type", "arity_class"],
-        "parameterized": ["kernel_status"],
-        "average_case": ["self_reducibility"],
-        "note": "kernel_status is additionally FPT-conditioned in COVERAGE (SCHEMA §6), which is leakage by availability, not only by value."
+        "approximation": [
+          "objective_type",
+          "arity_class"
+        ],
+        "parameterized": [
+          "kernel_status"
+        ],
+        "average_case": [
+          "self_reducibility"
+        ],
+        "note": "kernel_status is additionally FPT-conditioned in COVERAGE (SCHEMA \u00a76), which is leakage by availability, not only by value."
       }
     },
     "channel_2_name_knowledge_in_the_coded_column": {
       "evidence": "the blind coders received problem_name (verified: coder input = problem_id, problem_name, problem_family, canonical_encoding). Charges were withheld; the NAME was not. An LLM seeing 'vertex-cover' knows its complexity.",
-      "control": "MEASURED, NOT ASSUMED — score with and without locality_class. IF ACCURACY DEPENDS ON IT, THE LEAK IS THE FINDING and is reported as such.",
+      "control": "MEASURED, NOT ASSUMED \u2014 score with and without locality_class. IF ACCURACY DEPENDS ON IT, THE LEAK IS THE FINDING and is reported as such.",
       "prior_evidence": "the separability gate passed once (V(locality,approx)=0.436 vs dissociation structure-acc 1.00). This is the second, sharper test."
     },
     "channel_3_predictor_side_knowledge": {
       "control": "NO LLM IN THE PREDICTOR. Fitted numpy models only (logistic / shallow tree), per the spec's 'interpretable models primary'. This channel is closed BY CONSTRUCTION, and that is stated rather than assumed."
     },
     "temporally_clean_sub_test": {
-      "population": "the 21 Gate-4 promotions — VERIFIED 21/21 carry a locality coordinate coded BEFORE the fill existed. Coordinates genuinely predate labels.",
-      "labels": {"FPT": 10, "para-NP-hard": 6, "W[2]+": 3, "W[1]": 2},
-      "locality_spread": {"delocalized": 10, "decomposable": 7, "local-covering": 4},
+      "population": "the 21 Gate-4 promotions \u2014 VERIFIED 21/21 carry a locality coordinate coded BEFORE the fill existed. Coordinates genuinely predate labels.",
+      "labels": {
+        "FPT": 10,
+        "para-NP-hard": 6,
+        "W[2]+": 3,
+        "W[1]": 2
+      },
+      "locality_spread": {
+        "delocalized": 10,
+        "decomposable": 7,
+        "local-covering": 4
+      },
       "STATUS": "DECLARED INSUFFICIENT AND NOT SCORED. n=21 across 4 classes fails the Cochran floor. It ships as a QUALITATIVE EXHIBIT under the program's standing rule that an underpowered test is declared, never scored. Stated here, before the result, so it cannot be promoted after it."
     }
   },
-
   "fold_key": {
     "key": "the 46 poly-fingerprint groups",
     "warrant_recorded_verbatim_because_it_looks_contradictory": "Using flag-groups as the FOLD KEY while excluding flags as FEATURES is legal and correct: the key only prevents identical-profile near-duplicates from straddling train/test, which makes the test STRICTLY HARDER, NEVER EASIER. Nothing about the key enters the fit.",
-    "hazard_noted": "structure.cluster() and crucible._battery() already take a `families` argument meaning ProblemEntry.problem_family — a DIFFERENT notion. Do not overload it silently."
+    "hazard_noted": "structure.cluster() and crucible._battery() already take a `families` argument meaning ProblemEntry.problem_family \u2014 a DIFFERENT notion. Do not overload it silently."
   },
-
   "boundary_stratification": {
     "quantity": "boundary distance = minimum tuple-edits to flip the engine predicate",
-    "ruling": "flag-derived, therefore BARRED AS A FEATURE but LEGAL AS A STRATIFICATION VARIABLE — reporting accuracy BY boundary distance leaks nothing into the fit.",
+    "ruling": "flag-derived, therefore BARRED AS A FEATURE but LEGAL AS A STRATIFICATION VARIABLE \u2014 reporting accuracy BY boundary distance leaks nothing into the fit.",
     "deliverable": "sealed. A model accurate in the interiors and coin-flip at the line has learned geography, not the border; the stratified table makes the difference visible.",
     "gate": "census-before-seal runs on it like any new derived quantity."
   },
-
   "kill_criteria": {
     "1_leakage": "any charge's feature matrix found to contain an excluded feature -> HALT. The test fails loudly, never silently.",
     "2_power": "power_check runs FIRST and GOVERNS on every contingency statistic (the standing rule). Below floor -> INSUFFICIENT, declared, not scored.",
     "3_determinism_drift": "if the flag->profile map is ever not 46->46 with zero ambiguity, C3 has changed and every ceiling claim in this seal is void until re-derived.",
     "4_seal_ordering": "prediction files are hashed BEFORE oracles run. If that ordering cannot be demonstrated, the arm is not scored."
   },
-
   "G1_addendum_prospective_registry": {
     "sealed": "2026-07-25, at G1, BEFORE any model is fit. This is design, not rescue.",
-    "origin": "The owner asked whether the 21 temporally-clean cells could be promoted to a scored holdout. RULED NO: the barrier is n, not design role — renaming an exhibit a holdout adds no rows, and G0's INSUFFICIENT declaration stands on unchanged information. But the question surfaced the real asset.",
-    "the_asset": "Every FUTURE Gate-4 fill is temporally clean BY CONSTRUCTION: Anatomy's coordinates froze at 8ff11f8a before any future citation work exists. A model that calls open cells correctly BEFORE anyone looks up the answers is immune to every leakage story — the answer did not exist to leak. This is the strongest validation design available to the program, it compounds with every wave the atlas was going to run anyway, and it converts the promotion pipeline from maintenance into the endgame validation instrument.",
-
-    "rule_1_predict_then_fill": "Before any future recruitment or fill wave's citation research begins, the current fitted Arm-B model FILES PREDICTIONS for every open cell in that wave's scope — full profiles where the model emits them, per-charge where that is what exists. Predictions are hashed and committed BEFORE the first literature query of the wave. This is the mosaic_code.py:192 seal-ordering idiom applied at WAVE granularity.",
-
+    "origin": "The owner asked whether the 21 temporally-clean cells could be promoted to a scored holdout. RULED NO: the barrier is n, not design role \u2014 renaming an exhibit a holdout adds no rows, and G0's INSUFFICIENT declaration stands on unchanged information. But the question surfaced the real asset.",
+    "the_asset": "Every FUTURE Gate-4 fill is temporally clean BY CONSTRUCTION: Anatomy's coordinates froze at 8ff11f8a before any future citation work exists. A model that calls open cells correctly BEFORE anyone looks up the answers is immune to every leakage story \u2014 the answer did not exist to leak. This is the strongest validation design available to the program, it compounds with every wave the atlas was going to run anyway, and it converts the promotion pipeline from maintenance into the endgame validation instrument.",
+    "rule_1_predict_then_fill": "Before any future recruitment or fill wave's citation research begins, the current fitted Arm-B model FILES PREDICTIONS for every open cell in that wave's scope \u2014 full profiles where the model emits them, per-charge where that is what exists. Predictions are hashed and committed BEFORE the first literature query of the wave. This is the mosaic_code.py:192 seal-ordering idiom applied at WAVE granularity.",
     "rule_2_blind_research": "The pipeline then runs untouched: research -> dual-pass -> owner Gate-4 sitting -> promotion. The citation work proceeds BLIND to the predictions. ENFORCED BY CONSTRUCTION, not by convention: prediction files live OUTSIDE the research agents' input surface, and a test asserts it.",
-
     "rule_3_grading": "Promoted values grade against the pre-filed predictions. Retracted or open-remaining cells grade as NO-CONTEST, recorded. Every graded cell enters the registry with: prediction_hash, prediction_date, fill_date, sitting_date, verdict.",
-
     "rule_4_scoring_discipline": {
       "accumulation": "The registry accumulates as DECLARED-INSUFFICIENT until it clears the Cochran floor at the registry's own class spread.",
-      "estimate": "~50-60 graded cells at current proportions — an ESTIMATE, not the threshold.",
-      "threshold_pinning": "the exact arithmetic is pinned when the FIRST wave's class spread is known, and BEFORE any accumulation is scored.",
+      "estimate": "~50-60 graded cells at current proportions \u2014 an ESTIMATE, not the threshold.",
+      "threshold_pinning": "PINNED 2026-07-25 PRE-FIT (superseding 'pin at first wave'): scored floor n>=57 (one-sided binomial, alpha=.05, power=.80, detecting +0.15 over the p0=0.643 modal baseline on n=129 real parameterized cells). The 4x4 confusion table needs n>=246 by Cochran and is DESCRIPTIVE-ONLY, declared INSUFFICIENT until then. UPDATE RULE: recompute at each wave close from realized spread; MONOTONE -- may rise, never relaxed after any grading. Full arithmetic in grid-prospective-registry.json:threshold_arithmetic.",
       "scores_once": "At floor-clearance it scores ONCE as the sealed prospective test, against the same nulls as Arm B's retrospective run.",
       "no_interim_peeks": "no interim scoring that could steer recruitment.",
       "blindness_law_extended": "wave scopes are chosen by the STANDING RECRUITMENT CRITERIA (charge-citability), NEVER by where the model is confident. This is the Quarry v2 blindness law extended into prospective territory."
     },
-
     "rule_5_the_21_existing_cells": {
       "status": "remain the qualitative exhibit exactly as sealed at G0",
       "registry_entry": "additionally enter the registry retroactively-flagged temporal_class: 'clean-but-pre-registry'",
       "countable_in": "descriptive tables",
-      "EXCLUDED_from": "the registry's SCORED n — their predictions postdate their labels' research, even though their coordinates predate their labels."
+      "EXCLUDED_from": "the registry's SCORED n \u2014 their predictions postdate their labels' research, even though their coordinates predate their labels."
     },
-
     "build_items_at_G1": [
       "the registry file (schema above)",
       "the enforcement test: research-agent input surface EXCLUDES prediction files",
       "the wave-granularity seal script (hash predictions -> commit -> only then research)"
     ]
   },
-
   "ships_regardless_of_either_arm": [
     "THE COVERAGE WALL: the objective axis is one charge wide (C1 + C2). A grid whose treatment is the objective has a 1-charge x 2-level design space on this universe.",
-    "THE DETERMINISM: the synthetic universe cannot test the bridge, because there the bridge is a theorem (C3). This re-centers the program — the empirical bridge question lives entirely on the natural side."
+    "THE DETERMINISM: the synthetic universe cannot test the bridge, because there the bridge is a theorem (C3). This re-centers the program \u2014 the empirical bridge question lives entirely on the natural side."
   ],
-
   "unchanged": "Frozen bytes byte-identical: atlas 6d53a4f1, atlas_v2 784f4739, atlas_v3 e62f3c28, anatomy_v1 8ff11f8a, mosaic-locality 4c7ef94c. All prior bets stand as scored. Nothing rescores."
 }

@@ -96,7 +96,14 @@ def status():
     scored = [e for e in ent if e.get("counts_in_scored_n")]
     print(f"registry: {len(ent)} entries · {len(scored)} in scored n · {len(reg['waves'])} waves sealed")
     print(f"  threshold: {reg['threshold_status'][:70]}")
-    print(f"  VERDICT: DECLARED-INSUFFICIENT ({len(scored)} scored cells; floor not yet pinned)")
+    ta = reg.get("threshold_arithmetic")
+    floor = ta["FLOOR_scored"]["n"] if ta else None
+    if floor is None:
+        print(f"  VERDICT: DECLARED-INSUFFICIENT ({len(scored)} scored cells; floor NOT YET PINNED)")
+    elif len(scored) < floor:
+        print(f"  VERDICT: DECLARED-INSUFFICIENT ({len(scored)}/{floor} scored cells toward the pinned floor)")
+    else:
+        print(f"  VERDICT: FLOOR CLEARED ({len(scored)}/{floor}) — scores ONCE, now.")
     if ent:
         print(f"  descriptive spread: {dict(Counter(e['value'] for e in ent).most_common())}")
     return 0

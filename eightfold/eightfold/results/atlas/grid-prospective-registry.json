@@ -2,7 +2,7 @@
  "schema": "grid-prospective-registry/v1",
  "sealed_by": "prereg_v12 G1 addendum, 2026-07-25",
  "scoring_discipline": "accumulates as DECLARED-INSUFFICIENT until the Cochran floor clears at the registry's own class spread; then scores ONCE against Arm B's nulls. No interim peeks. Wave scope is chosen by charge-citability, NEVER by where the model is confident.",
- "threshold_status": "UNPINNED \u2014 pinned when the first wave's class spread is known, before any accumulation is scored. Working estimate ~50-60 graded cells; an estimate, not the threshold.",
+ "threshold_status": "PINNED 2026-07-25, PRE-FIT. See threshold_arithmetic.",
  "waves": [],
  "entries": [
   {
@@ -278,5 +278,26 @@
    "counts_in_descriptive": true,
    "counts_in_scored_n": false
   }
- ]
+ ],
+ "threshold_arithmetic": {
+  "pinned_before_any_prediction_exists": true,
+  "rationale": "A threshold pinned pre-fit is design; one pinned after the registry starts filling is negotiation. Pinned now from the best available estimate rather than deferred to first-wave.",
+  "scored_statistic": "prospective accuracy on the `parameterized` charge vs the modal baseline, the same null as Arm B's retrospective run",
+  "baseline_p0": {
+   "value": 0.6434,
+   "source": "Arm B population marginal, n=129 real parameterized cells: FPT 83 / W[1] 27 / W[2]+ 12 / para-NP-hard 7"
+  },
+  "FLOOR_scored": {
+   "n": 57,
+   "test": "one-sided binomial, alpha=0.05, power=0.80",
+   "detects": "a lift of +0.15 over p0 (0.643 -> 0.793)",
+   "why_this_lift": "+0.15 is the conservative choice: it requires MORE data than +0.20 (n=30), so pinning it cannot be mistaken for choosing the easiest bar. Independently matches the owner's ~50-60 estimate."
+  },
+  "FLOOR_descriptive_confusion_table": {
+   "n": 246,
+   "test": "Cochran on the 4x4 confusion table, >=80% of cells at expected>=5",
+   "status": "NOT the scored gate. The full confusion table is a DESCRIPTIVE output and is declared INSUFFICIENT until n>=246 \u2014 likely unreachable at realistic wave sizes, and stated as such. Same shape as decomposition_facts: coverage and usability are different gates with different answers; conflating them would either block the test forever or wave through a table that cannot support cells."
+  },
+  "UPDATE_RULE": "Recompute at each wave close from the registry's REALIZED class spread. MONOTONE APPLICATION: the threshold may RISE but is NEVER RELAXED after any grading has occurred. A threshold that can fall once results exist is not a threshold."
+ }
 }
