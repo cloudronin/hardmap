@@ -247,9 +247,57 @@ def excess_over_null(rows, spec=C.EIGHTFOLD_SPEC, *, k_hat, m=NULL_M, seed=SEED,
                      max_iters=80, burn=X.S1_BURN, thin=X.S1_THIN):
     """Secondary estimator: is k_hat's predictive gain over k=1 real, or an artifact of marginals + typing?
     Compare the real gain (acc[k_hat] - acc[1]) to the same gain over M S1 nulls (marginal+typing+entailment
-    preserved). Reduced CV budget (the null loop is M-fold). Reuses crucible._null_chain / _envelope."""
+    preserved). Reduced CV budget (the null loop is M-fold). Reuses crucible._null_chain / _envelope.
+
+    DEGENERATE AT k_hat == 1 — reported as inapplicable, never as a result (see below)."""
     charges = list(spec.charges)
     ks = sorted({1, k_hat})
+    rule = ("k_hat's dimensionality is structure-beyond-typing iff the real acc-gain of k_hat over k=1 "
+            "exceeds the null 97.5th pct (one-sided). Inside the envelope -> RESIZE to "
+            "'explained by typing + marginals', stated at that size.")
+
+    # ── the k_hat == 1 degeneracy (found by the tidy-number gate, 2026-07-25) ──────────────────────────────
+    # The statistic is acc[k_hat] - acc[1]. At k_hat == 1 that is acc[1] - acc[1] = 0.0 EXACTLY, on the real
+    # table and on every one of the M nulls alike — the same float subtracted from itself, so the zero is an
+    # identity of the EXPRESSION, invariant under the input. The block this function used to return therefore
+    # read real = null_mean = null_p2.5 = null_p97.5 = 0.0 with one_sided_p_ge = (M+1)/(M+1) = 1.0, and
+    # declared `excess_over_typing: false` — a verdict that would have come out identically on ANY input,
+    # including a table with overwhelming latent structure. prereg_v7's secondary presumes k* > 1.
+    #
+    # WHAT IS AND IS NOT DROPPED (the instance-26 lesson, applied). The GAIN is kept: 0.0 is what the
+    # expression evaluates to, and encoding a computed value as `null` asserts NOT COMPUTED about something
+    # that was — the error retracted in instance 26. It ships with an acknowledgement carrying the identity,
+    # so the zero stays legible instead of merely present. The ENVELOPE is dropped, on a different ground:
+    # not "unmeasured" but UNDEFINED. A constant has no distribution, so there is no [p2.5, p97.5] to place
+    # the point in and no percentile that means anything; and `excess_over_typing` becomes null rather than
+    # false because `false` reports a test outcome and no test occurred. The M nulls are not drawn at all —
+    # 150 EM fits to establish 0 == 0 is compute spent to manufacture a verdict.
+    #
+    # NOT A CLAMP AND NOT A p-FORM ARTIFACT — both checked rather than assumed. Nothing on this path clamps
+    # (unlike structure.cramers_v's Bergsma floor), n is 114 not 22, and `_envelope` already uses the
+    # plus-one form: with every null tied to the real value it returns (M+1)/(M+1) = 1.0, exactly what k/M
+    # would give. Plus-one rescues the LOWER boundary, where "no draw reached it" is unprovable; at the upper
+    # boundary "every draw was >= real" is directly observed, so 1.0 is honest arithmetic. The defect is the
+    # vacuity of the comparison being summarised, not the summary.
+    #
+    # The question this was written to ask — is there association beyond per-charge marginals + n.a. typing —
+    # is still answered, by two non-degenerate instruments: Crucible S1 (the gradient's own S1 envelope) and
+    # the prereg_v8 null-corrected low-rank arm, which scores rank >= 1 against the k=0 marginal baseline and
+    # so stays well-defined exactly where this one collapses.
+    if len(ks) < 2:
+        return {
+            "k_hat": k_hat, "M": 0, "applicable": False,
+            "real_gain_acc_khat_over_k1": 0.0, "null_envelope": None, "excess_over_typing": None,
+            "not_applicable_reason": (
+                f"k_hat = {k_hat}, so the statistic acc[k_hat] - acc[1] is acc[1] - acc[1] = 0 identically, "
+                "on the real table and on every null. The gain is reported (0.0 is what the expression "
+                "evaluates to) and acknowledged as an identity; the envelope is not, because a constant has "
+                "no distribution to be placed in. No comparison is performed, so no excess-over-typing "
+                "verdict is available from this estimator. Read the structure-beyond-typing question off "
+                "Crucible S1 and the prereg_v8 low-rank arm (factors_v1_1.json), both of which remain "
+                "well-defined at k* = 1."),
+            "rule": rule,
+        }
 
     def gain(tbl_rows):
         Xm, cs = _encode(tbl_rows, spec, charges)
@@ -260,12 +308,11 @@ def excess_over_null(rows, spec=C.EIGHTFOLD_SPEC, *, k_hat, m=NULL_M, seed=SEED,
     rng = np.random.default_rng(seed)
     null_gains = [gain(nr) for nr in X._null_chain(rows, rng, burn, thin, m, spec)]
     env = X._envelope(real_gain, null_gains)
-    return {"k_hat": k_hat, "M": m, "real_gain_acc_khat_over_k1": round(real_gain, 4),
+    return {"k_hat": k_hat, "M": m, "applicable": True,
+            "real_gain_acc_khat_over_k1": round(real_gain, 4),
             "null_envelope": {k: (round(v, 4) if isinstance(v, float) else v) for k, v in env.items()},
             "excess_over_typing": env["real_above_p97_5"],
-            "rule": ("k_hat's dimensionality is structure-beyond-typing iff the real acc-gain of k_hat over k=1 "
-                     "exceeds the null 97.5th pct (one-sided). Inside the envelope -> RESIZE to "
-                     "'explained by typing + marginals', stated at that size.")}
+            "rule": rule}
 
 
 # ── F-2 verdict run (the dedup'd canon + ablations + sensitivity) ──────────────────────────────────────────
@@ -314,11 +361,50 @@ def factors_verdict(entries, spec=C.EIGHTFOLD_SPEC, *, drop_measured=False, prim
     # on-file prediction: k* in {3,4}? (scored, not gated)
     pred_hit = bool(set(primary["interval"]) & {3, 4})
 
+    # tidy-number gate (methods 22). At k=1 the mixture has one component, so its prior is 1.0 by the
+    # constraint that the priors sum to 1 — an exact extremal that the gate's current walker happens not to
+    # reach (it does not descend into JSON arrays, and `classes` is one). Acknowledged anyway: an exactness
+    # left unexplained because a checker cannot currently see it is still unexplained.
+    ack = []
+    # The degenerate secondary keeps its zero (instance 26: a computed value is not encoded as `null`), so
+    # the zero owes the gate its arithmetic. Derived from the run — if a future roster moves k* off 1 the
+    # comparison becomes real, `applicable` flips, and this acknowledgement disappears with its cause rather
+    # than lingering as a stale exemption.
+    if excess and not excess.get("applicable", True):
+        ack.append({
+            "stat": "excess_over_null.real_gain_acc_khat_over_k1", "value": 0.0,
+            "identity_arithmetic": {"k_hat": excess["k_hat"], "ks_compared": sorted({1, excess["k_hat"]}),
+                                    "statistic": "acc[k_hat] - acc[1]", "nulls_drawn": excess["M"]},
+            "why_the_exactness_is_expected":
+                f"an IDENTITY OF THE EXPRESSION, not a measurement. k_hat = {excess['k_hat']}, so "
+                "acc[k_hat] - acc[1] is acc[1] minus itself — the same float, subtracted from itself, "
+                "yielding exactly 0.0 on the real table and on any null anyone cares to draw. The value is "
+                "INVARIANT UNDER THE INPUT: an atlas with overwhelming latent structure produces this same "
+                "0.0. Read it as 'the secondary has no statistic at k*=1', NOT as 'the measured gain was "
+                "zero'. The sibling `null_envelope` is null rather than 0.0 for a different reason — a "
+                "constant has no distribution, so the percentiles are undefined, not merely unmeasured.",
+            "direction_note":
+                "discharged in the UNFLATTERING direction: this exactness made the old block UNDER-claim "
+                "(it agreed with the k*=1 the primary had already found), which is why it survived review "
+                "for as long as it did. A gate that only interrogates flattering exactness would have "
+                "missed it.",
+        })
+    for i, cl in enumerate(primary.get("loadings", {}).get("classes", []) or []):
+        if isinstance(cl.get("prior"), float) and cl["prior"] in (0.0, 1.0):
+            ack.append({
+                "stat": f"loadings_interpretive.classes.{i}.prior", "value": cl["prior"],
+                "why_the_exactness_is_expected":
+                    f"k = {k_hat}, so the fitted mixture has a single class and its prior is 1.0 by the "
+                    "simplex constraint (the class priors sum to 1). Nothing was estimated to be certain "
+                    "here; there was one place for the mass to go. The block is interpretive-only and sets "
+                    "no claim.",
+            })
+
     return {
         "factors": True, "prereg": "prereg_v7", "model": primary["model"],
         "manifest": {"seed": SEED, "primary_budget": b, "ablation_budget": ab,
                      "mask_fraction": MASK_FRAC, "smoothing_alpha": SMOOTHING_ALPHA,
-                     "excess_over_null_M": NULL_M if with_null else 0},
+                     "excess_over_null_M": (excess or {}).get("M", 0)},
         "primary_roster": "raw-118" if primary_raw else "dedup-114 (S2)",
         "drop_measured": drop_measured,
         "n_rows": primary["n_rows"], "n_distinct_profiles": primary["n_distinct_profiles"],
@@ -344,6 +430,7 @@ def factors_verdict(entries, spec=C.EIGHTFOLD_SPEC, *, drop_measured=False, prim
                      "the primary estimator (Crucible S1). It does not set k*."),
         },
         "loadings_interpretive": primary.get("loadings"),
+        "extremal_acknowledged": ack,
     }
 
 
@@ -513,6 +600,78 @@ def _lowrank_loadings(Xmat, cats, k, charges, iters=15):
     return {"k": k, "factors": factors}
 
 
+def _ack_lowrank(curve, null_gain, m_null, n_hold, null_repeats):
+    """Derive the `extremal_acknowledged` entries this low-rank arm owes the tidy-number gate (methods 22).
+
+    DERIVED, never stapled on: an entry is emitted only for a value that is actually exactly extremal AND
+    whose exactness this function can explain from the arithmetic in front of it. Two causes are recognised —
+
+      (1) THE k=0 SELF-IDENTITY. Both `gain_over_k0` and `null_gain_p97.5` are differences of the k=0
+          accuracy from itself at k=0, so both are 0.0 by construction on the real table and on every
+          permutation. k=0 is the marginal BASELINE the gains are measured against; it cannot gain on itself.
+
+      (2) THE DISCRETISED NULL'S ZERO ATOM at k >= 1. Held-out accuracy on these tables lives on a lattice of
+          1/(n_hold * null_repeats), so the null gain distribution is a handful of atoms rather than a
+          continuum. Where enough permutation draws pile up at exactly 0, the interpolated 97.5th percentile
+          lands inside that atom and is exactly 0.0 — a real percentile of a real distribution, coarse rather
+          than absent. The entry carries the atom counts so the reading can be checked by hand.
+
+    Anything else extremal gets NO entry and correctly fails the gate: a new exact 0.0/1.0 at a path nobody
+    has read is the case this whole mechanism exists to stop."""
+    ack = []
+    for k in sorted(curve):
+        cell = curve[k]
+        if k == 0:
+            if cell["gain_over_k0"] == 0.0:
+                ack.append({
+                    "stat": "curve.0.gain_over_k0", "value": 0.0,
+                    "why_the_exactness_is_expected":
+                        "k=0 IS the per-column-marginal baseline every gain is measured against, and this "
+                        "cell is its gain over itself: acc_mean[0] - acc_mean[0]. Exactly 0.0 is the "
+                        "definition of the origin, not a measured null result.",
+                })
+            if cell["null_gain_p97.5"] == 0.0:
+                ack.append({
+                    "stat": "curve.0.null_gain_p97.5", "value": 0.0,
+                    "why_the_exactness_is_expected":
+                        f"the same self-identity under permutation: each of the {m_null} column-permutation "
+                        "nulls contributes acc_mean[0] - acc_mean[0] = 0, so the null gain distribution at "
+                        "k=0 is a point mass at 0 and every percentile of it is 0.0. It is the origin "
+                        "restated, and carries no information about whether rank-0 'beats' anything.",
+                })
+            continue
+        if cell["null_gain_p97.5"] == 0.0:
+            v = sorted(null_gain[k])
+            n_zero = sum(1 for x in v if abs(x) < 1e-12)
+            n_above = sum(1 for x in v if x > 1e-12)
+            res = 1.0 / (n_hold * null_repeats)
+            ack.append({
+                "stat": f"curve.{k}.null_gain_p97.5", "value": 0.0,
+                "atom_arithmetic": {
+                    "m_null": m_null, "gain_resolution": round(res, 4),
+                    "n_null_draws_exactly_zero": n_zero, "n_null_draws_above_zero": n_above,
+                    "null_gain_max": round(float(v[-1]), 4),
+                    "order_stats_bracketing_p97.5": [round(float(v[int(0.975 * (m_null - 1))]), 4),
+                                                     round(float(v[min(int(0.975 * (m_null - 1)) + 1,
+                                                                       m_null - 1)]), 4)],
+                },
+                "why_the_exactness_is_expected":
+                    f"a REAL percentile of a COARSE distribution, not a missing computation. Held-out "
+                    f"accuracy here is a count over {n_hold} masked cells averaged across {null_repeats} "
+                    f"repeats, so null gains land on a lattice of 1/{n_hold * null_repeats} = {round(res, 4)}. "
+                    f"Of the {m_null} permutation draws, {n_zero} sit at exactly 0 and only {n_above} exceed "
+                    f"0 (max {round(float(v[-1]), 4)}), so the two order statistics the 97.5th percentile "
+                    f"interpolates between are both 0.0 and the percentile is exactly 0.0.",
+                "caveat_carried_forward":
+                    "`beats_null` at this k is a strict `>` against a threshold sitting INSIDE a probability "
+                    f"atom that holds {n_zero}/{m_null} of the null mass, so a real gain smaller than one "
+                    "lattice step is credited on a knife edge. The prereg_v8 crediting rule is left as "
+                    "written rather than re-specified after seeing the data; it does not move this arm's "
+                    "verdict, which is set by the contiguity requirement from rank 1 and is unaffected.",
+            })
+    return ack
+
+
 def _colperm(rows, charges, rng):
     """Independence null: permute each charge's column across rows — preserves every marginal exactly, destroys
     all cross-charge structure. Removes the one-hot compositional artifact that a raw SVD rank would read as
@@ -559,6 +718,8 @@ def estimate_rows_lowrank(rows, spec=C.EIGHTFOLD_SPEC, *, charges=None, ks=range
                          "beats_null": beats[k]} for k in ks},
            "m_null": m_null, "n_rows": len(rows), "n_distinct_profiles": _n_profiles(rows, spec, charges),
            "charges": charges}
+    n_hold = max(1, int(round(mask_frac * int((Xmat >= 0).sum()))))
+    out["extremal_acknowledged"] = _ack_lowrank(out["curve"], null_gain, m_null, n_hold, null_repeats)
     if loadings and k_star >= 1:
         out["loadings"] = _lowrank_loadings(Xmat, cats, k_star, charges)
     return out
@@ -631,6 +792,12 @@ def followup_verdict(entries, spec=C.EIGHTFOLD_SPEC, *, budget=None):
 
     def robust(res):
         return res["k_hat_1se"] <= 1
+
+    # tidy-number gate (methods 22): each low-rank arm derives its own acknowledgements; re-path them to
+    # where they actually sit in this artifact, since the gate matches on the full dotted path.
+    ack = [{**a, "stat": f"arms.{arm}.{a['stat']}"}
+           for arm, res in (("lowrank_full_8", lr_full), ("lowrank_core_4", lr_core))
+           for a in res.get("extremal_acknowledged", [])]
     return {
         "factors_followup": True, "prereg": "prereg_v8", "supersedes": None,
         "reference_verdict_v7": {"model": "lcm", "roster": "dedup-114 all-8", "k_hat_1se": 1, "interval": [1]},
@@ -659,6 +826,7 @@ def followup_verdict(entries, spec=C.EIGHTFOLD_SPEC, *, budget=None):
                      "at size; it refines, and does NOT argue back, v7's primary k*=1. Core-4 carries an "
                      "n-underpower caveat (small complete-case block)."),
         },
+        "extremal_acknowledged": ack,
     }
 
 
@@ -699,13 +867,57 @@ def sensitivity_floor(spec=C.EIGHTFOLD_SPEC, *, n=114, planted_k=3, n_seeds=8,
         curve[round(sep, 3)] = round(rec / n_seeds, 3)
     recovered = [round(sep, 3) for sep in separations if curve[round(sep, 3)] >= 0.8]
     floor = min(recovered) if recovered else None
+    # The zero-separation cell is the FALSE-POSITIVE BASE RATE, not a decoration: at modal_p = 0 the planted
+    # classes are indistinguishable, so every k*>=2 there is the 1-SE rule firing on noise. Reported as its own
+    # field (and quoted in the note) because the floor above is only interpretable against it.
+    base = curve.get(0.0)
+    # tidy-number gate (methods 22): a recovery fraction is rec/n_seeds, so 0.0 and 1.0 are the two endpoints
+    # of a coarse integer lattice and both are reachable without anything being wrong. Acknowledged with the
+    # count that produced them, and with the shape of the rest of the curve — a fraction of 1.0 is only benign
+    # BECAUSE the same estimator drops well below 1.0 elsewhere in the same sweep.
+    worst = min(curve, key=lambda t: curve[t])
+    ack = []
+    for sep in separations:
+        s = round(sep, 3)
+        frac = curve[s]
+        if frac not in (0.0, 1.0):
+            continue
+        ack.append({
+            "stat": f"recovery_frac_by_separation.{s}", "value": frac,
+            "count_arithmetic": {"recovered_seeds": int(round(frac * n_seeds)), "n_seeds": n_seeds,
+                                 "resolution": round(1.0 / n_seeds, 4)},
+            "why_the_exactness_is_expected":
+                f"a fraction of seeds, not a probability with a continuum behind it: "
+                f"{int(round(frac * n_seeds))}/{n_seeds} at modal_p={s}, on a lattice of steps of "
+                f"{round(1.0 / n_seeds, 4)}, so both endpoints are ordinary attainable values at this seed "
+                f"count. This is a POWER curve and saturation at strong separation is its design intent — an "
+                f"estimator that could NOT recover a planted k={planted_k} at modal_p={s} would be the "
+                f"finding. The exactness is also not saturation of the whole sweep: the same estimator, same "
+                f"budget, returns {curve[worst]} at modal_p={worst} in this run.",
+            "direction_note":
+                "read against `zero_separation_recovery_frac` in this artifact — the rate at which this "
+                "estimator claims k*>=2 when nothing was planted to find. A 1.0 here is only worth what that "
+                "number is not.",
+        })
     return {"sensitivity_floor": True, "canon_like_missingness": miss_p, "planted_k": planted_k, "n": n,
             "n_seeds": n_seeds, "recovery_frac_by_separation": curve, "reliable_recovery_floor_modal_p": floor,
+            "zero_separation_recovery_frac": base,
             "note": ("modal_p = the excess probability a cell shows its class's modal level (0 = indistinguishable "
                      "classes). The floor is the WEAKEST separation the LCM recovers k*>=2 in >=80% of seeds at "
                      "canon n + missingness. k*=1 on the canon => any real latent structure sits below this "
-                     "detectable-effect floor; recovery falling to ~0 by modal_p=0 confirms the estimator is not "
-                     "trivially always-detecting.")}
+                     "detectable-effect floor. READ THE FLOOR AGAINST THE ZERO-SEPARATION BASE RATE, reported "
+                     f"above as `zero_separation_recovery_frac`: at modal_p=0 the classes are indistinguishable "
+                     f"and there is nothing to find, yet the 1-SE rule still returns k*>=2 in {base} of seeds. "
+                     "Recovery does NOT fall to ~0 at zero separation — an earlier revision of this note said it "
+                     "did, which this sweep has never shown (corrected 2026-07-25, on reading the curve for the "
+                     "tidy-number gate). So the >=80% criterion sits above a substantial false-positive rate "
+                     f"rather than above zero, and the curve below the floor is non-monotone at n_seeds={n_seeds}. "
+                     "The mitigation, stated at its own size and NOT as a dismissal: at modal_p=0 this generator "
+                     "draws every cell UNIFORMLY over its charge's levels, which is a weaker k=1 baseline than "
+                     "the canon's strongly skewed marginals (modal probs 0.44-0.81), so the base rate here is an "
+                     "upper bound on the canon's. Findings R-v carries the same reading. Treat the floor as an "
+                     "order-of-magnitude detectability scale, not a calibrated threshold."),
+            "extremal_acknowledged": ack}
 
 
 # ── CLI ────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -779,8 +991,12 @@ def main(argv=None):
               f"k_hat={out['ablations']['sensitivity_other_roster']['k_hat_1se']}")
         if out["excess_over_null"]:
             e = out["excess_over_null"]
-            print(f"  excess-over-null: real gain={e['real_gain_acc_khat_over_k1']} "
-                  f"excess_over_typing={e['excess_over_typing']}")
+            if not e.get("applicable", True):
+                print(f"  excess-over-null: NOT APPLICABLE at k_hat={e['k_hat']} — the statistic "
+                      f"acc[k_hat]-acc[1] is identically 0; no envelope, no verdict")
+            else:
+                print(f"  excess-over-null: real gain={e['real_gain_acc_khat_over_k1']} "
+                      f"excess_over_typing={e['excess_over_typing']}")
         print(f"  MCA sensitivity (S1-DISQUALIFIED, not the claim): {out['mca_sensitivity_DISQUALIFIED']['dims_above_threshold']} dims")
         return 0
 

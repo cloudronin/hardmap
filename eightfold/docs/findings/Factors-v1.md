@@ -65,24 +65,42 @@ NPC, counting #P-complete, parameterized FPT, proof_size exp, … — is just th
 | **Leave-one-charge-out** (drop each of the 8) | k\*_hat = **1 for every drop** — no single charge carries the verdict |
 | **--drop-measured** (R9) | k\*_hat = **1** — the verdict does not rest on the measured cells |
 | **Raw-118 sensitivity** | k\*_hat = **1** (interval [1,4,5,6] — flatter on the raw roster, but k=1 still wins) |
-| **Excess-over-null** (M=150 S1 nulls) | real acc-gain of k\* over k=1 = **0.0**, inside the null envelope → **no structure beyond typing** (degenerate once k\*=1: the primary already found none) |
+| **Excess-over-null** | **NOT APPLICABLE at k\*=1** — the statistic is `acc[k\*] - acc[1]`, identically 0 when k\*=1. No envelope, no verdict; see below |
 | **MCA sensitivity (DISQUALIFIED)** | 16 dims — the S1-inflated count Factors was built to replace. **MCA 16 vs held-out prediction 1** is the headline contrast. |
 
 ## The secondary estimator (excess-over-null) — and the one thing that DOES beat a null
 
-The prereg_v7 secondary places k\*'s predictive gain over k=1 against the S1 null envelope. **The number: real
-gain = 0.000, inside the null envelope (one-sided p = 1.0).** At k\*=1 this is degenerate by construction (the
-gain of k\* over k=1 is zero), so on its own it is uninformative — but the **low-rank v1.1 null-correction is the
-non-degenerate version**, and it is unambiguous: **no rank beats the independence null** (every rank's held-out
-gain sits inside the column-permutation envelope; k\*=0). So the apparent dimensional "compression" that MCA and
-Crucible S1 surfaced **does not replicate as held-out predictive gain** — no latent dimension pays its way.
+The prereg_v7 secondary places k\*'s predictive gain over k=1 against the S1 null envelope. **At k\*=1 it has no
+statistic to place**: the gain is `acc[1] - acc[1]`, exactly 0 on the real table *and on every null*, so the
+comparison is empty before any data is looked at.
+
+*Corrected 2026-07-25 (tidy-number gate, Marrow M1).* This block previously reported that empty comparison as
+though it were a measurement — real = null_mean = p2.5 = p97.5 = **0.0**, one-sided p = **1.0**, verdict
+`excess_over_typing: false`, over M=150 drawn S1 nulls. Every one of those numbers is forced by the expression,
+not by the atlas: **the identical block would have been emitted by a table with overwhelming latent structure.**
+A verdict no input could change is not a null result, and 150 nulls were drawn and discarded to produce it. The
+prose here already read the degeneracy correctly (caveat R-iv); it was the machine output that claimed more
+than it had.
+
+The artifact now reports `applicable: false` with the reason and draws no nulls. The **gain keeps its 0.0**,
+acknowledged as an identity of the expression — encoding a computed value as `null` would assert *not
+computed* about something that was. The **envelope** is dropped as `null` on the different ground that a
+constant has no distribution: its percentiles are undefined, not merely unmeasured. Neither the exact 0.0 nor
+the exact 1.0 was a clamp or a `k/M` p-form artifact — both were checked; `_envelope` already uses the
+plus-one form, which returns `(M+1)/(M+1) = 1.0` when every null ties the real value.
+
+The **low-rank v1.1 null-correction is the non-degenerate version** of the question, and it is unambiguous:
+**no rank beats the independence null** (every rank's held-out gain sits inside the column-permutation envelope;
+k\*=0). So the apparent dimensional "compression" that MCA and Crucible S1 surfaced **does not replicate as
+held-out predictive gain** — no latent dimension pays its way.
 
 This does not contradict Crucible S1; it sharpens it. S1's surviving result was the **approx⟷parameterized
 pairwise gradient**, a Cramér's V that *did* exceed its null, and it is still there. What Factors adds is that
 **no k captures it**: a single pairwise coupling does not lift the *global* predictive dimensionality above the
 marginals. The one-sentence synthesis — *the atlas's real structure is pairwise and local (the gradient), not a
-global latent basis; the predictive-dimensionality excess-over-null is zero even though the pairwise
-excess-over-null (S1) is not.*
+global latent basis; no latent dimension beats the independence null (v1.1 low-rank) even though the pairwise
+association does beat its own (S1).* Note the load is carried by the **low-rank** arm, not by the v1 secondary:
+that one is degenerate here and asserts nothing either way.
 
 ## Power calibration — what the estimator CAN see (R-v)
 

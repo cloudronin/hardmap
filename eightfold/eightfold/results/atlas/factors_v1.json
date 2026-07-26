@@ -16,7 +16,7 @@
     },
     "mask_fraction": 0.1,
     "smoothing_alpha": 0.5,
-    "excess_over_null_M": 150
+    "excess_over_null_M": 0
   },
   "primary_roster": "dedup-114 (S2)",
   "drop_measured": false,
@@ -100,18 +100,12 @@
   },
   "excess_over_null": {
     "k_hat": 1,
-    "M": 150,
+    "M": 0,
+    "applicable": false,
     "real_gain_acc_khat_over_k1": 0.0,
-    "null_envelope": {
-      "real": 0.0,
-      "null_mean": 0.0,
-      "null_p2.5": 0.0,
-      "null_p97.5": 0.0,
-      "real_above_p97_5": false,
-      "real_outside_95": false,
-      "one_sided_p_ge": 1.0
-    },
-    "excess_over_typing": false,
+    "null_envelope": null,
+    "excess_over_typing": null,
+    "not_applicable_reason": "k_hat = 1, so the statistic acc[k_hat] - acc[1] is acc[1] - acc[1] = 0 identically, on the real table and on every null. The gain is reported (0.0 is what the expression evaluates to) and acknowledged as an identity; the envelope is not, because a constant has no distribution to be placed in. No comparison is performed, so no excess-over-typing verdict is available from this estimator. Read the structure-beyond-typing question off Crucible S1 and the prereg_v8 low-rank arm (factors_v1_1.json), both of which remain well-defined at k* = 1.",
     "rule": "k_hat's dimensionality is structure-beyond-typing iff the real acc-gain of k_hat over k=1 exceeds the null 97.5th pct (one-sided). Inside the envelope -> RESIZE to 'explained by typing + marginals', stated at that size."
   },
   "mca_sensitivity_DISQUALIFIED": {
@@ -159,5 +153,26 @@
         }
       }
     ]
-  }
+  },
+  "extremal_acknowledged": [
+    {
+      "stat": "excess_over_null.real_gain_acc_khat_over_k1",
+      "value": 0.0,
+      "identity_arithmetic": {
+        "k_hat": 1,
+        "ks_compared": [
+          1
+        ],
+        "statistic": "acc[k_hat] - acc[1]",
+        "nulls_drawn": 0
+      },
+      "why_the_exactness_is_expected": "an IDENTITY OF THE EXPRESSION, not a measurement. k_hat = 1, so acc[k_hat] - acc[1] is acc[1] minus itself — the same float, subtracted from itself, yielding exactly 0.0 on the real table and on any null anyone cares to draw. The value is INVARIANT UNDER THE INPUT: an atlas with overwhelming latent structure produces this same 0.0. Read it as 'the secondary has no statistic at k*=1', NOT as 'the measured gain was zero'. The sibling `null_envelope` is null rather than 0.0 for a different reason — a constant has no distribution, so the percentiles are undefined, not merely unmeasured.",
+      "direction_note": "discharged in the UNFLATTERING direction: this exactness made the old block UNDER-claim (it agreed with the k*=1 the primary had already found), which is why it survived review for as long as it did. A gate that only interrogates flattering exactness would have missed it."
+    },
+    {
+      "stat": "loadings_interpretive.classes.0.prior",
+      "value": 1.0,
+      "why_the_exactness_is_expected": "k = 1, so the fitted mixture has a single class and its prior is 1.0 by the simplex constraint (the class priors sum to 1). Nothing was estimated to be certain here; there was one place for the mass to go. The block is interpretive-only and sets no claim."
+    }
+  ]
 }

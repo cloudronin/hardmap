@@ -179,5 +179,78 @@
     "core4_lowrank_k_le_1": true,
     "core4_lcm_k_le_1": true,
     "note": "k*=1 is CONFIRMED robust iff every arm gives k*<=1. A single arm with k*>1 is a methodological finding (model class or charge-sparsity was the limiting factor), reported at size; it refines, and does NOT argue back, v7's primary k*=1. Core-4 carries an n-underpower caveat (small complete-case block)."
-  }
+  },
+  "extremal_acknowledged": [
+    {
+      "stat": "arms.lowrank_full_8.curve.0.gain_over_k0",
+      "value": 0.0,
+      "why_the_exactness_is_expected": "k=0 IS the per-column-marginal baseline every gain is measured against, and this cell is its gain over itself: acc_mean[0] - acc_mean[0]. Exactly 0.0 is the definition of the origin, not a measured null result."
+    },
+    {
+      "stat": "arms.lowrank_full_8.curve.0.null_gain_p97.5",
+      "value": 0.0,
+      "why_the_exactness_is_expected": "the same self-identity under permutation: each of the 60 column-permutation nulls contributes acc_mean[0] - acc_mean[0] = 0, so the null gain distribution at k=0 is a point mass at 0 and every percentile of it is 0.0. It is the origin restated, and carries no information about whether rank-0 'beats' anything."
+    },
+    {
+      "stat": "arms.lowrank_core_4.curve.0.gain_over_k0",
+      "value": 0.0,
+      "why_the_exactness_is_expected": "k=0 IS the per-column-marginal baseline every gain is measured against, and this cell is its gain over itself: acc_mean[0] - acc_mean[0]. Exactly 0.0 is the definition of the origin, not a measured null result."
+    },
+    {
+      "stat": "arms.lowrank_core_4.curve.0.null_gain_p97.5",
+      "value": 0.0,
+      "why_the_exactness_is_expected": "the same self-identity under permutation: each of the 60 column-permutation nulls contributes acc_mean[0] - acc_mean[0] = 0, so the null gain distribution at k=0 is a point mass at 0 and every percentile of it is 0.0. It is the origin restated, and carries no information about whether rank-0 'beats' anything."
+    },
+    {
+      "stat": "arms.lowrank_core_4.curve.1.null_gain_p97.5",
+      "value": 0.0,
+      "atom_arithmetic": {
+        "m_null": 60,
+        "gain_resolution": 0.0417,
+        "n_null_draws_exactly_zero": 6,
+        "n_null_draws_above_zero": 1,
+        "null_gain_max": 0.0417,
+        "order_stats_bracketing_p97.5": [
+          0.0,
+          0.0
+        ]
+      },
+      "why_the_exactness_is_expected": "a REAL percentile of a COARSE distribution, not a missing computation. Held-out accuracy here is a count over 6 masked cells averaged across 4 repeats, so null gains land on a lattice of 1/24 = 0.0417. Of the 60 permutation draws, 6 sit at exactly 0 and only 1 exceed 0 (max 0.0417), so the two order statistics the 97.5th percentile interpolates between are both 0.0 and the percentile is exactly 0.0.",
+      "caveat_carried_forward": "`beats_null` at this k is a strict `>` against a threshold sitting INSIDE a probability atom that holds 6/60 of the null mass, so a real gain smaller than one lattice step is credited on a knife edge. The prereg_v8 crediting rule is left as written rather than re-specified after seeing the data; it does not move this arm's verdict, which is set by the contiguity requirement from rank 1 and is unaffected."
+    },
+    {
+      "stat": "arms.lowrank_core_4.curve.3.null_gain_p97.5",
+      "value": 0.0,
+      "atom_arithmetic": {
+        "m_null": 60,
+        "gain_resolution": 0.0417,
+        "n_null_draws_exactly_zero": 14,
+        "n_null_draws_above_zero": 1,
+        "null_gain_max": 0.0417,
+        "order_stats_bracketing_p97.5": [
+          0.0,
+          0.0
+        ]
+      },
+      "why_the_exactness_is_expected": "a REAL percentile of a COARSE distribution, not a missing computation. Held-out accuracy here is a count over 6 masked cells averaged across 4 repeats, so null gains land on a lattice of 1/24 = 0.0417. Of the 60 permutation draws, 14 sit at exactly 0 and only 1 exceed 0 (max 0.0417), so the two order statistics the 97.5th percentile interpolates between are both 0.0 and the percentile is exactly 0.0.",
+      "caveat_carried_forward": "`beats_null` at this k is a strict `>` against a threshold sitting INSIDE a probability atom that holds 14/60 of the null mass, so a real gain smaller than one lattice step is credited on a knife edge. The prereg_v8 crediting rule is left as written rather than re-specified after seeing the data; it does not move this arm's verdict, which is set by the contiguity requirement from rank 1 and is unaffected."
+    },
+    {
+      "stat": "arms.lowrank_core_4.curve.4.null_gain_p97.5",
+      "value": 0.0,
+      "atom_arithmetic": {
+        "m_null": 60,
+        "gain_resolution": 0.0417,
+        "n_null_draws_exactly_zero": 12,
+        "n_null_draws_above_zero": 1,
+        "null_gain_max": 0.0417,
+        "order_stats_bracketing_p97.5": [
+          0.0,
+          0.0
+        ]
+      },
+      "why_the_exactness_is_expected": "a REAL percentile of a COARSE distribution, not a missing computation. Held-out accuracy here is a count over 6 masked cells averaged across 4 repeats, so null gains land on a lattice of 1/24 = 0.0417. Of the 60 permutation draws, 12 sit at exactly 0 and only 1 exceed 0 (max 0.0417), so the two order statistics the 97.5th percentile interpolates between are both 0.0 and the percentile is exactly 0.0.",
+      "caveat_carried_forward": "`beats_null` at this k is a strict `>` against a threshold sitting INSIDE a probability atom that holds 12/60 of the null mass, so a real gain smaller than one lattice step is credited on a knife edge. The prereg_v8 crediting rule is left as written rather than re-specified after seeing the data; it does not move this arm's verdict, which is set by the contiguity requirement from rank 1 and is unaffected."
+    }
+  ]
 }

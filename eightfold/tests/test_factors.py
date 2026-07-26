@@ -73,6 +73,25 @@ def test_factors_verdict_structure_ablations_and_mca_disqualified():
     assert "disqualified" in out["mca_sensitivity_DISQUALIFIED"]["note"].lower()
 
 
+def test_degenerate_secondary_zero_is_kept_and_acknowledged():
+    # instance 26's rule, applied to the k*=1 secondary: the zero STAYS (it is what the expression
+    # evaluates to) and the artifact says why, rather than being encoded as `null` — which would assert
+    # NOT COMPUTED about a value that was. The acknowledgement is derived from the run, so it exists
+    # exactly when the block is degenerate.
+    out = F.factors_verdict(X._planted_toy(), with_null=True,
+                            budget=dict(repeats=3, restarts=2, max_iters=40, ks=range(1, 4)),
+                            ab_budget=dict(repeats=2, restarts=2, max_iters=30, ks=range(1, 4)))
+    e = out["excess_over_null"]
+    acked = {a["stat"]: a for a in out["extremal_acknowledged"]}
+    if e.get("applicable") is False:
+        assert e["real_gain_acc_khat_over_k1"] == 0.0
+        a = acked["excess_over_null.real_gain_acc_khat_over_k1"]
+        assert a["value"] == 0.0 and a["identity_arithmetic"]["nulls_drawn"] == 0
+        assert "INVARIANT UNDER THE INPUT" in a["why_the_exactness_is_expected"]
+    else:                                              # non-degenerate run: no acknowledgement is owed
+        assert "excess_over_null.real_gain_acc_khat_over_k1" not in acked
+
+
 def test_excess_over_null_rule_wellformed():
     # the secondary reuses crucible._null_chain/_envelope on a valid table; check the reported shape/rule
     rows = X.S._grid(X._planted_toy())[2]
@@ -80,6 +99,25 @@ def test_excess_over_null_rule_wellformed():
     for key in ("k_hat", "M", "real_gain_acc_khat_over_k1", "null_envelope", "excess_over_typing", "rule"):
         assert key in e
     assert e["excess_over_typing"] in (True, False, None)
+    assert e["applicable"] is True
+
+
+def test_excess_over_null_is_inapplicable_not_false_at_k_hat_1():
+    # THE DEGENERACY (found by the tidy-number gate, 2026-07-25). At k_hat == 1 the statistic is
+    # acc[1] - acc[1] = 0 on every table, real and null alike, so the old block reported an all-zero envelope
+    # with one_sided_p_ge = 1.0 and declared `excess_over_typing: false` — a verdict no input could have
+    # changed. The estimator must now say it has nothing to say, and must not burn M nulls proving 0 == 0.
+    rows = X.S._grid(X._planted_toy())[2]
+    e = F.excess_over_null(rows, k_hat=1, m=5, repeats=2, restarts=2, max_iters=30, burn=100, thin=20)
+    assert e["applicable"] is False
+    assert e["excess_over_typing"] is None            # NOT False — false is a test outcome, and none was had
+    assert e["null_envelope"] is None                 # a constant has no distribution: UNDEFINED, not unmeasured
+    assert e["M"] == 0                                # the null loop is skipped, not run and discarded
+    assert "identically" in e["not_applicable_reason"]
+    # the GAIN is kept, not nulled (instance 26: encoding a computed value as `null` asserts NOT COMPUTED
+    # about something that was). It is 0.0, and it owes the tidy-number gate an acknowledgement — which
+    # factors_verdict derives from this block rather than hardcoding.
+    assert e["real_gain_acc_khat_over_k1"] == 0.0
 
 
 def test_selftest_lowrank_green():
@@ -95,6 +133,22 @@ def test_lowrank_is_null_corrected():
     assert r["k_star_excess"] <= 1
     for k, cell in r["curve"].items():
         assert "beats_null" in cell and "null_gain_p97.5" in cell
+    # the acknowledgements are DERIVED from this run's numbers, not a fixed list that outlives its data.
+    # The acknowledger's contract is exactly two adjudicated causes — the k=0 self-identity, and a
+    # null_gain_p97.5 that lands inside the discretised null's zero atom — and it must cover those and
+    # nothing else. An extremal at a cause nobody has read must stay UNacknowledged so the tidy-number gate
+    # is the thing that fails on it; an acknowledgement for a value that is not extremal is a stale waiver.
+    acked = {a["stat"] for a in r["extremal_acknowledged"]}
+    contract = {f"curve.{k}.{f}" for k, cell in r["curve"].items()
+                for f in ("gain_over_k0", "null_gain_p97.5")
+                if cell[f] == 0.0 and (k == 0 or f == "null_gain_p97.5")}
+    assert acked == contract
+    assert {"curve.0.gain_over_k0", "curve.0.null_gain_p97.5"} <= acked   # the k=0 identities, always
+    # every acknowledgement points at a value that really is extremal, and carries a reason
+    for a in r["extremal_acknowledged"]:
+        k, field = a["stat"].split(".")[1], a["stat"].split(".", 2)[2]
+        assert r["curve"][int(k)][field] == a["value"] == 0.0
+        assert len(a["why_the_exactness_is_expected"]) > 80
 
 
 def test_sensitivity_floor_smoke():

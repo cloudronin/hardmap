@@ -17,5 +17,41 @@
     "0.0": 0.5
   },
   "reliable_recovery_floor_modal_p": 0.5,
-  "note": "modal_p = the excess probability a cell shows its class's modal level (0 = indistinguishable classes). The floor is the WEAKEST separation the LCM recovers k*>=2 in >=80% of seeds at canon n + missingness. k*=1 on the canon => any real latent structure sits below this detectable-effect floor; recovery falling to ~0 by modal_p=0 confirms the estimator is not trivially always-detecting."
+  "zero_separation_recovery_frac": 0.5,
+  "note": "modal_p = the excess probability a cell shows its class's modal level (0 = indistinguishable classes). The floor is the WEAKEST separation the LCM recovers k*>=2 in >=80% of seeds at canon n + missingness. k*=1 on the canon => any real latent structure sits below this detectable-effect floor. READ THE FLOOR AGAINST THE ZERO-SEPARATION BASE RATE, reported above as `zero_separation_recovery_frac`: at modal_p=0 the classes are indistinguishable and there is nothing to find, yet the 1-SE rule still returns k*>=2 in 0.5 of seeds. Recovery does NOT fall to ~0 at zero separation — an earlier revision of this note said it did, which this sweep has never shown (corrected 2026-07-25, on reading the curve for the tidy-number gate). So the >=80% criterion sits above a substantial false-positive rate rather than above zero, and the curve below the floor is non-monotone at n_seeds=8. The mitigation, stated at its own size and NOT as a dismissal: at modal_p=0 this generator draws every cell UNIFORMLY over its charge's levels, which is a weaker k=1 baseline than the canon's strongly skewed marginals (modal probs 0.44-0.81), so the base rate here is an upper bound on the canon's. Findings R-v carries the same reading. Treat the floor as an order-of-magnitude detectability scale, not a calibrated threshold.",
+  "extremal_acknowledged": [
+    {
+      "stat": "recovery_frac_by_separation.0.9",
+      "value": 1.0,
+      "count_arithmetic": {
+        "recovered_seeds": 8,
+        "n_seeds": 8,
+        "resolution": 0.125
+      },
+      "why_the_exactness_is_expected": "a fraction of seeds, not a probability with a continuum behind it: 8/8 at modal_p=0.9, on a lattice of steps of 0.125, so both endpoints are ordinary attainable values at this seed count. This is a POWER curve and saturation at strong separation is its design intent — an estimator that could NOT recover a planted k=3 at modal_p=0.9 would be the finding. The exactness is also not saturation of the whole sweep: the same estimator, same budget, returns 0.125 at modal_p=0.15 in this run.",
+      "direction_note": "read against `zero_separation_recovery_frac` in this artifact — the rate at which this estimator claims k*>=2 when nothing was planted to find. A 1.0 here is only worth what that number is not."
+    },
+    {
+      "stat": "recovery_frac_by_separation.0.7",
+      "value": 1.0,
+      "count_arithmetic": {
+        "recovered_seeds": 8,
+        "n_seeds": 8,
+        "resolution": 0.125
+      },
+      "why_the_exactness_is_expected": "a fraction of seeds, not a probability with a continuum behind it: 8/8 at modal_p=0.7, on a lattice of steps of 0.125, so both endpoints are ordinary attainable values at this seed count. This is a POWER curve and saturation at strong separation is its design intent — an estimator that could NOT recover a planted k=3 at modal_p=0.7 would be the finding. The exactness is also not saturation of the whole sweep: the same estimator, same budget, returns 0.125 at modal_p=0.15 in this run.",
+      "direction_note": "read against `zero_separation_recovery_frac` in this artifact — the rate at which this estimator claims k*>=2 when nothing was planted to find. A 1.0 here is only worth what that number is not."
+    },
+    {
+      "stat": "recovery_frac_by_separation.0.5",
+      "value": 1.0,
+      "count_arithmetic": {
+        "recovered_seeds": 8,
+        "n_seeds": 8,
+        "resolution": 0.125
+      },
+      "why_the_exactness_is_expected": "a fraction of seeds, not a probability with a continuum behind it: 8/8 at modal_p=0.5, on a lattice of steps of 0.125, so both endpoints are ordinary attainable values at this seed count. This is a POWER curve and saturation at strong separation is its design intent — an estimator that could NOT recover a planted k=3 at modal_p=0.5 would be the finding. The exactness is also not saturation of the whole sweep: the same estimator, same budget, returns 0.125 at modal_p=0.15 in this run.",
+      "direction_note": "read against `zero_separation_recovery_frac` in this artifact — the rate at which this estimator claims k*>=2 when nothing was planted to find. A 1.0 here is only worth what that number is not."
+    }
+  ]
 }

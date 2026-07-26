@@ -186,14 +186,18 @@ def _watched(root):
     So the watched set is declared here, one place, and a new project registers its pattern rather than
     discovering later that it was never checked.
 
-    NOT-YET-WATCHED, RECORDED RATHER THAN OMITTED. `*factors*.json` is deliberately absent. Adding it was
-    tried at Marrow M0 and surfaced 16 unacknowledged extremals across factors_v1 / factors_v1_1 /
-    factors_sensitivity — real debt in a project this pass has not examined. Waving them through a LEGACY
-    table without reading them would be rubber-stamping, which is the one thing this gate must never
-    become; dropping the pattern silently would be worse. So the pattern stays out AND the reason stays
-    here, with the backlog queued as its own task. A watched set that grows only as fast as someone
-    actually adjudicates it is the honest kind."""
-    pats = ("*results*.json", "*ablations*.json", "*census*.json", "*power*.json")
+    `*factors*.json` WAS THE BACKLOG, AND IT IS NOW PAID (Marrow M0 -> M1). The pattern was held out at M0
+    because adding it surfaced 16 unacknowledged extremals across factors_v1 / factors_v1_1 /
+    factors_sensitivity — real debt in a project that pass had not examined — and waving them through a
+    LEGACY table without reading them would be rubber-stamping, the one thing this gate must never become.
+    The 16 have since been adjudicated one at a time: 10 benign, now carrying `extremal_acknowledged`
+    entries their scorers DERIVE from each run rather than hardcode, and 6 — the whole of
+    `factors_v1.json`'s `excess_over_null` block — a real reporting flaw, fixed at the scorer and
+    regenerated. At k*=1 that block's statistic was `acc[1]` minus itself, so its all-zero envelope and
+    `excess_over_typing: false` were forced by the expression and would have been emitted by any input at
+    all. Nothing was added to LEGACY. The pattern is now IN, which is the only honest way a watched set
+    grows: as fast as someone actually adjudicates it, and no faster."""
+    pats = ("*results*.json", "*ablations*.json", "*census*.json", "*power*.json", "*factors*.json")
     return {p for pat in pats for p in root.glob(pat)}
 
 
@@ -208,7 +212,15 @@ def check_suspicious_cleanliness() -> list[str]:
 
     Mechanised where it can be: an exactly-extremal statistic must be ACKNOWLEDGED in its own artifact
     (an `extremal_acknowledged` entry saying why the exactness is expected). Unacknowledged exactness is a
-    violation. Where it cannot be mechanised, it remains a standing review line."""
+    violation. Where it cannot be mechanised, it remains a standing review line.
+
+    KNOWN BLIND SPOT, stated rather than left to be discovered (2026-07-25, Marrow M1). The walker below
+    descends into dicts only — a float inside a JSON ARRAY is invisible to it, because the recursion has no
+    list branch (its sibling in check_lift_denominators_match does). So `x.classes[0].prior = 1.0` passes
+    unread while `x.classes.0.prior` would not. This is NOT waived: factors_v1.json acknowledges its one
+    known array-nested extremal anyway. Closing it is deliberately a separate job — adding the list branch
+    widens the gate across every watched artifact at once and will surface a fresh batch of unread values,
+    and that batch deserves the same one-by-one adjudication the factors 16 got, not a bulk LEGACY entry."""
     import json
     bad, roots = [], []
     # LEGACY DEBT, itemised rather than waived (2026-07-25, Terroir T4). Widening the glob pointed the gate

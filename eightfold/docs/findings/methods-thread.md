@@ -988,3 +988,84 @@ a new column is the first of its KIND rather than the first of its topic, re-der
 from the principle rather than trusting that it generalised. The principle here was never "modal share must
 be low" — it was always *"some cell must clear the Cochran floor,"* and only one of its two failures had
 ever been written down.
+
+---
+
+## Instance 31 — 2026-07-26 — a verdict that no input could have changed (the factors gate, Marrow M1)
+
+Instance 28 left `*factors*.json` out of `_watched()` in writing rather than in silence, because adding it
+surfaced **16 unacknowledged extremal values** across three artifacts nobody had read, and dropping 16 unread
+numbers into `LEGACY` would have been the rubber stamp the table exists to prevent. That was the right call
+and it came with a debt. This entry is the adjudication, one at a time, and the pattern is now in the
+watched set.
+
+**Ten were benign, with arithmetic to show for it.** Seven in `factors_v1_1.json`: four are the *k*=0
+self-identity — k=0 IS the marginal baseline every gain is measured against, so `gain_over_k0` and its null
+percentile are 0.0 by construction on the real table and on all 60 permutations. Three more, at ranks 1/3/4
+of the core-4 arm, are a subtler thing worth naming: `null_gain_p97.5 = 0.0` is a **real percentile of a
+genuinely coarse distribution**. That arm masks 6 cells and averages 4 repeats, so null gains land on a
+1/24 lattice; 59 of 60 permutation draws are ≤ 0 and 12–14 sit at exactly 0, so both order statistics the
+97.5th percentile interpolates between are 0.0. Coarse is not absent. Three more in
+`factors_sensitivity.json` are recovery fractions of 8/8 on a power curve, where saturation at strong
+separation is the design intent. One more, invisible to the gate and acknowledged anyway, is the k=1
+mixture's class prior of 1.0 — there was one place for the mass to go.
+
+**Six were a real flaw — the entire remaining block — and it is the kind this whole apparatus was built
+for.** `factors_v1.json`'s
+`excess_over_null` block reported `real = null_mean = p2.5 = p97.5 = 0.0`, `one_sided_p_ge = 1.0`, and a
+verdict `excess_over_typing: false`, over **M = 150 drawn S1 nulls**. The statistic is
+`acc[k_hat] − acc[1]`. The primary had returned k\* = 1. So the statistic was `acc[1] − acc[1]` — the same
+float minus itself, **identically zero on the real table and on every null**, and the p of exactly 1.0 is
+the plus-one form `(150+1)/(150+1)` reporting that faithfully. Every number in the block was forced by the
+expression. *The identical block would have been emitted by an atlas with overwhelming latent structure.*
+
+**The tell was not that the numbers were wrong. It is that they were unfalsifiable.** A null result and a
+vacuous comparison print the same way, and 150 MCMC nulls were drawn, fitted, and discarded to produce a
+verdict no data could have moved. Direction matters, per instance 22: this one pointed the *unflattering*
+way — it under-claimed, agreeing with a k\*=1 the primary had already found — which is precisely why it
+survived. A pessimistic number attracts no scrutiny. **A gate that only interrogates flattering exactness is
+a gate that would have missed this one.**
+
+**The prose already knew.** `Factors-v1.md` carried caveat R-iv — *degenerate once k\*=1* — while the machine
+output next to it reported an envelope placement and a false verdict. The findings doc was ahead of the
+artifact, and nothing mechanical was checking that they agreed. **A caveat in the narration does not
+discharge a claim in the artifact**; a reader who trusts the JSON never sees the caveat.
+
+**Two hypotheses were tested and killed before that conclusion.** Instance 26's floor is the right first
+prior, so it was checked first: nothing on this path clamps (unlike `structure.cramers_v`'s Bergsma floor),
+and n is 114, not 22. And the sibling `k/M` p-form defect does not apply either — `_envelope` already uses
+the plus-one form, and with every null tied to the real value it returns `(M+1)/(M+1) = 1.0`, **exactly what
+`k/M` gives**. Plus-one rescues the *lower* boundary, where "no draw reached it" is unprovable; at the upper
+boundary "every draw was ≥ real" is directly observed. The 1.0 is honest arithmetic. What is defective is
+the vacuity of the comparison it summarises — a third species, distinct from both prior instances.
+
+**Resolution, and what instance 26 changed about its shape.** `factors.excess_over_null` now detects the
+collapse (`len({1, k_hat}) < 2`) and returns `applicable: false` with the reason, drawing **no** nulls.
+`excess_over_typing` is `null`, not `false`, because `false` is a test outcome and no test was had. But the
+**gain keeps its 0.0** — a first pass encoded it as `null`, which is exactly the remedy instance 26
+retracted: it asserts NOT COMPUTED about a value that was. It ships instead with an acknowledgement carrying
+the identity. The envelope *is* dropped, on a different ground worth separating: not unmeasured but
+**undefined** — a constant has no distribution, so its percentiles are not numbers that were missed. All
+acknowledgements are **derived from each run's own numbers** (atom counts, lattice resolution, seed counts,
+the collapsed k-set), so each disappears when its cause does instead of lingering as a stale excuse.
+`factors_v1.json`'s k\*, ablations, LOCO, MCA sensitivity and loadings are **byte-unchanged**; k\* = 1
+stands, and it never rested on this block.
+
+**A second thing fell out of reading the same file.** `factors_sensitivity.json`'s note asserted that
+recovery *falls to ~0 by modal_p = 0*, confirming the estimator is not trivially always-detecting. Its own
+curve says **0.5** — at zero separation, with nothing planted to find, the 1-SE rule still returns k\*≥2 in
+4 of 8 seeds. The findings doc had this right too (R-v names the uniform-marginal false-positive); the
+artifact's note did not. Corrected, with the mitigation stated at its own size rather than as a dismissal:
+the zero-separation generator draws cells uniformly, a weaker k=1 baseline than the canon's skewed
+marginals, so that rate is an upper bound on the canon's. The floor is now reported beside the base rate it
+must be read against, because **a detectability floor quoted without its false-positive rate is half a
+statistic.**
+
+**A blind spot, stated rather than left to be found.** The tidy-number walker descends into dicts only — a
+float inside a JSON **array** is invisible to it, while its sibling in `check_lift_denominators_match`
+recurses into lists. That is why the k=1 class prior above needed acknowledging by hand. It is written into
+the check's docstring rather than fixed here: closing it widens the gate across every watched artifact at
+once and will surface a fresh batch of unread numbers, and that batch deserves the same one-by-one
+adjudication these 16 got. **The lesson of instance 26 was that a flag is a question, not an answer. The
+lesson here is that widening a gate faster than you can answer it just relocates the debt** — which is the
+same lesson instance 28 drew when it held this pattern back, now closed from the other end.
