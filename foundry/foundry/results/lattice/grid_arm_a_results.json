@@ -1,0 +1,139 @@
+{
+ "seed": 20260725,
+ "n_classes": 4072,
+ "features_used": [
+  "aut_group_size",
+  "col_ones_max",
+  "col_ones_min",
+  "col_ones_range",
+  "n_distinct_weights_strict",
+  "n_maximal_tuples",
+  "n_minimal_tuples",
+  "n_tuples",
+  "tuple_density",
+  "w1",
+  "w2",
+  "w3",
+  "weight_mean",
+  "weight_spread"
+ ],
+ "n_features": 14,
+ "prediction_sha256": "5487f5ef711ffc11e416f3ad79ad4e583df8a7c917966968c84af95cb4cd2d98",
+ "model": "CART depth<=6 minleaf=8",
+ "fold_key": "46 poly-fingerprint groups, hash-ordered into 5 folds",
+ "ceiling": 1.0,
+ "per_charge": {
+  "decision": {
+   "acc": 0.9445,
+   "modal_null_foldweighted": 0.7814,
+   "lift": 0.1631
+  },
+  "counting": {
+   "acc": 0.9914,
+   "modal_null_foldweighted": 0.9811,
+   "lift": 0.0103
+  },
+  "localization": {
+   "acc": 0.9352,
+   "modal_null_foldweighted": 0.7805,
+   "lift": 0.1547
+  },
+  "parallelization": {
+   "acc": 0.5088,
+   "modal_null_foldweighted": 0.6709,
+   "lift": -0.1621
+  },
+  "approx_counting": {
+   "acc": 0.9695,
+   "modal_null_foldweighted": 0.9683,
+   "lift": 0.0012
+  },
+  "parameterized": {
+   "acc": 0.8504,
+   "modal_null_foldweighted": 0.737,
+   "lift": 0.1135
+  },
+  "approx_maxones": {
+   "acc": 0.7328,
+   "modal_null_foldweighted": 0.5167,
+   "lift": 0.2161
+  },
+  "approx_minones": {
+   "acc": 0.6916,
+   "modal_null_foldweighted": 0.5167,
+   "lift": 0.1749
+  }
+ },
+ "headline": {
+  "hamming": 0.828,
+  "hamming_null_per_charge": 0.7441,
+  "hamming_lift": 0.084,
+  "exact_profile": 0.183,
+  "exact_null_joint_modal": 0.2186,
+  "exact_lift": -0.0356
+ },
+ "per_flag_recovery": {
+  "0valid": {
+   "acc": 0.9848,
+   "modal_null_foldweighted": 0.3057
+  },
+  "1valid": {
+   "acc": 1.0,
+   "modal_null_foldweighted": 0.1159
+  },
+  "horn": {
+   "acc": 0.7488,
+   "modal_null_foldweighted": 0.8988
+  },
+  "dualhorn": {
+   "acc": 0.7267,
+   "modal_null_foldweighted": 0.8988
+  },
+  "bijunctive": {
+   "acc": 0.82,
+   "modal_null_foldweighted": 0.9106
+  },
+  "affine": {
+   "acc": 0.9914,
+   "modal_null_foldweighted": 0.9811
+  },
+  "width2affine": {
+   "acc": 0.9951,
+   "modal_null_foldweighted": 0.9843
+  },
+  "strongly0valid": {
+   "acc": 0.9971,
+   "modal_null_foldweighted": 0.9541
+  },
+  "IHSB": {
+   "acc": 0.8777,
+   "modal_null_foldweighted": 0.9224
+  },
+  "general_wsep": {
+   "acc": 0.821,
+   "modal_null_foldweighted": 0.9293
+  }
+ },
+ "error_geography_by_boundary_distance": {
+  "1": {
+   "n": 2790,
+   "hamming": 0.8094,
+   "exact": 0.2437
+  },
+  "2": {
+   "n": 1120,
+   "hamming": 0.8679,
+   "exact": 0.0295
+  },
+  ">2": {
+   "n": 162,
+   "hamming": 0.8735,
+   "exact": 0.1975
+  }
+ },
+ "arithmetic_closure": {
+  "clean_run": false,
+  "dropped_moments": [],
+  "leak_identity": "weight_mean * n_tuples = S(strict bins) + arity * w_arity -> w_arity, then w_0, EXACT"
+ }
+}

@@ -146,5 +146,32 @@
     "THE COVERAGE WALL: the objective axis is one charge wide (C1 + C2). A grid whose treatment is the objective has a 1-charge x 2-level design space on this universe.",
     "THE DETERMINISM: the synthetic universe cannot test the bridge, because there the bridge is a theorem (C3). This re-centers the program \u2014 the empirical bridge question lives entirely on the natural side."
   ],
-  "unchanged": "Frozen bytes byte-identical: atlas 6d53a4f1, atlas_v2 784f4739, atlas_v3 e62f3c28, anatomy_v1 8ff11f8a, mosaic-locality 4c7ef94c. All prior bets stand as scored. Nothing rescores."
+  "unchanged": "Frozen bytes byte-identical: atlas 6d53a4f1, atlas_v2 784f4739, atlas_v3 e62f3c28, anatomy_v1 8ff11f8a, mosaic-locality 4c7ef94c. All prior bets stand as scored. Nothing rescores.",
+  "G2_amendment_membership_vs_closure": {
+    "sealed": "2026-07-25, at G2, AFTER the clean run existed. Amendment to prediction A1's SCOPE.",
+    "why_this_is_typing_and_not_negotiation": {
+      "what_the_seal_protects": "that the scored claim was not reshaped to fit the numbers.",
+      "test_1_named_in_advance": "the membership/closure distinction was named by the owner BEFORE the clean run existed \u2014 the first leak report's ruling called 0valid/1valid 'single-tuple membership facts, not closure properties... calling them algebra is a category error'. On the record prior to these numbers.",
+      "test_2_forced_not_chosen": "the channel is SEMANTIC: if all-ones is in R it is the unique MAXIMUM under <=, so n_maximal_tuples collapses to 1 (98.5% concordance; symmetric for all-zeros / n_minimal_tuples). Any faithful description of a tuple-set's order structure sees single-tuple membership. No honest surface feature set can blind itself to membership without gutting itself.",
+      "test_3_verdict_neutral": "closure properties were the MISS before reclassification and after. The amendment changes what the SCOPE SENTENCE says, never which way any scored number points.",
+      "the_rejected_alternative": "deleting features until a genuinely surface-visible fact became invisible would MANUFACTURE blindness to preserve a mis-drawn line \u2014 the instrument lying about what surfaces show."
+    },
+    "the_amendment": {
+      "algebra_claim_covers": [
+        "horn",
+        "dualhorn",
+        "bijunctive",
+        "affine",
+        "width2affine",
+        "IHSB",
+        "general_wsep"
+      ],
+      "reclassified_as_positive_control": [
+        "0valid",
+        "1valid"
+      ],
+      "what_the_control_buys": "membership recovered at 0.983/1.000 BESIDE closure at uniformly <= null PROVES the pipeline CAN learn what surfaces show. The closure miss is therefore a TYPE BOUNDARY, not a broken fit \u2014 the strongest form a negative result can take."
+    },
+    "null_correction": "per-charge and per-flag nulls are now FOLD-WEIGHTED (train-fold mode applied to the test fold), the achievable baseline. The global modal share is not achievable by a model that only sees training data; quoting it mis-denominates the comparison (defect-#15's cousin). Effect: exact-profile moved from below-null to AT-null (0.2171 vs 0.2186) \u2014 the earlier 'actively below null' reading was partly leak artifact. Closure negatives SURVIVE fold-weighting because their nulls are ~90/10 imbalanced and barely moved."
+  }
 }
