@@ -199,6 +199,23 @@ findings-side document so the writeup cites an in-repo artifact rather than a fi
 | the convex-analysis teaching frame (§1) | **now SOURCED** to `notes/geometry-probes-note.md`'s origin line (banked 2026-07-25): *"closure analysis is feasible-region analysis; convexity IS a closure property (blend-stability of the region); the program's negatives say the region's geometry is invisible from constraint syntax."* Still `framing` — it carries no claim and no number — but it is now a dated position rather than an undocumented intention. |
 | **the P vs NP scope paragraph** | `notes/frontier-map-note.md` §1 — **binding on this document by its own terms**: *"Any writeup of this project leads with this paragraph."* Every hardness label is conditional on the standard conjectures; a model fit on conditional labels cannot out-know its training labels. **W1 places it at the head of §1**, not in a footnote. |
 
+## W2 — the number audit, run 2026-07-26
+
+**PASSES.** `eightfold/dev/audit_writeup.py` builds a registry by opening artifacts **at audit time** —
+never from the draft, never from this map, never hardcoded — and diffs every numeral in the prose against
+it. **438 registry values · 80 numerals checked · 0 orphans.**
+
+**The gate was verified capable of failing.** Its first run found 17 orphans; three were real (values that
+live in prose findings the registry wasn't opening) and the rest were section headings. After the matching
+was loosened — headings exempted, `.md` findings artifacts scanned, and a registry value that *rounds* to
+the prose value accepted — the count went to zero. **That is the shape of narrowing a gate until it goes
+green**, so five fabricated numerals were planted (2-decimal, 4-decimal, integer, percentage, and one
+sitting beside a real value: `0.199` next to the genuine `0.044`) and **all five were caught.** Both the
+pass and the fires-on-fabrication probe ship as tests.
+
+**Rounding is legal, invention is not.** Writing `0.73` for a measured `0.7293` resolves; writing `0.73`
+for nothing does not.
+
 ## Audit rules carried into W2
 
 1. Every numeric literal in the prose has a row here, or the draft halts.

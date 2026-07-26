@@ -345,3 +345,42 @@ def test_presentation_audit_is_posable_only_where_the_oracle_matches_the_objecti
     npos = [r for r in d["rows"] if r["verdict"] == "NOT-POSABLE"]
     assert npos and all(r["stratum"] == "vcsp-shaped" for r in npos)
     assert d["result"]["agree"] + d["result"]["disagree"] == d["scope"]["posable"]
+
+
+# ── W2: the write-up number audit ─────────────────────────────────────────────────────────────────────
+
+def _run_audit():
+    import subprocess, sys, os
+    env = dict(os.environ, PYTHONPATH="eightfold:foundry:hardmap:proof-census:desert-map")
+    return subprocess.run([sys.executable, "eightfold/dev/audit_writeup.py"],
+                          capture_output=True, env=env, text=True, cwd=str(ATLAS.parents[3]))
+
+
+def test_writeup_number_audit_passes():
+    """W2 gate: every numeral in the draft resolves to a value extracted live from an artifact.
+    An orphan is a halt, not a footnote."""
+    r = _run_audit()
+    assert r.returncode == 0, f"W2 FAILS — orphan numerals in the draft:\n{r.stdout[-2000:]}"
+
+
+def test_writeup_number_audit_actually_fires():
+    """THE GATE MUST BE ABLE TO FAIL. The audit went from 17 orphans to 0 after its matching was
+    loosened (headings exempted, prose artifacts scanned, rounding allowed) — which is the exact shape
+    of narrowing a gate until it goes green. So: plant fabricated numerals of several shapes, including
+    one sitting right beside a real value, and assert each is caught."""
+    from pathlib import Path
+    d = ATLAS.parents[3] / "eightfold" / "docs" / "paper" / "hardmap-program-v1.md"
+    orig = d.read_text(encoding="utf-8")
+    probes = ["The coupling reads **0.61** on the invented population.",
+              "The model recovers **+0.0417** on the invented set.",
+              "The census covers **7431** invented records.",
+              "The lookup scores **88.12%** on the invented holdout.",
+              "Jaccard spans **0.044 to 0.199** across all cells."]
+    try:
+        for line in probes:
+            d.write_text(orig + "\n\n" + line + "\n", encoding="utf-8")
+            r = _run_audit()
+            assert r.returncode != 0, f"the audit did NOT fire on a fabricated numeral: {line}"
+    finally:
+        d.write_text(orig, encoding="utf-8")
+    assert d.read_text(encoding="utf-8") == orig, "probe did not restore the draft"
