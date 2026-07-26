@@ -101,3 +101,40 @@ before looking.
 
 **None of the above is a result.** Each is a question with an artifact behind it, waiting for a design that
 states its prediction first.
+
+---
+
+# Appended 2026-07-26 — from the v3 widened + ramped survey
+
+## Q6 — the puzzle regime is unmeasurable, and that is a property of the object
+
+`sudoku`'s ramp runs on **constraint removal**. At 12 clues the region collapses below blendability and the
+step records `GAP-no-region`; at 6 clues r = 3 and every flavour reads exactly 1.0 against a control of
+exactly 1.0 — **excess 0.0000, and both sides saturated**. Measurable readings begin only at 2 clues
+(r = 28) and the blank board (r = 288).
+
+The bankable observation is about the instrument, not the object: **a region small enough to be a puzzle is
+too small to have measurable geometry.** Whether that is a limitation of this probe or a fact about
+puzzle-shaped regions is not answered here and is not guessed at.
+
+*Pre-emptive note, recorded per directive: the moderate-violation expectation from the colouring analysis
+is a **prior, not a prediction**. The readings are what they are.*
+
+## Q7 — 160 of 528 readings are INSUFFICIENT-r, and they are not randomly placed
+
+They concentrate at the hard end of optimal-region ramps. This is round 2's entanglement finding appearing
+a third time, now with a trajectory shape rather than a single cross-section: **as difficulty rises the
+optimal set shrinks, and the statistic runs out of region before the ramp runs out of steps.**
+
+The question for a later design: is there a region definition between *feasible* and *optimal* — near-
+optimal within a declared slack — that preserves optimisation semantics while surviving the hard end of a
+ramp? Not a statistical question; a question about what an optimisation row's region *should be*.
+
+## Q8 — 39 unforced exact-zeros now, up from 4
+
+The v2 column had 4 after flag correction. The widened column has **39**, because the new rows are almost
+all Marrow-excluded and their forcedness is therefore `null` — underivable, not false.
+
+**This is the zero-hunt's input and is deliberately not adjudicated here.** Recorded so the count's growth
+is visible and attributable: it grew because coverage grew into territory where the derivation cannot see,
+not because the instrument got noisier.

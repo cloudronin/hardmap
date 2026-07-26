@@ -1,0 +1,75 @@
+{
+ "schema": "sounding-v3-track1-census/v1",
+ "STATUS": "CENSUS \u2014 the record of what built and what did not, either way",
+ "note": "boxed at the census per directive; expensive enumerators were not forced",
+ "built": [
+  {
+   "row": "set-cover",
+   "marrow_excluded": true,
+   "enumeration": "subsets of a 3-set system over 9 elements",
+   "cost": "<0.02s"
+  },
+  {
+   "row": "hitting-set",
+   "marrow_excluded": true,
+   "enumeration": "subsets of a 10-element universe",
+   "cost": "<0.01s"
+  },
+  {
+   "row": "feedback-vertex-set",
+   "marrow_excluded": true,
+   "enumeration": "vertex subsets + acyclicity check, n=10",
+   "cost": "<0.01s"
+  },
+  {
+   "row": "odd-cycle-transversal",
+   "marrow_excluded": true,
+   "enumeration": "vertex subsets + bipartiteness check, n=10",
+   "cost": "<0.01s"
+  },
+  {
+   "row": "independent-dominating-set",
+   "marrow_excluded": true,
+   "enumeration": "vertex subsets, n=10",
+   "cost": "<0.01s"
+  },
+  {
+   "row": "knapsack",
+   "marrow_excluded": true,
+   "enumeration": "item subsets, n=14",
+   "cost": "<0.02s"
+  },
+  {
+   "row": "sharp-monotone-2sat",
+   "marrow_excluded": false,
+   "enumeration": "assignments, n=12",
+   "cost": "<0.01s"
+  },
+  {
+   "row": "sudoku",
+   "marrow_excluded": true,
+   "in_atlas": false,
+   "enumeration": "all 288 valid Shidoku grids, enumerated once and VERIFIED against the known count of 288 by an independent validator",
+   "cost": "<0.1s",
+   "note": "the survey's first |D|=4 row and its first ramp on CONSTRAINT REMOVAL rather than instance size"
+  }
+ ],
+ "deferred_cost": [
+  {
+   "row": "one-in-three-sat",
+   "why": "the exact-one constraint over-constrains at every clause density tried in the census window; solution sets came back empty (r=0). Tunable in principle, not forced here.",
+   "status": "deferred-cost"
+  },
+  {
+   "row": "sudoku-9x9",
+   "why": "81 cells over a 9-value domain; full enumeration is out of reach and low-clue sampling was not attempted inside this box. Per directive, not forced.",
+   "status": "deferred-cost"
+  }
+ ],
+ "totals": {
+  "attempted": 10,
+  "built": 8,
+  "deferred_cost": 2,
+  "marrow_excluded_built": 7
+ }
+}
