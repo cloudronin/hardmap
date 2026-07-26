@@ -31,8 +31,10 @@ existed. Resolutions ruled 2026-07-26:
   *"26 numbered entries, 6–31, five predating the ledger."*
 - **§7's obligations were never copied into the repo** — they live in the Mosaic v3 and Strata v2 specs.
   W1 lands them as a findings artifact so the writeup cites in-repo.
-- **Two banked notes (geometry probes, frontier map) exist only as chat-generated files off-repo.** §6
-  describes them as banked-in-conversation until they land as dated commits.
+- ~~Two banked notes exist only off-repo~~ — **resolved 2026-07-26**: both landed in
+  `eightfold/docs/notes/` with a README making banked-idea status structural. §6 cites them directly. Two
+  W0 dispositions changed as a result: the convex frame and the hard-pole certificate are now **sourced**
+  (see the map).
 
 ## Outline
 
@@ -40,8 +42,11 @@ existed. Resolutions ruled 2026-07-26:
 The two-table design: charge atlas = **fate** (cited facts about the literature), Anatomy = **what a
 problem is**; the bridge between them as the research object. The founding law — *structure never enters
 the charge table, and no charge value informs a structure cell* — and why it is a law rather than a
-convention. The convex-analysis teaching frame enters here as declared exposition
-(`framing`, origin owner exchange 2026-07-25) — it carries no claim and no number.
+convention. **§1 opens with the P vs NP scope paragraph** — `notes/frontier-map-note.md` §1 is binding on
+this document by its own terms (*"any writeup of this project leads with this paragraph"*): every hardness
+label is conditional on the standard conjectures, and a model fit on conditional labels cannot out-know its
+training labels. The convex-analysis teaching frame then enters as declared exposition, now sourced to
+`notes/geometry-probes-note.md`'s dated origin line — it carries no claim and no number.
 *Evidence class: design, not measurement. Sources are the sealed schemas.*
 
 ### §2 — The artifacts
@@ -91,9 +96,10 @@ now running in CI (`hardmap verify`, 10/10). Written as the most durable section
 
 ### §6 — Open instruments and the standing state
 The prospective registry (design, 0/57, the mechanism-attribution rules); the two-verdict stack; and the
-banked directions — now including **the hard-pole certificate** recut out of §3, carried at survey
-confidence with an explicit *pin-before-leaning* flag. Geometry probes and the frontier map are described
-as banked-in-conversation until they land as dated commits. Closes on the honest sentence: **the mechanism
+banked directions, all three now in-repo and citable: **the hard-pole certificate** recut out of §3
+(`notes/geometry-probes-note.md` §3.1, reserved-not-built, *pin-before-leaning*), the **geometry probes**
+whose Boolean qualification study is the one executable thread, and the **frontier map** behind its
+post-grid gate. Closes on the honest sentence: **the mechanism
 question now lives exclusively prospectively.**
 
 ### §7 — Related work — **sourced to the specs, not the repo**

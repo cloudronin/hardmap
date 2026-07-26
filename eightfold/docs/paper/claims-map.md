@@ -129,8 +129,9 @@ Three links, all verified 2026-07-26:
 | registry at 0/57, mechanism-attribution rules | `grid-prospective-registry.json`, `grid_registry.py` | SOURCED |
 | the two-verdict stack | `terroir-v1-findings.md` §6, `marrow-i0-census.md` §7 | SOURCED |
 | frontier map | `arm-a-surface-vs-closure.md` | NEEDS-EXTRACTION |
-| **hard-pole certificate** (Austrin–Mossel: pairwise-independent support ⇒ approximation resistance) | recut from assertion 7 | **BANKED — survey confidence, never pinned. PIN BEFORE ANY CLAIM LEANS ON IT.** Note not in-repo. |
-| **geometry probes** · **frontier map** | chat-generated notes on the owner's side | **BANKED-IN-CONVERSATION** — §6 describes them as such until they land as dated commits, then cites them |
+| **hard-pole certificate** — reserved column `pairwise_independent_support` | `notes/geometry-probes-note.md` §3.1 (banked 2026-07-25) | **BANKED, SOURCED.** The note states the condition (Austrin–Mossel: satisfying assignments supporting a balanced pairwise-independent distribution ⇒ approximation-resistant), its finite-LP checkability, the UGC/Raghavendra upgrade path, and the expander generator. **Status in the note: "reserved, not built."** Cite as a banked direction; **pin before any claim leans on it.** |
+| **geometry probes** (A: blend-violation · B: relaxation tightness) | `notes/geometry-probes-note.md` | **BANKED, SOURCED.** §4's Boolean qualification study is the one executable thread; unrun. |
+| **frontier map** | `notes/frontier-map-note.md` (banked 2026-07-24) | **BANKED, SOURCED.** Post-grid gate; unspecced. |
 
 ## §7 — Related work — sourced to the SPECS, not the repo
 
@@ -159,7 +160,8 @@ findings-side document so the writeup cites an in-repo artifact rather than a fi
 
 | item | disposition |
 |---|---|
-| the convex-analysis teaching frame (§1) | `framing (origin: owner exchange, 2026-07-25)` — **no artifact required, no claim rides on it.** The governing law binds claims and numbers; expository frames may be new prose. |
+| the convex-analysis teaching frame (§1) | **now SOURCED** to `notes/geometry-probes-note.md`'s origin line (banked 2026-07-25): *"closure analysis is feasible-region analysis; convexity IS a closure property (blend-stability of the region); the program's negatives say the region's geometry is invisible from constraint syntax."* Still `framing` — it carries no claim and no number — but it is now a dated position rather than an undocumented intention. |
+| **the P vs NP scope paragraph** | `notes/frontier-map-note.md` §1 — **binding on this document by its own terms**: *"Any writeup of this project leads with this paragraph."* Every hardness label is conditional on the standard conjectures; a model fit on conditional labels cannot out-know its training labels. **W1 places it at the head of §1**, not in a footnote. |
 
 ## Audit rules carried into W2
 
@@ -172,6 +174,11 @@ findings-side document so the writeup cites an in-repo artifact rather than a fi
 5. `UNSOURCED` blocks the claim, not merely its citation.
 6. **Two statistics that answer different questions never share a sentence** — assertion 2's 0.0 and 0.10
    are the standing example.
-7. **Chat is not an artifact.** A claim whose only provenance is a conversation summary is UNSOURCED by
+7. **Chat is not an artifact.** (Standing law across all W-milestones, ruled 2026-07-26.) A claim whose only provenance is a conversation summary is UNSOURCED by
    definition, however confidently stated and whoever stated it. Three of nine assertion-candidates entered
    that way and were caught here; see methods instance 32.
+8. **A banked note is a dated position, never evidence** — and a fill route a note describes as "pinned"
+   is *proposed*. The Bridge Ledger is the sole authority on what is pinned. `geometry-probes-note.md`
+   §3.1 calls Austrin–Mossel "the PINNED bridge citation"; it is **not** in the ledger's 15 rows, and the
+   ledger's own `§5.approximation` is UNPINNED. The note describes its intended fill route, which is
+   legitimate for a note and would be a defect in a claim.
