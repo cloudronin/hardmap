@@ -631,3 +631,40 @@ cannot test the bridge hypothesis because there it is not a hypothesis. The empi
 lives entirely on the natural side, where charges are *cited facts about the literature* rather than
 computed functions of structure — which inverts the rev-3 design, promoting its banked sideshow to the main
 event. **That inversion is a discovery about the question, not a concession.**
+
+---
+
+## Instance 22 — 2026-07-25 — two encoder bugs, both in the MISS direction, and the symmetry that completes
+
+Arm B's first run reported `decision` at **+0.009** — a clean, tidy, unremarkable miss. It was a bug wearing
+a verdict.
+
+**Bug 1 — hash-encoded categoricals into a threshold-splitting tree.** Categories were mapped by
+`abs(hash(v)) % 997` and fed to a CART, which splits on `x <= t`. That imposes an **arbitrary total order on
+unordered categories**, so every split fell on noise and real signal died. Fixed to one-hot.
+**THE FIX CHANGED THE ANSWER: decision went +0.009 → +0.068**, and the corrected lift survives a within-fold
+permutation null at p = 0.0033. The first run would have been published as a miss.
+
+**Bug 2 — the encoder broke seed discipline, below where anyone was looking.** Python's string hash is
+randomised per process: the same category coded to **592 / 475 / 278** across three runs. The model seed was
+fixed, the fold assignment was hash-ordered and deterministic, the bootstrap was seeded — and the *encoder*
+silently wasn't. That result could never have been re-derived, by us or anyone.
+
+**New permanent rule:** *reproducibility checks must reach the ENCODER layer, not stop at the model seed.*
+A pipeline is reproducible only if every stage between raw data and fitted model is — and the encoder is the
+stage most likely to be assumed rather than checked. The corrected run is verified identical across two
+different `PYTHONHASHSEED` values.
+
+### The symmetry, and why it is the entry's real content
+
+The ledger has now recorded bugs that would have manufactured **hits** — the averaged-per-class V that read
+0.797 (defect #15), rev-3's P4 lookup with its 100% ceiling (instance 21), the arithmetic flag leak that
+recovered `1valid` at exactly 1.0000 (Arm A) — and now bugs that manufactured **misses**: both of these.
+
+> **Scoring honesty in both directions is only demonstrated once the ledger contains errors caught in both
+> directions.** Until this instance it contained one direction, and a discipline that only ever catches
+> flattering errors is indistinguishable from pessimism.
+
+**The tell was the same both times: the number was too tidy.** `1.0000` recovery is not learning, it is
+reading; `+0.009` on a designed-for signal is not a null, it is a dead encoder. **A number that lands exactly
+where a bug would put it deserves the same suspicion as one that lands exactly where a hypothesis would.**

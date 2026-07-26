@@ -1,0 +1,221 @@
+{
+ "schema": "bridge-table/v1",
+ "date": "2026-07-25",
+ "purpose": "The program's product: the bridge between anatomy and charges. PROVEN cells and MEASURED cells are MECHANICALLY DISTINGUISHED -- a theorem and a regression are not the same kind of object, and a table that blurs them is the thing this program exists not to produce.",
+ "status_vocabulary": {
+  "PROVEN-NETTED": "a pinned theorem (Bridge Ledger, I3-verified). Not testable; a known-answer calibration cell.",
+  "PROVEN-ISLAND": "proven on a restricted class; only off-island extrapolation is testable.",
+  "UNPINNABLE": "no single theorem statement carries the claim as stated. Legal terminal status.",
+  "MEASURED": "this program's own out-of-sample result. Never upgraded to PROVEN by any accuracy.",
+  "OPEN": "neither proven nor measured."
+ },
+ "cells": [
+  {
+   "feature": "bounded treewidth",
+   "charge": "decision",
+   "status": "PROVEN-NETTED",
+   "warrant": "Courcelle 1990 Prop 4.14 (CMSO2, decomposition GIVEN, non-elementary constant); Grohe 2007 JACM 54(1) for the bounded-arity CSP characterization (NOT 'Grohe-Marx')",
+   "ledger": "\u00a71.decision"
+  },
+  {
+   "feature": "bounded treewidth",
+   "charge": "counting",
+   "status": "PROVEN-NETTED",
+   "warrant": "Courcelle-Mosbah 1993 + ALS 1991 (treewidth side, inherited); CMR 2001 DAM 108 Thm 32 as the modern statement. NOT 'enumeration' -- counting/evaluation only (CMR fn.4)",
+   "ledger": "\u00a71.counting"
+  },
+  {
+   "feature": "bounded treewidth",
+   "charge": "parallelization",
+   "status": "PROVEN-NETTED",
+   "warrant": "Bodlaender-Hagerup: MSO decision in O(log n) CRCW BYPASSING the decomposition; the optimal-speedup construction is O((log n)^2) EREW. Decision-only, nonconstructive",
+   "ledger": "\u00a71.parallelization"
+  },
+  {
+   "feature": "bounded treewidth",
+   "charge": "parameterized",
+   "status": "PROVEN-NETTED",
+   "warrant": "the SAME Courcelle theorem as \u00a71.decision -- ONE calibration point, not two",
+   "ledger": "\u00a71.parameterized-tw",
+   "duplicate_of": "\u00a71.decision"
+  },
+  {
+   "feature": "planarity / minor-exclusion",
+   "charge": "approximation",
+   "status": "PROVEN-ISLAND",
+   "warrant": "Baker 1994 (PLANAR only, 7 named problems); minor-free needs Eppstein 2000 / Grohe 2003 / DHK 2005. Ceiling NOT uniform: minor-bidim -> H-minor-free, contraction-bidim -> APEX-minor-free",
+   "ledger": "\u00a72.approximation"
+  },
+  {
+   "feature": "planarity / minor-exclusion",
+   "charge": "parameterized",
+   "status": "PROVEN-ISLAND",
+   "warrant": "2^O(sqrt k) via the shared grid-theorem engine; DFHT's GENERAL theorem is bounded-genus, not H-minor-free; side condition h(w)=2^{o(w^2)}",
+   "ledger": "\u00a72.parameterized"
+  },
+  {
+   "feature": "planarity",
+   "charge": "counting",
+   "status": "PROVEN-NETTED",
+   "warrant": "planar PERFECT matchings (FKT/Kasteleyn 1967 + Csanky 1976 + Vazirani 1989). NOT 'planar matchings' -- that is #P-complete (Jerrum 1987)",
+   "ledger": "\u00a72.counting"
+  },
+  {
+   "feature": "engine type (polymorphisms)",
+   "charge": "decision",
+   "status": "PROVEN-NETTED",
+   "warrant": "SD(^) characterization: sufficiency Barto-Kozik JACM 2014, NECESSITY Larose-Zadori 2007. Finite core + all singletons. 'bounded width <=> local consistency' is the DEFINITION, not the theorem",
+   "ledger": "\u00a73.decision"
+  },
+  {
+   "feature": "engine type",
+   "charge": "approximation",
+   "status": "OPEN",
+   "warrant": "Ledger \u00a73 prime real estate; UNSPENT (bet_history exposure NONE)",
+   "ledger": "\u00a73.approximation"
+  },
+  {
+   "feature": "engine type",
+   "charge": "parameterized",
+   "status": "OPEN",
+   "warrant": "as above",
+   "ledger": "\u00a73.parameterized"
+  },
+  {
+   "feature": "FO-definability + sparsity",
+   "charge": "decision/parameterized",
+   "status": "PROVEN-ISLAND",
+   "warrant": "Frick-Grohe 2001; Flum-Grohe",
+   "ledger": "\u00a74.fo_sparse"
+  },
+  {
+   "feature": "FO-definability (X-positive/negative)",
+   "charge": "approximation",
+   "status": "PROVEN-ISLAND",
+   "warrant": "Dawar-Grohe-Kreutzer-Schweikardt LICS 2006 Thm 1 (EPTAS). Does NOT extend to MSO",
+   "ledger": "\u00a74.fo_minor_free"
+  },
+  {
+   "feature": "expansion",
+   "charge": "proof_size",
+   "status": "PROVEN-NETTED",
+   "warrant": "Ben-Sasson-Wigderson size-width tradeoff on Tseitin/expanders",
+   "ledger": "\u00a75.proof_size"
+  },
+  {
+   "feature": "expansion",
+   "charge": "approximation",
+   "status": "UNPINNABLE",
+   "warrant": "Dinur's preprocessing MANUFACTURES the expansion hypothesis on ANY constraint graph, so it cannot discriminate rows. Reverted to OPEN",
+   "ledger": "\u00a75.approximation"
+  },
+  {
+   "feature": "kernel status",
+   "charge": "parameterized",
+   "status": "PROVEN-NETTED",
+   "warrant": "FPT <=> some kernel, for DECIDABLE non-trivial problems; g(k) arbitrary computable, so NO efficiency content. The informative residual is poly vs no-poly WITHIN FPT",
+   "ledger": "\u00a76.kernel"
+  },
+  {
+   "feature": "algebraic self-reducibility",
+   "charge": "average_case",
+   "status": "PROVEN-ISLAND",
+   "warrant": "Ajtai worst-to-average is ONE-DIRECTIONAL, approximation versions, engineered distribution; permanent RSR needs |F|>=deg+2",
+   "ledger": "\u00a77.self_reducibility"
+  },
+  {
+   "feature": "OGP",
+   "charge": "landscape",
+   "status": "UNPINNABLE",
+   "warrant": "ensemble-typed not row-typed; excludes stable algorithms, not P",
+   "ledger": "\u00a77.ogp"
+  },
+  {
+   "feature": "surface combinatorics",
+   "charge": "closure properties (horn/dualhorn/bijunctive/affine/w2affine/IHSB/gen_wsep)",
+   "status": "MEASURED",
+   "result": "MISS \u2014 all at or below fold-weighted null (worst dualhorn -0.171)",
+   "source": "Arm A, prereg_v12 A1",
+   "n": 4072,
+   "note": "surfaces see what a problem CONTAINS, not what it is CLOSED UNDER"
+  },
+  {
+   "feature": "surface combinatorics",
+   "charge": "single-tuple membership (0valid/1valid)",
+   "status": "MEASURED",
+   "result": "HIT 0.983/1.000 \u2014 the POSITIVE CONTROL proving the pipeline can learn what surfaces show",
+   "source": "Arm A, G2 amendment",
+   "n": 4072,
+   "note": "makes the closure miss a TYPE BOUNDARY, not a broken fit"
+  },
+  {
+   "feature": "Anatomy coordinates (natural)",
+   "charge": "decision",
+   "status": "MEASURED",
+   "result": "WEAK POSITIVE +0.0684 over fold-weighted null; permutation p=0.0033, passes Bonferroni",
+   "source": "Arm B, prereg_v12 B1",
+   "n": 336,
+   "interpretation": "UNRESOLVED between family-level regularity and a genuine weak bridge; this run does not separate them"
+  },
+  {
+   "feature": "Anatomy coordinates (natural)",
+   "charge": "approximation",
+   "status": "MEASURED",
+   "result": "MISS +0.0065",
+   "n": 154,
+   "source": "Arm B"
+  },
+  {
+   "feature": "Anatomy coordinates (natural)",
+   "charge": "counting",
+   "status": "MEASURED",
+   "result": "MISS 0.0000 (collapsed to mode)",
+   "n": 51,
+   "source": "Arm B"
+  },
+  {
+   "feature": "Anatomy coordinates (natural)",
+   "charge": "parameterized",
+   "status": "MEASURED",
+   "result": "MISS -0.0465 (below null)",
+   "n": 129,
+   "source": "Arm B"
+  },
+  {
+   "feature": "locality_class (coded)",
+   "charge": "approximation",
+   "status": "MEASURED",
+   "result": "V=0.55 [0.46,0.67] pooled-111",
+   "source": "Mosaic P2 / Quarry v2"
+  },
+  {
+   "feature": "locality_class (coded)",
+   "charge": "parameterized",
+   "status": "MEASURED",
+   "result": "V=0.23 \u2014 the two-property SPLIT",
+   "source": "Mosaic P2 / Quarry v2"
+  },
+  {
+   "feature": "locality_class (coded)",
+   "charge": "approx<->param coupling",
+   "status": "MEASURED",
+   "result": "2-class absorption POWERED MISS (uncond 0.283 -> cond 0.453, shrinkage -0.60); 3-class INSUFFICIENT-terminal",
+   "source": "prereg_v13"
+  },
+  {
+   "feature": "kernel_status",
+   "charge": "locality_class",
+   "status": "MEASURED",
+   "result": "V=0.28 \u2014 weakly independent second axis",
+   "source": "Mosaic P6"
+  }
+ ],
+ "counts": {
+  "PROVEN-NETTED": 8,
+  "PROVEN-ISLAND": 4,
+  "UNPINNABLE": 2,
+  "OPEN": 2,
+  "MEASURED": 10
+ },
+ "law": "A MEASURED cell is NEVER upgraded to PROVEN by any accuracy, and a PROVEN cell is never 'confirmed' by a measurement that agrees with it. They answer different questions."
+}
