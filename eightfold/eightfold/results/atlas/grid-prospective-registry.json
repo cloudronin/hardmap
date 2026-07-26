@@ -299,5 +299,18 @@
    "status": "NOT the scored gate. The full confusion table is a DESCRIPTIVE output and is declared INSUFFICIENT until n>=246 \u2014 likely unreachable at realistic wave sizes, and stated as such. Same shape as decomposition_facts: coverage and usability are different gates with different answers; conflating them would either block the test forever or wave through a table that cannot support cells."
   },
   "UPDATE_RULE": "Recompute at each wave close from the registry's REALIZED class spread. MONOTONE APPLICATION: the threshold may RISE but is NEVER RELAXED after any grading has occurred. A threshold that can fall once results exist is not a threshold."
+ },
+ "mechanism_scope": "THE REGISTRY CERTIFIES FORESIGHT; THE WITHIN-FAMILY ANALYSIS CERTIFIES ANATOMY. A registry hit at the floor can still be family-regularity riding prospective rails -- prediction-honest, MECHANISM-AMBIGUOUS. The eventual scoring report therefore carries BOTH instruments, or claims only what the one it has can carry. Sealed 2026-07-25, before any wave ran; it prevents the only overclaim this design still permits.",
+ "next_sealed_work_item": {
+  "name": "anatomy-vs-sociology probe",
+  "status": "APPROVED, not yet sealed",
+  "why": "the designed discriminator for Arm B's unresolved split (family-level regularity vs a genuine weak bridge)",
+  "shape_fixed": [
+   "rerun decision's fit under encoding_type ABLATION",
+   "missingness-pattern neutralization",
+   "canon-proximity covariates from the QUARANTINED sociology sidecar (source_funnel, compendium/rn membership)",
+   "within-family residual test on the largest families, INSUFFICIENT declared where n fails"
+  ],
+  "cost": "no new instruments, no new columns \u2014 the sidecar was built for exactly this regression"
  }
 }

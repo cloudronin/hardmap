@@ -129,5 +129,22 @@
    "n": 24
   }
  },
- "prediction_sha256": "cc5bb3895a44a043c4b49c3344b5bda75a5bbb4d314220261ac07e646723f888"
+ "prediction_sha256": "cc5bb3895a44a043c4b49c3344b5bda75a5bbb4d314220261ac07e646723f888",
+ "extremal_acknowledged": [
+  {
+   "stat": "per_charge.counting.lift_with",
+   "value": 0.0,
+   "why": "The tree found NO SPLIT WORTH MAKING at n=51, so it collapsed to the modal baseline and the lift is identically zero. An exact zero here means 'no split found', NOT 'structure is irrelevant' \u2014 n=51 with an 86% modal class is thin enough that no split clears the impurity gain threshold."
+  },
+  {
+   "stat": "per_charge.counting.lift_without",
+   "value": 0.0,
+   "why": "Same collapse-to-mode with locality_class removed; identical for the identical reason."
+  },
+  {
+   "stat": "per_charge.counting.channel_2_locality_dependence",
+   "value": 0.0,
+   "why": "Exactly zero BECAUSE both variants collapsed to the same modal prediction \u2014 locality_class cannot show dependence when neither model made a split. This is the correct reading of a zero here: it is uninformative about channel 2 on this charge, not evidence the channel is closed."
+  }
+ ]
 }

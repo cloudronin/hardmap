@@ -174,7 +174,46 @@ def check_anatomy_passports_complete() -> list[str]:
     return bad
 
 
+def check_suspicious_cleanliness() -> list[str]:
+    """THE TIDY-NUMBER GATE (methods 22, promoted to a check 2026-07-25).
+
+    Twice in one program a bug wore a verdict, and BOTH TIMES THE TELL WAS THE SAME: the number was too
+    tidy. `1.0000` recovery is not learning, it is reading. `+0.009` on a designed-for signal is not a null,
+    it is a dead encoder. So: any headline statistic that is EXACTLY extremal (0.0 / 1.0) or EXACTLY equal
+    to its own stated null gets a mechanical second look BEFORE narration -- in BOTH directions, because a
+    discipline that only catches flattering errors is indistinguishable from pessimism.
+
+    Mechanised where it can be: an exactly-extremal statistic must be ACKNOWLEDGED in its own artifact
+    (an `extremal_acknowledged` entry saying why the exactness is expected). Unacknowledged exactness is a
+    violation. Where it cannot be mechanised, it remains a standing review line."""
+    import json
+    bad, roots = [], []
+    d = _eightfold_atlas()
+    roots.append(d)
+    lat = d.parent.parent.parent / "foundry" / "foundry" / "results" / "lattice"
+    if lat.exists():
+        roots.append(lat)
+    for root in roots:
+        for p in sorted(root.glob("grid_*results*.json")):
+            try:
+                doc = json.loads(p.read_text(encoding="utf-8"))
+            except Exception:  # noqa: BLE001
+                continue
+            ack = {a.get("stat") for a in doc.get("extremal_acknowledged", [])}
+            def walk(node, path):
+                if isinstance(node, dict):
+                    for k, v in node.items():
+                        walk(v, f"{path}.{k}" if path else k)
+                elif isinstance(node, float) and node in (0.0, 1.0):
+                    if not any(path.endswith(a) or a.endswith(path) for a in ack):
+                        bad.append(f"{p.name}: {path} is EXACTLY {node} and is not in "
+                                   f"extremal_acknowledged — tidy-number gate (methods 22)")
+            walk(doc, "")
+    return bad
+
+
 CHECKS = [
+    ("Suspicious cleanliness (tidy-number gate)", check_suspicious_cleanliness),
     ("Anatomy passports complete + bridges pinned", check_anatomy_passports_complete),
     ("Stratified V known-answer gate (defect #15)", check_stratified_v_known_answers),
     ("Cramér's V in [0,1]", check_cramers_v_range),

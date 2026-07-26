@@ -73,9 +73,14 @@ natural arm's result *cannot be*.
 `bridge-table-v1.json` — 27 cells, with **PROVEN and MEASURED mechanically distinguished**: 8 PROVEN-NETTED,
 4 PROVEN-ISLAND, 2 UNPINNABLE, 2 OPEN, 10 MEASURED.
 
-> **A MEASURED cell is never upgraded to PROVEN by any accuracy, and a PROVEN cell is never "confirmed" by a
-> measurement that agrees with it. They answer different questions.** A table that blurs them is the thing
-> this program exists not to produce.
+### The two laws — the artifact's constitution, quoted wherever the table appears
+
+> **1. A MEASURED cell is never upgraded to PROVEN by any accuracy.**
+> **2. A PROVEN cell is never "confirmed" by a measurement that agrees with it.**
+
+They answer different questions. A table that blurs them is the thing this program exists not to produce —
+and these two clauses are the two-atlas program's whole epistemics, which is what makes the 27 cells citable
+without a chaperone.
 
 ## Open, with the next probe named
 

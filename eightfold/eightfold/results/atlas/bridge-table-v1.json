@@ -217,5 +217,10 @@
   "OPEN": 2,
   "MEASURED": 10
  },
- "law": "A MEASURED cell is NEVER upgraded to PROVEN by any accuracy, and a PROVEN cell is never 'confirmed' by a measurement that agrees with it. They answer different questions."
+ "law": "A MEASURED cell is NEVER upgraded to PROVEN by any accuracy, and a PROVEN cell is never 'confirmed' by a measurement that agrees with it. They answer different questions.",
+ "THE_TWO_LAWS": [
+  "A MEASURED cell is never upgraded to PROVEN by any accuracy.",
+  "A PROVEN cell is never 'confirmed' by a measurement that agrees with it."
+ ],
+ "quote_requirement": "These two laws are quoted wherever this table appears. They are its constitution."
 }
