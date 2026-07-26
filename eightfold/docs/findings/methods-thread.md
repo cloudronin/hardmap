@@ -839,3 +839,87 @@ establish. Fixed to the plus-one form `(k+1)/(M+1)` that `_perm_p_gradient` in t
 S1's p becomes `1/1001 = 0.000999`, and the RESIZED verdict and both excess flags are unchanged. **A
 codebase that already contains the correct estimator, one function away, is the cheapest kind of defect to
 find and the easiest kind to walk past.**
+
+---
+
+## Instance 27 — 2026-07-25 — supply is not viability: a kill criterion that passes while its purpose fails
+
+Marrow's Kill 1 asks *"are there ≥ 40 presentable rows?"* The build exists to run Terroir-C, a within-family
+residual test. At the planning estimate those two answers **disagreed**: 82 rows would have cleared the
+floor comfortably while the instrument's minimum detectable effect sat at **+0.10**, against measured
+residuals of **+0.0000** and **+0.0188**. A project can have a population and still have no experiment.
+
+**So the power arithmetic became a second gate, evaluated at M0 beside the census** — and the separation
+paid immediately. The census came in at **34** (Kill 1 fires), but Terroir-C's verdict is *stronger and
+more robust* than Kill 1's: it fails under **every** admission reading, for three independent structural
+reasons — zero families reaching n = 30, a stratum that is **constant** on the target charge (18/18 NPC),
+and a fold key that cannot produce 5 non-trivial folds from 2 substantive families.
+
+**The generalizable rule:** *a kill criterion on SUPPLY does not certify VIABILITY, and the two must be
+evaluated separately.* This is the coverage-vs-usability split (`Anatomy-SCHEMA` §3.3b) — which the program
+already applies to columns — lifted to the level of a whole study, and applied **prospectively** for once
+instead of discovered at scoring time.
+
+### The estimate that was 2.4× the census
+
+The planning figure of 82 came from a regex over problem names. The census is 34. The gap is entirely
+boundary cases that *look* like members: `dominating-set` is Min-Ones over an **unbounded** neighbourhood;
+`equitable`/`acyclic`/`harmonious` colouring each carry a **global** side constraint no finite-arity Γ
+expresses; `choosability` **quantifies** over list assignments; `betweenness` is an ordering CSP over an
+**infinite** domain. The estimate was labelled as having error bars and the error was larger than the bars
+implied. **A name-pattern is a sampling frame, not a census, and the difference is exactly the boundary
+cases the pattern was never able to see.**
+
+### Choosing the reading after seeing which one clears
+
+The census also surfaced a question the spec had not settled: polymorphisms are computed **of a template**,
+so the admission test is not "is this CSP-shaped?" but "is there a **fixed** finite template whose Pol we
+can compute?" Where the template is in the *input* (H in graph-homomorphism, Γ in maximum-csp, k in
+chromatic-number), `poly_fingerprint_natural` is **undefined** — a computability fact.
+
+It moves the count in both directions: −7 varying-template rows, +4 fixed-template rows the first pass had
+omitted. And it decides the project: **34 FIRES / 41 CLEARS / 45 CLEARS.**
+
+> **The reading that clears the floor was available and was not taken.** Choosing an admission rule after
+> seeing which one clears a kill criterion is indistinguishable from having no criterion. The band is
+> reported, the recommended reading is the one that fires, and the ruling is flagged as pending.
+
+---
+
+## Instance 28 — 2026-07-25 — the same gate defect twice in two commits, and where the fix stopped
+
+Terroir widened the tidy-number gate's file glob from `grid_*results*.json` after discovering it was blind
+to Terroir's own results file. **One commit later, Marrow's census and power artifacts matched neither
+widened pattern.** The same defect, immediately, in the work that had just documented it.
+
+**The pattern was not the defect — the SHAPE was.** A gate keyed to whatever the last project happened to
+name its files silently stops working the moment naming changes, and it **fails open**: it reports a clean
+pass over files it never opened. Nothing announces a blind spot. The fix is a **declared watched set** in
+one place that a new project registers against, not a glob that grows by accident.
+
+### Where the fix deliberately stopped, and why that boundary is the entry
+
+Adding `*factors*.json` to the watched set surfaced **16 unacknowledged extremals** across three artifacts
+in a project this pass had not examined — including an `excess_over_null.null_envelope` whose real, mean,
+p2.5 and p97.5 are **all exactly 0.0** beside a one-sided p of exactly **1.0**.
+
+*(Written first as "the signature of the never-ran-but-reported-as-measured pattern found in
+`quarry_v2_results.json`". Instance 26 refutes that reading of the quarry zeros — they were Bergsma
+bias-correction floors — so the analogy is withdrawn. The better hypothesis, and the one the backlog task
+should test first, is that these are **the same kind of floor**: a clamped estimator at small n, plus a
+`k/M` permutation p that reports exactly 1.0 for the same reason `crucible._envelope` reported exactly 0.
+Two independent instances of "an exact extremal is usually an estimator hitting its own boundary" is a
+better prior than "the block never ran", and this entry had the wrong one.)*
+
+Two bad options and one good one:
+
+- **Wave them through a LEGACY table.** This is what the table is *for* — but the Terroir entries earned
+  their place by being read and classified one at a time. Sixteen entries written without reading them
+  would be rubber-stamping, and a gate that rubber-stamps is worse than no gate: it converts unexamined
+  debt into a recorded pass.
+- **Drop the pattern silently.** Narrowing a gate until it goes green. The failure mode with no defence.
+- **Leave the pattern out, record the reason IN THE GATE, and queue the backlog as its own task.**
+
+> **A watched set that grows only as fast as someone actually adjudicates it is the honest kind.** The
+> gate's docstring now carries what it is *not* watching and why — because the place a reader looks to find
+> out what is checked is the same place that must tell them what isn't.

@@ -1,0 +1,114 @@
+{
+ "schema": "marrow-i0-census/v1",
+ "prereg": "prereg_v15",
+ "milestone": "M0a",
+ "what_this_is": "a SIZING pass. Verdicts say a standard presentation EXISTS and is citable; M1 re-derives each per row WITH citations under the 9-check. A row admitted here is a candidate, not a pin.",
+ "admission_test": "STRICT: a FINITE constraint language of BOUNDED ARITY. Rows with unbounded-arity constraints, global side conditions, quantification, or infinite domains are excluded WITH REASONS, even where the name suggests membership.",
+ "no_charge_consulted": "no charge value informed any verdict. Pinning a presentation is TYPING -- a definitional fact about the task text.",
+ "n_rows": 345,
+ "by_stratum": {
+  "direct-csp": 23,
+  "vcsp-shaped": 18,
+  "no-presentation": 303,
+  "promise": 1
+ },
+ "presentable_strata_1_2": 41,
+ "THE_FIXED_TEMPLATE_AMBIGUITY": {
+  "status": "SURFACED BY THE CENSUS \u2014 Marrow \u00a71 does not settle it; it is an owner ruling",
+  "why_it_is_load_bearing": "polymorphisms are computed OF A TEMPLATE. Where the template is part of the input (H in graph-homomorphism, Gamma in maximum-csp, k in chromatic-number), there is no fixed Gamma and `poly_fingerprint_natural` is UNDEFINED on that row. That is a computability fact, not a stylistic preference \u2014 and it decides Kill 1.",
+  "varying_template_rows": {
+   "graph-homomorphism": "H is part of the input -> uniform CSP; no fixed Gamma to take Pol of",
+   "generalized-graph-coloring": "target H general -> no fixed Gamma",
+   "chromatic-number": "k is the OUTPUT, not a fixed template",
+   "list-coloring": "k varies; fixed only at a pinned k",
+   "precoloring-extension": "k varies; fixed only at a pinned k",
+   "maximum-csp": "Gamma IS the input -- the framework, not an instance of it",
+   "max-k-cut": "k varies"
+  },
+  "self_caught_omissions_added": {
+   "d-hitting-set": "Min-Ones over {OR_d} at fixed d",
+   "k-set-packing": "packing over sets of size <= k -- bounded arity",
+   "three-dimensional-matching": "CSP({exactly-one-of-3}) -- 3DM",
+   "3-dimensional-assignment": "3DM with additive costs -- VCSP at bounded arity"
+  },
+  "considered_and_rejected": {
+   "subgraph-isomorphism": "binary CSP in form, but the host graph is INPUT -> template varies",
+   "induced-subgraph-isomorphism": "as subgraph-isomorphism",
+   "linear-equations": "CSP(affine) over a finite field, LP-shaped over Q -- the field is not pinned",
+   "minmax-3d-matching": "3DM core, but a min-max objective is not a sum of local costs"
+  },
+  "verdict_is_not_robust": "PRINCIPLED 34 FIRES / AS-CENSUSED 41 FIRES / PERMISSIVE 45 CLEARS \u2014 the reading decides the project"
+ },
+ "readings": {
+  "PRINCIPLED \u2014 fixed template required, omissions corrected": {
+   "n": 34,
+   "kill_1": "FIRES",
+   "rule": "a row is admissible iff a FIXED finite bounded-arity template exists. Removes the 7 varying-template rows (Pol is UNDEFINED there); the 4 self-caught omissions are already counted in.",
+   "recommended": true
+  },
+  "AS-CENSUSED \u2014 CSP-shaped, template-fixedness not applied": {
+   "n": 41,
+   "kill_1": "CLEARS",
+   "rule": "admits CSP-shaped rows whether or not the template is fixed"
+  },
+  "PERMISSIVE \u2014 also admits varying-template and unpinned-field rows": {
+   "n": 45,
+   "kill_1": "CLEARS",
+   "rule": "adds the 4 rows rejected by the fixed-template test (subgraph-isomorphism kin, unpinned field, min-max objective)"
+  }
+ },
+ "kill_1": {
+  "floor": 40,
+  "observed_principled": 34,
+  "observed_as_censused": 41,
+  "verdict": "FIRES",
+  "verdict_basis": "the PRINCIPLED reading (recommended); see `readings` for the band",
+  "consequence_if_fires": "Marrow ships as a census note, not a build; the finding 'the natural atlas is presentation-poor' is itself a statement about where closure anatomy can exist"
+ },
+ "near_misses_excluded": 57,
+ "regex_estimate_replaced": {
+  "planning_estimate": 82,
+  "census": 41,
+  "note": "the planning figure was a regex over problem names. The strict test removes rows the pattern accepted: unbounded-arity domination and set-cover families, colourings with global side constraints, quantified variants, and ordering CSPs."
+ },
+ "per_family": {
+  "graph": {
+   "direct-csp": 10,
+   "no-presentation": 130,
+   "vcsp-shaped": 9
+  },
+  "optimization": {
+   "vcsp-shaped": 3,
+   "no-presentation": 55
+  },
+  "logic-proof": {
+   "no-presentation": 50,
+   "direct-csp": 2
+  },
+  "sat-csp": {
+   "no-presentation": 9,
+   "direct-csp": 11,
+   "vcsp-shaped": 5,
+   "promise": 1
+  },
+  "string": {
+   "no-presentation": 17
+  },
+  "number-theoretic": {
+   "no-presentation": 14
+  },
+  "geometric": {
+   "no-presentation": 12,
+   "vcsp-shaped": 1
+  },
+  "algebraic": {
+   "no-presentation": 8
+  },
+  "lattice": {
+   "no-presentation": 4
+  },
+  "matrix": {
+   "no-presentation": 4
+  }
+ }
+}

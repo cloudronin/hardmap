@@ -472,7 +472,7 @@ Artifact: **`anatomy-passports.json`**. Gate: `anatomy.passport_admissible()`.
 
 | column | invariance | variance | κ | admissible for a sealed bet |
 |---|---|---|---|---|
-| `poly_fingerprint` | **invariant** (Galois connection Pol–Inv) | non-categorical | — | **yes** |
+| `poly_fingerprint` | **invariant** (Galois connection Pol–Inv) | record-valued | — | no → **yes at collapse** (the named projection; see erratum below) |
 | `engine_type` | **invariant** (inherits Pol–Inv) | **STARVED** few-subpowers=4 | — | no → **yes at collapse** (bounded-width y/n = 3178/894) |
 | `locality_class` | encoding-relative (the pinned task) | ok | **0.646** | **yes** |
 | `encoding_type` | encoding-relative (definitionally) | ok | — | **yes** |
@@ -481,11 +481,26 @@ Artifact: **`anatomy-passports.json`**. Gate: `anatomy.passport_admissible()`.
 | `objective_type` | encoding-relative (objective *as expressed*) | **STARVED** weighted=2 | — | no |
 | `kernel_status` | parameter-relative (pinned parameter) | **STARVED** 4,1 | — | no → **yes at collapse** (poly vs no-poly within FPT = 24/22) |
 | `self_reducibility` | parameter-relative (ensemble/factor) | **STARVED** n=3, 100% modal | — | no |
-| `decomposition_facts` | encoding-relative (pinned representation) | not censused (S2 pending) | — | no *until built* |
+| `decomposition_facts` | encoding-relative (pinned representation) | record-valued (censused at S2) | — | no → **yes at collapse** (built at S2; see erratum below) |
 | `reduction_out_degree` | **corpus-relative** (a snapshot) | non-categorical | — | no — covariate only |
 | *reserved:* `channelness`, `fo_form`, `tuple_density`, `row_relations` | encoding-relative (provisional) | not built | — | no |
 
-**4 of 11 admissible as-is; 2 more via a sealed collapse.**
+**3 of 11 admissible as-is (`locality_class`, `encoding_type`, `class_size`); 4 more via a sealed collapse
+(`kernel_status`, `decomposition_facts`, `engine_type`, `poly_fingerprint`).**
+
+> **Erratum, 2026-07-25 (Marrow M0d).** This line first read *"4 of 11 admissible as-is; 2 more via a
+> sealed collapse"*, and the two table rows above it read `poly_fingerprint` = **yes** and
+> `decomposition_facts` = *no until built*. Both were true when written and both were overtaken:
+> `decomposition_facts` **was built and censused at S2**, and the **RECORD-VALUED rule**
+> (`anatomy.py::passport_admissible`) was added afterwards — *"you cannot contrast on a dict; a
+> record-valued column is admissible only through a NAMED PROJECTION whose own marginals clear the floor."*
+> Under that rule `poly_fingerprint` moves from an as-is pass to a collapse pass, because its original
+> **yes** was a pass by omission (typed non-categorical) rather than a pass by evidence.
+> **The correct counts are 3 as-is and 4 via collapse**, which `repro/manifest.yaml`
+> (`anatomy.passports.verdicts`) and `docs/findings/anatomy-codability-spectrum.md` already carried — this
+> table was the stale copy, and the disagreement between a sealed document and a live gate is the thing
+> worth recording. **No rule changed here and no cell value moved**, so per §0.3.3 this is an erratum
+> corrected in place with its date, not a new sealed version.
 
 ### 9.2 Two audit findings that did not match expectation
 

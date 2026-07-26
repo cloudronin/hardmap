@@ -1,0 +1,136 @@
+{
+ "prereg_version": "v15",
+ "project": "Marrow v1 — Closure-Grade Invariants for Natural Rows",
+ "owner": "Vishnu",
+ "date": "2026-07-25",
+ "milestone_sealed": "M0 (I0 census + power record). M1–M5 are NOT sealed here — Kill 1 fires.",
+ "committed_before_analysis": "the census's ADMISSION RULES were fixed before the count was read; the count then fired Kill 1. The rules were not adjusted afterwards, and the band of readings is reported rather than the single reading that would have cleared the floor.",
+ "supersedes": "nothing. Marrow is a new instrument. All prior verdicts, preregs and frozen bytes stand untouched.",
+
+ "anchors_by_hash": {
+  "anatomy_v1.jsonl": "8ff11f8a33bbdce7",
+  "atlas_v3.jsonl": "e62f3c284b408a26",
+  "grid_arm_b_predictions.json": "cc5bb3895a44a043",
+  "note": "verified at M0, 2026-07-25. anatomy_v1 is NOT modified by Marrow — see `version_class`."
+ },
+
+ "THE_HEADLINE": {
+  "kill_1": "FIRES",
+  "terroir_c": "CANNOT RUN — declared INSUFFICIENT IN ADVANCE",
+  "consequence": "Marrow ships as a CENSUS NOTE, not a build, exactly as the spec's Kill 1 pre-declared. M1–M5 do not run.",
+  "the_finding": "the natural atlas is PRESENTATION-POOR at closure grade — itself a statement about where closure anatomy can exist, and the spec named it as a legitimate result before the census ran."
+ },
+
+ "M0a_census": {
+  "n_rows": 345,
+  "by_stratum": {"direct-csp": 22, "vcsp-shaped": 18, "promise": 1, "no-presentation": 304},
+  "kill_1_floor": 40,
+  "readings": {
+   "PRINCIPLED (recommended)": {"n": 34, "verdict": "FIRES"},
+   "AS-CENSUSED": {"n": 41, "verdict": "CLEARS"},
+   "PERMISSIVE": {"n": 45, "verdict": "CLEARS"}
+  },
+  "planning_estimate_replaced": {
+   "regex_over_problem_names": 82,
+   "spec_estimate": "60–120",
+   "census": 34,
+   "note": "the strict test removes rows a name-pattern accepts: unbounded-arity domination and set-cover families, colourings with global side constraints (equitable/acyclic/harmonious), quantified variants (choosability, qcsp, tqbf), and ordering CSPs over infinite domains (betweenness, cyclic-ordering). 57 near-misses are excluded with individually stated reasons."
+  }
+ },
+
+ "THE_FIXED_TEMPLATE_AMBIGUITY": {
+  "status": "SURFACED BY THE CENSUS. Marrow §1 does not settle it. IT IS AN OWNER RULING, PENDING.",
+  "the_question": "is the admission test 'is this row CSP-shaped?' or 'is there a FIXED finite template whose Pol we can compute?'",
+  "why_it_is_load_bearing": "polymorphisms are computed OF A TEMPLATE. Where the template is part of the INPUT — H in graph-homomorphism, Gamma in maximum-csp, k in chromatic-number — there is no fixed Gamma and `poly_fingerprint_natural` is UNDEFINED on that row. A computability fact, not a stylistic preference.",
+  "it_cuts_both_ways": {
+   "removes_7": ["graph-homomorphism", "generalized-graph-coloring", "chromatic-number", "list-coloring", "precoloring-extension", "maximum-csp", "max-k-cut"],
+   "adds_4_self_caught_omissions": ["d-hitting-set", "k-set-packing", "three-dimensional-matching", "3-dimensional-assignment"],
+   "considered_and_rejected_4": ["subgraph-isomorphism", "induced-subgraph-isomorphism", "linear-equations", "minmax-3d-matching"]
+  },
+  "what_the_ruling_changes": "KILL 1 ONLY. It does NOT change the Terroir-C verdict, which fires under every reading — see M0b.",
+  "recorded_rather_than_decided": "the reading that clears the floor is available and was not taken. Choosing an admission rule after seeing which one clears a kill criterion is the failure this record exists to prevent."
+ },
+
+ "M0b_terroir_c_power": {
+  "status": "DECLARED INSUFFICIENT IN ADVANCE — before any presentation is pinned",
+  "screen_inherited": "prereg_v14 (n>=30 AND modal<0.90 per family); not re-chosen for this seal",
+  "three_independent_blockers": {
+   "1_zero_admissible_families": "under BOTH readings. Principled: sat-csp 15, graph 13, optimization 3, geometric 1, logic-proof 1. As-censused: graph 19, sat-csp 16, rest <=3. No family reaches n=30.",
+   "2_stratum_2_is_CONSTANT": "the 18 vcsp-shaped rows are 18/18 NPC — modal share EXACTLY 1.000. Not merely starved: CONSTANT, carrying no information at all. Half the presentable population cannot support a decision-charge contrast under any statistic.",
+   "3_fold_structure_infeasible": "Terroir-C inherits family-grouped 5-fold CV. Only 2 families have >=5 rows (graph, sat-csp), so the fold key cannot produce 5 non-trivial folds."
+  },
+  "mde_if_the_screen_were_ignored": {"principled": 0.1212, "as_censused": 0.1250,
+   "note": "NOT the sealed statistic — recorded only to show that even discarding the screen the instrument sees +0.12 and up"},
+  "terroir_measured_for_scale": {"headline_lift": 0.0685, "within_family_residual": 0.0, "within_coverage_residual": 0.0188},
+  "THE_SEALED_SENTENCE": "Terroir-C cannot run as a within-family residual test on this population: every family falls below n=30, so the statistic A4 defined has no admissible stratum to be computed on. DECLARED INSUFFICIENT IN ADVANCE — AND INSUFFICIENT IS NOT EVIDENCE OF ABSENCE. The closure question is not answered here; it is unasked for want of a population."
+ },
+
+ "STRATUM_2_VARIANCE_FLAG": {
+  "recorded_at_the_artifact_level_by_owner_ruling": true,
+  "flag": "the vcsp-shaped stratum is CONSTANT on `decision`: 18/18 NPC, modal share 1.000",
+  "strengthened_from_the_planning_figure": "the plan carried 90.6% from the regex set; the census's stricter stratum 2 is 100%",
+  "why_it_is_here_and_not_only_in_the_census_notes": "so that if M1 is ever resumed nobody 'discovers' later that the optimization stratum carries no decision-charge contrast. The artifact-level flag rule, applied at birth.",
+  "consequence_for_any_resumption": "a sealed bet on `decision` may not draw on stratum 2 alone; it would be scoring a constant."
+ },
+
+ "columns_sealed_for_any_resumption": {
+  "note": "sealed even though unbuilt, so a resumption inherits decided questions rather than reopening them",
+  "shipped_if_resumed": {
+   "presentation": {"route": "cited (R20)", "passport": "encoding-relative",
+    "property_of": "the chosen standard relational form",
+    "reason": "the column's declared object IS the choice of presentation. Precedent: encoding_type's own passport — 'the column's declared object IS the encoding, so encoding-relativity is not a defect here, it is the column's definition.'"},
+   "poly_fingerprint_natural": {"route": "derived", "passport": "parameter-relative",
+    "property_of": "the constraint language AT THE PINNED PRESENTATION",
+    "reason": "Boolean `poly_fingerprint` earns `invariant` because on that universe THE RELATION IS THE OBJECT — there is no choice to make. On natural rows a human pins the presentation, which is exactly what `parameter-relative` ('meaningful only against a pinned parameter/ensemble') exists to say. The spec expected `invariant`; that is the arity_class over-claim in a new column."},
+   "engine_type_natural": {"route": "derived", "passport": "parameter-relative",
+    "property_of": "inherits from poly_fingerprint_natural"}
+  },
+  "reserved_not_shipped": {
+   "fractional_poly_facts": {"reason": "VCSP was already ruled NOT BUILDABLE in this repo (foundry/docs/findings/G3-vcsp-buildability.md; echoed in generation-cannot-reach-the-gradient.md) on classification-gap grounds — Thapper-Zivny dichotomizes EXACT solvability only. Reserved rather than reversed. Second reason from the census: stratum 2 is constant on `decision`, so the column could carry no contrast even if built.",
+    "reserving_it_now_is_the_point": "a later fill becomes legal under Anatomy-SCHEMA §4's additive licence, which covers reserved names only"},
+   "pcsp_facts": {"reason": "promise-CSP polymorphisms (BBKO line); zero PCSP code exists in the repo. The census found exactly 1 promise row (robust-csp), so the stratum is real but tiny."}
+  }
+ },
+
+ "version_class": {
+  "ruling": "NEW SEALED ANATOMY v2 — not an additive v1.1",
+  "why_the_spec_was_wrong": "Anatomy-SCHEMA §4 pre-authorizes additive fills for RESERVED NAMES ONLY, and the reserved list is channelness / fo_form / tuple_density / row_relations. None of Marrow's columns are on it. §0.3.3 governs: 'a changed rule is a new sealed version, never an in-place edit.'",
+  "second_reason": "adding columns rewrites anatomy_v1.jsonl's bytes, breaking its `tolerance: exact` sha pin in repro/manifest.yaml and tests/test_anatomy.py, against the standing frozen-bytes law.",
+  "consequence": "anatomy_v1.jsonl stays frozen at 8ff11f8a FOREVER. Any v2 is a new artifact with its own freeze record, hash, manifest claims and tests — and v1's existing tests passing UNCHANGED is the evidence that v2 is a new artifact rather than an edit.",
+  "no_precedent_existed": "no additive extension has ever been executed on this artifact; tuple_density was reserved and never built."
+ },
+
+ "derived_build_constraints_sealed": {
+  "flags_7_to_10_are_n_a_by_theorem": {
+   "flags": ["width2affine", "strongly0valid", "IHSB", "general_wsep"],
+   "rule": "these are Boolean BY THEOREM, not merely by implementation — KSTW and Marx do not transfer to |D|>2. On any non-Boolean row they ship as `n.a.` with reason. NEVER ported, NEVER approximated.",
+   "enforced_by": "a test asserting the boundary, so it cannot erode silently"},
+  "derive_engine_type_is_quarantined": {
+   "hazard": "build_anatomy.derive_engine_type computes `fs = bool(flags['affine'])`, encoding the Boolean collapse few-subpowers <=> Maltsev <=> affine. That equivalence BREAKS at k>2 (Maltsev => few subpowers, but few subpowers needs a k-edge term).",
+   "rule": "it must not be called on non-Boolean rows. domain3.py:207-212 already handles the split correctly and is the pattern to follow.",
+   "status": "chief correctness risk of the whole build, named before any code is written"},
+  "anchor_set": {
+   "already_green_boolean": "3-SAT -> no tractable polymorphism, Horn -> semilattice(MIN), 2-SAT -> majority, XOR -> affine — foundry/tests/test_census.py via oracles.verify_class",
+   "already_green_domain3": "3-coloring -> NPC, lin-eq-z3 -> P/unbounded-width — foundry/tests/test_domain3.py",
+   "genuinely_new_would_be": "an explicit majority-at-D3 assertion, and anything at k>=4"}
+ },
+
+ "spec_defects_logged": [
+  {"against": "the Marrow v1 spec (owner)", "defect": "§2/§6 call the column family 'Anatomy v1.1, additive'. §4's additive licence covers reserved names only, and none of Marrow's columns are reserved — so by the schema's own §0.3.3 this requires a new sealed version. Logged at owner's direction, one line."},
+  {"against": "the Marrow v1 spec (owner)", "defect": "§2 expects `invariant` passports on all shipped columns; `presentation` is encoding-relative by its own definition and the derived columns are parameter-relative to the pin. Corrected before build rather than after, unlike arity_class."},
+  {"against": "the Marrow v1 spec (owner)", "defect": "§2 proposes `fractional_poly_facts` without citing this repo's own prior NOT BUILDABLE ruling on VCSP."},
+  {"against": "this analyst", "defect": "the planning estimate of 82 presentable rows came from a regex over problem names and was 2.4x the census. It was labelled an estimate with error bars, but the error was larger than the bars implied."}
+ ],
+
+ "kill_criteria_status": {
+  "kill_1_census_floor": "FIRED (34 < 40 on the principled reading). Consequence per spec §5.1: census note only, finding recorded, no build.",
+  "kill_2_condition_check_qualification": "NOT REACHED — no predicate was extended because no build ran.",
+  "kill_3_box": "M0 came in inside its 2–3 h census box."
+ },
+
+ "what_survives_and_what_does_not": {
+  "does_not": "Terroir-C, the retrospective retest. There is no population for it, under any reading. The FAMILY-BORNE verdict's one legitimately-open retrospective question stays open and now has a measured reason why.",
+  "may_survive_by_owner_ruling": "the registry upgrade (spec §3.2) does NOT depend on Terroir-C — a prospective predict-then-fill wave carrying closure-feature predictions is confound-free by construction and accumulates regardless of retrospective population size. But it needs the columns, which need M1–M4, which Kill 1 stops. Building them FOR THE REGISTRY ALONE is a live option and an owner decision, not a consequence of this seal.",
+  "stands_unchanged": "the prospective registry at 0/57 remains the program's one armed confound-free instrument."
+ }
+}

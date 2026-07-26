@@ -181,18 +181,28 @@ plants a mismatch and asserts the gate fires.
 
 **A gate scoped to one project's filenames has an expiry date.** The tidy-number gate's glob was
 `grid_*results*.json`, so `terroir_v1_results.json` was invisible to it. Widened — and it immediately found
-seven unacknowledged extremals in *older* artifacts. Two are real defects:
+seven unacknowledged extremals in *older* artifacts. It flagged the right values — but **one of the two
+readings this note originally gave them was wrong, and is corrected here.**
 
 - `crucible_results.json`: a permutation p reported as **exactly 0**. With N permutations the honest form is
-  `< 1/N`; 0 asserts an impossibility. (S1's verdict is unaffected — the real V is far outside the envelope
-  either way.)
-- `quarry_v2_results.json`: the absorption block never ran (`governed_by: power_check.cleared`,
-  INSUFFICIENT-terminal), yet `unconditional_V` and `averaged_per_class_wrong` sit at **0.0** — uninitialised
-  placeholders that read as measured values. The same block writes `shrinkage_fraction: null`, the correct
-  idiom, so **the file's own author knew it and applied it inconsistently.**
+  `< 1/N`; 0 asserts an impossibility. **This one stood** — since fixed to the `(k+1)/(M+1)` form that
+  `_perm_p_gradient` in the same file already used. S1's verdict is unaffected.
+- `quarry_v2_results.json`: this note first read `unconditional_V = 0.0` and `averaged_per_class_wrong = 0.0`
+  as **uninitialised placeholders from a block that never ran**, and proposed encoding them as `null`.
+  **That was wrong.** The block ran. `structure.cramers_v` is Bergsma bias-corrected and **clamps at zero**
+  ([structure.py:84](eightfold/eightfold/structure.py:84)): at n = 22 against a 5×4 table the correction
+  term is 0.5714 against a φ² of 0.4464, so the correction exceeds the signal and the estimator returns
+  **exactly 0 where the uncorrected V is 0.3857**. A *floor*, not a placeholder — and `shrinkage_fraction:
+  null` is the divide-by-zero guard tripping on that same floor, not an author applying a correct idiom
+  inconsistently. Encoding them as `null` would have asserted NOT COMPUTED about a statistic that *was*
+  computed. See methods instance 26.
 
-These are itemised in the gate's `LEGACY` table rather than waived, each with its reading, and the gate stays
-live on those files for anything new. Their verdicts are unaffected and their bytes are not rewritten here.
+**The refutation was inside this note's own evidence.** The same block reports `correct_stratified: 0.43`,
+and a block that never ran cannot produce 0.43. The number was printed, read, and walked past — the failure
+was not missing data but not reconciling data already in hand.
+
+The surviving entries are itemised in the gate's `LEGACY` table rather than waived, each with its reading.
+The quarry entries have been **removed** from that table — a legacy table is for debt, and that one is paid.
 
 **And the seal produced a miss.** A1's prediction failed. A bet that only ever records its hits is a press
 release, and the ledger now carries a Terroir miss beside its hits.

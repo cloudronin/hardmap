@@ -191,3 +191,78 @@ def test_denominator_gate_catches_a_mismatched_lift():
         assert any("_tmp_denominator_probe" in m for m in out), "the denominator gate failed to fire"
     finally:
         p.unlink(missing_ok=True)
+
+
+# ── Marrow v1 M0 (prereg_v15) ─────────────────────────────────────────────────────────────────────────
+
+def _marrow(name):
+    import json
+    return json.loads((ATLAS / name).read_text(encoding="utf-8"))
+
+
+def test_census_covers_every_natural_row_exactly_once():
+    """345 rows, one stratum each, and every non-presentable row carries a REASON — the typing law."""
+    import json
+    rows = [json.loads(l) for l in (ATLAS / "marrow-i0-census.jsonl").read_text().splitlines() if l.strip()]
+    assert len(rows) == 345
+    assert len({r["problem_id"] for r in rows}) == 345
+    for r in rows:
+        assert r["stratum"] in ("direct-csp", "vcsp-shaped", "promise", "no-presentation")
+        if r["stratum"] == "no-presentation":
+            assert r["presentation"] == "n.a." and r.get("reason"), f"{r['problem_id']} lacks a reason"
+        else:
+            assert r.get("source_hint"), f"{r['problem_id']} lacks a source hint for M1"
+
+
+def test_kill_1_fired_and_the_band_is_recorded():
+    """The verdict is not robust to the admission reading, so the BAND must be in the artifact — a single
+    reading reported alone would hide that a different one clears the floor."""
+    d = _marrow("marrow-i0-census.json")
+    assert d["kill_1"]["verdict"] == "FIRES"
+    readings = d["readings"]
+    assert len(readings) >= 3, "the band must be recorded, not just the chosen reading"
+    verdicts = {r["kill_1"] for r in readings.values()}
+    assert verdicts == {"FIRES", "CLEARS"}, "the band should show the verdict actually flipping"
+    rec = [k for k, v in readings.items() if v.get("recommended")]
+    assert len(rec) == 1 and readings[rec[0]]["kill_1"] == "FIRES", \
+        "the recommended reading is the one that FIRES — recording that the clearing reading was available"
+
+
+def test_terroir_c_cannot_run_under_either_reading():
+    """The viability verdict must be ROBUST to the admission ambiguity, unlike Kill 1. If this ever passes
+    under one reading and fails under another, the seal's headline is reading-dependent and must say so."""
+    d = _marrow("marrow-terroir-c-power.json")
+    for reading, rec in d["readings"].items():
+        assert rec["n_admissible_families"] == 0, f"{reading} unexpectedly has an admissible family"
+        assert "CANNOT RUN" in rec["verdict"]
+    assert "INSUFFICIENT IS NOT EVIDENCE OF ABSENCE" in d["SEALED_SENTENCE"]
+
+
+def test_stratum_2_is_constant_on_decision():
+    """The owner-ruled artifact-level variance flag. If a resumption ever draws a `decision` bet from the
+    vcsp-shaped stratum alone it would be scoring a constant, and this asserts the flag stays true."""
+    import json, sys
+    sys.path.insert(0, "eightfold"); sys.path.insert(0, "eightfold/dev")
+    from collections import Counter
+    from eightfold import atlas as A
+    import quarry_v3_spec as V3
+    v3 = {e.problem_id: e for e in A.load_atlas(str(ATLAS / "atlas_v3.jsonl"))}
+    rows = [json.loads(l) for l in (ATLAS / "marrow-i0-census.jsonl").read_text().splitlines() if l.strip()]
+    real = V3.V3_SPEC.charge_real_values["decision"]
+
+    def cv(e):
+        return next((c.value for c in e.charges if c.charge == "decision"), "n.a.")
+    s2 = [r["problem_id"] for r in rows if r["stratum"] == "vcsp-shaped" and cv(v3[r["problem_id"]]) in real]
+    labels = Counter(cv(v3[p]) for p in s2)
+    assert len(labels) == 1, f"stratum 2 is no longer constant: {dict(labels)} — the sealed flag is stale"
+
+
+def test_tidy_number_watch_set_is_declared_not_globbed_per_project():
+    """The defect this asserts against appeared TWICE: the gate's file pattern was scoped to whatever the
+    last project named its files, so the next project's artifacts were silently unwatched and the gate
+    failed OPEN. The watched set must be a declared tuple, and it must actually cover this project."""
+    from hardmap import verify
+    watched = {p.name for p in verify._watched(ATLAS)}
+    for required in ("terroir_v1_results.json", "terroir_v1_ablations.json",
+                     "marrow-i0-census.json", "marrow-terroir-c-power.json"):
+        assert required in watched, f"{required} is not watched by the numeric gates"

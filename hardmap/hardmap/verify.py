@@ -174,6 +174,29 @@ def check_anatomy_passports_complete() -> list[str]:
     return bad
 
 
+def _watched(root):
+    """Artifacts the numeric gates inspect.
+
+    THE DEFECT THIS EXISTS TO STOP REPEATING (Terroir T4, then Marrow M0 one commit later): the gate's glob
+    was `grid_*results*.json`, so the next project's results file was invisible to it and nothing announced
+    the blind spot. Widening it once was not the fix — the SHAPE was the defect. A gate keyed to whatever
+    the last project happened to name its files silently stops working the moment naming changes, and it
+    fails OPEN, reporting a pass over files it never opened.
+
+    So the watched set is declared here, one place, and a new project registers its pattern rather than
+    discovering later that it was never checked.
+
+    NOT-YET-WATCHED, RECORDED RATHER THAN OMITTED. `*factors*.json` is deliberately absent. Adding it was
+    tried at Marrow M0 and surfaced 16 unacknowledged extremals across factors_v1 / factors_v1_1 /
+    factors_sensitivity — real debt in a project this pass has not examined. Waving them through a LEGACY
+    table without reading them would be rubber-stamping, which is the one thing this gate must never
+    become; dropping the pattern silently would be worse. So the pattern stays out AND the reason stays
+    here, with the backlog queued as its own task. A watched set that grows only as fast as someone
+    actually adjudicates it is the honest kind."""
+    pats = ("*results*.json", "*ablations*.json", "*census*.json", "*power*.json")
+    return {p for pat in pats for p in root.glob(pat)}
+
+
 def check_suspicious_cleanliness() -> list[str]:
     """THE TIDY-NUMBER GATE (methods 22, promoted to a check 2026-07-25).
 
@@ -232,7 +255,7 @@ def check_suspicious_cleanliness() -> list[str]:
         # WIDENED 2026-07-25 (Terroir T4): the original glob was `grid_*results*.json`, which stopped
         # watching the moment a result file was named anything else — terroir_v1_results.json was invisible
         # to it. A gate scoped to one project's filename convention is a gate with an expiry date.
-        for p in sorted(set(root.glob("*results*.json")) | set(root.glob("*ablations*.json"))):
+        for p in sorted(_watched(root)):
             try:
                 doc = json.loads(p.read_text(encoding="utf-8"))
             except Exception:  # noqa: BLE001
@@ -276,7 +299,7 @@ def check_lift_denominators_match() -> list[str]:
     if lat.exists():
         roots.append(lat)
     for root in roots:
-        for p in sorted(set(root.glob("*results*.json")) | set(root.glob("*ablations*.json"))):
+        for p in sorted(_watched(root)):
             try:
                 doc = json.loads(p.read_text(encoding="utf-8"))
             except Exception:  # noqa: BLE001

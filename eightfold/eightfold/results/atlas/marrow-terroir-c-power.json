@@ -1,0 +1,155 @@
+{
+ "schema": "marrow-terroir-c-power/v1",
+ "prereg": "prereg_v15",
+ "milestone": "M0b",
+ "screen_inherited_from": "prereg_v14 (n>=30 AND modal<0.90); not re-chosen here",
+ "why_separate_from_kill_1": "Kill 1 asks whether a POPULATION exists; this asks whether the test that justifies the build can SEE anything on it. Supply is not viability.",
+ "terroir_measured_for_scale": {
+  "headline_lift": 0.0685,
+  "within_family_residual": 0.0,
+  "within_coverage_residual": 0.0188
+ },
+ "readings": {
+  "principled": {
+   "n_rows": 33,
+   "n_admissible_families": 0,
+   "admissible_families": [],
+   "per_family": {
+    "sat-csp": {
+     "n": 15,
+     "modal_label": "NPC",
+     "modal_correct": 11,
+     "modal_share": 0.7333,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "graph": {
+     "n": 13,
+     "modal_label": "NPC",
+     "modal_correct": 11,
+     "modal_share": 0.8462,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "optimization": {
+     "n": 3,
+     "modal_label": "NPC",
+     "modal_correct": 3,
+     "modal_share": 1.0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "geometric": {
+     "n": 1,
+     "modal_label": "NPC",
+     "modal_correct": 1,
+     "modal_share": 1.0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "logic-proof": {
+     "n": 1,
+     "modal_label": "beyond-PSPACE",
+     "modal_correct": 1,
+     "modal_share": 1.0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    }
+   },
+   "mde_single_family": null,
+   "mde_pooled_admissible_only": null,
+   "mde_pooled_all_families_ignoring_screen": 0.1212,
+   "verdict": "CANNOT RUN \u2014 zero admissible families under the inherited screen"
+  },
+  "as_censused": {
+   "n_rows": 40,
+   "n_admissible_families": 0,
+   "admissible_families": [],
+   "per_family": {
+    "graph": {
+     "n": 19,
+     "modal_label": "NPC",
+     "modal_correct": 16,
+     "modal_share": 0.8421,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "sat-csp": {
+     "n": 16,
+     "modal_label": "NPC",
+     "modal_correct": 12,
+     "modal_share": 0.75,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "optimization": {
+     "n": 3,
+     "modal_label": "NPC",
+     "modal_correct": 3,
+     "modal_share": 1.0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "geometric": {
+     "n": 1,
+     "modal_label": "NPC",
+     "modal_correct": 1,
+     "modal_share": 1.0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    },
+    "logic-proof": {
+     "n": 1,
+     "modal_label": "beyond-PSPACE",
+     "modal_correct": 1,
+     "modal_share": 1.0,
+     "admissible": false,
+     "status": "INSUFFICIENT \u2014 n < 30"
+    }
+   },
+   "mde_single_family": null,
+   "mde_pooled_admissible_only": null,
+   "mde_pooled_all_families_ignoring_screen": 0.125,
+   "verdict": "CANNOT RUN \u2014 zero admissible families under the inherited screen"
+  }
+ },
+ "SEALED_SENTENCE": "Terroir-C on the principled census population has 0 admissible families under the screen inherited from prereg_v14. It CANNOT RUN as a within-family residual test: every family falls below n=30, so the statistic A4 defined has no admissible stratum to be computed on. Declared INSUFFICIENT IN ADVANCE \u2014 and INSUFFICIENT IS NOT EVIDENCE OF ABSENCE.",
+ "scale_note": "for comparison, the effect Terroir-C would be looking for: Arm B's headline lift was +0.0685 and its within-family residual was exactly +0.0000. A within-family residual is by construction smaller than the headline it decomposes.",
+ "extremal_acknowledged": [
+  {
+   "stat": "terroir_measured_for_scale.within_family_residual",
+   "value": 0.0,
+   "why_the_exactness_is_expected": "not measured here \u2014 QUOTED from Terroir's A4, where it is already discharged by its own integer identity (+6 -7 +1 = 0 across the three admissible families). Carried in this artifact only to give the MDE a scale to be compared against."
+  },
+  {
+   "stat": "readings.principled.per_family.optimization.modal_share",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "the `optimization` family has n=3 presentable rows and all of them carry the same decision label, so its in-sample modal share is 1.0 by arithmetic. THIS IS WHY THE FAMILY IS DECLARED INSUFFICIENT rather than scored \u2014 the modal<0.90 screen exists to catch exactly this degeneracy."
+  },
+  {
+   "stat": "readings.principled.per_family.geometric.modal_share",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "the `geometric` family has n=1 presentable rows and all of them carry the same decision label, so its in-sample modal share is 1.0 by arithmetic. THIS IS WHY THE FAMILY IS DECLARED INSUFFICIENT rather than scored \u2014 the modal<0.90 screen exists to catch exactly this degeneracy."
+  },
+  {
+   "stat": "readings.principled.per_family.logic-proof.modal_share",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "the `logic-proof` family has n=1 presentable rows and all of them carry the same decision label, so its in-sample modal share is 1.0 by arithmetic. THIS IS WHY THE FAMILY IS DECLARED INSUFFICIENT rather than scored \u2014 the modal<0.90 screen exists to catch exactly this degeneracy."
+  },
+  {
+   "stat": "readings.as_censused.per_family.optimization.modal_share",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "the `optimization` family has n=3 presentable rows and all of them carry the same decision label, so its in-sample modal share is 1.0 by arithmetic. THIS IS WHY THE FAMILY IS DECLARED INSUFFICIENT rather than scored \u2014 the modal<0.90 screen exists to catch exactly this degeneracy."
+  },
+  {
+   "stat": "readings.as_censused.per_family.geometric.modal_share",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "the `geometric` family has n=1 presentable rows and all of them carry the same decision label, so its in-sample modal share is 1.0 by arithmetic. THIS IS WHY THE FAMILY IS DECLARED INSUFFICIENT rather than scored \u2014 the modal<0.90 screen exists to catch exactly this degeneracy."
+  },
+  {
+   "stat": "readings.as_censused.per_family.logic-proof.modal_share",
+   "value": 1.0,
+   "why_the_exactness_is_expected": "the `logic-proof` family has n=1 presentable rows and all of them carry the same decision label, so its in-sample modal share is 1.0 by arithmetic. THIS IS WHY THE FAMILY IS DECLARED INSUFFICIENT rather than scored \u2014 the modal<0.90 screen exists to catch exactly this degeneracy."
+  }
+ ]
+}
