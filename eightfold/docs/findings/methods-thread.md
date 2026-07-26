@@ -1335,3 +1335,62 @@ Three asserted entries now carry their proof sketches. Four residual exact-zeros
 and banked**, because asserting them would have been doing the analysis a survey is not entitled to do —
 and because the point of flag hygiene is to make a residual *meaningful*, not to keep shrinking it until
 nothing is left to explain.
+
+---
+
+## Instance 37 — 2026-07-26 — interpolation-by-absence: a missing reading is a claim of continuity
+
+Sounding v3's ramp declared 91 steps. Two of them produced no region at all — sudoku at 12 clues, `sat-3`
+at clause ratio 5.5 — and those two steps were simply **not present** in the artifact. No error, no null,
+no record. The readings on either side sat adjacent in the file.
+
+Which means the trajectory **read as continuous across a hole nobody drew.** A reader joining the
+surviving points gets a smooth curve through a region where the instrument never spoke.
+
+### Why this is its own species
+
+The program already forbids interpolating across an INSUFFICIENT step. That rule was obeyed. The defect
+slipped past it because **the violation does not look like a violation — it looks like nothing.** An
+INSUFFICIENT step is visible and must be argued past; an absent step has nothing to argue with. The rule
+was written against a mark on the page and the failure arrived as a blank.
+
+The general form, which is what goes in the taxonomy:
+
+> **An absent reading is a claim of continuity unless the absence is itself recorded.**
+
+This is the **silent gate one level down** — fail-open by omission. The silent gate passed because it
+inspected nothing; this passed because it *reported* nothing. Same shape, different layer: in both cases
+the absence of evidence rendered as evidence of absence of a problem.
+
+### The fix, and the two places it had to be applied
+
+`GAP-no-region` as an explicit record type, carrying its reason. Then the same failure had to be caught
+**twice more in the same day**, in the machinery built to honour the rule:
+
+1. **The trajectory report's own plots bridged gaps** until the line-drawing was changed to break at nulls
+   — the report enforcing the rule was breaking it in its rendering.
+2. **Two different absences were being drawn identically.** A step-level GAP (no region produced, reason
+   recorded) and a *combination-level* absence (a region existed, but not for this region/flavour, **no
+   reason recorded anywhere**) were pooled under one label. And both were marked with the same glyph as an
+   INSUFFICIENT step — which is not absence at all, but **speech ruled inadmissible.** One mark for three
+   states says the instrument was silent when in fact it spoke and was overruled.
+
+The third of those is the one worth keeping: the taxonomy needs to distinguish *nothing happened*,
+*something happened and went unrecorded*, and *something happened and was excluded by a declared rule*.
+Only the last is honest by default; the middle one is the dangerous one, and it had no name until it was
+counted (10 cells).
+
+### The same species caught twice more in the closure tests, minutes apart
+
+Within the same session's zero-hunt:
+
+- The brute-force closure check returned `NOT TESTED` for all ten claims — wrong builder signatures — and
+  **the run still printed a clean adjudication table** asserting the claims were tested. An untested claim
+  is now a **hard failure** of the script rather than a footnote in its output.
+- Then the test, once running, manufactured **two false falsifications** by truncating regions to 600
+  members before checking union-closure. A truncated set is not the set. The tell was that every failing
+  region was *exactly* 600.
+
+The first is fail-open by omission again. The second is its mirror — **fail-closed by mutilation**, where a
+check corrupts its own input and reports the corruption as a finding about the world. Both were caught only
+because the output was read against what it should have looked like, not merely for whether it was green.

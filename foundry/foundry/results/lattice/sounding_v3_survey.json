@@ -1048,7 +1048,10 @@
    "forced_provenance": "derived: template not closed under this flavour",
    "marrow_excluded_row": false,
    "new_in_v3": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "zero_hunt_verdict": "THIN-SATURATION",
+   "zero_hunt_argument": "already excluded from scoring by a rule declared in advance. At this r the control SD is unstable (0.1006 at r=7 against 0.0054 at r=212), so the zero is not distinguishable from chance in either direction. It carries no information about closure and none against it.",
+   "zero_hunt_q1_consequence": "LEAVES the scored set as uninformative \u2014 migrates to INSUFFICIENT-r"
   },
   {
    "row": "sat-3",
@@ -1739,7 +1742,10 @@
    "forced_provenance": "derived: template not closed under this flavour",
    "marrow_excluded_row": false,
    "new_in_v3": false,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "GENUINE-READING",
+   "zero_hunt_argument": "2-SAT is bijunctive, so MAJORITY is forced \u2014 and it is, and the join flags it. MIN is not forced: a general 2-CNF is not Horn. This reading is at r = 22, giving C(22,2) = 231 distinct pairs, so it is not thin. Either the sampled formula happened to be min-closed (a Horn-like draw), or something about min on 2-CNF solution sets at this size is not accounted for. UNEXPLAINED; stays a measurement and stays in the bank.",
+   "zero_hunt_q1_consequence": "STAYS a measurement in the scored set, and stays in the bank"
   },
   {
    "row": "sat-2",
@@ -2759,7 +2765,10 @@
    "forced_provenance": "derived: template not closed under this flavour",
    "marrow_excluded_row": false,
    "new_in_v3": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "zero_hunt_verdict": "THIN-SATURATION",
+   "zero_hunt_argument": "already excluded from scoring by a rule declared in advance. At this r the control SD is unstable (0.1006 at r=7 against 0.0054 at r=212), so the zero is not distinguishable from chance in either direction. It carries no information about closure and none against it.",
+   "zero_hunt_q1_consequence": "LEAVES the scored set as uninformative \u2014 migrates to INSUFFICIENT-r"
   },
   {
    "row": "xor-sat",
@@ -2879,7 +2888,10 @@
    "forced_provenance": "derived: template not closed under this flavour",
    "marrow_excluded_row": false,
    "new_in_v3": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "zero_hunt_verdict": "THIN-SATURATION",
+   "zero_hunt_argument": "already excluded from scoring by a rule declared in advance. At this r the control SD is unstable (0.1006 at r=7 against 0.0054 at r=212), so the zero is not distinguishable from chance in either direction. It carries no information about closure and none against it.",
+   "zero_hunt_q1_consequence": "LEAVES the scored set as uninformative \u2014 migrates to INSUFFICIENT-r"
   },
   {
    "row": "xor-sat",
@@ -2909,7 +2921,10 @@
    "forced_provenance": "derived: template not closed under this flavour",
    "marrow_excluded_row": false,
    "new_in_v3": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "zero_hunt_verdict": "THIN-SATURATION",
+   "zero_hunt_argument": "already excluded from scoring by a rule declared in advance. At this r the control SD is unstable (0.1006 at r=7 against 0.0054 at r=212), so the zero is not distinguishable from chance in either direction. It carries no information about closure and none against it.",
+   "zero_hunt_q1_consequence": "LEAVES the scored set as uninformative \u2014 migrates to INSUFFICIENT-r"
   },
   {
    "row": "nae-sat",
@@ -3479,7 +3494,10 @@
    "forced_provenance": "derived: template not closed under this flavour",
    "marrow_excluded_row": false,
    "new_in_v3": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "zero_hunt_verdict": "THIN-SATURATION",
+   "zero_hunt_argument": "already excluded from scoring by a rule declared in advance. At this r the control SD is unstable (0.1006 at r=7 against 0.0054 at r=212), so the zero is not distinguishable from chance in either direction. It carries no information about closure and none against it.",
+   "zero_hunt_q1_consequence": "LEAVES the scored set as uninformative \u2014 migrates to INSUFFICIENT-r"
   },
   {
    "row": "nae-sat",
@@ -3509,7 +3527,10 @@
    "forced_provenance": "derived: template not closed under this flavour",
    "marrow_excluded_row": false,
    "new_in_v3": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "zero_hunt_verdict": "THIN-SATURATION",
+   "zero_hunt_argument": "already excluded from scoring by a rule declared in advance. At this r the control SD is unstable (0.1006 at r=7 against 0.0054 at r=212), so the zero is not distinguishable from chance in either direction. It carries no information about closure and none against it.",
+   "zero_hunt_q1_consequence": "LEAVES the scored set as uninformative \u2014 migrates to INSUFFICIENT-r"
   },
   {
    "row": "sharp-monotone-2sat",
@@ -5579,7 +5600,10 @@
    "forced_provenance": "not applicable \u2014 optimal region is a sub-level set",
    "marrow_excluded_row": false,
    "new_in_v3": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "zero_hunt_verdict": "THIN-SATURATION",
+   "zero_hunt_argument": "already excluded from scoring by a rule declared in advance. At this r the control SD is unstable (0.1006 at r=7 against 0.0054 at r=212), so the zero is not distinguishable from chance in either direction. It carries no information about closure and none against it.",
+   "zero_hunt_q1_consequence": "LEAVES the scored set as uninformative \u2014 migrates to INSUFFICIENT-r"
   },
   {
    "row": "vertex-cover",
@@ -6059,7 +6083,10 @@
    "forced_provenance": "not applicable \u2014 optimal region is a sub-level set",
    "marrow_excluded_row": false,
    "new_in_v3": false,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "GENUINE-READING",
+   "zero_hunt_argument": "CLOSURE CLAIM FALSIFIED BY ITS OWN TEST \u2014 the argued premise or the closure it implies fails brute force on freshly built regions. The verdict reverses to unexplained. Prior argument, kept for the record: argument (A) applies to the FEASIBLE family, and independence is what majority preserves. NOTE THE BOUNDARY HONESTLY: the majority of three MAXIMUM independent sets is independent by (A) but need not be maximum \u2014 so closure of the OPTIMAL region is not implied by (A) alone. Every observed majority happened to land back in the optimal set at these r; recorded as hidden-closure of the feasible structure showing through, and flagged as the weakest entry in this table.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it"
   },
   {
    "row": "independent-set",
@@ -6299,7 +6326,10 @@
    "forced_provenance": "not applicable \u2014 optimal region is a sub-level set",
    "marrow_excluded_row": false,
    "new_in_v3": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "zero_hunt_verdict": "THIN-SATURATION",
+   "zero_hunt_argument": "already excluded from scoring by a rule declared in advance. At this r the control SD is unstable (0.1006 at r=7 against 0.0054 at r=212), so the zero is not distinguishable from chance in either direction. It carries no information about closure and none against it.",
+   "zero_hunt_q1_consequence": "LEAVES the scored set as uninformative \u2014 migrates to INSUFFICIENT-r"
   },
   {
    "row": "independent-set",
@@ -6539,7 +6569,10 @@
    "forced_provenance": "not applicable \u2014 optimal region is a sub-level set",
    "marrow_excluded_row": false,
    "new_in_v3": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "zero_hunt_verdict": "THIN-SATURATION",
+   "zero_hunt_argument": "already excluded from scoring by a rule declared in advance. At this r the control SD is unstable (0.1006 at r=7 against 0.0054 at r=212), so the zero is not distinguishable from chance in either direction. It carries no information about closure and none against it.",
+   "zero_hunt_q1_consequence": "LEAVES the scored set as uninformative \u2014 migrates to INSUFFICIENT-r"
   },
   {
    "row": "independent-set",
@@ -7199,7 +7232,10 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "zero_hunt_verdict": "THIN-SATURATION",
+   "zero_hunt_argument": "already excluded from scoring by a rule declared in advance. At this r the control SD is unstable (0.1006 at r=7 against 0.0054 at r=212), so the zero is not distinguishable from chance in either direction. It carries no information about closure and none against it.",
+   "zero_hunt_q1_consequence": "LEAVES the scored set as uninformative \u2014 migrates to INSUFFICIENT-r"
   },
   {
    "row": "dominating-set",
@@ -7229,7 +7265,10 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": false,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "zero_hunt_verdict": "THIN-SATURATION",
+   "zero_hunt_argument": "already excluded from scoring by a rule declared in advance. At this r the control SD is unstable (0.1006 at r=7 against 0.0054 at r=212), so the zero is not distinguishable from chance in either direction. It carries no information about closure and none against it.",
+   "zero_hunt_q1_consequence": "LEAVES the scored set as uninformative \u2014 migrates to INSUFFICIENT-r"
   },
   {
    "row": "dominating-set",
@@ -8369,7 +8408,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): removing MORE vertices cannot create a cycle, so the deleted-set family is upward-closed and union-closed. The encoding matters and is quoted for that reason: the closure is on the deleted set, not the retained one.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "feedback-vertex-set",
@@ -8609,7 +8652,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): removing MORE vertices cannot create a cycle, so the deleted-set family is upward-closed and union-closed. The encoding matters and is quoted for that reason: the closure is on the deleted set, not the retained one.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "feedback-vertex-set",
@@ -8849,7 +8896,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): removing MORE vertices cannot create a cycle, so the deleted-set family is upward-closed and union-closed. The encoding matters and is quoted for that reason: the closure is on the deleted set, not the retained one.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "feedback-vertex-set",
@@ -9089,7 +9140,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): removing MORE vertices cannot create a cycle, so the deleted-set family is upward-closed and union-closed. The encoding matters and is quoted for that reason: the closure is on the deleted set, not the retained one.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "feedback-vertex-set",
@@ -9329,7 +9384,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): removing MORE vertices cannot create a cycle, so the deleted-set family is upward-closed and union-closed. The encoding matters and is quoted for that reason: the closure is on the deleted set, not the retained one.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "feedback-vertex-set",
@@ -9569,7 +9628,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): removing more vertices cannot destroy bipartiteness of what remains. Upward-closed.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "odd-cycle-transversal",
@@ -9749,7 +9812,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): removing more vertices cannot destroy bipartiteness of what remains. Upward-closed.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "odd-cycle-transversal",
@@ -9989,7 +10056,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): removing more vertices cannot destroy bipartiteness of what remains. Upward-closed.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "odd-cycle-transversal",
@@ -10229,7 +10300,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): removing more vertices cannot destroy bipartiteness of what remains. Upward-closed.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "odd-cycle-transversal",
@@ -10469,7 +10544,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): removing more vertices cannot destroy bipartiteness of what remains. Upward-closed.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "odd-cycle-transversal",
@@ -10739,7 +10818,10 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": "INSUFFICIENT-r"
+   "insufficient": "INSUFFICIENT-r",
+   "zero_hunt_verdict": "THIN-SATURATION",
+   "zero_hunt_argument": "already excluded from scoring by a rule declared in advance. At this r the control SD is unstable (0.1006 at r=7 against 0.0054 at r=212), so the zero is not distinguishable from chance in either direction. It carries no information about closure and none against it.",
+   "zero_hunt_q1_consequence": "LEAVES the scored set as uninformative \u2014 migrates to INSUFFICIENT-r"
   },
   {
    "row": "independent-dominating-set",
@@ -11909,7 +11991,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): membership is 'the chosen sets cover U'. Adding a set never uncovers an element, so the family is upward-closed and the union of two covers is a cover. max = union.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "set-cover",
@@ -12149,7 +12235,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): membership is 'the chosen sets cover U'. Adding a set never uncovers an element, so the family is upward-closed and the union of two covers is a cover. max = union.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "set-cover",
@@ -12389,7 +12479,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): membership is 'the chosen sets cover U'. Adding a set never uncovers an element, so the family is upward-closed and the union of two covers is a cover. max = union.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "set-cover",
@@ -12629,7 +12723,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): membership is 'the chosen sets cover U'. Adding a set never uncovers an element, so the family is upward-closed and the union of two covers is a cover. max = union.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "set-cover",
@@ -12809,7 +12907,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): membership is 'the chosen sets cover U'. Adding a set never uncovers an element, so the family is upward-closed and the union of two covers is a cover. max = union.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "set-cover",
@@ -13049,7 +13151,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): adding an element to a hitting set cannot un-hit a set. Upward-closed; union-closed.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "hitting-set",
@@ -13289,7 +13395,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): adding an element to a hitting set cannot un-hit a set. Upward-closed; union-closed.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "hitting-set",
@@ -13529,7 +13639,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): adding an element to a hitting set cannot un-hit a set. Upward-closed; union-closed.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "hitting-set",
@@ -13769,7 +13883,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): adding an element to a hitting set cannot un-hit a set. Upward-closed; union-closed.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "hitting-set",
@@ -14009,7 +14127,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (B): adding an element to a hitting set cannot un-hit a set. Upward-closed; union-closed.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "hitting-set",
@@ -14219,7 +14341,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (C): dropping an item only decreases total weight, so feasibility is downward-closed and the intersection of two feasible packings is feasible. min = intersection.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "knapsack",
@@ -14459,7 +14585,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (C): dropping an item only decreases total weight, so feasibility is downward-closed and the intersection of two feasible packings is feasible. min = intersection.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "knapsack",
@@ -14699,7 +14829,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (C): dropping an item only decreases total weight, so feasibility is downward-closed and the intersection of two feasible packings is feasible. min = intersection.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "knapsack",
@@ -14939,7 +15073,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (C): dropping an item only decreases total weight, so feasibility is downward-closed and the intersection of two feasible packings is feasible. min = intersection.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "knapsack",
@@ -15179,7 +15317,11 @@
    "forced_provenance": "underivable \u2014 no pinned template for this row",
    "marrow_excluded_row": true,
    "new_in_v3": true,
-   "insufficient": null
+   "insufficient": null,
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (C): dropping an item only decreases total weight, so feasibility is downward-closed and the intersection of two feasible packings is feasible. min = intersection.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "knapsack",
@@ -16502,5 +16644,25 @@
    "new_in_v3": true,
    "insufficient": null
   }
- ]
+ ],
+ "changelog": [
+  {
+   "date": "2026-07-26",
+   "kind": "FLAG CORRECTION \u2014 NOT A RE-MEASUREMENT",
+   "what": "the zero-hunt's verdicts stamped onto every unforced exact-zero reading: `zero_hunt_verdict`, its argument, its Q1 consequence; `closure_explained` on HIDDEN-CLOSURE; `INSUFFICIENT-r` on THIN-SATURATION under the pre-declared floor.",
+   "why": "an unforced zero is not an unexplained one. 29 of 43 are explained by a closure the template route cannot see, and leaving them unflagged would let a future discovery statistic count them as findings.",
+   "proof_readings_untouched": "every measured field was fingerprinted before and after this edit and compared; the script refuses to write on any change.",
+   "n_readings_stamped": 39
+  }
+ ],
+ "zero_hunt": {
+  "artifact": "sounding_zero_hunt.json",
+  "sha256": "84ae1233d47e93b7",
+  "verdict_counts": {
+   "HIDDEN-CLOSURE": 29,
+   "THIN-SATURATION": 12,
+   "GENUINE-READING": 2
+  },
+  "note": "adjudication of every exact-zero reading not flagged theorem-forced. Closure claims were TESTED by brute force, not asserted; one claim was falsified by its own test and reversed."
+ }
 }

@@ -1816,7 +1816,11 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (A): for maj(M1,M2,M3) to contain two edges sharing a vertex, each edge must lie in >= 2 of the three matchings; by pigeonhole some single matching contains both, contradicting that it is a matching. So the majority never contains a conflicting pair.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "matching",
@@ -2224,7 +2228,11 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument: conservation here is a PARITY condition on internal-node degree, and minority is coordinatewise XOR. XOR of three vectors preserves every mod-2 linear condition, so the blend satisfies conservation whenever all three do. This is the affine/Maltsev argument reaching a row with no pinned template.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "max-flow",
@@ -2320,7 +2328,11 @@
    "theorem_forced": null,
    "marrow_excluded_row": false,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "the parity argument holds on the feasible family; on the optimal region it is again not implied (XOR of three max flows need not be max). Same boundary caveat as independent-set/optimal.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "max-flow",
@@ -2632,7 +2644,11 @@
    "theorem_forced": null,
    "marrow_excluded_row": true,
    "insufficient": null,
-   "forced_provenance": "underivable \u2014 no pinned template for this row"
+   "forced_provenance": "underivable \u2014 no pinned template for this row",
+   "zero_hunt_verdict": "HIDDEN-CLOSURE",
+   "zero_hunt_argument": "argument (A), identical shape: a conflicting pair in the majority forces some single member to contain both.",
+   "zero_hunt_q1_consequence": "LEAVES the future scored set as calibration \u2014 closure is real, so a discovery statistic must not count it",
+   "closure_explained": true
   },
   {
    "row": "three-dimensional-matching",
@@ -3289,6 +3305,14 @@
    "kind": "FLAG CORRECTION \u2014 NOT A RE-MEASUREMENT",
    "what": "`theorem_forced` recomputed from Marrow's pinned templates. Readings, seeds, controls and every measured value are byte-identical; only the forced metadata changed.",
    "why": "the hand-written FORCED list was incomplete \u2014 the survey found ten exact-zero readings unflagged, several plainly forced. A hand-maintained list of theorem-forced pairings is rules-that-live-in-recall wearing the costume of the fix for it."
+  },
+  {
+   "date": "2026-07-26",
+   "kind": "FLAG CORRECTION \u2014 NOT A RE-MEASUREMENT",
+   "what": "the zero-hunt's verdicts stamped onto every unforced exact-zero reading: `zero_hunt_verdict`, its argument, its Q1 consequence; `closure_explained` on HIDDEN-CLOSURE; `INSUFFICIENT-r` on THIN-SATURATION under the pre-declared floor.",
+   "why": "an unforced zero is not an unexplained one. 29 of 43 are explained by a closure the template route cannot see, and leaving them unflagged would let a future discovery statistic count them as findings.",
+   "proof_readings_untouched": "every measured field was fingerprinted before and after this edit and compared; the script refuses to write on any change.",
+   "n_readings_stamped": 4
   }
  ],
  "residual_unforced_exact_zeros": {
@@ -3328,5 +3352,15 @@
     "provenance": "underivable \u2014 no pinned template for this row"
    }
   ]
+ },
+ "zero_hunt": {
+  "artifact": "sounding_zero_hunt.json",
+  "sha256": "84ae1233d47e93b7",
+  "verdict_counts": {
+   "HIDDEN-CLOSURE": 29,
+   "THIN-SATURATION": 12,
+   "GENUINE-READING": 2
+  },
+  "note": "adjudication of every exact-zero reading not flagged theorem-forced. Closure claims were TESTED by brute force, not asserted; one claim was falsified by its own test and reversed."
  }
 }

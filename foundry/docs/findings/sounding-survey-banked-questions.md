@@ -138,3 +138,50 @@ all Marrow-excluded and their forcedness is therefore `null` — underivable, no
 **This is the zero-hunt's input and is deliberately not adjudicated here.** Recorded so the count's growth
 is visible and attributable: it grew because coverage grew into territory where the derivation cannot see,
 not because the instrument got noisier.
+
+---
+
+*Entries below are banked from the zero-hunt and the trajectory report (2026-07-26). Same posture:
+descriptive, unscored, deliberately not answered.*
+
+## Q9 — three closure arguments cover 29 of 43 unforced zeros, and none of them needs a template
+
+The zero-hunt's HIDDEN-CLOSURE verdicts rest on exactly three structural facts —
+pairwise-exclusion ⟹ majority-closed, upward-closed ⟹ max-closed, downward-closed ⟹ min-closed — plus
+parity ⟹ minority-closed on one row. All four are one-line arguments about a region's *construction*, and
+**none requires a finite bounded-arity template.**
+
+The template route was built because polymorphisms of Γ transport to every instance. But these families
+have no finite Γ and are closed anyway. The bankable question is whether the derivation's reach can be
+*extended by kind rather than by row*: could a region carry a declared monotonicity/exclusion/parity
+property, from which forced flavours are derived the way template flags derive them now?
+
+That would convert 29 adjudicated flags into derived ones. It would also introduce a new place for a
+hand-written property to hide, which is the failure the template derivation was built to end. **Not
+resolved here** — it is a design question about whether the cure reintroduces the disease.
+
+## Q10 — `sat-2 · solutions · min` reads exactly 0.0 at r = 22 and nothing explains it
+
+2-SAT is bijunctive, so *majority* is forced and the join flags it correctly. **`min` is not forced**: a
+general 2-CNF is not Horn. The reading has 354 distinct subsets, clears the pre-declared floor, and
+survived the zero-hunt as one of only two GENUINE-READINGs.
+
+Two candidate explanations, neither tested: the sampled formulas drew Horn-like by chance at this
+clause/variable ratio, or min-closure on 2-CNF solution sets is more common at small *n* than the general
+non-implication suggests. **A single seeded re-draw would separate these** and is deliberately not run
+here — the survey does not score, and an unscored re-draw chasing a specific reading is exactly the
+posture violation the banked-questions file exists to prevent.
+
+## Q11 — `graph-3-coloring · solutions · maltsev3` swings 0.4991 against a control SD of 0.0020
+
+The largest excursion-to-control-SD ratio in the trajectory table by a wide margin (~245×), and
+**NON-MONOTONE** — it does not simply rise or fall along the ramp.
+
+`maltsev3` is the |D|=3 affine flavour, and 3-colouring's solution sets are not affine, so nothing forces
+this to any value. What makes it bankable is the *shape*: a non-monotone swing this large on a flavour the
+row is not closed under, while the same row's `max` and `min` trajectories are both **FLAT** (0.0299 and
+0.0541 excursions).
+
+Whether that is the ramp parameter interacting with 3-colouring's phase behaviour, or an artefact of how
+`maltsev3` behaves on regions of rapidly changing size, is not diagnosed. It is the most eye-catching
+single shape in the report and is recorded as such, without a story attached.

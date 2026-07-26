@@ -227,12 +227,49 @@ def audit():
     return reg, checked, orphans
 
 
+def bound_claims():
+    """BOUND CLAIMS — a second, stricter class of check, and the reason it exists is a real miss.
+
+    The orphan audit asks whether a numeral appears SOMEWHERE in the registry. That is the right question
+    for most of the draft and the wrong one for a claim that names its own source. The ledger sentence read
+    "27 numbered entries spanning 6-32" while the file held 32 spanning 6-37 — and the audit PASSED with
+    zero orphans, because 27 and 32 both exist in a 665-value registry as unrelated quantities.
+
+    A gate that passes while its purpose fails is its own species in this program's ledger. So a claim that
+    states a derivable quantity is BOUND to that quantity: the numbers in the sentence must EQUAL the
+    derived values, not merely be findable among several hundred.
+    """
+    mt = (ROOT / "docs" / "findings" / "methods-thread.md").read_text()
+    inst = [int(x) for x in re.findall(r"^## Instance (\d+)", mt, re.M)]
+    text = DRAFT.read_text()
+    out = []
+    m = re.search(r"ledger holds \*\*(\d+) numbered entries spanning (\d+)[–-](\d+)\*\*", text)
+    if m is None:
+        out.append(("ledger sentence", "NOT FOUND in the draft — the bound claim cannot be checked, "
+                    "which is itself a failure: a check that silently matches nothing is fail-open."))
+    else:
+        got = tuple(int(g) for g in m.groups())
+        want = (len(inst), min(inst), max(inst))
+        if got != want:
+            out.append(("ledger: entries / first / last",
+                        f"draft says {got}, methods-thread.md derives {want}"))
+    return out
+
+
 def main() -> int:
     reg, checked, orphans = audit()
+    bound = bound_claims()
     print("W2 — THE NUMBER AUDIT\n")
     print(f"  registry values extracted from artifacts : {len(reg)}")
     print(f"  numerals checked in the draft            : {checked}")
+    print(f"  bound claims checked                     : 1")
     print(f"  ORPHANS (halt, not footnote)             : {len(orphans)}\n")
+    for what, why in bound:
+        print(f"  BOUND-CLAIM MISMATCH  {what}: {why}")
+    if bound:
+        print(f"\n  W2 FAILS — {len(bound)} claim(s) state a derivable quantity incorrectly. Membership in "
+              f"the registry is not enough when a sentence names its own source.")
+        return 1
     for raw, line in orphans:
         print(f"  ORPHAN  {raw:>10}   {line}")
     if orphans:

@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="934" height="464" viewBox="0 0 934 464">
+<rect width="934" height="464" fill="white"/>
+<text x="28" y="30" font-family="system-ui,sans-serif" font-size="16" font-weight="600">sat-csp — excess along the declared ramp</text>
+<text x="28" y="48" font-family="system-ui,sans-serif" font-size="11" fill="#666">DESCRIPTIVE — no verdict, no score. All 24 trajectories in this family are shown; each panel is one row and region, one line per flavour.</text>
+<line x1="28" y1="64" x2="44" y2="64" stroke="#1f77b4" stroke-width="2.2"/>
+<text x="49" y="68" font-size="10.5" fill="#333">majority</text>
+<line x1="114" y1="64" x2="130" y2="64" stroke="#d62728" stroke-width="2.2"/>
+<text x="135" y="68" font-size="10.5" fill="#333">minority</text>
+<line x1="200" y1="64" x2="216" y2="64" stroke="#2ca02c" stroke-width="2.2"/>
+<text x="221" y="68" font-size="10.5" fill="#333">min</text>
+<line x1="251" y1="64" x2="267" y2="64" stroke="#9467bd" stroke-width="2.2"/>
+<text x="272" y="68" font-size="10.5" fill="#333">max</text>
+<text x="906" y="68" font-size="10.5" text-anchor="end" fill="#666">× = no reading (gap, never interpolated)   ○ = below the pre-declared r floor</text>
+<rect x="40" y="96" width="268" height="150" fill="#fbfbfc" stroke="#e2e2e6"/>
+<text x="40" y="90" font-size="11" font-weight="600" fill="#222">horn-sat · solutions</text>
+<text x="35" y="249.5" font-size="9" text-anchor="end" fill="#777">-0.695</text>
+<text x="35" y="99.5" font-size="9" text-anchor="end" fill="#777">-0.047</text>
+<polyline fill="none" stroke="#1f77b4" stroke-width="1.7" points="40.0,201.9 107.0,220.7 174.0,240.1 241.0,246.0"/>
+<circle cx="40.0" cy="201.9" r="2.4" fill="#1f77b4"/>
+<circle cx="107.0" cy="220.7" r="2.4" fill="#1f77b4"/>
+<circle cx="174.0" cy="240.1" r="2.4" fill="#1f77b4"/>
+<circle cx="241.0" cy="246.0" r="2.4" fill="#1f77b4"/>
+<circle cx="308.0" cy="255.0" r="2.8" fill="none" stroke="#1f77b4" stroke-width="1.2"/>
+<polyline fill="none" stroke="#9467bd" stroke-width="1.7" points="40.0,141.0 107.0,185.6 174.0,162.7 241.0,221.4"/>
+<circle cx="40.0" cy="141.0" r="2.4" fill="#9467bd"/>
+<circle cx="107.0" cy="185.6" r="2.4" fill="#9467bd"/>
+<circle cx="174.0" cy="162.7" r="2.4" fill="#9467bd"/>
+<circle cx="241.0" cy="221.4" r="2.4" fill="#9467bd"/>
+<circle cx="308.0" cy="262.0" r="2.8" fill="none" stroke="#9467bd" stroke-width="1.2"/>
+<polyline fill="none" stroke="#2ca02c" stroke-width="1.7" points="40.0,206.8 107.0,153.4 174.0,191.8 241.0,194.9"/>
+<circle cx="40.0" cy="206.8" r="2.4" fill="#2ca02c"/>
+<circle cx="107.0" cy="153.4" r="2.4" fill="#2ca02c"/>
+<circle cx="174.0" cy="191.8" r="2.4" fill="#2ca02c"/>
+<circle cx="241.0" cy="194.9" r="2.4" fill="#2ca02c"/>
+<circle cx="308.0" cy="255.0" r="2.8" fill="none" stroke="#2ca02c" stroke-width="1.2"/>
+<polyline fill="none" stroke="#d62728" stroke-width="1.7" points="40.0,96.0 107.0,99.7 174.0,101.6 241.0,117.3"/>
+<circle cx="40.0" cy="96.0" r="2.4" fill="#d62728"/>
+<circle cx="107.0" cy="99.7" r="2.4" fill="#d62728"/>
+<circle cx="174.0" cy="101.6" r="2.4" fill="#d62728"/>
+<circle cx="241.0" cy="117.3" r="2.4" fill="#d62728"/>
+<circle cx="308.0" cy="262.0" r="2.8" fill="none" stroke="#d62728" stroke-width="1.2"/>
+<rect x="338" y="96" width="268" height="150" fill="#fbfbfc" stroke="#e2e2e6"/>
+<line x1="338" y1="103.8" x2="606" y2="103.8" stroke="#c8c8cc" stroke-dasharray="3 3"/>
+<text x="338" y="90" font-size="11" font-weight="600" fill="#222">nae-sat · solutions</text>
+<text x="333" y="249.5" font-size="9" text-anchor="end" fill="#777">-0.574</text>
+<text x="333" y="99.5" font-size="9" text-anchor="end" fill="#777">+0.032</text>
+<polyline fill="none" stroke="#1f77b4" stroke-width="1.7" points="338.0,225.9 405.0,239.7 472.0,246.0"/>
+<circle cx="338.0" cy="225.9" r="2.4" fill="#1f77b4"/>
+<circle cx="405.0" cy="239.7" r="2.4" fill="#1f77b4"/>
+<circle cx="472.0" cy="246.0" r="2.4" fill="#1f77b4"/>
+<circle cx="539.0" cy="255.0" r="2.8" fill="none" stroke="#1f77b4" stroke-width="1.2"/>
+<circle cx="606.0" cy="255.0" r="2.8" fill="none" stroke="#1f77b4" stroke-width="1.2"/>
+<polyline fill="none" stroke="#9467bd" stroke-width="1.7" points="338.0,97.5 405.0,108.4 472.0,121.6"/>
+<circle cx="338.0" cy="97.5" r="2.4" fill="#9467bd"/>
+<circle cx="405.0" cy="108.4" r="2.4" fill="#9467bd"/>
+<circle cx="472.0" cy="121.6" r="2.4" fill="#9467bd"/>
+<circle cx="539.0" cy="262.0" r="2.8" fill="none" stroke="#9467bd" stroke-width="1.2"/>
+<circle cx="606.0" cy="262.0" r="2.8" fill="none" stroke="#9467bd" stroke-width="1.2"/>
+<polyline fill="none" stroke="#2ca02c" stroke-width="1.7" points="338.0,96.0 405.0,109.2 472.0,119.8"/>
+<circle cx="338.0" cy="96.0" r="2.4" fill="#2ca02c"/>
+<circle cx="405.0" cy="109.2" r="2.4" fill="#2ca02c"/>
+<circle cx="472.0" cy="119.8" r="2.4" fill="#2ca02c"/>
+<circle cx="539.0" cy="255.0" r="2.8" fill="none" stroke="#2ca02c" stroke-width="1.2"/>
+<circle cx="606.0" cy="255.0" r="2.8" fill="none" stroke="#2ca02c" stroke-width="1.2"/>
+<polyline fill="none" stroke="#d62728" stroke-width="1.7" points="338.0,135.6 405.0,141.2 472.0,153.1"/>
+<circle cx="338.0" cy="135.6" r="2.4" fill="#d62728"/>
+<circle cx="405.0" cy="141.2" r="2.4" fill="#d62728"/>
+<circle cx="472.0" cy="153.1" r="2.4" fill="#d62728"/>
+<circle cx="539.0" cy="262.0" r="2.8" fill="none" stroke="#d62728" stroke-width="1.2"/>
+<circle cx="606.0" cy="262.0" r="2.8" fill="none" stroke="#d62728" stroke-width="1.2"/>
+<rect x="636" y="96" width="268" height="150" fill="#fbfbfc" stroke="#e2e2e6"/>
+<text x="636" y="90" font-size="11" font-weight="600" fill="#222">sat-2 · solutions</text>
+<text x="631" y="249.5" font-size="9" text-anchor="end" fill="#777">-0.946</text>
+<text x="631" y="99.5" font-size="9" text-anchor="end" fill="#777">-0.111</text>
+<polyline fill="none" stroke="#1f77b4" stroke-width="1.7" points="636.0,190.7 703.0,221.0 770.0,234.3 837.0,238.8 904.0,238.6"/>
+<circle cx="636.0" cy="190.7" r="2.4" fill="#1f77b4"/>
+<circle cx="703.0" cy="221.0" r="2.4" fill="#1f77b4"/>
+<circle cx="770.0" cy="234.3" r="2.4" fill="#1f77b4"/>
+<circle cx="837.0" cy="238.8" r="2.4" fill="#1f77b4"/>
+<circle cx="904.0" cy="238.6" r="2.4" fill="#1f77b4"/>
+<polyline fill="none" stroke="#9467bd" stroke-width="1.7" points="636.0,156.8 703.0,170.7 770.0,143.0 837.0,192.9 904.0,210.3"/>
+<circle cx="636.0" cy="156.8" r="2.4" fill="#9467bd"/>
+<circle cx="703.0" cy="170.7" r="2.4" fill="#9467bd"/>
+<circle cx="770.0" cy="143.0" r="2.4" fill="#9467bd"/>
+<circle cx="837.0" cy="192.9" r="2.4" fill="#9467bd"/>
+<circle cx="904.0" cy="210.3" r="2.4" fill="#9467bd"/>
+<polyline fill="none" stroke="#2ca02c" stroke-width="1.7" points="636.0,167.7 703.0,172.4 770.0,153.6 837.0,208.0 904.0,246.0"/>
+<circle cx="636.0" cy="167.7" r="2.4" fill="#2ca02c"/>
+<circle cx="703.0" cy="172.4" r="2.4" fill="#2ca02c"/>
+<circle cx="770.0" cy="153.6" r="2.4" fill="#2ca02c"/>
+<circle cx="837.0" cy="208.0" r="2.4" fill="#2ca02c"/>
+<circle cx="904.0" cy="246.0" r="2.4" fill="#2ca02c"/>
+<polyline fill="none" stroke="#d62728" stroke-width="1.7" points="636.0,96.0 703.0,111.7 770.0,130.9 837.0,166.5 904.0,131.1"/>
+<circle cx="636.0" cy="96.0" r="2.4" fill="#d62728"/>
+<circle cx="703.0" cy="111.7" r="2.4" fill="#d62728"/>
+<circle cx="770.0" cy="130.9" r="2.4" fill="#d62728"/>
+<circle cx="837.0" cy="166.5" r="2.4" fill="#d62728"/>
+<circle cx="904.0" cy="131.1" r="2.4" fill="#d62728"/>
+<rect x="40" y="280" width="268" height="150" fill="#fbfbfc" stroke="#e2e2e6"/>
+<text x="40" y="274" font-size="11" font-weight="600" fill="#222">sat-3 · solutions</text>
+<text x="35" y="433.5" font-size="9" text-anchor="end" fill="#777">-0.696</text>
+<text x="35" y="283.5" font-size="9" text-anchor="end" fill="#777">-0.065</text>
+<polyline fill="none" stroke="#1f77b4" stroke-width="1.7" points="40.0,395.2 107.0,430.0"/>
+<circle cx="40.0" cy="395.2" r="2.4" fill="#1f77b4"/>
+<circle cx="107.0" cy="430.0" r="2.4" fill="#1f77b4"/>
+<circle cx="174.0" cy="439.0" r="2.8" fill="none" stroke="#1f77b4" stroke-width="1.2"/>
+<circle cx="241.0" cy="439.0" r="2.8" fill="none" stroke="#1f77b4" stroke-width="1.2"/>
+<text x="308.0" y="442.5" font-size="11" fill="#1f77b4" text-anchor="middle" font-weight="700">×</text>
+<polyline fill="none" stroke="#9467bd" stroke-width="1.7" points="40.0,323.6 107.0,396.8"/>
+<circle cx="40.0" cy="323.6" r="2.4" fill="#9467bd"/>
+<circle cx="107.0" cy="396.8" r="2.4" fill="#9467bd"/>
+<circle cx="174.0" cy="446.0" r="2.8" fill="none" stroke="#9467bd" stroke-width="1.2"/>
+<circle cx="241.0" cy="446.0" r="2.8" fill="none" stroke="#9467bd" stroke-width="1.2"/>
+<text x="308.0" y="449.5" font-size="11" fill="#9467bd" text-anchor="middle" font-weight="700">×</text>
+<polyline fill="none" stroke="#2ca02c" stroke-width="1.7" points="40.0,331.6 107.0,366.3"/>
+<circle cx="40.0" cy="331.6" r="2.4" fill="#2ca02c"/>
+<circle cx="107.0" cy="366.3" r="2.4" fill="#2ca02c"/>
+<circle cx="174.0" cy="439.0" r="2.8" fill="none" stroke="#2ca02c" stroke-width="1.2"/>
+<circle cx="241.0" cy="439.0" r="2.8" fill="none" stroke="#2ca02c" stroke-width="1.2"/>
+<text x="308.0" y="442.5" font-size="11" fill="#2ca02c" text-anchor="middle" font-weight="700">×</text>
+<polyline fill="none" stroke="#d62728" stroke-width="1.7" points="40.0,280.0 107.0,298.5"/>
+<circle cx="40.0" cy="280.0" r="2.4" fill="#d62728"/>
+<circle cx="107.0" cy="298.5" r="2.4" fill="#d62728"/>
+<circle cx="174.0" cy="446.0" r="2.8" fill="none" stroke="#d62728" stroke-width="1.2"/>
+<circle cx="241.0" cy="446.0" r="2.8" fill="none" stroke="#d62728" stroke-width="1.2"/>
+<text x="308.0" y="449.5" font-size="11" fill="#d62728" text-anchor="middle" font-weight="700">×</text>
+<rect x="338" y="280" width="268" height="150" fill="#fbfbfc" stroke="#e2e2e6"/>
+<text x="338" y="274" font-size="11" font-weight="600" fill="#222">sharp-monotone-2sat · solutions</text>
+<text x="333" y="433.5" font-size="9" text-anchor="end" fill="#777">-0.901</text>
+<text x="333" y="283.5" font-size="9" text-anchor="end" fill="#777">-0.107</text>
+<polyline fill="none" stroke="#1f77b4" stroke-width="1.7" points="338.0,386.3 405.0,406.1 472.0,415.3 539.0,420.4 606.0,424.3"/>
+<circle cx="338.0" cy="386.3" r="2.4" fill="#1f77b4"/>
+<circle cx="405.0" cy="406.1" r="2.4" fill="#1f77b4"/>
+<circle cx="472.0" cy="415.3" r="2.4" fill="#1f77b4"/>
+<circle cx="539.0" cy="420.4" r="2.4" fill="#1f77b4"/>
+<circle cx="606.0" cy="424.3" r="2.4" fill="#1f77b4"/>
+<polyline fill="none" stroke="#9467bd" stroke-width="1.7" points="338.0,390.4 405.0,412.3 472.0,421.1 539.0,425.8 606.0,430.0"/>
+<circle cx="338.0" cy="390.4" r="2.4" fill="#9467bd"/>
+<circle cx="405.0" cy="412.3" r="2.4" fill="#9467bd"/>
+<circle cx="472.0" cy="421.1" r="2.4" fill="#9467bd"/>
+<circle cx="539.0" cy="425.8" r="2.4" fill="#9467bd"/>
+<circle cx="606.0" cy="430.0" r="2.4" fill="#9467bd"/>
+<polyline fill="none" stroke="#2ca02c" stroke-width="1.7" points="338.0,286.9 405.0,280.0 472.0,288.0 539.0,290.4 606.0,289.0"/>
+<circle cx="338.0" cy="286.9" r="2.4" fill="#2ca02c"/>
+<circle cx="405.0" cy="280.0" r="2.4" fill="#2ca02c"/>
+<circle cx="472.0" cy="288.0" r="2.4" fill="#2ca02c"/>
+<circle cx="539.0" cy="290.4" r="2.4" fill="#2ca02c"/>
+<circle cx="606.0" cy="289.0" r="2.4" fill="#2ca02c"/>
+<polyline fill="none" stroke="#d62728" stroke-width="1.7" points="338.0,282.3 405.0,280.0 472.0,283.5 539.0,283.8 606.0,281.2"/>
+<circle cx="338.0" cy="282.3" r="2.4" fill="#d62728"/>
+<circle cx="405.0" cy="280.0" r="2.4" fill="#d62728"/>
+<circle cx="472.0" cy="283.5" r="2.4" fill="#d62728"/>
+<circle cx="539.0" cy="283.8" r="2.4" fill="#d62728"/>
+<circle cx="606.0" cy="281.2" r="2.4" fill="#d62728"/>
+<rect x="636" y="280" width="268" height="150" fill="#fbfbfc" stroke="#e2e2e6"/>
+<text x="636" y="274" font-size="11" font-weight="600" fill="#222">xor-sat · solutions</text>
+<text x="631" y="433.5" font-size="9" text-anchor="end" fill="#777">-0.997</text>
+<text x="631" y="283.5" font-size="9" text-anchor="end" fill="#777">-0.009</text>
+<polyline fill="none" stroke="#1f77b4" stroke-width="1.7" points="636.0,322.8 703.0,287.3 770.0,295.8"/>
+<circle cx="636.0" cy="322.8" r="2.4" fill="#1f77b4"/>
+<circle cx="703.0" cy="287.3" r="2.4" fill="#1f77b4"/>
+<circle cx="770.0" cy="295.8" r="2.4" fill="#1f77b4"/>
+<circle cx="837.0" cy="439.0" r="2.8" fill="none" stroke="#1f77b4" stroke-width="1.2"/>
+<text x="904.0" y="442.5" font-size="11" fill="#1f77b4" text-anchor="middle" font-weight="700">×</text>
+<polyline fill="none" stroke="#9467bd" stroke-width="1.7" points="636.0,317.6 703.0,285.3 770.0,281.4"/>
+<circle cx="636.0" cy="317.6" r="2.4" fill="#9467bd"/>
+<circle cx="703.0" cy="285.3" r="2.4" fill="#9467bd"/>
+<circle cx="770.0" cy="281.4" r="2.4" fill="#9467bd"/>
+<circle cx="837.0" cy="446.0" r="2.8" fill="none" stroke="#9467bd" stroke-width="1.2"/>
+<circle cx="904.0" cy="446.0" r="2.8" fill="none" stroke="#9467bd" stroke-width="1.2"/>
+<polyline fill="none" stroke="#2ca02c" stroke-width="1.7" points="636.0,317.7 703.0,285.2 770.0,280.0"/>
+<circle cx="636.0" cy="317.7" r="2.4" fill="#2ca02c"/>
+<circle cx="703.0" cy="285.2" r="2.4" fill="#2ca02c"/>
+<circle cx="770.0" cy="280.0" r="2.4" fill="#2ca02c"/>
+<circle cx="837.0" cy="439.0" r="2.8" fill="none" stroke="#2ca02c" stroke-width="1.2"/>
+<circle cx="904.0" cy="439.0" r="2.8" fill="none" stroke="#2ca02c" stroke-width="1.2"/>
+<polyline fill="none" stroke="#d62728" stroke-width="1.7" points="636.0,411.5 703.0,428.2 770.0,430.0"/>
+<circle cx="636.0" cy="411.5" r="2.4" fill="#d62728"/>
+<circle cx="703.0" cy="428.2" r="2.4" fill="#d62728"/>
+<circle cx="770.0" cy="430.0" r="2.4" fill="#d62728"/>
+<circle cx="837.0" cy="446.0" r="2.8" fill="none" stroke="#d62728" stroke-width="1.2"/>
+<text x="904.0" y="449.5" font-size="11" fill="#d62728" text-anchor="middle" font-weight="700">×</text>
+</svg>

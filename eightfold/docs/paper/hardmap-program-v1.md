@@ -332,8 +332,9 @@ The most transferable output of this program may not be any of its findings. It 
 careful measurement went wrong, kept as a first-class artifact and converted into gates that now run in
 continuous integration.
 
-The ledger holds **27 numbered entries spanning 6–32**, with instances 1–5 predating the file. It is not
-renumbered, because an instance number is a citation target. Every entry follows one shape: what happened,
+The ledger holds **32 numbered entries spanning 6–37** (derived from the file's headers, 2026-07-26; the
+count grows and the figure is restated at each writing rather than maintained), with instances 1–5
+predating the file. It is not renumbered, because an instance number is a citation target. Every entry follows one shape: what happened,
 why the disconfirming information was already present, and what rule now prevents it. The program's
 characteristic failure mode has a name — **metadata already recorded, inference not drawn**. In almost every
 case the fact needed to avoid the error was written down somewhere in the artifact and nobody joined it up.
