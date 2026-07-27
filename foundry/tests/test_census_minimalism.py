@@ -73,6 +73,33 @@ def test_control_census_reads_no_outcome_artifact():
         f"seal is contamination. Files read: {sorted(seen)}")
 
 
+def test_tranche_declaration_reads_no_outcome_artifact():
+    """Phase 1's tranche must be declared outcome-blind — the same rule, the same enforcement.
+
+    A guard written for one script and never extended to its successors is how a rule decays into a
+    story about a rule. Every outcome-blind phase is bound here."""
+    seen, rc = _run_instrumented("n6r_tranche")
+    assert rc == 0, "tranche declaration did not complete"
+    leaked = seen & FORBIDDEN
+    assert not leaked, (
+        f"CENSUS MINIMALISM VIOLATED — the tranche declaration read outcome artifact(s) {sorted(leaked)}. "
+        f"The tranche is fixed BEFORE any hull or excess exists. Files read: {sorted(seen)}")
+
+
+def test_tranche_hash_is_stable():
+    """The tranche hash is the object Phase 2's predictions will be sealed against. If it is not
+    reproducible, the seal has nothing to bind to."""
+    import importlib
+    mod = importlib.import_module("n6r_tranche")
+    doc = json.loads((ROOT / "foundry" / "results" / "lattice" / "n6r_tranche.json").read_text())
+    import hashlib
+    payload = {"discovery": doc["discovery"], "calibration": doc["calibration"]}
+    recomputed = hashlib.sha256(
+        json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    assert recomputed == doc["TRANCHE_HASH"], (
+        "the tranche hash does not reproduce from its own member lists — the seal would bind to nothing")
+
+
 def test_the_guard_can_actually_fail():
     """A guard that cannot fail is not a guard. Prove the instrumentation sees a forbidden read."""
     seen = set()
