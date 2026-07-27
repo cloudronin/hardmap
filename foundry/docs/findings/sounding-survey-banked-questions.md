@@ -514,3 +514,33 @@ The lexicon's stopping rule already sends the *unmatched* remainder to hand adju
 **matched** portion needs a region check too — presence of a subset-shaped noun in an encoding does not
 make the certificate a subset. The vet-before-hash protocol catches it only because writing the generator
 is itself the region check; a roster that trusted the lexicon alone would have shipped it.
+
+## Q24 — CLOSED as a bounded result, 2026-07-27
+
+The region-formulation audit ran over all 23 lexicon-typed rows, hand-adjudicated with each row's
+`canonical_encoding` quoted as the receipt. Vocabulary declared before the rows were read.
+
+| verdict | n | routes to |
+|---|---:|---|
+| SUBSET-VERIFIED | 20 | batch 8's roster |
+| WRONG-REGION | 2 | leaves the queue — another class |
+| VARIANT-REGION | 1 | declares a variant at birth, or waits for its canonical path |
+
+**Lexicon false-positive rate on matched rows: 8.7%** (wrong-region only), **13.0%** including variant.
+That is the number the v2 pass's honesty accounting wanted: *coverage* says how much the lexicon read,
+*this* says how often what it read was right. It is the rate on these 23 and is **not projected** onto
+the 59 still unmatched.
+
+The three that failed:
+
+- **`lex-first-maximal-independent-set`** — WRONG-REGION. Unique given the fixed vertex order the
+  encoding itself states. One answer, not a region.
+- **`independent-set-reconfiguration`** — WRONG-REGION. The certificate is a *sequence* of single-token
+  moves; the order is the content. The census has no class for the reconfiguration shape yet.
+- **`disjoint-paths`** — VARIANT-REGION. An edge-subset encoding exists, but it loses the terminal-pair
+  assignment, which is the whole question. The 3-partition species exactly.
+
+Two rows carry an **affordability note rather than a typing one**: `bilevel-knapsack` and
+`network-interdiction` have subset certificates (the leader's choice) whose predicate requires solving
+the follower's optimum. That makes them expensive, not mis-typed — a distinction worth keeping, since
+conflating the two is how a hard row gets quietly reclassified as a wrong one.

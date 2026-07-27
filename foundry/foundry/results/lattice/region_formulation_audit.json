@@ -1,0 +1,195 @@
+{
+ "schema": "region-formulation-audit/v1",
+ "STATUS": "HAND ADJUDICATION WITH RECEIPTS \u2014 the eyes-on pass lexicon v2's stopping rule declared in advance. Every verdict quotes the encoding it was made from.",
+ "scope": "the MATCHED portion of the lexicon-typed queue, because matched is not verified",
+ "vocabulary": {
+  "SUBSET-VERIFIED": "certificate is a subset of a fixed ground set; enters a subset roster",
+  "VARIANT-REGION": "a subset encoding exists but loses what the canonical object carries; declares a variant at birth or waits for its canonical path",
+  "WRONG-REGION": "not a subset region under any encoding; leaves the queue"
+ },
+ "declared_before_reading": true,
+ "n_audited": 23,
+ "by_verdict": {
+  "SUBSET-VERIFIED": 20,
+  "VARIANT-REGION": 1,
+  "WRONG-REGION": 2
+ },
+ "lexicon_false_positive_rate": {
+  "wrong_region_only": 0.087,
+  "wrong_or_variant": 0.1304,
+  "what_it_measures": "the rate at which an L4-subset MATCH is not a verified subset region. This is the honesty accounting lexicon v2's coverage number wanted: coverage says how much the lexicon read, this says how often what it read was right.",
+  "denominator_caveat": "23 matched rows, not a sample of anything wider. It is the rate on THIS queue and is not projected onto the 59 still unmatched."
+ },
+ "verified_subset_queue": [
+  "balanced-vertex-separator",
+  "bilevel-knapsack",
+  "capacitated-vertex-cover",
+  "cluster-editing",
+  "cycle-packing",
+  "graph-sandwich-pi-property",
+  "interval-completion",
+  "k-minimum-spanning-tree",
+  "k-set-packing",
+  "maximum-minimal-vertex-cover",
+  "minimum-equivalent-digraph",
+  "minimum-fill-in",
+  "network-interdiction",
+  "planar-dominating-set",
+  "planar-vertex-deletion",
+  "power-dominating-set",
+  "quadratic-knapsack",
+  "total-dominating-set",
+  "triangle-packing",
+  "weighted-interval-scheduling"
+ ],
+ "n_verified": 20,
+ "wrong_region": [
+  "independent-set-reconfiguration",
+  "lex-first-maximal-independent-set"
+ ],
+ "variant_region": [
+  "disjoint-paths"
+ ],
+ "rows": [
+  {
+   "problem_id": "balanced-vertex-separator",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "simple undirected graph, adjacency-list; find a minimum vertex set S whose removal leaves every connected component with at most 2|V|/3 vertices; objective = minimize |S|"
+  },
+  {
+   "problem_id": "bilevel-knapsack",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "a two-level (leader/follower) 0/1 knapsack with binary-encoded weights and profits; decision: can the leader guarantee objective >= t against the follower's optimal response?",
+   "affordability_note": "leader's choice IS a subset; the predicate requires solving the follower's optimum, so this is an AFFORDABILITY question, not a typing one"
+  },
+  {
+   "problem_id": "capacitated-vertex-cover",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "graph with vertex capacities; cover all edges respecting capacities, size <= k"
+  },
+  {
+   "problem_id": "cluster-editing",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "simple undirected graph; edit <= k edges to make a disjoint union of cliques"
+  },
+  {
+   "problem_id": "cycle-packing",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "simple undirected graph, adjacency-list; objective = maximum number of pairwise vertex-disjoint cycles (of any length >= 3)"
+  },
+  {
+   "problem_id": "disjoint-paths",
+   "verdict": "VARIANT-REGION",
+   "why": "an edge-subset encoding exists \u2014 the union of the k paths is an edge set \u2014 but it LOSES the terminal-pair assignment, which is the whole question. A subset reading answers 'are these edges usable' rather than 'do k disjoint paths connect these pairs'. Subset encoding available, canonical object different: the 3-partition species.",
+   "canonical_encoding": "graph + k terminal pairs; k vertex-disjoint paths connecting them"
+  },
+  {
+   "problem_id": "graph-sandwich-pi-property",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "two simple undirected graphs F, F' with F subset of F' (E(F) subset E(F')); target property Pi = being P_k-free (no induced path on k vertices) with k = Theta(|V|^{1/2})"
+  },
+  {
+   "problem_id": "independent-set-reconfiguration",
+   "verdict": "WRONG-REGION",
+   "why": "the certificate is a SEQUENCE of single-token moves transforming I_s into I_t. The answer is the transformation, and its order is the content \u2014 no subset of a fixed ground set encodes it. Belongs to the reconfiguration/sequence shape, which the census has no class for yet.",
+   "canonical_encoding": "a graph G and two independent sets I_s, I_t of equal size (token placements); decision: can I_s be transformed into I_t by single-token moves (slide to an adjacent vertex, or jump to any vertex) with every intermediate set independent?"
+  },
+  {
+   "problem_id": "interval-completion",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "simple undirected graph G; objective = minimum number of edges to add so that the result is an interval graph"
+  },
+  {
+   "problem_id": "k-minimum-spanning-tree",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "undirected graph with non-negative edge weights and integer k; objective = minimum-weight tree spanning at least k vertices"
+  },
+  {
+   "problem_id": "k-set-packing",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "family of sets each of size <= k; find a maximum disjoint subfamily"
+  },
+  {
+   "problem_id": "lex-first-maximal-independent-set",
+   "verdict": "WRONG-REGION",
+   "why": "the lex-first maximal independent set is UNIQUE given the fixed vertex order the encoding states. There is one answer, not a region \u2014 the row belongs to REGIONLESS-unique-answer. This is the false positive that forced the audit: it matched L4-subset on 'independent set'.",
+   "canonical_encoding": "simple undirected graph with a fixed vertex order; decision: is vertex v in the lexicographically-first maximal independent set (greedy in order)?"
+  },
+  {
+   "problem_id": "maximum-minimal-vertex-cover",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "simple undirected graph; objective = maximum-cardinality MINIMAL vertex cover (a vertex cover no proper subset of which is a vertex cover)"
+  },
+  {
+   "problem_id": "minimum-equivalent-digraph",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "simple directed graph; objective = a minimum-cardinality subset of the arcs that preserves all reachability relations (same transitive closure)"
+  },
+  {
+   "problem_id": "minimum-fill-in",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "graph; add <= k edges to make it chordal"
+  },
+  {
+   "problem_id": "network-interdiction",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "a network with an interdiction budget: the leader (interdictor) removes/attacks <= b elements (edges/vertices), then the follower solves an NP-hard optimization X (e.g. shortest path or a knapsack-interdiction nominal problem) on the residual network; decision: can the leader force the follower's optimum past a threshold t?",
+   "affordability_note": "same bilevel shape \u2014 subset certificate, inner-optimization predicate"
+  },
+  {
+   "problem_id": "planar-dominating-set",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "planar graph; dominating set of size <= k"
+  },
+  {
+   "problem_id": "planar-vertex-deletion",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "simple undirected graph; objective = a minimum set of vertices whose deletion makes the graph planar (the k-apex / vertex-planarization problem)"
+  },
+  {
+   "problem_id": "power-dominating-set",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "simple undirected graph; a vertex set observes by domination (a chosen vertex and its neighbors) plus a propagation rule (an observed vertex with all-but-one observed neighbors forces the last neighbor); objective = a minimum set observing all vertices"
+  },
+  {
+   "problem_id": "quadratic-knapsack",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "n items with a knapsack constraint (weights + capacity, binary) and a nonnegative quadratic profit matrix (pairwise item profits); maximize total selected profit"
+  },
+  {
+   "problem_id": "total-dominating-set",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "simple undirected graph with no isolated vertex; a total dominating set S has every vertex (including those in S) adjacent to a vertex of S; objective = minimum |S|"
+  },
+  {
+   "problem_id": "triangle-packing",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "simple undirected graph; find a maximum-cardinality set of pairwise vertex-disjoint triangles"
+  },
+  {
+   "problem_id": "weighted-interval-scheduling",
+   "verdict": "SUBSET-VERIFIED",
+   "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
+   "canonical_encoding": "weighted intervals on a line; select a max-weight non-overlapping subset"
+  }
+ ]
+}

@@ -2,6 +2,20 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **Q24 closed as a bounded result — the region-formulation audit.** All 23 lexicon-typed rows
+  hand-adjudicated with each row's `canonical_encoding` quoted as the receipt, vocabulary declared
+  before the rows were read and inheriting the rulings' existing distinction rather than rediscovering
+  it: **SUBSET-VERIFIED 20 · WRONG-REGION 2 · VARIANT-REGION 1**. The two route differently by design —
+  wrong-region leaves the queue, variant-region stays with a declaration attached.
+  **Lexicon false-positive rate on matched rows: 8.7%** (13.0% including variant) — the number the v2
+  pass's honesty accounting wanted, since coverage says how much the lexicon read and this says how
+  often what it read was right. Explicitly NOT projected onto the 59 unmatched.
+  `lex-first-maximal-independent-set` and `independent-set-reconfiguration` leave (a unique answer and
+  a move sequence); `disjoint-paths` is a variant (an edge-subset encoding exists but loses the
+  terminal-pair assignment). `bilevel-knapsack` and `network-interdiction` carry an AFFORDABILITY note
+  rather than a typing one — subset certificates with inner-optimization predicates, expensive rather
+  than mis-typed, a distinction kept because conflating them is how a hard row gets quietly
+  reclassified as a wrong one. Batch 8 rosters from the 20 verified. 403 tests, verify 11/11, W2 passes.
 - **The wave-4 sitting — the slate came back four-for-four confounded, and the screens learned that
   size is special.** Every slated candidate involved a size-coupled descriptor (`r_ref`,
   `insufficient_share` whose flags fire on r-floors, `bimodality_max` which small samples inflate
