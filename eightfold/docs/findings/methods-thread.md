@@ -1858,3 +1858,38 @@ The queue shrinks only for reasons about **shape**, never about **effort**. A ty
 IS; cost says what it takes to measure. A queue pruned on cost while claiming to be pruned on type would
 report a clean population that was really a cheap one — and every rate computed over it, including the
 misclassification rates this program has just spent a day establishing, would inherit the bias silently.
+
+---
+
+## The guards checked names, not what was computed — a near-miss, 2026-07-27
+
+Batch 8 came within one accident of capturing a reserved frontier row.
+
+`interval_completion` used a chordality test as a surrogate for interval-graph recognition. Chordality is
+also exactly the predicate `minimum_fill_in` uses — so the two generators computed **byte-identical
+regions**, verified at three ramp values. And `minimum-fill-in` was on the frontier.
+
+Every reservation guard passed. The batch's ROWS table did not name a reserved row; the catalog builder
+found none; the loader found none. All three check **row identifiers**.
+
+> **A region is reserved ground regardless of the label above it.**
+
+What actually stopped it was unrelated: the row failed conformance because I had rostered it
+`upward_closed` and it is not. An accident, not a guard.
+
+The aggravating detail is worse than the near-miss. `batch8.py` **defined** `minimum_fill_in` while the
+row sat reserved. The rule "a batch defines no generator for a reserved row — a batch that never learned
+how to build one cannot burn the ground" has been stated in every batch docstring since batch 3 and was
+enforced by none of them. A rule that lives only in prose is a rule the next author will restate and
+break in the same file.
+
+Two guards now, cheap and expensive:
+
+- `assert_no_reserved_generators` — a function whose name maps to a reserved row cannot exist in a batch
+  module at all, called or not.
+- `assert_no_duplicate_regions` — two differently-named generators computing the same region halt the
+  batch, checked by construction.
+
+Kill 2 is **not** triggered: it fires on a detected leak, and no reserved frame exists. Recorded as a
+near-miss precisely so that distinction stays visible — a program that logs near-misses as incidents
+stops being able to tell the difference when a real one arrives.

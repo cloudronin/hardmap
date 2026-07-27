@@ -53,37 +53,13 @@ def _chordal(n, edges):
     return True
 
 
-def _interval(n, edges):
-    """Interval graphs are chordal and AT-free; chordality alone is a necessary condition and is used
-    here as the declared surrogate — stated, not hidden, because it makes the row a SUPERSET test."""
-    return _chordal(n, edges)
-
-
 def _base(rng, p, n=NV):
     return {e for e in combinations(range(n), 2) if rng.random() < p}
 
 
-def minimum_fill_in(rng, p, n=NV):
-    """Candidate pairs ADDED to make the base chordal. Upward-closed: adding more edges to a chordal
-    completion keeps it chordal only if... it does not in general — so the declared expectation is
-    checked at birth rather than assumed."""
-    base, cand = _base(rng, p, n), _cands(n, rng)
-    f = [s for s in product((0, 1), repeat=M_CAND)
-         if _chordal(n, base | {cand[i] for i in range(M_CAND) if s[i]})]
-    if len(f) < 2:
-        return []
-    b = min(sum(s) for s in f)
-    return [("feasible", f), ("optimal", [s for s in f if sum(s) == b])]
-
-
-def interval_completion(rng, p, n=NV):
-    base, cand = _base(rng, p, n), _cands(n, rng)
-    f = [s for s in product((0, 1), repeat=M_CAND)
-         if _interval(n, base | {cand[i] for i in range(M_CAND) if s[i]})]
-    if len(f) < 2:
-        return []
-    b = min(sum(s) for s in f)
-    return [("feasible", f), ("optimal", [s for s in f if sum(s) == b])]
+# interval-completion's generator is REMOVED, not repaired. Its chordality surrogate made it compute
+# the identical region to `minimum-fill-in`, which is RESERVED — so the row cannot be built here at all
+# until it has an interval-graph test that is its own. See the maptrail near-miss record.
 
 
 def graph_sandwich_pi_property(rng, p, n=NV):
@@ -188,8 +164,6 @@ def network_interdiction(rng, ratio, n=NV):
 
 
 ROWS = {
-    "interval-completion":        (interval_completion, "upward_closed", "graph", GRAPH,
-                                   "edge density over a fixed candidate-pair list"),
     "minimum-equivalent-digraph": (minimum_equivalent_digraph, None, "graph", GRAPH,
                                    "arc density over a fixed candidate-arc list"),
     "graph-sandwich-pi-property": (graph_sandwich_pi_property, None, "graph", GRAPH,
@@ -209,8 +183,12 @@ def main() -> int:
         raise RuntimeError(f"FRONTIER LEAK — batch 8 defines generators for reserved row(s) {leak}")
     missing = sorted(set(cen["published"]) - set(ROWS))
     if missing:
-        raise RuntimeError(f"census published {missing} with no generator")
-    print(f"reservation honoured: {len(reserved)} row(s) withheld across all batches\n")
+        print(f"  NOT BUILT: {missing} — see the maptrail for each row's reason")
+    RES.assert_no_reserved_generators(globals(), LEDGER)
+    RES.assert_no_duplicate_regions({k: v[0] for k, v in ROWS.items()}, 0.35, LEDGER,
+                                    lambda: __import__("random").Random(SEED))
+    print(f"reservation honoured: {len(reserved)} row(s) withheld across all batches; no generator "
+          f"for any of them, and no two generators compute the same region\n")
 
     out, excluded = [], []
     ctrl = lambda region, rng: N2.cp_control(region, rng)[0]

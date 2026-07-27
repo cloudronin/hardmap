@@ -147,3 +147,37 @@ def test_release_is_an_append_not_an_edit(tmp_path):
     assert RES.reserved_rows(led) == set()
     assert len(RES.read_ledger(led)) == 2
     assert RES.read_ledger(led)[0]["reserved"] == rec["reserved"], "the reservation record was edited"
+
+
+# ── the near-miss guards (minted 2026-07-27) ────────────────────────────────────────────────────────
+def test_a_reserved_row_generator_cannot_exist_in_a_batch_module():
+    """Batch 8 DEFINED minimum_fill_in while minimum-fill-in sat on the frontier, kept it out of ROWS,
+    and passed every check. The standing rule was stated in every batch docstring and enforced by none."""
+    reserved = _reserved()
+    if not reserved:
+        pytest.skip("nothing reserved")
+    victim = sorted(reserved)[0].replace("-", "_")
+    with pytest.raises(RuntimeError, match="RESERVED-ROW GENERATOR PRESENT"):
+        RES.assert_no_reserved_generators({victim: lambda rng, v: []}, LEDGER)
+
+
+def test_the_generator_guard_passes_on_a_clean_module():
+    RES.assert_no_reserved_generators({"some_other_row": lambda rng, v: []}, LEDGER)
+
+
+def test_two_generators_computing_the_same_region_halt_the_batch():
+    """THE EXPENSIVE HALF. A region is reserved ground regardless of the label above it — every earlier
+    guard checked row NAMES and none checked what was computed."""
+    import random
+    same = lambda rng, v: [("feasible", [(1, 0), (0, 1)])]
+    with pytest.raises(RuntimeError, match="DUPLICATE REGION"):
+        RES.assert_no_duplicate_regions({"a": same, "b": same}, 0.35, LEDGER,
+                                        lambda: random.Random(0))
+
+
+def test_distinct_generators_pass_the_duplicate_check():
+    import random
+    RES.assert_no_duplicate_regions(
+        {"a": lambda rng, v: [("feasible", [(1, 0), (0, 1)])],
+         "b": lambda rng, v: [("feasible", [(1, 1), (0, 0)])]},
+        0.35, LEDGER, lambda: random.Random(0))

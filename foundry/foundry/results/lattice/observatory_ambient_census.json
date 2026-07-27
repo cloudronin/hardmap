@@ -8,7 +8,7 @@
   "shape_and_transition_descriptors": "n.a.-ambient-confounded \u2014 slope, traj_class and kink presuppose a fixed space; here the x-axis moves the universe too",
   "not_the_kink_precedent": "kink values are meaningful-but-untested; these are meaningless-as-defined"
  },
- "n_rows": 60,
+ "n_rows": 59,
  "n_confounded": 6,
  "confounded": [
   "cluster-deletion",
@@ -764,26 +764,6 @@
   },
   {
    "problem_id": "graph-sandwich-pi-property",
-   "batch": 8,
-   "ramp_values": [
-    0.15,
-    0.25,
-    0.35,
-    0.45,
-    0.6
-   ],
-   "ground_set_widths": [
-    11,
-    11,
-    11,
-    11,
-    11
-   ],
-   "ambient_stable": true,
-   "ambient_confounded": false
-  },
-  {
-   "problem_id": "interval-completion",
    "batch": 8,
    "ramp_values": [
     0.15,

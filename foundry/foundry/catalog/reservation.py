@@ -122,3 +122,51 @@ def assert_absent(where: str, row_ids, path: Path) -> None:
             f"FRONTIER LEAK — {where} contains reserved row(s) {leak}. Reserved rows are excluded from "
             f"every disclosed computation until released (Helm §5). Helm Kill 2: a detected leak halts "
             f"all open waves and the tranche re-reserves from unbuilt rows.")
+
+
+def assert_no_reserved_generators(module_namespace: dict, path: Path) -> None:
+    """No batch module may DEFINE a generator for a reserved row (minted 2026-07-27, after a near-miss).
+
+    The standing rule since batch 3 was that a batch defines no generator for a reserved row — a batch
+    that never learned how to build one cannot burn the ground. It was enforced by reading the ROWS
+    table, which is not the same as enforcing it. Batch 8 defined `minimum_fill_in` while
+    `minimum-fill-in` sat on the frontier, kept it out of ROWS, and passed every check.
+
+    Worse, `interval_completion` computed a BYTE-IDENTICAL region to it, so the reserved row would have
+    been captured under a different name with every guard green. Only a conformance failure on an
+    unrelated declaration stopped it.
+
+    THE GUARDS CHECKED NAMES AND NOT WHAT WAS COMPUTED. This closes the cheap half: a function whose
+    name maps to a reserved row id cannot exist in a batch module at all. The expensive half — two
+    differently-named generators producing the same region — is checked separately at capture time."""
+    held = reserved_rows(path)
+    if not held:
+        return
+    bad = sorted(n for n in module_namespace
+                 if callable(module_namespace.get(n)) and n.replace("_", "-") in held)
+    if bad:
+        raise RuntimeError(
+            f"RESERVED-ROW GENERATOR PRESENT — {bad}. A batch module must not know how to build a "
+            f"reserved row, whether or not it calls the function. Helm Kill 2: a reserved-row leak "
+            f"halts all open waves.")
+
+
+def assert_no_duplicate_regions(rows: dict, ramp_probe, path: Path, rng_factory) -> None:
+    """Two differently-named generators producing the SAME region is a reserved-row leak wearing
+    another row's name. Checked by construction rather than trusted."""
+    seen = {}
+    for row, build in rows.items():
+        try:
+            d = dict(build(rng_factory(), ramp_probe) or [])
+        except Exception:
+            continue
+        r = d.get("feasible")
+        if not r:
+            continue
+        key = hash(tuple(sorted(map(tuple, r))))
+        if key in seen:
+            raise RuntimeError(
+                f"DUPLICATE REGION — `{row}` and `{seen[key]}` compute the identical region at the "
+                f"probe step. One of them is the other under a different name, which is how a reserved "
+                f"row gets captured with every name-based guard green.")
+        seen[key] = row
