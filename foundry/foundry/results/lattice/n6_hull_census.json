@@ -6423,5 +6423,748 @@
   },
   "the_direction_is_OPPOSITE_to_the_draft": "the draft sealed P1 POSITIVE \u2014 regions near their hulls carry the most negative excess. Observed is -0.2952 marginal and -0.3684 partial: HIGH inflation associates with MORE negative excess. Whatever N6 becomes, it is not the study the draft described.",
   "the_collinearity_problem": "log-inflation and measured_rate correlate at +0.9201 on the censused population \u2014 near-collinear. The incremental form has little residual variance to work with, which is the diagnosis the incremental form was built to deliver, but it means an incremental P1 was heading for INSUFFICIENT regardless."
- }
+ },
+ "extremal_acknowledged": [
+  {
+   "stat": "known_answer_battery.checks.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "known_answer_battery.checks.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "known_answer_battery.checks.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "known_answer_battery.checks.3.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "known_answer_battery.checks.4.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "known_answer_battery.checks.5.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "known_answer_battery.checks.6.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "known_answer_battery.checks.7.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "known_answer_battery.checks.8.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "known_answer_battery.checks.11.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "known_answer_battery.checks.12.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "known_answer_battery.checks.15.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "known_answer_battery.checks.16.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "census_by_flavour.majority.infl_min",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "census_by_flavour.max.infl_min",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "census_by_flavour.min.infl_min",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.4.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.4.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.11.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.13.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.13.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.13.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.13.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.13.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.14.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.34.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.34.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.34.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.34.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.34.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.35.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.35.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.46.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.46.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.46.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.46.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.46.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.48.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.48.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.48.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.48.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.48.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.50.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.50.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.50.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.50.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.50.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.51.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.51.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.52.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.52.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.54.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.54.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.54.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.54.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.54.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.57.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.57.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.57.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.57.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.57.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.58.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.58.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.59.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.59.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.59.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.59.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.59.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.60.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.61.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.61.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.61.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.61.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.61.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.62.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.63.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.63.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.63.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.63.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.63.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.65.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.65.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.65.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.65.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.65.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.66.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.67.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.69.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.69.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.69.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.69.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.69.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.70.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.71.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.72.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.72.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.73.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.84.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.84.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.84.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.84.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.86.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.86.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.86.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.86.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.86.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.88.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.88.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.88.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.88.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.88.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.90.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.90.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.90.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.90.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.90.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.92.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.92.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.92.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.92.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.92.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.94.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.94.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.94.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.94.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.94.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.95.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.95.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.97.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.97.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.97.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.97.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.97.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.98.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.98.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.98.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.98.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.98.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.100.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.100.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.100.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.100.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.100.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.101.measured_rate",
+   "value": 0.0,
+   "why": "measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 \u2014 the region is CLOSED, so no blend escapes. The same fact on three axes, and the census verifies the co-occurrence rather than assuming it."
+  },
+  {
+   "stat": "readings.101.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.101.per_instance.0.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.101.per_instance.1.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  },
+  {
+   "stat": "readings.101.per_instance.2.infl",
+   "value": 1.0,
+   "why": "infl == 1.0 means hull(R) == R \u2014 the region is CLOSED under this flavour. That is the defining case of the quantity, forced by theorem rather than observed by luck, and the known-answer battery verifies the machinery reproduces it on all 15 of N4's verified closure properties."
+  }
+ ],
+ "extremal_acknowledgment_is_derived": "produced by n6_hull.acknowledge_extremals \u2014 the same function the script calls. The rate-0 / infl-1 / depth-0 co-occurrence it cites is VERIFIED on every reading, not assumed; a rate of 0 without a closed hull would halt."
 }

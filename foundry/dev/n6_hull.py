@@ -141,6 +141,61 @@ def battery(rng):
     return checks, failures
 
 
+def acknowledge_extremals(doc):
+    """Derive the tidy-number gate's acknowledgments at run time, never hardcode them.
+
+    An exact 1.0 in this artifact is `infl` for a CLOSED region — hull(R) == R — which is the defining
+    case of the quantity and is exactly what the known-answer battery verifies the machinery reproduces.
+    An extremal matching no structural pattern is a HARD FAILURE, because an acknowledgment block that
+    accepts anything is a rubber stamp and the gate exists to prevent one.
+    """
+    acks, unexplained = [], []
+
+    def explain(path, val):
+        p = path.lower()
+        if val == 1.0 and ("infl" in p):
+            return ("infl == 1.0 means hull(R) == R — the region is CLOSED under this flavour. That is "
+                    "the defining case of the quantity, forced by theorem rather than observed by luck, "
+                    "and the known-answer battery verifies the machinery reproduces it on all 15 of N4's "
+                    "verified closure properties.")
+        if val == 0.0 and ("depth" in p or "rounds" in p):
+            return ("depth == 0 means the fixpoint was reached before any round added a member — the "
+                    "same closed-region fact as infl == 1.0, seen on the other axis.")
+        if val == 0.0 and p.endswith(".measured_rate"):
+            # CHECKED, not asserted: every extremal rate in this artifact must co-occur with a closed
+            # hull. If one did not, the rate and the hull would be describing different objects and the
+            # whole census would be suspect.
+            return ("measured_rate == 0.0 co-occurring with infl == 1.0 and depth == 0 — the region is "
+                    "CLOSED, so no blend escapes. The same fact on three axes, and the census verifies "
+                    "the co-occurrence rather than assuming it.")
+        if val in (0.0, 1.0) and ("coverage" in p or "pass" in p or "n_" in p or "tested" in p
+                                  or "passed" in p or p.endswith(".value")):
+            return "a count or proportion, extremal by tally rather than by measurement."
+        return None
+
+    def walk(node, path):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                walk(v, f"{path}.{k}" if path else k)
+        elif isinstance(node, list):
+            for i, v in enumerate(node):
+                walk(v, f"{path}.{i}")
+        elif isinstance(node, float) and node in (0.0, 1.0):
+            why = explain(path, node)
+            (acks if why else unexplained).append({"stat": path, "value": node, "why": why})
+
+    walk(doc, "")
+    # the co-occurrence the explanation above CLAIMS is verified here, not trusted
+    bad = [x for x in doc.get("readings", [])
+           if x["measured_rate"] == 0.0 and not (abs(x["infl"] - 1.0) < 1e-12 and x["depth"] == 0)]
+    for b in bad:
+        unexplained.append({"stat": f"{b['row']}.{b['region']}.{b['flavor']}", "value": 0.0,
+                            "why": None,
+                            "detail": (f"measured_rate 0.0 but infl={b['infl']} depth={b['depth']} — the "
+                                       f"rate and the hull describe different objects")})
+    return acks, unexplained
+
+
 def main() -> int:
     rng = random.Random(20260726)
     t0 = time.time()
@@ -256,6 +311,12 @@ def main() -> int:
            "census_by_flavour": census,
            "CENSUS_KILL": kill, "degenerate": degenerate,
            "readings": rows}
+    doc["extremal_acknowledged"], unexplained = acknowledge_extremals(doc)
+    if unexplained:
+        print("FAIL — exactly-extremal values with no structural explanation:", file=sys.stderr)
+        for u in unexplained[:12]:
+            print(f"    {u['stat']} = {u['value']}", file=sys.stderr)
+        return 1
     OUT.write_text(json.dumps(doc, indent=1) + "\n")
 
     print(f"\nN6-I0 — THE CENSUS\n")
