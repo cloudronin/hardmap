@@ -31,7 +31,7 @@ FORBIDDEN = {
 }
 
 
-def _run_instrumented(module_name, out_attr="OUT", shrink=None):
+def _run_instrumented(module_name, out_attrs=("OUT",), shrink=None):
     """Run a census module's main() with file reads recorded. Returns the set of filenames read."""
     import importlib
     mod = importlib.import_module(module_name)
@@ -42,22 +42,24 @@ def _run_instrumented(module_name, out_attr="OUT", shrink=None):
         seen.add(self.name)
         return orig(self, *a, **k)
 
-    tmp = ROOT / "foundry" / "results" / "lattice" / f"_test_{module_name}.json"
     saved = {}
     try:
         Path.read_text = spy
-        saved[out_attr] = getattr(mod, out_attr)
-        setattr(mod, out_attr, tmp)
+        for j, oa in enumerate(out_attrs):
+            saved[oa] = getattr(mod, oa)
+            setattr(mod, oa, ROOT / "foundry" / "results" / "lattice" / f"_test_{module_name}_{j}.json")
         for k, v in (shrink or {}).items():
             saved[k] = getattr(mod, k)
             setattr(mod, k, v)
         rc = mod.main()
     finally:
         Path.read_text = orig
+        for j, oa in enumerate(out_attrs):
+            t = ROOT / "foundry" / "results" / "lattice" / f"_test_{module_name}_{j}.json"
+            if t.exists():
+                t.unlink()
         for k, v in saved.items():
             setattr(mod, k, v)
-        if tmp.exists():
-            tmp.unlink()
     return seen, rc
 
 
@@ -98,6 +100,18 @@ def test_tranche_hash_is_stable():
         json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
     assert recomputed == doc["TRANCHE_HASH"], (
         "the tranche hash does not reproduce from its own member lists — the seal would bind to nothing")
+
+
+def test_hull_phase_reads_no_outcome_artifact():
+    """Phase 2 computes the PREDICTOR. It must not touch an outcome — that is exactly the join whose
+    absence makes the sealed prediction blind."""
+    seen, rc = _run_instrumented("n6r_hulls", out_attrs=("OUT_INFL", "OUT_PRED"))
+    assert rc == 0, "hull phase did not complete"
+    leaked = seen & FORBIDDEN
+    assert not leaked, (
+        f"CENSUS MINIMALISM VIOLATED — the hull phase read outcome artifact(s) {sorted(leaked)}. "
+        f"The predictor is frozen and the predictions hashed BEFORE any outcome exists. "
+        f"Files read: {sorted(seen)}")
 
 
 def test_the_guard_can_actually_fail():
