@@ -1893,3 +1893,39 @@ Two guards now, cheap and expensive:
 Kill 2 is **not** triggered: it fires on a detected leak, and no reserved frame exists. Recorded as a
 near-miss precisely so that distinction stays visible — a program that logs near-misses as incidents
 stops being able to tell the difference when a real one arrives.
+
+---
+
+## Reservation is a property of the region, not the name above it — 2026-07-27
+
+Third appearance of the program's deepest bug. The first was **id-is-the-object** (graph-3-coloring);
+the second was **encoding-faithfulness** (3-partition); this is the frontier guard.
+
+> **Labels and objects come apart, and every guard that checks labels is blind exactly there.**
+
+The frontier guards checked row identifiers. The ground they protect is *computed regions*. Two names
+sat over one region with reserved status on only one of them, and nothing in the machinery could see it.
+
+Two guards close it at both ends. No generator may **exist** whose name maps to reserved ground —
+called or not, which is the right strictness: the loaded gun in the module is the hazard, not the
+trigger. And byte-identical regions under different names halt the batch regardless of reservation —
+which is also, as a bonus, the atlas's **dedup at the measurement layer**: two rows quietly measuring
+one object is a defect even when neither is reserved.
+
+The aggravating detail earns its own line:
+
+> **A rule living only in prose is a rule the next author restates and breaks in the same file.**
+
+Five batch docstrings deep, stated every time, enforced by none until it nearly cost a frontier row.
+
+### And the axis it taught, immediately
+
+The 59-row adjudication then met `covering-radius` and `feedback-arc-set` carrying prior dispositions,
+and the reconciliation rule almost retired them as superseded typings. They are not. Those records are
+**capture dispositions** — deferred for want of an ambient-stable framing, excluded at birth for ambient
+instability — while the adjudication assigns a **reach class**.
+
+> **What an object IS and whether the observatory can film it are different questions.**
+
+One row, one current typing *on each axis*. Collapsing the two would have silently retired a live
+deferral, which is the same species again: a rule applied to the label instead of the thing.

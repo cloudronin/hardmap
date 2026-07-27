@@ -1,0 +1,462 @@
+{
+ "schema": "unmatched-adjudication/v1",
+ "STATUS": "HAND ADJUDICATION WITH RECEIPTS \u2014 the stopping rule's declared endpoint",
+ "why_not_a_third_lexicon": "widening again against known misses would be fitting the rule to the data. Two mechanical passes, then eyes on the field.",
+ "classes_minted": {
+  "DECOMPOSITION": {
+   "typed": "out-of-reach-at-v1",
+   "why": "the region exists and is plural but is NOT coordinate-shaped \u2014 blend operations are coordinate-wise and a majority vote of three tree decompositions has no meaning",
+   "re_entry": "any faithful fixed-length encoding someone declares falsifies this",
+   "the_irony_worth_recording": "the width parameters are parameterized complexity's OWN structural yardsticks. The observatory currently cannot film the very objects the param charge is built on."
+  },
+  "STRATEGY": {
+   "typed": "out-of-reach-at-v1",
+   "why": "a sequence of choices against a spreading process",
+   "distinct_from_RECONFIGURATION": "walking between solutions is not playing against dynamics",
+   "re_entry": "WARMER than DECOMPOSITION's: a fixed-horizon strategy IS a length-T vector (round -> choice), so a faithful fixed-length encoding plausibly exists. The barrier is the dynamic feasibility predicate, not the shape \u2014 nearest of the out-of-reach classes to capturable."
+  }
+ },
+ "counting_correction": "sharp-spanning-trees and planar-matching-count are REACH-SUBSET, not a counting limbo. The # changes what the CHARGE asks, not whether the object has a region: spanning trees and matchings are edge-subset regions and film like any other. These are the first rows where the decide-versus-count geometric comparison becomes physically possible.",
+ "n_adjudicated": 59,
+ "by_class": {
+  "REGIONLESS-unique-answer": 5,
+  "REACH-assignment": 13,
+  "DECOMPOSITION": 5,
+  "REACH-permutation": 3,
+  "REACH-subset": 31,
+  "STRATEGY": 2
+ },
+ "superseded_typings": [],
+ "coexisting_different_axis": [
+  {
+   "problem_id": "covering-radius",
+   "prior_record": "exclusion:covering-radius",
+   "axis": "capture disposition",
+   "this_pass_assigns": "reach class",
+   "resolution": "BOTH STAND \u2014 different axes, no supersession"
+  },
+  {
+   "problem_id": "feedback-arc-set",
+   "prior_record": "exclusion:batch4:feedback-arc-set",
+   "axis": "capture disposition",
+   "this_pass_assigns": "reach class",
+   "resolution": "BOTH STAND \u2014 different axes, no supersession"
+  }
+ ],
+ "reconciliation_rule": "one row, one current typing ON EACH AXIS. A competing REACH CLASS resolves by maptrail supersession \u2014 latest ruling governs, histories linked, neither deleted. A prior CAPTURE disposition is not a competing typing and both stand: what an object IS and whether the observatory can film it are different questions, and collapsing them would retire a live deferral by accident.",
+ "rows": [
+  {
+   "problem_id": "all-pairs-shortest-path",
+   "was": "REACH-subset",
+   "now": "REGIONLESS-unique-answer",
+   "why": "one shortest-path matrix; the answer is unique",
+   "canonical_encoding": "weighted graph; shortest path between every pair"
+  },
+  {
+   "problem_id": "and-or-graph-accessibility",
+   "was": "REACH-subset",
+   "now": "REGIONLESS-unique-answer",
+   "why": "accessibility of a fixed target under fixed semantics; unique",
+   "canonical_encoding": "an AND/OR graph with a source set; decision: is a target vertex accessible (AND-vertices need all in-neighbors, OR-vertices any)?"
+  },
+  {
+   "problem_id": "capacitated-facility-location",
+   "was": "REACH-subset",
+   "now": "REACH-assignment",
+   "why": "same, with capacities binding the map",
+   "canonical_encoding": "a metric on facilities and clients, facility opening costs, and facility capacities (max clients per open facility); objective = minimize (sum of opening costs + sum of client-to-assigned-facility distances) respecting capacities"
+  },
+  {
+   "problem_id": "clique-width",
+   "was": "REACH-subset",
+   "now": "DECOMPOSITION",
+   "why": "a clique-width expression (a parse tree over union/relabel/join)",
+   "canonical_encoding": "simple undirected graph, adjacency-list; objective = minimum number of labels k in a clique-width expression (using disjoint union, relabelling, and label-join operations) that constructs G"
+  },
+  {
+   "problem_id": "constrained-shortest-path",
+   "was": "REACH-subset",
+   "now": "REACH-permutation",
+   "why": "an s-t path under a resource budget; ordered",
+   "canonical_encoding": "a directed graph with two nonnegative edge functions cost and resource, a source, a target, and a resource budget R; objective = minimum-cost s-t path whose total resource use is <= R"
+  },
+  {
+   "problem_id": "covering-radius",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "words within the radius of the code",
+   "canonical_encoding": "a binary linear code given by an m x n parity-check matrix H over GF(2) (C = {x : x H^T = 0}); integer r; covering radius rho = max_{x in {0,1}^n} min_{c in C} d(x,c) (Hamming distance)"
+  },
+  {
+   "problem_id": "deadlock-detection",
+   "was": "REACH-subset",
+   "now": "REGIONLESS-unique-answer",
+   "why": "a yes/no property of one fixed graph; no plural certificate",
+   "canonical_encoding": "a single-unit resource-allocation graph; decision: is the system deadlocked (an unresolvable wait cycle)?"
+  },
+  {
+   "problem_id": "directed-steiner-tree",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "arc subset forming an arborescence",
+   "canonical_encoding": "directed edge-weighted graph + root + terminals; min-cost arborescence reaching terminals"
+  },
+  {
+   "problem_id": "facility-location",
+   "was": "REACH-subset",
+   "now": "REACH-assignment",
+   "why": "open set PLUS the client-to-facility map the objective scores",
+   "canonical_encoding": "a metric on facilities and clients, and facility opening costs (no capacity limits); objective = minimize (sum of opening costs of opened facilities + sum of each client's distance to its nearest opened facility)"
+  },
+  {
+   "problem_id": "feedback-arc-set",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "arc subset whose removal breaks all cycles",
+   "canonical_encoding": "simple directed graph, adjacency-list; objective = minimum arc set whose removal makes G acyclic"
+  },
+  {
+   "problem_id": "firefighter",
+   "was": "REACH-subset",
+   "now": "STRATEGY",
+   "why": "a per-round protection choice against a spreading fire",
+   "canonical_encoding": "rooted tree, one firefighter per round protecting one vertex; fire spreads to unprotected neighbours; objective = maximize number of vertices saved (never burned)"
+  },
+  {
+   "problem_id": "flow-shop-scheduling",
+   "was": "REACH-subset",
+   "now": "REACH-assignment",
+   "why": "jobs to machine-slots",
+   "canonical_encoding": "n jobs, each processed on 3 machines in the fixed order M1->M2->M3 with given processing times; objective = minimize makespan (Cmax)"
+  },
+  {
+   "problem_id": "generalized-subset-sum",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "sign vectors over the coordinates",
+   "canonical_encoding": "two integer vectors u, v (binary-encoded) of equal length n and an integer target t; x, y range over {0,1}^n"
+  },
+  {
+   "problem_id": "graph-burning",
+   "was": "REACH-subset",
+   "now": "STRATEGY",
+   "why": "a per-round ignition choice against a spreading burn",
+   "canonical_encoding": "simple undirected graph; in each round the existing fire spreads to all neighbours and one new vertex is ignited; objective = minimum #rounds (burning number b(G)) to burn every vertex"
+  },
+  {
+   "problem_id": "graph-motif",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "vertex subset realizing the colour multiset",
+   "canonical_encoding": "vertex-colored graph + multiset of colors; connected subgraph realizing the multiset"
+  },
+  {
+   "problem_id": "graph-spanner",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "edge subset meeting a stretch guarantee",
+   "canonical_encoding": "simple undirected unweighted graph; objective = minimum-edge spanning subgraph H such that d_H(u,v) <= 2*d_G(u,v) for all u,v (a 2-spanner)"
+  },
+  {
+   "problem_id": "group-steiner-tree",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "edge subset touching every group",
+   "canonical_encoding": "edge-weighted graph + vertex groups; minimum tree touching every group"
+  },
+  {
+   "problem_id": "high-degree-subgraph",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "vertex subset inducing minimum degree >= k",
+   "canonical_encoding": "a graph G and integer k>=3; decision: does G have a nonempty induced subgraph of minimum degree >= k (does a given vertex survive the k-core-style peeling)?"
+  },
+  {
+   "problem_id": "job-shop-scheduling",
+   "was": "REACH-subset",
+   "now": "REACH-assignment",
+   "why": "operations to slots",
+   "canonical_encoding": "n jobs, m machines, operation orders + times in binary; minimize makespan"
+  },
+  {
+   "problem_id": "k-center",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "centre set of size k",
+   "canonical_encoding": "metric on n points (distance matrix); decision: cover with k radius-r balls?"
+  },
+  {
+   "problem_id": "k-edge-connected-subgraph",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "edge subset that is k-edge-connected",
+   "canonical_encoding": "simple undirected graph G and integer k; objective = minimum-cardinality spanning subgraph that is k-edge-connected (unweighted, uniform requirement)"
+  },
+  {
+   "problem_id": "label-cover",
+   "was": "REACH-subset",
+   "now": "REACH-assignment",
+   "why": "a labelling of the vertices from label sets",
+   "canonical_encoding": "bipartite constraint graph, label sets L_U,L_V, each edge carrying a projection constraint pi_e: L_U->L_V; objective = a labelling maximizing the fraction of satisfied edges (the two-prover / PCP projection game)"
+  },
+  {
+   "problem_id": "lex-first-maximal-matching",
+   "was": "REACH-subset",
+   "now": "REGIONLESS-unique-answer",
+   "why": "UNIQUE given the fixed edge order the encoding states \u2014 the exact twin of lex-first-maximal-independent-set, reached by a different door (unmatched rather than false-matched)",
+   "canonical_encoding": "a graph with a fixed edge order and an edge e; decision: is e in the lexicographically-first maximal matching (greedy in order)?"
+  },
+  {
+   "problem_id": "longest-path",
+   "was": "REACH-subset",
+   "now": "REACH-permutation",
+   "why": "a simple path is an ordered walk; the sequence is the certificate",
+   "canonical_encoding": "simple undirected graph, adjacency-list; decision: simple path of length >= k?"
+  },
+  {
+   "problem_id": "makespan-scheduling",
+   "was": "REACH-subset",
+   "now": "REACH-assignment",
+   "why": "jobs to machines",
+   "canonical_encoding": "n job lengths in binary + m machines; decision: makespan <= T?"
+  },
+  {
+   "problem_id": "max-coverage",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "subset of the set system",
+   "canonical_encoding": "set system + budget k; decision: k sets covering >= t elements?"
+  },
+  {
+   "problem_id": "maximum-agreement-forest",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "edge subset removed to leave agreeing components",
+   "canonical_encoding": "two rooted binary phylogenetic trees on the same leaf label set; objective = an agreement forest with the fewest components (equivalently the rooted SPR distance = #components - 1)"
+  },
+  {
+   "problem_id": "maximum-common-subgraph",
+   "was": "REACH-subset",
+   "now": "REACH-assignment",
+   "why": "a partial isomorphism \u2014 a map between two vertex sets",
+   "canonical_encoding": "two graphs; find the largest graph isomorphic to a subgraph of both"
+  },
+  {
+   "problem_id": "maximum-feasible-linear-subsystem",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "a SUBSYSTEM is a subset of the relations",
+   "canonical_encoding": "a system of linear relations (equations/inequalities) with rational coefficients that is infeasible as a whole; objective = maximum-cardinality subsystem that is feasible"
+  },
+  {
+   "problem_id": "maximum-induced-matching",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "edge subset that induces no further edges",
+   "canonical_encoding": "simple undirected graph; an induced matching is a matching M whose edges induce no other edges (pairwise at distance >= 2); objective = maximum |M|"
+  },
+  {
+   "problem_id": "maximum-leaf-spanning-tree",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "edge subset forming a spanning tree",
+   "canonical_encoding": "simple undirected graph; spanning tree with >= k leaves"
+  },
+  {
+   "problem_id": "min-communication-cost-spanning-tree",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "edge subset forming a spanning tree",
+   "canonical_encoding": "connected graph with metric edge lengths; uniform (unit) communication requirement between every vertex pair; objective = spanning tree T minimizing routing cost = sum over all pairs of the T-path length (minimum routing cost spanning tree, MRCT). Encoding PIN: the uniform-requirement metric special case of the Optimum Communication Spanning Tree (OCT)"
+  },
+  {
+   "problem_id": "min-cost-flow",
+   "was": "REACH-subset",
+   "now": "REGIONLESS-unique-answer",
+   "why": "a min-cost flow value; the optimum is unique even where the flow is not",
+   "canonical_encoding": "directed graph with capacities + costs (binary); min-cost feasible flow"
+  },
+  {
+   "problem_id": "min-degree-spanning-tree",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "edge subset forming a spanning tree",
+   "canonical_encoding": "simple connected graph, adjacency-list; objective = spanning tree minimizing the maximum vertex degree"
+  },
+  {
+   "problem_id": "minimum-decision-tree",
+   "was": "REACH-subset",
+   "now": "DECOMPOSITION",
+   "why": "certificate is a decision TREE over the tests, not a subset of them",
+   "canonical_encoding": "a set of objects and a set of binary tests (each test splits the objects); objective = a decision tree of minimum cost (e.g. minimum total external path length / expected #tests) that identifies every object"
+  },
+  {
+   "problem_id": "minimum-distance-code",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "nonzero messages of bounded codeword weight",
+   "canonical_encoding": "a linear code over a finite field given by a generator or parity-check matrix; objective = the minimum Hamming weight of a nonzero codeword (the minimum distance)"
+  },
+  {
+   "problem_id": "minimum-k-cut",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "edge subset whose removal leaves k components",
+   "canonical_encoding": "undirected graph with edge weights and an integer k (part of the input, no fixed terminals); objective = a minimum-weight set of edges whose removal leaves at least k connected components"
+  },
+  {
+   "problem_id": "multicut",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "edge subset separating every pair",
+   "canonical_encoding": "undirected graph with edge weights and a set of source-sink terminal pairs; objective = a minimum-weight set of edges whose removal disconnects every terminal pair"
+  },
+  {
+   "problem_id": "multiway-cut",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "edge subset separating the terminals",
+   "canonical_encoding": "edge-weighted graph + terminal set; separate all terminals minimizing cut"
+  },
+  {
+   "problem_id": "nearest-codeword",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "messages within a distance of the target",
+   "canonical_encoding": "a linear code over GF(2) given by a generator matrix, and a target vector y; objective = a codeword minimizing the Hamming distance to y (maximum-likelihood decoding)"
+  },
+  {
+   "problem_id": "node-multiway-cut",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "VERTEX subset separating the terminals",
+   "canonical_encoding": "undirected graph and a set of >= 3 terminals; objective = a minimum-cardinality set of non-terminal vertices whose removal pairwise separates all terminals"
+  },
+  {
+   "problem_id": "open-shop-scheduling",
+   "was": "REACH-subset",
+   "now": "REACH-assignment",
+   "why": "operations to machines, order free",
+   "canonical_encoding": "n jobs and m machines (m part of the input); each job has one operation per machine, executable in any order but not concurrently; objective = minimize the makespan (O||Cmax)"
+  },
+  {
+   "problem_id": "pathwidth",
+   "was": "REACH-subset",
+   "now": "DECOMPOSITION",
+   "why": "path decomposition \u2014 same shape",
+   "canonical_encoding": "simple undirected graph; objective = the minimum width over all path-decompositions (equivalently interval-completion clique number minus one / vertex separation number)"
+  },
+  {
+   "problem_id": "planar-matching-count",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "matchings are edge subsets; the # joins at the atlas layer",
+   "canonical_encoding": "planar graph, adjacency-list; count perfect matchings"
+  },
+  {
+   "problem_id": "prize-collecting-steiner-tree",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "edge subset; penalties score the complement",
+   "canonical_encoding": "edge-weighted graph + vertex penalties; minimize tree weight + unconnected penalties"
+  },
+  {
+   "problem_id": "register-sufficiency",
+   "was": "REACH-subset",
+   "now": "REACH-permutation",
+   "why": "an evaluation ORDER of the DAG",
+   "canonical_encoding": "a directed acyclic graph (an expression/computation DAG); decision: can the DAG be evaluated using at most k registers (Sethi register-sufficiency / black pebble game)?"
+  },
+  {
+   "problem_id": "resource-constrained-scheduling",
+   "was": "REACH-subset",
+   "now": "REACH-assignment",
+   "why": "jobs to machines under resource bounds",
+   "canonical_encoding": "n unit/known-length jobs on m identical machines with s shared renewable resources (per-job resource demands, per-resource bounds); minimize makespan"
+  },
+  {
+   "problem_id": "roman-domination",
+   "was": "REACH-subset",
+   "now": "REACH-assignment",
+   "why": "assigns 0/1/2 per vertex; a three-valued labelling, not a subset",
+   "canonical_encoding": "simple undirected graph; a Roman dominating function assigns 0/1/2 to vertices so every 0-vertex is adjacent to a 2-vertex; objective = minimum total weight"
+  },
+  {
+   "problem_id": "sharp-spanning-trees",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "COUNTING changes what the charge asks, not whether the object has a region \u2014 the set of spanning trees IS an edge-subset region",
+   "canonical_encoding": "connected undirected (multi)graph, adjacency-list; count the spanning trees of G"
+  },
+  {
+   "problem_id": "sparsest-cut",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "the cut is a vertex bipartition \u2014 recorded as a subset of one side",
+   "canonical_encoding": "a capacitated graph with a set of source-sink demand pairs; find a cut minimizing the ratio of cut capacity to separated demand (non-uniform sparsest cut)"
+  },
+  {
+   "problem_id": "stable-matching",
+   "was": "REACH-subset",
+   "now": "REACH-assignment",
+   "why": "a matching IS a map between the two sides",
+   "canonical_encoding": "two sides with preference lists; find a stable matching"
+  },
+  {
+   "problem_id": "steiner-forest",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "edge subset connecting each pair",
+   "canonical_encoding": "edge-weighted graph + terminal PAIRS; connect each pair minimizing total weight"
+  },
+  {
+   "problem_id": "steiner-tree",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "edge subset forming a tree over the terminals",
+   "canonical_encoding": "edge-weighted graph + terminal set; decision: Steiner tree of weight <= B?"
+  },
+  {
+   "problem_id": "survivable-network-design",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "edge subset meeting connectivity requirements",
+   "canonical_encoding": "edge-weighted graph + connectivity requirements r(u,v); min-cost subgraph meeting them"
+  },
+  {
+   "problem_id": "target-set-selection",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "why": "the seed set is a vertex subset",
+   "canonical_encoding": "a graph with per-vertex thresholds; an initially active seed set activates a neighbor once its number of active neighbors reaches its threshold; find the minimum seed set activating the whole graph"
+  },
+  {
+   "problem_id": "treedepth",
+   "was": "REACH-subset",
+   "now": "DECOMPOSITION",
+   "why": "elimination forest \u2014 same shape",
+   "canonical_encoding": "graph; minimum height of an elimination forest, <= k"
+  },
+  {
+   "problem_id": "treewidth",
+   "was": "REACH-subset",
+   "now": "DECOMPOSITION",
+   "why": "certificate is a tree decomposition; blend is coordinate-wise and a majority of three tree decompositions has no meaning",
+   "canonical_encoding": "simple undirected graph, adjacency-list; decision: treewidth <= k?"
+  },
+  {
+   "problem_id": "unrelated-machine-scheduling",
+   "was": "REACH-subset",
+   "now": "REACH-assignment",
+   "why": "jobs to machines with machine-dependent times",
+   "canonical_encoding": "n jobs and m machines with a machine-dependent processing time p_ij for each job-machine pair; assign jobs to machines minimizing the makespan"
+  },
+  {
+   "problem_id": "weighted-completion-time-scheduling",
+   "was": "REACH-subset",
+   "now": "REACH-assignment",
+   "why": "jobs to machines",
+   "canonical_encoding": "n jobs with processing times and weights, m identical parallel machines; minimize the weighted sum of job completion times sum_j w_j C_j"
+  }
+ ]
+}

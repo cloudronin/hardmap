@@ -2,6 +2,27 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **The seven rulings and the 59-row adjudication — every row now has a class that exists.**
+  **DECOMPOSITION** and **STRATEGY** mint, both `out-of-reach-at-v1`: a tree-plus-bags certificate is
+  not coordinate-shaped (a majority vote of three tree decompositions has no meaning), and a strategy
+  is choices against a spreading process, distinct from RECONFIGURATION's walk between solutions.
+  STRATEGY's re-entry route is recorded as WARMER — a fixed-horizon strategy IS a length-T vector, so
+  the barrier is the dynamic feasibility predicate, not the shape. DECOMPOSITION's note records the
+  irony: the width parameters are parameterized complexity's own structural yardsticks, and the
+  observatory cannot film the objects the param charge is built on. **The counting correction:**
+  `sharp-spanning-trees` and `planar-matching-count` are REACH-subset, not a counting limbo — the #
+  changes what the CHARGE asks, not whether the object has a region, and these are the first rows where
+  the decide-versus-count geometric comparison becomes physically possible. **The scheduling block**
+  types into REACH-assignment, taking that class to 13 rows — recorded against the path-gated ledger,
+  since a capture path serving thirteen rows is a different proposition than one serving two, and it is
+  exactly the build decision the number-theoretic candidate's revival waits on.
+  `lex-first-maximal-matching` REGIONLESS-unique-answer — the Q24 twin arriving by a different door.
+  **59 adjudicated, 0 unassigned** (the pass refuses to complete otherwise): 31 subset, 13 assignment,
+  5 regionless, 5 decomposition, 3 permutation, 2 strategy.
+  **The reconciliation rule gained an axis.** `covering-radius` and `feedback-arc-set` carry prior
+  CAPTURE dispositions while this pass assigns a REACH CLASS — different axes, so both stand rather
+  than one superseding the other. One row, one current typing *per axis*; collapsing them would have
+  silently retired a live deferral. 403 tests, verify 11/11, W2 passes.
 - **`RECONFIGURATION` minted, and batch 8 — the first roster from a queue whose regions were all
   read.** The class enters the census typed `out-of-reach-at-v1` with no capture path claimed and its
   re-entry route stated (the covering-radius pattern, no zombie rows). Its note records what the class
