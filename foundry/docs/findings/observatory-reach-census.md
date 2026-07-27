@@ -92,8 +92,83 @@ trajectories are not comparable to the rest.
 
 **27 built of 172 reachable.** The build queue is 145 rows deep before adjudicating the untyped.
 
-## Scope
+## Scope — and the regionless class is a theorem about that scope, not a gap in it
+
+> **The observatory measures solution-set geometry. It therefore applies to search-shaped problems and not
+> to evaluation-shaped ones.**
+
+`factoring`, `primality`, `determinant`, `permanent`, `gcd`, `matrix-multiplication` are not rows the
+instrument failed to reach. They are rows with **no region to reach**: a unique answer is not a set, and an
+evaluation problem has no members to blend. That is a fact about which problems have the kind of object
+hardness-geometry attaches to.
+
+**And the program already met this fact one scale down.** Q6 recorded that Shidoku's puzzle regime was
+unmeasurable because a well-posed puzzle has r = 1 — uniqueness kills blending. That is the same
+phenomenon: **uniqueness destroys the region, per instance in Q6 and per row here.** One fact, two scales,
+and they are hereby recorded as one.
+
+It also settles quietly why the crypto-adjacent rows were always going to sit outside this wing.
+One-wayness is evaluation-shaped territory — the object of interest is a *value*, not a solution set — so
+those rows were never candidates for a geometry the instrument could see.
+
+## Census discipline
 
 Census minimalism governs: this reads the atlas and the fleet and no outcome artifact. It declares
 classifications and ramp parameters. It measures nothing about geometry and makes no claim about any row's
 behaviour.
+
+---
+
+# Addendum — the 105 adjudicated
+
+**Artifact:** `observatory_untyped_adjudication.json` · **Completeness asserted:** every untyped row is
+adjudicated or the script halts. Adjudicating 105 means all 105.
+
+| class | n |
+|---|---:|
+| REACH-subset | 37 |
+| REACH-permutation | 22 |
+| REACH-assignment | 18 |
+| REGIONLESS-unique-answer | 9 |
+| REGIONLESS-language-membership | 6 |
+| OUT-continuous | 6 |
+| no-natural-dial-at-fixed-encoding *(lattice)* | 4 |
+| **STILL-UNTYPED** | **3** |
+
+**Reachable: 172 → 249 of 345.** The build queue is **222 rows** beyond the 27 already built.
+
+## Two refinements the reading produced, each moving a subclass
+
+**A counting problem's region is the set being counted.** `sharp-acyclic-orientations` counts acyclic
+orientations, and that *set* is exactly a region this instrument enumerates and blends. **The `#` changes
+what the charge asks, not whether the object has a region.** Five graph rows plus `sharp-contingency-tables`
+move from apparently-regionless to reachable on this alone.
+
+**The regionless class is narrower than the first pass suggested, and sharper for it.** It is exactly the
+rows whose answer is a single value with no set behind it — `primality` (a bit), `gcd` (one integer),
+`discrete-log` (one exponent), `matrix-multiplication` (one matrix). **`factoring` belongs there**: the
+factorisation is unique up to order, so its region has one member — **Q6's fact at row scale.**
+
+A second regionless kind emerged that the first pass had no name for: **language membership**.
+`dfa-intersection-emptiness`, `nfa-universality`, `regex-squaring-inequivalence`, `planarity` ask a yes/no
+about an *object*, not for members of a set. No region, and for a different reason than uniqueness.
+
+## The lattice ruling
+
+Dimension was declared as lattice's ramp at census — **and dimension is the size axis.** Finite-size
+scaling needs ramp and size as independent knobs, so a family whose only dial is size has **no ramp at
+all**, not a strange one. A size axis must not impersonate a hardening axis.
+
+Adjudicated: **at fixed dimension these rows do have candidate constraint dials** — the approximation
+factor γ for SVP/CVP (the region `{v : |v| ≤ γ·λ₁}` widens as γ rises), and the noise-rate/modulus ratio
+for LWE and SIS. Those are genuine tightness knobs.
+
+**But the ambient is unbounded integer vectors, so no finite region exists until a coefficient bound is
+pinned — an encoding choice this census has not made.** Typed `no-natural-dial-at-fixed-encoding`, with the
+dial candidate *named* so a future build can pin it, and **dimension barred as the ramp regardless.**
+
+## Three kept open
+
+`network-reliability`, `permanent`, `tutte-polynomial` are recorded `STILL-UNTYPED`. `permanent` is the
+interesting one — for 0/1 matrices it counts perfect matchings, whose set *is* a region, but the row as
+carried is an evaluation. That ambiguity is left standing rather than resolved by preference.

@@ -1,0 +1,1075 @@
+{
+ "schema": "observatory-untyped-adjudication/v1",
+ "STATUS": "CENSUS ADJUDICATION \u2014 no readings, no dials, no outcome artifact read.",
+ "input": "the 105 rows the reach census left UNTYPED rather than guessing",
+ "completeness_is_asserted": "every untyped row is adjudicated or the script halts. Adjudicating 105 means all 105.",
+ "refinement_1_counting_problems": "A COUNTING PROBLEM'S REGION IS THE SET BEING COUNTED. `sharp-acyclic-orientations` counts acyclic orientations and that SET is exactly a region this instrument enumerates and blends. The `#` changes what the CHARGE asks, not whether the object has a region.",
+ "refinement_2_regionless_is_narrower": "the regionless class is exactly the rows whose answer is a single value with no set behind it. `factoring` belongs there: the factorisation is unique up to order, so its region has one member and uniqueness kills blending \u2014 Q6's fact at row scale.",
+ "lattice_ruling": "DIMENSION WAS DECLARED AS THIS FAMILY'S RAMP AT CENSUS AND DIMENSION IS THE SIZE AXIS. Finite-size scaling needs ramp and size as INDEPENDENT knobs, so a family whose only dial is size has no ramp at all rather than a strange one \u2014 a size axis must not impersonate a hardening axis. Adjudicated: at FIXED dimension these rows do have candidate constraint dials \u2014 the approximation factor gamma for SVP/CVP (the region {v : |v| <= gamma * lambda_1} widens as gamma rises), and the noise rate / modulus ratio for LWE and SIS. Those are genuine tightness knobs. BUT the ambient is unbounded integer vectors, so no finite region exists until a coefficient bound is pinned, and that is an ENCODING CHOICE this census has not made. Typed `no-natural-dial-at-fixed-encoding`: the dial candidate is named so a future build can pin it, and DIMENSION IS BARRED as the ramp regardless.",
+ "by_class": {
+  "REACH-subset": 37,
+  "REACH-permutation": 22,
+  "REACH-assignment": 18,
+  "REGIONLESS-unique-answer": 9,
+  "OUT-continuous": 6,
+  "REGIONLESS-language-membership": 6,
+  "no-natural-dial-at-fixed-encoding": 4,
+  "STILL-UNTYPED": 3
+ },
+ "newly_reachable": 77,
+ "reachable_before": 172,
+ "reachable_after": 249,
+ "still_untyped": 3,
+ "adjudications": [
+  {
+   "problem_id": "permanent",
+   "family": "algebraic",
+   "was": "UNTYPED",
+   "now": "STILL-UNTYPED",
+   "reason": "no confident typing. Recorded as open rather than forced into a nearby class \u2014 the same discipline that left 105 untyped in the first pass rather than guessing them",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "determinant",
+   "family": "algebraic",
+   "was": "UNTYPED",
+   "now": "REGIONLESS-unique-answer",
+   "reason": "the answer is a single value with no set behind it, so there is no region to blend. This is the scope theorem, not a gap: the observatory measures solution-set geometry and applies to search-shaped problems, not evaluation-shaped ones",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "factoring",
+   "family": "number-theoretic",
+   "was": "UNTYPED",
+   "now": "REGIONLESS-unique-answer",
+   "reason": "the answer is a single value with no set behind it, so there is no region to blend. This is the scope theorem, not a gap: the observatory measures solution-set geometry and applies to search-shaped problems, not evaluation-shaped ones",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "linear-programming",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "OUT-continuous",
+   "reason": "the feasible set is continuous; no finite discrete region at fixed size",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "k-center",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "integer-programming",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "primality",
+   "family": "number-theoretic",
+   "was": "UNTYPED",
+   "now": "REGIONLESS-unique-answer",
+   "reason": "the answer is a single value with no set behind it, so there is no region to blend. This is the scope theorem, not a gap: the observatory measures solution-set geometry and applies to search-shaped problems, not evaluation-shaped ones",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "discrete-log",
+   "family": "number-theoretic",
+   "was": "UNTYPED",
+   "now": "REGIONLESS-unique-answer",
+   "reason": "the answer is a single value with no set behind it, so there is no region to blend. This is the scope theorem, not a gap: the observatory measures solution-set geometry and applies to search-shaped problems, not evaluation-shaped ones",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "shortest-vector-svp",
+   "family": "lattice",
+   "was": "UNTYPED",
+   "now": "no-natural-dial-at-fixed-encoding",
+   "reason": "DIMENSION WAS DECLARED AS THIS FAMILY'S RAMP AT CENSUS AND DIMENSION IS THE SIZE AXIS. Finite-size scaling needs ramp and size as INDEPENDENT knobs, so a family whose only dial is size has no ramp at all rather than a strange one \u2014 a size axis must not impersonate a hardening axis. Adjudicated: at FIXED dimension these rows do have candidate constraint dials \u2014 the approximation factor gamma for SVP/CVP (the region {v : |v| <= gamma * lambda_1} widens as gamma rises), and the noise rate / modulus ratio for LWE and SIS. Those are genuine tightness knobs. BUT the ambient is unbounded integer vectors, so no finite region exists until a coefficient bound is pinned, and that is an ENCODING CHOICE this census has not made. Typed `no-natural-dial-at-fixed-encoding`: the dial candidate is named so a future build can pin it, and DIMENSION IS BARRED as the ramp regardless.",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "sis",
+   "family": "lattice",
+   "was": "UNTYPED",
+   "now": "no-natural-dial-at-fixed-encoding",
+   "reason": "DIMENSION WAS DECLARED AS THIS FAMILY'S RAMP AT CENSUS AND DIMENSION IS THE SIZE AXIS. Finite-size scaling needs ramp and size as INDEPENDENT knobs, so a family whose only dial is size has no ramp at all rather than a strange one \u2014 a size axis must not impersonate a hardening axis. Adjudicated: at FIXED dimension these rows do have candidate constraint dials \u2014 the approximation factor gamma for SVP/CVP (the region {v : |v| <= gamma * lambda_1} widens as gamma rises), and the noise rate / modulus ratio for LWE and SIS. Those are genuine tightness knobs. BUT the ambient is unbounded integer vectors, so no finite region exists until a coefficient bound is pinned, and that is an ENCODING CHOICE this census has not made. Typed `no-natural-dial-at-fixed-encoding`: the dial candidate is named so a future build can pin it, and DIMENSION IS BARRED as the ramp regardless.",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "gcd",
+   "family": "number-theoretic",
+   "was": "UNTYPED",
+   "now": "REGIONLESS-unique-answer",
+   "reason": "the answer is a single value with no set behind it, so there is no region to blend. This is the scope theorem, not a gap: the observatory measures solution-set geometry and applies to search-shaped problems, not evaluation-shaped ones",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "network-reliability",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "STILL-UNTYPED",
+   "reason": "no confident typing. Recorded as open rather than forced into a nearby class \u2014 the same discipline that left 105 untyped in the first pass rather than guessing them",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "tutte-polynomial",
+   "family": "algebraic",
+   "was": "UNTYPED",
+   "now": "STILL-UNTYPED",
+   "reason": "no confident typing. Recorded as open rather than forced into a nearby class \u2014 the same discipline that left 105 untyped in the first pass rather than guessing them",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "min-bisection",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "matrix-multiplication",
+   "family": "matrix",
+   "was": "UNTYPED",
+   "now": "REGIONLESS-unique-answer",
+   "reason": "the answer is a single value with no set behind it, so there is no region to blend. This is the scope theorem, not a gap: the observatory measures solution-set geometry and applies to search-shaped problems, not evaluation-shaped ones",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "linear-equations",
+   "family": "matrix",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "closest-vector-cvp",
+   "family": "lattice",
+   "was": "UNTYPED",
+   "now": "no-natural-dial-at-fixed-encoding",
+   "reason": "DIMENSION WAS DECLARED AS THIS FAMILY'S RAMP AT CENSUS AND DIMENSION IS THE SIZE AXIS. Finite-size scaling needs ramp and size as INDEPENDENT knobs, so a family whose only dial is size has no ramp at all rather than a strange one \u2014 a size axis must not impersonate a hardening axis. Adjudicated: at FIXED dimension these rows do have candidate constraint dials \u2014 the approximation factor gamma for SVP/CVP (the region {v : |v| <= gamma * lambda_1} widens as gamma rises), and the noise rate / modulus ratio for LWE and SIS. Those are genuine tightness knobs. BUT the ambient is unbounded integer vectors, so no finite region exists until a coefficient bound is pinned, and that is an ENCODING CHOICE this census has not made. Typed `no-natural-dial-at-fixed-encoding`: the dial candidate is named so a future build can pin it, and DIMENSION IS BARRED as the ramp regardless.",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "quadratic-residuosity",
+   "family": "number-theoretic",
+   "was": "UNTYPED",
+   "now": "REGIONLESS-unique-answer",
+   "reason": "the answer is a single value with no set behind it, so there is no region to blend. This is the scope theorem, not a gap: the observatory measures solution-set geometry and applies to search-shaped problems, not evaluation-shaped ones",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "lwe",
+   "family": "lattice",
+   "was": "UNTYPED",
+   "now": "no-natural-dial-at-fixed-encoding",
+   "reason": "DIMENSION WAS DECLARED AS THIS FAMILY'S RAMP AT CENSUS AND DIMENSION IS THE SIZE AXIS. Finite-size scaling needs ramp and size as INDEPENDENT knobs, so a family whose only dial is size has no ramp at all rather than a strange one \u2014 a size axis must not impersonate a hardening axis. Adjudicated: at FIXED dimension these rows do have candidate constraint dials \u2014 the approximation factor gamma for SVP/CVP (the region {v : |v| <= gamma * lambda_1} widens as gamma rises), and the noise rate / modulus ratio for LWE and SIS. Those are genuine tightness knobs. BUT the ambient is unbounded integer vectors, so no finite region exists until a coefficient bound is pinned, and that is an ENCODING CHOICE this census has not made. Typed `no-natural-dial-at-fixed-encoding`: the dial candidate is named so a future build can pin it, and DIMENSION IS BARRED as the ramp regardless.",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "planarity",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REGIONLESS-language-membership",
+   "reason": "the object is a LANGUAGE property (emptiness, universality, inequivalence), not a set of solutions to enumerate. A yes/no about an automaton has no region",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "cluster-editing",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "maximum-common-subgraph",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "kemeny-rank-aggregation",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "graph-motif",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "minimum-fill-in",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "densest-k-subgraph",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "survivable-network-design",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "k-median",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "edit-distance",
+   "family": "string",
+   "was": "UNTYPED",
+   "now": "REGIONLESS-unique-answer",
+   "reason": "the answer is a single value with no set behind it, so there is no region to blend. This is the scope theorem, not a gap: the observatory measures solution-set geometry and applies to search-shaped problems, not evaluation-shaped ones",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "3sum",
+   "family": "number-theoretic",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "and-or-graph-accessibility",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "high-degree-subgraph",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "chip-firing-stabilization",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "gaussian-elimination-pivoting",
+   "family": "matrix",
+   "was": "UNTYPED",
+   "now": "REGIONLESS-unique-answer",
+   "reason": "the answer is a single value with no set behind it, so there is no region to blend. This is the scope theorem, not a gap: the observatory measures solution-set geometry and applies to search-shaped problems, not evaluation-shaped ones",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "lz78-compression",
+   "family": "string",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "breadth-depth-search",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "deadlock-detection",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "chromatic-number",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "arrowing",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "choosability",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "generalized-ramsey-number",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "graph-sandwich-pi-property",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "integer-expression-inequivalence",
+   "family": "algebraic",
+   "was": "UNTYPED",
+   "now": "REGIONLESS-language-membership",
+   "reason": "the object is a LANGUAGE property (emptiness, universality, inequivalence), not a set of solutions to enumerate. A yes/no about an automaton has no region",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "pebbling-number",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "strong-nash-equilibrium",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "OUT-continuous",
+   "reason": "the feasible set is continuous; no finite discrete region at fixed size",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "thue-number",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "competitive-facility-location",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "OUT-continuous",
+   "reason": "the feasible set is continuous; no finite discrete region at fixed size",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "min-max-regret",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "OUT-continuous",
+   "reason": "the feasible set is continuous; no finite discrete region at fixed size",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "network-interdiction",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "bilevel-integer-programming",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "OUT-continuous",
+   "reason": "the feasible set is continuous; no finite discrete region at fixed size",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "two-stage-adjustable-robust",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "OUT-continuous",
+   "reason": "the feasible set is continuous; no finite discrete region at fixed size",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "dfa-intersection-emptiness",
+   "family": "string",
+   "was": "UNTYPED",
+   "now": "REGIONLESS-language-membership",
+   "reason": "the object is a LANGUAGE property (emptiness, universality, inequivalence), not a set of solutions to enumerate. A yes/no about an automaton has no region",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "nfa-universality",
+   "family": "string",
+   "was": "UNTYPED",
+   "now": "REGIONLESS-language-membership",
+   "reason": "the object is a LANGUAGE property (emptiness, universality, inequivalence), not a set of solutions to enumerate. A yes/no about an automaton has no region",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "regex-squaring-inequivalence",
+   "family": "string",
+   "was": "UNTYPED",
+   "now": "REGIONLESS-language-membership",
+   "reason": "the object is a LANGUAGE property (emptiness, universality, inequivalence), not a set of solutions to enumerate. A yes/no about an automaton has no region",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "achromatic-number",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "b-chromatic-number",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "bandwidth",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "bounded-pcp",
+   "family": "string",
+   "was": "UNTYPED",
+   "now": "REGIONLESS-language-membership",
+   "reason": "the object is a LANGUAGE property (emptiness, universality, inequivalence), not a set of solutions to enumerate. A yes/no about an automaton has no region",
+   "reachable": false,
+   "capture": "n.a. \u2014 not reachable",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "boxicity",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "broadcast-time",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "capacitated-facility-location",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "closest-string",
+   "family": "string",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "closest-substring",
+   "family": "string",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "cluster-deletion",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "connectivity-augmentation",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "crossing-number",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "dissociation-number",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "domatic-number",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "efficient-domination",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "facility-location",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "firefighter",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "graph-burning",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "graph-genus",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "graph-spanner",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "grundy-number",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "integer-expression-membership",
+   "family": "number-theoretic",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "interval-completion",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "max-dispersion",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "maximum-agreement-forest",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "maximum-feasible-linear-subsystem",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "maximum-planar-subgraph",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "minimum-consistent-dfa",
+   "family": "string",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "minimum-distance-code",
+   "family": "algebraic",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "minimum-equivalent-digraph",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "minimum-latency",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "minimum-sum-of-squares",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "mixed-chinese-postman",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "nearest-codeword",
+   "family": "algebraic",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "orienteering",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "pagenumber",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "quadratic-congruences",
+   "family": "number-theoretic",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "register-sufficiency",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "roman-domination",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "stacker-crane",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "string-folding",
+   "family": "string",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "thickness",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "upper-domination",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-subset",
+   "reason": "a solution is a vertex or edge SUBSET of the input graph; ambient 2^|V| or 2^|E|",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "vehicle-routing",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "weighted-tardiness",
+   "family": "optimization",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "sharp-acyclic-orientations",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "sharp-antichains",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "sharp-contingency-tables",
+   "family": "matrix",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "sharp-eulerian-circuits",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "sharp-eulerian-orientations",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-assignment",
+   "reason": "a solution assigns each vertex/position a value from a small domain; ambient |D|^n",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  },
+  {
+   "problem_id": "sharp-linear-extensions",
+   "family": "graph",
+   "was": "UNTYPED",
+   "now": "REACH-permutation",
+   "reason": "a solution is an ORDERING or tour; ambient n! rather than 2^n, so the dial panel is thin and only very small n is enumerable",
+   "reachable": true,
+   "capture": "RAMPED",
+   "ramp_parameter": null
+  }
+ ]
+}
