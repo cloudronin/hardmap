@@ -13,25 +13,27 @@
   "observatory_batch4_panels.json": "8de930958a8ca0fa48cd7f00676f3e2c52e660f216659dedbd2a09501d39d951",
   "observatory_batch5_panels.json": "bac6af81b12631aae3cfb4e5e455feeb61bf2c86ef953d159792bc73b29c1f01",
   "observatory_batch6_panels.json": "a835c60bbd61f96f45c86f3c2528985c2ed1cee5cc9fb94c36386659a1fa7d26",
-  "catalog_v5.jsonl": "2863cdefc7d66c97dd35ad9ae07b36189ef8cb93b2c8a5ee0ab2f76c357aae04",
+  "observatory_batch7_panels.json": "bab1c8d3580aeacbaf4d1af53a3b5b6baee79ab80990bdbc71348b2e0dd12787",
+  "catalog_v6.jsonl": "5dd7ccc883cfbd432af744b88cf62fcbed24aa29a090b2271e22b1c86c50ccc9",
   "atlas_v3.jsonl": "e62f3c284b408a26d71e7f769c3742fa283f5a3bd5d874da74f0313ee3968dee",
-  "observatory_reservation.jsonl": "139661b917a41e785967f4e5cb01f5ad8454396f8b7c7059440bf8691e43da41",
-  "maptrail.jsonl": "0c6fea52ed23e104dfe45dbf9713404fe4369c870f5676af11f884de37d4187d",
-  "wave_trail.jsonl": "e09adc182465d665cafbc0661a35b88e26412944061e03205fd396ab7c6837b7",
+  "observatory_reservation.jsonl": "409ecbc8beacc0aada176740ed05ffeb7d47ff1a4c731a544bd50122d09c53ff",
+  "maptrail.jsonl": "c1f064a8270e4eb01138cdd323fa5fb0d1372069ac38ff645e1acd6f7765de40",
+  "wave_trail.jsonl": "474d02377db3efe54a45fdc59abc9712ea2b8bf68faa2893501e173dcd0423f4",
   "helm_wave1_candidates.jsonl": "f567d2954d0fd16216f82d5bf3a6e519fc749d51c97cc069a28270352759a5a6",
-  "helm_wave2_candidates.jsonl": "3ddbbc1c7d55c82e4acb277524135c42defcc4443fb7248ce81714a83ede029a"
+  "helm_wave2_candidates.jsonl": "3ddbbc1c7d55c82e4acb277524135c42defcc4443fb7248ce81714a83ede029a",
+  "helm_wave3_candidates.jsonl": "46a821af81231ef084ddf1608a40a54f8fcc92c824ba793882231da6e812a9e4"
  },
  "counts": {
-  "sources": 16,
+  "sources": 18,
   "problems": 346,
   "charges": 2760,
-  "frames": 1538,
-  "catalog": 330,
-  "frontier": 8,
-  "maptrail": 39,
-  "waves": 2,
-  "wave_events": 6,
-  "candidates": 688
+  "frames": 1622,
+  "catalog": 352,
+  "frontier": 10,
+  "maptrail": 49,
+  "waves": 3,
+  "wave_events": 9,
+  "candidates": 1081
  },
- "db_sha256": "919f3a6258052809f4e49599f1b1e046a53def8f2010a88868c6f1d2a15d43d9"
+ "db_sha256": "9d4b8347f5eb672084a6bada08361885e6983b8392149388be4c0656031ac548"
 }

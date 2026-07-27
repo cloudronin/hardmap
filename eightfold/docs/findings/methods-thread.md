@@ -1780,3 +1780,26 @@ sets", and "hit all with <= k elements". The field was there the whole time.
 The re-adjudication reads the field under a lexicon sealed before it runs. It covers only 32% of the
 class, which is reported as the result rather than repaired by widening the lexicon after seeing what it
 missed — that widening is a v2 pass, and it declares its phrases first.
+
+---
+
+## Two from the wave-3 rulings, 2026-07-27
+
+**A hold must name its revival mechanism.** Helm's HOLD queue promised that a held candidate revives *by
+construction* as the frontier grows. That promise turned out to be family-conditional: the
+number-theoretic candidate's family has four `REACH-subset` rows and all four are built, so no reservation
+can ever place one on the frontier. Its gap closes only if an unbuilt capture path lands — a build
+decision, not a count.
+
+> **A hold that cannot name its revival mechanism is a zombie.**
+
+`HELD-path-gated` is now distinct from `HELD-power`: it revives on a build decision, is re-reviewed at
+every capture-path ruling, and **closes as `INSUFFICIENT-by-population`** if the queue completes without
+its path. The expiry is the part that matters — an indefinite hold is a claim nobody has to defend.
+
+**A half-applied gate is worse than none.** The encoding-faithfulness gate spans four components —
+extractor, builder, loader, sweep. Applying it to two of them would have produced a database whose
+`encoding_faithful` column existed and whose queries ignored it, which reads as a working guard and is
+not one. Stopping short of starting it, with the repo clean at a good commit, was the right call.
+
+> **Ship a gate whole or not at all.** (Beside verify-before-commit.)

@@ -30,6 +30,20 @@ import terrain_score as T                                              # noqa: E
 
 LEDGER = LAT / "observatory_reservation.jsonl"
 AMBIENT = LAT / "observatory_ambient_census.json"
+READJ = LAT / "reach_subset_readjudication.json"
+
+
+def encoding_variants():
+    """Rows CAPTURED as subsets whose canonical_encoding names a different object (Ruling 1).
+
+    Derived from the re-adjudication, never listed: a row is a variant iff it retyped away from
+    REACH-subset AND frames exist for it. Rows that retyped but were never captured are simply
+    mis-typed queue entries, not variant frames."""
+    if not READJ.exists():
+        print("    NO RE-ADJUDICATION — no row marked encoding-variant", flush=True)
+        return set()
+    d = json.loads(READJ.read_text())
+    return {r["problem_id"] for r in d["rows"] if r.get("retyped") and r.get("already_built")}
 
 
 def ambient_confounded_rows():
@@ -168,6 +182,7 @@ def retro_coherence():
 def main() -> int:
     print(f"BUILDING catalog_{X.VERSION}\n\n  retro-filling coherence on the frozen v3 frames ...", flush=True)
     confounded = ambient_confounded_rows()
+    variants = encoding_variants()
     retro = retro_coherence()
     v3, v3sha, v3name, v3exp = v3_frames(retro)
     batches = [batch_frames(p) for p in sorted(LAT.glob("observatory_batch*_panels.json"))]
@@ -185,7 +200,8 @@ def main() -> int:
             d = X.descriptors(steps + gaps, region=region,
                               structural_expectation=(expects.get(prob) or (None, None))[0],
                               capture_mode=(expects.get(prob) or (None, "RAMPED"))[1] or "RAMPED",
-                              ambient_confounded=(prob in confounded))
+                              ambient_confounded=(prob in confounded),
+                              encoding_faithful=(prob not in variants))
             rows.append({"problem_id": prob, "region": region, "flavour": flavour,
                          "descriptor_version": X.VERSION,
                          "frame_artifact": name, "frame_sha256": s,
@@ -259,6 +275,9 @@ def main() -> int:
            adds="the `structure` group: structurally_flat, region_size_invariant",
            law="F4 — a changed extraction rule is a NEW version, never an in-place edit")
 
+    nvar = sum(1 for r in rows if not r.get("_rollup") and r.get("encoding_faithful") is False)
+    print(f"\n  encoding-variant   : {nvar} cell(s) across {len(variants)} row(s) — barred from "
+          f"charge-joining candidates; frames stand, frozen")
     nconf = sum(1 for r in rows if not r.get("_rollup") and r.get("ambient_confounded"))
     nflat = sum(1 for r in rows if not r.get("_rollup") and r["structure"]["structurally_flat"])
     print(f"\n  ambient-confounded: {nconf} cell(s) across {len(confounded)} row(s) — shape, "

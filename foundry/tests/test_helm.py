@@ -308,3 +308,37 @@ def test_ambient_stability_is_undecided_when_nothing_builds():
     import random
     stable, widths = CAP.ambient_stability(lambda rng, v: [], (0.1, 0.5), random.Random(0))
     assert stable is None and widths == []
+
+
+# ── Ruling 2: population match and HELD-path-gated ──────────────────────────────────────────────────
+def test_family_candidate_with_no_frontier_rows_is_held_not_slated():
+    """A family-specific prior scored on a family-absent frontier tests a broader cousin with the
+    prior as decoration — the lesson Terroir's strata and N6-R's tiers each paid for once."""
+    f = {**FRONTIER_BIG, "strata": {"graph": 10}, "family_supply": {"number-theoretic": 3}}
+    d, rule, detail = S.screen(_cand(group="number-theoretic", disclosed=0.99), None, f, set())
+    assert d == "HELD" and rule == "population-mismatch"
+    assert "ZERO number-theoretic" in detail
+
+
+def test_an_exhausted_family_is_path_gated_not_power_gated():
+    """The distinction that matters: no reservation can ever revive this, so the hold must say so."""
+    f = {**FRONTIER_BIG, "strata": {"graph": 10}, "family_supply": {"graph": 5}}
+    d, rule, detail = S.screen(_cand(group="number-theoretic", disclosed=0.99), None, f, set())
+    assert d == "HELD" and rule == "path-gated"
+    assert "cannot close through scheduled building" in detail
+
+
+def test_path_gated_holds_carry_a_revival_mechanism_and_an_expiry():
+    """A hold that cannot name its revival mechanism is a zombie."""
+    f = {**FRONTIER_BIG, "strata": {"graph": 10}, "family_supply": {}}
+    out = S.run([_cand(group="number-theoretic", disclosed=0.99)], None, f, set())
+    r = out[0]
+    assert r["hold_kind"] == "HELD-path-gated"
+    assert "capture-path build decision" in r["revives_on"]
+    assert "INSUFFICIENT-by-population" in r["closes_as"]
+
+
+def test_a_pooled_candidate_is_never_population_mismatched():
+    f = {**FRONTIER_BIG, "strata": {"graph": 10}, "family_supply": {}}
+    d, rule, _ = S.screen(_cand(group="pooled", disclosed=0.99), None, f, set())
+    assert d == "SLATED", (d, rule)

@@ -1,0 +1,1417 @@
+{
+ "schema": "observatory-batch7/v1",
+ "STATUS": "EXPLORATORY dial panels \u2014 no verdict, no scored prediction, no seal",
+ "batch": 7,
+ "reach_class": "REACH-subset",
+ "families": {
+  "graph": "edge density",
+  "optimization": "constraint-to-ground-set ratio"
+ },
+ "why_these_rows": "drawn from the LEXICON v2 verified-clean queue (coverage 32.3% -> 53.5%) and vetted before hashing. Eight vertex- and item-subset rows, every ambient fixed by construction. Its reservation takes the frontier from 8 to 10 clusters, which clears the four candidates sitting one row from adjudication at wave 3. NO number-theoretic component: that family's subset rows are exhausted, which is what makes wave 3's slated candidate HELD-path-gated rather than HELD-power.",
+ "lexicon_false_positive": "lex-first-maximal-independent-set matched L4-subset on a real phrase and is still not a subset region \u2014 the MATCHED portion of the lexicon needs a region check too",
+ "frontier_reservation": {
+  "reserved_this_batch": [
+   "k-minimum-spanning-tree",
+   "power-dominating-set"
+  ],
+  "roster_sha256": "93535f3625366ca82f065dd2e9d548803a78f8da29ac412fc14535a425e2536c"
+ },
+ "pipeline": "foundry.catalog.capture \u2014 one implementation for every batch",
+ "excluded_at_birth": [
+  {
+   "row": "planar-vertex-deletion",
+   "kind": "no-affordable-exact-test",
+   "reason": [
+    "the region is vertex subsets whose removal leaves a PLANAR graph, and no exact planarity test is affordable at enumeration scale here. The available shortcuts (the |E| <= 3n-6 bound) are NECESSARY, not sufficient \u2014 using one would silently admit non-planar residues and mis-define the row rather than approximate it."
+   ]
+  },
+  {
+   "row": "lex-first-maximal-independent-set",
+   "kind": "lexicon-false-positive",
+   "reason": [
+    "matched L4-subset on the phrase 'independent set', but the LEX-FIRST maximal independent set is UNIQUE given a vertex order. The row has a unique answer, not a region \u2014 it belongs to REGIONLESS-unique-answer. The lexicon read a real phrase in a real encoding and still got the object wrong, because presence of a subset-shaped noun does not make the certificate a subset."
+   ]
+  },
+  {
+   "row": "cycle-packing",
+   "reason": [
+    "no region built"
+   ],
+   "conformance": [
+    {
+     "check": "buildable",
+     "pass": false,
+     "detail": "no region of usable size at the probe ramp value"
+    }
+   ],
+   "probe_ramp": 0.35,
+   "kind": "conformance"
+  }
+ ],
+ "rows": [
+  {
+   "row": "total-dominating-set",
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED",
+   "conformance": {
+    "checks": [
+     {
+      "check": "buildable",
+      "pass": true,
+      "sizes": [
+       36,
+       48,
+       72
+      ]
+     },
+     {
+      "check": "derived: upward_closed (single-bit move stays inside)",
+      "pass": true,
+      "why_not_the_filter": "monotone closure is a CONSEQUENCE of the row's predicate, not a restatement of it"
+     }
+    ],
+    "passed": true
+   },
+   "steps": [
+    {
+     "ramp_position": 0,
+     "ramp_value": 0.15,
+     "state": "GAP-no-region",
+     "reason": "no instance at this step produced a region"
+    },
+    {
+     "ramp_position": 1,
+     "ramp_value": 0.25,
+     "region": "feasible",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       75
+      ],
+      "r_mean": 75,
+      "overlap_mean": 0.6116,
+      "bimodality_coefficient": 0.3984,
+      "bimodal_flag": false,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.0148,
+        "control_mean": 0.1656,
+        "control_sd": 0.0315,
+        "blend_excess": -0.1508,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "minority": {
+        "measured_rate": 0.6435,
+        "control_mean": 0.7315,
+        "control_sd": 0.03203,
+        "blend_excess": -0.088,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "min": {
+        "measured_rate": 0.5582,
+        "control_mean": 0.703,
+        "control_sd": 0.02303,
+        "blend_excess": -0.1448,
+        "control_route": "CP",
+        "hull_inflation": 3.4133,
+        "hull_note": null,
+        "insufficient": null
+       },
+       "max": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0202,
+        "control_sd": 0.01146,
+        "blend_excess": -0.0202,
+        "control_route": "CP",
+        "hull_inflation": 1.0,
+        "hull_note": null,
+        "insufficient": null
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 1,
+     "ramp_value": 0.25,
+     "region": "optimal",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       2
+      ],
+      "r_mean": 2,
+      "overlap_mean": 0.5556,
+      "bimodality_coefficient": null,
+      "bimodal_flag": null,
+      "flavours": {
+       "min": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 1.5,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-r"
+       },
+       "max": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 1.5,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-r"
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 2,
+     "ramp_value": 0.35,
+     "region": "feasible",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       164,
+       143
+      ],
+      "r_mean": 153.5,
+      "overlap_mean": 0.5681,
+      "bimodality_coefficient": 0.3829,
+      "bimodal_flag": false,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.0563,
+        "control_mean": 0.1675,
+        "control_sd": 0.06227,
+        "blend_excess": -0.1111,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "minority": {
+        "measured_rate": 0.6085,
+        "control_mean": 0.5766,
+        "control_sd": 0.15043,
+        "blend_excess": 0.0319,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "min": {
+        "measured_rate": 0.4868,
+        "control_mean": 0.6345,
+        "control_sd": 0.11239,
+        "blend_excess": -0.1477,
+        "control_route": "CP",
+        "hull_inflation": 2.5707,
+        "hull_note": null,
+        "insufficient": null
+       },
+       "max": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0251,
+        "control_sd": 0.01222,
+        "blend_excess": -0.0251,
+        "control_route": "CP",
+        "hull_inflation": 1.0,
+        "hull_note": null,
+        "insufficient": null
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 2,
+     "ramp_value": 0.35,
+     "region": "optimal",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       8
+      ],
+      "r_mean": 8,
+      "overlap_mean": 0.5714,
+      "bimodality_coefficient": 0.5222,
+      "bimodal_flag": false,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.5,
+        "control_mean": 0.6286,
+        "control_sd": 0.10738,
+        "blend_excess": -0.1286,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": "INSUFFICIENT-r"
+       },
+       "minority": {
+        "measured_rate": 1.0,
+        "control_mean": 0.9679,
+        "control_sd": 0.05285,
+        "blend_excess": 0.0321,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": "INSUFFICIENT-r"
+       },
+       "min": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 2.5,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-r"
+       },
+       "max": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 5.375,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-r"
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 3,
+     "ramp_value": 0.45,
+     "region": "feasible",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       113,
+       145,
+       336
+      ],
+      "r_mean": 198,
+      "overlap_mean": 0.5686,
+      "bimodality_coefficient": 0.3739,
+      "bimodal_flag": false,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.0901,
+        "control_mean": 0.2533,
+        "control_sd": 0.1135,
+        "blend_excess": -0.1632,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "minority": {
+        "measured_rate": 0.2519,
+        "control_mean": 0.4561,
+        "control_sd": 0.14412,
+        "blend_excess": -0.2042,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "min": {
+        "measured_rate": 0.4697,
+        "control_mean": 0.579,
+        "control_sd": 0.05631,
+        "blend_excess": -0.1093,
+        "control_route": "CP",
+        "hull_inflation": 1.474,
+        "hull_note": null,
+        "insufficient": null
+       },
+       "max": {
+        "measured_rate": 0.0,
+        "control_mean": 0.027,
+        "control_sd": 0.01112,
+        "blend_excess": -0.027,
+        "control_route": "CP",
+        "hull_inflation": 1.0,
+        "hull_note": null,
+        "insufficient": null
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 3,
+     "ramp_value": 0.45,
+     "region": "optimal",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       2,
+       3
+      ],
+      "r_mean": 2.5,
+      "overlap_mean": 0.6667,
+      "bimodality_coefficient": 0.1323,
+      "bimodal_flag": false,
+      "flavours": {
+       "majority": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": "INSUFFICIENT-r"
+       },
+       "minority": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": "INSUFFICIENT-r"
+       },
+       "min": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 1.4167,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-r"
+       },
+       "max": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 1.9167,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-r"
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 4,
+     "ramp_value": 0.6,
+     "region": "feasible",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       328,
+       352,
+       435
+      ],
+      "r_mean": 371.67,
+      "overlap_mean": 0.5096,
+      "bimodality_coefficient": 0.3717,
+      "bimodal_flag": false,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.0998,
+        "control_mean": 0.2777,
+        "control_sd": 0.07021,
+        "blend_excess": -0.178,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "minority": {
+        "measured_rate": 0.2431,
+        "control_mean": 0.2874,
+        "control_sd": 0.0934,
+        "blend_excess": -0.0443,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "min": {
+        "measured_rate": 0.545,
+        "control_mean": 0.6561,
+        "control_sd": 0.05049,
+        "blend_excess": -0.1111,
+        "control_route": "CP",
+        "hull_inflation": 1.3975,
+        "hull_note": null,
+        "insufficient": null
+       },
+       "max": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0247,
+        "control_sd": 0.01265,
+        "blend_excess": -0.0247,
+        "control_route": "CP",
+        "hull_inflation": 1.0,
+        "hull_note": null,
+        "insufficient": null
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 4,
+     "ramp_value": 0.6,
+     "region": "optimal",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       7,
+       10
+      ],
+      "r_mean": 8.5,
+      "overlap_mean": 0.6734,
+      "bimodality_coefficient": 0.8983,
+      "bimodal_flag": true,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.644,
+        "control_mean": 0.6376,
+        "control_sd": 0.08443,
+        "blend_excess": 0.0065,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": "INSUFFICIENT-r"
+       },
+       "minority": {
+        "measured_rate": 0.7952,
+        "control_mean": 0.8781,
+        "control_sd": 0.09268,
+        "blend_excess": -0.0829,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": "INSUFFICIENT-r"
+       },
+       "min": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 1.7786,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-r"
+       },
+       "max": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 7.9214,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-r"
+       }
+      }
+     }
+    }
+   ],
+   "family": "graph",
+   "ramp_parameter": "edge density",
+   "ramp_instantiated_as": "edge density of the ground graph"
+  },
+  {
+   "row": "triangle-packing",
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "structural_expectation": "downward_closed",
+   "capture_mode": "RAMPED",
+   "conformance": {
+    "checks": [
+     {
+      "check": "buildable",
+      "pass": true,
+      "sizes": [
+       12
+      ]
+     },
+     {
+      "check": "derived: downward_closed (single-bit move stays inside)",
+      "pass": true,
+      "why_not_the_filter": "monotone closure is a CONSEQUENCE of the row's predicate, not a restatement of it"
+     }
+    ],
+    "passed": true
+   },
+   "steps": [
+    {
+     "ramp_position": 0,
+     "ramp_value": 0.15,
+     "state": "GAP-no-region",
+     "reason": "no instance at this step produced a region"
+    },
+    {
+     "ramp_position": 1,
+     "ramp_value": 0.25,
+     "region": "feasible",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       40,
+       14,
+       12
+      ],
+      "r_mean": 22,
+      "overlap_mean": 0.7955,
+      "bimodality_coefficient": 0.521,
+      "bimodal_flag": false,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0009,
+        "control_sd": 0.00123,
+        "blend_excess": -0.0009,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "minority": {
+        "measured_rate": 0.9512,
+        "control_mean": 0.951,
+        "control_sd": 0.04585,
+        "blend_excess": 0.0002,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "min": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 1.0,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-degenerate"
+       },
+       "max": {
+        "measured_rate": 0.8223,
+        "control_mean": 0.8198,
+        "control_sd": 0.02857,
+        "blend_excess": 0.0024,
+        "control_route": "CP",
+        "hull_inflation": 122.7175,
+        "hull_note": null,
+        "insufficient": null
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 1,
+     "ramp_value": 0.25,
+     "region": "optimal",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       28,
+       2,
+       11
+      ],
+      "r_mean": 13.67,
+      "overlap_mean": 0.7778,
+      "bimodality_coefficient": 0.9853,
+      "bimodal_flag": true,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.9231,
+        "control_mean": 0.9181,
+        "control_sd": 0.08213,
+        "blend_excess": 0.0049,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "minority": {
+        "measured_rate": 0.9231,
+        "control_mean": 0.9512,
+        "control_sd": 0.04994,
+        "blend_excess": -0.0281,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "min": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 1.3398,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-degenerate"
+       },
+       "max": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 85.2089,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-degenerate"
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 2,
+     "ramp_value": 0.35,
+     "region": "feasible",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       20,
+       12
+      ],
+      "r_mean": 16,
+      "overlap_mean": 0.8083,
+      "bimodality_coefficient": 0.3848,
+      "bimodal_flag": false,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0007,
+        "control_sd": 0.00094,
+        "blend_excess": -0.0007,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "minority": {
+        "measured_rate": 0.9526,
+        "control_mean": 0.9382,
+        "control_sd": 0.06777,
+        "blend_excess": 0.0144,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "min": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 1.0,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-degenerate"
+       },
+       "max": {
+        "measured_rate": 0.8035,
+        "control_mean": 0.783,
+        "control_sd": 0.05347,
+        "blend_excess": 0.0205,
+        "control_route": "CP",
+        "hull_inflation": 136.5333,
+        "hull_note": null,
+        "insufficient": null
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 2,
+     "ramp_value": 0.35,
+     "region": "optimal",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       8,
+       11
+      ],
+      "r_mean": 9.5,
+      "overlap_mean": 0.7727,
+      "bimodality_coefficient": 0.9696,
+      "bimodal_flag": true,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.7857,
+        "control_mean": 0.8107,
+        "control_sd": 0.19095,
+        "blend_excess": -0.025,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": "INSUFFICIENT-r"
+       },
+       "minority": {
+        "measured_rate": 0.8214,
+        "control_mean": 0.9214,
+        "control_sd": 0.0982,
+        "blend_excess": -0.1,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": "INSUFFICIENT-r"
+       },
+       "min": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 1.483,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-r"
+       },
+       "max": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 95.6705,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-r"
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 3,
+     "ramp_value": 0.45,
+     "region": "feasible",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       42,
+       28,
+       26
+      ],
+      "r_mean": 32,
+      "overlap_mean": 0.7525,
+      "bimodality_coefficient": 0.4991,
+      "bimodal_flag": false,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0052,
+        "control_sd": 0.00803,
+        "blend_excess": -0.0052,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "minority": {
+        "measured_rate": 0.8927,
+        "control_mean": 0.8876,
+        "control_sd": 0.0164,
+        "blend_excess": 0.005,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "min": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0005,
+        "control_sd": 0.00104,
+        "blend_excess": -0.0005,
+        "control_route": "CP",
+        "hull_inflation": 1.0,
+        "hull_note": null,
+        "insufficient": null
+       },
+       "max": {
+        "measured_rate": 0.7986,
+        "control_mean": 0.8022,
+        "control_sd": 0.03413,
+        "blend_excess": -0.0036,
+        "control_route": "CP",
+        "hull_inflation": 66.8913,
+        "hull_note": null,
+        "insufficient": null
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 3,
+     "ramp_value": 0.45,
+     "region": "optimal",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       30,
+       2,
+       14
+      ],
+      "r_mean": 15.33,
+      "overlap_mean": 0.7391,
+      "bimodality_coefficient": 0.9908,
+      "bimodal_flag": true,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.8492,
+        "control_mean": 0.8174,
+        "control_sd": 0.03833,
+        "blend_excess": 0.0318,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "minority": {
+        "measured_rate": 0.8822,
+        "control_mean": 0.9187,
+        "control_sd": 0.02315,
+        "blend_excess": -0.0366,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "min": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 1.4905,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-degenerate"
+       },
+       "max": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 41.7,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-degenerate"
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 4,
+     "ramp_value": 0.6,
+     "region": "feasible",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       12,
+       23,
+       29
+      ],
+      "r_mean": 21.33,
+      "overlap_mean": 0.7835,
+      "bimodality_coefficient": 0.469,
+      "bimodal_flag": false,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0011,
+        "control_sd": 0.00097,
+        "blend_excess": -0.0011,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "minority": {
+        "measured_rate": 0.9515,
+        "control_mean": 0.938,
+        "control_sd": 0.04677,
+        "blend_excess": 0.0134,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "min": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 1.0,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-degenerate"
+       },
+       "max": {
+        "measured_rate": 0.8071,
+        "control_mean": 0.8017,
+        "control_sd": 0.02782,
+        "blend_excess": 0.0054,
+        "control_route": "CP",
+        "hull_inflation": 110.1103,
+        "hull_note": null,
+        "insufficient": null
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 4,
+     "ramp_value": 0.6,
+     "region": "optimal",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       11,
+       11,
+       17
+      ],
+      "r_mean": 13,
+      "overlap_mean": 0.7326,
+      "bimodality_coefficient": 0.9728,
+      "bimodal_flag": true,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.9103,
+        "control_mean": 0.8701,
+        "control_sd": 0.09796,
+        "blend_excess": 0.0403,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "minority": {
+        "measured_rate": 0.9483,
+        "control_mean": 0.9634,
+        "control_sd": 0.03958,
+        "blend_excess": -0.0151,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "min": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 1.5383,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-degenerate"
+       },
+       "max": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 94.82,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-degenerate"
+       }
+      }
+     }
+    }
+   ],
+   "family": "graph",
+   "ramp_parameter": "edge density",
+   "ramp_instantiated_as": "edge density of the ground graph"
+  },
+  {
+   "row": "quadratic-knapsack",
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ],
+   "structural_expectation": "downward_closed",
+   "capture_mode": "RAMPED",
+   "conformance": {
+    "checks": [
+     {
+      "check": "buildable",
+      "pass": true,
+      "sizes": [
+       594,
+       581,
+       589,
+       582
+      ]
+     },
+     {
+      "check": "derived: downward_closed (single-bit move stays inside)",
+      "pass": true,
+      "why_not_the_filter": "monotone closure is a CONSEQUENCE of the row's predicate, not a restatement of it"
+     }
+    ],
+    "passed": true
+   },
+   "steps": [
+    {
+     "ramp_position": 0,
+     "ramp_value": 0.5,
+     "region": "feasible",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       1682,
+       1717,
+       1694
+      ],
+      "r_mean": 1697.67,
+      "overlap_mean": 0.504,
+      "bimodality_coefficient": 0.3619,
+      "bimodal_flag": false,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0021,
+        "control_sd": 0.00394,
+        "blend_excess": -0.0021,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "minority": {
+        "measured_rate": 0.0981,
+        "control_mean": 0.1282,
+        "control_sd": 0.00685,
+        "blend_excess": -0.0301,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "min": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0003,
+        "control_sd": 0.00124,
+        "blend_excess": -0.0003,
+        "control_route": "CP",
+        "hull_inflation": 1.0,
+        "hull_note": null,
+        "insufficient": null
+       },
+       "max": {
+        "measured_rate": 0.1499,
+        "control_mean": 0.1567,
+        "control_sd": 0.00934,
+        "blend_excess": -0.0068,
+        "control_route": "CP",
+        "hull_inflation": 1.2064,
+        "hull_note": null,
+        "insufficient": null
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 1,
+     "ramp_value": 1.0,
+     "region": "feasible",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       1069,
+       1024,
+       1024
+      ],
+      "r_mean": 1039,
+      "overlap_mean": 0.5285,
+      "bimodality_coefficient": 0.365,
+      "bimodal_flag": false,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0048,
+        "control_sd": 0.00745,
+        "blend_excess": -0.0048,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "minority": {
+        "measured_rate": 0.2446,
+        "control_mean": 0.2773,
+        "control_sd": 0.02469,
+        "blend_excess": -0.0327,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "min": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0062,
+        "control_sd": 0.00878,
+        "blend_excess": -0.0062,
+        "control_route": "CP",
+        "hull_inflation": 1.0,
+        "hull_note": null,
+        "insufficient": null
+       },
+       "max": {
+        "measured_rate": 0.343,
+        "control_mean": 0.3582,
+        "control_sd": 0.05051,
+        "blend_excess": -0.0151,
+        "control_route": "CP",
+        "hull_inflation": 1.9719,
+        "hull_note": null,
+        "insufficient": null
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 2,
+     "ramp_value": 1.5,
+     "region": "feasible",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       604,
+       624,
+       564
+      ],
+      "r_mean": 597.33,
+      "overlap_mean": 0.5646,
+      "bimodality_coefficient": 0.375,
+      "bimodal_flag": false,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0035,
+        "control_sd": 0.00483,
+        "blend_excess": -0.0035,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "minority": {
+        "measured_rate": 0.4718,
+        "control_mean": 0.394,
+        "control_sd": 0.01827,
+        "blend_excess": 0.0778,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "min": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0038,
+        "control_sd": 0.00505,
+        "blend_excess": -0.0038,
+        "control_route": "CP",
+        "hull_inflation": 1.0,
+        "hull_note": null,
+        "insufficient": null
+       },
+       "max": {
+        "measured_rate": 0.6513,
+        "control_mean": 0.507,
+        "control_sd": 0.02797,
+        "blend_excess": 0.1443,
+        "control_route": "CP",
+        "hull_inflation": 3.4347,
+        "hull_note": null,
+        "insufficient": null
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 2,
+     "ramp_value": 1.5,
+     "region": "optimal",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       2
+      ],
+      "r_mean": 2,
+      "overlap_mean": 0.8182,
+      "bimodality_coefficient": null,
+      "bimodal_flag": null,
+      "flavours": {
+       "min": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 1.5,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-r"
+       },
+       "max": {
+        "measured_rate": 1.0,
+        "control_mean": 1.0,
+        "control_sd": 0.0,
+        "blend_excess": 0.0,
+        "control_route": "CP",
+        "hull_inflation": 1.5,
+        "hull_note": null,
+        "insufficient": "INSUFFICIENT-r"
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 3,
+     "ramp_value": 2.0,
+     "region": "feasible",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       375,
+       360,
+       333
+      ],
+      "r_mean": 356,
+      "overlap_mean": 0.5982,
+      "bimodality_coefficient": 0.3826,
+      "bimodal_flag": false,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0033,
+        "control_sd": 0.00305,
+        "blend_excess": -0.0033,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "minority": {
+        "measured_rate": 0.57,
+        "control_mean": 0.5094,
+        "control_sd": 0.00787,
+        "blend_excess": 0.0606,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "min": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0052,
+        "control_sd": 0.00502,
+        "blend_excess": -0.0052,
+        "control_route": "CP",
+        "hull_inflation": 1.0,
+        "hull_note": null,
+        "insufficient": null
+       },
+       "max": {
+        "measured_rate": 0.7653,
+        "control_mean": 0.6611,
+        "control_sd": 0.02823,
+        "blend_excess": 0.1042,
+        "control_route": "CP",
+        "hull_inflation": 5.7668,
+        "hull_note": null,
+        "insufficient": null
+       }
+      }
+     }
+    },
+    {
+     "ramp_position": 4,
+     "ramp_value": 3.0,
+     "region": "feasible",
+     "state": "usable",
+     "dials": {
+      "r_per_instance": [
+       159,
+       158,
+       120
+      ],
+      "r_mean": 145.67,
+      "overlap_mean": 0.6601,
+      "bimodality_coefficient": 0.3876,
+      "bimodal_flag": false,
+      "flavours": {
+       "majority": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0084,
+        "control_sd": 0.00665,
+        "blend_excess": -0.0084,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "minority": {
+        "measured_rate": 0.6653,
+        "control_mean": 0.6585,
+        "control_sd": 0.04472,
+        "blend_excess": 0.0067,
+        "control_route": "CP",
+        "hull_inflation": null,
+        "hull_note": "unaffordable (m=2 and n<=12 only)",
+        "insufficient": null
+       },
+       "min": {
+        "measured_rate": 0.0,
+        "control_mean": 0.0082,
+        "control_sd": 0.00807,
+        "blend_excess": -0.0082,
+        "control_route": "CP",
+        "hull_inflation": 1.0,
+        "hull_note": null,
+        "insufficient": null
+       },
+       "max": {
+        "measured_rate": 0.7907,
+        "control_mean": 0.7754,
+        "control_sd": 0.03443,
+        "blend_excess": 0.0153,
+        "control_route": "CP",
+        "hull_inflation": 14.3031,
+        "hull_note": null,
+        "insufficient": null
+       }
+      }
+     }
+    }
+   ],
+   "family": "optimization",
+   "ramp_parameter": "constraint-to-ground-set ratio",
+   "ramp_instantiated_as": "capacity tightness per item"
+  }
+ ]
+}

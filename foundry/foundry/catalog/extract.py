@@ -32,7 +32,7 @@ import math
 from itertools import combinations
 from statistics import mean, pstdev, stdev
 
-VERSION = "v5"
+VERSION = "v6"
 
 # Q21, ruled 2026-07-27. When a row's ground set is the thing its dial ramps — edge-subset rows under an
 # edge-density ramp — the x-axis moves the universe as well as the constraint. Each STEP's excess remains
@@ -55,6 +55,14 @@ NA_AMBIENT = "n.a.-ambient-confounded"
 # reporting the number of levels rather than the row's behaviour. The between-level delta takes their
 # place, which is the quantity the two-level design actually estimates.
 NA_CONTRAST = "n.a.-contrast"
+
+# Ruling 1 (2026-07-27). A row captured under an encoding that does not match its atlas
+# `canonical_encoding` is a VARIANT FRAME: every reading is an honest measurement of the region as
+# captured, but the region is not the canonical object. A subset encoding of a partition problem
+# measures pieces of solutions, not solutions — the move that made min-sum-set-cover impersonate
+# set-cover. The cell records the mismatch so Helm can bar it from charge-joining candidates, where
+# the charge label attaches to the canonical object and the join would be a category mismatch.
+ENCODING_VARIANT = "encoding-variant"
 FLAT_MULTIPLIER = 2.0            # the trajectory rule, inherited unchanged from sounding_trajectories
 BIMODALITY_FLAG = 0.555          # the conventional flag against a uniform reference
 PAIR_CAP = 20000
@@ -299,7 +307,7 @@ def contrast(steps, key="blend_excess"):
 
 
 def descriptors(steps, region=None, structural_expectation=None, ambient_confounded=False,
-                capture_mode="RAMPED"):
+                capture_mode="RAMPED", encoding_faithful=None):
     """Every v4 descriptor for one (problem, region, flavour) trajectory. A pure function of frames plus
     two facts that are not readings: the row's DECLARED structural expectation, and whether its ambient
     moves with its dial (derived by `observatory_ambient_census.py`, never listed by hand)."""
@@ -330,6 +338,7 @@ def descriptors(steps, region=None, structural_expectation=None, ambient_confoun
             "supply": supply(steps), "transition": tr,
             "contrast": ct,
             "capture_mode": capture_mode,
+            "encoding_faithful": encoding_faithful,
             "ambient_confounded": bool(ambient_confounded),
             "structure": structure(steps, region, structural_expectation),
             "scaling": {"kink_drift_n": None, "sharpening_ratio": None,

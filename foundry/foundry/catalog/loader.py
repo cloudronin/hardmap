@@ -107,6 +107,7 @@ CREATE TABLE catalog (
     seal_prohibited_at_v1 INTEGER NOT NULL,
     ambient_confounded INTEGER NOT NULL,
     capture_mode  TEXT NOT NULL,
+    encoding_faithful INTEGER NOT NULL,
     contrast_delta REAL,
     contrast_level_low REAL,
     contrast_level_high REAL,
@@ -200,6 +201,14 @@ CREATE VIEW admissible_catalog AS
 -- different questions, and a reader auditing supply wants the first.
 CREATE VIEW sweepable_catalog AS
     SELECT * FROM catalog WHERE excess_ref IS NOT NULL AND structurally_flat = 0;
+
+-- Ruling 1: what may be joined to a CHARGE. A charge label attaches to the canonical object, so a
+-- variant encoding's geometry joined to the canonical charge is a category mismatch AT THE JOIN — which
+-- is precisely where it would poison an association. Within-row and cross-row co-movement are unaffected
+-- and use `sweepable_catalog`, because the variant is internally consistent as a measurement.
+CREATE VIEW charge_joinable_catalog AS
+    SELECT * FROM catalog
+    WHERE excess_ref IS NOT NULL AND structurally_flat = 0 AND encoding_faithful = 1;
 
 -- Helm §7: the HOLD queue is QUERYABLE, not a list someone keeps. A held candidate carries the gap that
 -- held it, so a standing query resurfaces anything the frontier's grown n now clears.
@@ -368,6 +377,7 @@ def compile_db(lat: Path, atlas: Path, out: Path) -> dict:
                 1 if _flat(c, "transition", "SEAL_PROHIBITED_AT_V1") else 0,
                 1 if c.get("ambient_confounded") else 0,
                 c.get("capture_mode") or "RAMPED",
+                0 if c.get("encoding_faithful") is False else 1,
                 _flat(c, "contrast", "delta"),
                 _flat(c, "contrast", "level_low"),
                 _flat(c, "contrast", "level_high"),

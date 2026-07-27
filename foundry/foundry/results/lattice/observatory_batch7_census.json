@@ -1,0 +1,107 @@
+{
+ "schema": "observatory-batch-census/v1",
+ "STATUS": "DECLARATION \u2014 no reading exists for any row here",
+ "batch": 7,
+ "why_this_batch": "drawn from the LEXICON v2 verified-clean queue (coverage 32.3% -> 53.5%) and vetted before hashing. Eight vertex- and item-subset rows, every ambient fixed by construction. Its reservation takes the frontier from 8 to 10 clusters, which clears the four candidates sitting one row from adjudication at wave 3. NO number-theoretic component: that family's subset rows are exhausted, which is what makes wave 3's slated candidate HELD-path-gated rather than HELD-power.",
+ "families": {
+  "graph": {
+   "census_ramp": "edge density",
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ]
+  },
+  "optimization": {
+   "census_ramp": "constraint-to-ground-set ratio",
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ]
+  }
+ },
+ "roster": {
+  "total-dominating-set": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground graph",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "power-dominating-set": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground graph",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "triangle-packing": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground graph",
+   "structural_expectation": "downward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "cycle-packing": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground graph",
+   "structural_expectation": "downward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "planar-vertex-deletion": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground grid graph",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "lex-first-maximal-independent-set": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground graph",
+   "structural_expectation": null,
+   "capture_mode": "RAMPED"
+  },
+  "quadratic-knapsack": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "capacity constraints per item",
+   "structural_expectation": "downward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "k-minimum-spanning-tree": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground graph",
+   "structural_expectation": null,
+   "capture_mode": "RAMPED"
+  }
+ },
+ "n_roster": 8,
+ "reservation": {
+  "authority": "Helm v1 \u00a75 \u2014 a declared fraction of every fan-out batch is reserved",
+  "fraction": 0.25,
+  "rule": "rows ordered by sha256(f'{batch}:{row}') ascending; the first ceil(fraction * n) are RESERVED. Deterministic, reproducible from the roster alone, and outcome-blind by construction \u2014 the reserved rows are not built at declaration time, so no measured value exists for the rule to see.",
+  "roster_sha256": "93535f3625366ca82f065dd2e9d548803a78f8da29ac412fc14535a425e2536c",
+  "reserved": [
+   "k-minimum-spanning-tree",
+   "power-dominating-set"
+  ],
+  "n_reserved": 2,
+  "n_published": 6,
+  "declared_at": "2026-07-27T07:26:40Z",
+  "frames_do_not_exist": "reserved rows are NOT CAPTURED. Helm \u00a70.1 requires predictions hashed before their frames exist, which is strictly stronger than withholding frames that already exist: under it, blindness is physics rather than a guard anyone has to be trusted to respect. \u00a75's 'captured last in the batch' is honoured maximally \u2014 last means after the wave's predictions are sealed."
+ },
+ "published": [
+  "cycle-packing",
+  "lex-first-maximal-independent-set",
+  "planar-vertex-deletion",
+  "quadratic-knapsack",
+  "total-dominating-set",
+  "triangle-packing"
+ ],
+ "carried_forward": {
+  "covering-radius": {
+   "disposition": "TYPED OUT \u2014 deferred-no-ambient-stable-framing (Ruling 4)",
+   "why": "no longer carried; re-entry route recorded in the maptrail"
+  }
+ }
+}

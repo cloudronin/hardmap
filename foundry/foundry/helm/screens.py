@@ -43,6 +43,19 @@ MIN_STRATUM_CELLS = 20
 
 DISPOSITIONS = ("SLATED", "HELD", "REJECTED")
 
+# Ruling 2 (2026-07-27). The HOLD queue's standing promise — the frontier's grown n revives it BY
+# CONSTRUCTION — is true only for holds whose gap closes through scheduled building. A family-scoped
+# candidate whose family has no unbuilt reachable rows left cannot be revived by any reservation: its
+# gap closes only if an unbuilt CAPTURE PATH lands. Those are different creatures and the trail must
+# not conflate them.
+#
+#   HELD-power        revives on a COUNT          — the frontier grows and clears the MDE
+#   HELD-path-gated   revives on a BUILD DECISION — re-reviewed at every capture-path ruling, and
+#                     CLOSES as INSUFFICIENT-by-population if the queue completes without its path
+#
+# A hold that cannot name its revival mechanism is a zombie. This one names it, with an expiry.
+HOLD_KINDS = ("HELD-power", "HELD-path-gated", "HELD-null-missing")
+
 # ── netting (Helm §3.2): descriptor pairs whose correlation is partly forced by their definitions ────
 # Read off `foundry/catalog/extract.py`, not guessed. `level()` builds one value set per trajectory and
 # returns a member of it (`excess_ref`) beside its order statistics (`excess_min`, `excess_max`), so
@@ -182,6 +195,25 @@ def screen(cand, con, frontier, seal_prohibited):
         if abs(d) < mde:
             return ("HELD", "power-fail",
                     f"disclosed |rho| {abs(d):.3f} is below the frontier's MDE {mde:.3f}")
+        # POPULATION MATCH (Ruling 2). A family-scoped prior scored on a family-absent frontier is not
+        # a test of the prior — it is a test of a broader cousin with the prior as decoration. This is
+        # the lesson Terroir's strata and N6-R's tiers each paid for once.
+        grp = cand.get("group")
+        strata = frontier.get("strata") or {}
+        supply = frontier.get("family_supply") or {}
+        if grp and grp != "pooled" and strata.get(grp, 0) == 0:
+            unbuilt = supply.get(grp, 0)
+            if unbuilt > 0:
+                return ("HELD", "population-mismatch",
+                        f"the disclosed prior is {grp}-specific and the frontier holds ZERO {grp} "
+                        f"rows. {unbuilt} unbuilt {grp} row(s) remain, so a future reservation can "
+                        f"close this by construction.")
+            return ("HELD", "path-gated",
+                    f"the disclosed prior is {grp}-specific, the frontier holds ZERO {grp} rows, and "
+                    f"the {grp} family has NO unbuilt reachable rows left. This gap cannot close "
+                    f"through scheduled building — only through an unbuilt capture path. Re-review at "
+                    f"the next capture-path ruling; closes as INSUFFICIENT-by-population if the build "
+                    f"queue completes without one.")
     elif cand["kind"] == "association":
         mde = mde_association(frontier["n_cells"])
         if mde is None or d < mde:
@@ -224,7 +256,17 @@ def run(cands, con, frontier, seal_prohibited):
     for c in cands:
         disp, rule, detail = screen(c, con, frontier, seal_prohibited)
         rec = {**c, "screen_disposition": disp, "screen_rule": rule, "screen_detail": detail}
+        if disp == "HELD" and rule in ("population-mismatch", "path-gated"):
+            rec["hold_kind"] = ("HELD-power" if rule == "population-mismatch" else "HELD-path-gated")
+            rec["revives_on"] = ("a reservation drawn from the family's unbuilt rows"
+                                 if rule == "population-mismatch"
+                                 else "a capture-path build decision — NOT on any frontier count")
+            rec["closes_as"] = (None if rule == "population-mismatch"
+                                else "INSUFFICIENT-by-population, if the build queue completes "
+                                     "without the path")
         if disp == "HELD" and rule == "power-fail":
+            rec["hold_kind"] = "HELD-power"
+            rec["revives_on"] = "a frontier count — recorded below"
             # The recorded gap. §7's standing HOLD query resurfaces this candidate the moment the
             # frontier's grown n clears the number written here.
             if c["kind"] == "co-movement":

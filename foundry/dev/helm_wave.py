@@ -43,6 +43,25 @@ BANK = ROOT / "docs" / "findings" / "sounding-survey-banked-questions.md"
 WAVE = f"wave-{len(T.wave_ids(TRAIL)) + 1}"
 
 
+def family_supply(con):
+    """Unbuilt rows per family that a RESERVATION COULD ACTUALLY TAKE.
+
+    Reachability is not enough. A row typed REACH-assignment or REACH-permutation is reachable in
+    principle but needs a capture path the observatory has not built, so it cannot be reserved into a
+    subset batch. Counting it as supply would mark a path-gated hold as power-gated — which is exactly
+    the conflation Ruling 2 minted HELD-path-gated to prevent."""
+    out = {}
+    for fam, n in con.execute(
+            "SELECT p.family, COUNT(*) FROM problems p "
+            "WHERE p.reachable = 1 AND p.family IS NOT NULL "
+            "AND p.reach_class = 'REACH-subset' "
+            "AND p.problem_id NOT IN (SELECT DISTINCT problem_id FROM catalog) "
+            "AND p.problem_id NOT IN (SELECT problem_id FROM frontier WHERE released = 0) "
+            "GROUP BY p.family"):
+        out[fam] = n
+    return out
+
+
 def mde_for(cand, frontier):
     if cand["kind"] == "co-movement":
         return S.mde_correlation(frontier["n_clusters"])
@@ -57,6 +76,10 @@ def main() -> int:
     con.execute("PRAGMA foreign_keys = ON")
     reserved = RES.reserved_rows(LEDGER)
     frontier = S.frontier_expectation(con, reserved)
+    # FAMILY SUPPLY (Ruling 2): how many reachable rows each family still has UNBUILT. A family-scoped
+    # candidate whose family is exhausted cannot be revived by any reservation, so its hold is
+    # path-gated rather than power-gated. Counted from typings only — no reading is consulted.
+    frontier["family_supply"] = family_supply(con)
 
     print(f"HELM {WAVE} — sweeping the published database\n")
     cands, prov = SW.sweep(con, BANK)
@@ -133,6 +156,17 @@ def main() -> int:
            "family": {"size": len(ranked), "correction": "Holm-Bonferroni at FWER 0.05",
                       "enumerated_denominator": prov["n_candidates"]},
            "slate": ranked,
+           "riders_on_any_seal": {
+               "verdict_vocabulary": (
+                   "scoped in advance to CO-MOVEMENT, NOT MECHANISM. A confirmed result says these two "
+                   "descriptors move together on fresh ground; it does not say why, and the bet does "
+                   "not claim a mechanism. `overlap_ref` and `bimodality_max` are both computed from "
+                   "the same bounded-[0,1] overlap distribution, so co-movement has a possible "
+                   "boundary-induced component that no verdict here adjudicates."),
+               "boundary_decomposition": (
+                   "reported DESCRIPTIVELY beside the score, never as part of it: the association "
+                   "recomputed within interior-band vs near-boundary `overlap_ref` clusters, so the "
+                   "mechanical component is visible whichever way the verdict lands")},
            "hold_queue": {
                "n_with_measurable_gap": len(held),
                "nearest_gap_in_reserved_rows": nearest,

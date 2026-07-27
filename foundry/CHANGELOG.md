@@ -2,6 +2,28 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **The four rulings of the wave-3 sitting, and the slate goes to four.** **Ruling 1:** `3-partition`
+  and `MCSP` recorded as **variant frames** — frames frozen and unedited, `encoding_faithful: false` at
+  descriptor@v6, barred from charge-joining candidates via a new `charge_joinable_catalog` view (the
+  charge attaches to the canonical object, so the join is where a proxy encoding would poison things);
+  co-movement unaffected since the variant is internally consistent. **Ruling 2:** `HELD-path-gated`
+  minted, distinct from `HELD-power` — the number-theoretic family's four REACH-subset rows are ALL
+  BUILT, so no reservation can ever revive that candidate; it now revives on a build decision, is
+  re-reviewed at each capture-path ruling, and closes as `INSUFFICIENT-by-population` if the queue
+  completes without one. `family_supply` counts only rows a reservation could actually take — counting
+  REACH-assignment rows as supply would have mislabelled the hold as power-gated, which the first run
+  did and a fix corrected. **Ruling 3:** lexicon **v2**, full phrase set declared before reading the 86
+  misses, every v1 call a self-test FIXED POINT, stopping rule pinned in advance (two mechanical passes,
+  then hand adjudication with the encoding quoted). Coverage 32.3% -> **53.5%**, clean queue 16 -> 23.
+  **Ruling 4:** `covering-radius` typed out as `deferred-no-ambient-stable-framing` with its candidate
+  framing and re-entry route recorded — three batches held is a queue lying about its size. The
+  sounding-v1/v2 rounds' exclusion from the catalog is now **recorded as the instrument-comparability
+  decision it implicitly was** (tier-0 controls, no ramp structure), with re-capture as the constructive
+  route. **Batch 7** ships 3 rows, 3 excluded, frontier 8 -> **10**. **Wave 4 slates FOUR** — the
+  candidates that sat one row from adjudication at wave 3. Banked: **Q23**, the association reverses sign
+  across families (+0.90 number-theoretic, -0.43 sat-csp, pooled +0.50 a mixture washout) and sat-csp's
+  candidate is the one that revives by construction; **Q24**, a lexicon can match a real phrase and still
+  get the object wrong. 396 tests, verify 11/11, W2 passes.
 - **Batch 6 and wave 3 — the slate opens.** The first roster drawn from the verified-clean queue and
   the first **vetted before hashing** under the new roster protocol: eight vertex- and item-subset rows,
   every ambient fixed by construction, 6 shipped and **0 excluded at birth** — the first batch since

@@ -478,3 +478,39 @@ it is enough to say the class is **not clean**, and the 222-row build queue is v
 declare its typing rule before it runs so the answer cannot pick the rule. Related: Q20 (which declared
 dials are secretly thresholds) and Q21 (which ramps move their own ambient) — all three are the same
 species, a typing made once and never re-tested against what building the row actually requires.
+
+## Q23 — the association is not global: it reverses sign across families
+
+`overlap_ref × bimodality_max`, one sweep, one database, six populations:
+
+| population | ρ | clusters |
+|---|---:|---:|
+| number-theoretic | **+0.903** | 6 |
+| optimization | +0.746 | 10 |
+| graph | +0.572 | 22 |
+| **pooled** | **+0.496** | 47 |
+| sat-csp | **−0.429** | 6 |
+
+**The sign reverses**, and the pooled value is a mixture washout — not a truth about anything, just the
+weighted result of averaging populations that disagree. This is the Simpson-adjacent species at the
+FAMILY level, and it reframes what the sweep's candidates are for: **the per-family candidates are the
+honest bets**, and a pooled co-movement number should be read as a summary of disagreement rather than
+as a finding.
+
+The consequence for the slate is concrete. The number-theoretic candidate is `HELD-path-gated` — its
+family's subset rows are exhausted, so no reservation can ever adjudicate it. But **`sat-csp`'s candidate
+revives by construction**: disclosed −0.429, held for power, and unbuilt SAT rows exist in quantity. The
+family that flipped the sign is the one whose test the frontier can actually reach.
+
+Flagged for the next slate.
+
+## Q24 — a lexicon can match a real phrase and still get the object wrong
+
+`lex-first-maximal-independent-set` matched `L4-subset` on the phrase "independent set" and entered the
+verified-clean queue. It is not a subset region: the lex-first maximal independent set is **unique given
+a vertex order**, so the row has a unique answer, not a region. Caught at the generator in batch 7.
+
+The lexicon's stopping rule already sends the *unmatched* remainder to hand adjudication. This says the
+**matched** portion needs a region check too — presence of a subset-shaped noun in an encoding does not
+make the certificate a subset. The vet-before-hash protocol catches it only because writing the generator
+is itself the region check; a roster that trusted the lexicon alone would have shipped it.

@@ -42,23 +42,50 @@ ATLAS = ROOT.parent / "eightfold" / "eightfold" / "results" / "atlas" / "atlas_v
 OUT = LAT / "reach_subset_readjudication.json"
 TRAIL = LAT / "maptrail.jsonl"
 
-# ── THE SEALED LEXICON. Order is the rule; first match wins. ─────────────────────────────────────────
+# ── THE SEALED LEXICON, v2. Order is the rule; first match wins. ─────────────────────────────────────
+#
+# RULING 3 (2026-07-27). v1 read 41 of 127. v2 declares its FULL phrase set below before reading any of
+# the 86 it missed, and the self-test is extended so every v1 call is a FIXED POINT: v2 must reproduce
+# v1's classifications or the pass refuses to run. Widening a lexicon against known misses, one phrase
+# at a time until the misses go away, is fitting the rule to the data.
+#
+# THE STOPPING RULE IS DECLARED HERE, IN ADVANCE. Two mechanical passes and no more. Whatever v2 leaves
+# unmatched is HAND-ADJUDICATED with the row's canonical_encoding quoted per row — eyes on the field,
+# with receipts. A third widening would be the same error wearing a version number.
+LEXICON_VERSION = "v2"
+STOPPING_RULE = ("two mechanical passes, then hand adjudication with the encoding quoted per row. "
+                 "No third lexicon widening.")
 LEXICON = [
     ("REACH-permutation", "L1-ordering", [
         "linear order", "linear ordering", "linear vertex ordering", "linear arrangement",
         "vertex ordering", "ordering of", "permutation", "a tour", "hamiltonian",
-        "sequence of jobs", "sequencing", "layout", "arrangement of", "topological order"]),
+        "sequence of jobs", "sequencing", "layout", "arrangement of", "topological order",
+        # v2 additions, declared before reading the 86
+        "an ordering", "the ordering", "order the", "orders the", "schedule the", "a schedule",
+        "sequence", "route", "path visiting", "traveling", "travelling", "precedence"]),
     ("REACH-partition", "L2-partition", [
         "partition", "partitioned", "partitioning", "colouring", "coloring", "colour the", "color the",
-        "into k parts", "into at most k classes", "classes into which"]),
+        "into k parts", "into at most k classes", "classes into which",
+        # v2 additions
+        "split into", "divide into", "into two subsets", "into k subsets", "disjoint dominating",
+        "clustering", "cluster the", "into groups", "bins", "bin ", "pack into", "chromatic"]),
     ("REACH-assignment", "L3-assignment", [
         "assignment", "assign each", "assigns each", "mapping from", "map each", "truth assignment",
-        "schedule assigning", "allocation of"]),
+        "schedule assigning", "allocation of",
+        # v2 additions
+        "assigning", "assigned to", "open facilities and assign", "matching between",
+        "3-dimensional matching", "labels to", "label each"]),
     ("REACH-subset", "L4-subset", [
         "subset", "sub-family", "subfamily", "select", "choose", "delete <=", "delete at most",
         "remove <=", "remove at most", "hit all", "cover all", "covering all", "of size <= k",
         "at most k vertices", "at most k edges", "<= k vertices", "<= k edges", "<= k elements",
-        "set of size", "family of sets"]),
+        "set of size", "family of sets",
+        # v2 additions
+        "size <= k", "size at most k", "vertex set", "edge set", "vertex cover", "independent set",
+        "dominating set", "hitting set", "set cover", "a subset", "k vertices", "k edges",
+        "minimum number of vertices", "minimum number of edges", "items", "knapsack",
+        "three summing", "summing to", "induces a", "deletion", "delete", "remove", "cover every",
+        "covers every", "packing", "disjoint paths", "vertex-disjoint"]),
 ]
 
 
@@ -82,6 +109,16 @@ def selftest():
                  "domatic-number": "REACH-partition"}
     must_stay = ["d-hitting-set", "cluster-vertex-deletion", "subset-product", "max-coverage",
                  "minimum-test-cover", "connected-vertex-cover"]
+    # RULING 3: every v1 call is a FIXED POINT. v2 must reproduce them or explain each divergence.
+    V1_FIXED = {"3-partition": "REACH-partition", "balanced-connected-partition": "REACH-partition",
+                "capacitated-dominating-set": "REACH-assignment", "clique-choosability": "REACH-partition",
+                "cutwidth": "REACH-permutation", "domatic-number": "REACH-partition",
+                "efficient-domination": "REACH-partition", "k-median": "REACH-assignment",
+                "max-directed-cut": "REACH-partition", "max-k-cut": "REACH-partition",
+                "maxmin-vertex-cover": "REACH-partition", "min-sum-set-cover": "REACH-permutation",
+                "minimum-common-string-partition": "REACH-permutation",
+                "minmax-3d-matching": "REACH-partition", "minmax-clique": "REACH-partition",
+                "sharp-matchings": "REACH-partition"}
     fails = []
     for p, want in must_move.items():
         got, rule, ph = classify(atlas.get(p, {}).get("canonical_encoding", ""))
@@ -91,6 +128,11 @@ def selftest():
         got, rule, ph = classify(atlas.get(p, {}).get("canonical_encoding", ""))
         if got not in ("REACH-subset", None):
             fails.append(f"{p}: a BUILT subset row was retyped to {got} (rule {rule}, phrase {ph!r})")
+    for p, want in V1_FIXED.items():
+        got, rule, ph = classify(atlas.get(p, {}).get("canonical_encoding", ""))
+        if got != want:
+            fails.append(f"FIXED-POINT BROKEN {p}: v1 said {want}, v2 says {got} "
+                         f"(rule {rule}, phrase {ph!r})")
     return fails
 
 
@@ -138,7 +180,9 @@ def main() -> int:
     built_but_retyped = [r["problem_id"] for r in retyped if r["already_built"]]
 
     doc = {
-        "schema": "reach-subset-readjudication/v1",
+        "schema": "reach-subset-readjudication/v2",
+        "lexicon_version": LEXICON_VERSION,
+        "stopping_rule": STOPPING_RULE,
         "STATUS": "TYPING — derived from each row's own canonical_encoding, not from judgement",
         "why": ("the census fired R3-subset-selection with identical boilerplate on rows whose own "
                 "encoding says 'a linear order' and 'partitioned into'. The field was never read. This "

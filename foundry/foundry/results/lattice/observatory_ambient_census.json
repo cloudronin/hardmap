@@ -8,7 +8,7 @@
   "shape_and_transition_descriptors": "n.a.-ambient-confounded \u2014 slope, traj_class and kink presuppose a fixed space; here the x-axis moves the universe too",
   "not_the_kink_precedent": "kink values are meaningful-but-untested; these are meaningless-as-defined"
  },
- "n_rows": 51,
+ "n_rows": 55,
  "n_confounded": 6,
  "confounded": [
   "cluster-deletion",
@@ -658,6 +658,82 @@
    ],
    "ground_set_widths": [
     11,
+    11,
+    11,
+    11,
+    11
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "cycle-packing",
+   "batch": 7,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    11,
+    11,
+    11
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "quadratic-knapsack",
+   "batch": 7,
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ],
+   "ground_set_widths": [
+    11,
+    11,
+    11,
+    11,
+    11
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "total-dominating-set",
+   "batch": 7,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    9,
+    9,
+    9,
+    9
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "triangle-packing",
+   "batch": 7,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
     11,
     11,
     11,

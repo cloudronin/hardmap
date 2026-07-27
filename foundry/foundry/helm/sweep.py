@@ -25,7 +25,7 @@ from itertools import combinations
 
 # v2: the extremal null is pinned (stratified exchangeability), structurally-flat cells are excluded
 # from the swept population, and the netting rule fires on definitionally-coupled pairs.
-GENERATOR_VERSION = "sweep/v2"
+GENERATOR_VERSION = "sweep/v3"
 
 # The descriptors a co-movement candidate may pair. `kink_sharpness` is deliberately INCLUDED so that
 # screen 1 can visibly reject it: the catalog stamps it seal-prohibited for want of a typed null, and a
@@ -154,7 +154,7 @@ def association(con):
         "SELECT charge FROM charges GROUP BY charge HAVING COUNT(DISTINCT value) >= 2 ORDER BY charge")]
     for ch in charges:
         for d in CATEGORICAL:
-            sql = (f"SELECT ch.value, c.{d} FROM sweepable_catalog c "
+            sql = (f"SELECT ch.value, c.{d} FROM charge_joinable_catalog c "
                    f"JOIN charges ch ON ch.problem_id = c.problem_id "
                    f"WHERE ch.charge = '{ch}' AND c.{d} IS NOT NULL ORDER BY 1,2")
             rows = con.execute(sql).fetchall()
@@ -174,7 +174,7 @@ def association(con):
                 "stamp": "disclosed-prior"})
 
     # flavour_order — derived in SQL rather than stored, since the loader keeps rollups out of the db
-    sql = ("SELECT problem_id, region, flavour FROM sweepable_catalog "
+    sql = ("SELECT problem_id, region, flavour FROM charge_joinable_catalog "
            "ORDER BY problem_id, region, excess_ref")
     order = {}
     for pid, reg, fl in con.execute(sql):
