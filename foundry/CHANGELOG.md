@@ -2,6 +2,20 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **vet-before-hash amended — the rule protects a question, not a procedure.** As first written it
+  named the region-formulation audit, because that was the only pass at the time which read region
+  formulations with receipts. Naming an implementation made a question look like a ceremony: by batch 9
+  the audit-verified queue was exhausted while the 59-row adjudication had read its rows to a STRICTER
+  standard (verdict per row, completion-refusal, finer vocabulary). The rule now reads: **satisfied by
+  any pass that reads the row's `canonical_encoding` and assigns its region formulation with the quoted
+  receipt** — currently the audit and the adjudication, and **lexicon-matching alone never qualifies**,
+  since `lex-first-maximal-independent-set` matched a real phrase in a real encoding and is not a subset
+  region. Keeping the rule about the thing rather than the ceremony is also what keeps it maintainable:
+  a pass qualifies by meeting the standard, not by joining a list someone must remember to update.
+  Batch 9's pool resolves to **22 rows**, with `covering-radius` and `feedback-arc-set` correctly
+  filtered by the two-axis rule — adjudicated REACH-subset, but carrying live capture-blocking
+  dispositions. Ledger: *a clean stop at a good commit is worth more than a batch that ships tired* —
+  the prose-only-rule lesson turned on the author's own discipline. 411 tests, verify 11/11, W2 passes.
 - **The wave-5 sitting — the program's first sealed Helm bet, and the screens gain a propagation
   rule.** **Candidate 1 SEALED** as `prereg_v34`, minted MECHANICALLY from the candidate record plus the
   ruling (Helm §4 — nothing authored): rho(`overlap_ref`, `r_ref`) on optimization, direction NEGATIVE

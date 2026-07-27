@@ -76,3 +76,28 @@ honoured, whose exclusions then have to be explained one at a time.
 
 **Note the order dependence.** Vetting happens *before* the hash, on the row's declared identity; it never
 consults a reading, because no reading exists yet. The reservation stays outcome-blind.
+
+### Amendment — what satisfies vet-before-hash (2026-07-27)
+
+The rule as first written named `reach_subset_readjudication.py`, because at writing time that was the
+only pass which read region formulations with receipts. Naming an implementation made the rule look like
+a ceremony, and by batch 9 the audit-verified queue was exhausted while a *different* pass had read 59
+rows to a stricter standard. Asking whether that qualified, rather than assuming it, is the rule working.
+
+**The rule protects a question, not a procedure:**
+
+> *Has a human read this row's `canonical_encoding` and verified its certificate shape, with the
+> encoding quoted, before a roster commits to filming it?*
+
+**Vet-before-hash is satisfied by any pass that reads the row's canonical encoding and assigns its region
+formulation with the quoted receipt.** Currently the region-formulation audit and the 59-row unmatched
+adjudication both qualify — the adjudication under a stricter standard than the audit, since it carried a
+verdict per row, refused to complete if any row lacked one, and used the finer vocabulary.
+
+**Lexicon-matching alone never qualifies.** `lex-first-maximal-independent-set` matched `L4-subset` on a
+real phrase in a real encoding and is not a subset region. Matched is not verified, and no future pass
+inherits qualification by resembling one that has it.
+
+Keeping the rule about the *thing* rather than the *ceremony* is also what keeps the list maintainable:
+a new pass qualifies by meeting the standard, not by being added to an enumeration someone must remember
+to update.

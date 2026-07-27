@@ -1965,3 +1965,24 @@ Two candidates, one screen-width apart, opposite verdicts. The rule that separat
 and the prereg records the theoretical reading in advance — the freezing story predicts this sign, so a
 confirm is *consistency-with-theory* rather than surprise, written down before the result exists so it
 cannot later be reported as the stronger thing.
+
+---
+
+## A rule living only in prose applies to my own discipline too — 2026-07-27
+
+The line was minted for a batch docstring that stated a reservation rule five times and enforced it none.
+It came due the same day, pointed the other way.
+
+Batch 9's pool was resolved and correct: 22 rows, with the two capture-blocked ones filtered out by the
+axis distinction. Writing its six-to-eight edge-subset generators was possible with the context remaining.
+Probing their region sizes, checking conformance, and verifying them against the duplicate-region guard
+was not.
+
+The last two batches each surfaced their defect at exactly that verification step — and batch 8's
+near-miss came from a generator that *looked* fine. Shipping generators without the checks that catch
+generators-that-look-fine is the half-applied-gate species wearing a productivity costume.
+
+> **A clean stop at a good commit is worth more than a batch that ships tired.**
+
+The discipline a program writes for its artifacts is not a different discipline from the one its author
+works under. A guard skipped because the session was long is a guard that lived only in prose.
