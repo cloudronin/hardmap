@@ -1840,3 +1840,21 @@ clean candidate.
 What makes this an argument for the constitution rather than against the engine: the machine proposed
 four confounded bets and **stopped at the slate**, and the sitting caught in one observation what no
 screen was built to see. That division of labour is what Helm was bet on.
+
+---
+
+## The typing law's cost-blindness clause, 2026-07-27
+
+The region-formulation audit met two rows — `bilevel-knapsack` and `network-interdiction` — whose
+certificate is a subset (the leader's choice) but whose feasibility predicate requires solving the
+follower's optimum inside. The tempting call is to type them out: they are awkward, they are slow, and
+the queue would get shorter.
+
+They were given an **affordability note** instead, and kept.
+
+> **Expensive is not mis-typed. Conflating them is how a hard row gets quietly reclassified as a wrong one.**
+
+The queue shrinks only for reasons about **shape**, never about **effort**. A typing says what an object
+IS; cost says what it takes to measure. A queue pruned on cost while claiming to be pruned on type would
+report a clean population that was really a cheap one — and every rate computed over it, including the
+misclassification rates this program has just spent a day establishing, would inherit the bias silently.

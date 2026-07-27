@@ -1,0 +1,95 @@
+{
+ "schema": "observatory-batch-census/v1",
+ "STATUS": "DECLARATION \u2014 no reading exists for any row here",
+ "batch": 8,
+ "why_this_batch": "the first roster drawn from a queue where every row's region formulation has been READ \u2014 the region-formulation audit's 20 SUBSET-VERIFIED rows, minus those built or reserved. Seven remain. Most are edge- or arc-subset rows, so each generator fixes a candidate list of declared size and the ambient is constant by construction rather than by luck.",
+ "families": {
+  "graph": {
+   "census_ramp": "edge density",
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ]
+  },
+  "optimization": {
+   "census_ramp": "constraint-to-ground-set ratio",
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ]
+  }
+ },
+ "roster": {
+  "cluster-editing": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density over a fixed candidate-pair list",
+   "structural_expectation": null,
+   "capture_mode": "RAMPED"
+  },
+  "minimum-fill-in": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density over a fixed candidate-pair list",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "interval-completion": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density over a fixed candidate-pair list",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "minimum-equivalent-digraph": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "arc density over a fixed candidate-arc list",
+   "structural_expectation": null,
+   "capture_mode": "RAMPED"
+  },
+  "graph-sandwich-pi-property": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density over a fixed candidate-pair list",
+   "structural_expectation": null,
+   "capture_mode": "RAMPED"
+  },
+  "bilevel-knapsack": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "capacity tightness per item",
+   "structural_expectation": "downward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "network-interdiction": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "interdiction budget per candidate",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  }
+ },
+ "n_roster": 7,
+ "reservation": {
+  "authority": "Helm v1 \u00a75 \u2014 a declared fraction of every fan-out batch is reserved",
+  "fraction": 0.25,
+  "rule": "rows ordered by sha256(f'{batch}:{row}') ascending; the first ceil(fraction * n) are RESERVED. Deterministic, reproducible from the roster alone, and outcome-blind by construction \u2014 the reserved rows are not built at declaration time, so no measured value exists for the rule to see.",
+  "roster_sha256": "6f8b5c793e49fd756696bf381b951867aa49b1fc1fed808cbc35db4f17f54e15",
+  "reserved": [
+   "cluster-editing",
+   "minimum-fill-in"
+  ],
+  "n_reserved": 2,
+  "n_published": 5,
+  "declared_at": "2026-07-27T18:17:04Z",
+  "frames_do_not_exist": "reserved rows are NOT CAPTURED. Helm \u00a70.1 requires predictions hashed before their frames exist, which is strictly stronger than withholding frames that already exist: under it, blindness is physics rather than a guard anyone has to be trusted to respect. \u00a75's 'captured last in the batch' is honoured maximally \u2014 last means after the wave's predictions are sealed."
+ },
+ "published": [
+  "bilevel-knapsack",
+  "graph-sandwich-pi-property",
+  "interval-completion",
+  "minimum-equivalent-digraph",
+  "network-interdiction"
+ ],
+ "carried_forward": {}
+}

@@ -2,6 +2,20 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **`RECONFIGURATION` minted, and batch 8 — the first roster from a queue whose regions were all
+  read.** The class enters the census typed `out-of-reach-at-v1` with no capture path claimed and its
+  re-entry route stated (the covering-radius pattern, no zombie rows). Its note records what the class
+  IS: reconfiguration studies the **solution-adjacency graph** — whether one can walk between solutions
+  by local moves — which is this program's own object seen from the navigation side. Blend geometry asks
+  whether solutions AVERAGE safely; reconfiguration asks whether they CONNECT, the two tamenesses the
+  XOR case taught us to separate. Banked as a class note, **claimed nowhere**. **Batch 8** rosters the
+  7 audited-and-available rows: 4 shipped, 1 excluded at birth (conformance caught `interval-completion`
+  declared `upward_closed` when it is not — the check working on my own declaration), 2 reserved.
+  Frontier 10 -> **12**. Edge- and arc-subset rows draw a FIXED candidate list of declared size so the
+  ambient is constant across the ramp by construction — the Q21 lesson applied at design time — and the
+  scoping is stated per row, as is `interval-completion`'s chordality surrogate. Ledger: **expensive is
+  not mis-typed** — the typing law's cost-blindness clause, minted from the bilevel rows' affordability
+  note. Catalog 352 -> 376 cells. 403 tests, verify 11/11, W2 passes.
 - **Q24 closed as a bounded result — the region-formulation audit.** All 23 lexicon-typed rows
   hand-adjudicated with each row's `canonical_encoding` quoted as the receipt, vocabulary declared
   before the rows were read and inheriting the rulings' existing distinction rather than rediscovering
