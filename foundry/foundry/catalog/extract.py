@@ -32,7 +32,7 @@ import math
 from itertools import combinations
 from statistics import mean, pstdev, stdev
 
-VERSION = "v6"
+VERSION = "v7"
 
 # Q21, ruled 2026-07-27. When a row's ground set is the thing its dial ramps — edge-subset rows under an
 # edge-density ramp — the x-axis moves the universe as well as the constraint. Each STEP's excess remains
@@ -185,6 +185,10 @@ def bimodality_coefficient(o):
 
 
 def coherence(steps):
+    """v7 adds `bimodality_excess`: BC minus the matched-r control mean. Raw BC is size-coupled — a
+    coefficient statistic on few overlap samples inflates mechanically — and the excess discipline that
+    governs every blend reading had never reached the coherence descriptors until wave 4's slate came
+    back four-for-four wearing size's costumes."""
     pos, _ = reference_step(steps)
     seq = [(s["ramp_position"], s.get("overlap_mean")) for s in steps
            if s.get("overlap_mean") is not None]
@@ -198,7 +202,11 @@ def coherence(steps):
         den = sum((x - mx) ** 2 for x in xs)
         slope = (sum((x - mx) * (y - my) for x, y in zip(xs, ys)) / den) if den else None
     bmax = max(bcs) if bcs else None
-    return {"overlap_ref": next((v for p, v in seq if p == pos), None),
+    bx = [s.get("bimodality_excess") for s in steps if s.get("bimodality_excess") is not None]
+    return {"bimodality_excess_ref": (round(bx[len(bx) // 2], 4) if bx else None),
+            "bimodality_excess_max": (round(max(bx), 4) if bx else None),
+            "bimodality_excess_is_retro_filled": bool(bx),
+            "overlap_ref": next((v for p, v in seq if p == pos), None),
             "overlap_slope": round(slope, 6) if slope is not None else None,
             "bimodality_max": round(bmax, 4) if bmax is not None else None,
             "bimodal_flag": (bmax > BIMODALITY_FLAG) if bmax is not None else None,

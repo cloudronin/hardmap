@@ -2,6 +2,25 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **`bimodality_excess` computed, and wave 5 slates two.** The descriptor declared at the wave-4
+  sitting is now real: BC minus the matched-r control mean, computed as a retro-fill by regenerating
+  regions from the deterministic capture seeds and drawing 8 matched-r CP controls per step. **294 cells
+  computed, 260 reach the catalog**, range [-0.110, +0.184], mean +0.0123. Landed at **descriptor@v7**,
+  enumerable by `sweep/v5`, and deliberately EXEMPT from the size rule — subtracting the matched-r
+  control mean is what removes the size dependence, which is the whole reason it was built.
+  **Wave 5: 468 enumerated, 125 rejected, 341 held, 2 slated.** Every screen the wave-4 sitting minted
+  fired on real input: definitional-consumption 7, size-marginal 7, needs-r-conditioning 2, path-gated 2.
+  The slate is `rho(overlap_ref, r_ref)` on optimization at -0.792 and the first ASSOCIATION candidate
+  ever to reach a slate, `V(bimodal_flag, charge=landscape)` at 0.407 — which ran against
+  `charge_joinable_catalog`, so no encoding-variant row contributed. **Candidate 1 is flagged for the
+  sitting rather than decided:** it pairs `overlap_ref` with `r_ref` itself, and the size rule did not
+  fire because it requires two size-coupled descriptors. Defensible — size is a variable of interest
+  here, not a lurking confounder — but one screen-width from the four candidates the last sitting
+  killed, and the distinction is mine rather than the machine's. **No bimodality_excess candidate
+  slated**, which is a result rather than an absence: the raw pairings that dominated wave 4 are now
+  rejected or held, their excess-based replacements did not clear the MDE, and whether the coherence
+  signal survives its own control is now ASKABLE where it previously was not. 407 tests, verify 11/11,
+  W2 passes.
 - **The seven rulings and the 59-row adjudication — every row now has a class that exists.**
   **DECOMPOSITION** and **STRATEGY** mint, both `out-of-reach-at-v1`: a tree-plus-bags certificate is
   not coordinate-shaped (a majority vote of three tree decompositions has no meaning), and a strategy

@@ -30,6 +30,15 @@ import terrain_score as T                                              # noqa: E
 
 LEDGER = LAT / "observatory_reservation.jsonl"
 AMBIENT = LAT / "observatory_ambient_census.json"
+BIMEX = LAT / "bimodality_excess_cache.json"
+
+
+def bimodality_excess():
+    """The retro-filled BC excess, keyed row|position|region. Declared before it was computed."""
+    if not BIMEX.exists():
+        print("    NO BIMODALITY-EXCESS CACHE — the descriptor stays null", flush=True)
+        return {}
+    return json.loads(BIMEX.read_text())["values"]
 READJ = LAT / "reach_subset_readjudication.json"
 
 
@@ -99,9 +108,10 @@ def v3_frames(retro):
     return by, sha(p), "sounding_v3_survey.json", {}
 
 
-def batch_frames(p):
+def batch_frames(p, bimex=None):
     """Any observatory_batch*_panels.json. Discovery is by glob so batch N costs no edit here —
     a builder that must be edited per batch is a builder that will be forgotten at batch 4."""
+    bimex = bimex or {}
     if not p.exists():
         return {}, None, None, {}
     doc = json.loads(p.read_text())
@@ -123,7 +133,9 @@ def batch_frames(p):
                     "blend_excess": v.get("blend_excess"), "control_sd": v.get("control_sd"),
                     "r": d.get("r_mean"), "overlap_mean": d.get("overlap_mean"),
                     "bimodality_coefficient": d.get("bimodality_coefficient"),
-                    "coherence_provenance": "captured at frame time"})
+                    "coherence_provenance": "captured at frame time",
+                    "bimodality_excess": (bimex.get(f"{r['row']}|{s['ramp_position']}|{s['region']}")
+                                          or {}).get("bimodality_excess")})
     return by, sha(p), p.name, expects
 
 
@@ -182,10 +194,11 @@ def retro_coherence():
 def main() -> int:
     print(f"BUILDING catalog_{X.VERSION}\n\n  retro-filling coherence on the frozen v3 frames ...", flush=True)
     confounded = ambient_confounded_rows()
+    bimex = bimodality_excess()
     variants = encoding_variants()
     retro = retro_coherence()
     v3, v3sha, v3name, v3exp = v3_frames(retro)
-    batches = [batch_frames(p) for p in sorted(LAT.glob("observatory_batch*_panels.json"))]
+    batches = [batch_frames(p, bimex) for p in sorted(LAT.glob("observatory_batch*_panels.json"))]
 
     rows, sources = [], {}
     for frames, s, name, expects in [(v3, v3sha, v3name, v3exp)] + batches:

@@ -25,13 +25,14 @@ from itertools import combinations
 
 # v2: the extremal null is pinned (stratified exchangeability), structurally-flat cells are excluded
 # from the swept population, and the netting rule fires on definitionally-coupled pairs.
-GENERATOR_VERSION = "sweep/v4"
+GENERATOR_VERSION = "sweep/v5"
 
 # The descriptors a co-movement candidate may pair. `kink_sharpness` is deliberately INCLUDED so that
 # screen 1 can visibly reject it: the catalog stamps it seal-prohibited for want of a typed null, and a
 # screen that never fires on real input is a screen nobody has tested.
 NUMERIC = ["excess_ref", "excess_min", "excess_max", "max_excursion_sd", "overlap_ref",
-           "overlap_slope", "bimodality_max", "r_ref", "insufficient_share", "kink_sharpness"]
+           "overlap_slope", "bimodality_max", "bimodality_excess_ref", "r_ref",
+           "insufficient_share", "kink_sharpness"]
 CATEGORICAL = ["traj_class", "slope_sign", "bimodal_flag"]
 
 MIN_N = 8            # below this a rank correlation is not a statistic, it is a rumour

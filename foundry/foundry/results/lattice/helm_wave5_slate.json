@@ -1,0 +1,1587 @@
+{
+ "schema": "helm-slate/v1",
+ "wave": "wave-5",
+ "STATUS": "AWAITING OWNER RULING \u2014 nothing here is sealed, nothing here is a claim",
+ "constitution": [
+  "the machine proposes; the frontier adjudicates",
+  "the owner rules every seal"
+ ],
+ "sweep": {
+  "generator_version": "sweep/v5",
+  "n_candidates": 468,
+  "by_kind": {
+   "anomaly": 24,
+   "association": 32,
+   "bank-import": 27,
+   "co-movement": 385
+  }
+ },
+ "db": {
+  "db_sha256": "2399f397b912313905ccb68e2fc011d4cd0a9220d884730c48ea5db65b67f555",
+  "sources": {
+   "observatory_reach_census.json": "d7b7ca5bfbf2c839e5a653f202c30ed1cee6763372ee2a1a54ed0fe2fc265e18",
+   "observatory_untyped_adjudication.json": "a2470d4be360b9173994ce230270f814155dbf8fe94061e97b8acf77888aa05b",
+   "sounding_v3_survey.json": "e0af8344a5cc7023d9cc2c853433110bd0bb3ffb9e2d9536ad4aab8a414459ea",
+   "observatory_batch1_panels.json": "3f0f10f3a59f406995ad60816e798aa27c91f27d3abfd554fab6d53d606905fd",
+   "observatory_batch2_panels.json": "76a877600261db818eb872b32935e2565526f218b982c29db2614babcbbb30a5",
+   "observatory_batch3_panels.json": "3cf977a33e978d7cc2fb2377a759450cab913c3a96f4af16880f2e60a44b6e01",
+   "observatory_batch4_panels.json": "8de930958a8ca0fa48cd7f00676f3e2c52e660f216659dedbd2a09501d39d951",
+   "observatory_batch5_panels.json": "bac6af81b12631aae3cfb4e5e455feeb61bf2c86ef953d159792bc73b29c1f01",
+   "observatory_batch6_panels.json": "a835c60bbd61f96f45c86f3c2528985c2ed1cee5cc9fb94c36386659a1fa7d26",
+   "observatory_batch7_panels.json": "bab1c8d3580aeacbaf4d1af53a3b5b6baee79ab80990bdbc71348b2e0dd12787",
+   "observatory_batch8_panels.json": "5ee893b10b1f44d61e2b3afbc0e972d413af7228ce03f6604a03fbdfc643f43f",
+   "catalog_v7.jsonl": "479ba0c3b909b3e5d7eb495d9bbd2780f7e145e06d742b2f52971d862647aa02",
+   "atlas_v3.jsonl": "e62f3c284b408a26d71e7f769c3742fa283f5a3bd5d874da74f0313ee3968dee",
+   "observatory_reservation.jsonl": "7fd3a509a2e0c1c6e34d2a3665068d5d92eb6f7386822c9fb4cb54797b3988dc",
+   "maptrail.jsonl": "545c8bd5fe2a12a3b396ddeb4274c22ecd1230318adde827ba4c346d65d87d3e",
+   "wave_trail.jsonl": "e175608ac7bb7109b7681bd45440abdb852b0ad04382c6f37ee71e8816bc21d0",
+   "helm_wave1_candidates.jsonl": "f567d2954d0fd16216f82d5bf3a6e519fc749d51c97cc069a28270352759a5a6",
+   "helm_wave2_candidates.jsonl": "3ddbbc1c7d55c82e4acb277524135c42defcc4443fb7248ce81714a83ede029a",
+   "helm_wave3_candidates.jsonl": "46a821af81231ef084ddf1608a40a54f8fcc92c824ba793882231da6e812a9e4",
+   "helm_wave4_candidates.jsonl": "ef8e75b1a47c0ac9198565c86ddaccfb24e15ce7b34b20d0d7c74eb417f5b0c2"
+  }
+ },
+ "frontier": {
+  "n_clusters": 12,
+  "n_cells": 48,
+  "median_cells_per_published_problem": 4,
+  "reserved": [
+   "balanced-vertex-separator",
+   "bin-packing",
+   "capacitated-vertex-cover",
+   "cluster-editing",
+   "k-minimum-spanning-tree",
+   "k-set-packing",
+   "maximum-minimal-vertex-cover",
+   "minimum-fill-in",
+   "nearest-codeword",
+   "planar-dominating-set",
+   "power-dominating-set",
+   "weighted-interval-scheduling"
+  ],
+  "strata": {
+   "graph": 8,
+   "optimization": 3,
+   "algebraic": 1
+  },
+  "projected_from": "the published population's cells-per-problem \u2014 no reserved row is read",
+  "family_supply": {
+   "algebraic": 1,
+   "graph": 52,
+   "optimization": 25
+  }
+ },
+ "screen_counts": {
+  "SLATED": 2,
+  "HELD": 341,
+  "REJECTED": 125
+ },
+ "screen_rules": {
+  "netting": 35,
+  "power-fail": 306,
+  "null-missing": 107,
+  "path-gated": 2,
+  "size-marginal": 7,
+  "needs-r-conditioning": 2,
+  "definitional-consumption": 7
+ },
+ "declared_floors": {
+  "alpha": 0.05,
+  "power": 0.8,
+  "min_frontier_clusters": 4,
+  "min_frontier_cells": 2,
+  "pinned": "in foundry/helm/screens.py before this wave ran"
+ },
+ "family": {
+  "size": 2,
+  "correction": "Holm-Bonferroni at FWER 0.05",
+  "enumerated_denominator": 468
+ },
+ "slate": [
+  {
+   "disclosed_partial_r": null,
+   "conditioning": "not conditioned \u2014 r_ref is one of the pair, or supply too thin",
+   "kind": "co-movement",
+   "candidate_id": "comov:93b79a24947e",
+   "statistic": "Spearman rho(overlap_ref, r_ref) over optimization trajectories",
+   "descriptors": [
+    "overlap_ref",
+    "r_ref"
+   ],
+   "group": "optimization",
+   "generating_query": "SELECT c.problem_id, c.overlap_ref, c.r_ref, c.r_ref FROM sweepable_catalog c JOIN problems p ON p.problem_id = c.problem_id WHERE c.overlap_ref IS NOT NULL AND c.r_ref IS NOT NULL AND p.family = 'optimization' ORDER BY 1,2,3",
+   "disclosed": -0.7917690412476419,
+   "n": 72,
+   "n_clusters": 13,
+   "null": "cluster permutation: whole problems' descriptor vectors are shuffled, so within-problem dependence between a row's cells is preserved under the null",
+   "frontier_null": "the same cluster permutation, applied to the reserved rows' cells once they exist \u2014 the statistic and its null are the same object on the frontier as on published ground",
+   "stamp": "disclosed-prior",
+   "n_siblings": 55,
+   "sweep_total": 468,
+   "screen_disposition": "SLATED",
+   "screen_rule": null,
+   "screen_detail": null,
+   "family_size": 2,
+   "holm_threshold_if_sealed": 0.025,
+   "novelty": 1.0,
+   "frontier_mde": 0.7324,
+   "power_proxy": 0.581,
+   "rank_score": 0.460079,
+   "sealed_bet": "on the reserved frontier rows, the rank correlation between overlap_ref and r_ref is negative, clustered at the problem level",
+   "discriminates_mechanism": true,
+   "family_cost": 0.025,
+   "slate_rank": 1
+  },
+  {
+   "kind": "association",
+   "candidate_id": "assoc:84c0251b33d7",
+   "statistic": "Cramer's V(bimodal_flag, charge=landscape)",
+   "descriptors": [
+    "bimodal_flag"
+   ],
+   "charge": "landscape",
+   "group": "pooled",
+   "generating_query": "SELECT ch.value, c.bimodal_flag FROM charge_joinable_catalog c JOIN charges ch ON ch.problem_id = c.problem_id WHERE ch.charge = 'landscape' AND c.bimodal_flag IS NOT NULL ORDER BY 1,2",
+   "disclosed": 0.40655085869646895,
+   "n": 258,
+   "n_clusters": 53,
+   "null": "label permutation within the charge column, clustered by problem",
+   "frontier_null": "the same label permutation on the reserved rows' cells, with the charge joining in as a fixed row label exactly as it does here",
+   "charge_is_a_fixed_row_label": true,
+   "stamp": "disclosed-prior",
+   "n_siblings": 32,
+   "sweep_total": 468,
+   "screen_disposition": "SLATED",
+   "screen_rule": null,
+   "screen_detail": null,
+   "family_size": 2,
+   "holm_threshold_if_sealed": 0.05,
+   "novelty": 1.0,
+   "frontier_mde": 0.4044,
+   "power_proxy": 0.505,
+   "rank_score": 0.205435,
+   "sealed_bet": "on the reserved frontier rows, bimodal_flag is associated with charge `landscape` at V > 0, direction fixed by the disclosed table",
+   "discriminates_mechanism": false,
+   "family_cost": 0.05,
+   "slate_rank": 2
+  }
+ ],
+ "riders_on_any_seal": {
+  "verdict_vocabulary": "scoped in advance to CO-MOVEMENT, NOT MECHANISM. A confirmed result says these two descriptors move together on fresh ground; it does not say why, and the bet does not claim a mechanism. `overlap_ref` and `bimodality_max` are both computed from the same bounded-[0,1] overlap distribution, so co-movement has a possible boundary-induced component that no verdict here adjudicates.",
+  "boundary_decomposition": "reported DESCRIPTIVELY beside the score, never as part of it: the association recomputed within interior-band vs near-boundary `overlap_ref` clusters, so the mechanical component is visible whichever way the verdict lands"
+ },
+ "hold_queue": {
+  "n_with_measurable_gap": 200,
+  "nearest_gap_in_reserved_rows": 0,
+  "how_it_resurfaces": "held candidates carry the frontier size that would clear them; the db's hold_queue view is the standing query, so growth in the reservation revives them without anyone remembering they existed",
+  "entries": [
+   {
+    "candidate_id": "comov:7a98b8d583c0",
+    "statistic": "Spearman rho(bimodality_max, insufficient_share) over optimization trajectories",
+    "disclosed": 0.8284014113559586,
+    "required_clusters": 9,
+    "gap_in_reserved_rows": 0
+   },
+   {
+    "candidate_id": "comov:826d39ed245b",
+    "statistic": "Spearman rho(overlap_ref, bimodality_max) over optimization trajectories",
+    "disclosed": 0.7264522088038109,
+    "required_clusters": 13,
+    "gap_in_reserved_rows": 1
+   },
+   {
+    "candidate_id": "comov:73b2891b31c5",
+    "statistic": "Spearman rho(bimodality_max, insufficient_share) over graph trajectories",
+    "disclosed": 0.7168553590582583,
+    "required_clusters": 13,
+    "gap_in_reserved_rows": 1
+   },
+   {
+    "candidate_id": "comov:9dfe47077fa1",
+    "statistic": "Spearman rho(bimodality_max, insufficient_share) over sat-csp trajectories",
+    "disclosed": 0.718541941022515,
+    "required_clusters": 13,
+    "gap_in_reserved_rows": 1
+   },
+   {
+    "candidate_id": "comov:cd516a38038f",
+    "statistic": "Spearman rho(bimodality_max, insufficient_share) over pooled trajectories",
+    "disclosed": 0.6998374808326546,
+    "required_clusters": 14,
+    "gap_in_reserved_rows": 2
+   },
+   {
+    "candidate_id": "comov:e4b5d4eed671",
+    "statistic": "Spearman rho(overlap_ref, r_ref) over graph trajectories",
+    "disclosed": -0.6833339099490257,
+    "required_clusters": 15,
+    "gap_in_reserved_rows": 3
+   },
+   {
+    "candidate_id": "comov:4a66572e2f4f",
+    "statistic": "Spearman rho(overlap_ref, r_ref) over pooled trajectories",
+    "disclosed": -0.6538566596352529,
+    "required_clusters": 16,
+    "gap_in_reserved_rows": 4
+   },
+   {
+    "candidate_id": "comov:56c549ce8fd4",
+    "statistic": "Spearman rho(overlap_ref, bimodality_max) over graph trajectories",
+    "disclosed": 0.6228923867796876,
+    "required_clusters": 18,
+    "gap_in_reserved_rows": 6
+   },
+   {
+    "candidate_id": "comov:2afc1dd40533",
+    "statistic": "Spearman rho(bimodality_max, bimodality_excess_ref) over optimization trajectories",
+    "disclosed": 0.5963246554364471,
+    "required_clusters": 20,
+    "gap_in_reserved_rows": 8
+   },
+   {
+    "candidate_id": "comov:8ae55ccde1b9",
+    "statistic": "Spearman rho(overlap_ref, insufficient_share) over number-theoretic trajectories",
+    "disclosed": 0.5888426743291848,
+    "required_clusters": 21,
+    "gap_in_reserved_rows": 9
+   },
+   {
+    "candidate_id": "comov:15fc85e16926",
+    "statistic": "Spearman rho(bimodality_max, bimodality_excess_ref) over number-theoretic trajectories",
+    "disclosed": 0.5897435897435896,
+    "required_clusters": 21,
+    "gap_in_reserved_rows": 9
+   },
+   {
+    "candidate_id": "comov:e1d7229518c1",
+    "statistic": "Spearman rho(overlap_ref, insufficient_share) over optimization trajectories",
+    "disclosed": 0.5731601014196996,
+    "required_clusters": 22,
+    "gap_in_reserved_rows": 10
+   },
+   {
+    "candidate_id": "comov:527e59fcffeb",
+    "statistic": "Spearman rho(bimodality_max, insufficient_share) over number-theoretic trajectories",
+    "disclosed": 0.5605576550382633,
+    "required_clusters": 23,
+    "gap_in_reserved_rows": 11
+   },
+   {
+    "candidate_id": "anom:f9cb2ee5bb3d",
+    "statistic": "max of excess_ref: feedback-vertex-set / feasible / min = 0.1989",
+    "disclosed": 1.463367222967207,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 12
+   },
+   {
+    "candidate_id": "anom:e5b4c7a75ea6",
+    "statistic": "max of excess_min: odd-cycle-transversal / optimal / min = 0.1404",
+    "disclosed": 1.2891338829763102,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 12
+   },
+   {
+    "candidate_id": "anom:6793eb7256fe",
+    "statistic": "min of excess_max: independent-set / optimal / majority = -0.8763",
+    "disclosed": 4.121431849225421,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 12
+   },
+   {
+    "candidate_id": "anom:4f86236e6586",
+    "statistic": "max of max_excursion_sd: graph-3-coloring / solutions / maltsev3 = 244.6569",
+    "disclosed": 7.59412132340035,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 12
+   },
+   {
+    "candidate_id": "anom:793056cb8892",
+    "statistic": "min of max_excursion_sd: partial-vertex-cover / optimal / max = 0.2304",
+    "disclosed": 0.3659442750014153,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 12
+   },
+   {
+    "candidate_id": "anom:7125d3304864",
+    "statistic": "max of bimodality_max: triangle-packing / optimal / majority = 0.9908",
+    "disclosed": 3.0528498089846563,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 12
+   },
+   {
+    "candidate_id": "anom:a6ab13313fab",
+    "statistic": "min of bimodality_max: connectivity-augmentation / feasible / majority = 0.3579",
+    "disclosed": 0.8269086060462296,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 12
+   },
+   {
+    "candidate_id": "anom:bb1403080603",
+    "statistic": "max of r_ref: maximum-planar-subgraph / feasible / majority = 6144.0",
+    "disclosed": 5.742724354981568,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 12
+   },
+   {
+    "candidate_id": "anom:6feb7a543819",
+    "statistic": "min of r_ref: biclique-cover / optimal / majority = 10.0",
+    "disclosed": 0.4830921086701857,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 12
+   },
+   {
+    "candidate_id": "anom:327e75a0f5bb",
+    "statistic": "max of insufficient_share: feedback-vertex-set / optimal / max = 0.8",
+    "disclosed": 2.1550346048761244,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 12
+   },
+   {
+    "candidate_id": "comov:3bc84aa0030d",
+    "statistic": "Spearman rho(max_excursion_sd, bimodality_max) over number-theoretic trajectories",
+    "disclosed": -0.5277587621397632,
+    "required_clusters": 26,
+    "gap_in_reserved_rows": 14
+   },
+   {
+    "candidate_id": "comov:6930f009c449",
+    "statistic": "Spearman rho(excess_ref, max_excursion_sd) over sat-csp trajectories",
+    "disclosed": -0.5203007518796993,
+    "required_clusters": 27,
+    "gap_in_reserved_rows": 15
+   },
+   {
+    "candidate_id": "comov:24a98b36b758",
+    "statistic": "Spearman rho(max_excursion_sd, r_ref) over number-theoretic trajectories",
+    "disclosed": 0.5233423708247862,
+    "required_clusters": 27,
+    "gap_in_reserved_rows": 15
+   },
+   {
+    "candidate_id": "comov:13586087d526",
+    "statistic": "Spearman rho(overlap_slope, insufficient_share) over optimization trajectories",
+    "disclosed": -0.5254295767946321,
+    "required_clusters": 27,
+    "gap_in_reserved_rows": 15
+   },
+   {
+    "candidate_id": "comov:f49440a4acfd",
+    "statistic": "Spearman rho(overlap_ref, bimodality_max) over pooled trajectories",
+    "disclosed": 0.5165709097857258,
+    "required_clusters": 28,
+    "gap_in_reserved_rows": 16
+   },
+   {
+    "candidate_id": "comov:c5b7ce851199",
+    "statistic": "Spearman rho(overlap_ref, bimodality_excess_ref) over number-theoretic trajectories",
+    "disclosed": 0.5042735042735043,
+    "required_clusters": 29,
+    "gap_in_reserved_rows": 17
+   },
+   {
+    "candidate_id": "anom:043b84985097",
+    "statistic": "max of overlap_ref: bilevel-knapsack / optimal / majority = 0.7888",
+    "disclosed": 2.282460376534813,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 17
+   },
+   {
+    "candidate_id": "anom:c486d73ea40e",
+    "statistic": "min of bimodality_excess_ref: red-blue-set-cover / optimal / majority = -0.1097",
+    "disclosed": 3.150653466483529,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 17
+   },
+   {
+    "candidate_id": "comov:6ca71375ef65",
+    "statistic": "Spearman rho(overlap_ref, insufficient_share) over graph trajectories",
+    "disclosed": 0.4925910368809521,
+    "required_clusters": 30,
+    "gap_in_reserved_rows": 18
+   },
+   {
+    "candidate_id": "comov:294a36493808",
+    "statistic": "Spearman rho(overlap_ref, insufficient_share) over sat-csp trajectories",
+    "disclosed": -0.4939975844529791,
+    "required_clusters": 30,
+    "gap_in_reserved_rows": 18
+   },
+   {
+    "candidate_id": "comov:dc622b216ac1",
+    "statistic": "Spearman rho(overlap_slope, bimodality_max) over graph trajectories",
+    "disclosed": -0.49486599949039806,
+    "required_clusters": 30,
+    "gap_in_reserved_rows": 18
+   },
+   {
+    "candidate_id": "anom:044af053baed",
+    "statistic": "min of overlap_ref: sudoku / solutions / maltsev4 = 0.2465",
+    "disclosed": 3.7526043408408523,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 19
+   },
+   {
+    "candidate_id": "anom:e6fc88c6b885",
+    "statistic": "min of overlap_slope: sudoku / solutions / maltsev4 = -0.16611",
+    "disclosed": 4.626517106185742,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 19
+   },
+   {
+    "candidate_id": "anom:fc22e2d71ea2",
+    "statistic": "count of cells reading excess_ref exactly 0.0",
+    "disclosed": 3.0,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 19
+   },
+   {
+    "candidate_id": "anom:3ce4a540c59a",
+    "statistic": "(traj_class, slope_sign, bimodal_flag) combinations occurring at most twice",
+    "disclosed": 1.0,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 19
+   },
+   {
+    "candidate_id": "comov:be32f22e8827",
+    "statistic": "Spearman rho(overlap_slope, r_ref) over sat-csp trajectories",
+    "disclosed": -0.4848492551333407,
+    "required_clusters": 32,
+    "gap_in_reserved_rows": 20
+   },
+   {
+    "candidate_id": "anom:db672c6cd4a4",
+    "statistic": "min of excess_ref: xor-sat / solutions / minority = -0.9852",
+    "disclosed": 3.756098790782671,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 20
+   },
+   {
+    "candidate_id": "anom:759293b4bfee",
+    "statistic": "min of excess_min: xor-sat / solutions / minority = -0.9971",
+    "disclosed": 3.2217005251957813,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 20
+   },
+   {
+    "candidate_id": "anom:d6bfd7799116",
+    "statistic": "max of excess_max: knapsack / feasible / max = 0.4825",
+    "disclosed": 2.8697583381342024,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 20
+   },
+   {
+    "candidate_id": "anom:7e09da6c6cb6",
+    "statistic": "max of overlap_slope: xor-sat / solutions / max = 0.08517",
+    "disclosed": 2.488889742681846,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 20
+   },
+   {
+    "candidate_id": "anom:79b2134d8d4e",
+    "statistic": "max of bimodality_excess_ref: subset-product / optimal / majority = 0.1836",
+    "disclosed": 4.1832991806596,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 20
+   },
+   {
+    "candidate_id": "anom:3fb71739c39b",
+    "statistic": "min of insufficient_share: 3-partition / feasible / majority = 0.0",
+    "disclosed": 0.6912064553964573,
+    "required_clusters": null,
+    "gap_in_reserved_rows": 20
+   },
+   {
+    "candidate_id": "comov:cfa046a8d393",
+    "statistic": "Spearman rho(overlap_slope, r_ref) over optimization trajectories",
+    "disclosed": 0.4701178890459064,
+    "required_clusters": 34,
+    "gap_in_reserved_rows": 22
+   },
+   {
+    "candidate_id": "comov:9a471ec9571a",
+    "statistic": "Spearman rho(bimodality_excess_ref, r_ref) over pooled trajectories",
+    "disclosed": -0.4691361702942898,
+    "required_clusters": 34,
+    "gap_in_reserved_rows": 22
+   },
+   {
+    "candidate_id": "comov:96d1b6dec197",
+    "statistic": "Spearman rho(bimodality_excess_ref, r_ref) over number-theoretic trajectories",
+    "disclosed": -0.45299145299145294,
+    "required_clusters": 36,
+    "gap_in_reserved_rows": 24
+   },
+   {
+    "candidate_id": "comov:3a9e048cdd1a",
+    "statistic": "Spearman rho(overlap_slope, insufficient_share) over graph trajectories",
+    "disclosed": -0.4484660101169606,
+    "required_clusters": 37,
+    "gap_in_reserved_rows": 25
+   },
+   {
+    "candidate_id": "comov:ad4b86cf2e0e",
+    "statistic": "Spearman rho(excess_ref, max_excursion_sd) over graph trajectories",
+    "disclosed": -0.44365698087870137,
+    "required_clusters": 38,
+    "gap_in_reserved_rows": 26
+   },
+   {
+    "candidate_id": "comov:2637f5269a7c",
+    "statistic": "Spearman rho(bimodality_excess_ref, r_ref) over optimization trajectories",
+    "disclosed": -0.43729904049589957,
+    "required_clusters": 39,
+    "gap_in_reserved_rows": 27
+   },
+   {
+    "candidate_id": "comov:cf768c2d02b0",
+    "statistic": "Spearman rho(bimodality_excess_ref, insufficient_share) over optimization trajectories",
+    "disclosed": 0.43159500198062595,
+    "required_clusters": 40,
+    "gap_in_reserved_rows": 28
+   },
+   {
+    "candidate_id": "comov:5cb3a02c80b8",
+    "statistic": "Spearman rho(max_excursion_sd, insufficient_share) over graph trajectories",
+    "disclosed": -0.4258217384068983,
+    "required_clusters": 41,
+    "gap_in_reserved_rows": 29
+   },
+   {
+    "candidate_id": "comov:9a73e745686b",
+    "statistic": "Spearman rho(overlap_ref, overlap_slope) over sat-csp trajectories",
+    "disclosed": 0.42780816629412416,
+    "required_clusters": 41,
+    "gap_in_reserved_rows": 29
+   },
+   {
+    "candidate_id": "comov:b690e183c9de",
+    "statistic": "Spearman rho(overlap_ref, bimodality_max) over sat-csp trajectories",
+    "disclosed": -0.42857142857142855,
+    "required_clusters": 41,
+    "gap_in_reserved_rows": 29
+   },
+   {
+    "candidate_id": "comov:3998ccb197e9",
+    "statistic": "Spearman rho(bimodality_excess_ref, r_ref) over graph trajectories",
+    "disclosed": -0.4177666896974047,
+    "required_clusters": 43,
+    "gap_in_reserved_rows": 31
+   },
+   {
+    "candidate_id": "comov:f340dda9a949",
+    "statistic": "Spearman rho(excess_min, insufficient_share) over sat-csp trajectories",
+    "disclosed": 0.40995290104372817,
+    "required_clusters": 45,
+    "gap_in_reserved_rows": 33
+   },
+   {
+    "candidate_id": "comov:f491997e6275",
+    "statistic": "Spearman rho(excess_ref, overlap_ref) over sat-csp trajectories",
+    "disclosed": -0.3982726679203863,
+    "required_clusters": 48,
+    "gap_in_reserved_rows": 36
+   },
+   {
+    "candidate_id": "comov:50d2eebd0eaa",
+    "statistic": "Spearman rho(excess_max, insufficient_share) over sat-csp trajectories",
+    "disclosed": 0.39618927834110534,
+    "required_clusters": 48,
+    "gap_in_reserved_rows": 36
+   },
+   {
+    "candidate_id": "comov:d413f6629606",
+    "statistic": "Spearman rho(overlap_ref, insufficient_share) over pooled trajectories",
+    "disclosed": 0.39800938072048414,
+    "required_clusters": 48,
+    "gap_in_reserved_rows": 36
+   },
+   {
+    "candidate_id": "comov:1f7e7fc33bd5",
+    "statistic": "Spearman rho(bimodality_max, bimodality_excess_ref) over pooled trajectories",
+    "disclosed": 0.3987720492032438,
+    "required_clusters": 48,
+    "gap_in_reserved_rows": 36
+   },
+   {
+    "candidate_id": "comov:5a1497281644",
+    "statistic": "Spearman rho(overlap_ref, r_ref) over number-theoretic trajectories",
+    "disclosed": -0.3935018050541516,
+    "required_clusters": 49,
+    "gap_in_reserved_rows": 37
+   },
+   {
+    "candidate_id": "comov:0299e5e3f8f7",
+    "statistic": "Spearman rho(max_excursion_sd, insufficient_share) over number-theoretic trajectories",
+    "disclosed": -0.3790490217894517,
+    "required_clusters": 53,
+    "gap_in_reserved_rows": 41
+   },
+   {
+    "candidate_id": "comov:a447d34518bf",
+    "statistic": "Spearman rho(excess_max, overlap_ref) over sat-csp trajectories",
+    "disclosed": -0.3736821538132955,
+    "required_clusters": 54,
+    "gap_in_reserved_rows": 42
+   },
+   {
+    "candidate_id": "comov:ab050b1895b8",
+    "statistic": "Spearman rho(overlap_slope, r_ref) over graph trajectories",
+    "disclosed": 0.3636027886010639,
+    "required_clusters": 58,
+    "gap_in_reserved_rows": 46
+   },
+   {
+    "candidate_id": "comov:5ecfa0886971",
+    "statistic": "Spearman rho(excess_ref, max_excursion_sd) over pooled trajectories",
+    "disclosed": -0.34930181429032225,
+    "required_clusters": 63,
+    "gap_in_reserved_rows": 51
+   },
+   {
+    "candidate_id": "comov:f07ebd7d7fed",
+    "statistic": "Spearman rho(excess_min, overlap_ref) over sat-csp trajectories",
+    "disclosed": -0.341880077772367,
+    "required_clusters": 65,
+    "gap_in_reserved_rows": 53
+   },
+   {
+    "candidate_id": "comov:a3e0208b66e7",
+    "statistic": "Spearman rho(bimodality_excess_ref, insufficient_share) over number-theoretic trajectories",
+    "disclosed": 0.34296226851232137,
+    "required_clusters": 65,
+    "gap_in_reserved_rows": 53
+   },
+   {
+    "candidate_id": "comov:d64be2cf577c",
+    "statistic": "Spearman rho(excess_ref, insufficient_share) over sat-csp trajectories",
+    "disclosed": 0.3379341481576678,
+    "required_clusters": 67,
+    "gap_in_reserved_rows": 55
+   },
+   {
+    "candidate_id": "comov:5bc41cae5413",
+    "statistic": "Spearman rho(excess_min, overlap_ref) over number-theoretic trajectories",
+    "disclosed": -0.337897463476532,
+    "required_clusters": 67,
+    "gap_in_reserved_rows": 55
+   },
+   {
+    "candidate_id": "comov:84298c10344d",
+    "statistic": "Spearman rho(overlap_slope, bimodality_max) over pooled trajectories",
+    "disclosed": -0.33820600042031673,
+    "required_clusters": 67,
+    "gap_in_reserved_rows": 55
+   },
+   {
+    "candidate_id": "comov:28c645e23c6a",
+    "statistic": "Spearman rho(max_excursion_sd, overlap_slope) over number-theoretic trajectories",
+    "disclosed": -0.33343754428077094,
+    "required_clusters": 69,
+    "gap_in_reserved_rows": 57
+   },
+   {
+    "candidate_id": "comov:36e7213186fd",
+    "statistic": "Spearman rho(overlap_slope, bimodality_excess_ref) over number-theoretic trajectories",
+    "disclosed": 0.3333333333333333,
+    "required_clusters": 69,
+    "gap_in_reserved_rows": 57
+   },
+   {
+    "candidate_id": "comov:3a72a79cf5f0",
+    "statistic": "Spearman rho(excess_ref, bimodality_max) over sat-csp trajectories",
+    "disclosed": 0.3277819302353622,
+    "required_clusters": 71,
+    "gap_in_reserved_rows": 59
+   },
+   {
+    "candidate_id": "comov:6ff81efe1d91",
+    "statistic": "Spearman rho(excess_min, insufficient_share) over graph trajectories",
+    "disclosed": 0.32392239866261013,
+    "required_clusters": 73,
+    "gap_in_reserved_rows": 61
+   },
+   {
+    "candidate_id": "comov:8935108d9406",
+    "statistic": "Spearman rho(bimodality_excess_ref, insufficient_share) over pooled trajectories",
+    "disclosed": 0.32498927659082816,
+    "required_clusters": 73,
+    "gap_in_reserved_rows": 61
+   },
+   {
+    "candidate_id": "comov:32ef5653d3ad",
+    "statistic": "Spearman rho(overlap_slope, insufficient_share) over pooled trajectories",
+    "disclosed": -0.3219357586471592,
+    "required_clusters": 74,
+    "gap_in_reserved_rows": 62
+   },
+   {
+    "candidate_id": "comov:3c4225d87d3e",
+    "statistic": "Spearman rho(excess_max, overlap_ref) over number-theoretic trajectories",
+    "disclosed": -0.3194881846203985,
+    "required_clusters": 75,
+    "gap_in_reserved_rows": 63
+   },
+   {
+    "candidate_id": "comov:e3782eee4f23",
+    "statistic": "Spearman rho(excess_max, bimodality_max) over sat-csp trajectories",
+    "disclosed": 0.31727730040751506,
+    "required_clusters": 76,
+    "gap_in_reserved_rows": 64
+   },
+   {
+    "candidate_id": "comov:8f61dfd0ed6f",
+    "statistic": "Spearman rho(excess_ref, max_excursion_sd) over number-theoretic trajectories",
+    "disclosed": -0.3071027810338424,
+    "required_clusters": 81,
+    "gap_in_reserved_rows": 69
+   },
+   {
+    "candidate_id": "comov:d02a883bab8d",
+    "statistic": "Spearman rho(excess_min, bimodality_max) over optimization trajectories",
+    "disclosed": 0.30664480375545783,
+    "required_clusters": 82,
+    "gap_in_reserved_rows": 70
+   },
+   {
+    "candidate_id": "comov:ef37acd6137a",
+    "statistic": "Spearman rho(bimodality_max, bimodality_excess_ref) over graph trajectories",
+    "disclosed": 0.3064431054818794,
+    "required_clusters": 82,
+    "gap_in_reserved_rows": 70
+   },
+   {
+    "candidate_id": "comov:7dc88fab1f51",
+    "statistic": "Spearman rho(excess_max, bimodality_excess_ref) over graph trajectories",
+    "disclosed": -0.3032826141580388,
+    "required_clusters": 84,
+    "gap_in_reserved_rows": 72
+   },
+   {
+    "candidate_id": "comov:10bca450b8e7",
+    "statistic": "Spearman rho(overlap_ref, bimodality_excess_ref) over optimization trajectories",
+    "disclosed": 0.3009337528373467,
+    "required_clusters": 85,
+    "gap_in_reserved_rows": 73
+   },
+   {
+    "candidate_id": "comov:c509458ddf0d",
+    "statistic": "Spearman rho(overlap_slope, insufficient_share) over number-theoretic trajectories",
+    "disclosed": 0.29827838524971806,
+    "required_clusters": 86,
+    "gap_in_reserved_rows": 74
+   },
+   {
+    "candidate_id": "comov:1ce92cc29064",
+    "statistic": "Spearman rho(overlap_slope, bimodality_max) over optimization trajectories",
+    "disclosed": -0.2904915032929408,
+    "required_clusters": 91,
+    "gap_in_reserved_rows": 79
+   },
+   {
+    "candidate_id": "comov:210ef1352499",
+    "statistic": "Spearman rho(bimodality_excess_ref, insufficient_share) over graph trajectories",
+    "disclosed": 0.29070764029655366,
+    "required_clusters": 91,
+    "gap_in_reserved_rows": 79
+   },
+   {
+    "candidate_id": "comov:77825d9893d2",
+    "statistic": "Spearman rho(excess_min, insufficient_share) over optimization trajectories",
+    "disclosed": 0.2836283633327311,
+    "required_clusters": 96,
+    "gap_in_reserved_rows": 84
+   },
+   {
+    "candidate_id": "comov:1e0862f3eb0b",
+    "statistic": "Spearman rho(max_excursion_sd, overlap_ref) over number-theoretic trajectories",
+    "disclosed": -0.2826490441585343,
+    "required_clusters": 96,
+    "gap_in_reserved_rows": 84
+   },
+   {
+    "candidate_id": "comov:45e83670a960",
+    "statistic": "Spearman rho(excess_min, overlap_slope) over number-theoretic trajectories",
+    "disclosed": 0.2778467206305701,
+    "required_clusters": 100,
+    "gap_in_reserved_rows": 88
+   },
+   {
+    "candidate_id": "comov:37dd791dbdbf",
+    "statistic": "Spearman rho(excess_max, bimodality_max) over number-theoretic trajectories",
+    "disclosed": -0.27288682248782986,
+    "required_clusters": 104,
+    "gap_in_reserved_rows": 92
+   },
+   {
+    "candidate_id": "comov:7a6aa0fa6e09",
+    "statistic": "Spearman rho(max_excursion_sd, bimodality_excess_ref) over number-theoretic trajectories",
+    "disclosed": -0.26815014924806113,
+    "required_clusters": 107,
+    "gap_in_reserved_rows": 95
+   },
+   {
+    "candidate_id": "comov:8696dc8b07f5",
+    "statistic": "Spearman rho(excess_min, bimodality_max) over graph trajectories",
+    "disclosed": 0.26584000825012705,
+    "required_clusters": 109,
+    "gap_in_reserved_rows": 97
+   },
+   {
+    "candidate_id": "comov:2628c6a23d37",
+    "statistic": "Spearman rho(excess_min, bimodality_max) over sat-csp trajectories",
+    "disclosed": 0.2643402663188405,
+    "required_clusters": 111,
+    "gap_in_reserved_rows": 99
+   },
+   {
+    "candidate_id": "comov:d9b79dc280ca",
+    "statistic": "Spearman rho(max_excursion_sd, overlap_slope) over graph trajectories",
+    "disclosed": 0.253833489593179,
+    "required_clusters": 120,
+    "gap_in_reserved_rows": 108
+   },
+   {
+    "candidate_id": "comov:7f21e97bddcb",
+    "statistic": "Spearman rho(max_excursion_sd, r_ref) over graph trajectories",
+    "disclosed": 0.24694770827423057,
+    "required_clusters": 127,
+    "gap_in_reserved_rows": 115
+   },
+   {
+    "candidate_id": "comov:ab464ce8af64",
+    "statistic": "Spearman rho(excess_ref, bimodality_excess_ref) over graph trajectories",
+    "disclosed": -0.2434925374082106,
+    "required_clusters": 131,
+    "gap_in_reserved_rows": 119
+   },
+   {
+    "candidate_id": "comov:599d8b699199",
+    "statistic": "Spearman rho(excess_max, overlap_slope) over pooled trajectories",
+    "disclosed": -0.23860162841375143,
+    "required_clusters": 136,
+    "gap_in_reserved_rows": 124
+   },
+   {
+    "candidate_id": "comov:c873a588206a",
+    "statistic": "Spearman rho(excess_ref, overlap_ref) over number-theoretic trajectories",
+    "disclosed": -0.23796227202392373,
+    "required_clusters": 137,
+    "gap_in_reserved_rows": 125
+   },
+   {
+    "candidate_id": "comov:084d6a10332d",
+    "statistic": "Spearman rho(max_excursion_sd, overlap_ref) over graph trajectories",
+    "disclosed": -0.2376869699725893,
+    "required_clusters": 137,
+    "gap_in_reserved_rows": 125
+   },
+   {
+    "candidate_id": "comov:7b75881ed41d",
+    "statistic": "Spearman rho(excess_min, r_ref) over optimization trajectories",
+    "disclosed": -0.2361985527333483,
+    "required_clusters": 139,
+    "gap_in_reserved_rows": 127
+   },
+   {
+    "candidate_id": "comov:9be679ef44ba",
+    "statistic": "Spearman rho(overlap_ref, bimodality_excess_ref) over pooled trajectories",
+    "disclosed": 0.23447177228355584,
+    "required_clusters": 141,
+    "gap_in_reserved_rows": 129
+   },
+   {
+    "candidate_id": "comov:603807ae9534",
+    "statistic": "Spearman rho(excess_ref, insufficient_share) over graph trajectories",
+    "disclosed": 0.23072927825349362,
+    "required_clusters": 146,
+    "gap_in_reserved_rows": 134
+   },
+   {
+    "candidate_id": "comov:0779a6f68f2c",
+    "statistic": "Spearman rho(excess_min, overlap_ref) over optimization trajectories",
+    "disclosed": 0.22268737900106306,
+    "required_clusters": 157,
+    "gap_in_reserved_rows": 145
+   },
+   {
+    "candidate_id": "comov:e7d84985ce96",
+    "statistic": "Spearman rho(excess_ref, bimodality_max) over graph trajectories",
+    "disclosed": 0.21483283599994535,
+    "required_clusters": 168,
+    "gap_in_reserved_rows": 156
+   },
+   {
+    "candidate_id": "comov:926a6aaacc6c",
+    "statistic": "Spearman rho(max_excursion_sd, r_ref) over sat-csp trajectories",
+    "disclosed": -0.214598768819738,
+    "required_clusters": 169,
+    "gap_in_reserved_rows": 157
+   },
+   {
+    "candidate_id": "comov:fce836cd45b0",
+    "statistic": "Spearman rho(excess_max, overlap_slope) over graph trajectories",
+    "disclosed": -0.20938606897557588,
+    "required_clusters": 177,
+    "gap_in_reserved_rows": 165
+   },
+   {
+    "candidate_id": "comov:cfbb077a1cae",
+    "statistic": "Spearman rho(excess_max, bimodality_max) over optimization trajectories",
+    "disclosed": 0.20927066886555923,
+    "required_clusters": 177,
+    "gap_in_reserved_rows": 165
+   },
+   {
+    "candidate_id": "comov:d14ac7b1a589",
+    "statistic": "Spearman rho(excess_min, r_ref) over graph trajectories",
+    "disclosed": -0.20661462220984778,
+    "required_clusters": 182,
+    "gap_in_reserved_rows": 170
+   },
+   {
+    "candidate_id": "comov:6a57527c44e8",
+    "statistic": "Spearman rho(excess_ref, bimodality_max) over optimization trajectories",
+    "disclosed": 0.20382715552474356,
+    "required_clusters": 187,
+    "gap_in_reserved_rows": 175
+   },
+   {
+    "candidate_id": "comov:60ed01bc7b04",
+    "statistic": "Spearman rho(max_excursion_sd, insufficient_share) over sat-csp trajectories",
+    "disclosed": -0.20263922779561713,
+    "required_clusters": 189,
+    "gap_in_reserved_rows": 177
+   },
+   {
+    "candidate_id": "comov:f10a0a4fe94e",
+    "statistic": "Spearman rho(excess_ref, max_excursion_sd) over optimization trajectories",
+    "disclosed": 0.2024229165795869,
+    "required_clusters": 190,
+    "gap_in_reserved_rows": 178
+   },
+   {
+    "candidate_id": "comov:aad85c6cfafe",
+    "statistic": "Spearman rho(excess_min, bimodality_excess_ref) over graph trajectories",
+    "disclosed": -0.20256292326781902,
+    "required_clusters": 190,
+    "gap_in_reserved_rows": 178
+   },
+   {
+    "candidate_id": "comov:e173aecd205c",
+    "statistic": "Spearman rho(excess_min, overlap_slope) over pooled trajectories",
+    "disclosed": -0.20199824562602575,
+    "required_clusters": 191,
+    "gap_in_reserved_rows": 179
+   },
+   {
+    "candidate_id": "comov:2325aa17240c",
+    "statistic": "Spearman rho(max_excursion_sd, overlap_slope) over optimization trajectories",
+    "disclosed": 0.20172583050517773,
+    "required_clusters": 191,
+    "gap_in_reserved_rows": 179
+   },
+   {
+    "candidate_id": "comov:e8e1c99f6077",
+    "statistic": "Spearman rho(overlap_slope, r_ref) over pooled trajectories",
+    "disclosed": 0.20163126385006613,
+    "required_clusters": 191,
+    "gap_in_reserved_rows": 179
+   },
+   {
+    "candidate_id": "comov:03cc4159f6e7",
+    "statistic": "Spearman rho(excess_min, overlap_ref) over graph trajectories",
+    "disclosed": 0.2003951000766205,
+    "required_clusters": 194,
+    "gap_in_reserved_rows": 182
+   },
+   {
+    "candidate_id": "comov:09bc9726846d",
+    "statistic": "Spearman rho(overlap_slope, bimodality_max) over sat-csp trajectories",
+    "disclosed": -0.19964381093725794,
+    "required_clusters": 195,
+    "gap_in_reserved_rows": 183
+   },
+   {
+    "candidate_id": "comov:76a8b16c467b",
+    "statistic": "Spearman rho(excess_min, bimodality_max) over pooled trajectories",
+    "disclosed": 0.19931269440869587,
+    "required_clusters": 196,
+    "gap_in_reserved_rows": 184
+   },
+   {
+    "candidate_id": "comov:d6d04680b0e9",
+    "statistic": "Spearman rho(excess_min, insufficient_share) over pooled trajectories",
+    "disclosed": 0.19827129128845844,
+    "required_clusters": 198,
+    "gap_in_reserved_rows": 186
+   },
+   {
+    "candidate_id": "comov:7c3f7e31dc84",
+    "statistic": "Spearman rho(overlap_ref, bimodality_excess_ref) over graph trajectories",
+    "disclosed": 0.19759770441611846,
+    "required_clusters": 199,
+    "gap_in_reserved_rows": 187
+   },
+   {
+    "candidate_id": "comov:007d15268d84",
+    "statistic": "Spearman rho(excess_max, insufficient_share) over number-theoretic trajectories",
+    "disclosed": -0.1972410519229057,
+    "required_clusters": 200,
+    "gap_in_reserved_rows": 188
+   },
+   {
+    "candidate_id": "comov:c6ab0f169646",
+    "statistic": "Spearman rho(max_excursion_sd, overlap_ref) over pooled trajectories",
+    "disclosed": -0.19096944949967506,
+    "required_clusters": 213,
+    "gap_in_reserved_rows": 201
+   },
+   {
+    "candidate_id": "comov:f95e3a54aeaa",
+    "statistic": "Spearman rho(excess_ref, overlap_slope) over pooled trajectories",
+    "disclosed": -0.19018149797316622,
+    "required_clusters": 215,
+    "gap_in_reserved_rows": 203
+   },
+   {
+    "candidate_id": "comov:09d6b8a5e56a",
+    "statistic": "Spearman rho(excess_min, r_ref) over pooled trajectories",
+    "disclosed": -0.19024630659423028,
+    "required_clusters": 215,
+    "gap_in_reserved_rows": 203
+   },
+   {
+    "candidate_id": "comov:ae10cebf9d86",
+    "statistic": "Spearman rho(max_excursion_sd, bimodality_max) over graph trajectories",
+    "disclosed": -0.1824618483325601,
+    "required_clusters": 234,
+    "gap_in_reserved_rows": 222
+   },
+   {
+    "candidate_id": "comov:c1b3db5c4c02",
+    "statistic": "Spearman rho(max_excursion_sd, overlap_ref) over sat-csp trajectories",
+    "disclosed": 0.17781040845064006,
+    "required_clusters": 247,
+    "gap_in_reserved_rows": 235
+   },
+   {
+    "candidate_id": "comov:cb1aeafa3752",
+    "statistic": "Spearman rho(max_excursion_sd, overlap_slope) over pooled trajectories",
+    "disclosed": 0.17684771987128434,
+    "required_clusters": 249,
+    "gap_in_reserved_rows": 237
+   },
+   {
+    "candidate_id": "comov:93e1c4ed4459",
+    "statistic": "Spearman rho(excess_ref, bimodality_max) over pooled trajectories",
+    "disclosed": 0.1765438678033822,
+    "required_clusters": 250,
+    "gap_in_reserved_rows": 238
+   },
+   {
+    "candidate_id": "comov:4eb86515563d",
+    "statistic": "Spearman rho(max_excursion_sd, overlap_ref) over optimization trajectories",
+    "disclosed": -0.17472059835690396,
+    "required_clusters": 255,
+    "gap_in_reserved_rows": 243
+   },
+   {
+    "candidate_id": "comov:9f766d193eb3",
+    "statistic": "Spearman rho(excess_min, overlap_slope) over sat-csp trajectories",
+    "disclosed": -0.16447864924059638,
+    "required_clusters": 288,
+    "gap_in_reserved_rows": 276
+   },
+   {
+    "candidate_id": "comov:2e0990af33f4",
+    "statistic": "Spearman rho(excess_ref, overlap_slope) over number-theoretic trajectories",
+    "disclosed": 0.16267477353047893,
+    "required_clusters": 295,
+    "gap_in_reserved_rows": 283
+   },
+   {
+    "candidate_id": "comov:b3a5f2b8f84b",
+    "statistic": "Spearman rho(overlap_ref, overlap_slope) over graph trajectories",
+    "disclosed": -0.16007634412153401,
+    "required_clusters": 305,
+    "gap_in_reserved_rows": 293
+   },
+   {
+    "candidate_id": "comov:43d2070e092f",
+    "statistic": "Spearman rho(excess_max, overlap_slope) over number-theoretic trajectories",
+    "disclosed": 0.15817577723843013,
+    "required_clusters": 312,
+    "gap_in_reserved_rows": 300
+   },
+   {
+    "candidate_id": "comov:1279c1f89c73",
+    "statistic": "Spearman rho(excess_ref, insufficient_share) over number-theoretic trajectories",
+    "disclosed": -0.1576827181933506,
+    "required_clusters": 314,
+    "gap_in_reserved_rows": 302
+   },
+   {
+    "candidate_id": "comov:2a89358a86a4",
+    "statistic": "Spearman rho(excess_ref, bimodality_excess_ref) over number-theoretic trajectories",
+    "disclosed": -0.15548414591161724,
+    "required_clusters": 323,
+    "gap_in_reserved_rows": 311
+   },
+   {
+    "candidate_id": "comov:1822d44d2dc9",
+    "statistic": "Spearman rho(max_excursion_sd, r_ref) over pooled trajectories",
+    "disclosed": 0.15040606023650488,
+    "required_clusters": 345,
+    "gap_in_reserved_rows": 333
+   },
+   {
+    "candidate_id": "comov:fd0e78bdf05e",
+    "statistic": "Spearman rho(excess_max, r_ref) over sat-csp trajectories",
+    "disclosed": -0.14806274019017368,
+    "required_clusters": 356,
+    "gap_in_reserved_rows": 344
+   },
+   {
+    "candidate_id": "comov:900a54fd2b5a",
+    "statistic": "Spearman rho(excess_max, insufficient_share) over graph trajectories",
+    "disclosed": 0.14700341936150163,
+    "required_clusters": 361,
+    "gap_in_reserved_rows": 349
+   },
+   {
+    "candidate_id": "comov:a92b4b92a0ad",
+    "statistic": "Spearman rho(excess_ref, r_ref) over graph trajectories",
+    "disclosed": -0.14536573054519564,
+    "required_clusters": 370,
+    "gap_in_reserved_rows": 358
+   },
+   {
+    "candidate_id": "comov:95294b386ee2",
+    "statistic": "Spearman rho(overlap_slope, bimodality_excess_ref) over graph trajectories",
+    "disclosed": -0.14339794485192073,
+    "required_clusters": 380,
+    "gap_in_reserved_rows": 368
+   },
+   {
+    "candidate_id": "comov:7e1acdc2738c",
+    "statistic": "Spearman rho(overlap_ref, r_ref) over sat-csp trajectories",
+    "disclosed": 0.14285714285714285,
+    "required_clusters": 383,
+    "gap_in_reserved_rows": 371
+   },
+   {
+    "candidate_id": "comov:fdee9d16f3c8",
+    "statistic": "Spearman rho(excess_min, bimodality_max) over number-theoretic trajectories",
+    "disclosed": -0.14161219954719378,
+    "required_clusters": 390,
+    "gap_in_reserved_rows": 378
+   },
+   {
+    "candidate_id": "comov:3d79e25f5b34",
+    "statistic": "Spearman rho(excess_ref, bimodality_max) over number-theoretic trajectories",
+    "disclosed": -0.13937150018726982,
+    "required_clusters": 402,
+    "gap_in_reserved_rows": 390
+   },
+   {
+    "candidate_id": "comov:074be6f102c1",
+    "statistic": "Spearman rho(excess_ref, overlap_ref) over optimization trajectories",
+    "disclosed": 0.13846620164160903,
+    "required_clusters": 408,
+    "gap_in_reserved_rows": 396
+   },
+   {
+    "candidate_id": "comov:17273a9ee580",
+    "statistic": "Spearman rho(overlap_slope, bimodality_max) over number-theoretic trajectories",
+    "disclosed": 0.1371841155234657,
+    "required_clusters": 415,
+    "gap_in_reserved_rows": 403
+   },
+   {
+    "candidate_id": "comov:4ec13f45d7c3",
+    "statistic": "Spearman rho(max_excursion_sd, bimodality_max) over sat-csp trajectories",
+    "disclosed": -0.1287592612918428,
+    "required_clusters": 472,
+    "gap_in_reserved_rows": 460
+   },
+   {
+    "candidate_id": "comov:7d246af1814c",
+    "statistic": "Spearman rho(excess_ref, r_ref) over pooled trajectories",
+    "disclosed": -0.12495958950951987,
+    "required_clusters": 501,
+    "gap_in_reserved_rows": 489
+   },
+   {
+    "candidate_id": "comov:6986f12c996c",
+    "statistic": "Spearman rho(excess_max, bimodality_excess_ref) over number-theoretic trajectories",
+    "disclosed": -0.12180305364083263,
+    "required_clusters": 527,
+    "gap_in_reserved_rows": 515
+   },
+   {
+    "candidate_id": "comov:bc8a861cdb73",
+    "statistic": "Spearman rho(excess_ref, overlap_slope) over graph trajectories",
+    "disclosed": -0.11759073800559261,
+    "required_clusters": 566,
+    "gap_in_reserved_rows": 554
+   },
+   {
+    "candidate_id": "comov:b05c2c044d1c",
+    "statistic": "Spearman rho(max_excursion_sd, overlap_slope) over sat-csp trajectories",
+    "disclosed": 0.11613412067100863,
+    "required_clusters": 580,
+    "gap_in_reserved_rows": 568
+   },
+   {
+    "candidate_id": "comov:393ac5c04b14",
+    "statistic": "Spearman rho(excess_ref, insufficient_share) over pooled trajectories",
+    "disclosed": 0.11449258995050096,
+    "required_clusters": 597,
+    "gap_in_reserved_rows": 585
+   },
+   {
+    "candidate_id": "comov:11150f506105",
+    "statistic": "Spearman rho(overlap_ref, overlap_slope) over optimization trajectories",
+    "disclosed": -0.11296840748998838,
+    "required_clusters": 613,
+    "gap_in_reserved_rows": 601
+   },
+   {
+    "candidate_id": "comov:4f3f1de3bc01",
+    "statistic": "Spearman rho(excess_max, bimodality_max) over graph trajectories",
+    "disclosed": 0.11145815925383,
+    "required_clusters": 630,
+    "gap_in_reserved_rows": 618
+   },
+   {
+    "candidate_id": "comov:2455f28e9289",
+    "statistic": "Spearman rho(excess_max, bimodality_max) over pooled trajectories",
+    "disclosed": 0.10949114060397261,
+    "required_clusters": 653,
+    "gap_in_reserved_rows": 641
+   },
+   {
+    "candidate_id": "comov:cbf921fb000f",
+    "statistic": "Spearman rho(excess_ref, r_ref) over sat-csp trajectories",
+    "disclosed": -0.1092606434117874,
+    "required_clusters": 656,
+    "gap_in_reserved_rows": 644
+   },
+   {
+    "candidate_id": "comov:ba42697f0965",
+    "statistic": "Spearman rho(excess_ref, overlap_slope) over optimization trajectories",
+    "disclosed": 0.10772894206823438,
+    "required_clusters": 675,
+    "gap_in_reserved_rows": 663
+   },
+   {
+    "candidate_id": "comov:99be5066804c",
+    "statistic": "Spearman rho(excess_ref, r_ref) over optimization trajectories",
+    "disclosed": -0.10677338842222882,
+    "required_clusters": 687,
+    "gap_in_reserved_rows": 675
+   },
+   {
+    "candidate_id": "comov:8c121504cd30",
+    "statistic": "Spearman rho(excess_ref, overlap_ref) over graph trajectories",
+    "disclosed": 0.10465056714227255,
+    "required_clusters": 715,
+    "gap_in_reserved_rows": 703
+   },
+   {
+    "candidate_id": "comov:da7d2f551f16",
+    "statistic": "Spearman rho(excess_min, overlap_slope) over graph trajectories",
+    "disclosed": -0.10322998651832399,
+    "required_clusters": 735,
+    "gap_in_reserved_rows": 723
+   },
+   {
+    "candidate_id": "comov:c19d4d08b1b4",
+    "statistic": "Spearman rho(excess_min, overlap_ref) over pooled trajectories",
+    "disclosed": 0.10065595695954797,
+    "required_clusters": 773,
+    "gap_in_reserved_rows": 761
+   },
+   {
+    "candidate_id": "comov:ef544d95f18f",
+    "statistic": "Spearman rho(max_excursion_sd, insufficient_share) over optimization trajectories",
+    "disclosed": -0.09784892500336437,
+    "required_clusters": 818,
+    "gap_in_reserved_rows": 806
+   },
+   {
+    "candidate_id": "comov:89ba88752754",
+    "statistic": "Spearman rho(excess_max, bimodality_excess_ref) over pooled trajectories",
+    "disclosed": -0.094349288103034,
+    "required_clusters": 880,
+    "gap_in_reserved_rows": 868
+   },
+   {
+    "candidate_id": "comov:2780f1958c4a",
+    "statistic": "Spearman rho(overlap_ref, overlap_slope) over number-theoretic trajectories",
+    "disclosed": 0.09025270758122744,
+    "required_clusters": 962,
+    "gap_in_reserved_rows": 950
+   },
+   {
+    "candidate_id": "comov:2816eb21f0a7",
+    "statistic": "Spearman rho(max_excursion_sd, insufficient_share) over pooled trajectories",
+    "disclosed": -0.09021932812666779,
+    "required_clusters": 963,
+    "gap_in_reserved_rows": 951
+   },
+   {
+    "candidate_id": "comov:ff2b8fa2d7ff",
+    "statistic": "Spearman rho(excess_ref, insufficient_share) over optimization trajectories",
+    "disclosed": 0.08980044139482804,
+    "required_clusters": 972,
+    "gap_in_reserved_rows": 960
+   },
+   {
+    "candidate_id": "comov:b029017b44c4",
+    "statistic": "Spearman rho(excess_min, r_ref) over sat-csp trajectories",
+    "disclosed": 0.08811342210628016,
+    "required_clusters": 1009,
+    "gap_in_reserved_rows": 997
+   },
+   {
+    "candidate_id": "comov:396df41aa162",
+    "statistic": "Spearman rho(excess_max, bimodality_excess_ref) over optimization trajectories",
+    "disclosed": 0.08542684089749801,
+    "required_clusters": 1074,
+    "gap_in_reserved_rows": 1062
+   },
+   {
+    "candidate_id": "comov:559d781b4cd2",
+    "statistic": "Spearman rho(max_excursion_sd, bimodality_excess_ref) over pooled trajectories",
+    "disclosed": 0.08515386122607112,
+    "required_clusters": 1081,
+    "gap_in_reserved_rows": 1069
+   },
+   {
+    "candidate_id": "comov:a59f93218662",
+    "statistic": "Spearman rho(excess_min, bimodality_excess_ref) over number-theoretic trajectories",
+    "disclosed": -0.08194434716963611,
+    "required_clusters": 1167,
+    "gap_in_reserved_rows": 1155
+   },
+   {
+    "candidate_id": "comov:eae8f582d711",
+    "statistic": "Spearman rho(excess_max, overlap_ref) over optimization trajectories",
+    "disclosed": 0.08077528320278549,
+    "required_clusters": 1201,
+    "gap_in_reserved_rows": 1189
+   },
+   {
+    "candidate_id": "comov:47f9daeae0fb",
+    "statistic": "Spearman rho(max_excursion_sd, bimodality_excess_ref) over graph trajectories",
+    "disclosed": 0.07987903281544363,
+    "required_clusters": 1228,
+    "gap_in_reserved_rows": 1216
+   },
+   {
+    "candidate_id": "comov:a70c869e7777",
+    "statistic": "Spearman rho(overlap_slope, bimodality_excess_ref) over optimization trajectories",
+    "disclosed": -0.0787136294027565,
+    "required_clusters": 1265,
+    "gap_in_reserved_rows": 1253
+   },
+   {
+    "candidate_id": "comov:2fd66fc87125",
+    "statistic": "Spearman rho(overlap_slope, insufficient_share) over sat-csp trajectories",
+    "disclosed": 0.07845055937249416,
+    "required_clusters": 1274,
+    "gap_in_reserved_rows": 1262
+   },
+   {
+    "candidate_id": "comov:352434e2f1c3",
+    "statistic": "Spearman rho(max_excursion_sd, bimodality_excess_ref) over optimization trajectories",
+    "disclosed": -0.07541024155448134,
+    "required_clusters": 1378,
+    "gap_in_reserved_rows": 1366
+   },
+   {
+    "candidate_id": "comov:f082d3b543a9",
+    "statistic": "Spearman rho(overlap_slope, bimodality_excess_ref) over pooled trajectories",
+    "disclosed": -0.074466703775705,
+    "required_clusters": 1414,
+    "gap_in_reserved_rows": 1402
+   },
+   {
+    "candidate_id": "comov:338442f805ea",
+    "statistic": "Spearman rho(excess_min, r_ref) over number-theoretic trajectories",
+    "disclosed": -0.06811726054168815,
+    "required_clusters": 1690,
+    "gap_in_reserved_rows": 1678
+   },
+   {
+    "candidate_id": "comov:711320cc71eb",
+    "statistic": "Spearman rho(excess_min, insufficient_share) over number-theoretic trajectories",
+    "disclosed": -0.06447754873493285,
+    "required_clusters": 1886,
+    "gap_in_reserved_rows": 1874
+   },
+   {
+    "candidate_id": "comov:53a1f27d6b1e",
+    "statistic": "Spearman rho(excess_ref, bimodality_excess_ref) over optimization trajectories",
+    "disclosed": 0.05822362423709911,
+    "required_clusters": 2314,
+    "gap_in_reserved_rows": 2302
+   },
+   {
+    "candidate_id": "comov:077ac5fce570",
+    "statistic": "Spearman rho(excess_ref, overlap_slope) over sat-csp trajectories",
+    "disclosed": -0.05805128796726931,
+    "required_clusters": 2327,
+    "gap_in_reserved_rows": 2315
+   },
+   {
+    "candidate_id": "comov:464e28413999",
+    "statistic": "Spearman rho(overlap_ref, overlap_slope) over pooled trajectories",
+    "disclosed": 0.054155593165194055,
+    "required_clusters": 2674,
+    "gap_in_reserved_rows": 2662
+   },
+   {
+    "candidate_id": "comov:694df837e238",
+    "statistic": "Spearman rho(excess_min, bimodality_excess_ref) over pooled trajectories",
+    "disclosed": -0.0540918008082623,
+    "required_clusters": 2681,
+    "gap_in_reserved_rows": 2669
+   },
+   {
+    "candidate_id": "comov:9d9a836affa9",
+    "statistic": "Spearman rho(excess_max, r_ref) over optimization trajectories",
+    "disclosed": -0.05404761590645093,
+    "required_clusters": 2685,
+    "gap_in_reserved_rows": 2673
+   },
+   {
+    "candidate_id": "comov:abfc1ab4fca2",
+    "statistic": "Spearman rho(excess_ref, bimodality_excess_ref) over pooled trajectories",
+    "disclosed": -0.053871584597354215,
+    "required_clusters": 2703,
+    "gap_in_reserved_rows": 2691
+   },
+   {
+    "candidate_id": "comov:e7decc5f6624",
+    "statistic": "Spearman rho(max_excursion_sd, r_ref) over optimization trajectories",
+    "disclosed": 0.04978072914079386,
+    "required_clusters": 3166,
+    "gap_in_reserved_rows": 3154
+   },
+   {
+    "candidate_id": "comov:fb657f094b0b",
+    "statistic": "Spearman rho(max_excursion_sd, bimodality_max) over pooled trajectories",
+    "disclosed": -0.04934255560867973,
+    "required_clusters": 3222,
+    "gap_in_reserved_rows": 3210
+   },
+   {
+    "candidate_id": "comov:9d2c3c15b6d2",
+    "statistic": "Spearman rho(excess_max, r_ref) over pooled trajectories",
+    "disclosed": -0.04708917480422142,
+    "required_clusters": 3538,
+    "gap_in_reserved_rows": 3526
+   },
+   {
+    "candidate_id": "comov:73131c14a1c9",
+    "statistic": "Spearman rho(excess_max, insufficient_share) over pooled trajectories",
+    "disclosed": 0.04646970812276306,
+    "required_clusters": 3633,
+    "gap_in_reserved_rows": 3621
+   },
+   {
+    "candidate_id": "comov:a84ad9ef7bfb",
+    "statistic": "Spearman rho(excess_ref, r_ref) over number-theoretic trajectories",
+    "disclosed": 0.046158406814433416,
+    "required_clusters": 3682,
+    "gap_in_reserved_rows": 3670
+   },
+   {
+    "candidate_id": "comov:5ecd8da7dc47",
+    "statistic": "Spearman rho(excess_max, r_ref) over graph trajectories",
+    "disclosed": -0.04502720447591396,
+    "required_clusters": 3870,
+    "gap_in_reserved_rows": 3858
+   },
+   {
+    "candidate_id": "comov:2c0320fcd8b4",
+    "statistic": "Spearman rho(excess_max, insufficient_share) over optimization trajectories",
+    "disclosed": 0.04441282107342622,
+    "required_clusters": 3977,
+    "gap_in_reserved_rows": 3965
+   },
+   {
+    "candidate_id": "comov:65cb79b66f97",
+    "statistic": "Spearman rho(excess_min, bimodality_excess_ref) over optimization trajectories",
+    "disclosed": 0.04309547251000794,
+    "required_clusters": 4224,
+    "gap_in_reserved_rows": 4212
+   },
+   {
+    "candidate_id": "comov:1d85108cef01",
+    "statistic": "Spearman rho(excess_ref, overlap_ref) over pooled trajectories",
+    "disclosed": 0.0426537390570398,
+    "required_clusters": 4312,
+    "gap_in_reserved_rows": 4300
+   },
+   {
+    "candidate_id": "comov:57681cc8c6ca",
+    "statistic": "Spearman rho(excess_max, overlap_ref) over graph trajectories",
+    "disclosed": 0.042538487018482805,
+    "required_clusters": 4336,
+    "gap_in_reserved_rows": 4324
+   },
+   {
+    "candidate_id": "comov:9b3cb6a51ea9",
+    "statistic": "Spearman rho(excess_max, overlap_slope) over optimization trajectories",
+    "disclosed": 0.041230067125163035,
+    "required_clusters": 4615,
+    "gap_in_reserved_rows": 4603
+   },
+   {
+    "candidate_id": "comov:685ca146c913",
+    "statistic": "Spearman rho(excess_max, r_ref) over number-theoretic trajectories",
+    "disclosed": 0.034502931578921016,
+    "required_clusters": 6591,
+    "gap_in_reserved_rows": 6579
+   },
+   {
+    "candidate_id": "comov:a2d22499dd7d",
+    "statistic": "Spearman rho(excess_min, overlap_slope) over optimization trajectories",
+    "disclosed": 0.02756314832282868,
+    "required_clusters": 10329,
+    "gap_in_reserved_rows": 10317
+   },
+   {
+    "candidate_id": "comov:09d56aa62e69",
+    "statistic": "Spearman rho(excess_max, overlap_ref) over pooled trajectories",
+    "disclosed": -0.01637560684792103,
+    "required_clusters": 29268,
+    "gap_in_reserved_rows": 29256
+   },
+   {
+    "candidate_id": "comov:321e72a22175",
+    "statistic": "Spearman rho(max_excursion_sd, bimodality_max) over optimization trajectories",
+    "disclosed": -0.01561748365201376,
+    "required_clusters": 32178,
+    "gap_in_reserved_rows": 32166
+   },
+   {
+    "candidate_id": "comov:cf3cf6a27771",
+    "statistic": "Spearman rho(excess_max, overlap_slope) over sat-csp trajectories",
+    "disclosed": 0.011436831137557498,
+    "required_clusters": 60004,
+    "gap_in_reserved_rows": 59992
+   }
+  ]
+ },
+ "owner_slot": {
+  "candidate_id": "owner-originated",
+  "kind": "owner-originated",
+  "how_it_enters": "free-text, ruled with the same discipline as an enumerated candidate and scored on the same frontier \u2014 but carrying NO enumeration denominator, because it was not enumerated. Helm cannot invent the feasible-region reframe; the slot exists so that the engine asking faster never becomes the only thing that asks.",
+  "family_accounting": "an owner-originated seal joins the wave's declared family and pays the same Holm cost as any other member"
+ },
+ "candidates_artifact": "helm_wave5_candidates.jsonl"
+}

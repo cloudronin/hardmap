@@ -92,6 +92,8 @@ CONSUMES = {
 # A marginal correlation between two of these has size in both hands. To reach a slate, such a candidate
 # must present its r-CONDITIONED disclosed prior — and a pair containing `r_ref` itself cannot be
 # conditioned on r at all, so it is barred rather than held.
+# `bimodality_excess_ref` is deliberately NOT here. It is BC minus the matched-r control mean, so the
+# size dependence is subtracted rather than conditioned away — which is exactly why it was built.
 SIZE_COUPLED = {"r_ref", "insufficient_share", "bimodality_max"}
 
 DEFINITIONAL_COUPLING = {
