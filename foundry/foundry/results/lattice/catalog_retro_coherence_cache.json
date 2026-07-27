@@ -1,0 +1,543 @@
+{
+ "source_artifact": "sounding_v3_survey.json",
+ "source_sha256": "e0af8344a5cc7023",
+ "note": "cache keyed on the source artifact's sha256 \u2014 if the frames change this misses and the fill recomputes. A cache keyed on nothing is how a stale number outlives its source.",
+ "values": {
+  "[\"sat-3\", 0, \"solutions\"]": {
+   "overlap_mean": 0.5341,
+   "bimodality_coefficient": 0.3878
+  },
+  "[\"sat-3\", 1, \"solutions\"]": {
+   "overlap_mean": 0.6166,
+   "bimodality_coefficient": 0.416
+  },
+  "[\"sat-3\", 2, \"solutions\"]": {
+   "overlap_mean": 0.7705,
+   "bimodality_coefficient": 0.4034
+  },
+  "[\"sat-3\", 3, \"solutions\"]": {
+   "overlap_mean": 0.7288,
+   "bimodality_coefficient": 0.5643
+  },
+  "[\"sat-2\", 0, \"solutions\"]": {
+   "overlap_mean": 0.5387,
+   "bimodality_coefficient": 0.3597
+  },
+  "[\"sat-2\", 1, \"solutions\"]": {
+   "overlap_mean": 0.5875,
+   "bimodality_coefficient": 0.3749
+  },
+  "[\"sat-2\", 2, \"solutions\"]": {
+   "overlap_mean": 0.6305,
+   "bimodality_coefficient": 0.4501
+  },
+  "[\"sat-2\", 3, \"solutions\"]": {
+   "overlap_mean": 0.7581,
+   "bimodality_coefficient": 0.4777
+  },
+  "[\"sat-2\", 4, \"solutions\"]": {
+   "overlap_mean": 0.7815,
+   "bimodality_coefficient": 0.4324
+  },
+  "[\"horn-sat\", 0, \"solutions\"]": {
+   "overlap_mean": 0.5259,
+   "bimodality_coefficient": 0.3651
+  },
+  "[\"horn-sat\", 1, \"solutions\"]": {
+   "overlap_mean": 0.5542,
+   "bimodality_coefficient": 0.3636
+  },
+  "[\"horn-sat\", 2, \"solutions\"]": {
+   "overlap_mean": 0.5753,
+   "bimodality_coefficient": 0.364
+  },
+  "[\"horn-sat\", 3, \"solutions\"]": {
+   "overlap_mean": 0.6111,
+   "bimodality_coefficient": 0.3693
+  },
+  "[\"horn-sat\", 4, \"solutions\"]": {
+   "overlap_mean": 0.6477,
+   "bimodality_coefficient": 0.3702
+  },
+  "[\"xor-sat\", 0, \"solutions\"]": {
+   "overlap_mean": 0.5133,
+   "bimodality_coefficient": 0.4016
+  },
+  "[\"xor-sat\", 1, \"solutions\"]": {
+   "overlap_mean": 0.4921,
+   "bimodality_coefficient": 0.5292
+  },
+  "[\"xor-sat\", 2, \"solutions\"]": {
+   "overlap_mean": 0.4963,
+   "bimodality_coefficient": 0.5944
+  },
+  "[\"xor-sat\", 3, \"solutions\"]": {
+   "overlap_mean": 0.537,
+   "bimodality_coefficient": 0.2867
+  },
+  "[\"xor-sat\", 4, \"solutions\"]": {
+   "overlap_mean": 0.9167,
+   "bimodality_coefficient": null
+  },
+  "[\"nae-sat\", 0, \"solutions\"]": {
+   "overlap_mean": 0.4995,
+   "bimodality_coefficient": 0.3841
+  },
+  "[\"nae-sat\", 1, \"solutions\"]": {
+   "overlap_mean": 0.4961,
+   "bimodality_coefficient": 0.4392
+  },
+  "[\"nae-sat\", 2, \"solutions\"]": {
+   "overlap_mean": 0.4885,
+   "bimodality_coefficient": 0.5252
+  },
+  "[\"nae-sat\", 3, \"solutions\"]": {
+   "overlap_mean": 0.3778,
+   "bimodality_coefficient": 0.4806
+  },
+  "[\"nae-sat\", 4, \"solutions\"]": {
+   "overlap_mean": 0.2143,
+   "bimodality_coefficient": 0.6819
+  },
+  "[\"sharp-monotone-2sat\", 0, \"solutions\"]": {
+   "overlap_mean": 0.5522,
+   "bimodality_coefficient": 0.3587
+  },
+  "[\"sharp-monotone-2sat\", 1, \"solutions\"]": {
+   "overlap_mean": 0.5775,
+   "bimodality_coefficient": 0.367
+  },
+  "[\"sharp-monotone-2sat\", 2, \"solutions\"]": {
+   "overlap_mean": 0.6009,
+   "bimodality_coefficient": 0.3709
+  },
+  "[\"sharp-monotone-2sat\", 3, \"solutions\"]": {
+   "overlap_mean": 0.6261,
+   "bimodality_coefficient": 0.3755
+  },
+  "[\"sharp-monotone-2sat\", 4, \"solutions\"]": {
+   "overlap_mean": 0.6526,
+   "bimodality_coefficient": 0.3809
+  },
+  "[\"graph-3-coloring\", 0, \"solutions\"]": {
+   "overlap_mean": 0.3313,
+   "bimodality_coefficient": 0.4419
+  },
+  "[\"graph-3-coloring\", 1, \"solutions\"]": {
+   "overlap_mean": 0.3322,
+   "bimodality_coefficient": 0.4645
+  },
+  "[\"graph-3-coloring\", 2, \"solutions\"]": {
+   "overlap_mean": 0.2983,
+   "bimodality_coefficient": 0.587
+  },
+  "[\"graph-3-coloring\", 3, \"solutions\"]": {
+   "overlap_mean": 0.2471,
+   "bimodality_coefficient": 0.5874
+  },
+  "[\"graph-3-coloring\", 4, \"solutions\"]": {
+   "overlap_mean": 0.2727,
+   "bimodality_coefficient": 0.5592
+  },
+  "[\"vertex-cover\", 0, \"feasible\"]": {
+   "overlap_mean": 0.5782,
+   "bimodality_coefficient": 0.3762
+  },
+  "[\"vertex-cover\", 0, \"optimal\"]": {
+   "overlap_mean": 0.6616,
+   "bimodality_coefficient": 0.4007
+  },
+  "[\"vertex-cover\", 1, \"feasible\"]": {
+   "overlap_mean": 0.6207,
+   "bimodality_coefficient": 0.3829
+  },
+  "[\"vertex-cover\", 1, \"optimal\"]": {
+   "overlap_mean": 0.6869,
+   "bimodality_coefficient": 0.5039
+  },
+  "[\"vertex-cover\", 2, \"feasible\"]": {
+   "overlap_mean": 0.649,
+   "bimodality_coefficient": 0.3918
+  },
+  "[\"vertex-cover\", 2, \"optimal\"]": {
+   "overlap_mean": 0.6702,
+   "bimodality_coefficient": 0.3691
+  },
+  "[\"vertex-cover\", 3, \"feasible\"]": {
+   "overlap_mean": 0.6767,
+   "bimodality_coefficient": 0.396
+  },
+  "[\"vertex-cover\", 3, \"optimal\"]": {
+   "overlap_mean": 0.7879,
+   "bimodality_coefficient": null
+  },
+  "[\"vertex-cover\", 4, \"feasible\"]": {
+   "overlap_mean": 0.7187,
+   "bimodality_coefficient": 0.4062
+  },
+  "[\"vertex-cover\", 4, \"optimal\"]": {
+   "overlap_mean": 0.6571,
+   "bimodality_coefficient": 0.5167
+  },
+  "[\"independent-set\", 0, \"feasible\"]": {
+   "overlap_mean": 0.5576,
+   "bimodality_coefficient": 0.3673
+  },
+  "[\"independent-set\", 0, \"optimal\"]": {
+   "overlap_mean": 0.6606,
+   "bimodality_coefficient": 0.3876
+  },
+  "[\"independent-set\", 1, \"feasible\"]": {
+   "overlap_mean": 0.6117,
+   "bimodality_coefficient": 0.38
+  },
+  "[\"independent-set\", 1, \"optimal\"]": {
+   "overlap_mean": 0.6061,
+   "bimodality_coefficient": 0.4731
+  },
+  "[\"independent-set\", 2, \"feasible\"]": {
+   "overlap_mean": 0.6256,
+   "bimodality_coefficient": 0.3797
+  },
+  "[\"independent-set\", 2, \"optimal\"]": {
+   "overlap_mean": 0.6818,
+   "bimodality_coefficient": 0.273
+  },
+  "[\"independent-set\", 3, \"feasible\"]": {
+   "overlap_mean": 0.6823,
+   "bimodality_coefficient": 0.3986
+  },
+  "[\"independent-set\", 3, \"optimal\"]": {
+   "overlap_mean": 0.6364,
+   "bimodality_coefficient": null
+  },
+  "[\"independent-set\", 4, \"feasible\"]": {
+   "overlap_mean": 0.7268,
+   "bimodality_coefficient": 0.4071
+  },
+  "[\"independent-set\", 4, \"optimal\"]": {
+   "overlap_mean": 0.6092,
+   "bimodality_coefficient": 0.4453
+  },
+  "[\"dominating-set\", 0, \"feasible\"]": {
+   "overlap_mean": 0.637,
+   "bimodality_coefficient": 0.3873
+  },
+  "[\"dominating-set\", 0, \"optimal\"]": {
+   "overlap_mean": 0.798,
+   "bimodality_coefficient": 0.3004
+  },
+  "[\"dominating-set\", 1, \"feasible\"]": {
+   "overlap_mean": 0.5841,
+   "bimodality_coefficient": 0.3773
+  },
+  "[\"dominating-set\", 1, \"optimal\"]": {
+   "overlap_mean": 0.7204,
+   "bimodality_coefficient": 0.4704
+  },
+  "[\"dominating-set\", 2, \"feasible\"]": {
+   "overlap_mean": 0.5234,
+   "bimodality_coefficient": 0.3597
+  },
+  "[\"dominating-set\", 2, \"optimal\"]": {
+   "overlap_mean": 0.75,
+   "bimodality_coefficient": 0.5661
+  },
+  "[\"dominating-set\", 3, \"feasible\"]": {
+   "overlap_mean": 0.5024,
+   "bimodality_coefficient": 0.3588
+  },
+  "[\"dominating-set\", 3, \"optimal\"]": {
+   "overlap_mean": 0.7455,
+   "bimodality_coefficient": 0.491
+  },
+  "[\"dominating-set\", 4, \"feasible\"]": {
+   "overlap_mean": 0.5,
+   "bimodality_coefficient": 0.3601
+  },
+  "[\"dominating-set\", 4, \"optimal\"]": {
+   "overlap_mean": 0.7369,
+   "bimodality_coefficient": 0.7585
+  },
+  "[\"feedback-vertex-set\", 0, \"feasible\"]": {
+   "overlap_mean": 0.5024,
+   "bimodality_coefficient": 0.3663
+  },
+  "[\"feedback-vertex-set\", 0, \"optimal\"]": {
+   "overlap_mean": 0.8,
+   "bimodality_coefficient": null
+  },
+  "[\"feedback-vertex-set\", 1, \"feasible\"]": {
+   "overlap_mean": 0.5055,
+   "bimodality_coefficient": 0.3665
+  },
+  "[\"feedback-vertex-set\", 1, \"optimal\"]": {
+   "overlap_mean": 0.7055,
+   "bimodality_coefficient": 0.6957
+  },
+  "[\"feedback-vertex-set\", 2, \"feasible\"]": {
+   "overlap_mean": 0.5183,
+   "bimodality_coefficient": 0.3673
+  },
+  "[\"feedback-vertex-set\", 2, \"optimal\"]": {
+   "overlap_mean": 0.7257,
+   "bimodality_coefficient": 0.4702
+  },
+  "[\"feedback-vertex-set\", 3, \"feasible\"]": {
+   "overlap_mean": 0.5372,
+   "bimodality_coefficient": 0.3682
+  },
+  "[\"feedback-vertex-set\", 3, \"optimal\"]": {
+   "overlap_mean": 0.659,
+   "bimodality_coefficient": 0.5008
+  },
+  "[\"feedback-vertex-set\", 4, \"feasible\"]": {
+   "overlap_mean": 0.5403,
+   "bimodality_coefficient": 0.3669
+  },
+  "[\"feedback-vertex-set\", 4, \"optimal\"]": {
+   "overlap_mean": 0.7556,
+   "bimodality_coefficient": 0.6104
+  },
+  "[\"odd-cycle-transversal\", 0, \"feasible\"]": {
+   "overlap_mean": 0.5023,
+   "bimodality_coefficient": 0.3657
+  },
+  "[\"odd-cycle-transversal\", 0, \"optimal\"]": {
+   "overlap_mean": 0.8,
+   "bimodality_coefficient": null
+  },
+  "[\"odd-cycle-transversal\", 1, \"feasible\"]": {
+   "overlap_mean": 0.5025,
+   "bimodality_coefficient": 0.3661
+  },
+  "[\"odd-cycle-transversal\", 1, \"optimal\"]": {
+   "overlap_mean": 0.8,
+   "bimodality_coefficient": null
+  },
+  "[\"odd-cycle-transversal\", 2, \"feasible\"]": {
+   "overlap_mean": 0.5048,
+   "bimodality_coefficient": 0.3664
+  },
+  "[\"odd-cycle-transversal\", 2, \"optimal\"]": {
+   "overlap_mean": 0.7124,
+   "bimodality_coefficient": 0.5994
+  },
+  "[\"odd-cycle-transversal\", 3, \"feasible\"]": {
+   "overlap_mean": 0.5192,
+   "bimodality_coefficient": 0.3671
+  },
+  "[\"odd-cycle-transversal\", 3, \"optimal\"]": {
+   "overlap_mean": 0.6566,
+   "bimodality_coefficient": 0.4918
+  },
+  "[\"odd-cycle-transversal\", 4, \"feasible\"]": {
+   "overlap_mean": 0.528,
+   "bimodality_coefficient": 0.3687
+  },
+  "[\"odd-cycle-transversal\", 4, \"optimal\"]": {
+   "overlap_mean": 0.7155,
+   "bimodality_coefficient": 0.5739
+  },
+  "[\"independent-dominating-set\", 0, \"feasible\"]": {
+   "overlap_mean": 0.5768,
+   "bimodality_coefficient": 0.4767
+  },
+  "[\"independent-dominating-set\", 0, \"optimal\"]": {
+   "overlap_mean": 0.7333,
+   "bimodality_coefficient": 0.2629
+  },
+  "[\"independent-dominating-set\", 1, \"feasible\"]": {
+   "overlap_mean": 0.5442,
+   "bimodality_coefficient": 0.4623
+  },
+  "[\"independent-dominating-set\", 1, \"optimal\"]": {
+   "overlap_mean": 0.6389,
+   "bimodality_coefficient": 0.38
+  },
+  "[\"independent-dominating-set\", 2, \"feasible\"]": {
+   "overlap_mean": 0.5435,
+   "bimodality_coefficient": 0.4737
+  },
+  "[\"independent-dominating-set\", 2, \"optimal\"]": {
+   "overlap_mean": 0.6619,
+   "bimodality_coefficient": 0.4927
+  },
+  "[\"independent-dominating-set\", 3, \"feasible\"]": {
+   "overlap_mean": 0.5742,
+   "bimodality_coefficient": 0.4841
+  },
+  "[\"independent-dominating-set\", 3, \"optimal\"]": {
+   "overlap_mean": 0.7311,
+   "bimodality_coefficient": 0.5212
+  },
+  "[\"independent-dominating-set\", 4, \"feasible\"]": {
+   "overlap_mean": 0.5502,
+   "bimodality_coefficient": 0.4985
+  },
+  "[\"independent-dominating-set\", 4, \"optimal\"]": {
+   "overlap_mean": 0.6601,
+   "bimodality_coefficient": 0.5268
+  },
+  "[\"set-cover\", 0, \"feasible\"]": {
+   "overlap_mean": 0.6325,
+   "bimodality_coefficient": 0.4014
+  },
+  "[\"set-cover\", 0, \"optimal\"]": {
+   "overlap_mean": 0.6506,
+   "bimodality_coefficient": 0.3755
+  },
+  "[\"set-cover\", 1, \"feasible\"]": {
+   "overlap_mean": 0.5476,
+   "bimodality_coefficient": 0.3668
+  },
+  "[\"set-cover\", 1, \"optimal\"]": {
+   "overlap_mean": 0.6909,
+   "bimodality_coefficient": 0.4728
+  },
+  "[\"set-cover\", 2, \"feasible\"]": {
+   "overlap_mean": 0.5312,
+   "bimodality_coefficient": 0.3542
+  },
+  "[\"set-cover\", 2, \"optimal\"]": {
+   "overlap_mean": 0.6461,
+   "bimodality_coefficient": 0.5038
+  },
+  "[\"set-cover\", 3, \"feasible\"]": {
+   "overlap_mean": 0.5162,
+   "bimodality_coefficient": 0.3518
+  },
+  "[\"set-cover\", 3, \"optimal\"]": {
+   "overlap_mean": 0.8,
+   "bimodality_coefficient": null
+  },
+  "[\"set-cover\", 4, \"feasible\"]": {
+   "overlap_mean": 0.5042,
+   "bimodality_coefficient": 0.3448
+  },
+  "[\"set-cover\", 4, \"optimal\"]": {
+   "overlap_mean": 0.6936,
+   "bimodality_coefficient": 0.481
+  },
+  "[\"hitting-set\", 0, \"feasible\"]": {
+   "overlap_mean": 0.5237,
+   "bimodality_coefficient": 0.3695
+  },
+  "[\"hitting-set\", 0, \"optimal\"]": {
+   "overlap_mean": 0.6867,
+   "bimodality_coefficient": 0.4105
+  },
+  "[\"hitting-set\", 1, \"feasible\"]": {
+   "overlap_mean": 0.5278,
+   "bimodality_coefficient": 0.3685
+  },
+  "[\"hitting-set\", 1, \"optimal\"]": {
+   "overlap_mean": 0.8,
+   "bimodality_coefficient": null
+  },
+  "[\"hitting-set\", 2, \"feasible\"]": {
+   "overlap_mean": 0.5339,
+   "bimodality_coefficient": 0.3676
+  },
+  "[\"hitting-set\", 2, \"optimal\"]": {
+   "overlap_mean": 0.7338,
+   "bimodality_coefficient": 0.4563
+  },
+  "[\"hitting-set\", 3, \"feasible\"]": {
+   "overlap_mean": 0.5394,
+   "bimodality_coefficient": 0.369
+  },
+  "[\"hitting-set\", 3, \"optimal\"]": {
+   "overlap_mean": 0.603,
+   "bimodality_coefficient": 0.491
+  },
+  "[\"hitting-set\", 4, \"feasible\"]": {
+   "overlap_mean": 0.5485,
+   "bimodality_coefficient": 0.37
+  },
+  "[\"hitting-set\", 4, \"optimal\"]": {
+   "overlap_mean": 0.6722,
+   "bimodality_coefficient": 0.3654
+  },
+  "[\"knapsack\", 0, \"feasible\"]": {
+   "overlap_mean": 0.7579,
+   "bimodality_coefficient": 0.4039
+  },
+  "[\"knapsack\", 0, \"optimal\"]": {
+   "overlap_mean": 0.7124,
+   "bimodality_coefficient": 0.5035
+  },
+  "[\"knapsack\", 1, \"feasible\"]": {
+   "overlap_mean": 0.6599,
+   "bimodality_coefficient": 0.3888
+  },
+  "[\"knapsack\", 1, \"optimal\"]": {
+   "overlap_mean": 0.6186,
+   "bimodality_coefficient": 0.4199
+  },
+  "[\"knapsack\", 2, \"feasible\"]": {
+   "overlap_mean": 0.5851,
+   "bimodality_coefficient": 0.3685
+  },
+  "[\"knapsack\", 2, \"optimal\"]": {
+   "overlap_mean": 0.5408,
+   "bimodality_coefficient": 0.386
+  },
+  "[\"knapsack\", 3, \"feasible\"]": {
+   "overlap_mean": 0.5357,
+   "bimodality_coefficient": 0.3524
+  },
+  "[\"knapsack\", 3, \"optimal\"]": {
+   "overlap_mean": 0.5044,
+   "bimodality_coefficient": 0.3651
+  },
+  "[\"knapsack\", 4, \"feasible\"]": {
+   "overlap_mean": 0.512,
+   "bimodality_coefficient": 0.3485
+  },
+  "[\"knapsack\", 4, \"optimal\"]": {
+   "overlap_mean": 0.5029,
+   "bimodality_coefficient": 0.3517
+  },
+  "[\"subset-sum\", 0, \"solutions\"]": {
+   "overlap_mean": 0.5075,
+   "bimodality_coefficient": 0.3619
+  },
+  "[\"subset-sum\", 1, \"solutions\"]": {
+   "overlap_mean": 0.5162,
+   "bimodality_coefficient": 0.3835
+  },
+  "[\"subset-sum\", 2, \"solutions\"]": {
+   "overlap_mean": 0.5234,
+   "bimodality_coefficient": 0.3783
+  },
+  "[\"subset-sum\", 3, \"solutions\"]": {
+   "overlap_mean": 0.5048,
+   "bimodality_coefficient": 0.374
+  },
+  "[\"subset-sum\", 4, \"solutions\"]": {
+   "overlap_mean": 0.515,
+   "bimodality_coefficient": 0.3861
+  },
+  "[\"sudoku\", 1, \"solutions\"]": {
+   "overlap_mean": 0.75,
+   "bimodality_coefficient": null
+  },
+  "[\"sudoku\", 2, \"solutions\"]": {
+   "overlap_mean": 0.7188,
+   "bimodality_coefficient": null
+  },
+  "[\"sudoku\", 3, \"solutions\"]": {
+   "overlap_mean": 0.6583,
+   "bimodality_coefficient": 0.45
+  },
+  "[\"sudoku\", 4, \"solutions\"]": {
+   "overlap_mean": 0.4141,
+   "bimodality_coefficient": 0.5211
+  },
+  "[\"sudoku\", 5, \"solutions\"]": {
+   "overlap_mean": 0.2465,
+   "bimodality_coefficient": 0.3903
+  }
+ }
+}

@@ -8,15 +8,16 @@
   "observatory_untyped_adjudication.json": "a2470d4be360b9173994ce230270f814155dbf8fe94061e97b8acf77888aa05b",
   "sounding_v3_survey.json": "e0af8344a5cc7023d9cc2c853433110bd0bb3ffb9e2d9536ad4aab8a414459ea",
   "observatory_batch1_panels.json": "3f0f10f3a59f406995ad60816e798aa27c91f27d3abfd554fab6d53d606905fd",
-  "catalog_v1.jsonl": "37ed3a2b0166c58909dc61e8502655de3358307f641c34bc22ae93d1f2f253be",
+  "observatory_batch2_panels.json": "76a877600261db818eb872b32935e2565526f218b982c29db2614babcbbb30a5",
+  "catalog_v1.jsonl": "fcd4d72365706611b6b674dd3804ad4998eda401070e7f3d14a930b0b6ab3333",
   "atlas_v3.jsonl": "e62f3c284b408a26d71e7f769c3742fa283f5a3bd5d874da74f0313ee3968dee"
  },
  "counts": {
-  "sources": 6,
+  "sources": 7,
   "problems": 346,
   "charges": 2760,
-  "frames": 682,
-  "catalog": 140
+  "frames": 888,
+  "catalog": 188
  },
- "db_sha256": "18cd5f665adbbe66a743a07bfb07f846c33098dd2d6f2b02775f1485c60d75f7"
+ "db_sha256": "217c8a7443e013c45d117091d284ef6f3918019db0eaf856521f122d9a817e84"
 }

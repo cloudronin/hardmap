@@ -64,8 +64,9 @@ def v3_frames(retro):
     return by, sha(p), "sounding_v3_survey.json"
 
 
-def batch1_frames():
-    p = LAT / "observatory_batch1_panels.json"
+def batch_frames(p):
+    """Any observatory_batch*_panels.json. Discovery is by glob so batch N costs no edit here —
+    a builder that must be edited per batch is a builder that will be forgotten at batch 4."""
     if not p.exists():
         return {}, None, None
     doc = json.loads(p.read_text())
@@ -86,11 +87,26 @@ def batch1_frames():
                     "r": d.get("r_mean"), "overlap_mean": d.get("overlap_mean"),
                     "bimodality_coefficient": d.get("bimodality_coefficient"),
                     "coherence_provenance": "captured at frame time"})
-    return by, sha(p), "observatory_batch1_panels.json"
+    return by, sha(p), p.name
+
+
+RETRO_CACHE = LAT / "catalog_retro_coherence_cache.json"
 
 
 def retro_coherence():
-    """Regenerate v3 regions and compute the coherence dials the frozen frames never carried."""
+    """Regenerate v3 regions and compute the coherence dials the frozen frames never carried.
+
+    CACHED AGAINST THE SOURCE HASH. The computation is deterministic given the frozen frames and the
+    declared seed, so recomputing it on every batch is pure waste — but a cache keyed on nothing is how
+    a stale number outlives its source. The key is the survey artifact's sha256: if the frames change,
+    the cache misses and the fill recomputes."""
+    src = sha(LAT / "sounding_v3_survey.json")
+    if RETRO_CACHE.exists():
+        c = json.loads(RETRO_CACHE.read_text())
+        if c.get("source_sha256") == src:
+            print("    retro-fill CACHE HIT (source unchanged)", flush=True)
+            return {tuple(json.loads(k)): v for k, v in c["values"].items()}
+        print("    retro-fill cache MISS — source changed, recomputing", flush=True)
     doc = json.loads((LAT / "sounding_v3_survey.json").read_text())
     rng = random.Random(SEED)
     out = {}
@@ -117,7 +133,12 @@ def retro_coherence():
                 out[(m["row"], m["ramp_position"], kind)] = {
                     "overlap_mean": round(mean(ovs), 4),
                     "bimodality_coefficient": round(mean(bcs), 4) if bcs else None}
-        print(f"    retro {m['row']} step {m['ramp_position']}", flush=True)
+    RETRO_CACHE.write_text(json.dumps(
+        {"source_artifact": "sounding_v3_survey.json", "source_sha256": src,
+         "note": ("cache keyed on the source artifact's sha256 — if the frames change this misses and "
+                  "the fill recomputes. A cache keyed on nothing is how a stale number outlives its "
+                  "source."),
+         "values": {json.dumps(list(k)): v for k, v in out.items()}}, indent=1) + "\n")
     return out
 
 
@@ -125,10 +146,10 @@ def main() -> int:
     print("BUILDING catalog_v1\n\n  retro-filling coherence on the frozen v3 frames ...", flush=True)
     retro = retro_coherence()
     v3, v3sha, v3name = v3_frames(retro)
-    b1, b1sha, b1name = batch1_frames()
+    batches = [batch_frames(p) for p in sorted(LAT.glob("observatory_batch*_panels.json"))]
 
     rows, sources = [], {}
-    for src, (frames, s, name) in (("v3", (v3, v3sha, v3name)), ("batch1", (b1, b1sha, b1name))):
+    for frames, s, name in [(v3, v3sha, v3name)] + batches:
         if not frames:
             continue
         sources[name] = s

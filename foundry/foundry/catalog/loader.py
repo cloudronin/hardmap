@@ -148,8 +148,10 @@ def compile_db(lat: Path, atlas: Path, out: Path) -> dict:
     adj = add_source("observatory_untyped_adjudication.json",
                      lat / "observatory_untyped_adjudication.json", "census")
     v3 = add_source("sounding_v3_survey.json", lat / "sounding_v3_survey.json", "frames")
-    b1p = lat / "observatory_batch1_panels.json"
-    b1 = add_source("observatory_batch1_panels.json", b1p, "frames") if b1p.exists() else None
+    # batches are discovered by glob — batch N costs no edit here
+    batches = []
+    for bp in sorted(lat.glob("observatory_batch*_panels.json")):
+        batches.append((bp.name, add_source(bp.name, bp, "frames")))
     catp = lat / "catalog_v1.jsonl"
     cat_text = add_source("catalog_v1.jsonl", catp, "catalog") if catp.exists() else None
     atlas_text = add_source("atlas_v3.jsonl", atlas, "charges")
@@ -173,10 +175,10 @@ def compile_db(lat: Path, atlas: Path, out: Path) -> dict:
     for x in v3["readings"]:
         if x.get("row"):
             ensure(x["row"])
-    if b1:
-        for r in b1["rows"]:
+    for _name, b in batches:
+        for r in b["rows"]:
             ensure(r["row"])
-        for e in b1.get("excluded_at_birth", []):
+        for e in b.get("excluded_at_birth", []):
             ensure(e["row"])
     con.executemany("INSERT INTO problems VALUES (?,?,?,?,?,?,?,?)",
                     [probs[k] for k in sorted(probs)])
@@ -202,18 +204,18 @@ def compile_db(lat: Path, atlas: Path, out: Path) -> dict:
                    x.get("ramp_value"), "usable", x.get("insufficient"), x.get("excess"),
                    x.get("measured_rate"), x.get("control_mean"), x.get("control_sd"), x.get("r"),
                    None, None, "sounding_v3_survey.json"))
-    if b1:
-        for r in b1["rows"]:
-            for s in r["steps"]:
-                if s.get("state") != "usable":
+    for _name, b in batches:
+        for r in b["rows"]:
+            for st in r["steps"]:
+                if st.get("state") != "usable":
                     continue
-                d = s["dials"]
+                d = st["dials"]
                 for fl, v in sorted(d["flavours"].items()):
-                    fr.append((r["row"], s["region"], fl, s["ramp_position"], s["ramp_value"],
+                    fr.append((r["row"], st["region"], fl, st["ramp_position"], st["ramp_value"],
                                "usable", v.get("insufficient"), v.get("blend_excess"),
                                v.get("measured_rate"), v.get("control_mean"), v.get("control_sd"),
                                d.get("r_mean"), d.get("overlap_mean"), d.get("bimodality_coefficient"),
-                               "observatory_batch1_panels.json"))
+                               _name))
     seen, ded = set(), []
     for row in sorted(fr, key=lambda z: (z[0], z[1], z[2], z[3])):
         k = row[:4]
