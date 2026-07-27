@@ -1,0 +1,748 @@
+{
+ "schema": "observatory-ambient-census/v1",
+ "STATUS": "DERIVED \u2014 every verdict computed by running the generator, none listed by hand",
+ "question": "is the ground-set width identical at every declared ramp step?",
+ "rule": "ambient_confounded iff the width differs across steps. The ambient 2^w must be the same object for readings to be comparable; a tolerance here would be a threshold invented to let something through.",
+ "consequence": {
+  "level_descriptors": "STAND \u2014 each step's excess is a valid measurement at its own (width, density), against its own matched control",
+  "shape_and_transition_descriptors": "n.a.-ambient-confounded \u2014 slope, traj_class and kink presuppose a fixed space; here the x-axis moves the universe too",
+  "not_the_kink_precedent": "kink values are meaningful-but-untested; these are meaningless-as-defined"
+ },
+ "n_rows": 42,
+ "n_confounded": 6,
+ "confounded": [
+  "cluster-deletion",
+  "edge-dominating-set",
+  "feedback-arc-set",
+  "graph-spanner",
+  "maximum-planar-subgraph",
+  "set-cover"
+ ],
+ "rows": [
+  {
+   "problem_id": "densest-k-subgraph",
+   "batch": 1,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "dissociation-number",
+   "batch": 1,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "efficient-domination",
+   "batch": 1,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    10,
+    10,
+    10,
+    10
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "high-degree-subgraph",
+   "batch": 1,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "maximum-planar-subgraph",
+   "batch": 1,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    6,
+    6,
+    13,
+    15,
+    16
+   ],
+   "ambient_stable": false,
+   "ambient_confounded": true
+  },
+  {
+   "problem_id": "min-bisection",
+   "batch": 1,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "cluster-deletion",
+   "batch": 2,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    7,
+    8,
+    12,
+    14
+   ],
+   "ambient_stable": false,
+   "ambient_confounded": true
+  },
+  {
+   "problem_id": "connectivity-augmentation",
+   "batch": 2,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    13,
+    13,
+    13,
+    13,
+    13
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "graph-spanner",
+   "batch": 2,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    7,
+    8,
+    12,
+    14
+   ],
+   "ambient_stable": false,
+   "ambient_confounded": true
+  },
+  {
+   "problem_id": "k-center",
+   "batch": 2,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    9,
+    9,
+    9,
+    9,
+    9
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "max-dispersion",
+   "batch": 2,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    9,
+    9,
+    9,
+    9,
+    9
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "upper-domination",
+   "batch": 2,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    9,
+    9,
+    9,
+    9,
+    9
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "d-hitting-set",
+   "batch": 3,
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ],
+   "ground_set_widths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "generalized-subset-sum",
+   "batch": 3,
+   "ramp_values": [
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8
+   ],
+   "ground_set_widths": [
+    12,
+    12,
+    12,
+    12,
+    12
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "max-coverage",
+   "batch": 3,
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ],
+   "ground_set_widths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "minimum-distance-code",
+   "batch": 3,
+   "ramp_values": [
+    1.2,
+    1.5,
+    2.0,
+    2.5,
+    3.0
+   ],
+   "ground_set_widths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "minimum-test-cover",
+   "batch": 3,
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ],
+   "ground_set_widths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "subset-product",
+   "batch": 3,
+   "ramp_values": [
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8
+   ],
+   "ground_set_widths": [
+    11,
+    11,
+    11,
+    11,
+    11
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "3-partition",
+   "batch": 4,
+   "ramp_values": [
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8
+   ],
+   "ground_set_widths": [
+    12,
+    12,
+    12,
+    12,
+    12
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "3sum",
+   "batch": 4,
+   "ramp_values": [
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8
+   ],
+   "ground_set_widths": [
+    14,
+    14,
+    14,
+    14,
+    14
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "cluster-vertex-deletion",
+   "batch": 4,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    9,
+    9,
+    9,
+    9,
+    9
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "connected-vertex-cover",
+   "batch": 4,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    9,
+    9,
+    9,
+    9,
+    9
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "edge-dominating-set",
+   "batch": 4,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    7,
+    8,
+    12
+   ],
+   "ambient_stable": false,
+   "ambient_confounded": true
+  },
+  {
+   "problem_id": "feedback-arc-set",
+   "batch": 4,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    7,
+    12,
+    11
+   ],
+   "ambient_stable": false,
+   "ambient_confounded": true
+  },
+  {
+   "problem_id": "dominating-set",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    11,
+    11,
+    11,
+    11,
+    11
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "feedback-vertex-set",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "graph-3-coloring",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    8,
+    8,
+    8,
+    8,
+    8
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "hitting-set",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "horn-sat",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    12,
+    12,
+    12,
+    12,
+    12
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "independent-dominating-set",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "independent-set",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    11,
+    11,
+    11,
+    11,
+    11
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "knapsack",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    14,
+    14,
+    14,
+    14,
+    14
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "nae-sat",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    12,
+    12,
+    12,
+    12,
+    12
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "odd-cycle-transversal",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "sat-2",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    12,
+    12,
+    12,
+    12,
+    12
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "sat-3",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    12,
+    12,
+    12,
+    12
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "set-cover",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    9,
+    11,
+    13,
+    15,
+    17
+   ],
+   "ambient_stable": false,
+   "ambient_confounded": true
+  },
+  {
+   "problem_id": "sharp-monotone-2sat",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    12,
+    12,
+    12,
+    12,
+    12
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "subset-sum",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    13,
+    13,
+    13,
+    13,
+    13
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "sudoku",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    16,
+    16,
+    16,
+    16,
+    16,
+    16
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "vertex-cover",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    11,
+    11,
+    11,
+    11,
+    11
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "xor-sat",
+   "batch": "v3-survey",
+   "ramp_values": null,
+   "ground_set_widths": [
+    12,
+    12,
+    12,
+    12,
+    12
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  }
+ ]
+}

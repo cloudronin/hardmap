@@ -67,10 +67,10 @@ def test_foreign_keys_are_enforced_not_decorative():
         # is how a real constraint check gets weakened to make an unrelated edit pass.
         ncols = len(con.execute("PRAGMA table_info(catalog)").fetchall())
         head = "'__nope__','feasible','min','v1'"           # 4 key columns
-        tail = "0,0,0,'x','y','z'"                          # 3 NOT NULL flags + 3 provenance columns
+        tail = "0,0,0,0,'x','y','z'"                        # 4 NOT NULL flags + 3 provenance columns
         with pytest.raises(sqlite3.IntegrityError):
             con.execute(f"INSERT INTO catalog VALUES ({head},"
-                        + ",".join(["NULL"] * (ncols - 10)) + f",{tail})")
+                        + ",".join(["NULL"] * (ncols - 11)) + f",{tail})")
         assert con.execute("PRAGMA foreign_key_check").fetchall() == []
     finally:
         con.rollback(); con.close()
@@ -112,5 +112,44 @@ def test_sources_table_records_every_input_hash():
         assert rows, "no sources recorded"
         for art, h in rows:
             assert len(h) == 64, f"{art} has a malformed sha256"
+    finally:
+        con.close()
+
+
+def test_ambient_confounded_shape_columns_are_null_in_sql():
+    """THE MARKER MUST NOT REACH SQL AS A VALUE. The JSONL keeps `n.a.-ambient-confounded` so a reader
+    learns why the cell is empty; the column must be NULL so every `IS NOT NULL` filter excludes it
+    without knowing the marker exists. A sentinel that reaches a column becomes a data value — and would
+    show up in Helm's association candidates as a traj_class level."""
+    if not DB.exists():
+        pytest.skip("observatory.db not built")
+    con = sqlite3.connect(DB)
+    try:
+        n = con.execute("SELECT COUNT(*) FROM catalog WHERE ambient_confounded = 1").fetchone()[0]
+        if not n:
+            pytest.skip("no confounded rows in this build")
+        bad = con.execute(
+            "SELECT COUNT(*) FROM catalog WHERE ambient_confounded = 1 AND ("
+            "traj_class IS NOT NULL OR slope_sign IS NOT NULL OR max_excursion_sd IS NOT NULL "
+            "OR kink_step IS NOT NULL OR overlap_slope IS NOT NULL)").fetchone()[0]
+        assert bad == 0, f"{bad} confounded cell(s) leaked a shape/transition value into SQL"
+        levels = con.execute(
+            "SELECT COUNT(*) FROM catalog WHERE ambient_confounded = 1 "
+            "AND excess_ref IS NOT NULL").fetchone()[0]
+        assert levels > 0, "level descriptors must survive the confound, not be voided with the rest"
+    finally:
+        con.close()
+
+
+def test_no_marker_string_survives_anywhere_in_the_catalog_table():
+    if not DB.exists():
+        pytest.skip("observatory.db not built")
+    con = sqlite3.connect(DB)
+    try:
+        cols = [r[1] for r in con.execute("PRAGMA table_info(catalog)")]
+        text_cols = [c for c in cols if c not in ("problem_id", "region", "flavour")]
+        for c in text_cols:
+            n = con.execute(f"SELECT COUNT(*) FROM catalog WHERE CAST({c} AS TEXT) LIKE 'n.a.%'").fetchone()[0]
+            assert n == 0, f"column {c} carries {n} 'n.a.' marker string(s) as a value"
     finally:
         con.close()

@@ -1,0 +1,29 @@
+{
+ "schema": "observatory-recapture-queue/v1",
+ "STATUS": "WORK QUEUE \u2014 ordinary build work, no verdict attached",
+ "why": "edge-subset rows re-ramp on a within-instance parameter at fixed ground set. New frames enter as new capture versions; the old frames are untouched.",
+ "old_frames": "frozen, annotated via maptrail, never edited, never deleted",
+ "rows": [
+  {
+   "problem_id": "graph-spanner",
+   "new_dial": "stretch factor t at fixed graph",
+   "old_capture": "observatory_batch2_panels.json"
+  },
+  {
+   "problem_id": "cluster-deletion",
+   "new_dial": "deletion budget at fixed graph",
+   "old_capture": "observatory_batch2_panels.json"
+  },
+  {
+   "problem_id": "maximum-planar-subgraph",
+   "new_dial": "UNDECLARED \u2014 needs a within-instance parameter; planarity has no obvious budget dial at fixed edge set",
+   "old_capture": "observatory_batch1_panels.json"
+  },
+  {
+   "problem_id": "set-cover",
+   "new_dial": "UNDECLARED \u2014 the v3 survey row ramps set count, which is its ground set; a fixed-universe form needs declaring",
+   "old_capture": "sounding_v3_survey.json"
+  }
+ ],
+ "note": "two rows have no declared replacement dial yet and are listed as such rather than given an invented one \u2014 the census's own lesson, applied to its repair"
+}

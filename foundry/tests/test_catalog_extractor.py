@@ -219,3 +219,34 @@ def test_descriptors_carry_the_structure_group():
                       structural_expectation="fixed_cardinality")
     assert d["descriptor_version"] == X.VERSION
     assert d["structure"]["structurally_flat"] is True
+
+
+# ── ambient confound policy — Q21, descriptor@v4 ────────────────────────────────────────────────────
+def test_ambient_confound_voids_shape_and_transition_but_not_level():
+    """The semantic split the ruling turns on: each step's excess is valid at its own (width, density),
+    so LEVEL stands. Slope and kink presuppose a fixed space and have no quantity to estimate."""
+    st = _steps([-0.5, -0.4, -0.3, -0.2, -0.1], sds=[0.001] * 5)
+    d = X.descriptors(st, region="feasible", ambient_confounded=True)
+    assert d["level"]["excess_ref"] == -0.3, "a level descriptor must survive the confound"
+    assert d["shape"]["traj_class"] == X.NA_AMBIENT
+    assert d["shape"]["slope_sign"] is None and d["shape"]["max_excursion_sd"] is None
+    assert d["transition"]["kink_step"] is None
+    assert d["ambient_confounded"] is True
+
+
+def test_ambient_confound_voids_overlap_slope_too():
+    """Named a group rather than a field by the ruling — but overlap_slope is a slope over the same
+    confounded axis, and one surviving confounded slope would be an inconsistency, not an exception."""
+    st = _steps([-0.5, -0.4, -0.3, -0.2, -0.1])
+    for s, v in zip(st, (0.4, 0.5, 0.6, 0.7, 0.8)):
+        s["overlap_mean"] = v
+    d = X.descriptors(st, region="feasible", ambient_confounded=True)
+    assert d["coherence"]["overlap_slope"] is None
+    assert d["coherence"]["overlap_slope_status"] == X.NA_AMBIENT
+    assert d["coherence"]["overlap_ref"] is not None, "overlap_ref is a LEVEL and must stand"
+
+
+def test_an_unconfounded_row_keeps_its_shape():
+    st = _steps([-0.5, -0.4, -0.3, -0.2, -0.1], sds=[0.001] * 5)
+    d = X.descriptors(st, region="feasible", ambient_confounded=False)
+    assert d["shape"]["traj_class"] == "MONOTONE" and d["ambient_confounded"] is False

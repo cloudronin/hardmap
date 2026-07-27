@@ -9,6 +9,7 @@ there is no earlier moment at which these records could have been emitted. So th
 The string-family ramp erratum is NOT emitted here: it belongs to `mcsp_ramp_pilot.py`, the operation
 that actually performed the amendment and measured whether the row survived it.
 """
+import json
 import sys
 from pathlib import Path
 
@@ -127,6 +128,79 @@ def main() -> int:
            law="F4 — a changed extraction rule is a NEW version even when it corrects an error",
            authority="build-time correction, 2026-07-27")
     print("  version   structurally_flat NARROWED at v3 — declaration alone under-determines it")
+
+    # ── Q21, ruled in three parts ───────────────────────────────────────────────────────────────────
+    cen = json.loads((ROOT / "foundry" / "results" / "lattice" /
+                      "observatory_ambient_census.json").read_text())
+    conf = cen["confounded"]
+
+    M.emit(TRAIL, "version", key="version:ambient-confound-policy",
+           model="catalog descriptor policy, descriptor@v3 -> descriptor@v4",
+           level_descriptors="STAND — each step's excess is valid at its own (width, density)",
+           voided=["shape.traj_class", "shape.slope_sign", "shape.max_excursion_sd",
+                   "transition.kink_step", "transition.kink_sharpness", "coherence.overlap_slope"],
+           marker="n.a.-ambient-confounded",
+           why=("slope, traj_class and kink presuppose a tightening dial over a FIXED space. Where the "
+                "ground set is what the dial ramps, the x-axis moves the universe too and there is no "
+                "quantity left for them to estimate. A semantically confounded number does not ship "
+                "with a warning; it does not ship."),
+           not_the_kink_precedent=("kink values are meaningful-but-untested — a referent, no null. "
+                                   "These are meaningless-as-defined."),
+           overlap_slope_note=("the ruling named groups rather than fields; overlap_slope is a slope "
+                               "over the same confounded axis and is voided for consistency"),
+           sql_handling=("the JSONL keeps the marker so a reader learns why; the db column goes NULL so "
+                         "every IS NOT NULL filter excludes it without knowing the marker exists"),
+           rows_affected=conf, authority="owner ruling on Q21, 2026-07-27")
+    print(f"  version   ambient-confound policy at v4 — {len(conf)} row(s) affected")
+
+    M.emit(TRAIL, "erratum", key="erratum:graph-family-ramp-edge-subset",
+           artifact="observatory_reach_census.json",
+           field="family_ramp_parameters.graph.param, for EDGE-SUBSET rows only",
+           old="edge density",
+           new="within-instance parameter at fixed ground set — per-row parameter declared",
+           per_row={"graph-spanner": "stretch factor t at fixed graph",
+                    "connectivity-augmentation": "connectivity target k at fixed candidate set",
+                    "cluster-deletion": "deletion budget at fixed graph"},
+           why=("edge density ramps the ground set itself for these rows. The family has natural "
+                "tightening dials that never touch the ambient, and they ask the hardening question "
+                "the density ramp was mis-asking."),
+           birth_excluded_rows={"edge-dominating-set": "stays excluded", "feedback-arc-set": "stays excluded"},
+           re_entry_route=("any ambient-stable dial someone declares later falsifies the exclusion, "
+                           "per the reach-typing law — an exclusion is a typing, not a verdict"),
+           authority="owner ruling on Q21, 2026-07-27")
+    print("  erratum   graph family ramp — edge-subset rows re-ramp at fixed ground set")
+
+    M.emit(TRAIL, "annotation", key="annotation:confounded-frames-stand",
+           what=("the frozen frames of the confounded rows are NEITHER edited NOR deleted. They are "
+                 "honest per-step measurements of a confounded ramp, and they stay exactly that."),
+           two_artifact_truth=("the Terrain pattern: the old measurement stands at its own scope, the "
+                               "new capture answers the question the old one could not"),
+           rows=conf, touches_no_measured_value=True,
+           authority="owner ruling on Q21 part 3, 2026-07-27")
+    print("  annot     confounded frames stand, frozen and unedited")
+
+    queue = {"schema": "observatory-recapture-queue/v1",
+             "STATUS": "WORK QUEUE — ordinary build work, no verdict attached",
+             "why": ("edge-subset rows re-ramp on a within-instance parameter at fixed ground set. New "
+                     "frames enter as new capture versions; the old frames are untouched."),
+             "old_frames": "frozen, annotated via maptrail, never edited, never deleted",
+             "rows": [{"problem_id": "graph-spanner", "new_dial": "stretch factor t at fixed graph",
+                       "old_capture": "observatory_batch2_panels.json"},
+                      {"problem_id": "cluster-deletion", "new_dial": "deletion budget at fixed graph",
+                       "old_capture": "observatory_batch2_panels.json"},
+                      {"problem_id": "maximum-planar-subgraph",
+                       "new_dial": "UNDECLARED — needs a within-instance parameter; planarity has no "
+                                   "obvious budget dial at fixed edge set",
+                       "old_capture": "observatory_batch1_panels.json"},
+                      {"problem_id": "set-cover",
+                       "new_dial": "UNDECLARED — the v3 survey row ramps set count, which is its ground "
+                                   "set; a fixed-universe form needs declaring",
+                       "old_capture": "sounding_v3_survey.json"}],
+             "note": ("two rows have no declared replacement dial yet and are listed as such rather "
+                      "than given an invented one — the census's own lesson, applied to its repair")}
+    (ROOT / "foundry" / "results" / "lattice" / "observatory_recapture_queue.json").write_text(
+        json.dumps(queue, indent=1) + "\n")
+    print(f"  queued    {len(queue['rows'])} row(s) for re-capture under corrected dials")
 
     print(f"\n  {len(M.read(TRAIL))} maptrail record(s); "
           f"{sum(1 for r in M.read(TRAIL) if not r['reconstructed'])} emitted at event time")

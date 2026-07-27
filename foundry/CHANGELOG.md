@@ -2,6 +2,30 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **Q21 ruled and executed — and the DERIVED census found twice what the hand list would have.**
+  `observatory_ambient_census.py` RUNS every built row's generator across its declared ramp and measures
+  the ground-set width, rather than listing the rows someone believes are edge-subset rows. It found
+  **6 of 42 confounded, not the 3 predicted** — and corrected one of those three:
+  `connectivity-augmentation` is STABLE (its generator caps candidate edges at 13). It caught
+  `maximum-planar-subgraph` from batch 1 and **`set-cover` from the frozen v3 survey column**, neither of
+  which anyone had flagged. No sealed artifact consumes a shape descriptor, checked before the policy
+  landed. **Part 1 — descriptor policy at descriptor@v4:** shape, transition and `overlap_slope` read
+  `n.a.-ambient-confounded`; LEVEL descriptors stand, because each step's excess is a valid measurement at
+  its own (width, density) against its own matched control. Not the kink precedent: kink values are
+  meaningful-but-untested, these are meaningless-as-defined. `overlap_slope` is voided too — the ruling
+  named groups, and one surviving confounded slope would be an inconsistency rather than an exception.
+  The JSONL keeps the marker so a reader learns why; the **db column goes NULL** so every `IS NOT NULL`
+  filter excludes it without knowing the marker exists — a sentinel that reaches a column becomes a data
+  value, and would have surfaced as a `traj_class` level in Helm's association candidates.
+  **Part 2 — census erratum:** edge-subset rows re-ramp on a within-instance parameter at fixed ground
+  set (`graph-spanner` stretch factor, `connectivity-augmentation` connectivity target, `cluster-deletion`
+  deletion budget); the two birth-excluded rows stay excluded with the re-entry route named, since an
+  exclusion is a typing and any ambient-stable dial falsifies it. **Part 3 —**
+  `observatory_recapture_queue.json` queues 4 rows as ordinary build work; the old frames stay frozen,
+  annotated via maptrail, never edited and never deleted (the Terrain two-artifact pattern). Two queued
+  rows carry **no declared replacement dial** and are listed as such rather than given an invented one.
+  28 cells across 4 rows now carry the confound; loader arity is read off the schema rather than typed.
+  387 tests, verify 11/11, W2 passes.
 - **Batch 4, the second sitting's rulings, and a rule narrowed the day after it shipped.**
   **CONTRAST-DIAL minted** as a third capture mode: a family dial that passes the movement check but
   fails leave-one-out is a threshold, not a ramp, and the row enters as a declared two-level factor with

@@ -105,6 +105,7 @@ CREATE TABLE catalog (
     kink_step     INTEGER,
     kink_sharpness REAL,
     seal_prohibited_at_v1 INTEGER NOT NULL,
+    ambient_confounded INTEGER NOT NULL,
     structurally_flat INTEGER NOT NULL,
     region_size_invariant INTEGER,
     coherence_is_retro_filled INTEGER NOT NULL,
@@ -225,6 +226,12 @@ def _flat(d, *path, default=None):
         if not isinstance(cur, dict) or k not in cur:
             return default
         cur = cur[k]
+    # AN `n.a.` MARKER BECOMES SQL NULL. The JSONL keeps the string so a reader learns WHY the cell is
+    # empty; the column goes NULL so that every `IS NOT NULL` filter downstream excludes it without
+    # having to know the marker exists. Helm's denominators stay clean by construction rather than by
+    # each query remembering to special-case a sentinel — which is how a sentinel becomes a data value.
+    if isinstance(cur, str) and cur.startswith("n.a."):
+        return None
     return cur
 
 
@@ -355,6 +362,7 @@ def compile_db(lat: Path, atlas: Path, out: Path) -> dict:
                 _flat(c, "supply", "gap_count"),
                 _flat(c, "transition", "kink_step"), _flat(c, "transition", "kink_sharpness"),
                 1 if _flat(c, "transition", "SEAL_PROHIBITED_AT_V1") else 0,
+                1 if c.get("ambient_confounded") else 0,
                 1 if _flat(c, "structure", "structurally_flat") else 0,
                 (None if _flat(c, "structure", "region_size_invariant") is None
                  else (1 if _flat(c, "structure", "region_size_invariant") else 0)),
@@ -365,7 +373,9 @@ def compile_db(lat: Path, atlas: Path, out: Path) -> dict:
             if row[:3] in ks:
                 continue
             ks.add(row[:3]); uniq.append(row)
-        con.executemany("INSERT INTO catalog VALUES (" + ",".join("?" * 28) + ")", uniq)
+        # arity read off the schema rather than typed — the same lesson the db test learned
+        ncat = len(con.execute("PRAGMA table_info(catalog)").fetchall())
+        con.executemany("INSERT INTO catalog VALUES (" + ",".join("?" * ncat) + ")", uniq)
         n_cat = len(uniq)
 
     # ── THE FRONTIER RESERVATION, ENFORCED (Helm §5) ────────────────────────────────────────────────

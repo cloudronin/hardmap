@@ -29,6 +29,18 @@ from foundry.catalog import reservation as RES                         # noqa: E
 import terrain_score as T                                              # noqa: E402
 
 LEDGER = LAT / "observatory_reservation.jsonl"
+AMBIENT = LAT / "observatory_ambient_census.json"
+
+
+def ambient_confounded_rows():
+    """Read the DERIVED census. Absent census -> empty set, and the builder says so rather than
+    silently treating every row as clean."""
+    if not AMBIENT.exists():
+        print("    NO AMBIENT CENSUS — no row will be marked confounded; run "
+              "dev/observatory_ambient_census.py", flush=True)
+        return set()
+    d = json.loads(AMBIENT.read_text())
+    return {r["problem_id"] for r in d["rows"] if r.get("ambient_confounded")}
 
 # THE OUTPUT NAME IS DERIVED FROM THE EXTRACTOR'S VERSION, never typed here. F4 makes a changed
 # extraction rule a new catalog version; if the filename were a literal, a version bump would silently
@@ -154,6 +166,7 @@ def retro_coherence():
 
 def main() -> int:
     print(f"BUILDING catalog_{X.VERSION}\n\n  retro-filling coherence on the frozen v3 frames ...", flush=True)
+    confounded = ambient_confounded_rows()
     retro = retro_coherence()
     v3, v3sha, v3name, v3exp = v3_frames(retro)
     batches = [batch_frames(p) for p in sorted(LAT.glob("observatory_batch*_panels.json"))]
@@ -169,7 +182,8 @@ def main() -> int:
             steps.sort(key=lambda z: z["ramp_position"])
             gaps = [g for (p2, r2, f2), gs in frames.items() if p2 == prob and r2 is None for g in gs]
             d = X.descriptors(steps + gaps, region=region,
-                              structural_expectation=expects.get(prob))
+                              structural_expectation=expects.get(prob),
+                              ambient_confounded=(prob in confounded))
             rows.append({"problem_id": prob, "region": region, "flavour": flavour,
                          "descriptor_version": X.VERSION,
                          "frame_artifact": name, "frame_sha256": s,
@@ -243,7 +257,10 @@ def main() -> int:
            adds="the `structure` group: structurally_flat, region_size_invariant",
            law="F4 — a changed extraction rule is a NEW version, never an in-place edit")
 
+    nconf = sum(1 for r in rows if not r.get("_rollup") and r.get("ambient_confounded"))
     nflat = sum(1 for r in rows if not r.get("_rollup") and r["structure"]["structurally_flat"])
+    print(f"\n  ambient-confounded: {nconf} cell(s) across {len(confounded)} row(s) — shape, "
+          f"transition and overlap_slope read {X.NA_AMBIENT}; level descriptors stand")
     print(f"\n  cells    : {meta['n_cells']}")
     print(f"  structurally flat: {nflat}  (excluded from Helm's sweep — flatness by definition)")
     dis = [r for r in rows if not r.get("_rollup") and r["structure"].get("declared_flat_but_moves")]

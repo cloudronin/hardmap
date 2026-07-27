@@ -32,7 +32,22 @@ import math
 from itertools import combinations
 from statistics import mean, pstdev, stdev
 
-VERSION = "v3"
+VERSION = "v4"
+
+# Q21, ruled 2026-07-27. When a row's ground set is the thing its dial ramps — edge-subset rows under an
+# edge-density ramp — the x-axis moves the universe as well as the constraint. Each STEP's excess remains
+# a valid measurement at its own (width, density) against its own matched control, so LEVEL descriptors
+# stand. But slope, traj_class and kink presuppose a tightening dial over a FIXED space; over a moving
+# ambient they conflate "the constraint tightened" with "the space grew", and there is no quantity left
+# for them to estimate. A semantically confounded number does not ship with a warning — it does not ship.
+#
+# NOT THE KINK PRECEDENT. Kink values are meaningful-but-untested: they have a referent and lack a null.
+# These are meaningless-as-defined.
+#
+# APPLIED TO `overlap_slope` TOO, which the ruling named a group rather than a field: it is a slope over
+# the same confounded axis, and leaving one confounded slope standing while removing the others would be
+# an inconsistency that resurfaces later as a question about which rule really governs.
+NA_AMBIENT = "n.a.-ambient-confounded"
 FLAT_MULTIPLIER = 2.0            # the trajectory rule, inherited unchanged from sounding_trajectories
 BIMODALITY_FLAG = 0.555          # the conventional flag against a uniform reference
 PAIR_CAP = 20000
@@ -249,11 +264,24 @@ def structure(steps, region=None, structural_expectation=None):
                                "a constant with things")}
 
 
-def descriptors(steps, region=None, structural_expectation=None):
-    """Every v2 descriptor for one (problem, region, flavour) trajectory. A pure function of frames
-    plus the row's DECLARED structural expectation, which is not a reading."""
-    return {"level": level(steps), "shape": shape(steps), "coherence": coherence(steps),
-            "supply": supply(steps), "transition": transition(steps),
+def descriptors(steps, region=None, structural_expectation=None, ambient_confounded=False):
+    """Every v4 descriptor for one (problem, region, flavour) trajectory. A pure function of frames plus
+    two facts that are not readings: the row's DECLARED structural expectation, and whether its ambient
+    moves with its dial (derived by `observatory_ambient_census.py`, never listed by hand)."""
+    sh, tr, co = shape(steps), transition(steps), coherence(steps)
+    if ambient_confounded:
+        sh = {"traj_class": NA_AMBIENT, "slope_sign": None, "max_excursion_sd": None,
+              "excursion": None, "pooled_control_sd": None,
+              "why": ("the ground set is what this row's dial ramps, so the x-axis moves the ambient "
+                      "too. Slope and traj_class have no quantity to estimate over a moving universe."),
+              "n_admissible": sh.get("n_admissible")}
+        tr = {"kink_step": None, "kink_sharpness": None, "traj_class": NA_AMBIENT,
+              "SEAL_PROHIBITED_AT_V1": True,
+              "why": "a change point is located ON an axis; this axis is not one thing"}
+        co = {**co, "overlap_slope": None, "overlap_slope_status": NA_AMBIENT}
+    return {"level": level(steps), "shape": sh, "coherence": co,
+            "supply": supply(steps), "transition": tr,
+            "ambient_confounded": bool(ambient_confounded),
             "structure": structure(steps, region, structural_expectation),
             "scaling": {"kink_drift_n": None, "sharpening_ratio": None,
                         "RESERVED": "fills when the size axis lands; reserved per the additive licence"},
