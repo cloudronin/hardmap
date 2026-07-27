@@ -26,7 +26,10 @@ LAT = ROOT / "foundry" / "results" / "lattice"
 OUT = LAT / "catalog_v1.jsonl"
 META = LAT / "catalog_v1_meta.json"
 from foundry.catalog import extract as X                               # noqa: E402
+from foundry.catalog import reservation as RES                         # noqa: E402
 import terrain_score as T                                              # noqa: E402
+
+LEDGER = LAT / "observatory_reservation.jsonl"
 
 SEED = 20260726
 EXTRACTOR_SHA = hashlib.sha256(
@@ -189,6 +192,10 @@ def main() -> int:
                          "traj_class_counts": {c: sum(1 for m in members
                                                       if m["shape"]["traj_class"] == c)
                                                for c in {m["shape"]["traj_class"] for m in members}}})
+
+    # The frontier reservation, enforced where the descriptors are actually written (Helm §5). A
+    # reserved row reaching the catalog is a leak whether or not any batch script intended it.
+    RES.assert_absent("catalog_v1.jsonl", [r["problem_id"] for r in rows], LEDGER)
 
     with OUT.open("w") as fh:
         for r in rows:

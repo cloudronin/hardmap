@@ -1,0 +1,112 @@
+{
+ "schema": "observatory-batch-census/v1",
+ "STATUS": "DECLARATION \u2014 no reading exists for any row here",
+ "batch": 3,
+ "why_this_batch": "batches 1 and 2 were both `graph`. Three census-declared family ramps have never been used, two of them recorded in the census with 'precedent: none yet'. Batch 3 tests those declarations, because they govern 222 queued rows.",
+ "families": {
+  "optimization": {
+   "census_ramp": "constraint-to-ground-set ratio",
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ]
+  },
+  "number-theoretic": {
+   "census_ramp": "capacity fraction or value range",
+   "ramp_values": [
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8
+   ]
+  },
+  "algebraic": {
+   "census_ramp": "system density (equations per unknown)",
+   "ramp_values": [
+    1.2,
+    1.5,
+    2.0,
+    2.5,
+    3.0
+   ]
+  }
+ },
+ "roster": {
+  "d-hitting-set": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "sets-to-hit per ground element",
+   "structural_expectation": "upward_closed"
+  },
+  "minimum-test-cover": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "item-pairs to separate per test",
+   "structural_expectation": "upward_closed"
+  },
+  "max-coverage": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "universe elements per candidate set",
+   "structural_expectation": "fixed_cardinality"
+  },
+  "weighted-interval-scheduling": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "intervals per time slot",
+   "structural_expectation": "downward_closed"
+  },
+  "subset-product": {
+   "family": "number-theoretic",
+   "instantiates_the_family_ramp_as": "capacity fraction of the full product",
+   "structural_expectation": "downward_closed"
+  },
+  "generalized-subset-sum": {
+   "family": "number-theoretic",
+   "instantiates_the_family_ramp_as": "value range",
+   "structural_expectation": null
+  },
+  "minimum-distance-code": {
+   "family": "algebraic",
+   "instantiates_the_family_ramp_as": "code length per message bit",
+   "structural_expectation": null
+  },
+  "nearest-codeword": {
+   "family": "algebraic",
+   "instantiates_the_family_ramp_as": "code length per message bit",
+   "structural_expectation": null
+  }
+ },
+ "n_roster": 8,
+ "reservation": {
+  "authority": "Helm v1 \u00a75 \u2014 a declared fraction of every fan-out batch is reserved",
+  "fraction": 0.25,
+  "rule": "rows ordered by sha256(f'{batch}:{row}') ascending; the first ceil(fraction * n) are RESERVED. Deterministic, reproducible from the roster alone, and outcome-blind by construction \u2014 the reserved rows are not built at declaration time, so no measured value exists for the rule to see.",
+  "roster_sha256": "38a191d3a11bb9a7673cd5e54dc9c5cea428aedc28bbe0bea9f45889c6af5c6a",
+  "reserved": [
+   "nearest-codeword",
+   "weighted-interval-scheduling"
+  ],
+  "n_reserved": 2,
+  "n_published": 6,
+  "declared_at": "2026-07-27T03:46:22Z",
+  "frames_do_not_exist": "reserved rows are NOT CAPTURED. Helm \u00a70.1 requires predictions hashed before their frames exist, which is strictly stronger than withholding frames that already exist: under it, blindness is physics rather than a guard anyone has to be trusted to respect. \u00a75's 'captured last in the batch' is honoured maximally \u2014 last means after the wave's predictions are sealed."
+ },
+ "published": [
+  "d-hitting-set",
+  "generalized-subset-sum",
+  "max-coverage",
+  "minimum-distance-code",
+  "minimum-test-cover",
+  "subset-product"
+ ],
+ "flagged_for_ruling": {
+  "problem": "minimum-common-string-partition",
+  "family": "string",
+  "the_census_declared": "pattern/text length ratio (precedent: none yet \u2014 declared here, first use at build)",
+  "why_it_does_not_apply": "MCSP takes TWO STRINGS OF EQUAL LENGTH and asks for a common partition. There is no pattern and no text, so the declared ratio has no referent in the row \u2014 it is not a hard dial or an expensive one, it is undefined. This is the only reachable `string` row in the atlas, so the family's declared ramp has no row it fits.",
+  "what_was_NOT_done": "no substitute ramp was invented. Alphabet size over string length would move the row's tightness, but swapping in an undeclared dial silently would make the census's family declarations unfalsifiable \u2014 the first time one failed, it would be quietly repaired instead of recorded.",
+  "disposition": "EXCLUDED from batch 3, RAISED FOR RULING",
+  "the_ruling_needed": "either (a) amend the `string` family ramp to a dial that fits its one reachable row, which is a census erratum under the F4 versioning law, or (b) type the row `no-natural-dial-at-fixed-encoding` and let the string family carry zero ramped rows."
+ }
+}

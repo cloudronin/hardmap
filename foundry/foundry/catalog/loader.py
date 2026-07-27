@@ -28,7 +28,9 @@ import json
 import sqlite3
 from pathlib import Path
 
-SCHEMA_VERSION = "v1"
+from . import reservation as RES
+
+SCHEMA_VERSION = "v2"
 
 SCHEMA = """
 PRAGMA page_size = 4096;
@@ -111,8 +113,94 @@ CREATE TABLE catalog (
     FOREIGN KEY (problem_id) REFERENCES problems(problem_id)
 );
 
+CREATE TABLE frontier (
+    problem_id    TEXT PRIMARY KEY,
+    batch         INTEGER NOT NULL,
+    reserved_at   TEXT NOT NULL,
+    released      INTEGER NOT NULL,
+    released_wave TEXT,
+    FOREIGN KEY (problem_id) REFERENCES problems(problem_id)
+);
+
+CREATE TABLE maptrail (
+    seq           INTEGER PRIMARY KEY,
+    event         TEXT NOT NULL,
+    key           TEXT NOT NULL UNIQUE,
+    at            TEXT NOT NULL,
+    reconstructed INTEGER NOT NULL,
+    problem_id    TEXT,
+    artifact      TEXT,
+    sha256        TEXT,
+    payload       TEXT NOT NULL,
+    FOREIGN KEY (problem_id) REFERENCES problems(problem_id)
+);
+
+CREATE TABLE waves (
+    wave_id       TEXT PRIMARY KEY,
+    opened_at     TEXT NOT NULL,
+    generator_version TEXT,
+    sweep_total   INTEGER,
+    n_slated      INTEGER,
+    n_held        INTEGER,
+    n_rejected    INTEGER,
+    status        TEXT NOT NULL
+);
+
+CREATE TABLE wave_events (
+    seq           INTEGER PRIMARY KEY,
+    wave_id       TEXT NOT NULL,
+    event         TEXT NOT NULL,
+    key           TEXT NOT NULL UNIQUE,
+    at            TEXT NOT NULL,
+    component_version TEXT,
+    payload       TEXT NOT NULL,
+    FOREIGN KEY (wave_id) REFERENCES waves(wave_id)
+);
+
+CREATE TABLE candidates (
+    candidate_id  TEXT NOT NULL,
+    wave_id       TEXT NOT NULL,
+    kind          TEXT NOT NULL,
+    grp           TEXT,
+    statistic     TEXT NOT NULL,
+    disclosed     REAL,
+    n             INTEGER,
+    n_clusters    INTEGER,
+    n_siblings    INTEGER NOT NULL,
+    sweep_total   INTEGER NOT NULL,
+    generating_query TEXT NOT NULL,
+    screen_disposition TEXT NOT NULL,
+    screen_rule   TEXT,
+    screen_detail TEXT,
+    frontier_mde  REAL,
+    rank_score    REAL,
+    slate_rank    INTEGER,
+    sealed_bet    TEXT,
+    ruling        TEXT,
+    stamp         TEXT NOT NULL,
+    PRIMARY KEY (wave_id, candidate_id),
+    FOREIGN KEY (wave_id) REFERENCES waves(wave_id)
+);
+
 CREATE VIEW admissible_catalog AS
     SELECT * FROM catalog WHERE excess_ref IS NOT NULL;
+
+-- Helm §7: the HOLD queue is QUERYABLE, not a list someone keeps. A held candidate carries the gap that
+-- held it, so a standing query resurfaces anything the frontier's grown n now clears.
+CREATE VIEW hold_queue AS
+    SELECT wave_id, candidate_id, kind, statistic, disclosed, frontier_mde, screen_rule, screen_detail
+    FROM candidates WHERE screen_disposition = 'HELD' OR ruling = 'HOLD';
+
+-- Helm §7: the family ledger is COMPUTED from sweep and ruling records, never hand-maintained. The
+-- hand-written-forced-list lesson, applied to Helm's own bookkeeping.
+CREATE VIEW family_ledger AS
+    SELECT wave_id,
+           MAX(sweep_total) AS enumerated,
+           SUM(CASE WHEN screen_disposition = 'SLATED' THEN 1 ELSE 0 END) AS slated,
+           SUM(CASE WHEN screen_disposition = 'HELD' THEN 1 ELSE 0 END) AS held,
+           SUM(CASE WHEN screen_disposition = 'REJECTED' THEN 1 ELSE 0 END) AS rejected,
+           SUM(CASE WHEN ruling = 'SEAL' THEN 1 ELSE 0 END) AS sealed
+    FROM candidates GROUP BY wave_id;
 """
 
 
@@ -258,6 +346,88 @@ def compile_db(lat: Path, atlas: Path, out: Path) -> dict:
         con.executemany("INSERT INTO catalog VALUES (" + ",".join("?" * 26) + ")", uniq)
         n_cat = len(uniq)
 
+    # ── THE FRONTIER RESERVATION, ENFORCED (Helm §5) ────────────────────────────────────────────────
+    # Reserved rows are absent from the db until released. This is checked against what was actually
+    # inserted, not against what the batch scripts intended to insert — the loader is the last gate
+    # before published ground exists, so it is the right place for the check to be unavoidable.
+    ledger = lat / "observatory_reservation.jsonl"
+    n_frontier = 0
+    if ledger.exists():
+        add_source("observatory_reservation.jsonl", ledger, "reservation")
+        RES.assert_absent("frames", [r[0] for r in ded], ledger)
+        RES.assert_absent("catalog", [r[0] for r in con.execute("SELECT problem_id FROM catalog")],
+                          ledger)
+        held, rel = RES.reserved_rows(ledger), {}
+        rows = []
+        for rec in RES.read_ledger(ledger):
+            if rec["event"] == "release":
+                for p in rec["released"]:
+                    rel[p] = rec["wave"]
+        for rec in RES.read_ledger(ledger):
+            if rec["event"] != "reserve":
+                continue
+            for p in rec["reserved"]:
+                if p in probs:
+                    rows.append((p, rec["batch"], rec["declared_at"],
+                                 0 if p in held else 1, rel.get(p)))
+        con.executemany("INSERT INTO frontier VALUES (?,?,?,?,?)", sorted(set(rows)))
+        n_frontier = len(set(rows))
+
+    # ── the maptrail: provenance of the territory, queryable inside the db it produced (§7.1) ────────
+    mt = lat / "maptrail.jsonl"
+    n_map = 0
+    if mt.exists():
+        text = add_source("maptrail.jsonl", mt, "maptrail")
+        recs = [json.loads(x) for x in text.splitlines() if x.strip()]
+        con.executemany("INSERT INTO maptrail VALUES (?,?,?,?,?,?,?,?,?)", [
+            (i, r["event"], r["key"], r["at"], 1 if r.get("reconstructed") else 0,
+             r.get("problem") if r.get("problem") in probs else None,
+             r.get("artifact"), r.get("sha256"),
+             json.dumps(r, sort_keys=True, separators=(",", ":")))
+            for i, r in enumerate(sorted(recs, key=lambda z: (z["at"], z["key"])))])
+        n_map = len(recs)
+
+    # ── the wave trail and its candidates (§7) ───────────────────────────────────────────────────────
+    wt = lat / "wave_trail.jsonl"
+    n_wave, n_cand = 0, 0
+    if wt.exists():
+        text = add_source("wave_trail.jsonl", wt, "wave-trail")
+        recs = sorted([json.loads(x) for x in text.splitlines() if x.strip()],
+                      key=lambda z: (z["at"], z["key"]))
+        cand_files = sorted(lat.glob("helm_wave*_candidates.jsonl"))
+        cands = []
+        for cp in cand_files:
+            ct = add_source(cp.name, cp, "candidates")
+            cands += [json.loads(x) for x in ct.splitlines() if x.strip()]
+        wids = []
+        for r in recs:
+            if r["wave"] not in wids:
+                wids.append(r["wave"])
+        wrows = []
+        for w in sorted(wids):
+            ev = [r for r in recs if r["wave"] == w]
+            sw = next((r for r in ev if r["event"] == "sweep"), {})
+            mine = [c for c in cands if c.get("wave") == w]
+            wrows.append((w, min(r["at"] for r in ev), sw.get("generator_version"),
+                          sw.get("n_candidates"),
+                          sum(1 for c in mine if c["screen_disposition"] == "SLATED"),
+                          sum(1 for c in mine if c["screen_disposition"] == "HELD"),
+                          sum(1 for c in mine if c["screen_disposition"] == "REJECTED"),
+                          "RULED" if any(r["event"] == "ruling" for r in ev) else "AWAITING RULING"))
+        con.executemany("INSERT INTO waves VALUES (?,?,?,?,?,?,?,?)", wrows)
+        con.executemany("INSERT INTO wave_events VALUES (?,?,?,?,?,?,?)", [
+            (i, r["wave"], r["event"], r["key"], r["at"], r.get("component_version"),
+             json.dumps(r, sort_keys=True, separators=(",", ":")))
+            for i, r in enumerate(recs)])
+        crows = sorted({(c["candidate_id"], c["wave"], c["kind"], c.get("group"), c["statistic"],
+                         c.get("disclosed"), c.get("n"), c.get("n_clusters"), c["n_siblings"],
+                         c["sweep_total"], c["generating_query"], c["screen_disposition"],
+                         c.get("screen_rule"), c.get("screen_detail"), c.get("frontier_mde"),
+                         c.get("rank_score"), c.get("slate_rank"), c.get("sealed_bet"),
+                         c.get("ruling"), c["stamp"]) for c in cands})
+        con.executemany("INSERT INTO candidates VALUES (" + ",".join("?" * 20) + ")", crows)
+        n_wave, n_cand = len(recs), len(crows)
+
     fk = con.execute("PRAGMA foreign_key_check").fetchall()
     if fk:
         con.close()
@@ -266,7 +436,8 @@ def compile_db(lat: Path, atlas: Path, out: Path) -> dict:
     con.execute("VACUUM")                  # deterministic final layout
     con.commit()
     counts = {t: con.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0]
-              for t in ("sources", "problems", "charges", "frames", "catalog")}
+              for t in ("sources", "problems", "charges", "frames", "catalog",
+                        "frontier", "maptrail", "waves", "wave_events", "candidates")}
     con.close()
     return {"schema_version": SCHEMA_VERSION, "sources": srcs, "counts": counts,
             "db_sha256": _sha(out)}

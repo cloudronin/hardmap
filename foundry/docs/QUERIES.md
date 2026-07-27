@@ -1,4 +1,4 @@
-# QUERIES.md — the observatory database, five worked joins
+# QUERIES.md — the observatory database, eight worked joins
 
 **The database is DERIVED. The hashed JSONL artifacts are the source of truth.** `observatory.db` can
 be deleted and rebuilt at any time; the JSONL cannot. Every table carries the sha256 of the artifact it
@@ -124,3 +124,88 @@ a reader can run it after any rebuild rather than trusting that the loader check
 **Note on Q2.** Charges enter as **fixed row labels**, joined in from the atlas. They are worst-case facts
 about a problem and never vary along a ramp. A query that made a charge look like it changes with hardness
 would be the F2 category error — the schema prevents it by giving `charges` no ramp column at all.
+
+---
+
+# The Helm layer — three more joins
+
+Added with Helm v1. These read the wave engine's own bookkeeping, which lives in the same database under
+the same contract: byte-stable, regenerated never mutated, references engine-checked.
+
+## Q6 — what is reserved, and has it been released?
+
+The frontier is the ground Helm scores on. A row here is **declared and uncaptured**: it has no frames and
+no catalog cells, so there is nothing about it to leak. It is visible as a *row id* — which the power
+screen needs in order to count the tranche — and as nothing else.
+
+```sql
+SELECT f.problem_id, f.batch, f.released, p.family, p.reach_class
+FROM frontier f
+JOIN problems p ON p.problem_id = f.problem_id
+ORDER BY f.problem_id;
+```
+
+```
+problem_id                    batch  released  family        reach_class 
+----------------------------  -----  --------  ------------  ------------
+nearest-codeword              3      0         algebraic     REACH-subset
+weighted-interval-scheduling  3      0         optimization  REACH-subset
+```
+
+## Q7 — the rejected-candidate ledger
+
+**This is the archive's novel object.** Every question the data could have supported, and why each one was
+screened, held, sealed or killed. A multiple-comparisons correction computed from an enumeration nobody
+can audit is a number asking to be trusted; this publishes the garden of forking paths as a map of the
+garden.
+
+```sql
+SELECT screen_disposition, screen_rule, COUNT(*) AS n
+FROM candidates
+GROUP BY 1, 2
+ORDER BY n DESC;
+```
+
+```
+screen_disposition  screen_rule   n  
+------------------  ------------  ---
+HELD                power-fail    210
+REJECTED            null-missing  57 
+HELD                null-missing  47 
+REJECTED            netting       30 
+```
+
+Rejections are **preserved, not summarised**. The 30 `netting` rejections are descriptor pairs whose
+correlation is partly forced by the extractor's own arithmetic — they were enumerated anyway, because a
+denominator that omits the questions we already knew were bad is a denominator we chose.
+
+## Q8 — the biography of the territory
+
+`maptrail` records what changed in the domain's vocabulary, for an end user who has the database and no
+commits. `reconstructed = 1` marks the one-time import of history that predates the trail; `reconstructed
+= 0` is an event emitted by the operation that performed it.
+
+```sql
+SELECT event, reconstructed, COUNT(*) AS n
+FROM maptrail
+GROUP BY 1, 2
+ORDER BY 2, 1;
+```
+
+```
+event       reconstructed  n
+----------  -------------  -
+annotation  0              1
+expansion   0              1
+annotation  1              2
+exclusion   1              1
+expansion   1              2
+freeze      1              5
+version     1              1
+```
+
+For one problem's biography: `SELECT * FROM maptrail WHERE problem_id = ? ORDER BY at`.
+
+**Two standing views** are computed rather than kept: `hold_queue` (held candidates with the frontier size
+that would revive them) and `family_ledger` (cumulative corrections derived from the sweep and ruling
+records). Neither is ever hand-maintained.

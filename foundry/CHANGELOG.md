@@ -2,6 +2,27 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **Batch 3 + Helm v1 — the frontier exists, and the first wave measures it.** Batch 3 leaves `graph`
+  for the first time: six rows across `optimization`, `number-theoretic` and `algebraic`, testing three
+  census-declared family ramps that had never been used (two recorded with "precedent: none yet"). All six
+  ramps move their regions; 0 excluded at birth. Catalog 188 -> 236 cells, frames 888 -> 1124.
+  **The frontier reservation** (`foundry/catalog/reservation.py`, Helm SS5): 25% of every batch declared and
+  hashed before capture, by a rule that sees only a batch number and row names. Resolving SS5 against the
+  binding SS0.1, reserved rows are **declared and left uncaptured** — the batch script contains no generator
+  for them, so it cannot burn the ground it does not know how to build. Enforced in the catalog builder, in
+  the loader, and by a guard test that proves it can fail. **Helm v1** (`foundry/helm/`): sweep, four
+  mechanical screens, information-per-seal ranking, and `wave_trail.jsonl` emitted at event time (Kill 3
+  checked before a wave opens). New loader tables `frontier` `maptrail` `waves` `wave_events` `candidates`,
+  with `hold_queue` and `family_ledger` as computed views. **Wave 1 slated nothing**, and the emptiness is
+  the result: 344 candidates enumerated, 87 rejected, 257 held, and the nearest adjudicable candidate needs
+  **6 more reserved rows** — three more batches. Kill 1's first observation, one wave in; the kill needs two.
+  Two screen defects found and fixed mid-build: screen 1 was accepting a null for the *disclosed statistic*
+  where a seal needs a null for *the bet*, and 30 candidates were correlating arithmetic with itself
+  (`excess_ref <= excess_max` holds by construction) — now rejected under a `netting` rule read off the
+  extractor, and still enumerated so the denominator stays honest. **`minimum-common-string-partition`
+  raised for ruling:** the `string` family's declared ramp (pattern/text length ratio) has no referent in
+  the family's only reachable row, and no substitute was invented. 367 tests, `hardmap verify` 11/11, W2
+  passes, frozen bytes intact.
 - **N0 scaffold — the product stands up and the Phase-K kernel reuse is proven.** New `foundry/` product
   (pyproject with the one-way `-e ./eightfold` install pattern; `AGENTS.md` invariants incl. the Rider-A
   sequencing note; README; CI leg). **`FOUNDRY_SPEC`** (`foundry/charges.py`): nine charges — seven oracle
