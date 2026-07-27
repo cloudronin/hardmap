@@ -2,6 +2,23 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **The wave-5 sitting — the program's first sealed Helm bet, and the screens gain a propagation
+  rule.** **Candidate 1 SEALED** as `prereg_v34`, minted MECHANICALLY from the candidate record plus the
+  ruling (Helm §4 — nothing authored): rho(`overlap_ref`, `r_ref`) on optimization, direction NEGATIVE
+  fixed from the disclosed prior -0.7918, family size 2 at Holm 0.025, enumerated denominator 468,
+  prediction hashed before any frontier row exists. It seals on the distinction the sitting turned on:
+  the four candidates killed a wave earlier paired size with quantities size MECHANICALLY INFLATES, while
+  **mean pairwise agreement is unbiased at any r >= 2** — two solutions can disagree everywhere, so
+  nothing forces coherence at small r. Size is a variable of interest here, and partialing it out would
+  condition the question on itself. The prereg records the theoretical reading IN ADVANCE — the freezing
+  story predicts this sign, so a confirm is consistency-with-theory rather than surprise.
+  **Candidate 2 HOLD-redesign, and it found a hole:** `bimodal_flag` derives from size-inflated raw BC,
+  the landscape charge plausibly tracks r directly, and V = 0.407 against MDE 0.404 is a 0.003 margin —
+  the thin edge an artifact shows. The screens carried coupling as metadata on DESCRIPTORS, so a flag
+  inheriting it through derivation was invisible. **Coupling now travels the derivation graph**, walked
+  over the same flag-derivation graph the definitional-consumption screen already reads, and for an
+  ASSOCIATION one coupled side is enough since the charge may track r independently. 411 tests, verify
+  11/11, W2 passes.
 - **`bimodality_excess` computed, and wave 5 slates two.** The descriptor declared at the wave-4
   sitting is now real: BC minus the matched-r control mean, computed as a retro-fill by regenerating
   regions from the deterministic capture seeds and drawing 8 matched-r CP controls per step. **294 cells

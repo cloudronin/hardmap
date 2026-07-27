@@ -1,0 +1,34 @@
+{
+ "prereg_id": "prereg_v34",
+ "schema": "helm-minted-prereg/v1",
+ "minted_from": {
+  "wave": "wave-5",
+  "candidate_id": "comov:93b79a24947e",
+  "generator_version": "sweep/v5",
+  "how": "Helm \u00a74 \u2014 the prereg IS the candidate plus the ruling; nothing authored"
+ },
+ "sealed_bet": "on the reserved frontier rows, the rank correlation between overlap_ref and r_ref is negative, clustered at the problem level",
+ "direction": "NEGATIVE \u2014 fixed from the disclosed prior, not chosen after the fact",
+ "disclosed_prior": -0.7917690412476419,
+ "disclosed_prior_is_not_evidence": "the database is published ground; this number fixes the bet's SIGN and is never itself a finding",
+ "statistic": "Spearman rho(overlap_ref, r_ref) over optimization trajectories",
+ "null": "the same cluster permutation, applied to the reserved rows' cells once they exist \u2014 the statistic and its null are the same object on the frontier as on published ground",
+ "population": "the reserved frontier rows' optimization clusters, on release",
+ "scoring": "ONCE, per the standing law, when the reservation releases",
+ "family": {
+  "size": 2,
+  "correction": "Holm-Bonferroni at FWER 0.05",
+  "this_member_threshold": 0.025,
+  "enumerated_denominator": 468,
+  "siblings_at_birth": 55
+ },
+ "frontier_mde_at_mint": 0.7324,
+ "riders": {
+  "verdict_vocabulary": "CO-MOVEMENT, NOT MECHANISM. A confirm says these two move together on fresh ground. It does not say why, and the bet claims no mechanism.",
+  "size_is_a_variable_of_interest_here": "`r_ref` IS the size descriptor, and that is deliberate. The candidates killed at the wave-4 sitting paired size with quantities size MECHANICALLY INFLATES \u2014 arithmetic correlating with its own shadow. `overlap_ref` carries no small-sample bias: mean pairwise agreement is unbiased at any r >= 2, since two solutions can disagree everywhere and nothing forces coherence at small r. So the association is empirical, and partialing r out would condition the question on itself.",
+  "theoretical_reading_acknowledged_in_advance": "the freezing story PREDICTS this sign \u2014 smaller regions more internally agreed is its own covariance, and the hardening figure showed it on one row. A confirm is therefore CONSISTENCY-WITH-THEORY, not surprise, and this sentence exists so the finding cannot later be reported as the stronger thing."
+ },
+ "generating_query": "SELECT c.problem_id, c.overlap_ref, c.r_ref, c.r_ref FROM sweepable_catalog c JOIN problems p ON p.problem_id = c.problem_id WHERE c.overlap_ref IS NOT NULL AND c.r_ref IS NOT NULL AND p.family = 'optimization' ORDER BY 1,2,3",
+ "STATUS": "SEALED BY THE ACT OF COMMITTING THIS FILE",
+ "PREDICTION_HASH": "e4faaa315a42bde38cb97e4c14e6baa0ba22255de9ec607ccf9dbaec9923b274"
+}

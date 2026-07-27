@@ -94,7 +94,33 @@ CONSUMES = {
 # conditioned on r at all, so it is barred rather than held.
 # `bimodality_excess_ref` is deliberately NOT here. It is BC minus the matched-r control mean, so the
 # size dependence is subtracted rather than conditioned away — which is exactly why it was built.
-SIZE_COUPLED = {"r_ref", "insufficient_share", "bimodality_max"}
+SIZE_COUPLED_DIRECT = {"r_ref", "insufficient_share", "bimodality_max"}
+
+# ── COUPLING TRAVELS THE DERIVATION GRAPH (ruled 2026-07-27, wave-5 sitting) ─────────────────────────
+# The screens carried size-coupling as metadata on DESCRIPTORS, so a flag that inherited its coupling
+# through derivation was invisible to them. `bimodal_flag` is `bimodality_max > 0.555` — it fires
+# preferentially at small r for exactly the reason raw BC is size-inflated — and it reached a slate at
+# V = 0.407 against an MDE of 0.404. A 0.003 margin is the thin edge an artifact shows.
+#
+# The fix is mechanical and reuses the graph the definitional-consumption screen already walks: a
+# descriptor derived from a size-coupled one IS size-coupled. Coupling is a property of the derivation,
+# not of the name.
+DERIVED_FROM = {
+    "bimodal_flag": "bimodality_max",      # the flag is a threshold ON the size-inflated coefficient
+}
+
+
+def _size_coupled(name):
+    seen = set()
+    while name and name not in seen:
+        if name in SIZE_COUPLED_DIRECT:
+            return True
+        seen.add(name)
+        name = DERIVED_FROM.get(name)
+    return False
+
+
+SIZE_COUPLED = SIZE_COUPLED_DIRECT | {k for k in DERIVED_FROM if _size_coupled(k)}
 
 DEFINITIONAL_COUPLING = {
     frozenset({"excess_ref", "excess_min"}): "excess_ref >= excess_min by construction",
@@ -221,8 +247,18 @@ def screen(cand, con, frontier, seal_prohibited):
 
     # ── 2b. SIZE CONDITIONING (ruled 2026-07-27) ────────────────────────────────────────────────────
     # Marginals with size in both hands do not get a sitting.
-    touched = set(ds)
-    if len(touched & SIZE_COUPLED) >= 2:
+    touched = {d for d in ds if _size_coupled(d)}
+    # An ASSOCIATION joins a size-coupled descriptor to a CHARGE, and a charge may itself track r
+    # (fewer solutions, harder search). One size-coupled side is enough to require stratification —
+    # the two-descriptor rule below is for co-movement, where both sides are descriptors.
+    if cand["kind"] == "association" and touched:
+        if cand.get("disclosed_r_stratified") is None:
+            return ("HELD", "needs-r-stratification",
+                    f"{sorted(touched)} is size-coupled (directly or through the derivation graph) and "
+                    f"the charge may track r independently, so the association could be entirely "
+                    f"r-mediated. This reaches a slate r-stratified, or as an excess-based descriptor "
+                    f"whose size dependence is subtracted rather than conditioned.")
+    if len(touched) >= 2:
         if "r_ref" in touched:
             return ("REJECTED", "size-marginal",
                     f"{sorted(touched)} are both size-coupled AND one of them IS the size descriptor, "

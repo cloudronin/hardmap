@@ -1929,3 +1929,39 @@ instability — while the adjudication assigns a **reach class**.
 
 One row, one current typing *on each axis*. Collapsing the two would have silently retired a live
 deferral, which is the same species again: a rule applied to the label instead of the thing.
+
+---
+
+## Coupling travels the derivation graph — the wave-5 sitting, 2026-07-27
+
+The screens carried size-coupling as **metadata on descriptors**. `bimodal_flag` is a threshold on raw
+`bimodality_max`, which is size-inflated, so the flag fires preferentially at small r — and it reached a
+slate at V = 0.407 against an MDE of 0.404. A **0.003 margin** is the thin edge an artifact shows.
+
+Nothing was wrong with the size rules. They simply could not see a descriptor that inherited its coupling
+rather than declaring it.
+
+> **Coupling is a property of the derivation, not of the name.**
+
+A descriptor derived from a size-coupled one is size-coupled, walked mechanically over the same
+flag-derivation graph the definitional-consumption screen already reads. And for an **association**, one
+coupled side is enough — the charge may track r independently, so the association could be entirely
+r-mediated with size inflating the flag on one side and driving the charge on the other.
+
+### The distinction the same sitting turned on, in the other direction
+
+The candidate that **sealed** also pairs a descriptor with size — `overlap_ref` against `r_ref` — and it
+sealed precisely because the coupling is absent:
+
+> **Mean pairwise agreement is unbiased at any r ≥ 2. Two solutions can disagree everywhere; nothing
+> forces coherence at small r.**
+
+The four candidates killed a wave earlier paired size with quantities size *mechanically inflates* —
+arithmetic correlating with its own shadow. This one pairs size with a quantity that carries no
+small-sample bias, so the association is empirical and size is a **variable of interest**, not a lurking
+confounder. Partialing it out would condition the question on itself.
+
+Two candidates, one screen-width apart, opposite verdicts. The rule that separates them is now machinery,
+and the prereg records the theoretical reading in advance — the freezing story predicts this sign, so a
+confirm is *consistency-with-theory* rather than surprise, written down before the result exists so it
+cannot later be reported as the stronger thing.

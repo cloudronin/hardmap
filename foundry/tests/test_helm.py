@@ -399,3 +399,36 @@ def test_partial_spearman_removes_a_pure_common_cause():
 
 def test_partial_spearman_is_none_when_undefined():
     assert SW.partial_spearman([1, 1, 1], [1, 2, 3], [1, 2, 3]) is None
+
+
+# ── coupling travels the derivation graph (ruled 2026-07-27, wave-5 sitting) ────────────────────────
+def test_a_flag_inherits_its_size_coupling_from_what_it_derives_from():
+    """bimodal_flag is a threshold ON size-inflated raw BC. The screens carried coupling as metadata on
+    DESCRIPTORS, so a flag inheriting it through derivation was invisible — and reached a slate."""
+    assert S._size_coupled("bimodal_flag")
+    assert "bimodal_flag" in S.SIZE_COUPLED
+
+
+def test_an_association_on_a_size_coupled_descriptor_needs_stratification():
+    """One size-coupled side is enough: the charge may track r independently, so the association could
+    be entirely r-mediated."""
+    f = {**FRONTIER_BIG, "strata": {"pooled": 10}, "family_supply": {}}
+    c = _cand(kind="association", descriptors=["bimodal_flag"], group="pooled",
+              charge="landscape", charge_is_a_fixed_row_label=True, disclosed=0.407)
+    d, rule, detail = S.screen(c, None, f, set())
+    assert d == "HELD" and rule == "needs-r-stratification"
+    assert "r-mediated" in detail
+
+
+def test_an_uncoupled_association_still_slates():
+    f = {**FRONTIER_BIG, "strata": {"pooled": 10}, "family_supply": {}}
+    c = _cand(kind="association", descriptors=["traj_class"], group="pooled",
+              charge="landscape", charge_is_a_fixed_row_label=True, disclosed=0.9)
+    assert S.screen(c, None, f, set())[0] == "SLATED"
+
+
+def test_overlap_ref_is_not_size_coupled():
+    """THE DISTINCTION THE SITTING TURNED ON. Mean pairwise agreement is unbiased at any r >= 2 — two
+    solutions can disagree everywhere, so nothing forces coherence at small r. Pairing it with size is
+    an empirical question, not arithmetic correlating with its own shadow."""
+    assert not S._size_coupled("overlap_ref")
