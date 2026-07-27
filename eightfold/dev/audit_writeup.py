@@ -140,6 +140,44 @@ def build_registry():
                   "geometry_probe_a_results.json"):
             if (latd / f).exists():
                 deep(json.loads((latd / f).read_text()), f)
+
+        # ── N6-R and the newer result artifacts: registered by NAMED SUMMARY FIELD, never deep-walked.
+        # A first attempt deep-walked them and the audit's own probe test caught it immediately: these
+        # files carry thousands of per-reading values, and flooding the registry makes a fabricated
+        # numeral likely to find a coincidental match. WIDENING A REGISTRY WEAKENS THE GATE IT FEEDS.
+        # So each artifact contributes only the summary values the prose is allowed to quote.
+        def add_path(doc, path, tag):
+            cur = doc
+            for k in path.split("."):
+                if isinstance(cur, list):
+                    try:
+                        cur = cur[int(k)]
+                    except (ValueError, IndexError):
+                        return
+                elif isinstance(cur, dict) and k in cur:
+                    cur = cur[k]
+                else:
+                    return
+            if isinstance(cur, (int, float)) and not isinstance(cur, bool):
+                add(cur, f"{tag}:{path}")
+
+        SUMMARY = {
+            "n6r_results.json": ["n_discovery", "n_scored", "n_dropped",
+                                 "saturation_screen.n_flagged_rate_exactly_1",
+                                 "BLOCKS.0.n", "BLOCKS.0.partial_spearman",
+                                 "BLOCKS.1.n", "BLOCKS.1.partial_spearman",
+                                 "BLOCKS.2.n", "BLOCKS.2.partial_spearman"],
+            "n6r_tranche.json": ["n_discovery", "n_calibration", "n_excluded"],
+            "n6r_inflation.json": ["n_discovery", "calibration_battery.n"],
+            "n1_results.json": ["scored_set_n"],
+            "terrain_v1_results.json": ["scored_set_n"],
+            "n6_hull_census.json": ["population.censused", "population.n1_scored"],
+        }
+        for f, paths in SUMMARY.items():
+            if (latd / f).exists():
+                doc_ = json.loads((latd / f).read_text())
+                for pth in paths:
+                    add_path(doc_, pth, f)
     except ImportError:
         pass
 

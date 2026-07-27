@@ -267,3 +267,30 @@ structural signal.**
 This is a confounder with teeth. **Any future claim about closure rates must condition on region size, or
 it is reading the base rate and calling it structure** — including anything the almost-closed-middle
 question becomes, and any Marrow-adjacent prevalence statement.
+
+---
+
+## Q15 — the sign flips with aggregation level (N6-R Tier A)
+
+The sealed statistic — reading-level partial Spearman of log-inflation against fair-null excess,
+controlling for measured rate — came in at **+0.0023**, inside its permutation null. Aggregated to the
+**class** level the same relationship reads **+0.1685 against a null of [−0.0325, +0.0349]**, decisively
+outside it, and **opposite** the sealed negative sign.
+
+**This is banked, never narrated as support.** It sits at a different aggregation level than the sealed
+statistic and in the opposite direction to the bet, which makes it the Simpson-flavoured species:
+*sign changes with aggregation* is a named phenomenon and it has three candidate explanations that this
+study cannot separate.
+
+1. **Clustering artifact.** Flavours inside one class share a region, so class-level means average away
+   reading-level noise in a way that can manufacture an association from shared structure rather than from
+   the relationship being measured.
+2. **Size-weighted composition.** Classes contribute unequal numbers of readings, and |R| drives both
+   inflation's ceiling (|hull| ≤ ambient) and the rate's resolution (C(r,m)). A class-level mean is a
+   differently-weighted object, and the weighting is correlated with the predictor.
+3. **A real class-level relationship** that reading-level noise buries — the interesting one, and the only
+   one that would matter.
+
+**Distinguishing them is a future sealed design's job, not a findings paragraph's.** A study that wanted
+this would declare the aggregation level in advance, stratify on |R| explicitly, and separate
+within-class from between-class variance before looking.

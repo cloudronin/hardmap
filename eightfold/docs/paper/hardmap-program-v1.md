@@ -332,6 +332,36 @@ The most transferable output of this program may not be any of its findings. It 
 careful measurement went wrong, kept as a first-class artifact and converted into gates that now run in
 continuous integration.
 
+### The exhibit: one relationship, estimated three ways
+
+The clearest demonstration of why the discipline stack exists was not designed. It arrived as an accident
+and its correction.
+
+A single relationship — whether a region's distance from its own closure hull explains how much better it
+blends than a fair null — was estimated three times, in this order:
+
+| # | how it was estimated | population | result |
+|---|---|---|---|
+| 1 | **theory's guess**, sealed in a draft spec | none — a prediction | **POSITIVE**: regions near their hulls should be most protected |
+| 2 | **a contaminated census**, computed before the seal | the 43 % of readings whose hulls were affordable — a subsample *truncated by hull growth itself* | **NEGATIVE**, partial −0.3684 |
+| 3 | **a blind out-of-sample test**, predictions hashed and committed before any outcome existed | 11,855 synthetic readings on a held-out roster, admitted by a rule that admits the universe | **≈ 0** (+0.0023, inside its null) |
+
+Estimate 2 was an accident: a variance census that needed only the predictor's own distribution also joined
+it to the outcome. The rule minted from that incident — *a census computes its kill's inputs and nothing
+else* — is now enforced by a test that runs the census with its file reads instrumented.
+
+**The instructive part is what estimate 2 would have bought.** Its sign was confident, sizeable, and
+survived every check the in-sample design could apply — because those checks were computed on the same
+truncated subsample that produced it. Sealing it would have given the program a mechanism, in the wrong
+direction, with a clean audit trail.
+
+Estimate 3 could not go wrong the same way: the outcomes did not exist when the predictions were filed, and
+the admission rule selected nobody because it admitted everyone. It also cost nothing extra — the
+instrument had already been certified 963 checks wide on the same roster.
+
+**Only the blind estimate is trustworthy, and the middle one is confidently wrong.** No cleaner
+demonstration of the stack's purpose will ever be manufactured on purpose, which is why this one is kept.
+
 The ledger holds **38 numbered entries spanning 6–43** (derived from the file's headers, 2026-07-26; the
 count grows and the figure is restated at each writing rather than maintained), with instances 1–5
 predating the file. It is not renumbered, because an instance number is a citation target. Every entry follows one shape: what happened,

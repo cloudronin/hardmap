@@ -1671,8 +1671,14 @@ the contaminated census (**negative**), the blind test (**≈ 0**, leaning **pos
 
 The blind test leans toward the direction the *theory* guessed and the *contaminated data* contradicted.
 That is a satisfying shape and it is exactly the shape to be careful with: at reading level the effect is
-zero, and the clustered positive is a robustness block rather than the sealed statistic. **A negative
-result that happens to flatter an earlier guess is still a negative result.**
+**zero**, and the clustered positive is a robustness block rather than the sealed statistic.
+
+> **A negative that happens to flatter the theory's original guess is still a negative.**
+
+Recorded verbatim because the temptation it forecloses will recur. The pull toward reading a null as
+vindication is strongest exactly when an earlier, discarded guess pointed the same way — and the clustered
+block is banked as **Q15**, a sign-flips-with-aggregation question with three candidate explanations, not
+as support for anything.
 
 ### What the discipline bought, measured
 
