@@ -332,7 +332,7 @@ The most transferable output of this program may not be any of its findings. It 
 careful measurement went wrong, kept as a first-class artifact and converted into gates that now run in
 continuous integration.
 
-The ledger holds **37 numbered entries spanning 6–42** (derived from the file's headers, 2026-07-26; the
+The ledger holds **38 numbered entries spanning 6–43** (derived from the file's headers, 2026-07-26; the
 count grows and the figure is restated at each writing rather than maintained), with instances 1–5
 predating the file. It is not renumbered, because an instance number is a citation target. Every entry follows one shape: what happened,
 why the disconfirming information was already present, and what rule now prevents it. The program's

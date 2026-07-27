@@ -1638,3 +1638,49 @@ replaces it is that the dissolution was *measured*, with a rule declared before 
 **One of the two calls is weak.** sat-2 cleared the 0.20 floor by 0.445; independent-set cleared it by
 0.045. Both are correct by the declared rule, and the second is the one to re-examine first if the floor is
 ever revisited. Recorded in the artifact rather than left to be rediscovered.
+
+---
+
+## Instance 43 — 2026-07-26 — the contamination was a near-miss on a false mechanism
+
+N6's census joined predictor to outcome before the seal and disclosed the relationship it was about to bet
+on. The rule minted from it was **census minimalism**: *a census computes its kill's inputs and nothing
+else.* The incident read as a self-inflicted loss of a seal.
+
+**It was better than that.** The disclosed prior — a partial Spearman of **−0.3684**, higher inflation
+associating with more negative excess — was re-posed as a blind bet on a held-out synthetic population of
+11,855 readings whose outcomes did not exist at prediction time.
+
+**It does not replicate.** Partial +0.0023, inside a permutation null of [−0.0168, +0.0167]. And the
+class-clustered block runs **+0.1685 against a null of [−0.033, +0.035]** — decisively *opposite* the
+sealed sign, with zero of 500 permutations falling below the observed value.
+
+So the contaminated census had disclosed a **sign that does not survive**. Had the in-sample seal been
+allowed to proceed, it would have confirmed it — on the same biased subsample that produced it, with the
+predictor's upper range truncated by hull growth, which is selection on the predictor axis.
+
+> **The contamination did not cost a finding. It nearly bought a false one.**
+
+That reverses the incident's accounting. The rule it minted is still right and still standing; what changes
+is that the failure it prevented was larger than the seal it cost.
+
+### The third sign, and what it does and does not license
+
+Three estimates now exist, in the order obtained: the original spec's theory-driven guess (**positive**),
+the contaminated census (**negative**), the blind test (**≈ 0**, leaning **positive** when clustered).
+
+The blind test leans toward the direction the *theory* guessed and the *contaminated data* contradicted.
+That is a satisfying shape and it is exactly the shape to be careful with: at reading level the effect is
+zero, and the clustered positive is a robustness block rather than the sealed statistic. **A negative
+result that happens to flatter an earlier guess is still a negative result.**
+
+### What the discipline bought, measured
+
+Phase 0's control census forecast 84.2 % usable; Phase 3 delivered 82.6 % — accurate to 1.5 points. Every
+route was CP, as the census's reasoning about 4 coordinates predicted. The census that *nearly fired a
+false kill on its own weighting* went on to forecast its study's coverage to within two points, once the
+weighting error was fixed rather than narrated.
+
+And the 963-wide calibration battery certified the instrument before anything froze. Whatever the study
+concluded about the mechanism, the machinery is not in doubt — which is the separation that lets a negative
+result be believed.
