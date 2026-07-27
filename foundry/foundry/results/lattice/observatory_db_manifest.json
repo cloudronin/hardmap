@@ -1,0 +1,22 @@
+{
+ "schema": "observatory-db/v1",
+ "SOURCE_OF_TRUTH": "the hashed JSONL artifacts. This database is DERIVED \u2014 it can always be thrown away and rebuilt; the JSONL never can.",
+ "regenerated_never_mutated": "there is no UPDATE path and no migration path. An artifact changing means a rebuild from scratch.",
+ "schema_version": "v1",
+ "sources": {
+  "observatory_reach_census.json": "d7b7ca5bfbf2c839e5a653f202c30ed1cee6763372ee2a1a54ed0fe2fc265e18",
+  "observatory_untyped_adjudication.json": "a2470d4be360b9173994ce230270f814155dbf8fe94061e97b8acf77888aa05b",
+  "sounding_v3_survey.json": "e0af8344a5cc7023d9cc2c853433110bd0bb3ffb9e2d9536ad4aab8a414459ea",
+  "observatory_batch1_panels.json": "3f0f10f3a59f406995ad60816e798aa27c91f27d3abfd554fab6d53d606905fd",
+  "catalog_v1.jsonl": "37ed3a2b0166c58909dc61e8502655de3358307f641c34bc22ae93d1f2f253be",
+  "atlas_v3.jsonl": "e62f3c284b408a26d71e7f769c3742fa283f5a3bd5d874da74f0313ee3968dee"
+ },
+ "counts": {
+  "sources": 6,
+  "problems": 346,
+  "charges": 2760,
+  "frames": 682,
+  "catalog": 140
+ },
+ "db_sha256": "18cd5f665adbbe66a743a07bfb07f846c33098dd2d6f2b02775f1485c60d75f7"
+}

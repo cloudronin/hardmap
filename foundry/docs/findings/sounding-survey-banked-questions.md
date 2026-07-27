@@ -342,3 +342,46 @@ the first two rows looked at.
 **And one thing deliberately not reported as evidence:** the plotted 22-bin histograms show between 2 and 9
 local maxima per step. That is binning noise at these sample sizes, and it is exactly the kind of number
 that looks like a measurement and is not. BC is the statistic; the mode count is decoration.
+
+---
+
+## Q18 — decision and counting interrogate ONE region, and the contrast is already askable
+
+The census refinement that produced this: **the `#` changes what the charge asks, not whether the object
+has a region.** `sharp-matchings` counts the members of exactly the set `matching` asks whether *any*
+member of exists. Same object, two interrogations — which means a counting row's dial panel is
+**automatically joinable** against its decision sibling's, because they are panels of the same region.
+
+**The question.** Does the region of a **P-decide / #P-count** problem look different from a
+**P-decide / P-count** one? The counting charge's famous hardness jump — polynomial to decide, #P-hard to
+count, the matching story — would then be **measurable as geometry on a shared object**.
+
+**It is sized, and smaller than hoped in one direction and larger in another.** The atlas carries **10
+counting rows, 9 of them reachable**:
+
+| counting behaviour | rows |
+|---|---|
+| **P-decide / #P-complete-count** | 9 — `sharp-acyclic-orientations`, `sharp-antichains`, `sharp-contingency-tables`, `sharp-dnf`, `sharp-eulerian-circuits`, `sharp-eulerian-orientations`, `sharp-linear-extensions`, `sharp-matchings`, `sharp-monotone-2sat` |
+| **P-decide / FP-count** | **1** — `sharp-spanning-trees` (Kirchhoff's matrix-tree theorem) |
+
+**And the contrast does not wait for the fan-out.** Among rows ALREADY BUILT and surveyed, the same split
+exists by charge rather than by name:
+
+| built row | decision | counting |
+|---|---|---|
+| `xor-sat` | P | **FP** |
+| `sat-2` | P | #P-complete |
+| `matching` | P | #P-complete |
+| `sharp-monotone-2sat` | P | #P-complete |
+
+One easy-counting row against three hard-counting ones, all decision-easy, all with frozen panels. **n = 1
+against 3 is far too thin to test anything** — which is exactly why this is banked rather than glanced at.
+`sharp-spanning-trees` would make it 2, and the fan-out's counting rows would populate the other side.
+
+**One correction to the framing, recorded so a later reader does not repeat it:** the atlas carries **zero
+same-name sibling pairs**. `matching` and `sharp-matchings` are separate rows and the pairing is
+**semantic, not lexical** — a name-match join would find nothing and silently return an empty contrast. Any
+future design pairs them by hand, with the pairing declared.
+
+**Nobody has been able to ask this before** because nobody had a measured geometry attached to both members
+of a decision/counting pair. That is the whole reason to file it now, unglanced.

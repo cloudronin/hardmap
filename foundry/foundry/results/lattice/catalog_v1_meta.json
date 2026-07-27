@@ -1,0 +1,19 @@
+{
+ "schema": "observatory-catalog/v1",
+ "catalog_version": "v1.0",
+ "STATUS": "EXPLORATORY \u2014 descriptors on published frames are disclosed-prior material",
+ "extractor": "foundry/catalog/extract.py",
+ "extractor_sha256": "85cae14df9c6ccac",
+ "descriptor_version": "v1",
+ "frame_sources": {
+  "sounding_v3_survey.json": "e0af8344a5cc7023",
+  "observatory_batch1_panels.json": "3f0f10f3a59f4069"
+ },
+ "reference_step_rule": "median admissible ramp position \u2014 positional and therefore OUTCOME-BLIND; the chosen step's ramp value ships beside every excess_ref cell",
+ "retro_fill": "the coherence group did not exist on the frozen v3 frames and was computed retroactively under the dial-panel amendment. Retro-filled cells are stamped per row, not merely noted here.",
+ "seal_prohibition": "transition descriptors (kink_step, kink_sharpness) are estimates WITHOUT TYPED NULLS. No seal may consume them at v1, and the prohibition ships inside every cell.",
+ "versioning": "F4: a changed extraction rule is a NEW catalog version, never an in-place edit. Sealed claims quote descriptor@version forever.",
+ "n_cells": 140,
+ "n_rollups": 58,
+ "n_problems": 23
+}

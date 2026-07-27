@@ -1,5 +1,7 @@
 # hardmap
 
+**Source of truth is the hashed JSONL.** Every result in this archive lives in a frozen, sha256-pinned JSONL or JSON artifact, and those files are the record. `observatory.db` — the SQL database the tables are compiled into — is a **derived artifact**: it can be deleted and rebuilt from the JSONL at any time, and it is *regenerated, never mutated*. Each of its tables carries the sha256 of the artifact it came from, so the database and its sources can be checked against each other rather than trusted. If the two ever disagree, the JSONL is right. See [`foundry/docs/QUERIES.md`](foundry/docs/QUERIES.md) for five worked joins.
+
 Reproducible evidence for the charge-atlas / proof-space program. This repository
 consolidates four research projects into one installable package whose CLI
 regenerates **every statistic the write-up cites** — either from

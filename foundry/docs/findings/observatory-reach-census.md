@@ -107,9 +107,17 @@ unmeasurable because a well-posed puzzle has r = 1 — uniqueness kills blending
 phenomenon: **uniqueness destroys the region, per instance in Q6 and per row here.** One fact, two scales,
 and they are hereby recorded as one.
 
-It also settles quietly why the crypto-adjacent rows were always going to sit outside this wing.
-One-wayness is evaluation-shaped territory — the object of interest is a *value*, not a solution set — so
-those rows were never candidates for a geometry the instrument could see.
+**And the unification runs one scale further out.** `factoring` lands in the regionless class because a
+factorisation is *unique up to order* — r = 1, and uniqueness kills blending. So:
+
+> **Uniqueness destroys the region — per instance in Sudoku's puzzle regime (Q6), per row in factoring,
+> per field in cryptography.**
+
+That last step has explanatory content rather than being a boundary note. **The observatory cannot film
+cryptography because cryptography is built on problems whose answer-objects have no crowd to photograph.**
+One-wayness lives precisely where the solution object degenerates to a point — the object of interest is a
+*value*, and a value has no geometry. Those rows were never candidates for a geometry this instrument
+could see, and now the reason is stated rather than observed.
 
 ## Census discipline
 
