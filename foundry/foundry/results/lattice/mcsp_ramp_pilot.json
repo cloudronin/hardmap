@@ -1,0 +1,158 @@
+{
+ "schema": "mcsp-ramp-pilot/v1",
+ "STATUS": "PILOT \u2014 descriptive, no verdict about complexity",
+ "problem": "minimum-common-string-partition",
+ "family": "string",
+ "ramp_before": "pattern/text length ratio (no referent in the row)",
+ "ramp_after": "alphabet size at fixed string length",
+ "string_length_held_fixed_at": 11,
+ "alphabet_ramp": [
+  2,
+  3,
+  4,
+  6,
+  8
+ ],
+ "measurements": [
+  {
+   "alphabet": 2,
+   "feasible_sizes": [
+    594,
+    548,
+    603,
+    1024,
+    623,
+    695,
+    752,
+    638
+   ],
+   "optimal_sizes": [
+    1,
+    2,
+    13,
+    1,
+    3,
+    1,
+    1,
+    2
+   ],
+   "feasible_mean": 684.625,
+   "feasible_sd": 141.1275464783541
+  },
+  {
+   "alphabet": 3,
+   "feasible_sizes": [
+    312,
+    280,
+    367,
+    172,
+    538,
+    322,
+    192,
+    265
+   ],
+   "optimal_sizes": [
+    1,
+    2,
+    4,
+    1,
+    2,
+    1,
+    2,
+    2
+   ],
+   "feasible_mean": 306.0,
+   "feasible_sd": 106.7391680687085
+  },
+  {
+   "alphabet": 4,
+   "feasible_sizes": [
+    500,
+    352,
+    517,
+    336,
+    464,
+    534,
+    256,
+    296
+   ],
+   "optimal_sizes": [
+    3,
+    1,
+    1,
+    1,
+    2,
+    1,
+    3,
+    1
+   ],
+   "feasible_mean": 406.875,
+   "feasible_sd": 102.05076861542985
+  },
+  {
+   "alphabet": 6,
+   "feasible_sizes": [
+    512,
+    224,
+    312,
+    384,
+    256,
+    184,
+    256,
+    352
+   ],
+   "optimal_sizes": [
+    1,
+    2,
+    1,
+    2,
+    1,
+    1,
+    1,
+    1
+   ],
+   "feasible_mean": 310.0,
+   "feasible_sd": 98.20386957752734
+  },
+  {
+   "alphabet": 8,
+   "feasible_sizes": [
+    512,
+    128,
+    296,
+    128,
+    512,
+    256,
+    1024,
+    228
+   ],
+   "optimal_sizes": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2
+   ],
+   "feasible_mean": 385.5,
+   "feasible_sd": 278.81131612615724
+  }
+ ],
+ "region_moves": true,
+ "hardening_direction": "larger alphabet TIGHTENS (region shrinks)",
+ "ramp_shape": "THRESHOLD \u2014 the movement is carried by |Sigma| = 2 alone; drop that step and the remaining range is FLAT under the same rule",
+ "moves_without_extreme_step": false,
+ "extreme_step_dropped": 2,
+ "excursion": 378.62,
+ "pooled_within_step_sd": 145.39,
+ "move_rule": "moves iff excursion >= 2.0 x pooled within-step SD \u2014 the catalog extractor's own FLAT rule, reused not re-invented",
+ "rank_correlation_alphabet_vs_region": -0.4882,
+ "n_instances_per_step": 8,
+ "planted_blocks_held_fixed_at": 4,
+ "direction_provenance": "read off the pilot measurement, never asserted from memory",
+ "derived_consequence_upward_closed": true,
+ "derived_consequence_note": "adding a cut to a working partition splits one A-block, and the matched B-block splits identically \u2014 so the region must be upward-closed. Checked, not assumed.",
+ "verdict": "RAMP CONFIRMED (THRESHOLD ONLY) \u2014 the dial moves, but the movement is carried entirely by the smallest alphabet. This is a two-point contrast wearing a ramp's clothes, and it is a third case the ruling did not name: not a working graded dial, not an absent one. RAISED FOR RULING."
+}

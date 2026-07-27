@@ -172,3 +172,42 @@ def test_scaling_group_is_reserved_not_absent():
     sc = X.descriptors(st)["scaling"]
     assert "kink_drift_n" in sc and sc["kink_drift_n"] is None
     assert "RESERVED" in sc
+
+
+# ── structure — NEW AT v2 ───────────────────────────────────────────────────────────────────────────
+def _rsteps(rs):
+    return [{"ramp_position": i, "ramp_value": 0.1 * (i + 1), "state": "usable",
+             "blend_excess": -0.1, "control_sd": 0.01, "r": r} for i, r in enumerate(rs)]
+
+
+def test_structurally_flat_needs_both_the_declaration_and_the_feasible_region():
+    """A fixed-cardinality row's OPTIMAL region does depend on the instance, so only feasible is flat."""
+    assert X.structure(_rsteps([120] * 5), "feasible", "fixed_cardinality")["structurally_flat"]
+    assert not X.structure(_rsteps([46, 14, 5, 7, 6]), "optimal",
+                           "fixed_cardinality")["structurally_flat"]
+
+
+def test_structurally_flat_is_false_without_the_declaration():
+    assert not X.structure(_rsteps([120] * 5), "feasible", "upward_closed")["structurally_flat"]
+    assert not X.structure(_rsteps([120] * 5), "feasible", None)["structurally_flat"]
+
+
+def test_region_size_invariance_is_measured_separately_from_the_declaration():
+    """Declared and observed are kept apart on purpose: their disagreement is a conformance failure
+    worth seeing, and collapsing them into one field would hide it."""
+    s = X.structure(_rsteps([120] * 5), "feasible", "fixed_cardinality")
+    assert s["region_size_invariant"] is True and s["agree"] is True
+    s2 = X.structure(_rsteps([441, 273, 181, 156, 101]), "feasible", "fixed_cardinality")
+    assert s2["structurally_flat"] is True and s2["region_size_invariant"] is False
+    assert s2["agree"] is False, "a declared-flat row whose region moves must not read as agreeing"
+
+
+def test_region_size_invariance_is_none_below_two_steps():
+    assert X.structure(_rsteps([120]), "feasible", "fixed_cardinality")["region_size_invariant"] is None
+
+
+def test_v2_descriptors_carry_the_structure_group():
+    d = X.descriptors(_rsteps([120] * 5), region="feasible",
+                      structural_expectation="fixed_cardinality")
+    assert d["descriptor_version"] == "v2"
+    assert d["structure"]["structurally_flat"] is True

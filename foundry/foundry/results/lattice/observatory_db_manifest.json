@@ -10,10 +10,10 @@
   "observatory_batch1_panels.json": "3f0f10f3a59f406995ad60816e798aa27c91f27d3abfd554fab6d53d606905fd",
   "observatory_batch2_panels.json": "76a877600261db818eb872b32935e2565526f218b982c29db2614babcbbb30a5",
   "observatory_batch3_panels.json": "3cf977a33e978d7cc2fb2377a759450cab913c3a96f4af16880f2e60a44b6e01",
-  "catalog_v1.jsonl": "30cc7e36f8a263eeb526f0813416e3bc8d033ef9497133793ec3d3143e521f81",
+  "catalog_v2.jsonl": "5c189b9e448066572199e1c39f4b2ac064bf8c631c249ebc4d309fa825c34452",
   "atlas_v3.jsonl": "e62f3c284b408a26d71e7f769c3742fa283f5a3bd5d874da74f0313ee3968dee",
   "observatory_reservation.jsonl": "a33b3cb109eac4dbc2778d3f2b9d3b55807fa4a5dd5e32bbd102850241ac2e1f",
-  "maptrail.jsonl": "e67522df4d7ff00e26996772b21318d4dfc15fdfc609519b034fa0c081b5f7d5",
+  "maptrail.jsonl": "3afd08772af7f36c1f0930acc4d806cc0c52e3dcd7274514336f0d1ab892da73",
   "wave_trail.jsonl": "18db58e8e46c5e52e4862f4f19082fdcfd3c1233468211615d899eac97f2e05c",
   "helm_wave1_candidates.jsonl": "f567d2954d0fd16216f82d5bf3a6e519fc749d51c97cc069a28270352759a5a6"
  },
@@ -24,10 +24,10 @@
   "frames": 1124,
   "catalog": 236,
   "frontier": 2,
-  "maptrail": 13,
+  "maptrail": 15,
   "waves": 1,
   "wave_events": 3,
   "candidates": 344
  },
- "db_sha256": "6be2cfc816857ddbeb1b694687340641f8ec8f3333485d2b2f9a2b2f07f22c07"
+ "db_sha256": "bcf27d60cdcadb65ec1b0b3f37e705ee05d56c4da48ed75cf7716028fadf4b42"
 }

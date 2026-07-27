@@ -1690,3 +1690,37 @@ weighting error was fixed rather than narrated.
 And the 963-wide calibration battery certified the instrument before anything froze. Whatever the study
 concluded about the mechanism, the machinery is not in doubt — which is the separation that lets a negative
 result be believed.
+
+---
+
+## The denominator we chose — Helm wave 1, 2026-07-27
+
+Helm's first sweep enumerated 344 candidates. Two of the screens were wrong, and fixing them surfaced a
+rule worth keeping.
+
+Thirty candidates were **correlating arithmetic with itself**. `excess_ref` is a member of the value set
+that `excess_max` maximises, so `excess_ref ≤ excess_max` holds always and their rank correlation read
+0.976 — the strongest signal in the entire hold queue, and pure identity. Four more pairs were coupled the
+same way, including `max_excursion_sd` against the two endpoints it is computed from.
+
+The obvious fix is to stop enumerating them. That fix is wrong.
+
+> **A denominator that omits the questions we knew were bad is a denominator we chose.**
+
+The forking-paths count exists so a multiple-comparisons correction can be computed from an enumeration
+rather than estimated from a number someone remembers. The moment the enumeration is curated — even by a
+criterion as defensible as "we knew that one was junk" — it stops being a denominator and becomes a
+selection, and every correction downstream inherits the selection silently. So the coupled pairs are still
+enumerated, still counted in the 344, and **rejected under a named `netting` rule** whose reason is read
+off the extractor's source rather than asserted. A future auditor can see exactly what was thrown out and
+why, which is the only version of this that is checkable.
+
+The second screen failure has the same shape one level up. Screen 1 checked that each candidate carried a
+null, and every candidate did — because **an in-sample null always exists**, the disclosed number having
+been computed with it. What a seal needs is a null for *the bet it would become*, on ground that does not
+exist yet. Twenty candidates were slated on the strength of a null that answered a different question.
+
+> **A null for the disclosed statistic is not a null for the sealed bet.**
+
+Both defects are the same species: a check that appears to fire, on an object that is not the one the
+check is about.

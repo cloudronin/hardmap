@@ -221,3 +221,63 @@ def test_every_swept_candidate_carries_a_reproducible_query():
     for c in bank_imports(bank):
         assert c["generating_query"], c
         assert c["stamp"] == "disclosed-prior"
+
+
+# ── the structurally-flat backstop (ruling, 2026-07-27) ─────────────────────────────────────────────
+def test_structurally_flat_candidate_is_rejected():
+    """The sweep queries `sweepable_catalog`, so a flat cell should never reach candidacy. This is the
+    backstop for any path that bypasses the view — and it is tested because an untested backstop is
+    indistinguishable from an absent one."""
+    d, rule, detail = S.screen(_cand(structurally_flat=True), None, FRONTIER_BIG, set())
+    assert d == "REJECTED" and rule == "structurally-flat"
+    assert "BY CONSTRUCTION" in detail
+
+
+# ── the stratified extremal null (ruling, 2026-07-27) ───────────────────────────────────────────────
+def _anom(**kw):
+    base = {"kind": "anomaly", "descriptors": ["overlap_ref"], "candidate_id": "a1",
+            "null": "pooled", "frontier_null": SW.EXTREMAL_NULL, "disclosed": 3.0,
+            "stratum": {"family": "algebraic", "region": "feasible", "flavour": "majority"},
+            "statistic": "s", "generating_query": "SELECT 1", "stamp": "disclosed-prior"}
+    base.update(kw)
+    return base
+
+
+def test_the_pinned_null_unblocks_screen_one_for_anomalies():
+    """Wave 1 held all 22 extremals for want of a frontier null. The ruling pinned one; they must now
+    fail (if at all) on SUPPLY, not on the null's absence."""
+    d, rule, _ = S.screen(_anom(), None, {**FRONTIER_BIG, "strata": {"algebraic": 40}}, set())
+    assert d == "SLATED", (d, rule)
+
+
+def test_anomaly_is_held_when_its_own_stratum_is_thin():
+    """Supply is judged WITHIN the stratum, not on the frontier's total — a large frontier concentrated
+    in other families adjudicates nothing here."""
+    f = {**FRONTIER_BIG, "strata": {"graph": 500, "algebraic": 1}}
+    d, rule, detail = S.screen(_anom(), None, f, set())
+    assert d == "HELD" and rule == "power-fail"
+    assert "algebraic" in detail and str(S.MIN_STRATUM_CELLS) in detail
+
+
+def test_a_cross_stratum_candidate_is_judged_on_its_thinnest_stratum():
+    """A count spanning every stratum is adjudicable only when the weakest one clears the floor."""
+    f = {**FRONTIER_BIG, "strata": {"graph": 500, "algebraic": 1}}
+    d, rule, _ = S.screen(_anom(stratum={"family": None}), None, f, set())
+    assert d == "HELD" and rule == "power-fail"
+
+
+def test_the_stratum_floor_is_where_significance_becomes_attainable():
+    """A one-sided permutation over m cells attains no p below 1/(m+1). The floor must be the first
+    size at which alpha is reachable — derived, not chosen."""
+    assert 1 / (S.MIN_STRATUM_CELLS - 1 + 1) <= S.ALPHA
+    assert 1 / (S.MIN_STRATUM_CELLS - 2 + 1) > S.ALPHA
+
+
+def test_frontier_strata_counts_reserved_rows_by_family():
+    import sqlite3
+    con = sqlite3.connect(":memory:")
+    con.execute("CREATE TABLE problems (problem_id TEXT PRIMARY KEY, family TEXT)")
+    con.executemany("INSERT INTO problems VALUES (?,?)",
+                    [("a", "algebraic"), ("b", "optimization"), ("c", "algebraic")])
+    assert S.frontier_strata(con, {"a", "c"}) == {"algebraic": 2}
+    assert S.frontier_strata(con, set()) == {}

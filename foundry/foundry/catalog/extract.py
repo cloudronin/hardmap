@@ -32,7 +32,7 @@ import math
 from itertools import combinations
 from statistics import mean, pstdev, stdev
 
-VERSION = "v1"
+VERSION = "v2"
 FLAT_MULTIPLIER = 2.0            # the trajectory rule, inherited unchanged from sounding_trajectories
 BIMODALITY_FLAG = 0.555          # the conventional flag against a uniform reference
 PAIR_CAP = 20000
@@ -207,10 +207,44 @@ def transition(steps, key="blend_excess"):
 
 
 # ── the row-level assembly ───────────────────────────────────────────────────────────────────────────
-def descriptors(steps):
-    """Every v1 descriptor for one (problem, region, flavour) trajectory. A pure function of frames."""
+# ── structure — NEW AT v2 ────────────────────────────────────────────────────────────────────────────
+def structure(steps, region=None, structural_expectation=None):
+    """Is this trajectory flat BY CONSTRUCTION rather than by measurement?
+
+    A fixed-cardinality row's FEASIBLE region is every size-k subset of the ground set. That set does not
+    depend on the instance, so it is byte-identical at every ramp position — `max-coverage` reads r=120,
+    overlap 0.5765, BC 0.4696 at all five steps of its ramp, and would read the same at any other.
+
+    THE FLATNESS IS A PROPERTY OF THE ROW'S DEFINITION, NOT A READING. Correlating such a trajectory
+    against anything is correlating a constant, and letting it stand as an extremal is reporting the
+    definition back as a discovery. The flag exists so Helm can foreclose that whole candidate species
+    instead of screening its members one at a time.
+
+    DECLARED AND OBSERVED ARE KEPT SEPARATE. `structurally_flat` is derived from the row's DECLARED
+    structural expectation and costs no reading; `region_size_invariant` is what the frames actually
+    show. Collapsing them into one field would hide the case where they disagree — and a fixed-
+    cardinality row whose region size moves is a conformance failure worth seeing, not a flag to fix."""
+    flat_by_definition = bool(structural_expectation == "fixed_cardinality" and region == "feasible")
+    rs = [s.get("r") for s in steps
+          if s.get("state") == "usable" and s.get("r") is not None]
+    invariant = (len(set(rs)) == 1) if len(rs) >= 2 else None
+    return {"structurally_flat": flat_by_definition,
+            "region_size_invariant": invariant,
+            "declared_expectation": structural_expectation,
+            "agree": None if invariant is None else (flat_by_definition == invariant),
+            "rule": ("structurally_flat iff the row DECLARES fixed_cardinality and this is its feasible "
+                     "region — the region is then every size-k subset, identical at every ramp value"),
+            "why_it_matters": ("a structurally-flat trajectory is excluded from Helm's sweep: its "
+                               "flatness is definitional, so enumerating it as a candidate correlates "
+                               "a constant with things")}
+
+
+def descriptors(steps, region=None, structural_expectation=None):
+    """Every v2 descriptor for one (problem, region, flavour) trajectory. A pure function of frames
+    plus the row's DECLARED structural expectation, which is not a reading."""
     return {"level": level(steps), "shape": shape(steps), "coherence": coherence(steps),
             "supply": supply(steps), "transition": transition(steps),
+            "structure": structure(steps, region, structural_expectation),
             "scaling": {"kink_drift_n": None, "sharpening_ratio": None,
                         "RESERVED": "fills when the size axis lands; reserved per the additive licence"},
             "descriptor_version": VERSION}

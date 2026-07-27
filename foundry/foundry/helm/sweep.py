@@ -23,7 +23,9 @@ import hashlib
 import json
 from itertools import combinations
 
-GENERATOR_VERSION = "sweep/v1"
+# v2: the extremal null is pinned (stratified exchangeability), structurally-flat cells are excluded
+# from the swept population, and the netting rule fires on definitionally-coupled pairs.
+GENERATOR_VERSION = "sweep/v2"
 
 # The descriptors a co-movement candidate may pair. `kink_sharpness` is deliberately INCLUDED so that
 # screen 1 can visibly reject it: the catalog stamps it seal-prohibited for want of a typed null, and a
@@ -35,16 +37,26 @@ CATEGORICAL = ["traj_class", "slope_sign", "bimodal_flag"]
 MIN_N = 8            # below this a rank correlation is not a statistic, it is a rumour
 MIN_LEVELS = 2       # an association needs at least two levels on each axis
 
-# A NULL FOR THE DISCLOSED STATISTIC IS NOT A NULL FOR THE SEALED BET, and conflating the two is the
-# subtlest way a screen stops screening. An extremal's in-sample null answers "is this cell unusual
-# among the cells we have?"; the bet it would become answers "does the frontier reproduce it?", and
-# that second question needs an exchangeability model over frontier cells that v1 has not pinned.
-# The catalog's transition group sets the precedent exactly: no candidate until its null is pinned.
-NO_EXTREMAL_NULL = (
-    "the declared null types the DISCLOSED extremal's position among published cells, not a frontier "
-    "prediction. Typing the reproduction bet needs an exchangeability model over frontier cells that "
-    "v1 has not pinned — and inventing one inside the sweep would be the change-point precedent "
-    "(Helm §3.1) broken by the component that exists to enforce it.")
+# A NULL FOR THE DISCLOSED STATISTIC IS NOT A NULL FOR THE SEALED BET. An extremal's in-sample null
+# answers "is this cell unusual among the cells we have?"; the bet it would become answers "does the
+# frontier reproduce it?". Wave 1 held all 22 extremal candidates because v1 had not pinned the second.
+#
+# PINNED BY RULING (2026-07-27), and versioned like any descriptor. Every axis below is a paid-for
+# lesson rather than a modelling taste, which is why the model names them instead of pooling:
+#
+#   family      — Terroir's verdict: families are not interchangeable populations
+#   region-kind — Q5's contrast instability: feasible and optimal do not behave alike
+#   flavour     — the fingerprint structure: flavours order differently per row
+#   r-band      — the sixth-species vaccine, as a matching covariate where supply allows
+#
+# Exchangeability across UNLIKE strata is the assumption this program has disproven three times.
+# Within-stratum is the version the evidence permits.
+EXTREMAL_NULL_VERSION = "stratified-exchangeability/v1"
+EXTREMAL_NULL = (
+    "permutation against the pooled distribution of FRONTIER cells within the same "
+    "(family x region-kind x flavour) stratum, with r-band as a matching covariate where supply "
+    "allows. A stratum below the declared cell floor returns INSUFFICIENT rather than a p-value. "
+    f"Model {EXTREMAL_NULL_VERSION}, pinned by ruling and versioned like any descriptor.")
 
 
 # ── statistics, pure ────────────────────────────────────────────────────────────────────────────────
@@ -114,7 +126,7 @@ def co_movement(con):
     groups = [(None, "pooled")] + [(f, f) for f in _families(con)]
     for a, b in combinations(NUMERIC, 2):
         for fam, label in groups:
-            sql = (f"SELECT c.problem_id, c.{a}, c.{b} FROM admissible_catalog c "
+            sql = (f"SELECT c.problem_id, c.{a}, c.{b} FROM sweepable_catalog c "
                    f"JOIN problems p ON p.problem_id = c.problem_id "
                    f"WHERE c.{a} IS NOT NULL AND c.{b} IS NOT NULL"
                    + (f" AND p.family = '{fam}'" if fam else "") + " ORDER BY 1,2,3")
@@ -142,7 +154,7 @@ def association(con):
         "SELECT charge FROM charges GROUP BY charge HAVING COUNT(DISTINCT value) >= 2 ORDER BY charge")]
     for ch in charges:
         for d in CATEGORICAL:
-            sql = (f"SELECT ch.value, c.{d} FROM admissible_catalog c "
+            sql = (f"SELECT ch.value, c.{d} FROM sweepable_catalog c "
                    f"JOIN charges ch ON ch.problem_id = c.problem_id "
                    f"WHERE ch.charge = '{ch}' AND c.{d} IS NOT NULL ORDER BY 1,2")
             rows = con.execute(sql).fetchall()
@@ -153,7 +165,7 @@ def association(con):
                 "charge": ch, "group": "pooled",
                 "generating_query": sql, "disclosed": v,
                 "n": len(rows), "n_clusters": len({r[0] for r in con.execute(
-                    f"SELECT c.problem_id FROM admissible_catalog c JOIN charges ch "
+                    f"SELECT c.problem_id FROM sweepable_catalog c JOIN charges ch "
                     f"ON ch.problem_id = c.problem_id WHERE ch.charge = '{ch}'").fetchall()}),
                 "null": "label permutation within the charge column, clustered by problem",
                 "frontier_null": ("the same label permutation on the reserved rows' cells, with the "
@@ -162,7 +174,7 @@ def association(con):
                 "stamp": "disclosed-prior"})
 
     # flavour_order — derived in SQL rather than stored, since the loader keeps rollups out of the db
-    sql = ("SELECT problem_id, region, flavour FROM admissible_catalog "
+    sql = ("SELECT problem_id, region, flavour FROM sweepable_catalog "
            "ORDER BY problem_id, region, excess_ref")
     order = {}
     for pid, reg, fl in con.execute(sql):
@@ -189,15 +201,16 @@ def anomaly(con):
     EXPRESSION-FIRST (Helm §8): an extremal candidate carries the cell that produced it, so the first
     question asked of it is what expression generated the number — not whether the number is unusual."""
     out = []
+    fam_of = dict(con.execute("SELECT problem_id, family FROM problems"))
     for d in NUMERIC:
         for direction, order in (("max", "DESC"), ("min", "ASC")):
-            sql = (f"SELECT problem_id, region, flavour, {d} FROM admissible_catalog "
+            sql = (f"SELECT problem_id, region, flavour, {d} FROM sweepable_catalog "
                    f"WHERE {d} IS NOT NULL ORDER BY {d} {order}, problem_id, region, flavour LIMIT 5")
             rows = con.execute(sql).fetchall()
             if not rows:
                 continue
             allv = [r[0] for r in con.execute(
-                f"SELECT {d} FROM admissible_catalog WHERE {d} IS NOT NULL")]
+                f"SELECT {d} FROM sweepable_catalog WHERE {d} IS NOT NULL")]
             if len(allv) < MIN_N:
                 continue
             mu = sum(allv) / len(allv)
@@ -214,13 +227,14 @@ def anomaly(con):
                 "expression_first": ("adjudicate what expression produced this cell BEFORE asking "
                                      "whether the value is surprising"),
                 "n": len(allv), "n_clusters": len({r[0] for r in con.execute(
-                    f"SELECT problem_id FROM admissible_catalog WHERE {d} IS NOT NULL")}),
+                    f"SELECT problem_id FROM sweepable_catalog WHERE {d} IS NOT NULL")}),
                 "null": "pooled descriptor distribution; extremal position under cluster permutation",
-                "frontier_null": None,
-                "why_no_frontier_null": NO_EXTREMAL_NULL,
+                "frontier_null": EXTREMAL_NULL,
+                "frontier_null_version": EXTREMAL_NULL_VERSION,
+                "stratum": {"family": fam_of.get(top[0]), "region": top[1], "flavour": top[2]},
                 "stamp": "disclosed-prior"})
 
-    sql = ("SELECT problem_id, region, flavour, excess_ref FROM admissible_catalog "
+    sql = ("SELECT problem_id, region, flavour, excess_ref FROM sweepable_catalog "
            "WHERE excess_ref = 0.0 ORDER BY problem_id, region, flavour")
     zeros = con.execute(sql).fetchall()
     out.append({
@@ -231,11 +245,14 @@ def anomaly(con):
         "cells": [{"problem_id": z[0], "region": z[1], "flavour": z[2]} for z in zeros[:20]],
         "n": len(zeros), "n_clusters": len({z[0] for z in zeros}),
         "null": "the zero-hunt's adjudication vocabulary — every zero is forced, thin, or unexplained",
-        "frontier_null": None, "why_no_frontier_null": NO_EXTREMAL_NULL,
+        "frontier_null": EXTREMAL_NULL, "frontier_null_version": EXTREMAL_NULL_VERSION,
+        "stratum": {"family": None, "region": None, "flavour": None},
+        "stratum_note": ("a count over all cells spans every stratum at once, so it is adjudicable "
+                         "only when EVERY stratum it touches clears the floor"),
         "expression_first": "each zero is adjudicated expression-first before it counts as a residual",
         "stamp": "disclosed-prior"})
 
-    sql = ("SELECT traj_class, slope_sign, bimodal_flag, COUNT(*) AS n FROM admissible_catalog "
+    sql = ("SELECT traj_class, slope_sign, bimodal_flag, COUNT(*) AS n FROM sweepable_catalog "
            "GROUP BY 1,2,3 ORDER BY n ASC, 1, 2, 3")
     fps = con.execute(sql).fetchall()
     rare = [f for f in fps if f[3] <= 2]
@@ -246,9 +263,12 @@ def anomaly(con):
         "disclosed": float(len(rare)), "disclosed_units": "rare combinations",
         "cells": [{"fingerprint": f[:3], "n": f[3]} for f in rare],
         "n": sum(f[3] for f in fps), "n_clusters": len({r[0] for r in con.execute(
-            "SELECT problem_id FROM admissible_catalog")}),
+            "SELECT problem_id FROM sweepable_catalog")}),
         "null": "multinomial over observed fingerprint frequencies",
-        "frontier_null": None, "why_no_frontier_null": NO_EXTREMAL_NULL,
+        "frontier_null": EXTREMAL_NULL, "frontier_null_version": EXTREMAL_NULL_VERSION,
+        "stratum": {"family": None, "region": None, "flavour": None},
+        "stratum_note": ("a fingerprint tally spans every stratum at once, so it is adjudicable only "
+                         "when EVERY stratum it touches clears the floor"),
         "stamp": "disclosed-prior"})
     return out
 

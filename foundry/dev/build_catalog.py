@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Build catalog_v1.jsonl — the derived descriptor layer, assembled from frozen frames.
+"""Build the derived descriptor layer from the frozen frames. The output is `catalog_<VERSION>.jsonl`,
+where VERSION comes from the extractor — this file never names a version itself.
 
 ONE EXTRACTOR. Every descriptor comes from `foundry.catalog.extract`; this file arranges inputs and
 writes rows. It computes nothing itself — the test-of-a-copy law applied to the catalog layer.
@@ -23,13 +24,17 @@ from statistics import mean
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT)); sys.path.insert(0, str(ROOT / "dev"))
 LAT = ROOT / "foundry" / "results" / "lattice"
-OUT = LAT / "catalog_v1.jsonl"
-META = LAT / "catalog_v1_meta.json"
 from foundry.catalog import extract as X                               # noqa: E402
 from foundry.catalog import reservation as RES                         # noqa: E402
 import terrain_score as T                                              # noqa: E402
 
 LEDGER = LAT / "observatory_reservation.jsonl"
+
+# THE OUTPUT NAME IS DERIVED FROM THE EXTRACTOR'S VERSION, never typed here. F4 makes a changed
+# extraction rule a new catalog version; if the filename were a literal, a version bump would silently
+# overwrite its predecessor and the law would hold only as long as someone remembered it.
+OUT = LAT / f"catalog_{X.VERSION}.jsonl"
+META = LAT / f"catalog_{X.VERSION}_meta.json"
 
 SEED = 20260726
 EXTRACTOR_SHA = hashlib.sha256(
@@ -64,16 +69,18 @@ def v3_frames(retro):
             step["bimodality_coefficient"] = retro[rk]["bimodality_coefficient"]
             step["coherence_provenance"] = "RETRO-FILLED on published frames — disclosed-prior material"
         by.setdefault(key, []).append(step)
-    return by, sha(p), "sounding_v3_survey.json"
+    # the v3 survey predates declared structural expectations, so no row here can be structurally flat
+    return by, sha(p), "sounding_v3_survey.json", {}
 
 
 def batch_frames(p):
     """Any observatory_batch*_panels.json. Discovery is by glob so batch N costs no edit here —
     a builder that must be edited per batch is a builder that will be forgotten at batch 4."""
     if not p.exists():
-        return {}, None, None
+        return {}, None, None, {}
     doc = json.loads(p.read_text())
     by = {}
+    expects = {r["row"]: r.get("structural_expectation") for r in doc["rows"]}
     for r in doc["rows"]:
         for s in r["steps"]:
             if s.get("state") != "usable":
@@ -90,7 +97,7 @@ def batch_frames(p):
                     "r": d.get("r_mean"), "overlap_mean": d.get("overlap_mean"),
                     "bimodality_coefficient": d.get("bimodality_coefficient"),
                     "coherence_provenance": "captured at frame time"})
-    return by, sha(p), p.name
+    return by, sha(p), p.name, expects
 
 
 RETRO_CACHE = LAT / "catalog_retro_coherence_cache.json"
@@ -146,13 +153,13 @@ def retro_coherence():
 
 
 def main() -> int:
-    print("BUILDING catalog_v1\n\n  retro-filling coherence on the frozen v3 frames ...", flush=True)
+    print(f"BUILDING catalog_{X.VERSION}\n\n  retro-filling coherence on the frozen v3 frames ...", flush=True)
     retro = retro_coherence()
-    v3, v3sha, v3name = v3_frames(retro)
+    v3, v3sha, v3name, v3exp = v3_frames(retro)
     batches = [batch_frames(p) for p in sorted(LAT.glob("observatory_batch*_panels.json"))]
 
     rows, sources = [], {}
-    for frames, s, name in [(v3, v3sha, v3name)] + batches:
+    for frames, s, name, expects in [(v3, v3sha, v3name, v3exp)] + batches:
         if not frames:
             continue
         sources[name] = s
@@ -161,7 +168,8 @@ def main() -> int:
                 continue
             steps.sort(key=lambda z: z["ramp_position"])
             gaps = [g for (p2, r2, f2), gs in frames.items() if p2 == prob and r2 is None for g in gs]
-            d = X.descriptors(steps + gaps)
+            d = X.descriptors(steps + gaps, region=region,
+                              structural_expectation=expects.get(prob))
             rows.append({"problem_id": prob, "region": region, "flavour": flavour,
                          "descriptor_version": X.VERSION,
                          "frame_artifact": name, "frame_sha256": s,
@@ -200,7 +208,7 @@ def main() -> int:
     with OUT.open("w") as fh:
         for r in rows:
             fh.write(json.dumps(r) + "\n")
-    meta = {"schema": "observatory-catalog/v1", "catalog_version": "v1.0",
+    meta = {"schema": f"observatory-catalog/{X.VERSION}", "catalog_version": f"{X.VERSION}.0",
             "STATUS": "EXPLORATORY — descriptors on published frames are disclosed-prior material",
             "extractor": "foundry/catalog/extract.py", "extractor_sha256": EXTRACTOR_SHA,
             "descriptor_version": X.VERSION,
@@ -216,12 +224,37 @@ def main() -> int:
                                  "prohibition ships inside every cell."),
             "versioning": ("F4: a changed extraction rule is a NEW catalog version, never an in-place "
                            "edit. Sealed claims quote descriptor@version forever."),
+            "v2_succession": ("v2 adds the `structure` group (`structurally_flat`, "
+                              "`region_size_invariant`). No v1 descriptor changed value, but the "
+                              "version bumps regardless: if `v1` sometimes carried the group and "
+                              "sometimes did not, `descriptor@v1` would stop identifying a schema. "
+                              "catalog_v1.jsonl is left exactly as v1 last built it and is no longer "
+                              "regenerated."),
             "n_cells": sum(1 for r in rows if not r.get("_rollup")),
             "n_rollups": sum(1 for r in rows if r.get("_rollup")),
             "n_problems": len({r["problem_id"] for r in rows})}
     META.write_text(json.dumps(meta, indent=1) + "\n")
 
+    # the succession, emitted HERE by the operation that performs it (Helm Kill 3, ported)
+    from foundry.catalog import maptrail as M
+    M.emit(LAT / "maptrail.jsonl", "version", key=f"version:catalog-{X.VERSION}",
+           schema=meta["schema"], version=meta["catalog_version"],
+           descriptor_version=X.VERSION, extractor_sha256=EXTRACTOR_SHA,
+           adds="the `structure` group: structurally_flat, region_size_invariant",
+           law="F4 — a changed extraction rule is a NEW version, never an in-place edit")
+
+    nflat = sum(1 for r in rows if not r.get("_rollup") and r["structure"]["structurally_flat"])
     print(f"\n  cells    : {meta['n_cells']}")
+    print(f"  structurally flat: {nflat}  (excluded from Helm's sweep — flatness by definition)")
+    dis = [r for r in rows if not r.get("_rollup") and r["structure"].get("agree") is False]
+    if dis:
+        print(f"  DECLARED/OBSERVED DISAGREE on {len(dis)} cell(s) — a declared fixed-cardinality row "
+              f"whose region size moves, or the converse:")
+        for r in dis[:8]:
+            print(f"     {r['problem_id']} / {r['region']} / {r['flavour']}: "
+                  f"declared={r['structure']['declared_expectation']} "
+                  f"flat={r['structure']['structurally_flat']} "
+                  f"invariant={r['structure']['region_size_invariant']}")
     print(f"  rollups  : {meta['n_rollups']}")
     print(f"  problems : {meta['n_problems']}")
     print(f"  retro-filled cells: {sum(1 for r in rows if r.get('coherence_is_retro_filled'))}")

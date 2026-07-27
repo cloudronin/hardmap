@@ -105,6 +105,8 @@ CREATE TABLE catalog (
     kink_step     INTEGER,
     kink_sharpness REAL,
     seal_prohibited_at_v1 INTEGER NOT NULL,
+    structurally_flat INTEGER NOT NULL,
+    region_size_invariant INTEGER,
     coherence_is_retro_filled INTEGER NOT NULL,
     frame_artifact TEXT NOT NULL,
     frame_sha256  TEXT NOT NULL,
@@ -185,6 +187,15 @@ CREATE TABLE candidates (
 CREATE VIEW admissible_catalog AS
     SELECT * FROM catalog WHERE excess_ref IS NOT NULL;
 
+-- What Helm may sweep. `admissible` means "carries a value"; `sweepable` means "carries a value that is
+-- a MEASUREMENT". A fixed-cardinality row's feasible region is every size-k subset — identical at every
+-- ramp value by construction — so its trajectory is flat before any instance is generated. Correlating
+-- it against anything correlates a constant, and reporting it as an extremal reports the definition back
+-- as a discovery. The two views are kept separate because "has a value" and "the value can move" are
+-- different questions, and a reader auditing supply wants the first.
+CREATE VIEW sweepable_catalog AS
+    SELECT * FROM catalog WHERE excess_ref IS NOT NULL AND structurally_flat = 0;
+
 -- Helm §7: the HOLD queue is QUERYABLE, not a list someone keeps. A held candidate carries the gap that
 -- held it, so a standing query resurfaces anything the frontier's grown n now clears.
 CREATE VIEW hold_queue AS
@@ -240,8 +251,16 @@ def compile_db(lat: Path, atlas: Path, out: Path) -> dict:
     batches = []
     for bp in sorted(lat.glob("observatory_batch*_panels.json")):
         batches.append((bp.name, add_source(bp.name, bp, "frames")))
-    catp = lat / "catalog_v1.jsonl"
-    cat_text = add_source("catalog_v1.jsonl", catp, "catalog") if catp.exists() else None
+    # THE NEWEST CATALOG VERSION WINS, and the version is parsed rather than sorted as text — `v10`
+    # sorts before `v2` lexicographically, which is the kind of bug that surfaces years later as a
+    # silently stale table. Older versions stay on disk under F4 and are simply not loaded.
+    cands = []
+    for cp in lat.glob("catalog_v*.jsonl"):
+        stem = cp.stem.split("_")[-1]
+        if stem.startswith("v") and stem[1:].isdigit():
+            cands.append((int(stem[1:]), cp))
+    catp = max(cands)[1] if cands else None
+    cat_text = add_source(catp.name, catp, "catalog") if catp else None
     atlas_text = add_source("atlas_v3.jsonl", atlas, "charges")
 
     # ── problems: census + adjudication, sorted ─────────────────────────────────────────────────────
@@ -336,6 +355,9 @@ def compile_db(lat: Path, atlas: Path, out: Path) -> dict:
                 _flat(c, "supply", "gap_count"),
                 _flat(c, "transition", "kink_step"), _flat(c, "transition", "kink_sharpness"),
                 1 if _flat(c, "transition", "SEAL_PROHIBITED_AT_V1") else 0,
+                1 if _flat(c, "structure", "structurally_flat") else 0,
+                (None if _flat(c, "structure", "region_size_invariant") is None
+                 else (1 if _flat(c, "structure", "region_size_invariant") else 0)),
                 1 if c.get("coherence_is_retro_filled") else 0,
                 c["frame_artifact"], c["frame_sha256"], c["extractor_sha256"]))
         uniq, ks = [], set()
@@ -343,7 +365,7 @@ def compile_db(lat: Path, atlas: Path, out: Path) -> dict:
             if row[:3] in ks:
                 continue
             ks.add(row[:3]); uniq.append(row)
-        con.executemany("INSERT INTO catalog VALUES (" + ",".join("?" * 26) + ")", uniq)
+        con.executemany("INSERT INTO catalog VALUES (" + ",".join("?" * 28) + ")", uniq)
         n_cat = len(uniq)
 
     # ── THE FRONTIER RESERVATION, ENFORCED (Helm §5) ────────────────────────────────────────────────

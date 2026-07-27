@@ -62,10 +62,15 @@ def test_foreign_keys_are_enforced_not_decorative():
     con = sqlite3.connect(DB)
     try:
         con.execute("PRAGMA foreign_keys = ON")
+        # THE ARITY IS READ OFF THE SCHEMA, not counted by hand. A hardcoded column count turns every
+        # future descriptor addition into a spurious failure in a test that is not about arity — which
+        # is how a real constraint check gets weakened to make an unrelated edit pass.
+        ncols = len(con.execute("PRAGMA table_info(catalog)").fetchall())
+        head = "'__nope__','feasible','min','v1'"           # 4 key columns
+        tail = "0,0,0,'x','y','z'"                          # 3 NOT NULL flags + 3 provenance columns
         with pytest.raises(sqlite3.IntegrityError):
-            # 26 columns: 4 keys + 17 nullable descriptors + 2 flags + 3 provenance
-            con.execute("INSERT INTO catalog VALUES ('__nope__','feasible','min','v1',"
-                        + ",".join(["NULL"] * 17) + ",0,0,'x','y','z')")
+            con.execute(f"INSERT INTO catalog VALUES ({head},"
+                        + ",".join(["NULL"] * (ncols - 10)) + f",{tail})")
         assert con.execute("PRAGMA foreign_key_check").fetchall() == []
     finally:
         con.rollback(); con.close()

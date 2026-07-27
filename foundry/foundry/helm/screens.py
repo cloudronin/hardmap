@@ -34,6 +34,13 @@ CHI2_NCP_DF1 = 7.85
 # all. Two is the minimum at which "the extremal was or was not exceeded" has more than one outcome.
 MIN_FRONTIER_CELLS = 2
 
+# THE STRATUM FLOOR, derived rather than chosen. A one-sided permutation test over m cells can attain
+# no p-value smaller than 1/(m+1) — with 19 cells the smallest possible p is exactly 0.05, so 19 is the
+# point at which significance becomes attainable at all and 20 is the first size at which it is
+# attainable with anything to spare. A stratum below it returns INSUFFICIENT rather than a number,
+# which is the same distinction the sounding survey draws between silence and inadmissible speech.
+MIN_STRATUM_CELLS = 20
+
 DISPOSITIONS = ("SLATED", "HELD", "REJECTED")
 
 # ── netting (Helm §3.2): descriptor pairs whose correlation is partly forced by their definitions ────
@@ -61,13 +68,31 @@ def frontier_expectation(con, reserved):
     Reads NO reading from any reserved row — there are none, the rows are not captured. This projects
     from the published population's cells-per-problem, which is disclosed ground and legitimately so."""
     per = [r[0] for r in con.execute(
-        "SELECT COUNT(*) FROM admissible_catalog GROUP BY problem_id ORDER BY 1")]
+        "SELECT COUNT(*) FROM sweepable_catalog GROUP BY problem_id ORDER BY 1")]
     med = per[len(per) // 2] if per else 0
     return {"n_clusters": len(reserved),
             "n_cells": len(reserved) * med,
             "median_cells_per_published_problem": med,
             "reserved": sorted(reserved),
+            "strata": frontier_strata(con, reserved),
             "projected_from": "the published population's cells-per-problem — no reserved row is read"}
+
+
+def frontier_strata(con, reserved):
+    """How many frontier cells each (family x region-kind x flavour) stratum is projected to receive.
+
+    A reserved row contributes ONE cell to each stratum its family/region/flavour combination names, so
+    a stratum's supply is the count of reserved rows in that family. Family is a census TYPING, not a
+    reading — no reserved row is read here, and none could be: they have no frames."""
+    if not reserved:
+        return {}
+    qs = ",".join("?" * len(reserved))
+    fams = con.execute(f"SELECT family FROM problems WHERE problem_id IN ({qs})",
+                       sorted(reserved)).fetchall()
+    out = {}
+    for (f,) in fams:
+        out[f] = out.get(f, 0) + 1
+    return out
 
 
 def mde_correlation(n_clusters):
@@ -137,6 +162,11 @@ def screen(cand, con, frontier, seal_prohibited):
         return ("REJECTED", "F2-foreclosed",
                 "a charge would have to vary along the ramp for this statistic to mean anything; "
                 "cited charges are FIXED ROW LABELS")
+    if cand.get("structurally_flat"):
+        return ("REJECTED", "structurally-flat",
+                "the cell's trajectory is flat BY CONSTRUCTION — a fixed-cardinality row's feasible "
+                "region is every size-k subset, identical at every ramp value before any instance "
+                "exists. Enumerating it correlates a constant, or reports a definition as a discovery.")
 
     # ── 3. frontier power ───────────────────────────────────────────────────────────────────────────
     d = cand.get("disclosed")
@@ -158,6 +188,22 @@ def screen(cand, con, frontier, seal_prohibited):
             return ("HELD", "power-fail",
                     (f"disclosed V {d:.3f} is below the frontier's MDE {mde:.3f}" if mde
                      else "frontier too small to type an MDE"))
+    elif cand["kind"] == "anomaly":
+        # Stratified exchangeability (ruling, 2026-07-27): the bet is adjudicated WITHIN the
+        # candidate's stratum, so what matters is that stratum's supply — not the frontier's total.
+        strata = frontier.get("strata") or {}
+        fam = (cand.get("stratum") or {}).get("family")
+        if fam is None:
+            supply = min(strata.values()) if strata else 0
+            where = "the thinnest stratum it spans"
+        else:
+            supply = strata.get(fam, 0)
+            where = f"stratum family={fam}"
+        if supply < MIN_STRATUM_CELLS:
+            return ("HELD", "power-fail",
+                    f"{where} projects {supply} frontier cell(s); the stratified null needs "
+                    f"{MIN_STRATUM_CELLS} before a permutation p-value below alpha is attainable "
+                    f"at all. Gap: {MIN_STRATUM_CELLS - supply} more reserved rows in that family.")
     return "SLATED", None, None
 
 
@@ -188,6 +234,13 @@ def run(cands, con, frontier, seal_prohibited):
                     else max(0, rec["required_clusters"] - frontier["n_clusters"]))
             elif c["kind"] == "association":
                 rec["required_cells"] = required_cells(c.get("disclosed"))
+            elif c["kind"] == "anomaly":
+                fam = (c.get("stratum") or {}).get("family")
+                strata = frontier.get("strata") or {}
+                supply = strata.get(fam, 0) if fam else (min(strata.values()) if strata else 0)
+                rec["required_stratum_cells"] = MIN_STRATUM_CELLS
+                rec["stratum_family"] = fam
+                rec["gap_in_reserved_rows"] = max(0, MIN_STRATUM_CELLS - supply)
         results.append(rec)
     slated = [r for r in results if r["screen_disposition"] == "SLATED"]
     if slated:

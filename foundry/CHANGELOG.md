@@ -2,6 +2,30 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **The four rulings of 2026-07-27 — executed, and one of them turned into a third case.** **Ruling 1
+  (MCSP):** the `string` family's ramp amended by maptrail `erratum` to *alphabet size at fixed string
+  length*, with the hardening direction pinned at pilot rather than asserted. The first pilot run
+  confounded the dial — it randomised the planted block count per instance, which drives region size far
+  harder than the alphabet, producing a non-monotone series and an endpoint comparison that reported a
+  direction the data did not support. With the block count held fixed the dial moves (excursion 379 vs
+  2x pooled SD 291) and the derived-consequence check confirms upward closure. **But a leave-one-out
+  check shows the movement is carried entirely by |Sigma| = 2**: drop that step and the remaining range
+  is FLAT under the catalog's own rule. That is a THRESHOLD, not a graded dial — a third case the ruling
+  did not name, RAISED FOR RULING. **Ruling 2 (the anomaly null):** `stratified-exchangeability/v1`
+  pinned — permutation within the candidate's (family x region-kind x flavour) stratum, r-band as
+  matching covariate, floor 20 cells derived from 1/(m+1) <= alpha. The 22 held extremals now clear
+  screen 1 and fail on stratum supply instead, with a shrinking gap. **Ratified:** §0.1 over §5, with
+  §5's text amended by erratum. **Addition:** `structurally_flat` at descriptor@v2 — 20 cells across 5
+  fixed-cardinality rows excluded from the sweep via `sweepable_catalog`. Not cosmetic: removing the
+  constants moved optimization's `overlap_ref x r_ref` from 0.843 to 0.810. Catalog bumps to **v2** under
+  F4 (no v1 descriptor changed value, but a version that sometimes carries a group stops identifying a
+  schema); `build_catalog_v1.py` becomes `build_catalog.py` and derives its output name from the
+  extractor. **Wave 2** runs under `sweep/v2` — wave 1 is NOT re-run, its trail being what the engine saw
+  before the rulings existed. Slate still empty; nearest candidate still needs 6 more reserved rows.
+  Kill 1's condition is now met and is recorded as a **deliberate non-fire** with its reason. Two ledger
+  lines minted: *a denominator that omits the questions we knew were bad is a denominator we chose*, and
+  *a null for the disclosed statistic is not a null for the sealed bet*. 378 tests, verify 11/11, W2
+  passes.
 - **Batch 3 + Helm v1 — the frontier exists, and the first wave measures it.** Batch 3 leaves `graph`
   for the first time: six rows across `optimization`, `number-theoretic` and `algebraic`, testing three
   census-declared family ramps that had never been used (two recorded with "precedent: none yet"). All six

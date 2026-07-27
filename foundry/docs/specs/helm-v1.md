@@ -5,6 +5,40 @@ the one reading that had to be resolved before anything could be built.
 
 ---
 
+## Rulings of 2026-07-27, and where each one lives in the code
+
+| ruling | pinned as | enforced in |
+|---|---|---|
+| §5 reads under §0.1 — **ratified**, §5's text amended | `reservation.py` docstring | `maptrail` `erratum:helm-spec-section-5` |
+| the anomaly frontier null — **stratified exchangeability** | `sweep.EXTREMAL_NULL`, `stratified-exchangeability/v1` | `screens.MIN_STRATUM_CELLS`, `frontier_strata` |
+| `structurally_flat` forecloses the false-candidate class | `extract.structure`, descriptor@v2 | `sweepable_catalog` view + backstop screen rule |
+| MCSP's ramp amended, direction pinned at pilot | `mcsp_ramp_pilot.py` | `maptrail` `erratum:string-family-ramp` |
+
+### The stratified null, in full (Helm §3.1's precedent discharged)
+
+An anomaly bet is adjudicated **within the candidate's own stratum**: a permutation against the pooled
+distribution of frontier cells sharing its **(family × region-kind × flavour)**, with **r-band** as a
+matching covariate where supply allows. A stratum below **20 cells** returns `INSUFFICIENT` rather than a
+p-value.
+
+The floor is derived, not chosen: a one-sided permutation test over *m* cells attains no p-value below
+1/(m+1), so 19 is where 0.05 becomes attainable at all and 20 is the first size with anything to spare.
+The three stratification axes are each a paid-for lesson — family per Terroir's verdict, region-kind per
+Q5's contrast instability, flavour per the fingerprint structure — and r-conditioning is the sixth-species
+vaccine. **Exchangeability across unlike strata is the assumption this program has disproven three
+times**; within-stratum is the version the evidence permits.
+
+Versioned like any descriptor, so a claim quoting it quotes `stratified-exchangeability/v1` forever.
+
+### A wave is not re-run when the rules change
+
+Wave 1's trail is committed and stands as what the engine saw at the time. The rulings arrived after it,
+so the amended screens produced **wave 2** — a new sweep under `sweep/v2` — rather than a rewrite. The
+wave id is computed as the next unused one rather than typed, so this cannot be got wrong by editing a
+constant. Kill 3 is about exactly this.
+
+---
+
 ## The resolved reading (§5 vs §0.1) — reserved rows are NOT CAPTURED
 
 The spec says two things that differ in strength:
@@ -50,13 +84,13 @@ The reservation is checked in **three** places, none of which is the batch scrip
    `assert_absent` a reserved row and requires it to raise. Without that test the others would pass just
    as happily against a function whose body was `pass`.
 
-## Two deviations from the spec, both deliberate
+## Deviations from the spec, all deliberate
 
-**Anomaly candidates cannot reach a slate at v1.** §2 lists them as a candidate class, and the sweep
-enumerates all 22. But their null types the *disclosed* extremal's position among published cells, not a
-frontier prediction, and typing the reproduction bet needs an exchangeability model over frontier cells
-that v1 has not pinned. They are HELD, not rejected, under the precedent §3.1 sets for change-points.
-Pinning that null is a ruling, not an implementation detail.
+**Anomaly candidates are held on stratum supply, not on a missing null.** At wave 1 their null typed the
+*disclosed* extremal's position rather than a frontier prediction, and all 22 were held for want of a
+model. The ruling pinned one; they now carry `stratified-exchangeability/v1` and are held because the
+2-row frontier supplies at most 1 cell to any stratum against a floor of 20. The gap is recorded per
+candidate, so the HOLD query revives them as the frontier's strata fill.
 
 **A `netting` rule rejects five definitionally-coupled descriptor pairs.** §3.2 names netting compliance
 without enumerating what is coupled. The couplings are read off `foundry/catalog/extract.py` and listed in

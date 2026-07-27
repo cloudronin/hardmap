@@ -36,7 +36,11 @@ DB = LAT / "observatory.db"
 LEDGER = LAT / "observatory_reservation.jsonl"
 TRAIL = LAT / "wave_trail.jsonl"
 BANK = ROOT / "docs" / "findings" / "sounding-survey-banked-questions.md"
-WAVE = "wave-1"
+
+# THE WAVE ID IS THE NEXT UNUSED ONE, never a constant to edit. A wave that has been recorded is
+# history: when the screens change under a ruling, the answer is a NEW wave, not a re-run that
+# overwrites what the engine actually saw at the time. Kill 3 is about exactly this.
+WAVE = f"wave-{len(T.wave_ids(TRAIL)) + 1}"
 
 
 def mde_for(cand, frontier):
