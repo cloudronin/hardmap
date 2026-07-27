@@ -66,6 +66,34 @@ HOLD_KINDS = ("HELD-power", "HELD-path-gated", "HELD-null-missing")
 # These candidates are still ENUMERATED, because the forking-paths denominator has to count every
 # question the sweep could have asked. They are rejected with the rule named, and the rejection is
 # preserved. A denominator that quietly omits the questions we knew were bad is a denominator we chose.
+# ── DEFINITIONAL CONSUMPTION (ruled 2026-07-27, wave-4 sitting) ──────────────────────────────────────
+# The netting screen barred pairs linked by an IDENTITY or a forced order. That is too narrow. A flag
+# derived from a quantity is coupled to it just as hard: INSUFFICIENT-r's trigger IS r below the floor,
+# so correlating `r_ref` with the share of flags derived from r is a vacuous comparison in descriptor
+# clothing. The flag-derivation graph is known, so the screen reads it instead of guessing.
+#
+# The rule generalises past this pair: any candidate where one descriptor's DEFINITION CONSUMES the
+# other's underlying quantity is barred at sweep time — enumerated, killed, kept in the denominator.
+CONSUMES = {
+    "insufficient_share": {"r"},      # the INSUFFICIENT-r flag fires on r below R_FLOOR
+    "gap_count":          set(),      # GAP is region absence, not an r threshold — NOT coupled to r
+    "r_ref":              {"r"},
+}
+
+# ── SIZE-COUPLED DESCRIPTORS (ruled 2026-07-27) ──────────────────────────────────────────────────────
+# Size is this program's most-convicted confounder: the deflator, the sixth species, N3's size-driven
+# closure prevalence. Wave 4's slate came back four-for-four wearing its costumes. These descriptors all
+# carry r in one hand:
+#
+#   r_ref              IS the region size at the reference step
+#   insufficient_share fires on r-floors
+#   bimodality_max     BC is a coefficient statistic; small overlap samples inflate it MECHANICALLY
+#
+# A marginal correlation between two of these has size in both hands. To reach a slate, such a candidate
+# must present its r-CONDITIONED disclosed prior — and a pair containing `r_ref` itself cannot be
+# conditioned on r at all, so it is barred rather than held.
+SIZE_COUPLED = {"r_ref", "insufficient_share", "bimodality_max"}
+
 DEFINITIONAL_COUPLING = {
     frozenset({"excess_ref", "excess_min"}): "excess_ref >= excess_min by construction",
     frozenset({"excess_ref", "excess_max"}): "excess_ref <= excess_max by construction",
@@ -166,6 +194,14 @@ def screen(cand, con, frontier, seal_prohibited):
 
     # ── 2. F2 / netting / forced-flavour compliance ─────────────────────────────────────────────────
     ds = cand.get("descriptors") or []
+    if len(ds) == 2:
+        a, b = ds
+        if (CONSUMES.get(a, set()) & CONSUMES.get(b, set())) and a != b:
+            return ("REJECTED", "definitional-consumption",
+                    f"`{a}` and `{b}` are both defined over {sorted(CONSUMES.get(a, set()) & CONSUMES.get(b, set()))}"
+                    f" — one descriptor's definition consumes the other's underlying quantity, so the "
+                    f"correlation is vacuous rather than structural. Enumerated, killed, kept in the "
+                    f"denominator.")
     if len(ds) == 2 and frozenset(ds) in DEFINITIONAL_COUPLING:
         return ("REJECTED", "netting",
                 f"definitionally coupled: {DEFINITIONAL_COUPLING[frozenset(ds)]}. The correlation is "
@@ -181,8 +217,26 @@ def screen(cand, con, frontier, seal_prohibited):
                 "region is every size-k subset, identical at every ramp value before any instance "
                 "exists. Enumerating it correlates a constant, or reports a definition as a discovery.")
 
+    # ── 2b. SIZE CONDITIONING (ruled 2026-07-27) ────────────────────────────────────────────────────
+    # Marginals with size in both hands do not get a sitting.
+    touched = set(ds)
+    if len(touched & SIZE_COUPLED) >= 2:
+        if "r_ref" in touched:
+            return ("REJECTED", "size-marginal",
+                    f"{sorted(touched)} are both size-coupled AND one of them IS the size descriptor, "
+                    f"so the pair cannot be conditioned on r — there is no version of this question "
+                    f"with size held out. Small samples inflate BC mechanically; this is that "
+                    f"coupling, not a finding.")
+        if cand.get("disclosed_partial_r") is None:
+            return ("HELD", "needs-r-conditioning",
+                    f"{sorted(touched)} are both size-coupled, with r behind both as common cause. "
+                    f"This reaches a slate only as an r-CONDITIONED partial, with the conditioned "
+                    f"prior disclosed — or it dies there.")
+
     # ── 3. frontier power ───────────────────────────────────────────────────────────────────────────
     d = cand.get("disclosed")
+    if cand.get("disclosed_partial_r") is not None:
+        d = cand["disclosed_partial_r"]      # the conditioned prior is the one that gets screened
     if d is None:
         return "HELD", "power-fail", "no disclosed statistic — the sweep found too few cells to compute it"
     if cand["kind"] == "co-movement":

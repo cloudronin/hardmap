@@ -1803,3 +1803,40 @@ extractor, builder, loader, sweep. Applying it to two of them would have produce
 not one. Stopping short of starting it, with the repo clean at a good commit, was the right call.
 
 > **Ship a gate whole or not at all.** (Beside verify-before-commit.)
+
+---
+
+## Size is special, and the screens now know it — the wave-4 sitting, 2026-07-27
+
+Helm's first non-empty slate came back four candidates strong. Every one of them involved a
+**size-coupled descriptor**: `r_ref` directly, `insufficient_share` (whose flags *fire on* r-floors), or
+`bimodality_max` (a coefficient statistic that small overlap samples inflate mechanically).
+
+Size is this program's most-convicted confounder — the deflator, the sixth species, N3's size-driven
+closure prevalence. The sweep enumerated four costumes it wears and could not see that they were one
+thing, because enumeration has no theory of which variables are dangerous.
+
+> **The sweep's job is enumeration; the screens' job is to know that size is special.**
+
+Three mechanical consequences, all now in `screens.py`:
+
+- **Definitional consumption.** The netting rule barred pairs linked by an identity or a forced order.
+  Too narrow: a flag *derived from* a quantity is coupled to it just as hard. `insufficient_share` fires
+  on r below the floor, so `rho(r_ref, insufficient_share)` is vacuous rather than structural. The
+  flag-derivation graph is data, so the screen reads it.
+- **Size marginals are barred, not held.** A pair containing `r_ref` itself cannot be conditioned on r —
+  there is no version of that question with size held out, so holding it would be pretending a future
+  frontier could rescue it.
+- **Everything else size-coupled must present its r-conditioned prior to reach a slate**, and the
+  *conditioned* value is what the power screen sees. A strong marginal with a weak partial now fails,
+  which is the whole point.
+
+The constructive half is `bimodality_excess`, **declared and not computed**: BC scored against the
+matched-r random-control null the control machinery already generates. The excess discipline governs
+every blend reading and had never reached the coherence descriptors. Once it exists, the real question
+underneath the killed candidates — *is bimodality structured beyond what size forces?* — returns as a
+clean candidate.
+
+What makes this an argument for the constitution rather than against the engine: the machine proposed
+four confounded bets and **stopped at the slate**, and the sitting caught in one observation what no
+screen was built to see. That division of labour is what Helm was bet on.

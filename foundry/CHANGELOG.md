@@ -2,6 +2,22 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **The wave-4 sitting — the slate came back four-for-four confounded, and the screens learned that
+  size is special.** Every slated candidate involved a size-coupled descriptor (`r_ref`,
+  `insufficient_share` whose flags fire on r-floors, `bimodality_max` which small samples inflate
+  mechanically). Dispositions recorded as a Helm §7 `ruling` event: **3 KILL, 1 HOLD-redesign**. Three
+  screens minted: **definitional-consumption** (a flag derived from a quantity is coupled to it as hard
+  as an identity — the flag-derivation graph is data, so the screen reads it), **size-marginal** (a pair
+  containing `r_ref` cannot be conditioned on r, so it is barred rather than held — there is no version
+  of that question with size held out), and **needs-r-conditioning** (any other size-coupled pair must
+  present its r-conditioned prior to reach a slate, and the CONDITIONED value is what the power screen
+  sees, so a strong marginal with a weak partial now fails). `partial_spearman` added; sweep -> v4
+  computes the conditioned prior for every pair. **`bimodality_excess` DECLARED and not computed** —
+  BC against the matched-r control null, landing at the next catalog version through
+  rule-before-computation; the excess discipline had never reached the coherence descriptors.
+  **Q24 ruled:** the 23-row queue relabels **lexicon-typed**, not verified-clean — matched is not
+  verified — and the region-formulation audit runs over the whole queue rather than lazily per roster.
+  Wave 5 waits on `bimodality_excess`. 403 tests, verify 11/11, W2 passes.
 - **The four rulings of the wave-3 sitting, and the slate goes to four.** **Ruling 1:** `3-partition`
   and `MCSP` recorded as **variant frames** — frames frozen and unedited, `encoding_faithful: false` at
   descriptor@v6, barred from charge-joining candidates via a new `charge_joinable_catalog` view (the

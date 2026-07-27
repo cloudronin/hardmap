@@ -342,3 +342,60 @@ def test_a_pooled_candidate_is_never_population_mismatched():
     f = {**FRONTIER_BIG, "strata": {"graph": 10}, "family_supply": {}}
     d, rule, _ = S.screen(_cand(group="pooled", disclosed=0.99), None, f, set())
     assert d == "SLATED", (d, rule)
+
+
+# ── the wave-4 sitting, compiled into screens (ruled 2026-07-27) ────────────────────────────────────
+FRONTIER_SIZED = {**FRONTIER_BIG, "strata": {"optimization": 4}, "family_supply": {"optimization": 9}}
+
+
+def test_definitional_consumption_kills_r_against_its_own_flag():
+    """INSUFFICIENT-r's trigger IS r below the floor. Correlating r with the share of flags derived
+    from r is a vacuous comparison in descriptor clothing."""
+    d, rule, detail = S.screen(_cand(descriptors=["r_ref", "insufficient_share"],
+                                     group="optimization"), None, FRONTIER_SIZED, set())
+    assert d == "REJECTED" and rule == "definitional-consumption"
+    assert "vacuous" in detail
+
+
+def test_a_size_marginal_containing_r_ref_is_barred_not_held():
+    """There is no version of this question with size held out — conditioning r_ref on itself is not
+    a weaker question, it is not the question."""
+    d, rule, detail = S.screen(_cand(descriptors=["bimodality_max", "r_ref"], group="graph"),
+                               None, {**FRONTIER_SIZED, "strata": {"graph": 4},
+                                      "family_supply": {"graph": 9}}, set())
+    assert d == "REJECTED" and rule == "size-marginal"
+    assert "cannot be conditioned on r" in detail
+
+
+def test_two_size_coupled_descriptors_need_the_conditioned_prior_to_reach_a_slate():
+    """Marginals with size in both hands don't get a sitting."""
+    d, rule, _ = S.screen(_cand(descriptors=["bimodality_max", "insufficient_share"],
+                                group="optimization"), None, FRONTIER_SIZED, set())
+    assert d == "HELD" and rule == "needs-r-conditioning"
+
+
+def test_the_conditioned_prior_is_what_gets_screened():
+    """Once conditioned, the PARTIAL is the effect the power screen sees — not the marginal."""
+    c = _cand(descriptors=["bimodality_max", "insufficient_share"], group="optimization",
+              disclosed=0.99, disclosed_partial_r=0.10)
+    d, rule, _ = S.screen(c, None, FRONTIER_SIZED, set())
+    assert d == "HELD" and rule == "power-fail", "the marginal 0.99 must not carry a weak partial"
+
+
+def test_an_unconfounded_pair_is_untouched_by_the_size_rules():
+    d, rule, _ = S.screen(_cand(descriptors=["overlap_ref", "excess_ref"], group="optimization",
+                                disclosed=0.95), None, FRONTIER_SIZED, set())
+    assert d == "SLATED", (d, rule)
+
+
+def test_partial_spearman_removes_a_pure_common_cause():
+    """x and y both driven by z and nothing else -> the partial collapses toward zero."""
+    z = list(range(20))
+    x = [v * 2 for v in z]
+    y = [v * 3 for v in z]
+    assert abs(SW.spearman(x, y) - 1.0) < 1e-12
+    assert abs(SW.partial_spearman(x, y, z) or 0.0) < 1e-9
+
+
+def test_partial_spearman_is_none_when_undefined():
+    assert SW.partial_spearman([1, 1, 1], [1, 2, 3], [1, 2, 3]) is None

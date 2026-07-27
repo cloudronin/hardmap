@@ -25,7 +25,7 @@ from itertools import combinations
 
 # v2: the extremal null is pinned (stratified exchangeability), structurally-flat cells are excluded
 # from the swept population, and the netting rule fires on definitionally-coupled pairs.
-GENERATOR_VERSION = "sweep/v3"
+GENERATOR_VERSION = "sweep/v4"
 
 # The descriptors a co-movement candidate may pair. `kink_sharpness` is deliberately INCLUDED so that
 # screen 1 can visibly reject it: the catalog stamps it seal-prohibited for want of a typed null, and a
@@ -88,6 +88,19 @@ def spearman(xs, ys):
     return None if da == 0 or db == 0 else num / (da * db)
 
 
+def partial_spearman(xs, ys, zs):
+    """Rank-partial correlation of x and y controlling for z (ruled 2026-07-27).
+
+    Size is this program's most-convicted confounder, so any candidate with r in both hands must present
+    its r-CONDITIONED prior to reach a slate. This is the standard first-order partial applied to ranks:
+    rho_xy.z = (rho_xy - rho_xz*rho_yz) / sqrt((1-rho_xz^2)(1-rho_yz^2))."""
+    rxy, rxz, ryz = spearman(xs, ys), spearman(xs, zs), spearman(ys, zs)
+    if None in (rxy, rxz, ryz):
+        return None
+    den = ((1 - rxz ** 2) * (1 - ryz ** 2)) ** 0.5
+    return None if den == 0 else (rxy - rxz * ryz) / den
+
+
 def cramers_v(pairs):
     """Cramér's V on a contingency of (row_label, col_label) pairs."""
     rows = sorted({p[0] for p in pairs})
@@ -126,13 +139,23 @@ def co_movement(con):
     groups = [(None, "pooled")] + [(f, f) for f in _families(con)]
     for a, b in combinations(NUMERIC, 2):
         for fam, label in groups:
-            sql = (f"SELECT c.problem_id, c.{a}, c.{b} FROM sweepable_catalog c "
+            sql = (f"SELECT c.problem_id, c.{a}, c.{b}, c.r_ref FROM sweepable_catalog c "
                    f"JOIN problems p ON p.problem_id = c.problem_id "
                    f"WHERE c.{a} IS NOT NULL AND c.{b} IS NOT NULL"
                    + (f" AND p.family = '{fam}'" if fam else "") + " ORDER BY 1,2,3")
             rows = con.execute(sql).fetchall()
             rho = spearman([r[1] for r in rows], [r[2] for r in rows]) if len(rows) >= MIN_N else None
+            # The r-conditioned prior, computed for every pair so the screen never has to ask for it.
+            # Undefined when r_ref is one of the two descriptors — conditioning on itself is not a
+            # weaker version of the question, it is not the question.
+            zrows = [r for r in rows if r[3] is not None]
+            part = (partial_spearman([r[1] for r in zrows], [r[2] for r in zrows],
+                                     [r[3] for r in zrows])
+                    if (len(zrows) >= MIN_N and "r_ref" not in (a, b)) else None)
             out.append({
+                "disclosed_partial_r": part,
+                "conditioning": ("r_ref held out via first-order rank partial" if part is not None
+                                 else "not conditioned — r_ref is one of the pair, or supply too thin"),
                 "kind": "co-movement", "candidate_id": _cid("comov", a, b, label),
                 "statistic": f"Spearman rho({a}, {b}) over {label} trajectories",
                 "descriptors": [a, b], "group": label,
