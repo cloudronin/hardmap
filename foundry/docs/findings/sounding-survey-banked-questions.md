@@ -294,3 +294,51 @@ study cannot separate.
 **Distinguishing them is a future sealed design's job, not a findings paragraph's.** A study that wanted
 this would declare the aggregation level in advance, stratify on |R| explicitly, and separate
 within-class from between-class variance before looking.
+
+---
+
+*Banked from the hardening figure (2026-07-26). Descriptive observations, no mechanism language, no claim.*
+
+## Q16 — the coherence dial and the blend-excess trajectory move together on `sat-2`
+
+Along the same five declared ramp steps, mean pairwise overlap runs 0.5398 · 0.5629 · 0.5801 · 0.8000 ·
+0.7111, and the survey's mean fair-null blend-excess over the four flavours runs −0.4270 · −0.5169 ·
+−0.4974 · −0.6982 · −0.7257.
+
+**Both deepen as the ratio rises.** That is the whole observation: two dials on one row, moving the same
+way, on five points with no test attached and no mechanism named.
+
+It is exactly the shape N7's coherence candidate would predict, which is precisely why it is banked and not
+narrated — a five-point co-movement on a single row is what a prior looks like before it has been tested,
+and the same-population contamination that killed N6's in-sample seal applies here in full.
+
+## Q17 — no overlap bimodality on any measurable step, and it was measured rather than eyeballed
+
+The second banked hook asked whether overlap bimodality appears where trajectories kinked. The first draft
+of this entry said the distributions "read as single-moded" — an eyeball claim, which this program does not
+take. Replaced with a statistic, computed per step and stored in the manifest.
+
+**Bimodality coefficient** `BC = (skew² + 1) / (kurt + 3(n−1)²/((n−2)(n−3)))`; `BC > 0.555` is the
+conventional flag against a uniform reference.
+
+| row | step | solutions | pairs | BC |
+|---|---:|---:|---:|---:|
+| sat-2 | 0.4 | 1,152 | 19,990 | 0.3651 |
+| sat-2 | 0.7 | 672 | 19,966 | 0.3679 |
+| sat-2 | 1.0 | 128 | 8,128 | 0.4678 |
+| sat-2 | 1.3 | 16 | 120 | 0.4748 |
+| sat-2 | 1.6 | 42 | 861 | 0.4440 |
+| Shidoku | 4 clues | 6 | 15 | 0.4500 |
+| Shidoku | 2 clues | 24 | 276 | **0.5271** |
+| Shidoku | 0 clues | 288 | 19,929 | 0.3940 |
+
+**0 of 8 measurable steps exceed the threshold.** The maximum is 0.5271, at Shidoku's 2-clue step.
+Two further steps carry too few pairs to compute it (1 solution: no pairs; 2 solutions: one pair).
+
+Recorded as a **negative observation**, deliberately, because an absence is only informative once written
+down: a later claim about clustering must contend with the projection-free panel showing no bimodality on
+the first two rows looked at.
+
+**And one thing deliberately not reported as evidence:** the plotted 22-bin histograms show between 2 and 9
+local maxima per step. That is binning noise at these sample sizes, and it is exactly the kind of number
+that looks like a measurement and is not. BC is the statistic; the mode count is decoration.

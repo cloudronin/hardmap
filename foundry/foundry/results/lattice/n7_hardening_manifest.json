@@ -1,0 +1,224 @@
+{
+ "schema": "n7-hardening-figure/v1",
+ "STATUS": "EXPLORATORY \u2014 illustration-grade, no verdict, no scored statistic",
+ "not_citable_as": "a result. Nothing here was predicted in advance and nothing is scored. The scatter panels are projections and cannot support an inference; the overlap-distribution panel is the projection-free signal and is the only one a future claim could rest on.",
+ "provenance": {
+  "seed": 20260726,
+  "solution_sets": "regenerated through terrain_score.replay from the frozen ramp manifest seeds; every step's replay reproduces its frozen reading",
+  "instance_choice": "seeded per step (SEED + ramp_position), recorded; never chosen by looking at the data",
+  "projection": "PCA on Hamming/coordinate vectors, FIT ONCE on the pooled union across steps"
+ },
+ "row_choice": "sat-2 over sat-3 after checking the GAP records as instructed: sat-3 has 2 usable steps of 5 (positions 2 and 3 INSUFFICIENT, position 4 GAP-no-region), which is the gap-ridden condition the fallback rule names. sat-2 has 5 usable of 5.",
+ "panels": [
+  {
+   "row": "sat-2",
+   "file": "hardening-sat2.svg",
+   "projection_variance_first_two_components": 0.2419,
+   "steps": [
+    {
+     "ramp_position": 0,
+     "ramp_value": 0.4,
+     "seed": 20261280,
+     "state": "usable",
+     "instance_index": 0,
+     "n_instances_at_step": 3,
+     "instance_sizes": [
+      1152,
+      1344,
+      1152
+     ],
+     "n_solutions": 1152,
+     "mean_pairwise_overlap": 0.5398,
+     "n_pairs_used": 19990,
+     "bimodality_coefficient": 0.3651,
+     "bimodal_flag": false
+    },
+    {
+     "ramp_position": 1,
+     "ramp_value": 0.7,
+     "seed": 20262280,
+     "state": "usable",
+     "instance_index": 1,
+     "n_instances_at_step": 3,
+     "instance_sizes": [
+      340,
+      672,
+      360
+     ],
+     "n_solutions": 672,
+     "mean_pairwise_overlap": 0.5629,
+     "n_pairs_used": 19966,
+     "bimodality_coefficient": 0.3679,
+     "bimodal_flag": false
+    },
+    {
+     "ramp_position": 2,
+     "ramp_value": 1.0,
+     "seed": 20263280,
+     "state": "usable",
+     "instance_index": 0,
+     "n_instances_at_step": 3,
+     "instance_sizes": [
+      128,
+      40,
+      180
+     ],
+     "n_solutions": 128,
+     "mean_pairwise_overlap": 0.5801,
+     "n_pairs_used": 8128,
+     "bimodality_coefficient": 0.4678,
+     "bimodal_flag": false
+    },
+    {
+     "ramp_position": 3,
+     "ramp_value": 1.3,
+     "seed": 20264280,
+     "state": "usable",
+     "instance_index": 1,
+     "n_instances_at_step": 3,
+     "instance_sizes": [
+      18,
+      16,
+      56
+     ],
+     "n_solutions": 16,
+     "mean_pairwise_overlap": 0.8,
+     "n_pairs_used": 120,
+     "bimodality_coefficient": 0.4748,
+     "bimodal_flag": false
+    },
+    {
+     "ramp_position": 4,
+     "ramp_value": 1.6,
+     "seed": 20265280,
+     "state": "usable",
+     "instance_index": 2,
+     "n_instances_at_step": 3,
+     "instance_sizes": [
+      5,
+      20,
+      42
+     ],
+     "n_solutions": 42,
+     "mean_pairwise_overlap": 0.7111,
+     "n_pairs_used": 861,
+     "bimodality_coefficient": 0.444,
+     "bimodal_flag": false
+    }
+   ],
+   "bimodality_note": "BC > 0.555 is the conventional flag. Measured rather than eyeballed; a local-maxima count on the plotted histogram is binning noise at these sample sizes and is deliberately not reported."
+  },
+  {
+   "row": "sudoku",
+   "file": "hardening-shidoku.svg",
+   "projection_variance_first_two_components": 0.348,
+   "steps": [
+    {
+     "ramp_position": 0,
+     "ramp_value": 12,
+     "seed": 20261171,
+     "state": "GAP-no-region",
+     "instance_index": null,
+     "n_instances_at_step": null,
+     "instance_sizes": null,
+     "n_solutions": 0,
+     "mean_pairwise_overlap": null,
+     "n_pairs_used": 0,
+     "bimodality_coefficient": null,
+     "bimodal_flag": null
+    },
+    {
+     "ramp_position": 1,
+     "ramp_value": 8,
+     "seed": 20262171,
+     "state": "INSUFFICIENT",
+     "instance_index": 1,
+     "n_instances_at_step": 3,
+     "instance_sizes": [
+      2,
+      2,
+      1
+     ],
+     "n_solutions": 2,
+     "mean_pairwise_overlap": 0.75,
+     "n_pairs_used": 1,
+     "bimodality_coefficient": null,
+     "bimodal_flag": null
+    },
+    {
+     "ramp_position": 2,
+     "ramp_value": 6,
+     "seed": 20263171,
+     "state": "INSUFFICIENT",
+     "instance_index": 0,
+     "n_instances_at_step": 3,
+     "instance_sizes": [
+      1,
+      3,
+      2
+     ],
+     "n_solutions": 1,
+     "mean_pairwise_overlap": null,
+     "n_pairs_used": 0,
+     "bimodality_coefficient": null,
+     "bimodal_flag": null
+    },
+    {
+     "ramp_position": 3,
+     "ramp_value": 4,
+     "seed": 20264171,
+     "state": "INSUFFICIENT",
+     "instance_index": 1,
+     "n_instances_at_step": 3,
+     "instance_sizes": [
+      3,
+      6,
+      3
+     ],
+     "n_solutions": 6,
+     "mean_pairwise_overlap": 0.6,
+     "n_pairs_used": 15,
+     "bimodality_coefficient": 0.45,
+     "bimodal_flag": false
+    },
+    {
+     "ramp_position": 4,
+     "ramp_value": 2,
+     "seed": 20265171,
+     "state": "usable",
+     "instance_index": 2,
+     "n_instances_at_step": 3,
+     "instance_sizes": [
+      36,
+      24,
+      24
+     ],
+     "n_solutions": 24,
+     "mean_pairwise_overlap": 0.4293,
+     "n_pairs_used": 276,
+     "bimodality_coefficient": 0.5271,
+     "bimodal_flag": false
+    },
+    {
+     "ramp_position": 5,
+     "ramp_value": 0,
+     "seed": 20266171,
+     "state": "usable",
+     "instance_index": 0,
+     "n_instances_at_step": 3,
+     "instance_sizes": [
+      288,
+      288,
+      288
+     ],
+     "n_solutions": 288,
+     "mean_pairwise_overlap": 0.248,
+     "n_pairs_used": 19939,
+     "bimodality_coefficient": 0.4041,
+     "bimodal_flag": false
+    }
+   ],
+   "bimodality_note": "BC > 0.555 is the conventional flag. Measured rather than eyeballed; a local-maxima count on the plotted histogram is binning noise at these sample sizes and is deliberately not reported."
+  }
+ ]
+}
