@@ -2,6 +2,21 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **Batch 6 and wave 3 — the slate opens.** The first roster drawn from the verified-clean queue and
+  the first **vetted before hashing** under the new roster protocol: eight vertex- and item-subset rows,
+  every ambient fixed by construction, 6 shipped and **0 excluded at birth** — the first batch since
+  batch 2 with no exclusions, which is what vetting was supposed to buy. Its reservation took the
+  frontier from 6 to **8 clusters**, the size the hold queue had been naming since wave 1.
+  **Wave 3 slated one candidate:** Spearman rho(`overlap_ref`, `bimodality_max`) over `number-theoretic`
+  trajectories, disclosed **+0.9025** against a frontier MDE of 0.8491, family size 1, Holm 0.05. It is
+  the same candidate that topped the hold queue at 0.866 in waves 1 and 2; nothing was tuned to clear it,
+  the gap was recorded at wave 1 and the frontier walked to it. Two things flagged for the ruling and not
+  resolved: the two descriptors are computed from the same overlap distribution (no identity, so netting
+  correctly does not fire, but part of the association may be boundary-induced), and **the frontier
+  contains no `number-theoretic` row** — whether that makes the test a stronger out-of-family transfer or
+  a weaker different-population test is the owner's call. Four more candidates now sit ONE reserved row
+  from adjudication. 393 candidates enumerated, 103 rejected, 289 held. 392 tests, verify 11/11, W2
+  passes.
 - **Batch 5 — the first CONTRAST-DIAL capture, and three mis-typings.** MCSP re-enters under the
   typing ruled 2026-07-27: two declared alphabet levels {2, 6}, trajectory descriptors reading
   `n.a.-contrast`, and the between-level delta in their place (majority -0.161, minority -0.263, min

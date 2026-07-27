@@ -1,0 +1,107 @@
+{
+ "schema": "observatory-batch-census/v1",
+ "STATUS": "DECLARATION \u2014 no reading exists for any row here",
+ "batch": 6,
+ "why_this_batch": "the first roster drawn from the VERIFIED-CLEAN queue produced by the REACH-subset re-adjudication, and the first vetted before hashing. Eight vertex- and item-subset rows, every ambient fixed by construction. Its reservation takes the frontier from 6 to 8 clusters \u2014 the size at which wave 1's nearest held candidate becomes adjudicable.",
+ "families": {
+  "graph": {
+   "census_ramp": "edge density",
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ]
+  },
+  "optimization": {
+   "census_ramp": "constraint-to-ground-set ratio",
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ]
+  }
+ },
+ "roster": {
+  "directed-feedback-vertex-set": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground digraph",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "maximum-minimal-vertex-cover": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground graph",
+   "structural_expectation": null,
+   "capture_mode": "RAMPED"
+  },
+  "partial-vertex-cover": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground graph",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "planar-dominating-set": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground grid graph",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "planar-independent-set": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground grid graph",
+   "structural_expectation": "downward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "planar-vertex-cover": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground grid graph",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "multidimensional-knapsack": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "capacity constraints per item",
+   "structural_expectation": "downward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "red-blue-set-cover": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "blue elements per candidate set",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  }
+ },
+ "n_roster": 8,
+ "reservation": {
+  "authority": "Helm v1 \u00a75 \u2014 a declared fraction of every fan-out batch is reserved",
+  "fraction": 0.25,
+  "rule": "rows ordered by sha256(f'{batch}:{row}') ascending; the first ceil(fraction * n) are RESERVED. Deterministic, reproducible from the roster alone, and outcome-blind by construction \u2014 the reserved rows are not built at declaration time, so no measured value exists for the rule to see.",
+  "roster_sha256": "a43cc8a1c87dfb36b5ced1fc93b58d829a6f8e074007b3e58df528572519a180",
+  "reserved": [
+   "maximum-minimal-vertex-cover",
+   "planar-dominating-set"
+  ],
+  "n_reserved": 2,
+  "n_published": 6,
+  "declared_at": "2026-07-27T05:51:34Z",
+  "frames_do_not_exist": "reserved rows are NOT CAPTURED. Helm \u00a70.1 requires predictions hashed before their frames exist, which is strictly stronger than withholding frames that already exist: under it, blindness is physics rather than a guard anyone has to be trusted to respect. \u00a75's 'captured last in the batch' is honoured maximally \u2014 last means after the wave's predictions are sealed."
+ },
+ "published": [
+  "directed-feedback-vertex-set",
+  "multidimensional-knapsack",
+  "partial-vertex-cover",
+  "planar-independent-set",
+  "planar-vertex-cover",
+  "red-blue-set-cover"
+ ],
+ "carried_forward": {
+  "covering-radius": {
+   "disposition": "STILL HELD \u2014 needs an ambient-fixed framing",
+   "why": "carried forward unchanged from batches 4 and 5"
+  }
+ }
+}

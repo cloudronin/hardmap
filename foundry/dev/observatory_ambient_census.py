@@ -39,6 +39,7 @@ def batch_rows():
     import observatory_batch3 as B3
     import observatory_batch4 as B4
     import observatory_batch5 as B5
+    import observatory_batch6 as B6
     out = []
     for row, (b, _e) in B1.ROWS.items():
         out.append((row, 1, b, B1.EDGE_DENSITY_RAMP))
@@ -50,6 +51,8 @@ def batch_rows():
         out.append((row, 4, b, ramp))
     for row, (b, _e, _f, ramp, _i, _m) in B5.ROWS.items():
         out.append((row, 5, b, ramp))
+    for row, (b, _e, _f, ramp, _i) in B6.ROWS.items():
+        out.append((row, 6, b, ramp))
     return out
 
 
