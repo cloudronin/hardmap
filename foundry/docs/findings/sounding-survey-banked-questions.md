@@ -450,3 +450,31 @@ tightening curves, since ambient growth is mixed into the movement.
 should say is a **catalog v3+ question** and goes through the rule-before-computation channel with Q20 —
 the rule declared before it is run. **Not retrofitted.** Related: the same family of defect the MCSP pilot
 found at the design level, *a ramp is not measured until everything but the dial is held fixed*.
+
+## Q22 — three of eight rostered rows have no subset region, and the queue is 127 rows deep
+
+Batch 5 rostered eight REACH-subset rows and found **three with no subset region at all**:
+
+| row | its object |
+|---|---|
+| `min-sum-set-cover` | an ORDERING of the sets — cost is the sum over elements of first-cover position |
+| `cutwidth` | a LINEAR LAYOUT of the vertices |
+| `domatic-number` | a PARTITION of the vertices into dominating sets |
+
+None is a subset problem. In each case the subset-shaped reading collapses onto a row already built
+(`set-cover`, `dominating-set`) and the actual question lives over permutations or partitions — classes
+the census has, or in the partition case does not yet have.
+
+The roster was declared and hashed **before** the generators were written, which is why this surfaced:
+the check could not be quietly skipped once it became inconvenient. But the rows were rostered without
+their region formulations being vetted, and that is the process defect, not the census's alone.
+
+**Why it matters at scale:** the REACH-subset class holds **127 rows** and nothing has re-examined it
+since the census. Three mis-typings in a roster of eight is not an estimate of the true rate — the roster
+was not random, and small-sample rates are exactly what this program refuses to read as prevalence — but
+it is enough to say the class is **not clean**, and the 222-row build queue is very likely over-counted.
+
+**Status:** open. A re-adjudication of REACH-subset would be a census pass, not a batch, and it should
+declare its typing rule before it runs so the answer cannot pick the rule. Related: Q20 (which declared
+dials are secretly thresholds) and Q21 (which ramps move their own ambient) — all three are the same
+species, a typing made once and never re-tested against what building the row actually requires.

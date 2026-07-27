@@ -153,3 +153,22 @@ def test_no_marker_string_survives_anywhere_in_the_catalog_table():
             assert n == 0, f"column {c} carries {n} 'n.a.' marker string(s) as a value"
     finally:
         con.close()
+
+
+def test_contrast_rows_carry_a_delta_and_no_trajectory():
+    if not DB.exists():
+        pytest.skip("observatory.db not built")
+    con = sqlite3.connect(DB)
+    try:
+        n = con.execute("SELECT COUNT(*) FROM catalog WHERE capture_mode='CONTRAST-DIAL'").fetchone()[0]
+        if not n:
+            pytest.skip("no contrast rows in this build")
+        bad = con.execute("SELECT COUNT(*) FROM catalog WHERE capture_mode='CONTRAST-DIAL' AND ("
+                          "traj_class IS NOT NULL OR slope_sign IS NOT NULL "
+                          "OR overlap_slope IS NOT NULL)").fetchone()[0]
+        assert bad == 0, f"{bad} contrast cell(s) leaked a trajectory descriptor into SQL"
+        got = con.execute("SELECT COUNT(*) FROM catalog WHERE capture_mode='CONTRAST-DIAL' "
+                          "AND contrast_delta IS NOT NULL").fetchone()[0]
+        assert got > 0, "no contrast cell carries the between-level delta that replaces the slope"
+    finally:
+        con.close()

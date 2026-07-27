@@ -2,6 +2,24 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **Batch 5 — the first CONTRAST-DIAL capture, and three mis-typings.** MCSP re-enters under the
+  typing ruled 2026-07-27: two declared alphabet levels {2, 6}, trajectory descriptors reading
+  `n.a.-contrast`, and the between-level delta in their place (majority -0.161, minority -0.263, min
+  -0.273). The contrast group lands at **descriptor@v5** with its own loader columns; level descriptors
+  stand, and a `traj_class` never reaches SQL for a contrast row. The MCSP generator is IMPORTED from the
+  pilot that measured it rather than copied — the row whose ramp was amended is built by the same code
+  that amended it. **Three of eight rostered rows have no subset region:** `min-sum-set-cover` scores an
+  ordering, `cutwidth` a linear layout, `domatic-number` a partition. Recorded as TYPINGS, not build
+  failures, and banked as **Q22** — the REACH-subset class holds 127 rows and nothing has re-examined it
+  since the census. **A tooling bug found and corrected in daylight:** `conformance_at_birth` hardcoded
+  its probe at ramp value 0.30, a density-shaped number, so MCSP's alphabet ramp called `randrange(0)`
+  and the pipeline recorded the ROW as failing conformance rather than the probe as wrong — the same
+  defect had been silently mis-probing every non-density ramp, including the algebraic rows at 1.2..3.0.
+  Fixed to probe at the median declared level of the row's own ramp. The spurious exclusion record
+  **stands in the maptrail with a correcting erratum beside it**, because correcting by erratum rather
+  than by editing history is the only way a reader can tell a corrected mistake from one that never
+  happened. Batch 5 ships 3 rows; catalog 260 -> 282 cells, frames 1234 -> 1322, frontier 4 -> 6 rows —
+  two short of wave 1's first adjudicable candidate. 392 tests, verify 11/11, W2 passes.
 - **Q21 ruled and executed — and the DERIVED census found twice what the hand list would have.**
   `observatory_ambient_census.py` RUNS every built row's generator across its declared ramp and measures
   the ground-set width, rather than listing the rows someone believes are edge-subset rows. It found

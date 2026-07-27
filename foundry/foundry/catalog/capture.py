@@ -79,7 +79,13 @@ def ambient_stability(build, ramp, rng, n_probe=3):
 
 
 def conformance_at_birth(build, expect, rng, probe_ramp=0.30, n_probe=4):
-    """Derived consequences of the definition, checked independently of the generator's own filter."""
+    """Derived consequences of the definition, checked independently of the generator's own filter.
+
+    `probe_ramp` MUST COME FROM THE ROW'S OWN RAMP. The default here is a density-shaped value and is
+    kept only for callers that predate the parameter; `capture_row` passes the median declared level.
+    A hardcoded probe silently mis-tests every ramp that is not a density: the algebraic rows (1.2..3.0)
+    were being probed below their whole range, and MCSP's alphabet levels {2, 6} made `randrange(0)`
+    raise — which the pipeline then recorded as the ROW failing conformance rather than the probe."""
     checks, fails, regs = [], [], []
     for _ in range(n_probe):
         try:
@@ -126,7 +132,8 @@ def conformance_at_birth(build, expect, rng, probe_ramp=0.30, n_probe=4):
     return checks, fails
 
 
-def capture_row(row, build, expect, ramp, ops, seed, control_fn, n_inst=3):
+def capture_row(row, build, expect, ramp, ops, seed, control_fn, n_inst=3,
+                capture_mode="RAMPED"):
     """Conformance, then the full dial panel across the declared ramp. Returns (record, excluded).
 
     `control_fn(region, rng) -> control_region` is INJECTED rather than imported. The library must not
@@ -140,9 +147,13 @@ def capture_row(row, build, expect, ramp, ops, seed, control_fn, n_inst=3):
                                  f"across the declared ramp, so a trajectory would confound tightening "
                                  f"with a growing space"],
                       "ground_set_widths": widths}
-    checks, fails = conformance_at_birth(build, expect, rng)
+    # Probe at the MEDIAN DECLARED LEVEL — the row's own ramp, by the same positional rule the catalog
+    # uses for its reference step. Reused rather than invented, and it makes the check meaningful for
+    # ramps that are not densities.
+    probe = list(ramp)[len(list(ramp)) // 2]
+    checks, fails = conformance_at_birth(build, expect, rng, probe_ramp=probe)
     if fails:
-        return None, {"row": row, "reason": fails, "conformance": checks}
+        return None, {"row": row, "reason": fails, "conformance": checks, "probe_ramp": probe}
 
     steps = []
     for pos, val in enumerate(ramp):
@@ -193,4 +204,5 @@ def capture_row(row, build, expect, ramp, ops, seed, control_fn, n_inst=3):
             steps.append({"ramp_position": pos, "ramp_value": val, "region": kind,
                           "state": "usable", "dials": dials})
     return {"row": row, "ramp_values": list(ramp), "structural_expectation": expect,
+            "capture_mode": capture_mode,
             "conformance": {"checks": checks, "passed": True}, "steps": steps}, None

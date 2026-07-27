@@ -202,6 +202,24 @@ def main() -> int:
         json.dumps(queue, indent=1) + "\n")
     print(f"  queued    {len(queue['rows'])} row(s) for re-capture under corrected dials")
 
+    M.emit(TRAIL, "erratum", key="erratum:batch5-mcsp-spurious-exclusion",
+           artifact="observatory_batch5_panels.json",
+           problem="minimum-common-string-partition",
+           old="EXCLUDED at birth — builder raised: empty range for randrange()",
+           new="captured as the first CONTRAST-DIAL row, levels |Sigma| in {2, 6}",
+           why=("the exclusion was a TOOLING ARTIFACT, not a property of the row. "
+                "`conformance_at_birth` hardcoded its probe at ramp value 0.30 — a density-shaped "
+                "number — and MCSP's ramp is alphabet size, so the probe called randrange(0) and the "
+                "pipeline recorded the ROW as failing conformance rather than the probe as wrong."),
+           scope=("the same defect silently mis-probed every non-density ramp: the algebraic rows were "
+                  "probed at 0.30, below their whole declared range of 1.2..3.0"),
+           fix="capture_row now probes at the MEDIAN DECLARED LEVEL of the row's own ramp",
+           why_not_deleted=("the exclusion record stands. It is what the run did, and the maptrail "
+                            "corrects by erratum rather than by editing history — which is the only "
+                            "way a reader can tell a corrected mistake from one that never happened."),
+           authority="build-time correction, 2026-07-27")
+    print("  erratum   batch 5 MCSP exclusion was a probe bug, corrected not deleted")
+
     print(f"\n  {len(M.read(TRAIL))} maptrail record(s); "
           f"{sum(1 for r in M.read(TRAIL) if not r['reconstructed'])} emitted at event time")
     return 0

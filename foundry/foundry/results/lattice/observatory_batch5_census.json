@@ -1,0 +1,114 @@
+{
+ "schema": "observatory-batch-census/v1",
+ "STATUS": "DECLARATION \u2014 no reading exists for any row here",
+ "batch": 5,
+ "why_this_batch": "batch 5 exercises the CONTRAST-DIAL path for the first time. minimum-common-string-partition re-enters under the typing ruled on 2026-07-27 \u2014 two declared alphabet levels rather than a ramp \u2014 and seven ramped rows keep the fan-out moving and the frontier growing toward wave 1's first adjudicable candidate.",
+ "families": {
+  "graph": {
+   "census_ramp": "edge density",
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ]
+  },
+  "optimization": {
+   "census_ramp": "constraint-to-ground-set ratio",
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ]
+  },
+  "string": {
+   "census_ramp": "alphabet size at fixed string length (amended by erratum 2026-07-27)",
+   "ramp_values": [
+    2,
+    6
+   ]
+  }
+ },
+ "roster": {
+  "minimum-common-string-partition": {
+   "family": "string",
+   "instantiates_the_family_ramp_as": "alphabet size at fixed string length",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "CONTRAST-DIAL"
+  },
+  "bin-packing": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "items per bin capacity",
+   "structural_expectation": "downward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "k-set-packing": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "sets per universe element",
+   "structural_expectation": "downward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "min-sum-set-cover": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "sets per universe element",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "job-interval-selection": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "jobs per time slot",
+   "structural_expectation": "downward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "cutwidth": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground graph",
+   "structural_expectation": null,
+   "capture_mode": "RAMPED"
+  },
+  "domatic-number": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground graph",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "biclique-cover": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground graph",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  }
+ },
+ "n_roster": 8,
+ "reservation": {
+  "authority": "Helm v1 \u00a75 \u2014 a declared fraction of every fan-out batch is reserved",
+  "fraction": 0.25,
+  "rule": "rows ordered by sha256(f'{batch}:{row}') ascending; the first ceil(fraction * n) are RESERVED. Deterministic, reproducible from the roster alone, and outcome-blind by construction \u2014 the reserved rows are not built at declaration time, so no measured value exists for the rule to see.",
+  "roster_sha256": "9cc32478046d69a6afed40140368a95d344aa1a64424c290878047f78f0e9774",
+  "reserved": [
+   "bin-packing",
+   "k-set-packing"
+  ],
+  "n_reserved": 2,
+  "n_published": 6,
+  "declared_at": "2026-07-27T05:17:50Z",
+  "frames_do_not_exist": "reserved rows are NOT CAPTURED. Helm \u00a70.1 requires predictions hashed before their frames exist, which is strictly stronger than withholding frames that already exist: under it, blindness is physics rather than a guard anyone has to be trusted to respect. \u00a75's 'captured last in the batch' is honoured maximally \u2014 last means after the wave's predictions are sealed."
+ },
+ "published": [
+  "biclique-cover",
+  "cutwidth",
+  "domatic-number",
+  "job-interval-selection",
+  "min-sum-set-cover",
+  "minimum-common-string-partition"
+ ],
+ "carried_forward": {
+  "covering-radius": {
+   "disposition": "STILL HELD \u2014 needs a framing that keeps the ambient fixed",
+   "why": "carried forward from batch 4 unchanged. The algebraic family's last unbuilt row still has no region formulation whose ambient stays put while the dial moves."
+  }
+ }
+}

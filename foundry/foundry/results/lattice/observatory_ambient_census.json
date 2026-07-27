@@ -8,7 +8,7 @@
   "shape_and_transition_descriptors": "n.a.-ambient-confounded \u2014 slope, traj_class and kink presuppose a fixed space; here the x-axis moves the universe too",
   "not_the_kink_precedent": "kink values are meaningful-but-untested; these are meaningless-as-defined"
  },
- "n_rows": 42,
+ "n_rows": 45,
  "n_confounded": 6,
  "confounded": [
   "cluster-deletion",
@@ -491,6 +491,60 @@
    ],
    "ambient_stable": false,
    "ambient_confounded": true
+  },
+  {
+   "problem_id": "biclique-cover",
+   "batch": 5,
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ],
+   "ground_set_widths": [
+    11,
+    11,
+    11,
+    11,
+    11
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "job-interval-selection",
+   "batch": 5,
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ],
+   "ground_set_widths": [
+    11,
+    11,
+    11,
+    11,
+    11
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "minimum-common-string-partition",
+   "batch": 5,
+   "ramp_values": [
+    2,
+    6
+   ],
+   "ground_set_widths": [
+    10,
+    10
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
   },
   {
    "problem_id": "dominating-set",

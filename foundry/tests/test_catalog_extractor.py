@@ -250,3 +250,40 @@ def test_an_unconfounded_row_keeps_its_shape():
     st = _steps([-0.5, -0.4, -0.3, -0.2, -0.1], sds=[0.001] * 5)
     d = X.descriptors(st, region="feasible", ambient_confounded=False)
     assert d["shape"]["traj_class"] == "MONOTONE" and d["ambient_confounded"] is False
+
+
+# ── CONTRAST-DIAL rows — descriptor@v5 ──────────────────────────────────────────────────────────────
+def _two_level(v0, v1, lo=2, hi=6, states=("usable", "usable")):
+    return [{"ramp_position": 0, "ramp_value": lo, "state": states[0], "blend_excess": v0,
+             "control_sd": 0.01, "r": 600},
+            {"ramp_position": 1, "ramp_value": hi, "state": states[1], "blend_excess": v1,
+             "control_sd": 0.01, "r": 300}]
+
+
+def test_contrast_is_a_signed_difference_not_a_slope():
+    c = X.contrast(_two_level(-0.181, -0.342))
+    assert abs(c["delta"] - (-0.161)) < 1e-9
+    assert c["direction"] == -1 and c["level_low"] == 2 and c["level_high"] == 6
+
+
+def test_contrast_needs_both_levels_admissible():
+    st = _two_level(-0.2, -0.3)
+    st[1]["insufficient"] = "INSUFFICIENT-r"
+    c = X.contrast(st)
+    assert c["delta"] is None and c["levels_read"] == 1
+
+
+def test_contrast_dial_voids_trajectory_descriptors():
+    """A slope from two points is a direction with no shape under it, and traj_class would be
+    reporting the level count rather than the row."""
+    d = X.descriptors(_two_level(-0.181, -0.342), region="feasible", capture_mode="CONTRAST-DIAL")
+    assert d["shape"]["traj_class"] == X.NA_CONTRAST
+    assert d["shape"]["slope_sign"] is None and d["transition"]["kink_step"] is None
+    assert d["coherence"]["overlap_slope"] is None
+    assert d["contrast"]["delta"] is not None
+    assert d["level"]["excess_ref"] is not None, "level descriptors stand for a contrast row too"
+
+
+def test_a_ramped_row_gets_no_contrast_group():
+    d = X.descriptors(_steps([-0.5, -0.4, -0.3, -0.2, -0.1]), region="feasible")
+    assert d["contrast"] is None and d["capture_mode"] == "RAMPED"

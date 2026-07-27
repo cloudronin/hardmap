@@ -11,25 +11,26 @@
   "observatory_batch2_panels.json": "76a877600261db818eb872b32935e2565526f218b982c29db2614babcbbb30a5",
   "observatory_batch3_panels.json": "3cf977a33e978d7cc2fb2377a759450cab913c3a96f4af16880f2e60a44b6e01",
   "observatory_batch4_panels.json": "8de930958a8ca0fa48cd7f00676f3e2c52e660f216659dedbd2a09501d39d951",
-  "catalog_v4.jsonl": "62a0bc6211cbf1bb00c02027b78bdfbf8f26447f5556d9a85a80f55426dca465",
+  "observatory_batch5_panels.json": "bac6af81b12631aae3cfb4e5e455feeb61bf2c86ef953d159792bc73b29c1f01",
+  "catalog_v5.jsonl": "cacaa10026c5c3bee120b4f9d8081c119f9431fc6ea715dbd0b9def56eb6ca17",
   "atlas_v3.jsonl": "e62f3c284b408a26d71e7f769c3742fa283f5a3bd5d874da74f0313ee3968dee",
-  "observatory_reservation.jsonl": "b887d839e7b2c8c0a3adb6b4abc9a7738187cbc408033779032d09c747f953b9",
-  "maptrail.jsonl": "0e82d71d2075f8961216ed8a46e743f6ec396a0ebe6940c99353cf77fb5a55c5",
+  "observatory_reservation.jsonl": "037be5d8523a72e3ece3a2fb1aeadb439dea817b73cebd3839cf09ca5547a962",
+  "maptrail.jsonl": "a316a8980bedba444d3d9302f46e05fcfbaaf74c49fcde299c69d3b03ff600ea",
   "wave_trail.jsonl": "e09adc182465d665cafbc0661a35b88e26412944061e03205fd396ab7c6837b7",
   "helm_wave1_candidates.jsonl": "f567d2954d0fd16216f82d5bf3a6e519fc749d51c97cc069a28270352759a5a6",
   "helm_wave2_candidates.jsonl": "3ddbbc1c7d55c82e4acb277524135c42defcc4443fb7248ce81714a83ede029a"
  },
  "counts": {
-  "sources": 14,
+  "sources": 15,
   "problems": 346,
   "charges": 2760,
-  "frames": 1234,
-  "catalog": 260,
-  "frontier": 4,
-  "maptrail": 30,
+  "frames": 1322,
+  "catalog": 282,
+  "frontier": 6,
+  "maptrail": 37,
   "waves": 2,
   "wave_events": 6,
   "candidates": 688
  },
- "db_sha256": "7f86eb84ebe8e8d78487f5f3f40299faca3962c5dbb2083e876b92ea6f69eb24"
+ "db_sha256": "f2c71bbf01cbaf4208a0157b958d9eadd9fcc0844ef6d462aefafd53997775de"
 }

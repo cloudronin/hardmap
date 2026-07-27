@@ -92,7 +92,8 @@ def batch_frames(p):
         return {}, None, None, {}
     doc = json.loads(p.read_text())
     by = {}
-    expects = {r["row"]: r.get("structural_expectation") for r in doc["rows"]}
+    expects = {r["row"]: (r.get("structural_expectation"), r.get("capture_mode", "RAMPED"))
+               for r in doc["rows"]}
     for r in doc["rows"]:
         for s in r["steps"]:
             if s.get("state") != "usable":
@@ -182,7 +183,8 @@ def main() -> int:
             steps.sort(key=lambda z: z["ramp_position"])
             gaps = [g for (p2, r2, f2), gs in frames.items() if p2 == prob and r2 is None for g in gs]
             d = X.descriptors(steps + gaps, region=region,
-                              structural_expectation=expects.get(prob),
+                              structural_expectation=(expects.get(prob) or (None, None))[0],
+                              capture_mode=(expects.get(prob) or (None, "RAMPED"))[1] or "RAMPED",
                               ambient_confounded=(prob in confounded))
             rows.append({"problem_id": prob, "region": region, "flavour": flavour,
                          "descriptor_version": X.VERSION,

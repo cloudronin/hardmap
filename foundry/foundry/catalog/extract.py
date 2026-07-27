@@ -32,7 +32,7 @@ import math
 from itertools import combinations
 from statistics import mean, pstdev, stdev
 
-VERSION = "v4"
+VERSION = "v5"
 
 # Q21, ruled 2026-07-27. When a row's ground set is the thing its dial ramps — edge-subset rows under an
 # edge-density ramp — the x-axis moves the universe as well as the constraint. Each STEP's excess remains
@@ -48,6 +48,13 @@ VERSION = "v4"
 # the same confounded axis, and leaving one confounded slope standing while removing the others would be
 # an inconsistency that resurfaces later as a question about which rule really governs.
 NA_AMBIENT = "n.a.-ambient-confounded"
+
+# CONTRAST-DIAL rows (ruled 2026-07-27). A dial that moves exactly once is a threshold, not a ramp, so
+# the row is captured as a declared TWO-LEVEL FACTOR. Trajectory descriptors have nothing to describe:
+# a slope computed from two points is a direction with no shape under it, and `traj_class` would be
+# reporting the number of levels rather than the row's behaviour. The between-level delta takes their
+# place, which is the quantity the two-level design actually estimates.
+NA_CONTRAST = "n.a.-contrast"
 FLAT_MULTIPLIER = 2.0            # the trajectory rule, inherited unchanged from sounding_trajectories
 BIMODALITY_FLAG = 0.555          # the conventional flag against a uniform reference
 PAIR_CAP = 20000
@@ -264,11 +271,51 @@ def structure(steps, region=None, structural_expectation=None):
                                "a constant with things")}
 
 
-def descriptors(steps, region=None, structural_expectation=None, ambient_confounded=False):
+def contrast(steps, key="blend_excess"):
+    """Between-level deltas for a declared two-level factor. The estimand of a contrast design.
+
+    Admissibility is the same rule the rest of the catalog uses — an INSUFFICIENT or GAP level is not a
+    level, and a contrast against a level that could not be read is not a contrast."""
+    vals = {}
+    for s in steps:
+        if s.get("state") != "usable" or s.get("insufficient") or s.get(key) is None:
+            continue
+        vals.setdefault(s["ramp_position"], []).append(s[key])
+    pos = sorted(vals)
+    if len(pos) < 2:
+        return {"delta": None, "levels_read": len(pos),
+                "why": "a contrast needs both levels admissible; fewer than two were"}
+    lo, hi = pos[0], pos[-1]
+    a = sum(vals[lo]) / len(vals[lo])
+    b = sum(vals[hi]) / len(vals[hi])
+    lv = {s["ramp_position"]: s.get("ramp_value") for s in steps}
+    return {"delta": round(b - a, 6),
+            "level_low": lv.get(lo), "level_high": lv.get(hi),
+            "value_low": round(a, 6), "value_high": round(b, 6),
+            "levels_read": len(pos),
+            "direction": (0 if b == a else (1 if b > a else -1)),
+            "what_it_is_not": ("not a slope. There is no rate here — two levels and the signed "
+                               "difference between them, which is all a two-level design estimates.")}
+
+
+def descriptors(steps, region=None, structural_expectation=None, ambient_confounded=False,
+                capture_mode="RAMPED"):
     """Every v4 descriptor for one (problem, region, flavour) trajectory. A pure function of frames plus
     two facts that are not readings: the row's DECLARED structural expectation, and whether its ambient
     moves with its dial (derived by `observatory_ambient_census.py`, never listed by hand)."""
     sh, tr, co = shape(steps), transition(steps), coherence(steps)
+    ct = None
+    if capture_mode == "CONTRAST-DIAL":
+        ct = contrast(steps)
+        sh = {"traj_class": NA_CONTRAST, "slope_sign": None, "max_excursion_sd": None,
+              "excursion": None, "pooled_control_sd": None,
+              "why": ("a declared two-level factor. A slope from two points is a direction with no "
+                      "shape under it, and traj_class would report the level count, not the row."),
+              "n_admissible": sh.get("n_admissible")}
+        tr = {"kink_step": None, "kink_sharpness": None, "traj_class": NA_CONTRAST,
+              "SEAL_PROHIBITED_AT_V1": True,
+              "why": "a change point needs an interior; two levels have none"}
+        co = {**co, "overlap_slope": None, "overlap_slope_status": NA_CONTRAST}
     if ambient_confounded:
         sh = {"traj_class": NA_AMBIENT, "slope_sign": None, "max_excursion_sd": None,
               "excursion": None, "pooled_control_sd": None,
@@ -281,6 +328,8 @@ def descriptors(steps, region=None, structural_expectation=None, ambient_confoun
         co = {**co, "overlap_slope": None, "overlap_slope_status": NA_AMBIENT}
     return {"level": level(steps), "shape": sh, "coherence": co,
             "supply": supply(steps), "transition": tr,
+            "contrast": ct,
+            "capture_mode": capture_mode,
             "ambient_confounded": bool(ambient_confounded),
             "structure": structure(steps, region, structural_expectation),
             "scaling": {"kink_drift_n": None, "sharpening_ratio": None,
