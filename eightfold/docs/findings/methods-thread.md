@@ -1724,3 +1724,29 @@ exist yet. Twenty candidates were slated on the strength of a null that answered
 
 Both defects are the same species: a check that appears to fire, on an object that is not the one the
 check is about.
+
+---
+
+## Two from the MCSP ramp pilot, 2026-07-27
+
+The `string` family's ramp was amended by ruling and piloted before use. The pilot was wrong twice, and
+caught itself both times — which is the only reason either lesson is stated here rather than discovered
+later in a catalog column.
+
+**The dial was not isolated.** The first run drew the planted rearrangement's block count uniformly per
+instance while varying the alphabet. Block count drives the number of valid partitions far harder than
+alphabet size does, so the ramp read 642 → 203 → 198 → 413 → 384 with within-step spread swamping every
+between-step difference. Nothing was wrong with the dial; the experiment simply did not vary it alone.
+
+> **A ramp is not measured until everything but the dial is held fixed.**
+
+**The direction was read off the endpoints.** With the confound removed, the pilot compared the first and
+last steps, found the region smaller at the far end, and printed `RAMP CONFIRMED — larger alphabet
+tightens`. A leave-one-out check overturned it in one line: drop |Σ| = 2 and the remaining means are
+306 / 407 / 310 / 386 — flat under the catalog's own excursion rule. The entire signal was one endpoint.
+
+> **An endpoint comparison is an eyeball claim with arithmetic on it.**
+
+Both defects would have shipped a graded ramp into a column the catalog reads as a trajectory. What
+caught the second one — *does the effect survive dropping its most extreme step?* — is cheap, general,
+and now required of every family pilot before a declared ramp is used.

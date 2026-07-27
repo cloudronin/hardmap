@@ -13,6 +13,22 @@ the one reading that had to be resolved before anything could be built.
 | the anomaly frontier null — **stratified exchangeability** | `sweep.EXTREMAL_NULL`, `stratified-exchangeability/v1` | `screens.MIN_STRATUM_CELLS`, `frontier_strata` |
 | `structurally_flat` forecloses the false-candidate class | `extract.structure`, descriptor@v2 | `sweepable_catalog` view + backstop screen rule |
 | MCSP's ramp amended, direction pinned at pilot | `mcsp_ramp_pilot.py` | `maptrail` `erratum:string-family-ramp` |
+| **Kill 1 requires DISTINCT frontier states** | below | `maptrail` `erratum:helm-spec-kill-1` |
+| **`CONTRAST-DIAL`** minted as a third capture mode | `docs/specs/ramp-pilot-protocol.md` | `maptrail` `version:contrast-dial-typing` |
+
+### Kill 1's trigger, amended
+
+As written, Kill 1 fires when "the first two waves' slates are dominated by untestable candidates". Waves
+1 and 2 both slated nothing, which met it. It did not fire, and the text now carries the reason:
+
+> **two waves with empty slates ON DISTINCT FRONTIER STATES**
+
+Wave 2 re-swept the same database under amended screens — no new ground entered between them — so the two
+empty slates are **one frontier state observed twice**, not two observations of engine-frontier mismatch.
+Kill 1 exists to detect questions the frontier can *never* adjudicate. A frontier two rows old that grows
+by construction, with every held candidate carrying the exact n that revives it, is the opposite of that
+condition. The independence requirement is now in the text so the next operator does not have to
+reconstruct the argument.
 
 ### The stratified null, in full (Helm §3.1's precedent discharged)
 

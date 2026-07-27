@@ -281,3 +281,30 @@ def test_frontier_strata_counts_reserved_rows_by_family():
                     [("a", "algebraic"), ("b", "optimization"), ("c", "algebraic")])
     assert S.frontier_strata(con, {"a", "c"}) == {"algebraic": 2}
     assert S.frontier_strata(con, set()) == {}
+
+
+# ── ambient stability (minted 2026-07-27) ───────────────────────────────────────────────────────────
+def test_ambient_stability_accepts_a_fixed_ground_set():
+    """A vertex-subset row has width n at every step, whatever the dial does."""
+    from foundry.catalog import capture as CAP
+    import random
+    build = lambda rng, v: [("feasible", [(0,) * 9, (1,) * 9])]
+    stable, widths = CAP.ambient_stability(build, (0.1, 0.5, 0.9), random.Random(0))
+    assert stable is True and set(widths) == {9}
+
+
+def test_ambient_stability_rejects_a_ground_set_that_grows_with_the_dial():
+    """An EDGE-subset row's width is |E|, which edge density ramps — so the ambient moves with the
+    dial and a trajectory over it confounds tightening with a growing space."""
+    from foundry.catalog import capture as CAP
+    import random
+    build = lambda rng, v: [("feasible", [(0,) * int(v * 20), (1,) * int(v * 20)])]
+    stable, widths = CAP.ambient_stability(build, (0.3, 0.5, 0.9), random.Random(0))
+    assert stable is False and len(set(widths)) > 1
+
+
+def test_ambient_stability_is_undecided_when_nothing_builds():
+    from foundry.catalog import capture as CAP
+    import random
+    stable, widths = CAP.ambient_stability(lambda rng, v: [], (0.1, 0.5), random.Random(0))
+    assert stable is None and widths == []

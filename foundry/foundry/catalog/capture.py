@@ -48,6 +48,36 @@ def hull_inflation(region, op, m):
             return None
 
 
+def ambient_stability(build, ramp, rng, n_probe=3):
+    """Does the row's GROUND SET stay the same object as the dial moves? (minted 2026-07-27)
+
+    A blend statistic compares a region against an ambient of 2^w, where w is the tuple width. If w
+    changes along the ramp, the trajectory confounds "the constraint tightened" with "the space got
+    bigger", and no descriptor downstream can separate them. Vertex-subset rows hold w = n at every
+    step; EDGE-subset rows do not, because the edge set is both the ground set and the thing edge
+    density ramps.
+
+    EQUALITY, NOT SIMILARITY. The requirement is that w be identical at every step, because the ambient
+    must be the same object for the readings to be comparable at all — a tolerance here would be a
+    threshold invented to let something through.
+
+    Returns (stable, widths). `stable` is None when too few steps produced a region to judge."""
+    widths = []
+    for v in ramp:
+        for _ in range(n_probe):
+            try:
+                d = dict(build(rng, v) or [])
+            except Exception:
+                continue
+            r = d.get("feasible") or d.get("solutions")
+            if r:
+                widths.append(len(r[0]))
+                break
+    if len(widths) < 2:
+        return None, widths
+    return len(set(widths)) == 1, widths
+
+
 def conformance_at_birth(build, expect, rng, probe_ramp=0.30, n_probe=4):
     """Derived consequences of the definition, checked independently of the generator's own filter."""
     checks, fails, regs = [], [], []
@@ -103,6 +133,13 @@ def capture_row(row, build, expect, ramp, ops, seed, control_fn, n_inst=3):
     reach into dev scripts for its fair null — a library whose behaviour depends on who imported it is
     not a library. The caller passes the ladder rung it wants."""
     rng = random.Random(seed)
+    stable, widths = ambient_stability(build, ramp, rng)
+    if stable is False:
+        return None, {"row": row,
+                      "reason": [f"ambient is dial-dependent: ground-set width varies {sorted(set(widths))} "
+                                 f"across the declared ramp, so a trajectory would confound tightening "
+                                 f"with a growing space"],
+                      "ground_set_widths": widths}
     checks, fails = conformance_at_birth(build, expect, rng)
     if fails:
         return None, {"row": row, "reason": fails, "conformance": checks}

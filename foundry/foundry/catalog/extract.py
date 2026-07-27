@@ -32,7 +32,7 @@ import math
 from itertools import combinations
 from statistics import mean, pstdev, stdev
 
-VERSION = "v2"
+VERSION = "v3"
 FLAT_MULTIPLIER = 2.0            # the trajectory rule, inherited unchanged from sounding_trajectories
 BIMODALITY_FLAG = 0.555          # the conventional flag against a uniform reference
 PAIR_CAP = 20000
@@ -220,20 +220,30 @@ def structure(steps, region=None, structural_expectation=None):
     definition back as a discovery. The flag exists so Helm can foreclose that whole candidate species
     instead of screening its members one at a time.
 
-    DECLARED AND OBSERVED ARE KEPT SEPARATE. `structurally_flat` is derived from the row's DECLARED
-    structural expectation and costs no reading; `region_size_invariant` is what the frames actually
-    show. Collapsing them into one field would hide the case where they disagree — and a fixed-
-    cardinality row whose region size moves is a conformance failure worth seeing, not a flag to fix."""
-    flat_by_definition = bool(structural_expectation == "fixed_cardinality" and region == "feasible")
+    THE v2 RULE WAS TOO BROAD, and v3 narrows it. v2 flagged any declared-`fixed_cardinality` feasible
+    region, on the reasoning that such a region is "every size-k subset". That holds for `k-center` and
+    `max-coverage`, whose feasible side really is the whole k-uniform slice — but NOT for `3sum`, whose
+    region is the size-3 subsets *summing to zero*. Every member shares a cardinality, so the row
+    declares `fixed_cardinality` honestly and passes conformance, yet which members qualify depends
+    entirely on the instance. Under v2 that row would have been flagged flat and silently dropped from
+    Helm's swept population — a real trajectory excluded for resembling a definitional one.
+
+    So the declaration is necessary but not sufficient: the frames must also SHOW the region standing
+    still. `declared_flat_but_moves` preserves the disagreement rather than resolving it quietly, because
+    a row that declares fixed cardinality and whose region size moves is exactly the informative case."""
+    declared = bool(structural_expectation == "fixed_cardinality" and region == "feasible")
     rs = [s.get("r") for s in steps
           if s.get("state") == "usable" and s.get("r") is not None]
     invariant = (len(set(rs)) == 1) if len(rs) >= 2 else None
-    return {"structurally_flat": flat_by_definition,
+    return {"structurally_flat": bool(declared and invariant),
             "region_size_invariant": invariant,
             "declared_expectation": structural_expectation,
-            "agree": None if invariant is None else (flat_by_definition == invariant),
-            "rule": ("structurally_flat iff the row DECLARES fixed_cardinality and this is its feasible "
-                     "region — the region is then every size-k subset, identical at every ramp value"),
+            "declared_flat_but_moves": bool(declared and invariant is False),
+            "rule": ("structurally_flat iff the row DECLARES fixed_cardinality on its feasible region "
+                     "AND the frames show the region size unchanged across every admissible step. The "
+                     "declaration alone under-determines it: a fixed-cardinality region can still be "
+                     "instance-dependent (3sum), and only the whole k-uniform slice cannot move."),
+            "undetermined_below_two_steps": invariant is None,
             "why_it_matters": ("a structurally-flat trajectory is excluded from Helm's sweep: its "
                                "flatness is definitional, so enumerating it as a candidate correlates "
                                "a constant with things")}

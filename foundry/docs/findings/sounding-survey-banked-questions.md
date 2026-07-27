@@ -385,3 +385,68 @@ future design pairs them by hand, with the pairing declared.
 
 **Nobody has been able to ask this before** because nobody had a measured geometry attached to both members
 of a decision/counting pair. That is the whole reason to file it now, unglanced.
+
+---
+# Appended 2026-07-27 — from the MCSP ramp pilot
+
+## Q19 — a dial that moves exactly once is a structural dichotomy at that value
+
+`minimum-common-string-partition` was piloted along its amended ramp (alphabet size at fixed string
+length, n = 11, planted block count held fixed). The region moves — 685 mean feasible at |Σ| = 2 against
+306 / 407 / 310 / 386 across |Σ| = 3, 4, 6, 8 — and passes the catalog's excursion rule, with the derived
+consequence (upward closure in the cut set) confirmed. But **drop |Σ| = 2 and the rest of the range is
+flat.**
+
+The instinct is to read this as a failed ramp. It is better read as a finding about the object: **binary
+versus larger alphabet is a real seam in MCSP's solution geometry**, and the ramp is flat on both sides of
+it. A dial that moves exactly once is not a weak dial — it is a **structural dichotomy located at that
+value**, which is a sharper thing to have found than a graded slope would have been.
+
+Why binary should be special is not answered here. Candidates: at |Σ| = 2 every length-k substring has
+only 2^k possible values, so block collisions between A and B are near-certain and the common-partition
+constraint stops binding; at |Σ| ≥ 3 blocks become nearly unique and the constraint binds fully, with no
+further room to bind harder. That would make the seam a saturation boundary rather than a smooth
+tightening — banked as a mechanism to test, not asserted.
+
+**Typed as `contrast-dial`** by ruling: the row enters as a declared two-level factor, never a trajectory.
+
+## Q20 — which other declared dials are secretly thresholds?
+
+The leave-one-out flatness check that caught MCSP has never been run on any other family's ramp. Every
+declared ramp in the reach census — `sat-csp` clause ratio, `graph` edge density, `optimization`
+constraint ratio, `number-theoretic` capacity fraction, `algebraic` system density — is currently assumed
+graded because its regions move, which is exactly the inference MCSP's pilot showed to be unsound.
+
+A ramp whose movement is carried by one endpoint is a two-point contrast being catalogued as a
+trajectory, and every trajectory descriptor computed on it — `traj_class`, `slope_sign`, `kink_step` — is
+then describing a shape that is not there.
+
+**Status:** the check is required of every NEW family pilot from now (see
+`docs/specs/ramp-pilot-protocol.md`). Applying it retroactively to the five ramps already in use is a
+catalog v3 question and goes through the rule-before-computation channel — the rule is declared before it
+is run, so that the answer cannot pick the rule. **Not retrofitted.**
+
+## Q21 — for edge-subset rows the ground set IS the dial, and three built rows have it
+
+Batch 4 rostered `edge-dominating-set` and `feedback-arc-set`. Both were **excluded at birth** by a check
+minted the same day: their ground-set width varies along the declared ramp (`[7, 8, 12]` and `[7, 11, 12]`
+respectively), because the ground set is the *edge set* and edge density is what the `graph` family ramp
+moves. The ambient `2^w` therefore grows with the dial, and any trajectory over it confounds *the
+constraint tightened* with *the space got bigger* — with no descriptor downstream able to separate them.
+
+Vertex-subset rows do not have this: their width is exactly `n` at every step.
+
+**Three already-built rows are edge-subset rows under the same ramp:** `graph-spanner`,
+`connectivity-augmentation` and `cluster-deletion`, all from batch 2. `graph-spanner`'s GAPs at p = 0.45
+and 0.60 are this effect surfacing as unaffordability rather than as a confound — the edge set grew past
+the enumeration cap. Their frames are frozen and are not touched.
+
+**What is NOT claimed:** that those three rows' readings are wrong. The blend excess at each step is a
+correct measurement of that step's region. What is unsupported is reading their *trajectories* as
+tightening curves, since ambient growth is mixed into the movement.
+
+**Status:** the `ambient_stability` check is required of every new row from 2026-07-27 (it runs in
+`foundry.catalog.capture` before conformance). Deciding what the three built rows' trajectory descriptors
+should say is a **catalog v3+ question** and goes through the rule-before-computation channel with Q20 —
+the rule declared before it is run. **Not retrofitted.** Related: the same family of defect the MCSP pilot
+found at the design level, *a ramp is not measured until everything but the dial is held fixed*.

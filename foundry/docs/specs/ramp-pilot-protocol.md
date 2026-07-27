@@ -1,0 +1,56 @@
+# The ramp pilot protocol — what a declared family dial must survive before it is used
+
+Minted 2026-07-27 from the MCSP pilot, which failed two of these and caught itself both times.
+
+A family ramp declared at census is a **typing** — a falsifiable claim that the family's rows have a
+structural dial of that kind. A typing used without test is an assumption that governs every row the
+family will ever contribute. This protocol is what a first use must pass.
+
+## The four checks
+
+**1. The dial has a referent in the row.** Stated plainly, because this is where MCSP failed first: the
+`string` family's declared ramp was "pattern/text length ratio" and MCSP has neither a pattern nor a text.
+A ramp with no referent is not a hard dial or an expensive one — it is undefined, and the honest response
+is a census erratum, not a silent substitution.
+
+**2. Everything but the dial is held fixed.** The first MCSP pilot varied the planted block count per
+instance while varying the alphabet. Block count drives the region size far harder than alphabet does, so
+the measured trajectory was mostly noise about the wrong variable. *A ramp is not measured until
+everything but the dial is held fixed.*
+
+**3. The movement clears the catalog's own flat rule.** Excursion of the step means ≥ `FLAT_MULTIPLIER` ×
+pooled within-step SD, using the same multiplier the extractor applies to every other trajectory. A pilot
+that passed under a laxer standard than the descriptor layer would ship rows the catalog then calls FLAT.
+
+**4. LEAVE-ONE-OUT: the movement survives dropping its most extreme step.** Recompute check 3 without the
+step furthest from the mean. If the remainder is flat, the dial is a **threshold, not a ramp** — the
+signal is one contrast and the rest of the range is silent.
+
+## What each outcome types
+
+| outcome | typing | captured as |
+|---|---|---|
+| passes 1–4 | `RAMPED` | full panels across the declared ramp |
+| passes 1–3, fails 4 | **`CONTRAST-DIAL`** | two declared levels; contrast descriptors, no trajectory |
+| fails 3 | `no-natural-dial-at-fixed-encoding` | point capture, or the row types out |
+| fails 1 | census erratum first, then re-pilot | — |
+
+`CONTRAST-DIAL` was minted because MCSP landed in a case the original ruling did not have: neither a
+working graded dial nor an absent one. A row typed this way enters as a **declared two-level factor** —
+full panels at each level — with trajectory descriptors reading `n.a.-contrast` and between-level deltas
+in their place. Sweeps treat it as a factor and never as a trajectory, because a `slope_sign` computed on
+two points is a direction with no shape under it.
+
+## The direction is measured, never asserted
+
+Which end of a ramp *hardens* is the sort of thing written down from memory and found backwards later. The
+pilot reads it off the measurement, and — per check 4 — an endpoint comparison does not count as reading
+it. *An endpoint comparison is an eyeball claim with arithmetic on it.*
+
+## Scope
+
+Required of every **new** family pilot from 2026-07-27. The five ramps already in use (`sat-csp`, `graph`,
+`optimization`, `number-theoretic`, `algebraic`) were declared and used before check 4 existed. Applying
+it to them retroactively is a **catalog v3 question**, and it goes through the rule-before-computation
+channel: the rule is declared and sealed before it is run, so that the answer cannot pick the rule. It is
+banked as Q20 and is **not** retrofitted here.

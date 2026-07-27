@@ -70,6 +70,64 @@ def main() -> int:
            authority="owner addition, 2026-07-27")
     print("  version   structurally_flat — descriptor@v2, sweep exclusion + backstop screen")
 
+    # ── the second sitting, 2026-07-27 ──────────────────────────────────────────────────────────────
+    M.emit(TRAIL, "erratum", key="erratum:helm-spec-kill-1",
+           artifact="helm-v1-wave-engine-spec.md", field="§9 Kill 1 trigger",
+           old="if the first two waves' slates are dominated by untestable candidates",
+           new=("if two waves produce empty slates ON DISTINCT FRONTIER STATES — the independence "
+                "condition, without which one frontier observed twice reads as two failures"),
+           why=("waves 1 and 2 both slated nothing, which met the trigger as written. But wave 2 "
+                "re-swept the SAME database under amended screens; no new ground entered between them, "
+                "so the two empty slates are one frontier state observed twice. Kill 1 exists to detect "
+                "questions the frontier can NEVER adjudicate; a frontier 2 rows old that grows by "
+                "construction, with every held candidate carrying the n that revives it, is the "
+                "opposite of that condition."),
+           encoded_so="the next operator does not need the reasoning to get it right",
+           authority="owner ratification of the recorded non-fire, 2026-07-27")
+    print("  erratum   Helm Kill 1 — trigger requires DISTINCT frontier states")
+
+    M.emit(TRAIL, "version", key="version:contrast-dial-typing",
+           model="reach-census capture vocabulary",
+           adds="CONTRAST-DIAL, a third capture mode beside RAMPED and point capture",
+           rule=("a family dial that passes the pilot's movement check but FAILS leave-one-out — its "
+                 "excursion carried by a single step — is a threshold, not a ramp. The row enters as a "
+                 "declared two-level factor: full panels at each level, trajectory descriptors reading "
+                 "`n.a.-contrast`, and between-level deltas in their place. Sweeps treat it as a "
+                 "factor, never a trajectory."),
+           why=("MCSP landed in a case the ruling did not have: neither a working graded dial nor an "
+                "absent one. Minting the typing is cheaper than forcing the row into either, and the "
+                "seam it names is a finding rather than a failure."),
+           authority="owner ruling, 2026-07-27")
+    print("  version   CONTRAST-DIAL — third capture mode minted")
+
+    M.emit(TRAIL, "erratum", key="erratum:mcsp-capture-typing",
+           artifact="observatory_reach_census.json", problem="minimum-common-string-partition",
+           field="capture", old="RAMPED", new="CONTRAST-DIAL",
+           levels=["|Sigma| = 2", "|Sigma| = 6 (median of the >=3 levels the pilot measured)"],
+           representative_rule=("the median of the measured >=3 levels, chosen by the same positional "
+                                "rule the catalog uses for its reference step — reused, not invented"),
+           evidence="mcsp_ramp_pilot.json: 685 at |Sigma|=2 against 306/407/310/386 across 3..8",
+           trajectory_descriptors="n.a.-contrast",
+           authority="owner ruling, 2026-07-27")
+    print("  erratum   MCSP capture RAMPED -> CONTRAST-DIAL, levels |Sigma| in {2, 6}")
+
+    M.emit(TRAIL, "version", key="version:structurally-flat-narrowed-v3",
+           model="catalog descriptor `structure` group, descriptor@v2 -> descriptor@v3",
+           old_rule="structurally_flat iff declared fixed_cardinality on the feasible region",
+           new_rule=("...AND the frames show the region size unchanged across every admissible step"),
+           why=("the v2 rule was too broad. It assumed a fixed-cardinality feasible region is the whole "
+                "k-uniform slice, which holds for k-center and max-coverage but not for 3sum — whose "
+                "region is the size-3 subsets SUMMING TO ZERO. Every member shares a cardinality, so "
+                "the row declares fixed_cardinality honestly and passes conformance, yet which members "
+                "qualify is entirely instance-dependent. Under v2 that row would have been flagged flat "
+                "and dropped from Helm's swept population: a real trajectory excluded for resembling a "
+                "definitional one."),
+           caught_by="batch 4's roster, before 3sum was built",
+           preserved_as="declared_flat_but_moves — the disagreement is surfaced, not resolved quietly",
+           law="F4 — a changed extraction rule is a NEW version even when it corrects an error",
+           authority="build-time correction, 2026-07-27")
+    print("  version   structurally_flat NARROWED at v3 — declaration alone under-determines it")
+
     print(f"\n  {len(M.read(TRAIL))} maptrail record(s); "
           f"{sum(1 for r in M.read(TRAIL) if not r['reconstructed'])} emitted at event time")
     return 0

@@ -1,0 +1,103 @@
+{
+ "schema": "observatory-batch-census/v1",
+ "STATUS": "DECLARATION \u2014 no reading exists for any row here",
+ "batch": 4,
+ "why_this_batch": "batch 3 opened three new families; batch 4 works the queue's bulk. Six graph rows keep the screen stack's closure directions in exercise, and the two remaining number-theoretic rows finish that family's reachable set. 3sum is deliberately included: it declares fixed_cardinality while its region stays instance-dependent, which is the case that narrowed the structurally-flat rule at descriptor@v3.",
+ "families": {
+  "graph": {
+   "census_ramp": "edge density",
+   "ramp_values": [
+    0.15,
+    0.25,
+    0.35,
+    0.45,
+    0.6
+   ]
+  },
+  "number-theoretic": {
+   "census_ramp": "capacity fraction or value range",
+   "ramp_values": [
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8
+   ]
+  }
+ },
+ "roster": {
+  "edge-dominating-set": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground graph",
+   "structural_expectation": "upward_closed"
+  },
+  "cluster-vertex-deletion": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground graph",
+   "structural_expectation": "upward_closed"
+  },
+  "feedback-arc-set": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "arc density of the ground digraph",
+   "structural_expectation": "upward_closed"
+  },
+  "capacitated-vertex-cover": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground graph",
+   "structural_expectation": "upward_closed"
+  },
+  "connected-vertex-cover": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground graph",
+   "structural_expectation": null
+  },
+  "balanced-vertex-separator": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "edge density of the ground graph",
+   "structural_expectation": "upward_closed"
+  },
+  "3sum": {
+   "family": "number-theoretic",
+   "instantiates_the_family_ramp_as": "value range",
+   "structural_expectation": "fixed_cardinality"
+  },
+  "3-partition": {
+   "family": "number-theoretic",
+   "instantiates_the_family_ramp_as": "value range",
+   "structural_expectation": "fixed_cardinality"
+  }
+ },
+ "n_roster": 8,
+ "reservation": {
+  "authority": "Helm v1 \u00a75 \u2014 a declared fraction of every fan-out batch is reserved",
+  "fraction": 0.25,
+  "rule": "rows ordered by sha256(f'{batch}:{row}') ascending; the first ceil(fraction * n) are RESERVED. Deterministic, reproducible from the roster alone, and outcome-blind by construction \u2014 the reserved rows are not built at declaration time, so no measured value exists for the rule to see.",
+  "roster_sha256": "c098d32bdad4a26382e0171acc5be3257a5518cd7cd8ace96ace96fbd0070925",
+  "reserved": [
+   "balanced-vertex-separator",
+   "capacitated-vertex-cover"
+  ],
+  "n_reserved": 2,
+  "n_published": 6,
+  "declared_at": "2026-07-27T04:48:58Z",
+  "frames_do_not_exist": "reserved rows are NOT CAPTURED. Helm \u00a70.1 requires predictions hashed before their frames exist, which is strictly stronger than withholding frames that already exist: under it, blindness is physics rather than a guard anyone has to be trusted to respect. \u00a75's 'captured last in the batch' is honoured maximally \u2014 last means after the wave's predictions are sealed."
+ },
+ "published": [
+  "3-partition",
+  "3sum",
+  "cluster-vertex-deletion",
+  "connected-vertex-cover",
+  "edge-dominating-set",
+  "feedback-arc-set"
+ ],
+ "carried_forward": {
+  "minimum-common-string-partition": {
+   "disposition": "DEFERRED to batch 5 under its new CONTRAST-DIAL typing",
+   "why": "ruled 2026-07-27: the amended alphabet ramp moves once (|Sigma| = 2) and is flat from 3 to 8, so the row enters as a declared two-level factor rather than a trajectory. The contrast-capture path is built at batch 5; forcing it into batch 4's ramped pipeline would catalogue a threshold as a slope."
+  },
+  "covering-radius": {
+   "disposition": "HELD \u2014 needs a framing that keeps the ambient fixed",
+   "why": "the natural region (words within distance r of the code) lives in WORD space, so ramping the code length would grow the ambient 2^n along with the dial \u2014 a size knob smuggled in under a constraint-density ramp. minimum-distance-code avoided this by keeping its region in MESSAGE space with k fixed; covering-radius has no such framing yet, and inventing one under time pressure is how an encoding artifact enters. It is the algebraic family's last unbuilt row and can wait for the framing."
+  }
+ }
+}

@@ -1,0 +1,23 @@
+{
+ "schema": "observatory-catalog/v3",
+ "catalog_version": "v3.0",
+ "STATUS": "EXPLORATORY \u2014 descriptors on published frames are disclosed-prior material",
+ "extractor": "foundry/catalog/extract.py",
+ "extractor_sha256": "0fbd7f3857d6a95b",
+ "descriptor_version": "v3",
+ "frame_sources": {
+  "sounding_v3_survey.json": "e0af8344a5cc7023",
+  "observatory_batch1_panels.json": "3f0f10f3a59f4069",
+  "observatory_batch2_panels.json": "76a877600261db81",
+  "observatory_batch3_panels.json": "3cf977a33e978d7c",
+  "observatory_batch4_panels.json": "8de930958a8ca0fa"
+ },
+ "reference_step_rule": "median admissible ramp position \u2014 positional and therefore OUTCOME-BLIND; the chosen step's ramp value ships beside every excess_ref cell",
+ "retro_fill": "the coherence group did not exist on the frozen v3 frames and was computed retroactively under the dial-panel amendment. Retro-filled cells are stamped per row, not merely noted here.",
+ "seal_prohibition": "transition descriptors (kink_step, kink_sharpness) are estimates WITHOUT TYPED NULLS. No seal may consume them at v1, and the prohibition ships inside every cell.",
+ "versioning": "F4: a changed extraction rule is a NEW catalog version, never an in-place edit. Sealed claims quote descriptor@version forever.",
+ "v2_succession": "v2 adds the `structure` group (`structurally_flat`, `region_size_invariant`). No v1 descriptor changed value, but the version bumps regardless: if `v1` sometimes carried the group and sometimes did not, `descriptor@v1` would stop identifying a schema. catalog_v1.jsonl is left exactly as v1 last built it and is no longer regenerated.",
+ "n_cells": 260,
+ "n_rollups": 104,
+ "n_problems": 39
+}

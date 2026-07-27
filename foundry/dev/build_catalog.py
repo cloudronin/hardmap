@@ -246,10 +246,10 @@ def main() -> int:
     nflat = sum(1 for r in rows if not r.get("_rollup") and r["structure"]["structurally_flat"])
     print(f"\n  cells    : {meta['n_cells']}")
     print(f"  structurally flat: {nflat}  (excluded from Helm's sweep — flatness by definition)")
-    dis = [r for r in rows if not r.get("_rollup") and r["structure"].get("agree") is False]
+    dis = [r for r in rows if not r.get("_rollup") and r["structure"].get("declared_flat_but_moves")]
     if dis:
-        print(f"  DECLARED/OBSERVED DISAGREE on {len(dis)} cell(s) — a declared fixed-cardinality row "
-              f"whose region size moves, or the converse:")
+        print(f"  DECLARED FIXED-CARDINALITY BUT THE REGION MOVES on {len(dis)} cell(s) — instance-"
+              f"dependent within a cardinality class, so NOT structurally flat:")
         for r in dis[:8]:
             print(f"     {r['problem_id']} / {r['region']} / {r['flavour']}: "
                   f"declared={r['structure']['declared_expectation']} "

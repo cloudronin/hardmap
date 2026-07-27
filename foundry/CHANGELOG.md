@@ -2,6 +2,31 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **Batch 4, the second sitting's rulings, and a rule narrowed the day after it shipped.**
+  **CONTRAST-DIAL minted** as a third capture mode: a family dial that passes the movement check but
+  fails leave-one-out is a threshold, not a ramp, and the row enters as a declared two-level factor with
+  trajectory descriptors reading `n.a.-contrast`. MCSP retyped RAMPED -> CONTRAST-DIAL at levels
+  |Sigma| in {2, 6} (the representative chosen by the catalog's own median rule, reused not invented) and
+  deferred to batch 5, where the contrast-capture path gets built. **Kill 1's trigger amended** to require
+  two empty slates ON DISTINCT FRONTIER STATES — the independence condition that made the recorded
+  non-fire correct, now in the text. **`ramp-pilot-protocol.md` minted**: four checks a declared family
+  dial must survive at first use, with leave-one-out required of every new pilot.
+  **The structurally-flat rule was too broad and is narrowed at descriptor@v3.** v2 assumed a
+  fixed-cardinality feasible region is the whole k-uniform slice; that holds for `k-center` but not for
+  `3sum`, whose region is the triples SUMMING TO ZERO — every member shares a cardinality, so the row
+  declares honestly and passes conformance, yet which members qualify is entirely instance-dependent.
+  Under v2 that row would have been flagged flat and dropped from Helm's swept population. Caught by
+  batch 4's roster before 3sum was built; v3 requires the frames to show the region standing still, and
+  `declared_flat_but_moves` preserves the disagreement (8 cells).
+  **`ambient_stability` minted** and it excluded two rostered rows at birth: for EDGE-subset rows the
+  ground set IS the dial, so `2^w` grows with edge density and a trajectory confounds tightening with a
+  growing space (`edge-dominating-set` widths [7, 8, 12], `feedback-arc-set` [7, 11, 12]). Banked as Q21
+  — three batch-2 rows have the same shape, their frames untouched and NOT retrofitted.
+  Batch 4 ships **4 rows, 2 excluded at birth**; catalog 236 -> 260 cells, frames 1124 -> 1234, frontier
+  2 -> 4 rows. Q19 (a dial that moves exactly once is a structural dichotomy at that value), Q20 (which
+  other declared dials are secretly thresholds?) and Q21 banked. Two ledger lines: *a ramp is not
+  measured until everything but the dial is held fixed*, and *an endpoint comparison is an eyeball claim
+  with arithmetic on it*. 382 tests, verify 11/11, W2 passes.
 - **The four rulings of 2026-07-27 — executed, and one of them turned into a third case.** **Ruling 1
   (MCSP):** the `string` family's ramp amended by maptrail `erratum` to *alphabet size at fixed string
   length*, with the hardening direction pinned at pilot rather than asserted. The first pilot run

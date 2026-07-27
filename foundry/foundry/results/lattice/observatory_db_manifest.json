@@ -10,24 +10,26 @@
   "observatory_batch1_panels.json": "3f0f10f3a59f406995ad60816e798aa27c91f27d3abfd554fab6d53d606905fd",
   "observatory_batch2_panels.json": "76a877600261db818eb872b32935e2565526f218b982c29db2614babcbbb30a5",
   "observatory_batch3_panels.json": "3cf977a33e978d7cc2fb2377a759450cab913c3a96f4af16880f2e60a44b6e01",
-  "catalog_v2.jsonl": "5c189b9e448066572199e1c39f4b2ac064bf8c631c249ebc4d309fa825c34452",
+  "observatory_batch4_panels.json": "8de930958a8ca0fa48cd7f00676f3e2c52e660f216659dedbd2a09501d39d951",
+  "catalog_v3.jsonl": "6bec9e01e7e5a7b963c6b95f466278f1ab59b24f0274fd21761a26d16f1b8d10",
   "atlas_v3.jsonl": "e62f3c284b408a26d71e7f769c3742fa283f5a3bd5d874da74f0313ee3968dee",
-  "observatory_reservation.jsonl": "a33b3cb109eac4dbc2778d3f2b9d3b55807fa4a5dd5e32bbd102850241ac2e1f",
-  "maptrail.jsonl": "3afd08772af7f36c1f0930acc4d806cc0c52e3dcd7274514336f0d1ab892da73",
-  "wave_trail.jsonl": "18db58e8e46c5e52e4862f4f19082fdcfd3c1233468211615d899eac97f2e05c",
-  "helm_wave1_candidates.jsonl": "f567d2954d0fd16216f82d5bf3a6e519fc749d51c97cc069a28270352759a5a6"
+  "observatory_reservation.jsonl": "b887d839e7b2c8c0a3adb6b4abc9a7738187cbc408033779032d09c747f953b9",
+  "maptrail.jsonl": "9f518fb693c3a34c1b454c9ab96c5f4a95434e4e62bd0da2f38e2c45d4709557",
+  "wave_trail.jsonl": "e09adc182465d665cafbc0661a35b88e26412944061e03205fd396ab7c6837b7",
+  "helm_wave1_candidates.jsonl": "f567d2954d0fd16216f82d5bf3a6e519fc749d51c97cc069a28270352759a5a6",
+  "helm_wave2_candidates.jsonl": "3ddbbc1c7d55c82e4acb277524135c42defcc4443fb7248ce81714a83ede029a"
  },
  "counts": {
-  "sources": 12,
+  "sources": 14,
   "problems": 346,
   "charges": 2760,
-  "frames": 1124,
-  "catalog": 236,
-  "frontier": 2,
-  "maptrail": 15,
-  "waves": 1,
-  "wave_events": 3,
-  "candidates": 344
+  "frames": 1234,
+  "catalog": 260,
+  "frontier": 4,
+  "maptrail": 26,
+  "waves": 2,
+  "wave_events": 6,
+  "candidates": 688
  },
- "db_sha256": "bcf27d60cdcadb65ec1b0b3f37e705ee05d56c4da48ed75cf7716028fadf4b42"
+ "db_sha256": "9b6a0d2aacbcd046bbb5847c15d81a8ac80b7776944a366ce2a6ba0e76554155"
 }

@@ -180,11 +180,21 @@ def _rsteps(rs):
              "blend_excess": -0.1, "control_sd": 0.01, "r": r} for i, r in enumerate(rs)]
 
 
-def test_structurally_flat_needs_both_the_declaration_and_the_feasible_region():
-    """A fixed-cardinality row's OPTIMAL region does depend on the instance, so only feasible is flat."""
+def test_structurally_flat_needs_declaration_region_AND_observed_invariance():
+    """A fixed-cardinality row's OPTIMAL region depends on the instance, so only feasible can be flat —
+    and even then only if the frames show the region standing still."""
     assert X.structure(_rsteps([120] * 5), "feasible", "fixed_cardinality")["structurally_flat"]
     assert not X.structure(_rsteps([46, 14, 5, 7, 6]), "optimal",
                            "fixed_cardinality")["structurally_flat"]
+
+
+def test_declared_fixed_cardinality_whose_region_moves_is_not_flat():
+    """THE v2 DEFECT, pinned. 3sum's members all have weight 3, so it declares fixed_cardinality
+    honestly — but its region is the triples SUMMING TO ZERO, which moves with the instance. v2 would
+    have flagged it flat and dropped a real trajectory from Helm's swept population."""
+    s = X.structure(_rsteps([33, 18, 15, 10, 9]), "feasible", "fixed_cardinality")
+    assert s["structurally_flat"] is False
+    assert s["declared_flat_but_moves"] is True, "the disagreement must be surfaced, not resolved"
 
 
 def test_structurally_flat_is_false_without_the_declaration():
@@ -193,21 +203,19 @@ def test_structurally_flat_is_false_without_the_declaration():
 
 
 def test_region_size_invariance_is_measured_separately_from_the_declaration():
-    """Declared and observed are kept apart on purpose: their disagreement is a conformance failure
-    worth seeing, and collapsing them into one field would hide it."""
+    """Declared and observed are kept apart on purpose, so the informative case stays visible."""
     s = X.structure(_rsteps([120] * 5), "feasible", "fixed_cardinality")
-    assert s["region_size_invariant"] is True and s["agree"] is True
+    assert s["region_size_invariant"] is True and s["declared_flat_but_moves"] is False
     s2 = X.structure(_rsteps([441, 273, 181, 156, 101]), "feasible", "fixed_cardinality")
-    assert s2["structurally_flat"] is True and s2["region_size_invariant"] is False
-    assert s2["agree"] is False, "a declared-flat row whose region moves must not read as agreeing"
+    assert s2["region_size_invariant"] is False and s2["declared_flat_but_moves"] is True
 
 
 def test_region_size_invariance_is_none_below_two_steps():
     assert X.structure(_rsteps([120]), "feasible", "fixed_cardinality")["region_size_invariant"] is None
 
 
-def test_v2_descriptors_carry_the_structure_group():
+def test_descriptors_carry_the_structure_group():
     d = X.descriptors(_rsteps([120] * 5), region="feasible",
                       structural_expectation="fixed_cardinality")
-    assert d["descriptor_version"] == "v2"
+    assert d["descriptor_version"] == X.VERSION
     assert d["structure"]["structurally_flat"] is True
