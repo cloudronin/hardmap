@@ -1,0 +1,93 @@
+"""Census minimalism, made mechanical (methods — minted from N6's contamination).
+
+THE RULE: a census computes its kill's inputs and nothing else. Joining predictor to outcome before the
+seal is contamination however natural the join.
+
+N6's census violated it by hand — it computed `infl` (correctly, the kill's input) and then joined it to
+`fair_null_excess` (not the kill's input) and correlated them, which disclosed the sealed relationship and
+killed the seal. The rule was minted the same day. This is the rule compiled into machinery.
+
+THE ENFORCEMENT IS DYNAMIC, NOT A SOURCE SCAN. A grep for forbidden filenames is defeated by any
+indirection — a path built from parts, a variable, a loop over a directory. So the census is actually RUN
+with `Path.read_text` instrumented, and every file it touches is recorded. A census that reads an outcome
+artifact fails here even if the read is three layers of helper deep.
+"""
+import json
+import sys
+from pathlib import Path
+
+import pytest
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "dev")); sys.path.insert(0, str(ROOT))
+
+# Artifacts carrying an OUTCOME. A census that reads any of these has joined predictor to outcome.
+FORBIDDEN = {
+    "n1_results.json",                 # fair-null excess, the outcome N6-R bets on
+    "terrain_v1_results.json",         # excess ladder
+    "n6_hull_census.json",             # carries excess alongside inflation — the contaminated artifact
+    "sounding_trajectories.json",      # excess trajectories
+    "n2_dense_control_qualification.json",   # CP excesses
+}
+
+
+def _run_instrumented(module_name, out_attr="OUT", shrink=None):
+    """Run a census module's main() with file reads recorded. Returns the set of filenames read."""
+    import importlib
+    mod = importlib.import_module(module_name)
+    seen = set()
+    orig = Path.read_text
+
+    def spy(self, *a, **k):
+        seen.add(self.name)
+        return orig(self, *a, **k)
+
+    tmp = ROOT / "foundry" / "results" / "lattice" / f"_test_{module_name}.json"
+    saved = {}
+    try:
+        Path.read_text = spy
+        saved[out_attr] = getattr(mod, out_attr)
+        setattr(mod, out_attr, tmp)
+        for k, v in (shrink or {}).items():
+            saved[k] = getattr(mod, k)
+            setattr(mod, k, v)
+        rc = mod.main()
+    finally:
+        Path.read_text = orig
+        for k, v in saved.items():
+            setattr(mod, k, v)
+        if tmp.exists():
+            tmp.unlink()
+    return seen, rc
+
+
+def test_control_census_reads_no_outcome_artifact():
+    """Phase 0's census must touch the roster and nothing carrying an outcome."""
+    seen, rc = _run_instrumented("n6r_control_census",
+                                 shrink={"SAMPLE_PER_CELL": 1, "K_DRAWS": 2})
+    assert rc == 0, "census did not complete"
+    leaked = seen & FORBIDDEN
+    assert not leaked, (
+        f"CENSUS MINIMALISM VIOLATED — the census read outcome artifact(s) {sorted(leaked)}. "
+        f"A census computes its kill's inputs and nothing else; joining predictor to outcome before the "
+        f"seal is contamination. Files read: {sorted(seen)}")
+
+
+def test_the_guard_can_actually_fail():
+    """A guard that cannot fail is not a guard. Prove the instrumentation sees a forbidden read."""
+    seen = set()
+    orig = Path.read_text
+
+    def spy(self, *a, **k):
+        seen.add(self.name)
+        return orig(self, *a, **k)
+
+    target = ROOT / "foundry" / "results" / "lattice" / "n1_results.json"
+    if not target.exists():
+        pytest.skip("n1_results.json absent")
+    try:
+        Path.read_text = spy
+        json.loads(target.read_text())
+    finally:
+        Path.read_text = orig
+    assert seen & FORBIDDEN, "the instrumentation failed to record a forbidden read"
