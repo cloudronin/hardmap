@@ -54,3 +54,25 @@ Required of every **new** family pilot from 2026-07-27. The five ramps already i
 it to them retroactively is a **catalog v3 question**, and it goes through the rule-before-computation
 channel: the rule is declared and sealed before it is run, so that the answer cannot pick the rule. It is
 banked as Q20 and is **not** retrofitted here.
+
+---
+
+## Roster protocol — vet before hashing (added 2026-07-27)
+
+A batch census declares its roster and hashes it before any generator is written. That ordering is what
+makes the reservation blind, and it must not change. But batch 5 declared eight rows and then discovered
+that three of them had no subset region at all — the objects were an ordering, a linear layout and a
+partition. Declare-then-discover was the bug.
+
+**Vet-then-declare is the fix**, and it sits beside conformance-at-birth as a standing check:
+
+> Before a roster is hashed, every row's **region formulation** is checked against its own
+> `canonical_encoding` in the atlas. A row whose encoding names an ordering, a partition or an assignment
+> does not enter a subset roster, whatever its census class says.
+
+The check costs one field read per row and is mechanical — `reach_subset_readjudication.py` does it for
+the whole class. What it protects against is the expensive failure: a hashed roster that cannot be
+honoured, whose exclusions then have to be explained one at a time.
+
+**Note the order dependence.** Vetting happens *before* the hash, on the row's declared identity; it never
+consults a reading, because no reading exists yet. The reservation stays outcome-blind.

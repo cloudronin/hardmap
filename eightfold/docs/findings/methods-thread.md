@@ -1750,3 +1750,33 @@ tightens`. A leave-one-out check overturned it in one line: drop |Σ| = 2 and th
 Both defects would have shipped a graded ramp into a column the catalog reads as a trajectory. What
 caught the second one — *does the effect survive dropping its most extreme step?* — is cheap, general,
 and now required of every family pilot before a declared ramp is used.
+
+---
+
+## Computed, not listed — the species, named after its third win
+
+Three times now, a population that someone enumerated by hand has been wrong in a way that a computation
+caught immediately:
+
+1. **the forced-flag list** — hand-maintained, replaced by a derived join
+2. **the family ledger** — hand-kept multiple-comparisons bookkeeping, replaced by a view over the trail
+3. **the ambient census** (2026-07-27) — three rows named from memory; the computation found **six**,
+   acquitted one of the three, and caught one inside a frozen artifact nobody suspected
+
+> **Hand-enumerated populations are memory wearing data's clothes.**
+
+The tell is always the same: the list looks like data, sits beside data, and is cited like data, but its
+provenance is somebody's recall at one moment. It cannot be re-derived, so it cannot be checked, so it
+drifts silently from the thing it describes.
+
+The fourth instance arrived the same day and is the sharpest, because the *original* typing was the hand
+list. The reach census typed 127 rows `REACH-subset` and fired `R3-subset-selection` on `cutwidth`,
+`min-sum-set-cover` and `d-hitting-set` alike, attaching identical boilerplate to all three — while each
+row's own `canonical_encoding` field said, respectively, "linear vertex ordering", "a linear order on the
+sets", and "hit all with <= k elements". The field was there the whole time.
+
+> **A typing that never read the row's own statement is not a typing, it is a guess with a rule name on it.**
+
+The re-adjudication reads the field under a lexicon sealed before it runs. It covers only 32% of the
+class, which is reported as the result rather than repaired by widening the lexicon after seeing what it
+missed — that widening is a v2 pass, and it declares its phrases first.

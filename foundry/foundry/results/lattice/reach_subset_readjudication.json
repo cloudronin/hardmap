@@ -1,0 +1,1443 @@
+{
+ "schema": "reach-subset-readjudication/v1",
+ "STATUS": "TYPING \u2014 derived from each row's own canonical_encoding, not from judgement",
+ "why": "the census fired R3-subset-selection with identical boilerplate on rows whose own encoding says 'a linear order' and 'partitioned into'. The field was never read. This is the first reading of it, not a second opinion.",
+ "method": "sealed lexicon over atlas_v3.canonical_encoding, FIRST MATCH WINS, order part of the rule \u2014 ordering before partition before assignment before subset, because the later phrases occur inside the earlier ones",
+ "lexicon": [
+  {
+   "class": "REACH-permutation",
+   "rule": "L1-ordering",
+   "phrases": [
+    "linear order",
+    "linear ordering",
+    "linear vertex ordering",
+    "linear arrangement",
+    "vertex ordering",
+    "ordering of",
+    "permutation",
+    "a tour",
+    "hamiltonian",
+    "sequence of jobs",
+    "sequencing",
+    "layout",
+    "arrangement of",
+    "topological order"
+   ]
+  },
+  {
+   "class": "REACH-partition",
+   "rule": "L2-partition",
+   "phrases": [
+    "partition",
+    "partitioned",
+    "partitioning",
+    "colouring",
+    "coloring",
+    "colour the",
+    "color the",
+    "into k parts",
+    "into at most k classes",
+    "classes into which"
+   ]
+  },
+  {
+   "class": "REACH-assignment",
+   "rule": "L3-assignment",
+   "phrases": [
+    "assignment",
+    "assign each",
+    "assigns each",
+    "mapping from",
+    "map each",
+    "truth assignment",
+    "schedule assigning",
+    "allocation of"
+   ]
+  },
+  {
+   "class": "REACH-subset",
+   "rule": "L4-subset",
+   "phrases": [
+    "subset",
+    "sub-family",
+    "subfamily",
+    "select",
+    "choose",
+    "delete <=",
+    "delete at most",
+    "remove <=",
+    "remove at most",
+    "hit all",
+    "cover all",
+    "covering all",
+    "of size <= k",
+    "at most k vertices",
+    "at most k edges",
+    "<= k vertices",
+    "<= k edges",
+    "<= k elements",
+    "set of size",
+    "family of sets"
+   ]
+  }
+ ],
+ "selftest": "the three known mis-typings must move and six built subset rows must not",
+ "n_examined": 127,
+ "by_class": {
+  "REACH-partition": 11,
+  "UNMATCHED-needs-adjudication": 86,
+  "REACH-assignment": 2,
+  "REACH-subset": 25,
+  "REACH-permutation": 3
+ },
+ "n_retyped": 16,
+ "n_unmatched": 86,
+ "n_readable": 41,
+ "rate_among_readable": 0.3902,
+ "rate_lower_bound_over_class": 0.126,
+ "rate_caveat": "THE CLASS RATE IS NOT KNOWN. The lexicon reads only the rows whose encoding contains one of its phrases; the rest are UNMATCHED, and an unmatched row is not a clean row. So `rate_among_readable` is a rate over a population selected by the instrument, and `rate_lower_bound_over_class` is a floor that assumes every unmatched row is correctly typed \u2014 which nothing supports. Reporting either alone as 'the misclassification rate' would be the denominator error this program has a gate against.",
+ "coverage": 0.3228,
+ "coverage_note": "the lexicon was sealed before it ran and is NOT tuned after seeing which rows it missed. Broadening it is a v2 pass that declares its phrases first, through the rule-before-computation channel.",
+ "clean_subset_queue": [
+  "capacitated-vertex-cover",
+  "cluster-editing",
+  "directed-feedback-vertex-set",
+  "graph-sandwich-pi-property",
+  "k-set-packing",
+  "maximum-minimal-vertex-cover",
+  "minimum-equivalent-digraph",
+  "minimum-fill-in",
+  "multidimensional-knapsack",
+  "partial-vertex-cover",
+  "planar-dominating-set",
+  "planar-independent-set",
+  "planar-vertex-cover",
+  "quadratic-knapsack",
+  "red-blue-set-cover",
+  "weighted-interval-scheduling"
+ ],
+ "n_clean_unbuilt": 16,
+ "already_built_but_retyped": [
+  "3-partition",
+  "cutwidth",
+  "domatic-number",
+  "efficient-domination",
+  "min-sum-set-cover",
+  "minimum-common-string-partition"
+ ],
+ "built_but_retyped_note": "frozen frames are NOT touched. A built row that retypes keeps its readings; what changes is which capture path future work uses.",
+ "ENCODING_DISAGREES_WITH_CAPTURE": {
+  "what": "two rows were captured AS SUBSETS while the atlas encoding names a different certificate object. The capture is not thereby wrong \u2014 a subset encoding of a partition problem can be a faithful reformulation \u2014 but the two artifacts disagree about what the row IS, and nothing currently records which governs.",
+  "rows": {
+   "3-partition": {
+    "atlas_encoding_says": "partition",
+    "captured_as": "size-3 subsets hitting the per-triple target (batch 4)",
+    "the_question": "is the triple-subset region a faithful encoding of 3-partition, or a subset PROXY for it \u2014 the same move that made min-sum-set-cover look like set-cover?"
+   },
+   "minimum-common-string-partition": {
+    "atlas_encoding_says": "permutation",
+    "captured_as": "cut-position subsets of A that also partition B (batch 5)",
+    "the_question": "the cut set determines the common partition, so the subset reading is arguably exact rather than a proxy \u2014 but that is an argument, and the atlas says otherwise"
+   }
+  },
+  "disposition": "RAISED FOR RULING \u2014 not resolved here, and neither capture is withdrawn",
+  "why_not_resolved_here": "choosing between two artifacts that disagree about a row's identity is a typing ruling. Picking one silently is how the census's original error was made."
+ },
+ "sized_populations": {
+  "REACH-permutation": [
+   "cutwidth",
+   "min-sum-set-cover",
+   "minimum-common-string-partition"
+  ],
+  "REACH-partition": [
+   "3-partition",
+   "balanced-connected-partition",
+   "clique-choosability",
+   "domatic-number",
+   "efficient-domination",
+   "max-directed-cut",
+   "max-k-cut",
+   "maxmin-vertex-cover",
+   "minmax-3d-matching",
+   "minmax-clique",
+   "sharp-matchings"
+  ],
+  "REACH-assignment": [
+   "capacitated-dominating-set",
+   "k-median"
+  ]
+ },
+ "partition_class_note": "REACH-partition does not exist in the census vocabulary. It is minted here only if the population is non-empty \u2014 a class with no members is a category invented for tidiness.",
+ "rows": [
+  {
+   "problem_id": "3-partition",
+   "was": "REACH-subset",
+   "now": "REACH-partition",
+   "rule_fired": "L2-partition",
+   "matched_phrase": "partition",
+   "retyped": true,
+   "already_built": true,
+   "canonical_encoding": "3m positive integers a_1..a_{3m} with sum m*B and each B/4 < a_i < B/2; decision: can they be partitioned into m triples each summing exactly to B? (numbers may be given in unary \u2014 strong NP-completeness)"
+  },
+  {
+   "problem_id": "3sum",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "n integers; are there three summing to zero?"
+  },
+  {
+   "problem_id": "all-pairs-shortest-path",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "weighted graph; shortest path between every pair"
+  },
+  {
+   "problem_id": "and-or-graph-accessibility",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "an AND/OR graph with a source set; decision: is a target vertex accessible (AND-vertices need all in-neighbors, OR-vertices any)?"
+  },
+  {
+   "problem_id": "balanced-connected-partition",
+   "was": "REACH-subset",
+   "now": "REACH-partition",
+   "rule_fired": "L2-partition",
+   "matched_phrase": "partition",
+   "retyped": true,
+   "already_built": false,
+   "canonical_encoding": "connected vertex-weighted graph, adjacency-list; partition V into q parts each inducing a CONNECTED subgraph; objective (max-min version) = maximize the weight of the lightest part. q pinned as part of the input."
+  },
+  {
+   "problem_id": "balanced-vertex-separator",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph, adjacency-list; find a minimum vertex set S whose removal leaves every connected component with at most 2|V|/3 vertices; objective = minimize |S|"
+  },
+  {
+   "problem_id": "biclique-cover",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "simple undirected graph, adjacency-list; cover every edge of G by complete bipartite subgraphs (bicliques); objective = minimum number of bicliques whose union contains all edges"
+  },
+  {
+   "problem_id": "bilevel-knapsack",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a two-level (leader/follower) 0/1 knapsack with binary-encoded weights and profits; decision: can the leader guarantee objective >= t against the follower's optimal response?"
+  },
+  {
+   "problem_id": "bin-covering",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "item sizes; maximize the number of bins filled to >= 1"
+  },
+  {
+   "problem_id": "bin-packing",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "n item sizes in binary + bin capacity; decision: pack into <= k bins?"
+  },
+  {
+   "problem_id": "capacitated-dominating-set",
+   "was": "REACH-subset",
+   "now": "REACH-assignment",
+   "rule_fired": "L3-assignment",
+   "matched_phrase": "assignment",
+   "retyped": true,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph with a vertex capacity function c; a capacitated dominating set is a set D plus an assignment of every vertex not in D to a neighbour in D so that no v in D is assigned more than c(v) vertices; objective = minimize |D|"
+  },
+  {
+   "problem_id": "capacitated-facility-location",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a metric on facilities and clients, facility opening costs, and facility capacities (max clients per open facility); objective = minimize (sum of opening costs + sum of client-to-assigned-facility distances) respecting capacities"
+  },
+  {
+   "problem_id": "capacitated-vertex-cover",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "cover all",
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "graph with vertex capacities; cover all edges respecting capacities, size <= k"
+  },
+  {
+   "problem_id": "clique-choosability",
+   "was": "REACH-subset",
+   "now": "REACH-partition",
+   "rule_fired": "L2-partition",
+   "matched_phrase": "coloring",
+   "retyped": true,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph G, integer k (fixed k>=2); G is k-clique-choosable if every k-list-assignment admits a clique-coloring choosing from the lists"
+  },
+  {
+   "problem_id": "clique-width",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph, adjacency-list; objective = minimum number of labels k in a clique-width expression (using disjoint union, relabelling, and label-join operations) that constructs G"
+  },
+  {
+   "problem_id": "cluster-deletion",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "simple undirected graph, adjacency-list; objective = minimum number of edges to DELETE so that every connected component of the result is a clique (a cluster graph)"
+  },
+  {
+   "problem_id": "cluster-editing",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "<= k edges",
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph; edit <= k edges to make a disjoint union of cliques"
+  },
+  {
+   "problem_id": "cluster-vertex-deletion",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "delete <=",
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "graph; delete <= k vertices to make a disjoint union of cliques"
+  },
+  {
+   "problem_id": "connected-vertex-cover",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "simple undirected graph; a vertex cover that induces a connected subgraph, size <= k"
+  },
+  {
+   "problem_id": "connectivity-augmentation",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "subset",
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "a k-edge-connected graph G plus a set of candidate links (extra edges); objective = minimum-cardinality subset of links whose addition makes G (k+1)-edge-connected (Tree Augmentation is the k=1 special case)"
+  },
+  {
+   "problem_id": "constrained-shortest-path",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a directed graph with two nonnegative edge functions cost and resource, a source, a target, and a resource budget R; objective = minimum-cost s-t path whose total resource use is <= R"
+  },
+  {
+   "problem_id": "covering-radius",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a binary linear code given by an m x n parity-check matrix H over GF(2) (C = {x : x H^T = 0}); integer r; covering radius rho = max_{x in {0,1}^n} min_{c in C} d(x,c) (Hamming distance)"
+  },
+  {
+   "problem_id": "cutwidth",
+   "was": "REACH-subset",
+   "now": "REACH-permutation",
+   "rule_fired": "L1-ordering",
+   "matched_phrase": "linear vertex ordering",
+   "retyped": true,
+   "already_built": true,
+   "canonical_encoding": "graph; linear vertex ordering minimizing the maximum edge cut, <= k"
+  },
+  {
+   "problem_id": "cycle-packing",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph, adjacency-list; objective = maximum number of pairwise vertex-disjoint cycles (of any length >= 3)"
+  },
+  {
+   "problem_id": "d-hitting-set",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "hit all",
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "family of sets each of size <= d; hit all with <= k elements"
+  },
+  {
+   "problem_id": "deadlock-detection",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a single-unit resource-allocation graph; decision: is the system deadlocked (an unresolvable wait cycle)?"
+  },
+  {
+   "problem_id": "densest-k-subgraph",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "choose",
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "graph; choose k vertices maximizing induced edges"
+  },
+  {
+   "problem_id": "directed-feedback-vertex-set",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "delete <=",
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "directed graph, adjacency-list; delete <= k vertices to make acyclic"
+  },
+  {
+   "problem_id": "directed-steiner-tree",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "directed edge-weighted graph + root + terminals; min-cost arborescence reaching terminals"
+  },
+  {
+   "problem_id": "disjoint-paths",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "graph + k terminal pairs; k vertex-disjoint paths connecting them"
+  },
+  {
+   "problem_id": "dissociation-number",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "simple undirected graph, adjacency-list; a dissociation set induces a subgraph of max degree <= 1; its complement is a 3-path vertex cover (hits every path on 3 vertices). Pinned optimization object: minimize the 3-path vertex cover |S| = n - dissociation number (the well-behaved covering ratio)."
+  },
+  {
+   "problem_id": "domatic-number",
+   "was": "REACH-subset",
+   "now": "REACH-partition",
+   "rule_fired": "L2-partition",
+   "matched_phrase": "partition",
+   "retyped": true,
+   "already_built": true,
+   "canonical_encoding": "simple undirected graph, adjacency-list; objective = maximum number of pairwise-disjoint dominating sets into which V can be partitioned (bounded above by min-degree + 1)"
+  },
+  {
+   "problem_id": "edge-dominating-set",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "simple undirected graph; edge set dominating all edges, size <= k"
+  },
+  {
+   "problem_id": "efficient-domination",
+   "was": "REACH-subset",
+   "now": "REACH-partition",
+   "rule_fired": "L2-partition",
+   "matched_phrase": "partition",
+   "retyped": true,
+   "already_built": true,
+   "canonical_encoding": "simple undirected graph, adjacency-list; a set D is efficient-dominating (a perfect code) if every vertex is dominated by EXACTLY one member of D (the closed neighbourhoods of D partition V); decision: does an efficient dominating set exist?"
+  },
+  {
+   "problem_id": "facility-location",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a metric on facilities and clients, and facility opening costs (no capacity limits); objective = minimize (sum of opening costs of opened facilities + sum of each client's distance to its nearest opened facility)"
+  },
+  {
+   "problem_id": "feedback-arc-set",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "simple directed graph, adjacency-list; objective = minimum arc set whose removal makes G acyclic"
+  },
+  {
+   "problem_id": "firefighter",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "rooted tree, one firefighter per round protecting one vertex; fire spreads to unprotected neighbours; objective = maximize number of vertices saved (never burned)"
+  },
+  {
+   "problem_id": "flow-shop-scheduling",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "n jobs, each processed on 3 machines in the fixed order M1->M2->M3 with given processing times; objective = minimize makespan (Cmax)"
+  },
+  {
+   "problem_id": "generalized-subset-sum",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "two integer vectors u, v (binary-encoded) of equal length n and an integer target t; x, y range over {0,1}^n"
+  },
+  {
+   "problem_id": "graph-burning",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph; in each round the existing fire spreads to all neighbours and one new vertex is ignited; objective = minimum #rounds (burning number b(G)) to burn every vertex"
+  },
+  {
+   "problem_id": "graph-motif",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "vertex-colored graph + multiset of colors; connected subgraph realizing the multiset"
+  },
+  {
+   "problem_id": "graph-sandwich-pi-property",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "subset",
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "two simple undirected graphs F, F' with F subset of F' (E(F) subset E(F')); target property Pi = being P_k-free (no induced path on k vertices) with k = Theta(|V|^{1/2})"
+  },
+  {
+   "problem_id": "graph-spanner",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "simple undirected unweighted graph; objective = minimum-edge spanning subgraph H such that d_H(u,v) <= 2*d_G(u,v) for all u,v (a 2-spanner)"
+  },
+  {
+   "problem_id": "group-steiner-tree",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "edge-weighted graph + vertex groups; minimum tree touching every group"
+  },
+  {
+   "problem_id": "high-degree-subgraph",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "a graph G and integer k>=3; decision: does G have a nonempty induced subgraph of minimum degree >= k (does a given vertex survive the k-core-style peeling)?"
+  },
+  {
+   "problem_id": "independent-set-reconfiguration",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a graph G and two independent sets I_s, I_t of equal size (token placements); decision: can I_s be transformed into I_t by single-token moves (slide to an adjacent vertex, or jump to any vertex) with every intermediate set independent?"
+  },
+  {
+   "problem_id": "interval-completion",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph G; objective = minimum number of edges to add so that the result is an interval graph"
+  },
+  {
+   "problem_id": "job-interval-selection",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "select",
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "n jobs, each given as a set of candidate time intervals; select at most one interval per job so that selected intervals are pairwise disjoint; objective = maximize number of selected jobs"
+  },
+  {
+   "problem_id": "job-shop-scheduling",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "n jobs, m machines, operation orders + times in binary; minimize makespan"
+  },
+  {
+   "problem_id": "k-center",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "metric on n points (distance matrix); decision: cover with k radius-r balls?"
+  },
+  {
+   "problem_id": "k-edge-connected-subgraph",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph G and integer k; objective = minimum-cardinality spanning subgraph that is k-edge-connected (unweighted, uniform requirement)"
+  },
+  {
+   "problem_id": "k-median",
+   "was": "REACH-subset",
+   "now": "REACH-assignment",
+   "rule_fired": "L3-assignment",
+   "matched_phrase": "assignment",
+   "retyped": true,
+   "already_built": false,
+   "canonical_encoding": "metric on n points; open k centers minimizing total assignment distance"
+  },
+  {
+   "problem_id": "k-minimum-spanning-tree",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "undirected graph with non-negative edge weights and integer k; objective = minimum-weight tree spanning at least k vertices"
+  },
+  {
+   "problem_id": "k-set-packing",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "subfamily",
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "family of sets each of size <= k; find a maximum disjoint subfamily"
+  },
+  {
+   "problem_id": "label-cover",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "bipartite constraint graph, label sets L_U,L_V, each edge carrying a projection constraint pi_e: L_U->L_V; objective = a labelling maximizing the fraction of satisfied edges (the two-prover / PCP projection game)"
+  },
+  {
+   "problem_id": "lex-first-maximal-independent-set",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph with a fixed vertex order; decision: is vertex v in the lexicographically-first maximal independent set (greedy in order)?"
+  },
+  {
+   "problem_id": "lex-first-maximal-matching",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a graph with a fixed edge order and an edge e; decision: is e in the lexicographically-first maximal matching (greedy in order)?"
+  },
+  {
+   "problem_id": "longest-path",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph, adjacency-list; decision: simple path of length >= k?"
+  },
+  {
+   "problem_id": "makespan-scheduling",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "n job lengths in binary + m machines; decision: makespan <= T?"
+  },
+  {
+   "problem_id": "max-coverage",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "set system + budget k; decision: k sets covering >= t elements?"
+  },
+  {
+   "problem_id": "max-directed-cut",
+   "was": "REACH-subset",
+   "now": "REACH-partition",
+   "rule_fired": "L2-partition",
+   "matched_phrase": "partition",
+   "retyped": true,
+   "already_built": false,
+   "canonical_encoding": "directed graph; partition maximizing arcs from left to right"
+  },
+  {
+   "problem_id": "max-dispersion",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "choose",
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "complete graph on n points with edge weights satisfying the triangle inequality, and integer p; objective = choose p points maximizing the sum of pairwise distances among them"
+  },
+  {
+   "problem_id": "max-k-cut",
+   "was": "REACH-subset",
+   "now": "REACH-partition",
+   "rule_fired": "L2-partition",
+   "matched_phrase": "partition",
+   "retyped": true,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph (optionally with non-negative edge weights) and integer k>=2; objective = partition vertices into k parts maximizing the total weight of edges crossing between parts"
+  },
+  {
+   "problem_id": "maximum-agreement-forest",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "two rooted binary phylogenetic trees on the same leaf label set; objective = an agreement forest with the fewest components (equivalently the rooted SPR distance = #components - 1)"
+  },
+  {
+   "problem_id": "maximum-common-subgraph",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "two graphs; find the largest graph isomorphic to a subgraph of both"
+  },
+  {
+   "problem_id": "maximum-feasible-linear-subsystem",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a system of linear relations (equations/inequalities) with rational coefficients that is infeasible as a whole; objective = maximum-cardinality subsystem that is feasible"
+  },
+  {
+   "problem_id": "maximum-induced-matching",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph; an induced matching is a matching M whose edges induce no other edges (pairwise at distance >= 2); objective = maximum |M|"
+  },
+  {
+   "problem_id": "maximum-leaf-spanning-tree",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph; spanning tree with >= k leaves"
+  },
+  {
+   "problem_id": "maximum-minimal-vertex-cover",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "subset",
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph; objective = maximum-cardinality MINIMAL vertex cover (a vertex cover no proper subset of which is a vertex cover)"
+  },
+  {
+   "problem_id": "maximum-planar-subgraph",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "subset",
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "simple undirected graph G; objective = maximum-cardinality edge subset E' such that the subgraph (V,E') is planar"
+  },
+  {
+   "problem_id": "maxmin-vertex-cover",
+   "was": "REACH-subset",
+   "now": "REACH-partition",
+   "rule_fired": "L2-partition",
+   "matched_phrase": "partition",
+   "retyped": true,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph G=(V,E), a partition (V_{i,j})_{i in I, j in J} of V, integer k; for t:I->J, f_t = size of a smallest vertex cover of G restricted to the union over i of V_{i,t(i)}"
+  },
+  {
+   "problem_id": "min-bisection",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "simple undirected graph, adjacency-list; split into two equal halves minimizing cut"
+  },
+  {
+   "problem_id": "min-communication-cost-spanning-tree",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "connected graph with metric edge lengths; uniform (unit) communication requirement between every vertex pair; objective = spanning tree T minimizing routing cost = sum over all pairs of the T-path length (minimum routing cost spanning tree, MRCT). Encoding PIN: the uniform-requirement metric special case of the Optimum Communication Spanning Tree (OCT)"
+  },
+  {
+   "problem_id": "min-cost-flow",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "directed graph with capacities + costs (binary); min-cost feasible flow"
+  },
+  {
+   "problem_id": "min-degree-spanning-tree",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple connected graph, adjacency-list; objective = spanning tree minimizing the maximum vertex degree"
+  },
+  {
+   "problem_id": "min-sum-set-cover",
+   "was": "REACH-subset",
+   "now": "REACH-permutation",
+   "rule_fired": "L1-ordering",
+   "matched_phrase": "linear order",
+   "retyped": true,
+   "already_built": true,
+   "canonical_encoding": "set system (universe of elements, family of sets); objective = a linear order on the sets minimizing the sum over elements of the cover time (index of the first set covering the element)"
+  },
+  {
+   "problem_id": "minimum-common-string-partition",
+   "was": "REACH-subset",
+   "now": "REACH-permutation",
+   "rule_fired": "L1-ordering",
+   "matched_phrase": "permutation",
+   "retyped": true,
+   "already_built": true,
+   "canonical_encoding": "two strings that are permutations of each other; objective = a minimum-cardinality partition of each into blocks such that the two block multisets are equal (a common partition)"
+  },
+  {
+   "problem_id": "minimum-decision-tree",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a set of objects and a set of binary tests (each test splits the objects); objective = a decision tree of minimum cost (e.g. minimum total external path length / expected #tests) that identifies every object"
+  },
+  {
+   "problem_id": "minimum-distance-code",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "a linear code over a finite field given by a generator or parity-check matrix; objective = the minimum Hamming weight of a nonzero codeword (the minimum distance)"
+  },
+  {
+   "problem_id": "minimum-equivalent-digraph",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "subset",
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple directed graph; objective = a minimum-cardinality subset of the arcs that preserves all reachability relations (same transitive closure)"
+  },
+  {
+   "problem_id": "minimum-fill-in",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "<= k edges",
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "graph; add <= k edges to make it chordal"
+  },
+  {
+   "problem_id": "minimum-k-cut",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "undirected graph with edge weights and an integer k (part of the input, no fixed terminals); objective = a minimum-weight set of edges whose removal leaves at least k connected components"
+  },
+  {
+   "problem_id": "minimum-sum-of-squares",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "n items with sizes and m bins/machines (m part of the input); objective = assign every item to a bin minimizing the sum over bins of (bin load)^2, i.e. the squared L2 norm of the load vector"
+  },
+  {
+   "problem_id": "minimum-test-cover",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "subset",
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "a set of items and a family of tests (each test is a subset of items); objective = a minimum-cardinality subfamily of tests that distinguishes every pair of items (some chosen test separates them)"
+  },
+  {
+   "problem_id": "minmax-3d-matching",
+   "was": "REACH-subset",
+   "now": "REACH-partition",
+   "rule_fired": "L2-partition",
+   "matched_phrase": "partition",
+   "retyped": true,
+   "already_built": false,
+   "canonical_encoding": "a set W with a partition (W_{i,j})_{i in I, j in J} of W, a set S of 3-element subsets of W, integer k; for t:I->J, f_t(W) = size of a largest matching (mutually disjoint triples) inside the union over i of W_{i,t(i)}"
+  },
+  {
+   "problem_id": "minmax-clique",
+   "was": "REACH-subset",
+   "now": "REACH-partition",
+   "rule_fired": "L2-partition",
+   "matched_phrase": "partition",
+   "retyped": true,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph G=(V,E), a partition (V_{i,j})_{i in I, j in J} of V, integer k; for t:I->J, f_t = size of the largest clique in G restricted to the union over i of V_{i,t(i)}"
+  },
+  {
+   "problem_id": "multicut",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "undirected graph with edge weights and a set of source-sink terminal pairs; objective = a minimum-weight set of edges whose removal disconnects every terminal pair"
+  },
+  {
+   "problem_id": "multidimensional-knapsack",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "subset",
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "n items each with a profit and a d-dimensional weight vector, and a d-dimensional capacity (d a fixed constant); objective = a subset of maximum total profit whose weight is within capacity in every dimension"
+  },
+  {
+   "problem_id": "multiway-cut",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "edge-weighted graph + terminal set; separate all terminals minimizing cut"
+  },
+  {
+   "problem_id": "nearest-codeword",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a linear code over GF(2) given by a generator matrix, and a target vector y; objective = a codeword minimizing the Hamming distance to y (maximum-likelihood decoding)"
+  },
+  {
+   "problem_id": "network-interdiction",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a network with an interdiction budget: the leader (interdictor) removes/attacks <= b elements (edges/vertices), then the follower solves an NP-hard optimization X (e.g. shortest path or a knapsack-interdiction nominal problem) on the residual network; decision: can the leader force the follower's optimum past a threshold t?"
+  },
+  {
+   "problem_id": "node-multiway-cut",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "undirected graph and a set of >= 3 terminals; objective = a minimum-cardinality set of non-terminal vertices whose removal pairwise separates all terminals"
+  },
+  {
+   "problem_id": "open-shop-scheduling",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "n jobs and m machines (m part of the input); each job has one operation per machine, executable in any order but not concurrently; objective = minimize the makespan (O||Cmax)"
+  },
+  {
+   "problem_id": "partial-vertex-cover",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "choose",
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "graph; choose k vertices covering the maximum number of edges"
+  },
+  {
+   "problem_id": "pathwidth",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph; objective = the minimum width over all path-decompositions (equivalently interval-completion clique number minus one / vertex separation number)"
+  },
+  {
+   "problem_id": "planar-dominating-set",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "of size <= k",
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "planar graph; dominating set of size <= k"
+  },
+  {
+   "problem_id": "planar-independent-set",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "set of size",
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "planar graph; independent set of size >= k"
+  },
+  {
+   "problem_id": "planar-matching-count",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "planar graph, adjacency-list; count perfect matchings"
+  },
+  {
+   "problem_id": "planar-vertex-cover",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "of size <= k",
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "planar graph; vertex cover of size <= k"
+  },
+  {
+   "problem_id": "planar-vertex-deletion",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph; objective = a minimum set of vertices whose deletion makes the graph planar (the k-apex / vertex-planarization problem)"
+  },
+  {
+   "problem_id": "power-dominating-set",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph; a vertex set observes by domination (a chosen vertex and its neighbors) plus a propagation rule (an observed vertex with all-but-one observed neighbors forces the last neighbor); objective = a minimum set observing all vertices"
+  },
+  {
+   "problem_id": "precedence-constrained-scheduling",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "n unit-length jobs with a precedence DAG and m identical machines; objective = minimize the makespan subject to the precedence constraints (P|prec,pj=1|Cmax)"
+  },
+  {
+   "problem_id": "prize-collecting-steiner-tree",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "edge-weighted graph + vertex penalties; minimize tree weight + unconnected penalties"
+  },
+  {
+   "problem_id": "quadratic-knapsack",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "select",
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "n items with a knapsack constraint (weights + capacity, binary) and a nonnegative quadratic profit matrix (pairwise item profits); maximize total selected profit"
+  },
+  {
+   "problem_id": "red-blue-set-cover",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "subset",
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a set of red elements R, blue elements B, and a family S of subsets of R\u222aB; choose a subfamily covering every blue element while covering the fewest red elements"
+  },
+  {
+   "problem_id": "register-sufficiency",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a directed acyclic graph (an expression/computation DAG); decision: can the DAG be evaluated using at most k registers (Sethi register-sufficiency / black pebble game)?"
+  },
+  {
+   "problem_id": "resource-constrained-scheduling",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "n unit/known-length jobs on m identical machines with s shared renewable resources (per-job resource demands, per-resource bounds); minimize makespan"
+  },
+  {
+   "problem_id": "roman-domination",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph; a Roman dominating function assigns 0/1/2 to vertices so every 0-vertex is adjacent to a 2-vertex; objective = minimum total weight"
+  },
+  {
+   "problem_id": "sharp-matchings",
+   "was": "REACH-subset",
+   "now": "REACH-partition",
+   "rule_fired": "L2-partition",
+   "matched_phrase": "partition",
+   "retyped": true,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph, adjacency-list; count ALL matchings of every size (independent edge sets) = the monomer-dimer partition function at unit activity, sum over k of the k-matching numbers"
+  },
+  {
+   "problem_id": "sharp-spanning-trees",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "connected undirected (multi)graph, adjacency-list; count the spanning trees of G"
+  },
+  {
+   "problem_id": "sparsest-cut",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a capacitated graph with a set of source-sink demand pairs; find a cut minimizing the ratio of cut capacity to separated demand (non-uniform sparsest cut)"
+  },
+  {
+   "problem_id": "stable-matching",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "two sides with preference lists; find a stable matching"
+  },
+  {
+   "problem_id": "steiner-forest",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "edge-weighted graph + terminal PAIRS; connect each pair minimizing total weight"
+  },
+  {
+   "problem_id": "steiner-tree",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "edge-weighted graph + terminal set; decision: Steiner tree of weight <= B?"
+  },
+  {
+   "problem_id": "subset-product",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "subset",
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "a set of positive integers (binary) and a target P; decision: does some subset have product exactly P?"
+  },
+  {
+   "problem_id": "survivable-network-design",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "edge-weighted graph + connectivity requirements r(u,v); min-cost subgraph meeting them"
+  },
+  {
+   "problem_id": "target-set-selection",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a graph with per-vertex thresholds; an initially active seed set activates a neighbor once its number of active neighbors reaches its threshold; find the minimum seed set activating the whole graph"
+  },
+  {
+   "problem_id": "total-dominating-set",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph with no isolated vertex; a total dominating set S has every vertex (including those in S) adjacent to a vertex of S; objective = minimum |S|"
+  },
+  {
+   "problem_id": "treedepth",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "graph; minimum height of an elimination forest, <= k"
+  },
+  {
+   "problem_id": "treewidth",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph, adjacency-list; decision: treewidth <= k?"
+  },
+  {
+   "problem_id": "triangle-packing",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "simple undirected graph; find a maximum-cardinality set of pairwise vertex-disjoint triangles"
+  },
+  {
+   "problem_id": "unrelated-machine-scheduling",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "n jobs and m machines with a machine-dependent processing time p_ij for each job-machine pair; assign jobs to machines minimizing the makespan"
+  },
+  {
+   "problem_id": "unsplittable-flow",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "a capacitated graph with source-sink demand pairs, each demand routed on a SINGLE path; maximize the total routed demand (throughput) respecting capacities"
+  },
+  {
+   "problem_id": "upper-domination",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": true,
+   "canonical_encoding": "simple undirected graph; find a MAXIMUM-cardinality MINIMAL dominating set (the upper domination number Gamma(G))"
+  },
+  {
+   "problem_id": "vector-bin-packing",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "n items, each a d-dimensional vector in [0,1]^d (d a fixed constant >= 2); pack into the minimum number of bins so that each bin's coordinate-wise vector sum is <= 1 in every dimension"
+  },
+  {
+   "problem_id": "weighted-completion-time-scheduling",
+   "was": "REACH-subset",
+   "now": "UNMATCHED-needs-adjudication",
+   "rule_fired": "L0-unmatched",
+   "matched_phrase": null,
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "n jobs with processing times and weights, m identical parallel machines; minimize the weighted sum of job completion times sum_j w_j C_j"
+  },
+  {
+   "problem_id": "weighted-interval-scheduling",
+   "was": "REACH-subset",
+   "now": "REACH-subset",
+   "rule_fired": "L4-subset",
+   "matched_phrase": "subset",
+   "retyped": false,
+   "already_built": false,
+   "canonical_encoding": "weighted intervals on a line; select a max-weight non-overlapping subset"
+  }
+ ]
+}
