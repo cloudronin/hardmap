@@ -173,3 +173,34 @@ def test_a_repo_only_verb_explains_itself_when_dev_is_absent(monkeypatch):
                         {"mod": "a_module_that_does_not_exist", "consumes": (), "why": "x"})
     with pytest.raises(RuntimeError, match="repo-only verb"):
         cli._delegate("wave")
+
+
+# ── the documentation cannot drift from the surface it documents ────────────────────────────────────
+
+def _documented_verbs():
+    """Every `foundry <verb>` the READMEs advertise, from their fenced bash blocks."""
+    out = set()
+    for md in (ROOT / "README.md", ROOT.parent / "README.md"):
+        for block in md.read_text().split("```bash")[1:]:
+            for line in block.split("```")[0].splitlines():
+                line = line.split("#")[0].strip()
+                if line.startswith("foundry ") and not line.startswith("foundry --"):
+                    out.add(line.split()[1])
+    return out
+
+
+def test_every_verb_the_readmes_advertise_actually_exists():
+    """A README promising a verb that was renamed or dropped is worse than one that says nothing —
+    it sends a reader to a command that fails, and the failure looks like their mistake."""
+    documented = _documented_verbs()
+    assert documented, "no foundry commands found in either README — the parser above stopped working"
+    known = set(cli.VERBS) | set(cli.DELEGATED)
+    assert documented <= known, f"the READMEs advertise verbs that do not exist: {sorted(documented - known)}"
+
+
+def test_the_batch_declaration_convention_has_a_home():
+    """`foundry census declare --declaration batches/<N>.json` is advertised in both READMEs and in the
+    argparse help. The directory and its convention must exist, or the example sends a reader nowhere."""
+    conv = ROOT / "batches" / "README.md"
+    assert conv.exists(), "the declaration convention is documented in three places and lives in none"
+    assert "census = declaration + reservation + status" in conv.read_text()

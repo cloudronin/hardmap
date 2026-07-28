@@ -281,7 +281,9 @@ def build_parser() -> argparse.ArgumentParser:
 
     c = sub.add_parser("census", help=VERBS["census"]["help"]).add_subparsers(dest="action")
     cd = c.add_parser("declare", help="compile a declaration into a census (checks, reserves, emits)")
-    cd.add_argument("--declaration", required=True, metavar="FILE")
+    cd.add_argument("--declaration", required=True, metavar="FILE",
+                    help="a batch declaration; the convention is foundry/batches/<N>.json "
+                         "(see foundry/batches/README.md)")
     cv = c.add_parser("verify", help="re-derive a census and report what differs; never rewrites")
     cv.add_argument("--batch", type=int, required=True)
     c.add_parser("list", help="every census, with the schema shape it is actually in")

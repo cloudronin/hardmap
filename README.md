@@ -12,7 +12,7 @@ trusting the author.
 
 > **`pip install hardmap && hardmap repro --all`** reproduces every cited number in the
 > manifest — **28 claims** as of 2026-07-26, growing as results land — and `hardmap verify`
-> passes the internal-coherence sweep (**10 checks**).
+> passes the internal-coherence sweep (**11 checks**).
 > The sealed verification pass is complete ([H4-verification.md](docs/findings/H4-verification.md)).
 
 ## Provenance & the seal chain
@@ -35,9 +35,10 @@ other seal.
 ## Layout
 
 ```
-hardmap/         # the thin consolidation CLI (repro / verify / atlas)
+hardmap/         # the thin consolidation CLI (repro / verify / anatomy / atlas) — READS ONLY
 eightfold/       # the atlas: frozen atlas.jsonl, schema, validator, Crucible, Factors
 foundry/         # the oracle line: lattice / prism / ferry, netting, preregs
+                 #   + the observatory and its `foundry` CLI — the WRITE surface, repo-only
 proof-census/    # samplers, verifier, the C1–C3 census harness
 desert-map/      # banked/killed; retained for fixtures + the verifier census reuses
 docs/            # hash-map, seal-chain, and (aggregated) findings / prereg / specs
@@ -69,6 +70,49 @@ hardmap atlas             # dump the frozen atlas (jsonl byte-identical, or --fo
 census aggregate from the committed proof checkpoint, and reads the verified
 oracle matrices; it exits nonzero on any mismatch. The per-number map (entrypoint,
 expected value, tolerance, tier) is [`repro/manifest.yaml`](repro/manifest.yaml).
+
+## Two surfaces: `hardmap` reads, `foundry` writes
+
+Everything above is the **read surface**. `hardmap` reproduces and checks; it never
+writes into the archive. That is the whole of what `pip install hardmap` gives you,
+and the omission is deliberate.
+
+The **write surface** is a second binary, `foundry`, which advances the observatory:
+it reserves rows, compiles the catalog, runs Helm waves, appends to the maptrail. It
+is declared only in [`foundry/pyproject.toml`](foundry/pyproject.toml) and its
+implementation partly lives in `foundry/dev/`, which the wheel excludes — so it comes
+with a checkout and not with the package.
+
+**Why the split is packaging rather than convention.** A declared fraction of every
+fan-out batch is *reserved*: those rows are named, hashed, and **never captured**, so
+predictions can be sealed before their frames exist. Blindness is physics rather than
+a guard someone has to respect. A stranger reproducing the paper who could advance the
+frontier by mistyping a subcommand would destroy exactly that. Keeping the verb out of
+what ships makes it impossible rather than merely detected.
+
+```bash
+foundry audit             # what the CLI can do, and what still lives in dev/
+foundry fresh             # every compiled artifact vs the sources it was compiled from
+foundry census list       # every batch census, with the schema shape it is actually in
+foundry migrate status    # one-time history: applied, pending, or drifted
+foundry frontier          # the reserved rows — declared, not captured
+foundry db compile        # regenerate observatory.db from the hashed artifacts
+```
+
+Two laws are enforced by the dispatch rather than by each verb:
+
+- **Freshness.** Every compiled artifact records the sha256 of what it was compiled
+  from; a verb declares what it *consumes* and is refused if any of it has moved.
+  `foundry wave` against a stale database will not run, and the error names the
+  rebuild. A producer consumes nothing, so no exemption is needed.
+- **Event-time provenance.** A verb that writes emits its own maptrail record from
+  inside the act. A trail composed afterwards from what someone remembers is not a
+  record, so writing and recording are the same step.
+
+One-time passes — a voided preregistration, a re-typing done under a ruling — are
+**not** verbs. They are migrations: named, ordered, applied once, checksummed, and
+visible through `foundry migrate status`. What you can do to history is ask whether it
+ran.
 
 ## License
 
