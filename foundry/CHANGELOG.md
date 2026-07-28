@@ -2,6 +2,23 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **Batch 9 — the Q21-corrected dial applied across a whole batch.** Every edge-subset row runs on a
+  WITHIN-INSTANCE parameter at a fixed ground set of 11 candidate edges: terminal count, component
+  target, or vertices-per-candidate-edge. Edge density cannot be the dial when the ground set IS the
+  edge set, and this is the first batch built entirely in the corrected form. The roster is the first
+  drawn from the 59-row adjudication under the vet-before-hash amendment. **5 rows shipped, 1 excluded,
+  2 reserved; frontier 12 -> 14, catalog 378 -> 414 cells, frames 1322 -> 1898.**
+  **`planar-matching-count` is the first row the program has built where a COUNTING charge meets a
+  measured region** — the decide-versus-count comparison the census banked is now physically possible.
+  Two generator notes, kept apart on purpose: `node-multiway-cut` initially produced an EMPTY region at
+  every ramp value because random terminals often land adjacent and no vertex removal can separate an
+  edge — a generator bug, fixed (terminals drawn pairwise non-adjacent), after which it gave a clean
+  128 -> 4 trajectory. It then **excluded at birth anyway**, because conformance caught the
+  `upward_closed` declaration as wrong: adding a TERMINAL to the cut set breaks feasibility. Second
+  batch running where the derived-consequence check corrected my own declaration. `graph-motif` sits at
+  5-9 members throughout, below the r-floor; it had already been widened once, so it ships with
+  `INSUFFICIENT-r` readings rather than being widened again — widening twice to chase a usable region
+  is tuning until it works. 411 tests, verify 11/11, W2 passes.
 - **vet-before-hash amended — the rule protects a question, not a procedure.** As first written it
   named the region-formulation audit, because that was the only pass at the time which read region
   formulations with receipts. Naming an implementation made a question look like a ceremony: by batch 9

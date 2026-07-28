@@ -8,7 +8,7 @@
   "shape_and_transition_descriptors": "n.a.-ambient-confounded \u2014 slope, traj_class and kink presuppose a fixed space; here the x-axis moves the universe too",
   "not_the_kink_precedent": "kink values are meaningful-but-untested; these are meaningless-as-defined"
  },
- "n_rows": 59,
+ "n_rows": 65,
  "n_confounded": 6,
  "confounded": [
   "cluster-deletion",
@@ -818,6 +818,126 @@
     11,
     11,
     11
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "graph-motif",
+   "batch": 9,
+   "ramp_values": [
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8
+   ],
+   "ground_set_widths": [
+    10,
+    10,
+    10,
+    10,
+    10
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "maximum-induced-matching",
+   "batch": 9,
+   "ramp_values": [
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8
+   ],
+   "ground_set_widths": [
+    11,
+    11,
+    11,
+    11,
+    11
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "node-multiway-cut",
+   "batch": 9,
+   "ramp_values": [
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8
+   ],
+   "ground_set_widths": [
+    9,
+    9,
+    9,
+    9,
+    9
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "planar-matching-count",
+   "batch": 9,
+   "ramp_values": [
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8
+   ],
+   "ground_set_widths": [
+    11,
+    11,
+    11,
+    11,
+    11
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "steiner-tree",
+   "batch": 9,
+   "ramp_values": [
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8
+   ],
+   "ground_set_widths": [
+    11,
+    11,
+    11,
+    11,
+    11
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "target-set-selection",
+   "batch": 9,
+   "ramp_values": [
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8
+   ],
+   "ground_set_widths": [
+    7,
+    7,
+    7,
+    7,
+    7
    ],
    "ambient_stable": true,
    "ambient_confounded": false

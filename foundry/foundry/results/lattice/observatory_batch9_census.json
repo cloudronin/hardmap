@@ -1,0 +1,102 @@
+{
+ "schema": "observatory-batch-census/v1",
+ "STATUS": "DECLARATION \u2014 no reading exists for any row here",
+ "batch": 9,
+ "why_this_batch": "the first roster drawn from the 59-row adjudication, newly qualified under the vet-before-hash amendment. Eight rows, every one adjudicated REACH-subset with its encoding quoted. Each edge-subset row runs on a WITHIN-INSTANCE dial at fixed ground set \u2014 the Q21-corrected form \u2014 because edge density cannot be the dial when the ground set is the edge set.",
+ "families": {
+  "graph": {
+   "census_ramp": "within-instance parameter at fixed ground set",
+   "ramp_values": [
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8
+   ]
+  },
+  "optimization": {
+   "census_ramp": "constraint-to-ground-set ratio",
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ]
+  }
+ },
+ "roster": {
+  "steiner-tree": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "terminal count at fixed candidate-edge set",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "multiway-cut": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "terminal count at fixed candidate-edge set",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "minimum-k-cut": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "component target k at fixed candidate-edge set",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "node-multiway-cut": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "terminal count at fixed vertex set",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "target-set-selection": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "activation threshold at fixed vertex set",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "graph-motif": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "motif size at fixed vertex set",
+   "structural_expectation": null,
+   "capture_mode": "RAMPED"
+  },
+  "maximum-induced-matching": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "vertices per candidate edge",
+   "structural_expectation": "downward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "planar-matching-count": {
+   "family": "graph",
+   "instantiates_the_family_ramp_as": "vertices per candidate edge",
+   "structural_expectation": "downward_closed",
+   "capture_mode": "RAMPED"
+  }
+ },
+ "n_roster": 8,
+ "reservation": {
+  "authority": "Helm v1 \u00a75 \u2014 a declared fraction of every fan-out batch is reserved",
+  "fraction": 0.25,
+  "rule": "rows ordered by sha256(f'{batch}:{row}') ascending; the first ceil(fraction * n) are RESERVED. Deterministic, reproducible from the roster alone, and outcome-blind by construction \u2014 the reserved rows are not built at declaration time, so no measured value exists for the rule to see.",
+  "roster_sha256": "d2a29c9e8b80ab52fba52d96d0f0e28105387ad7b8743571956b5982d3d6c71a",
+  "reserved": [
+   "minimum-k-cut",
+   "multiway-cut"
+  ],
+  "n_reserved": 2,
+  "n_published": 6,
+  "declared_at": "2026-07-27T21:51:05Z",
+  "frames_do_not_exist": "reserved rows are NOT CAPTURED. Helm \u00a70.1 requires predictions hashed before their frames exist, which is strictly stronger than withholding frames that already exist: under it, blindness is physics rather than a guard anyone has to be trusted to respect. \u00a75's 'captured last in the batch' is honoured maximally \u2014 last means after the wave's predictions are sealed."
+ },
+ "published": [
+  "graph-motif",
+  "maximum-induced-matching",
+  "node-multiway-cut",
+  "planar-matching-count",
+  "steiner-tree",
+  "target-set-selection"
+ ],
+ "carried_forward": {}
+}

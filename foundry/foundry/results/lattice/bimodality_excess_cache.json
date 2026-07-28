@@ -5,692 +5,680 @@
  "declared_before_computed": "maptrail version:bimodality-excess-declared",
  "k_control_draws": 8,
  "capture_seed": 20260726,
- "source_sha256": "0d48173225815b8c8297bf4bcc793da7a695ea926f55c69ff33432bc7902c86c",
+ "source_sha256": "2515697482de2cf42172cb1fe3e98078743e02d5ec3d78fa42e349442c5aecd7",
  "source_note": "keyed on the batch generator sources; a cache keyed on nothing outlives them",
- "n_cells": 294,
+ "n_cells": 337,
  "values": {
   "dissociation-number|0|feasible": {
-   "bimodality_measured": 0.3624,
-   "bimodality_control_mean": 0.3632,
-   "bimodality_excess": -0.0009,
+   "bimodality_measured": 0.3656,
+   "bimodality_control_mean": 0.364,
+   "bimodality_excess": 0.0016,
    "n_control_draws": 24
   },
   "dissociation-number|0|optimal": {
-   "bimodality_measured": 0.4009,
-   "bimodality_control_mean": 0.4067,
-   "bimodality_excess": -0.0058,
-   "n_control_draws": 16
+   "bimodality_measured": 0.5623,
+   "bimodality_control_mean": 0.5572,
+   "bimodality_excess": 0.005,
+   "n_control_draws": 8
   },
   "dissociation-number|1|feasible": {
    "bimodality_measured": 0.3709,
-   "bimodality_control_mean": 0.3674,
-   "bimodality_excess": 0.0035,
+   "bimodality_control_mean": 0.3684,
+   "bimodality_excess": 0.0025,
    "n_control_draws": 24
   },
   "dissociation-number|1|optimal": {
-   "bimodality_measured": 0.4787,
-   "bimodality_control_mean": 0.5063,
-   "bimodality_excess": -0.0276,
-   "n_control_draws": 15
+   "bimodality_measured": 0.5175,
+   "bimodality_control_mean": 0.5209,
+   "bimodality_excess": -0.0034,
+   "n_control_draws": 16
   },
   "dissociation-number|2|feasible": {
-   "bimodality_measured": 0.3704,
-   "bimodality_control_mean": 0.3713,
-   "bimodality_excess": -0.0009,
+   "bimodality_measured": 0.3683,
+   "bimodality_control_mean": 0.3687,
+   "bimodality_excess": -0.0004,
    "n_control_draws": 24
   },
   "dissociation-number|2|optimal": {
-   "bimodality_measured": 0.2293,
-   "bimodality_control_mean": 0.2655,
-   "bimodality_excess": -0.0362,
+   "bimodality_measured": 0.5609,
+   "bimodality_control_mean": 0.532,
+   "bimodality_excess": 0.0289,
    "n_control_draws": 8
   },
   "dissociation-number|3|feasible": {
-   "bimodality_measured": 0.3808,
-   "bimodality_control_mean": 0.3757,
-   "bimodality_excess": 0.0051,
+   "bimodality_measured": 0.3774,
+   "bimodality_control_mean": 0.3712,
+   "bimodality_excess": 0.0062,
    "n_control_draws": 24
-  },
-  "dissociation-number|3|optimal": {
-   "bimodality_measured": 0.5278,
-   "bimodality_control_mean": 0.5475,
-   "bimodality_excess": -0.0197,
-   "n_control_draws": 8
   },
   "dissociation-number|4|feasible": {
-   "bimodality_measured": 0.3963,
-   "bimodality_control_mean": 0.3876,
-   "bimodality_excess": 0.0087,
+   "bimodality_measured": 0.3937,
+   "bimodality_control_mean": 0.3854,
+   "bimodality_excess": 0.0083,
    "n_control_draws": 24
   },
-  "high-degree-subgraph|1|feasible": {
-   "bimodality_measured": 0.3153,
-   "bimodality_control_mean": 0.3182,
-   "bimodality_excess": -0.0028,
+  "dissociation-number|4|optimal": {
+   "bimodality_measured": 0.517,
+   "bimodality_control_mean": 0.5504,
+   "bimodality_excess": -0.0334,
    "n_control_draws": 16
   },
+  "high-degree-subgraph|1|feasible": {
+   "bimodality_measured": 0.4202,
+   "bimodality_control_mean": 0.3908,
+   "bimodality_excess": 0.0294,
+   "n_control_draws": 8
+  },
   "high-degree-subgraph|2|feasible": {
-   "bimodality_measured": 0.411,
-   "bimodality_control_mean": 0.3866,
-   "bimodality_excess": 0.0244,
+   "bimodality_measured": 0.4078,
+   "bimodality_control_mean": 0.3804,
+   "bimodality_excess": 0.0273,
    "n_control_draws": 24
   },
   "high-degree-subgraph|3|feasible": {
-   "bimodality_measured": 0.3716,
-   "bimodality_control_mean": 0.3663,
-   "bimodality_excess": 0.0052,
+   "bimodality_measured": 0.3873,
+   "bimodality_control_mean": 0.3781,
+   "bimodality_excess": 0.0092,
    "n_control_draws": 24
   },
   "high-degree-subgraph|4|feasible": {
    "bimodality_measured": 0.3671,
-   "bimodality_control_mean": 0.3647,
-   "bimodality_excess": 0.0024,
-   "n_control_draws": 24
-  },
-  "efficient-domination|0|solutions": {
-   "bimodality_measured": 0.3004,
-   "bimodality_control_mean": 0.3466,
-   "bimodality_excess": -0.0462,
-   "n_control_draws": 6
-  },
-  "min-bisection|0|feasible": {
-   "bimodality_measured": 0.3742,
-   "bimodality_control_mean": 0.3746,
-   "bimodality_excess": -0.0004,
-   "n_control_draws": 24
-  },
-  "min-bisection|0|optimal": {
-   "bimodality_measured": 0.4757,
-   "bimodality_control_mean": 0.4048,
-   "bimodality_excess": 0.0709,
-   "n_control_draws": 8
-  },
-  "min-bisection|1|feasible": {
-   "bimodality_measured": 0.3752,
-   "bimodality_control_mean": 0.3746,
-   "bimodality_excess": 0.0006,
-   "n_control_draws": 24
-  },
-  "min-bisection|1|optimal": {
-   "bimodality_measured": 0.5602,
-   "bimodality_control_mean": 0.4405,
-   "bimodality_excess": 0.1197,
-   "n_control_draws": 8
-  },
-  "min-bisection|2|feasible": {
-   "bimodality_measured": 0.3755,
-   "bimodality_control_mean": 0.3746,
-   "bimodality_excess": 0.0009,
-   "n_control_draws": 24
-  },
-  "min-bisection|3|feasible": {
-   "bimodality_measured": 0.3746,
-   "bimodality_control_mean": 0.3743,
-   "bimodality_excess": 0.0003,
-   "n_control_draws": 24
-  },
-  "min-bisection|3|optimal": {
-   "bimodality_measured": 0.4808,
-   "bimodality_control_mean": 0.418,
-   "bimodality_excess": 0.0628,
-   "n_control_draws": 8
-  },
-  "min-bisection|4|feasible": {
-   "bimodality_measured": 0.3741,
-   "bimodality_control_mean": 0.3745,
-   "bimodality_excess": -0.0005,
-   "n_control_draws": 24
-  },
-  "min-bisection|4|optimal": {
-   "bimodality_measured": 0.378,
-   "bimodality_control_mean": 0.3483,
-   "bimodality_excess": 0.0297,
-   "n_control_draws": 16
-  },
-  "densest-k-subgraph|0|feasible": {
-   "bimodality_measured": 0.3885,
-   "bimodality_control_mean": 0.3888,
-   "bimodality_excess": -0.0003,
-   "n_control_draws": 24
-  },
-  "densest-k-subgraph|1|feasible": {
-   "bimodality_measured": 0.3891,
-   "bimodality_control_mean": 0.3893,
-   "bimodality_excess": -0.0002,
-   "n_control_draws": 24
-  },
-  "densest-k-subgraph|1|optimal": {
-   "bimodality_measured": 0.7112,
-   "bimodality_control_mean": 0.56,
-   "bimodality_excess": 0.1512,
-   "n_control_draws": 16
-  },
-  "densest-k-subgraph|2|feasible": {
-   "bimodality_measured": 0.3912,
-   "bimodality_control_mean": 0.3888,
-   "bimodality_excess": 0.0024,
-   "n_control_draws": 24
-  },
-  "densest-k-subgraph|3|feasible": {
-   "bimodality_measured": 0.3913,
-   "bimodality_control_mean": 0.3893,
+   "bimodality_control_mean": 0.365,
    "bimodality_excess": 0.0021,
    "n_control_draws": 24
   },
+  "min-bisection|0|feasible": {
+   "bimodality_measured": 0.3719,
+   "bimodality_control_mean": 0.3747,
+   "bimodality_excess": -0.0029,
+   "n_control_draws": 24
+  },
+  "min-bisection|0|optimal": {
+   "bimodality_measured": 0.5769,
+   "bimodality_control_mean": 0.4065,
+   "bimodality_excess": 0.1704,
+   "n_control_draws": 24
+  },
+  "min-bisection|1|feasible": {
+   "bimodality_measured": 0.3743,
+   "bimodality_control_mean": 0.3747,
+   "bimodality_excess": -0.0005,
+   "n_control_draws": 24
+  },
+  "min-bisection|1|optimal": {
+   "bimodality_measured": 0.4024,
+   "bimodality_control_mean": 0.3735,
+   "bimodality_excess": 0.0289,
+   "n_control_draws": 24
+  },
+  "min-bisection|2|feasible": {
+   "bimodality_measured": 0.3769,
+   "bimodality_control_mean": 0.3748,
+   "bimodality_excess": 0.0021,
+   "n_control_draws": 24
+  },
+  "min-bisection|2|optimal": {
+   "bimodality_measured": 0.4588,
+   "bimodality_control_mean": 0.4106,
+   "bimodality_excess": 0.0481,
+   "n_control_draws": 16
+  },
+  "min-bisection|3|feasible": {
+   "bimodality_measured": 0.3736,
+   "bimodality_control_mean": 0.3743,
+   "bimodality_excess": -0.0007,
+   "n_control_draws": 24
+  },
+  "min-bisection|3|optimal": {
+   "bimodality_measured": 0.504,
+   "bimodality_control_mean": 0.3867,
+   "bimodality_excess": 0.1172,
+   "n_control_draws": 8
+  },
+  "min-bisection|4|feasible": {
+   "bimodality_measured": 0.3749,
+   "bimodality_control_mean": 0.3743,
+   "bimodality_excess": 0.0006,
+   "n_control_draws": 24
+  },
+  "min-bisection|4|optimal": {
+   "bimodality_measured": 0.3743,
+   "bimodality_control_mean": 0.3342,
+   "bimodality_excess": 0.0401,
+   "n_control_draws": 16
+  },
+  "densest-k-subgraph|0|feasible": {
+   "bimodality_measured": 0.3908,
+   "bimodality_control_mean": 0.3896,
+   "bimodality_excess": 0.0011,
+   "n_control_draws": 24
+  },
+  "densest-k-subgraph|0|optimal": {
+   "bimodality_measured": 0.5631,
+   "bimodality_control_mean": 0.4827,
+   "bimodality_excess": 0.0804,
+   "n_control_draws": 8
+  },
+  "densest-k-subgraph|1|feasible": {
+   "bimodality_measured": 0.3912,
+   "bimodality_control_mean": 0.3895,
+   "bimodality_excess": 0.0017,
+   "n_control_draws": 24
+  },
+  "densest-k-subgraph|2|feasible": {
+   "bimodality_measured": 0.3893,
+   "bimodality_control_mean": 0.3892,
+   "bimodality_excess": 0.0001,
+   "n_control_draws": 24
+  },
+  "densest-k-subgraph|2|optimal": {
+   "bimodality_measured": 0.5273,
+   "bimodality_control_mean": 0.451,
+   "bimodality_excess": 0.0763,
+   "n_control_draws": 8
+  },
+  "densest-k-subgraph|3|feasible": {
+   "bimodality_measured": 0.3908,
+   "bimodality_control_mean": 0.3894,
+   "bimodality_excess": 0.0014,
+   "n_control_draws": 24
+  },
   "densest-k-subgraph|3|optimal": {
-   "bimodality_measured": 0.4625,
-   "bimodality_control_mean": 0.3377,
-   "bimodality_excess": 0.1247,
+   "bimodality_measured": 0.4376,
+   "bimodality_control_mean": 0.3982,
+   "bimodality_excess": 0.0394,
    "n_control_draws": 8
   },
   "densest-k-subgraph|4|feasible": {
-   "bimodality_measured": 0.3901,
-   "bimodality_control_mean": 0.3896,
-   "bimodality_excess": 0.0005,
+   "bimodality_measured": 0.3906,
+   "bimodality_control_mean": 0.3893,
+   "bimodality_excess": 0.0013,
    "n_control_draws": 24
   },
   "densest-k-subgraph|4|optimal": {
-   "bimodality_measured": 0.4035,
-   "bimodality_control_mean": 0.3845,
-   "bimodality_excess": 0.019,
+   "bimodality_measured": 0.5044,
+   "bimodality_control_mean": 0.4402,
+   "bimodality_excess": 0.0643,
    "n_control_draws": 16
   },
   "maximum-planar-subgraph|0|feasible": {
-   "bimodality_measured": 0.4588,
-   "bimodality_control_mean": 0.4588,
+   "bimodality_measured": 0.4019,
+   "bimodality_control_mean": 0.4019,
    "bimodality_excess": 0.0,
    "n_control_draws": 24
   },
   "maximum-planar-subgraph|1|feasible": {
-   "bimodality_measured": 0.3867,
-   "bimodality_control_mean": 0.386,
-   "bimodality_excess": 0.0006,
+   "bimodality_measured": 0.3864,
+   "bimodality_control_mean": 0.385,
+   "bimodality_excess": 0.0014,
    "n_control_draws": 24
   },
   "maximum-planar-subgraph|2|feasible": {
-   "bimodality_measured": 0.3647,
-   "bimodality_control_mean": 0.362,
-   "bimodality_excess": 0.0027,
+   "bimodality_measured": 0.3701,
+   "bimodality_control_mean": 0.3699,
+   "bimodality_excess": 0.0001,
    "n_control_draws": 24
   },
   "maximum-planar-subgraph|3|feasible": {
-   "bimodality_measured": 0.3644,
-   "bimodality_control_mean": 0.3615,
-   "bimodality_excess": 0.0029,
+   "bimodality_measured": 0.3604,
+   "bimodality_control_mean": 0.3603,
+   "bimodality_excess": 0.0001,
    "n_control_draws": 24
+  },
+  "maximum-planar-subgraph|4|feasible": {
+   "bimodality_measured": 0.354,
+   "bimodality_control_mean": 0.356,
+   "bimodality_excess": -0.0021,
+   "n_control_draws": 8
   },
   "graph-spanner|0|feasible": {
-   "bimodality_measured": 0.4898,
-   "bimodality_control_mean": 0.4841,
-   "bimodality_excess": 0.0057,
-   "n_control_draws": 24
+   "bimodality_measured": 0.3735,
+   "bimodality_control_mean": 0.3669,
+   "bimodality_excess": 0.0066,
+   "n_control_draws": 16
   },
   "graph-spanner|0|optimal": {
-   "bimodality_measured": 0.8193,
-   "bimodality_control_mean": 0.8275,
-   "bimodality_excess": -0.0082,
+   "bimodality_measured": 0.9005,
+   "bimodality_control_mean": 0.902,
+   "bimodality_excess": -0.0015,
    "n_control_draws": 8
   },
   "graph-spanner|1|feasible": {
-   "bimodality_measured": 0.3529,
-   "bimodality_control_mean": 0.3479,
-   "bimodality_excess": 0.005,
+   "bimodality_measured": 0.3966,
+   "bimodality_control_mean": 0.3859,
+   "bimodality_excess": 0.0107,
    "n_control_draws": 24
   },
   "graph-spanner|1|optimal": {
-   "bimodality_measured": 0.4649,
-   "bimodality_control_mean": 0.4359,
-   "bimodality_excess": 0.029,
-   "n_control_draws": 16
+   "bimodality_measured": 0.4808,
+   "bimodality_control_mean": 0.4189,
+   "bimodality_excess": 0.062,
+   "n_control_draws": 24
   },
   "graph-spanner|2|feasible": {
-   "bimodality_measured": 0.4258,
-   "bimodality_control_mean": 0.4157,
-   "bimodality_excess": 0.0101,
-   "n_control_draws": 24
+   "bimodality_measured": 0.4417,
+   "bimodality_control_mean": 0.4286,
+   "bimodality_excess": 0.0132,
+   "n_control_draws": 16
   },
   "graph-spanner|2|optimal": {
-   "bimodality_measured": 0.5965,
-   "bimodality_control_mean": 0.5627,
-   "bimodality_excess": 0.0338,
-   "n_control_draws": 24
-  },
-  "graph-spanner|3|feasible": {
-   "bimodality_measured": 0.418,
-   "bimodality_control_mean": 0.4104,
-   "bimodality_excess": 0.0075,
-   "n_control_draws": 8
-  },
-  "graph-spanner|3|optimal": {
-   "bimodality_measured": 0.4954,
-   "bimodality_control_mean": 0.4439,
-   "bimodality_excess": 0.0515,
-   "n_control_draws": 8
+   "bimodality_measured": 0.6619,
+   "bimodality_control_mean": 0.6304,
+   "bimodality_excess": 0.0315,
+   "n_control_draws": 16
   },
   "connectivity-augmentation|0|feasible": {
-   "bimodality_measured": 0.3553,
-   "bimodality_control_mean": 0.3537,
-   "bimodality_excess": 0.0016,
+   "bimodality_measured": 0.3606,
+   "bimodality_control_mean": 0.3567,
+   "bimodality_excess": 0.0039,
    "n_control_draws": 24
   },
   "connectivity-augmentation|0|optimal": {
-   "bimodality_measured": 0.3973,
-   "bimodality_control_mean": 0.3824,
-   "bimodality_excess": 0.0149,
+   "bimodality_measured": 0.387,
+   "bimodality_control_mean": 0.3758,
+   "bimodality_excess": 0.0113,
    "n_control_draws": 24
   },
   "connectivity-augmentation|1|feasible": {
-   "bimodality_measured": 0.3566,
-   "bimodality_control_mean": 0.3531,
-   "bimodality_excess": 0.0035,
+   "bimodality_measured": 0.3547,
+   "bimodality_control_mean": 0.3532,
+   "bimodality_excess": 0.0014,
    "n_control_draws": 24
   },
   "connectivity-augmentation|1|optimal": {
-   "bimodality_measured": 0.5877,
-   "bimodality_control_mean": 0.5582,
-   "bimodality_excess": 0.0295,
+   "bimodality_measured": 0.4382,
+   "bimodality_control_mean": 0.3972,
+   "bimodality_excess": 0.041,
    "n_control_draws": 24
   },
   "connectivity-augmentation|2|feasible": {
-   "bimodality_measured": 0.3539,
-   "bimodality_control_mean": 0.3533,
-   "bimodality_excess": 0.0005,
+   "bimodality_measured": 0.3568,
+   "bimodality_control_mean": 0.3527,
+   "bimodality_excess": 0.0042,
    "n_control_draws": 24
   },
   "connectivity-augmentation|2|optimal": {
-   "bimodality_measured": 0.3993,
-   "bimodality_control_mean": 0.3905,
-   "bimodality_excess": 0.0088,
+   "bimodality_measured": 0.5089,
+   "bimodality_control_mean": 0.4623,
+   "bimodality_excess": 0.0466,
    "n_control_draws": 8
   },
   "connectivity-augmentation|3|feasible": {
-   "bimodality_measured": 0.3573,
-   "bimodality_control_mean": 0.3552,
-   "bimodality_excess": 0.0021,
+   "bimodality_measured": 0.3542,
+   "bimodality_control_mean": 0.3524,
+   "bimodality_excess": 0.0018,
    "n_control_draws": 24
   },
-  "connectivity-augmentation|3|optimal": {
-   "bimodality_measured": 0.4075,
-   "bimodality_control_mean": 0.3812,
-   "bimodality_excess": 0.0262,
-   "n_control_draws": 8
-  },
   "connectivity-augmentation|4|feasible": {
-   "bimodality_measured": 0.3549,
-   "bimodality_control_mean": 0.3547,
-   "bimodality_excess": 0.0003,
+   "bimodality_measured": 0.3586,
+   "bimodality_control_mean": 0.3585,
+   "bimodality_excess": 0.0,
    "n_control_draws": 24
   },
   "cluster-deletion|0|feasible": {
-   "bimodality_measured": 0.4247,
-   "bimodality_control_mean": 0.4136,
-   "bimodality_excess": 0.0111,
+   "bimodality_measured": 0.4221,
+   "bimodality_control_mean": 0.4141,
+   "bimodality_excess": 0.008,
    "n_control_draws": 24
-  },
-  "cluster-deletion|0|optimal": {
-   "bimodality_measured": 0.2629,
-   "bimodality_control_mean": 0.3709,
-   "bimodality_excess": -0.108,
-   "n_control_draws": 8
   },
   "cluster-deletion|1|feasible": {
-   "bimodality_measured": 0.3964,
-   "bimodality_control_mean": 0.3908,
-   "bimodality_excess": 0.0056,
+   "bimodality_measured": 0.3868,
+   "bimodality_control_mean": 0.3728,
+   "bimodality_excess": 0.014,
    "n_control_draws": 24
   },
-  "cluster-deletion|1|optimal": {
-   "bimodality_measured": 0.405,
-   "bimodality_control_mean": 0.4243,
-   "bimodality_excess": -0.0193,
-   "n_control_draws": 8
-  },
   "cluster-deletion|2|feasible": {
-   "bimodality_measured": 0.3793,
-   "bimodality_control_mean": 0.3728,
-   "bimodality_excess": 0.0065,
+   "bimodality_measured": 0.3757,
+   "bimodality_control_mean": 0.3715,
+   "bimodality_excess": 0.0043,
    "n_control_draws": 24
   },
   "cluster-deletion|2|optimal": {
-   "bimodality_measured": 0.4838,
-   "bimodality_control_mean": 0.38,
-   "bimodality_excess": 0.1037,
-   "n_control_draws": 16
+   "bimodality_measured": 0.4045,
+   "bimodality_control_mean": 0.4851,
+   "bimodality_excess": -0.0807,
+   "n_control_draws": 8
   },
   "cluster-deletion|3|feasible": {
-   "bimodality_measured": 0.3726,
-   "bimodality_control_mean": 0.3631,
-   "bimodality_excess": 0.0095,
+   "bimodality_measured": 0.3478,
+   "bimodality_control_mean": 0.3582,
+   "bimodality_excess": -0.0103,
    "n_control_draws": 8
   },
   "cluster-deletion|3|optimal": {
-   "bimodality_measured": 0.5488,
-   "bimodality_control_mean": 0.395,
-   "bimodality_excess": 0.1538,
+   "bimodality_measured": 0.2798,
+   "bimodality_control_mean": 0.2803,
+   "bimodality_excess": -0.0005,
    "n_control_draws": 8
   },
   "upper-domination|0|feasible": {
-   "bimodality_measured": 0.424,
-   "bimodality_control_mean": 0.377,
-   "bimodality_excess": 0.0471,
-   "n_control_draws": 16
-  },
-  "upper-domination|0|optimal": {
-   "bimodality_measured": 0.3671,
-   "bimodality_control_mean": 0.3689,
-   "bimodality_excess": -0.0018,
-   "n_control_draws": 16
+   "bimodality_measured": 0.3985,
+   "bimodality_control_mean": 0.3924,
+   "bimodality_excess": 0.0061,
+   "n_control_draws": 24
   },
   "upper-domination|1|feasible": {
-   "bimodality_measured": 0.4751,
-   "bimodality_control_mean": 0.4096,
-   "bimodality_excess": 0.0655,
+   "bimodality_measured": 0.4704,
+   "bimodality_control_mean": 0.4271,
+   "bimodality_excess": 0.0433,
    "n_control_draws": 24
   },
   "upper-domination|1|optimal": {
-   "bimodality_measured": 0.3004,
-   "bimodality_control_mean": 0.3565,
-   "bimodality_excess": -0.056,
-   "n_control_draws": 7
+   "bimodality_measured": 0.4906,
+   "bimodality_control_mean": 0.5258,
+   "bimodality_excess": -0.0352,
+   "n_control_draws": 8
   },
   "upper-domination|2|feasible": {
-   "bimodality_measured": 0.4937,
-   "bimodality_control_mean": 0.4293,
-   "bimodality_excess": 0.0645,
+   "bimodality_measured": 0.4916,
+   "bimodality_control_mean": 0.4373,
+   "bimodality_excess": 0.0544,
    "n_control_draws": 24
   },
   "upper-domination|2|optimal": {
-   "bimodality_measured": 0.3673,
-   "bimodality_control_mean": 0.3661,
-   "bimodality_excess": 0.0012,
-   "n_control_draws": 15
+   "bimodality_measured": 0.5025,
+   "bimodality_control_mean": 0.4437,
+   "bimodality_excess": 0.0587,
+   "n_control_draws": 16
   },
   "upper-domination|3|feasible": {
-   "bimodality_measured": 0.4966,
-   "bimodality_control_mean": 0.4404,
-   "bimodality_excess": 0.0562,
+   "bimodality_measured": 0.5471,
+   "bimodality_control_mean": 0.4182,
+   "bimodality_excess": 0.1288,
    "n_control_draws": 24
   },
   "upper-domination|3|optimal": {
-   "bimodality_measured": 0.5084,
-   "bimodality_control_mean": 0.462,
-   "bimodality_excess": 0.0463,
-   "n_control_draws": 16
+   "bimodality_measured": 0.4841,
+   "bimodality_control_mean": 0.4249,
+   "bimodality_excess": 0.0592,
+   "n_control_draws": 8
   },
   "upper-domination|4|feasible": {
-   "bimodality_measured": 0.4999,
-   "bimodality_control_mean": 0.4703,
-   "bimodality_excess": 0.0295,
+   "bimodality_measured": 0.5273,
+   "bimodality_control_mean": 0.4138,
+   "bimodality_excess": 0.1135,
    "n_control_draws": 24
+  },
+  "upper-domination|4|optimal": {
+   "bimodality_measured": 0.2629,
+   "bimodality_control_mean": 0.3553,
+   "bimodality_excess": -0.0924,
+   "n_control_draws": 8
   },
   "k-center|0|feasible": {
    "bimodality_measured": 0.4575,
-   "bimodality_control_mean": 0.4571,
-   "bimodality_excess": 0.0004,
+   "bimodality_control_mean": 0.4568,
+   "bimodality_excess": 0.0007,
    "n_control_draws": 24
   },
   "k-center|0|optimal": {
    "bimodality_measured": 0.4575,
-   "bimodality_control_mean": 0.457,
-   "bimodality_excess": 0.0005,
-   "n_control_draws": 16
+   "bimodality_control_mean": 0.4566,
+   "bimodality_excess": 0.0009,
+   "n_control_draws": 24
   },
   "k-center|1|feasible": {
-   "bimodality_measured": 0.4575,
-   "bimodality_control_mean": 0.4569,
-   "bimodality_excess": 0.0006,
-   "n_control_draws": 24
-  },
-  "k-center|1|optimal": {
-   "bimodality_measured": 0.4805,
-   "bimodality_control_mean": 0.4526,
-   "bimodality_excess": 0.0279,
-   "n_control_draws": 16
-  },
-  "k-center|2|feasible": {
-   "bimodality_measured": 0.4575,
-   "bimodality_control_mean": 0.4562,
-   "bimodality_excess": 0.0013,
-   "n_control_draws": 24
-  },
-  "k-center|2|optimal": {
-   "bimodality_measured": 0.4112,
-   "bimodality_control_mean": 0.3829,
-   "bimodality_excess": 0.0282,
-   "n_control_draws": 16
-  },
-  "k-center|3|feasible": {
    "bimodality_measured": 0.4575,
    "bimodality_control_mean": 0.4573,
    "bimodality_excess": 0.0002,
    "n_control_draws": 24
   },
-  "k-center|3|optimal": {
-   "bimodality_measured": 0.4933,
-   "bimodality_control_mean": 0.4545,
-   "bimodality_excess": 0.0388,
-   "n_control_draws": 24
-  },
-  "k-center|4|feasible": {
-   "bimodality_measured": 0.4575,
-   "bimodality_control_mean": 0.4569,
-   "bimodality_excess": 0.0006,
-   "n_control_draws": 24
-  },
-  "k-center|4|optimal": {
-   "bimodality_measured": 0.4907,
-   "bimodality_control_mean": 0.453,
-   "bimodality_excess": 0.0377,
-   "n_control_draws": 24
-  },
-  "max-dispersion|0|feasible": {
-   "bimodality_measured": 0.4575,
-   "bimodality_control_mean": 0.4558,
-   "bimodality_excess": 0.0017,
-   "n_control_draws": 24
-  },
-  "max-dispersion|0|optimal": {
-   "bimodality_measured": 0.4757,
-   "bimodality_control_mean": 0.4541,
-   "bimodality_excess": 0.0216,
+  "k-center|1|optimal": {
+   "bimodality_measured": 0.7207,
+   "bimodality_control_mean": 0.5196,
+   "bimodality_excess": 0.2012,
    "n_control_draws": 16
   },
-  "max-dispersion|1|feasible": {
+  "k-center|2|feasible": {
+   "bimodality_measured": 0.4575,
+   "bimodality_control_mean": 0.4567,
+   "bimodality_excess": 0.0008,
+   "n_control_draws": 24
+  },
+  "k-center|2|optimal": {
+   "bimodality_measured": 0.5485,
+   "bimodality_control_mean": 0.5645,
+   "bimodality_excess": -0.0161,
+   "n_control_draws": 24
+  },
+  "k-center|3|feasible": {
    "bimodality_measured": 0.4575,
    "bimodality_control_mean": 0.457,
    "bimodality_excess": 0.0005,
    "n_control_draws": 24
   },
-  "max-dispersion|1|optimal": {
-   "bimodality_measured": 0.9005,
-   "bimodality_control_mean": 0.6807,
-   "bimodality_excess": 0.2198,
-   "n_control_draws": 8
-  },
-  "max-dispersion|2|feasible": {
-   "bimodality_measured": 0.4575,
-   "bimodality_control_mean": 0.4563,
-   "bimodality_excess": 0.0012,
+  "k-center|3|optimal": {
+   "bimodality_measured": 0.5135,
+   "bimodality_control_mean": 0.4513,
+   "bimodality_excess": 0.0622,
    "n_control_draws": 24
   },
-  "max-dispersion|2|optimal": {
-   "bimodality_measured": 0.4259,
-   "bimodality_control_mean": 0.4025,
-   "bimodality_excess": 0.0235,
-   "n_control_draws": 15
+  "k-center|4|feasible": {
+   "bimodality_measured": 0.4575,
+   "bimodality_control_mean": 0.4565,
+   "bimodality_excess": 0.001,
+   "n_control_draws": 24
   },
-  "max-dispersion|3|feasible": {
+  "k-center|4|optimal": {
+   "bimodality_measured": 0.4695,
+   "bimodality_control_mean": 0.4553,
+   "bimodality_excess": 0.0142,
+   "n_control_draws": 24
+  },
+  "max-dispersion|0|feasible": {
+   "bimodality_measured": 0.4575,
+   "bimodality_control_mean": 0.4566,
+   "bimodality_excess": 0.0009,
+   "n_control_draws": 24
+  },
+  "max-dispersion|0|optimal": {
+   "bimodality_measured": 0.7047,
+   "bimodality_control_mean": 0.5435,
+   "bimodality_excess": 0.1612,
+   "n_control_draws": 16
+  },
+  "max-dispersion|1|feasible": {
    "bimodality_measured": 0.4575,
    "bimodality_control_mean": 0.4568,
    "bimodality_excess": 0.0007,
    "n_control_draws": 24
   },
+  "max-dispersion|1|optimal": {
+   "bimodality_measured": 0.4033,
+   "bimodality_control_mean": 0.4111,
+   "bimodality_excess": -0.0078,
+   "n_control_draws": 16
+  },
+  "max-dispersion|2|feasible": {
+   "bimodality_measured": 0.4575,
+   "bimodality_control_mean": 0.4567,
+   "bimodality_excess": 0.0008,
+   "n_control_draws": 24
+  },
+  "max-dispersion|2|optimal": {
+   "bimodality_measured": 0.561,
+   "bimodality_control_mean": 0.5359,
+   "bimodality_excess": 0.0251,
+   "n_control_draws": 16
+  },
+  "max-dispersion|3|feasible": {
+   "bimodality_measured": 0.4575,
+   "bimodality_control_mean": 0.4567,
+   "bimodality_excess": 0.0008,
+   "n_control_draws": 24
+  },
   "max-dispersion|3|optimal": {
-   "bimodality_measured": 0.5381,
-   "bimodality_control_mean": 0.4483,
-   "bimodality_excess": 0.0898,
+   "bimodality_measured": 0.543,
+   "bimodality_control_mean": 0.5475,
+   "bimodality_excess": -0.0045,
    "n_control_draws": 24
   },
   "max-dispersion|4|feasible": {
    "bimodality_measured": 0.4575,
    "bimodality_control_mean": 0.4568,
-   "bimodality_excess": 0.0007,
+   "bimodality_excess": 0.0008,
    "n_control_draws": 24
   },
   "max-dispersion|4|optimal": {
-   "bimodality_measured": 0.5119,
-   "bimodality_control_mean": 0.5742,
-   "bimodality_excess": -0.0623,
-   "n_control_draws": 8
+   "bimodality_measured": 0.5451,
+   "bimodality_control_mean": 0.5341,
+   "bimodality_excess": 0.011,
+   "n_control_draws": 24
   },
   "d-hitting-set|0|feasible": {
-   "bimodality_measured": 0.3681,
-   "bimodality_control_mean": 0.3635,
-   "bimodality_excess": 0.0046,
+   "bimodality_measured": 0.3672,
+   "bimodality_control_mean": 0.3641,
+   "bimodality_excess": 0.0031,
    "n_control_draws": 24
   },
   "d-hitting-set|0|optimal": {
-   "bimodality_measured": 0.49,
-   "bimodality_control_mean": 0.5012,
-   "bimodality_excess": -0.0112,
+   "bimodality_measured": 0.5094,
+   "bimodality_control_mean": 0.4491,
+   "bimodality_excess": 0.0603,
    "n_control_draws": 8
   },
   "d-hitting-set|1|feasible": {
-   "bimodality_measured": 0.3738,
-   "bimodality_control_mean": 0.3686,
-   "bimodality_excess": 0.0053,
+   "bimodality_measured": 0.3736,
+   "bimodality_control_mean": 0.3667,
+   "bimodality_excess": 0.0069,
    "n_control_draws": 24
   },
   "d-hitting-set|1|optimal": {
-   "bimodality_measured": 0.3004,
-   "bimodality_control_mean": 0.3756,
-   "bimodality_excess": -0.0752,
-   "n_control_draws": 8
+   "bimodality_measured": 0.5081,
+   "bimodality_control_mean": 0.5242,
+   "bimodality_excess": -0.0161,
+   "n_control_draws": 16
   },
   "d-hitting-set|2|feasible": {
-   "bimodality_measured": 0.3766,
-   "bimodality_control_mean": 0.3695,
-   "bimodality_excess": 0.0071,
+   "bimodality_measured": 0.3801,
+   "bimodality_control_mean": 0.3706,
+   "bimodality_excess": 0.0095,
    "n_control_draws": 24
   },
   "d-hitting-set|2|optimal": {
-   "bimodality_measured": 0.323,
-   "bimodality_control_mean": 0.3992,
-   "bimodality_excess": -0.0761,
-   "n_control_draws": 16
+   "bimodality_measured": 0.7077,
+   "bimodality_control_mean": 0.5692,
+   "bimodality_excess": 0.1385,
+   "n_control_draws": 8
   },
   "d-hitting-set|3|feasible": {
-   "bimodality_measured": 0.3841,
+   "bimodality_measured": 0.387,
    "bimodality_control_mean": 0.3724,
-   "bimodality_excess": 0.0117,
+   "bimodality_excess": 0.0145,
    "n_control_draws": 24
   },
+  "d-hitting-set|3|optimal": {
+   "bimodality_measured": 0.4368,
+   "bimodality_control_mean": 0.4256,
+   "bimodality_excess": 0.0112,
+   "n_control_draws": 8
+  },
   "d-hitting-set|4|feasible": {
-   "bimodality_measured": 0.387,
-   "bimodality_control_mean": 0.377,
-   "bimodality_excess": 0.01,
+   "bimodality_measured": 0.3875,
+   "bimodality_control_mean": 0.3771,
+   "bimodality_excess": 0.0104,
    "n_control_draws": 24
   },
   "d-hitting-set|4|optimal": {
-   "bimodality_measured": 0.2186,
-   "bimodality_control_mean": 0.3252,
-   "bimodality_excess": -0.1066,
-   "n_control_draws": 6
+   "bimodality_measured": 0.4139,
+   "bimodality_control_mean": 0.4029,
+   "bimodality_excess": 0.011,
+   "n_control_draws": 24
   },
   "minimum-test-cover|0|feasible": {
-   "bimodality_measured": 0.3628,
-   "bimodality_control_mean": 0.3641,
-   "bimodality_excess": -0.0013,
+   "bimodality_measured": 0.3666,
+   "bimodality_control_mean": 0.3642,
+   "bimodality_excess": 0.0024,
    "n_control_draws": 24
   },
   "minimum-test-cover|0|optimal": {
-   "bimodality_measured": 0.8524,
-   "bimodality_control_mean": 0.847,
-   "bimodality_excess": 0.0054,
-   "n_control_draws": 24
+   "bimodality_measured": 0.8115,
+   "bimodality_control_mean": 0.8098,
+   "bimodality_excess": 0.0018,
+   "n_control_draws": 8
   },
   "minimum-test-cover|1|feasible": {
-   "bimodality_measured": 0.3685,
-   "bimodality_control_mean": 0.3647,
-   "bimodality_excess": 0.0038,
+   "bimodality_measured": 0.37,
+   "bimodality_control_mean": 0.3639,
+   "bimodality_excess": 0.0061,
    "n_control_draws": 24
   },
   "minimum-test-cover|1|optimal": {
-   "bimodality_measured": 0.4714,
-   "bimodality_control_mean": 0.4556,
-   "bimodality_excess": 0.0158,
-   "n_control_draws": 16
+   "bimodality_measured": 0.5404,
+   "bimodality_control_mean": 0.512,
+   "bimodality_excess": 0.0284,
+   "n_control_draws": 24
   },
   "minimum-test-cover|2|feasible": {
-   "bimodality_measured": 0.3727,
-   "bimodality_control_mean": 0.3679,
-   "bimodality_excess": 0.0048,
+   "bimodality_measured": 0.3655,
+   "bimodality_control_mean": 0.3635,
+   "bimodality_excess": 0.002,
    "n_control_draws": 24
   },
   "minimum-test-cover|2|optimal": {
-   "bimodality_measured": 0.5447,
-   "bimodality_control_mean": 0.4379,
-   "bimodality_excess": 0.1068,
-   "n_control_draws": 16
+   "bimodality_measured": 0.4128,
+   "bimodality_control_mean": 0.4162,
+   "bimodality_excess": -0.0034,
+   "n_control_draws": 24
   },
   "minimum-test-cover|3|feasible": {
-   "bimodality_measured": 0.3681,
-   "bimodality_control_mean": 0.3664,
-   "bimodality_excess": 0.0018,
+   "bimodality_measured": 0.3703,
+   "bimodality_control_mean": 0.3663,
+   "bimodality_excess": 0.004,
    "n_control_draws": 24
   },
   "minimum-test-cover|3|optimal": {
-   "bimodality_measured": 0.4069,
-   "bimodality_control_mean": 0.4447,
-   "bimodality_excess": -0.0378,
+   "bimodality_measured": 0.5139,
+   "bimodality_control_mean": 0.4842,
+   "bimodality_excess": 0.0297,
    "n_control_draws": 16
   },
   "minimum-test-cover|4|feasible": {
-   "bimodality_measured": 0.3652,
-   "bimodality_control_mean": 0.3643,
-   "bimodality_excess": 0.0009,
+   "bimodality_measured": 0.3707,
+   "bimodality_control_mean": 0.367,
+   "bimodality_excess": 0.0037,
    "n_control_draws": 24
   },
   "minimum-test-cover|4|optimal": {
-   "bimodality_measured": 0.4343,
-   "bimodality_control_mean": 0.3953,
-   "bimodality_excess": 0.039,
-   "n_control_draws": 16
+   "bimodality_measured": 0.4322,
+   "bimodality_control_mean": 0.3971,
+   "bimodality_excess": 0.0351,
+   "n_control_draws": 8
   },
   "max-coverage|0|feasible": {
    "bimodality_measured": 0.4695,
-   "bimodality_control_mean": 0.4679,
-   "bimodality_excess": 0.0016,
+   "bimodality_control_mean": 0.4678,
+   "bimodality_excess": 0.0017,
    "n_control_draws": 24
   },
   "max-coverage|0|optimal": {
-   "bimodality_measured": 0.6759,
-   "bimodality_control_mean": 0.4957,
-   "bimodality_excess": 0.1802,
+   "bimodality_measured": 0.6625,
+   "bimodality_control_mean": 0.5321,
+   "bimodality_excess": 0.1304,
    "n_control_draws": 24
   },
   "max-coverage|1|feasible": {
    "bimodality_measured": 0.4695,
-   "bimodality_control_mean": 0.4677,
-   "bimodality_excess": 0.0018,
+   "bimodality_control_mean": 0.468,
+   "bimodality_excess": 0.0015,
    "n_control_draws": 24
   },
   "max-coverage|1|optimal": {
-   "bimodality_measured": 0.5162,
-   "bimodality_control_mean": 0.4921,
-   "bimodality_excess": 0.0241,
-   "n_control_draws": 24
+   "bimodality_measured": 0.3824,
+   "bimodality_control_mean": 0.4171,
+   "bimodality_excess": -0.0346,
+   "n_control_draws": 14
   },
   "max-coverage|2|feasible": {
    "bimodality_measured": 0.4695,
-   "bimodality_control_mean": 0.4673,
-   "bimodality_excess": 0.0022,
+   "bimodality_control_mean": 0.4682,
+   "bimodality_excess": 0.0013,
    "n_control_draws": 24
   },
   "max-coverage|2|optimal": {
-   "bimodality_measured": 0.491,
-   "bimodality_control_mean": 0.5203,
-   "bimodality_excess": -0.0293,
+   "bimodality_measured": 0.3004,
+   "bimodality_control_mean": 0.3756,
+   "bimodality_excess": -0.0752,
    "n_control_draws": 8
   },
   "max-coverage|3|feasible": {
@@ -699,6 +687,12 @@
    "bimodality_excess": 0.0016,
    "n_control_draws": 24
   },
+  "max-coverage|3|optimal": {
+   "bimodality_measured": 0.5294,
+   "bimodality_control_mean": 0.4685,
+   "bimodality_excess": 0.061,
+   "n_control_draws": 8
+  },
   "max-coverage|4|feasible": {
    "bimodality_measured": 0.4695,
    "bimodality_control_mean": 0.468,
@@ -706,1071 +700,1335 @@
    "n_control_draws": 24
   },
   "subset-product|0|feasible": {
-   "bimodality_measured": 0.438,
-   "bimodality_control_mean": 0.4238,
-   "bimodality_excess": 0.0142,
+   "bimodality_measured": 0.4612,
+   "bimodality_control_mean": 0.4519,
+   "bimodality_excess": 0.0093,
    "n_control_draws": 24
   },
   "subset-product|0|optimal": {
-   "bimodality_measured": 0.8387,
-   "bimodality_control_mean": 0.5635,
-   "bimodality_excess": 0.2753,
-   "n_control_draws": 24
+   "bimodality_measured": 0.8681,
+   "bimodality_control_mean": 0.7149,
+   "bimodality_excess": 0.1533,
+   "n_control_draws": 8
   },
   "subset-product|1|feasible": {
-   "bimodality_measured": 0.3839,
-   "bimodality_control_mean": 0.3759,
-   "bimodality_excess": 0.0079,
+   "bimodality_measured": 0.3858,
+   "bimodality_control_mean": 0.3785,
+   "bimodality_excess": 0.0072,
    "n_control_draws": 24
   },
   "subset-product|1|optimal": {
-   "bimodality_measured": 0.9083,
-   "bimodality_control_mean": 0.5884,
-   "bimodality_excess": 0.32,
-   "n_control_draws": 24
+   "bimodality_measured": 0.8914,
+   "bimodality_control_mean": 0.4873,
+   "bimodality_excess": 0.4041,
+   "n_control_draws": 16
   },
   "subset-product|2|feasible": {
-   "bimodality_measured": 0.3622,
-   "bimodality_control_mean": 0.3613,
-   "bimodality_excess": 0.0009,
+   "bimodality_measured": 0.3637,
+   "bimodality_control_mean": 0.3612,
+   "bimodality_excess": 0.0025,
    "n_control_draws": 24
   },
   "subset-product|2|optimal": {
-   "bimodality_measured": 0.6458,
-   "bimodality_control_mean": 0.4622,
-   "bimodality_excess": 0.1836,
-   "n_control_draws": 16
+   "bimodality_measured": 0.4212,
+   "bimodality_control_mean": 0.3992,
+   "bimodality_excess": 0.022,
+   "n_control_draws": 24
   },
   "subset-product|3|feasible": {
-   "bimodality_measured": 0.3575,
-   "bimodality_control_mean": 0.3582,
-   "bimodality_excess": -0.0007,
-   "n_control_draws": 24
-  },
-  "subset-product|3|optimal": {
-   "bimodality_measured": 0.8787,
-   "bimodality_control_mean": 0.7087,
-   "bimodality_excess": 0.17,
-   "n_control_draws": 16
-  },
-  "subset-product|4|feasible": {
-   "bimodality_measured": 0.363,
-   "bimodality_control_mean": 0.3582,
-   "bimodality_excess": 0.0047,
-   "n_control_draws": 24
-  },
-  "subset-product|4|optimal": {
-   "bimodality_measured": 0.9609,
-   "bimodality_control_mean": 0.9632,
-   "bimodality_excess": -0.0022,
-   "n_control_draws": 24
-  },
-  "generalized-subset-sum|0|feasible": {
-   "bimodality_measured": 0.3784,
-   "bimodality_control_mean": 0.3615,
-   "bimodality_excess": 0.0169,
-   "n_control_draws": 24
-  },
-  "generalized-subset-sum|0|optimal": {
-   "bimodality_measured": 0.8893,
-   "bimodality_control_mean": 0.5765,
-   "bimodality_excess": 0.3128,
-   "n_control_draws": 8
-  },
-  "generalized-subset-sum|1|feasible": {
-   "bimodality_measured": 0.3967,
-   "bimodality_control_mean": 0.3653,
-   "bimodality_excess": 0.0314,
-   "n_control_draws": 24
-  },
-  "generalized-subset-sum|1|optimal": {
-   "bimodality_measured": 0.8274,
-   "bimodality_control_mean": 0.7353,
-   "bimodality_excess": 0.0921,
-   "n_control_draws": 8
-  },
-  "generalized-subset-sum|2|feasible": {
-   "bimodality_measured": 0.3828,
-   "bimodality_control_mean": 0.3571,
-   "bimodality_excess": 0.0257,
-   "n_control_draws": 24
-  },
-  "generalized-subset-sum|2|optimal": {
-   "bimodality_measured": 0.5491,
-   "bimodality_control_mean": 0.5024,
-   "bimodality_excess": 0.0467,
-   "n_control_draws": 16
-  },
-  "generalized-subset-sum|3|feasible": {
-   "bimodality_measured": 0.4334,
-   "bimodality_control_mean": 0.382,
-   "bimodality_excess": 0.0514,
-   "n_control_draws": 24
-  },
-  "generalized-subset-sum|3|optimal": {
-   "bimodality_measured": 0.5164,
-   "bimodality_control_mean": 0.4211,
-   "bimodality_excess": 0.0953,
-   "n_control_draws": 16
-  },
-  "generalized-subset-sum|4|feasible": {
-   "bimodality_measured": 0.4226,
-   "bimodality_control_mean": 0.3667,
-   "bimodality_excess": 0.0559,
-   "n_control_draws": 24
-  },
-  "generalized-subset-sum|4|optimal": {
-   "bimodality_measured": 0.4554,
-   "bimodality_control_mean": 0.4306,
-   "bimodality_excess": 0.0248,
-   "n_control_draws": 8
-  },
-  "minimum-distance-code|0|feasible": {
-   "bimodality_measured": 0.3709,
-   "bimodality_control_mean": 0.3636,
-   "bimodality_excess": 0.0074,
-   "n_control_draws": 24
-  },
-  "minimum-distance-code|1|feasible": {
-   "bimodality_measured": 0.3637,
-   "bimodality_control_mean": 0.3641,
-   "bimodality_excess": -0.0004,
-   "n_control_draws": 24
-  },
-  "minimum-distance-code|1|optimal": {
-   "bimodality_measured": 0.3852,
-   "bimodality_control_mean": 0.3977,
-   "bimodality_excess": -0.0125,
-   "n_control_draws": 8
-  },
-  "minimum-distance-code|2|feasible": {
-   "bimodality_measured": 0.3688,
-   "bimodality_control_mean": 0.3635,
-   "bimodality_excess": 0.0053,
-   "n_control_draws": 24
-  },
-  "minimum-distance-code|3|feasible": {
-   "bimodality_measured": 0.3653,
-   "bimodality_control_mean": 0.3658,
+   "bimodality_measured": 0.3585,
+   "bimodality_control_mean": 0.359,
    "bimodality_excess": -0.0005,
    "n_control_draws": 24
   },
-  "minimum-distance-code|3|optimal": {
-   "bimodality_measured": 0.2325,
-   "bimodality_control_mean": 0.2469,
-   "bimodality_excess": -0.0144,
+  "subset-product|3|optimal": {
+   "bimodality_measured": 0.3939,
+   "bimodality_control_mean": 0.3917,
+   "bimodality_excess": 0.0022,
    "n_control_draws": 8
   },
-  "minimum-distance-code|4|feasible": {
-   "bimodality_measured": 0.3601,
-   "bimodality_control_mean": 0.3638,
-   "bimodality_excess": -0.0037,
+  "subset-product|4|feasible": {
+   "bimodality_measured": 0.3608,
+   "bimodality_control_mean": 0.3592,
+   "bimodality_excess": 0.0016,
    "n_control_draws": 24
   },
-  "edge-dominating-set|0|feasible": {
-   "bimodality_measured": 0.4484,
-   "bimodality_control_mean": 0.4344,
-   "bimodality_excess": 0.014,
-   "n_control_draws": 8
-  },
-  "edge-dominating-set|0|optimal": {
-   "bimodality_measured": 0.636,
-   "bimodality_control_mean": 0.6581,
-   "bimodality_excess": -0.0221,
-   "n_control_draws": 8
-  },
-  "edge-dominating-set|1|feasible": {
-   "bimodality_measured": 0.3697,
-   "bimodality_control_mean": 0.3685,
-   "bimodality_excess": 0.0011,
-   "n_control_draws": 24
-  },
-  "edge-dominating-set|1|optimal": {
-   "bimodality_measured": 0.6373,
-   "bimodality_control_mean": 0.5255,
-   "bimodality_excess": 0.1118,
-   "n_control_draws": 24
-  },
-  "edge-dominating-set|2|feasible": {
-   "bimodality_measured": 0.3695,
-   "bimodality_control_mean": 0.3644,
-   "bimodality_excess": 0.0052,
-   "n_control_draws": 16
-  },
-  "edge-dominating-set|2|optimal": {
-   "bimodality_measured": 0.544,
-   "bimodality_control_mean": 0.4587,
-   "bimodality_excess": 0.0853,
-   "n_control_draws": 16
-  },
-  "edge-dominating-set|3|feasible": {
-   "bimodality_measured": 0.3603,
-   "bimodality_control_mean": 0.3551,
-   "bimodality_excess": 0.0052,
-   "n_control_draws": 8
-  },
-  "edge-dominating-set|3|optimal": {
-   "bimodality_measured": 0.5202,
-   "bimodality_control_mean": 0.4635,
-   "bimodality_excess": 0.0567,
-   "n_control_draws": 8
-  },
-  "cluster-vertex-deletion|0|feasible": {
-   "bimodality_measured": 0.3723,
-   "bimodality_control_mean": 0.3682,
-   "bimodality_excess": 0.0041,
-   "n_control_draws": 24
-  },
-  "cluster-vertex-deletion|0|optimal": {
-   "bimodality_measured": 0.3004,
-   "bimodality_control_mean": 0.3814,
-   "bimodality_excess": -0.081,
-   "n_control_draws": 8
-  },
-  "cluster-vertex-deletion|1|feasible": {
-   "bimodality_measured": 0.3743,
-   "bimodality_control_mean": 0.3714,
-   "bimodality_excess": 0.0029,
-   "n_control_draws": 24
-  },
-  "cluster-vertex-deletion|1|optimal": {
-   "bimodality_measured": 0.5143,
-   "bimodality_control_mean": 0.4887,
-   "bimodality_excess": 0.0255,
-   "n_control_draws": 16
-  },
-  "cluster-vertex-deletion|2|feasible": {
-   "bimodality_measured": 0.3755,
-   "bimodality_control_mean": 0.374,
-   "bimodality_excess": 0.0015,
-   "n_control_draws": 24
-  },
-  "cluster-vertex-deletion|2|optimal": {
-   "bimodality_measured": 0.3946,
-   "bimodality_control_mean": 0.3828,
-   "bimodality_excess": 0.0118,
-   "n_control_draws": 16
-  },
-  "cluster-vertex-deletion|3|feasible": {
-   "bimodality_measured": 0.3841,
-   "bimodality_control_mean": 0.3768,
-   "bimodality_excess": 0.0073,
-   "n_control_draws": 24
-  },
-  "cluster-vertex-deletion|3|optimal": {
-   "bimodality_measured": 0.4561,
-   "bimodality_control_mean": 0.415,
-   "bimodality_excess": 0.0412,
-   "n_control_draws": 16
-  },
-  "cluster-vertex-deletion|4|feasible": {
-   "bimodality_measured": 0.3857,
-   "bimodality_control_mean": 0.3802,
-   "bimodality_excess": 0.0056,
-   "n_control_draws": 24
-  },
-  "feedback-arc-set|0|feasible": {
-   "bimodality_measured": 0.4006,
-   "bimodality_control_mean": 0.3944,
-   "bimodality_excess": 0.0061,
-   "n_control_draws": 24
-  },
-  "feedback-arc-set|1|feasible": {
-   "bimodality_measured": 0.3827,
-   "bimodality_control_mean": 0.3826,
-   "bimodality_excess": 0.0001,
-   "n_control_draws": 16
-  },
-  "connected-vertex-cover|1|feasible": {
-   "bimodality_measured": 0.3897,
-   "bimodality_control_mean": 0.3708,
-   "bimodality_excess": 0.0189,
-   "n_control_draws": 24
-  },
-  "connected-vertex-cover|2|feasible": {
-   "bimodality_measured": 0.4238,
-   "bimodality_control_mean": 0.4062,
-   "bimodality_excess": 0.0176,
-   "n_control_draws": 24
-  },
-  "connected-vertex-cover|2|optimal": {
-   "bimodality_measured": 0.5361,
-   "bimodality_control_mean": 0.5127,
-   "bimodality_excess": 0.0235,
-   "n_control_draws": 16
-  },
-  "connected-vertex-cover|3|feasible": {
-   "bimodality_measured": 0.4345,
-   "bimodality_control_mean": 0.4121,
-   "bimodality_excess": 0.0224,
-   "n_control_draws": 24
-  },
-  "connected-vertex-cover|4|feasible": {
-   "bimodality_measured": 0.4361,
-   "bimodality_control_mean": 0.4167,
-   "bimodality_excess": 0.0194,
-   "n_control_draws": 24
-  },
-  "connected-vertex-cover|4|optimal": {
-   "bimodality_measured": 0.5911,
-   "bimodality_control_mean": 0.6672,
-   "bimodality_excess": -0.0761,
-   "n_control_draws": 13
-  },
-  "3sum|0|feasible": {
-   "bimodality_measured": 0.68,
-   "bimodality_control_mean": 0.4972,
-   "bimodality_excess": 0.1829,
-   "n_control_draws": 24
-  },
-  "3sum|1|feasible": {
-   "bimodality_measured": 0.5835,
-   "bimodality_control_mean": 0.4941,
-   "bimodality_excess": 0.0894,
-   "n_control_draws": 24
-  },
-  "3sum|2|feasible": {
-   "bimodality_measured": 0.473,
-   "bimodality_control_mean": 0.4598,
-   "bimodality_excess": 0.0132,
-   "n_control_draws": 24
-  },
-  "3sum|3|feasible": {
-   "bimodality_measured": 0.5611,
-   "bimodality_control_mean": 0.4326,
-   "bimodality_excess": 0.1285,
-   "n_control_draws": 24
-  },
-  "3sum|4|feasible": {
-   "bimodality_measured": 0.5103,
-   "bimodality_control_mean": 0.4268,
-   "bimodality_excess": 0.0835,
-   "n_control_draws": 24
-  },
-  "3-partition|0|feasible": {
-   "bimodality_measured": 0.5403,
-   "bimodality_control_mean": 0.4849,
-   "bimodality_excess": 0.0553,
-   "n_control_draws": 16
-  },
-  "3-partition|1|feasible": {
-   "bimodality_measured": 0.5897,
-   "bimodality_control_mean": 0.4712,
-   "bimodality_excess": 0.1185,
-   "n_control_draws": 24
-  },
-  "3-partition|2|feasible": {
-   "bimodality_measured": 0.499,
-   "bimodality_control_mean": 0.475,
-   "bimodality_excess": 0.024,
-   "n_control_draws": 24
-  },
-  "3-partition|3|feasible": {
-   "bimodality_measured": 0.4521,
-   "bimodality_control_mean": 0.4204,
-   "bimodality_excess": 0.0317,
-   "n_control_draws": 24
-  },
-  "3-partition|4|feasible": {
-   "bimodality_measured": 0.573,
-   "bimodality_control_mean": 0.3895,
-   "bimodality_excess": 0.1835,
-   "n_control_draws": 24
-  },
-  "minimum-common-string-partition|0|feasible": {
-   "bimodality_measured": 0.3644,
-   "bimodality_control_mean": 0.3638,
-   "bimodality_excess": 0.0006,
-   "n_control_draws": 24
-  },
-  "minimum-common-string-partition|0|optimal": {
-   "bimodality_measured": 0.4625,
-   "bimodality_control_mean": 0.3031,
-   "bimodality_excess": 0.1594,
-   "n_control_draws": 8
-  },
-  "minimum-common-string-partition|1|feasible": {
-   "bimodality_measured": 0.375,
-   "bimodality_control_mean": 0.3674,
-   "bimodality_excess": 0.0076,
-   "n_control_draws": 24
-  },
-  "job-interval-selection|0|feasible": {
-   "bimodality_measured": 0.3879,
-   "bimodality_control_mean": 0.3712,
-   "bimodality_excess": 0.0167,
-   "n_control_draws": 24
-  },
-  "job-interval-selection|0|optimal": {
-   "bimodality_measured": 0.6674,
-   "bimodality_control_mean": 0.4524,
-   "bimodality_excess": 0.215,
-   "n_control_draws": 24
-  },
-  "job-interval-selection|1|feasible": {
-   "bimodality_measured": 0.3955,
-   "bimodality_control_mean": 0.3792,
-   "bimodality_excess": 0.0163,
-   "n_control_draws": 24
-  },
-  "job-interval-selection|1|optimal": {
-   "bimodality_measured": 0.3598,
-   "bimodality_control_mean": 0.3781,
-   "bimodality_excess": -0.0183,
-   "n_control_draws": 24
-  },
-  "job-interval-selection|2|feasible": {
-   "bimodality_measured": 0.4417,
-   "bimodality_control_mean": 0.4229,
-   "bimodality_excess": 0.0188,
-   "n_control_draws": 24
-  },
-  "job-interval-selection|2|optimal": {
-   "bimodality_measured": 0.7839,
-   "bimodality_control_mean": 0.6362,
-   "bimodality_excess": 0.1477,
-   "n_control_draws": 24
-  },
-  "job-interval-selection|3|feasible": {
-   "bimodality_measured": 0.4055,
-   "bimodality_control_mean": 0.3896,
-   "bimodality_excess": 0.0159,
-   "n_control_draws": 24
-  },
-  "job-interval-selection|3|optimal": {
-   "bimodality_measured": 0.4898,
-   "bimodality_control_mean": 0.4251,
-   "bimodality_excess": 0.0647,
-   "n_control_draws": 16
-  },
-  "job-interval-selection|4|feasible": {
-   "bimodality_measured": 0.4296,
-   "bimodality_control_mean": 0.4104,
-   "bimodality_excess": 0.0193,
-   "n_control_draws": 24
-  },
-  "job-interval-selection|4|optimal": {
-   "bimodality_measured": 0.7005,
-   "bimodality_control_mean": 0.618,
-   "bimodality_excess": 0.0825,
-   "n_control_draws": 24
-  },
-  "biclique-cover|0|feasible": {
-   "bimodality_measured": 0.3584,
-   "bimodality_control_mean": 0.358,
-   "bimodality_excess": 0.0004,
-   "n_control_draws": 24
-  },
-  "biclique-cover|0|optimal": {
-   "bimodality_measured": 0.7834,
-   "bimodality_control_mean": 0.8049,
-   "bimodality_excess": -0.0216,
-   "n_control_draws": 8
-  },
-  "biclique-cover|1|feasible": {
-   "bimodality_measured": 0.3611,
-   "bimodality_control_mean": 0.3596,
-   "bimodality_excess": 0.0014,
-   "n_control_draws": 16
-  },
-  "biclique-cover|1|optimal": {
-   "bimodality_measured": 0.5207,
-   "bimodality_control_mean": 0.485,
-   "bimodality_excess": 0.0357,
-   "n_control_draws": 8
-  },
-  "biclique-cover|2|feasible": {
-   "bimodality_measured": 0.3663,
-   "bimodality_control_mean": 0.3594,
-   "bimodality_excess": 0.0069,
-   "n_control_draws": 16
-  },
-  "biclique-cover|2|optimal": {
-   "bimodality_measured": 0.491,
-   "bimodality_control_mean": 0.5829,
-   "bimodality_excess": -0.0919,
-   "n_control_draws": 8
-  },
-  "biclique-cover|3|feasible": {
-   "bimodality_measured": 0.3631,
-   "bimodality_control_mean": 0.3593,
-   "bimodality_excess": 0.0038,
-   "n_control_draws": 24
-  },
-  "biclique-cover|3|optimal": {
-   "bimodality_measured": 0.4605,
-   "bimodality_control_mean": 0.4618,
-   "bimodality_excess": -0.0013,
-   "n_control_draws": 24
-  },
-  "biclique-cover|4|feasible": {
-   "bimodality_measured": 0.36,
-   "bimodality_control_mean": 0.3588,
-   "bimodality_excess": 0.0012,
-   "n_control_draws": 16
-  },
-  "biclique-cover|4|optimal": {
-   "bimodality_measured": 0.5485,
-   "bimodality_control_mean": 0.4604,
-   "bimodality_excess": 0.0881,
-   "n_control_draws": 16
-  },
-  "directed-feedback-vertex-set|0|feasible": {
-   "bimodality_measured": 0.3697,
-   "bimodality_control_mean": 0.3698,
-   "bimodality_excess": -0.0001,
-   "n_control_draws": 24
-  },
-  "directed-feedback-vertex-set|1|feasible": {
-   "bimodality_measured": 0.3688,
-   "bimodality_control_mean": 0.3705,
+  "subset-product|4|optimal": {
+   "bimodality_measured": 0.9623,
+   "bimodality_control_mean": 0.9641,
    "bimodality_excess": -0.0017,
    "n_control_draws": 24
   },
-  "directed-feedback-vertex-set|2|feasible": {
-   "bimodality_measured": 0.3751,
-   "bimodality_control_mean": 0.3705,
-   "bimodality_excess": 0.0046,
+  "generalized-subset-sum|0|feasible": {
+   "bimodality_measured": 0.3952,
+   "bimodality_control_mean": 0.3627,
+   "bimodality_excess": 0.0326,
    "n_control_draws": 24
   },
-  "directed-feedback-vertex-set|2|optimal": {
-   "bimodality_measured": 0.5342,
-   "bimodality_control_mean": 0.6107,
-   "bimodality_excess": -0.0765,
+  "generalized-subset-sum|0|optimal": {
+   "bimodality_measured": 0.5988,
+   "bimodality_control_mean": 0.404,
+   "bimodality_excess": 0.1947,
+   "n_control_draws": 24
+  },
+  "generalized-subset-sum|1|feasible": {
+   "bimodality_measured": 0.4093,
+   "bimodality_control_mean": 0.3666,
+   "bimodality_excess": 0.0427,
+   "n_control_draws": 24
+  },
+  "generalized-subset-sum|1|optimal": {
+   "bimodality_measured": 0.8809,
+   "bimodality_control_mean": 0.598,
+   "bimodality_excess": 0.2829,
+   "n_control_draws": 16
+  },
+  "generalized-subset-sum|2|feasible": {
+   "bimodality_measured": 0.3677,
+   "bimodality_control_mean": 0.3577,
+   "bimodality_excess": 0.01,
+   "n_control_draws": 24
+  },
+  "generalized-subset-sum|3|feasible": {
+   "bimodality_measured": 0.387,
+   "bimodality_control_mean": 0.3598,
+   "bimodality_excess": 0.0272,
+   "n_control_draws": 24
+  },
+  "generalized-subset-sum|3|optimal": {
+   "bimodality_measured": 0.4182,
+   "bimodality_control_mean": 0.4094,
+   "bimodality_excess": 0.0087,
+   "n_control_draws": 16
+  },
+  "generalized-subset-sum|4|feasible": {
+   "bimodality_measured": 0.44,
+   "bimodality_control_mean": 0.3784,
+   "bimodality_excess": 0.0616,
+   "n_control_draws": 24
+  },
+  "generalized-subset-sum|4|optimal": {
+   "bimodality_measured": 0.426,
+   "bimodality_control_mean": 0.4341,
+   "bimodality_excess": -0.0081,
+   "n_control_draws": 24
+  },
+  "minimum-distance-code|0|feasible": {
+   "bimodality_measured": 0.3652,
+   "bimodality_control_mean": 0.3638,
+   "bimodality_excess": 0.0013,
+   "n_control_draws": 24
+  },
+  "minimum-distance-code|0|optimal": {
+   "bimodality_measured": 0.2629,
+   "bimodality_control_mean": 0.2458,
+   "bimodality_excess": 0.0171,
    "n_control_draws": 8
   },
-  "directed-feedback-vertex-set|3|feasible": {
-   "bimodality_measured": 0.377,
-   "bimodality_control_mean": 0.3727,
+  "minimum-distance-code|1|feasible": {
+   "bimodality_measured": 0.3609,
+   "bimodality_control_mean": 0.3629,
+   "bimodality_excess": -0.002,
+   "n_control_draws": 24
+  },
+  "minimum-distance-code|1|optimal": {
+   "bimodality_measured": 0.3434,
+   "bimodality_control_mean": 0.3882,
+   "bimodality_excess": -0.0449,
+   "n_control_draws": 8
+  },
+  "minimum-distance-code|2|feasible": {
+   "bimodality_measured": 0.3581,
+   "bimodality_control_mean": 0.3638,
+   "bimodality_excess": -0.0057,
+   "n_control_draws": 24
+  },
+  "minimum-distance-code|2|optimal": {
+   "bimodality_measured": 0.3409,
+   "bimodality_control_mean": 0.3266,
+   "bimodality_excess": 0.0143,
+   "n_control_draws": 16
+  },
+  "minimum-distance-code|3|feasible": {
+   "bimodality_measured": 0.3594,
+   "bimodality_control_mean": 0.3641,
+   "bimodality_excess": -0.0047,
+   "n_control_draws": 24
+  },
+  "minimum-distance-code|4|feasible": {
+   "bimodality_measured": 0.3628,
+   "bimodality_control_mean": 0.3629,
+   "bimodality_excess": -0.0,
+   "n_control_draws": 24
+  },
+  "edge-dominating-set|0|feasible": {
+   "bimodality_measured": 0.4627,
+   "bimodality_control_mean": 0.4491,
+   "bimodality_excess": 0.0135,
+   "n_control_draws": 16
+  },
+  "edge-dominating-set|0|optimal": {
+   "bimodality_measured": 0.636,
+   "bimodality_control_mean": 0.675,
+   "bimodality_excess": -0.0391,
+   "n_control_draws": 8
+  },
+  "edge-dominating-set|1|feasible": {
+   "bimodality_measured": 0.3819,
+   "bimodality_control_mean": 0.3772,
+   "bimodality_excess": 0.0047,
+   "n_control_draws": 24
+  },
+  "edge-dominating-set|1|optimal": {
+   "bimodality_measured": 0.7077,
+   "bimodality_control_mean": 0.738,
+   "bimodality_excess": -0.0303,
+   "n_control_draws": 8
+  },
+  "edge-dominating-set|2|feasible": {
+   "bimodality_measured": 0.3651,
+   "bimodality_control_mean": 0.3636,
+   "bimodality_excess": 0.0014,
+   "n_control_draws": 8
+  },
+  "cluster-vertex-deletion|0|feasible": {
+   "bimodality_measured": 0.3732,
+   "bimodality_control_mean": 0.3723,
+   "bimodality_excess": 0.0009,
+   "n_control_draws": 24
+  },
+  "cluster-vertex-deletion|0|optimal": {
+   "bimodality_measured": 0.4906,
+   "bimodality_control_mean": 0.545,
+   "bimodality_excess": -0.0544,
+   "n_control_draws": 8
+  },
+  "cluster-vertex-deletion|1|feasible": {
+   "bimodality_measured": 0.3744,
+   "bimodality_control_mean": 0.3722,
+   "bimodality_excess": 0.0022,
+   "n_control_draws": 24
+  },
+  "cluster-vertex-deletion|1|optimal": {
+   "bimodality_measured": 0.4729,
+   "bimodality_control_mean": 0.4804,
+   "bimodality_excess": -0.0074,
+   "n_control_draws": 16
+  },
+  "cluster-vertex-deletion|2|feasible": {
+   "bimodality_measured": 0.3802,
+   "bimodality_control_mean": 0.3749,
+   "bimodality_excess": 0.0053,
+   "n_control_draws": 24
+  },
+  "cluster-vertex-deletion|2|optimal": {
+   "bimodality_measured": 0.3433,
+   "bimodality_control_mean": 0.4566,
+   "bimodality_excess": -0.1133,
+   "n_control_draws": 16
+  },
+  "cluster-vertex-deletion|3|feasible": {
+   "bimodality_measured": 0.3797,
+   "bimodality_control_mean": 0.3757,
+   "bimodality_excess": 0.004,
+   "n_control_draws": 24
+  },
+  "cluster-vertex-deletion|3|optimal": {
+   "bimodality_measured": 0.4839,
+   "bimodality_control_mean": 0.4369,
+   "bimodality_excess": 0.047,
+   "n_control_draws": 8
+  },
+  "cluster-vertex-deletion|4|feasible": {
+   "bimodality_measured": 0.3846,
+   "bimodality_control_mean": 0.3784,
+   "bimodality_excess": 0.0062,
+   "n_control_draws": 24
+  },
+  "cluster-vertex-deletion|4|optimal": {
+   "bimodality_measured": 0.2186,
+   "bimodality_control_mean": 0.3549,
+   "bimodality_excess": -0.1363,
+   "n_control_draws": 7
+  },
+  "feedback-arc-set|0|feasible": {
+   "bimodality_measured": 0.4084,
+   "bimodality_control_mean": 0.4059,
+   "bimodality_excess": 0.0024,
+   "n_control_draws": 24
+  },
+  "feedback-arc-set|1|feasible": {
+   "bimodality_measured": 0.3786,
+   "bimodality_control_mean": 0.3746,
+   "bimodality_excess": 0.0039,
+   "n_control_draws": 16
+  },
+  "feedback-arc-set|1|optimal": {
+   "bimodality_measured": 0.636,
+   "bimodality_control_mean": 0.6633,
+   "bimodality_excess": -0.0273,
+   "n_control_draws": 8
+  },
+  "connected-vertex-cover|1|feasible": {
+   "bimodality_measured": 0.4842,
+   "bimodality_control_mean": 0.4509,
+   "bimodality_excess": 0.0333,
+   "n_control_draws": 24
+  },
+  "connected-vertex-cover|2|feasible": {
+   "bimodality_measured": 0.4338,
+   "bimodality_control_mean": 0.4048,
+   "bimodality_excess": 0.0289,
+   "n_control_draws": 24
+  },
+  "connected-vertex-cover|3|feasible": {
+   "bimodality_measured": 0.423,
+   "bimodality_control_mean": 0.4056,
+   "bimodality_excess": 0.0174,
+   "n_control_draws": 24
+  },
+  "connected-vertex-cover|3|optimal": {
+   "bimodality_measured": 0.572,
+   "bimodality_control_mean": 0.5984,
+   "bimodality_excess": -0.0265,
+   "n_control_draws": 16
+  },
+  "connected-vertex-cover|4|feasible": {
+   "bimodality_measured": 0.4216,
+   "bimodality_control_mean": 0.398,
+   "bimodality_excess": 0.0237,
+   "n_control_draws": 24
+  },
+  "3sum|0|feasible": {
+   "bimodality_measured": 0.5323,
+   "bimodality_control_mean": 0.4955,
+   "bimodality_excess": 0.0368,
+   "n_control_draws": 24
+  },
+  "3sum|1|feasible": {
+   "bimodality_measured": 0.479,
+   "bimodality_control_mean": 0.4749,
+   "bimodality_excess": 0.004,
+   "n_control_draws": 24
+  },
+  "3sum|2|feasible": {
+   "bimodality_measured": 0.5343,
+   "bimodality_control_mean": 0.4545,
+   "bimodality_excess": 0.0798,
+   "n_control_draws": 24
+  },
+  "3sum|3|feasible": {
+   "bimodality_measured": 0.4498,
+   "bimodality_control_mean": 0.3824,
+   "bimodality_excess": 0.0674,
+   "n_control_draws": 24
+  },
+  "3sum|4|feasible": {
+   "bimodality_measured": 0.492,
+   "bimodality_control_mean": 0.4592,
+   "bimodality_excess": 0.0328,
+   "n_control_draws": 16
+  },
+  "3-partition|0|feasible": {
+   "bimodality_measured": 0.5178,
+   "bimodality_control_mean": 0.492,
+   "bimodality_excess": 0.0259,
+   "n_control_draws": 24
+  },
+  "3-partition|1|feasible": {
+   "bimodality_measured": 0.5237,
+   "bimodality_control_mean": 0.4772,
+   "bimodality_excess": 0.0466,
+   "n_control_draws": 24
+  },
+  "3-partition|2|feasible": {
+   "bimodality_measured": 0.5023,
+   "bimodality_control_mean": 0.4751,
+   "bimodality_excess": 0.0272,
+   "n_control_draws": 24
+  },
+  "3-partition|3|feasible": {
+   "bimodality_measured": 0.6382,
+   "bimodality_control_mean": 0.4924,
+   "bimodality_excess": 0.1458,
+   "n_control_draws": 24
+  },
+  "3-partition|4|feasible": {
+   "bimodality_measured": 0.471,
+   "bimodality_control_mean": 0.4674,
+   "bimodality_excess": 0.0036,
+   "n_control_draws": 24
+  },
+  "minimum-common-string-partition|0|feasible": {
+   "bimodality_measured": 0.3646,
+   "bimodality_control_mean": 0.3641,
+   "bimodality_excess": 0.0005,
+   "n_control_draws": 24
+  },
+  "minimum-common-string-partition|1|feasible": {
+   "bimodality_measured": 0.3738,
+   "bimodality_control_mean": 0.3691,
+   "bimodality_excess": 0.0047,
+   "n_control_draws": 24
+  },
+  "job-interval-selection|0|feasible": {
+   "bimodality_measured": 0.3737,
+   "bimodality_control_mean": 0.3642,
+   "bimodality_excess": 0.0095,
+   "n_control_draws": 24
+  },
+  "job-interval-selection|0|optimal": {
+   "bimodality_measured": 0.5054,
+   "bimodality_control_mean": 0.436,
+   "bimodality_excess": 0.0693,
+   "n_control_draws": 24
+  },
+  "job-interval-selection|1|feasible": {
+   "bimodality_measured": 0.3882,
+   "bimodality_control_mean": 0.376,
+   "bimodality_excess": 0.0122,
+   "n_control_draws": 24
+  },
+  "job-interval-selection|1|optimal": {
+   "bimodality_measured": 0.4842,
+   "bimodality_control_mean": 0.4649,
+   "bimodality_excess": 0.0193,
+   "n_control_draws": 24
+  },
+  "job-interval-selection|2|feasible": {
+   "bimodality_measured": 0.4344,
+   "bimodality_control_mean": 0.4219,
+   "bimodality_excess": 0.0125,
+   "n_control_draws": 24
+  },
+  "job-interval-selection|2|optimal": {
+   "bimodality_measured": 0.7462,
+   "bimodality_control_mean": 0.7658,
+   "bimodality_excess": -0.0196,
+   "n_control_draws": 16
+  },
+  "job-interval-selection|3|feasible": {
+   "bimodality_measured": 0.4339,
+   "bimodality_control_mean": 0.4095,
+   "bimodality_excess": 0.0244,
+   "n_control_draws": 24
+  },
+  "job-interval-selection|3|optimal": {
+   "bimodality_measured": 0.9077,
+   "bimodality_control_mean": 0.6492,
+   "bimodality_excess": 0.2585,
+   "n_control_draws": 16
+  },
+  "job-interval-selection|4|feasible": {
+   "bimodality_measured": 0.4281,
+   "bimodality_control_mean": 0.422,
+   "bimodality_excess": 0.0061,
+   "n_control_draws": 24
+  },
+  "job-interval-selection|4|optimal": {
+   "bimodality_measured": 0.5802,
+   "bimodality_control_mean": 0.623,
+   "bimodality_excess": -0.0428,
+   "n_control_draws": 23
+  },
+  "biclique-cover|0|feasible": {
+   "bimodality_measured": 0.3604,
+   "bimodality_control_mean": 0.3594,
+   "bimodality_excess": 0.0011,
+   "n_control_draws": 16
+  },
+  "biclique-cover|1|feasible": {
+   "bimodality_measured": 0.3602,
+   "bimodality_control_mean": 0.3585,
+   "bimodality_excess": 0.0017,
+   "n_control_draws": 24
+  },
+  "biclique-cover|1|optimal": {
+   "bimodality_measured": 0.5123,
+   "bimodality_control_mean": 0.4886,
+   "bimodality_excess": 0.0237,
+   "n_control_draws": 8
+  },
+  "biclique-cover|2|feasible": {
+   "bimodality_measured": 0.3636,
+   "bimodality_control_mean": 0.361,
+   "bimodality_excess": 0.0026,
+   "n_control_draws": 24
+  },
+  "biclique-cover|2|optimal": {
+   "bimodality_measured": 0.7834,
+   "bimodality_control_mean": 0.7685,
+   "bimodality_excess": 0.0149,
+   "n_control_draws": 8
+  },
+  "biclique-cover|3|feasible": {
+   "bimodality_measured": 0.3611,
+   "bimodality_control_mean": 0.3593,
+   "bimodality_excess": 0.0018,
+   "n_control_draws": 24
+  },
+  "biclique-cover|3|optimal": {
+   "bimodality_measured": 0.5393,
+   "bimodality_control_mean": 0.548,
+   "bimodality_excess": -0.0086,
+   "n_control_draws": 16
+  },
+  "biclique-cover|4|feasible": {
+   "bimodality_measured": 0.3672,
+   "bimodality_control_mean": 0.3629,
    "bimodality_excess": 0.0043,
    "n_control_draws": 24
   },
-  "directed-feedback-vertex-set|3|optimal": {
-   "bimodality_measured": 0.4313,
-   "bimodality_control_mean": 0.4549,
-   "bimodality_excess": -0.0235,
-   "n_control_draws": 14
+  "biclique-cover|4|optimal": {
+   "bimodality_measured": 0.5572,
+   "bimodality_control_mean": 0.4957,
+   "bimodality_excess": 0.0615,
+   "n_control_draws": 16
+  },
+  "directed-feedback-vertex-set|0|feasible": {
+   "bimodality_measured": 0.3725,
+   "bimodality_control_mean": 0.3703,
+   "bimodality_excess": 0.0022,
+   "n_control_draws": 24
+  },
+  "directed-feedback-vertex-set|1|feasible": {
+   "bimodality_measured": 0.3709,
+   "bimodality_control_mean": 0.369,
+   "bimodality_excess": 0.0019,
+   "n_control_draws": 24
+  },
+  "directed-feedback-vertex-set|2|feasible": {
+   "bimodality_measured": 0.3789,
+   "bimodality_control_mean": 0.3698,
+   "bimodality_excess": 0.0091,
+   "n_control_draws": 24
+  },
+  "directed-feedback-vertex-set|3|feasible": {
+   "bimodality_measured": 0.3777,
+   "bimodality_control_mean": 0.3726,
+   "bimodality_excess": 0.005,
+   "n_control_draws": 24
   },
   "directed-feedback-vertex-set|4|feasible": {
-   "bimodality_measured": 0.3885,
-   "bimodality_control_mean": 0.3761,
-   "bimodality_excess": 0.0124,
-   "n_control_draws": 24
-  },
-  "directed-feedback-vertex-set|4|optimal": {
-   "bimodality_measured": 0.4635,
-   "bimodality_control_mean": 0.3984,
-   "bimodality_excess": 0.0652,
-   "n_control_draws": 8
-  },
-  "partial-vertex-cover|0|feasible": {
-   "bimodality_measured": 0.3708,
-   "bimodality_control_mean": 0.3706,
-   "bimodality_excess": 0.0002,
-   "n_control_draws": 24
-  },
-  "partial-vertex-cover|0|optimal": {
-   "bimodality_measured": 0.9495,
-   "bimodality_control_mean": 0.9177,
-   "bimodality_excess": 0.0318,
-   "n_control_draws": 8
-  },
-  "partial-vertex-cover|1|feasible": {
-   "bimodality_measured": 0.3667,
-   "bimodality_control_mean": 0.3696,
-   "bimodality_excess": -0.003,
-   "n_control_draws": 24
-  },
-  "partial-vertex-cover|2|feasible": {
-   "bimodality_measured": 0.3713,
-   "bimodality_control_mean": 0.3697,
-   "bimodality_excess": 0.0015,
-   "n_control_draws": 24
-  },
-  "partial-vertex-cover|2|optimal": {
-   "bimodality_measured": 0.9144,
-   "bimodality_control_mean": 0.9034,
-   "bimodality_excess": 0.011,
-   "n_control_draws": 16
-  },
-  "partial-vertex-cover|3|feasible": {
-   "bimodality_measured": 0.3701,
-   "bimodality_control_mean": 0.369,
-   "bimodality_excess": 0.0011,
-   "n_control_draws": 24
-  },
-  "partial-vertex-cover|3|optimal": {
-   "bimodality_measured": 0.8866,
-   "bimodality_control_mean": 0.8809,
-   "bimodality_excess": 0.0057,
-   "n_control_draws": 16
-  },
-  "partial-vertex-cover|4|feasible": {
-   "bimodality_measured": 0.3703,
-   "bimodality_control_mean": 0.3699,
-   "bimodality_excess": 0.0004,
-   "n_control_draws": 24
-  },
-  "partial-vertex-cover|4|optimal": {
-   "bimodality_measured": 0.8854,
-   "bimodality_control_mean": 0.8714,
-   "bimodality_excess": 0.014,
-   "n_control_draws": 8
-  },
-  "planar-independent-set|0|feasible": {
-   "bimodality_measured": 0.386,
-   "bimodality_control_mean": 0.3774,
+   "bimodality_measured": 0.3823,
+   "bimodality_control_mean": 0.3737,
    "bimodality_excess": 0.0086,
    "n_control_draws": 24
   },
-  "planar-independent-set|0|optimal": {
-   "bimodality_measured": 0.4045,
-   "bimodality_control_mean": 0.4437,
-   "bimodality_excess": -0.0392,
-   "n_control_draws": 8
-  },
-  "planar-independent-set|1|feasible": {
-   "bimodality_measured": 0.3927,
-   "bimodality_control_mean": 0.3804,
-   "bimodality_excess": 0.0123,
+  "partial-vertex-cover|0|feasible": {
+   "bimodality_measured": 0.3725,
+   "bimodality_control_mean": 0.3706,
+   "bimodality_excess": 0.0019,
    "n_control_draws": 24
   },
+  "partial-vertex-cover|1|feasible": {
+   "bimodality_measured": 0.3671,
+   "bimodality_control_mean": 0.3702,
+   "bimodality_excess": -0.0031,
+   "n_control_draws": 24
+  },
+  "partial-vertex-cover|1|optimal": {
+   "bimodality_measured": 0.9139,
+   "bimodality_control_mean": 0.9155,
+   "bimodality_excess": -0.0016,
+   "n_control_draws": 8
+  },
+  "partial-vertex-cover|2|feasible": {
+   "bimodality_measured": 0.3716,
+   "bimodality_control_mean": 0.3698,
+   "bimodality_excess": 0.0018,
+   "n_control_draws": 24
+  },
+  "partial-vertex-cover|2|optimal": {
+   "bimodality_measured": 0.9407,
+   "bimodality_control_mean": 0.8863,
+   "bimodality_excess": 0.0543,
+   "n_control_draws": 16
+  },
+  "partial-vertex-cover|3|feasible": {
+   "bimodality_measured": 0.3728,
+   "bimodality_control_mean": 0.371,
+   "bimodality_excess": 0.0019,
+   "n_control_draws": 24
+  },
+  "partial-vertex-cover|3|optimal": {
+   "bimodality_measured": 0.9148,
+   "bimodality_control_mean": 0.8992,
+   "bimodality_excess": 0.0156,
+   "n_control_draws": 24
+  },
+  "partial-vertex-cover|4|feasible": {
+   "bimodality_measured": 0.3702,
+   "bimodality_control_mean": 0.37,
+   "bimodality_excess": 0.0003,
+   "n_control_draws": 24
+  },
+  "partial-vertex-cover|4|optimal": {
+   "bimodality_measured": 0.7962,
+   "bimodality_control_mean": 0.7765,
+   "bimodality_excess": 0.0197,
+   "n_control_draws": 24
+  },
+  "planar-independent-set|0|feasible": {
+   "bimodality_measured": 0.3822,
+   "bimodality_control_mean": 0.3747,
+   "bimodality_excess": 0.0076,
+   "n_control_draws": 24
+  },
+  "planar-independent-set|0|optimal": {
+   "bimodality_measured": 0.3671,
+   "bimodality_control_mean": 0.3704,
+   "bimodality_excess": -0.0033,
+   "n_control_draws": 16
+  },
+  "planar-independent-set|1|feasible": {
+   "bimodality_measured": 0.3886,
+   "bimodality_control_mean": 0.3792,
+   "bimodality_excess": 0.0094,
+   "n_control_draws": 24
+  },
+  "planar-independent-set|1|optimal": {
+   "bimodality_measured": 0.4731,
+   "bimodality_control_mean": 0.5655,
+   "bimodality_excess": -0.0923,
+   "n_control_draws": 8
+  },
   "planar-independent-set|2|feasible": {
-   "bimodality_measured": 0.3893,
-   "bimodality_control_mean": 0.38,
-   "bimodality_excess": 0.0093,
+   "bimodality_measured": 0.3938,
+   "bimodality_control_mean": 0.3827,
+   "bimodality_excess": 0.011,
    "n_control_draws": 24
   },
   "planar-independent-set|3|feasible": {
    "bimodality_measured": 0.3962,
-   "bimodality_control_mean": 0.3838,
-   "bimodality_excess": 0.0124,
+   "bimodality_control_mean": 0.3827,
+   "bimodality_excess": 0.0135,
    "n_control_draws": 24
   },
   "planar-independent-set|4|feasible": {
    "bimodality_measured": 0.3962,
-   "bimodality_control_mean": 0.3838,
-   "bimodality_excess": 0.0124,
+   "bimodality_control_mean": 0.3837,
+   "bimodality_excess": 0.0125,
    "n_control_draws": 24
   },
   "planar-vertex-cover|0|feasible": {
-   "bimodality_measured": 0.3811,
-   "bimodality_control_mean": 0.3736,
-   "bimodality_excess": 0.0075,
+   "bimodality_measured": 0.3805,
+   "bimodality_control_mean": 0.3727,
+   "bimodality_excess": 0.0078,
    "n_control_draws": 24
   },
   "planar-vertex-cover|0|optimal": {
-   "bimodality_measured": 0.2629,
-   "bimodality_control_mean": 0.2961,
-   "bimodality_excess": -0.0332,
-   "n_control_draws": 8
+   "bimodality_measured": 0.3004,
+   "bimodality_control_mean": 0.3553,
+   "bimodality_excess": -0.0549,
+   "n_control_draws": 24
   },
   "planar-vertex-cover|1|feasible": {
-   "bimodality_measured": 0.3853,
-   "bimodality_control_mean": 0.3754,
-   "bimodality_excess": 0.0099,
+   "bimodality_measured": 0.3835,
+   "bimodality_control_mean": 0.3759,
+   "bimodality_excess": 0.0076,
    "n_control_draws": 24
   },
-  "planar-vertex-cover|2|feasible": {
-   "bimodality_measured": 0.394,
-   "bimodality_control_mean": 0.3815,
-   "bimodality_excess": 0.0126,
-   "n_control_draws": 24
-  },
-  "planar-vertex-cover|2|optimal": {
-   "bimodality_measured": 0.2456,
-   "bimodality_control_mean": 0.2964,
-   "bimodality_excess": -0.0508,
+  "planar-vertex-cover|1|optimal": {
+   "bimodality_measured": 0.4731,
+   "bimodality_control_mean": 0.5056,
+   "bimodality_excess": -0.0325,
    "n_control_draws": 8
   },
+  "planar-vertex-cover|2|feasible": {
+   "bimodality_measured": 0.3948,
+   "bimodality_control_mean": 0.3831,
+   "bimodality_excess": 0.0116,
+   "n_control_draws": 24
+  },
   "planar-vertex-cover|3|feasible": {
-   "bimodality_measured": 0.3962,
-   "bimodality_control_mean": 0.3836,
-   "bimodality_excess": 0.0126,
+   "bimodality_measured": 0.3957,
+   "bimodality_control_mean": 0.381,
+   "bimodality_excess": 0.0147,
    "n_control_draws": 24
   },
   "planar-vertex-cover|4|feasible": {
    "bimodality_measured": 0.3962,
-   "bimodality_control_mean": 0.3814,
-   "bimodality_excess": 0.0148,
+   "bimodality_control_mean": 0.3819,
+   "bimodality_excess": 0.0143,
    "n_control_draws": 24
   },
   "multidimensional-knapsack|0|feasible": {
-   "bimodality_measured": 0.3769,
-   "bimodality_control_mean": 0.3711,
-   "bimodality_excess": 0.0058,
+   "bimodality_measured": 0.377,
+   "bimodality_control_mean": 0.3736,
+   "bimodality_excess": 0.0035,
    "n_control_draws": 24
   },
   "multidimensional-knapsack|0|optimal": {
-   "bimodality_measured": 0.445,
-   "bimodality_control_mean": 0.418,
-   "bimodality_excess": 0.027,
-   "n_control_draws": 16
+   "bimodality_measured": 0.4481,
+   "bimodality_control_mean": 0.4226,
+   "bimodality_excess": 0.0255,
+   "n_control_draws": 24
   },
   "multidimensional-knapsack|1|feasible": {
-   "bimodality_measured": 0.3853,
+   "bimodality_measured": 0.3845,
    "bimodality_control_mean": 0.3821,
-   "bimodality_excess": 0.0032,
+   "bimodality_excess": 0.0024,
    "n_control_draws": 24
   },
   "multidimensional-knapsack|1|optimal": {
-   "bimodality_measured": 0.4314,
-   "bimodality_control_mean": 0.3199,
-   "bimodality_excess": 0.1115,
-   "n_control_draws": 16
+   "bimodality_measured": 0.3698,
+   "bimodality_control_mean": 0.3976,
+   "bimodality_excess": -0.0278,
+   "n_control_draws": 24
   },
   "multidimensional-knapsack|2|feasible": {
-   "bimodality_measured": 0.3896,
-   "bimodality_control_mean": 0.3855,
-   "bimodality_excess": 0.0041,
+   "bimodality_measured": 0.3837,
+   "bimodality_control_mean": 0.3817,
+   "bimodality_excess": 0.0021,
    "n_control_draws": 24
   },
   "multidimensional-knapsack|2|optimal": {
-   "bimodality_measured": 0.4004,
-   "bimodality_control_mean": 0.3929,
-   "bimodality_excess": 0.0075,
-   "n_control_draws": 8
+   "bimodality_measured": 0.3937,
+   "bimodality_control_mean": 0.4415,
+   "bimodality_excess": -0.0479,
+   "n_control_draws": 16
   },
   "multidimensional-knapsack|3|feasible": {
-   "bimodality_measured": 0.3993,
-   "bimodality_control_mean": 0.3964,
-   "bimodality_excess": 0.0029,
+   "bimodality_measured": 0.3988,
+   "bimodality_control_mean": 0.392,
+   "bimodality_excess": 0.0068,
    "n_control_draws": 24
   },
   "multidimensional-knapsack|3|optimal": {
-   "bimodality_measured": 0.4468,
-   "bimodality_control_mean": 0.4322,
-   "bimodality_excess": 0.0146,
-   "n_control_draws": 24
+   "bimodality_measured": 0.4157,
+   "bimodality_control_mean": 0.4077,
+   "bimodality_excess": 0.008,
+   "n_control_draws": 16
   },
   "multidimensional-knapsack|4|feasible": {
-   "bimodality_measured": 0.4147,
-   "bimodality_control_mean": 0.4114,
-   "bimodality_excess": 0.0033,
+   "bimodality_measured": 0.4146,
+   "bimodality_control_mean": 0.4098,
+   "bimodality_excess": 0.0048,
    "n_control_draws": 24
   },
   "multidimensional-knapsack|4|optimal": {
-   "bimodality_measured": 0.4752,
-   "bimodality_control_mean": 0.4701,
-   "bimodality_excess": 0.0051,
+   "bimodality_measured": 0.4505,
+   "bimodality_control_mean": 0.4354,
+   "bimodality_excess": 0.0151,
    "n_control_draws": 24
   },
   "red-blue-set-cover|0|feasible": {
-   "bimodality_measured": 0.3611,
-   "bimodality_control_mean": 0.3586,
-   "bimodality_excess": 0.0025,
+   "bimodality_measured": 0.3616,
+   "bimodality_control_mean": 0.359,
+   "bimodality_excess": 0.0026,
    "n_control_draws": 24
   },
   "red-blue-set-cover|1|feasible": {
-   "bimodality_measured": 0.3573,
-   "bimodality_control_mean": 0.3587,
-   "bimodality_excess": -0.0014,
+   "bimodality_measured": 0.3593,
+   "bimodality_control_mean": 0.3593,
+   "bimodality_excess": -0.0,
    "n_control_draws": 24
   },
+  "red-blue-set-cover|1|optimal": {
+   "bimodality_measured": 0.8841,
+   "bimodality_control_mean": 0.8915,
+   "bimodality_excess": -0.0074,
+   "n_control_draws": 8
+  },
   "red-blue-set-cover|2|feasible": {
-   "bimodality_measured": 0.361,
-   "bimodality_control_mean": 0.3592,
-   "bimodality_excess": 0.0018,
+   "bimodality_measured": 0.3619,
+   "bimodality_control_mean": 0.3597,
+   "bimodality_excess": 0.0022,
    "n_control_draws": 24
   },
   "red-blue-set-cover|2|optimal": {
-   "bimodality_measured": 0.7693,
-   "bimodality_control_mean": 0.799,
-   "bimodality_excess": -0.0297,
-   "n_control_draws": 16
+   "bimodality_measured": 0.5661,
+   "bimodality_control_mean": 0.6645,
+   "bimodality_excess": -0.0985,
+   "n_control_draws": 13
   },
   "red-blue-set-cover|3|feasible": {
-   "bimodality_measured": 0.3604,
-   "bimodality_control_mean": 0.3594,
-   "bimodality_excess": 0.001,
+   "bimodality_measured": 0.3609,
+   "bimodality_control_mean": 0.3591,
+   "bimodality_excess": 0.0018,
    "n_control_draws": 24
   },
   "red-blue-set-cover|3|optimal": {
-   "bimodality_measured": 0.2535,
-   "bimodality_control_mean": 0.3632,
-   "bimodality_excess": -0.1097,
+   "bimodality_measured": 0.7392,
+   "bimodality_control_mean": 0.7737,
+   "bimodality_excess": -0.0346,
    "n_control_draws": 7
   },
   "red-blue-set-cover|4|feasible": {
-   "bimodality_measured": 0.3599,
-   "bimodality_control_mean": 0.3599,
-   "bimodality_excess": 0.0,
+   "bimodality_measured": 0.3594,
+   "bimodality_control_mean": 0.3587,
+   "bimodality_excess": 0.0007,
    "n_control_draws": 24
   },
   "red-blue-set-cover|4|optimal": {
-   "bimodality_measured": 0.6076,
-   "bimodality_control_mean": 0.5017,
-   "bimodality_excess": 0.1059,
-   "n_control_draws": 24
+   "bimodality_measured": 0.3504,
+   "bimodality_control_mean": 0.3584,
+   "bimodality_excess": -0.008,
+   "n_control_draws": 14
   },
   "total-dominating-set|1|feasible": {
-   "bimodality_measured": 0.3783,
-   "bimodality_control_mean": 0.3731,
-   "bimodality_excess": 0.0052,
+   "bimodality_measured": 0.418,
+   "bimodality_control_mean": 0.402,
+   "bimodality_excess": 0.016,
+   "n_control_draws": 24
+  },
+  "total-dominating-set|1|optimal": {
+   "bimodality_measured": 0.4513,
+   "bimodality_control_mean": 0.4331,
+   "bimodality_excess": 0.0181,
    "n_control_draws": 8
   },
   "total-dominating-set|2|feasible": {
-   "bimodality_measured": 0.383,
-   "bimodality_control_mean": 0.3759,
-   "bimodality_excess": 0.007,
+   "bimodality_measured": 0.3747,
+   "bimodality_control_mean": 0.3722,
+   "bimodality_excess": 0.0025,
    "n_control_draws": 16
   },
   "total-dominating-set|2|optimal": {
-   "bimodality_measured": 0.636,
-   "bimodality_control_mean": 0.5873,
-   "bimodality_excess": 0.0487,
-   "n_control_draws": 8
+   "bimodality_measured": 0.3004,
+   "bimodality_control_mean": 0.275,
+   "bimodality_excess": 0.0255,
+   "n_control_draws": 7
   },
   "total-dominating-set|3|feasible": {
-   "bimodality_measured": 0.3812,
-   "bimodality_control_mean": 0.3748,
-   "bimodality_excess": 0.0064,
+   "bimodality_measured": 0.378,
+   "bimodality_control_mean": 0.3715,
+   "bimodality_excess": 0.0065,
    "n_control_draws": 24
   },
   "total-dominating-set|3|optimal": {
-   "bimodality_measured": 0.7834,
-   "bimodality_control_mean": 0.794,
-   "bimodality_excess": -0.0106,
+   "bimodality_measured": 0.636,
+   "bimodality_control_mean": 0.6538,
+   "bimodality_excess": -0.0179,
    "n_control_draws": 8
   },
   "total-dominating-set|4|feasible": {
-   "bimodality_measured": 0.3723,
-   "bimodality_control_mean": 0.3714,
-   "bimodality_excess": 0.0008,
-   "n_control_draws": 24
-  },
-  "total-dominating-set|4|optimal": {
-   "bimodality_measured": 0.4653,
-   "bimodality_control_mean": 0.554,
-   "bimodality_excess": -0.0888,
-   "n_control_draws": 8
-  },
-  "triangle-packing|2|feasible": {
-   "bimodality_measured": 0.7613,
-   "bimodality_control_mean": 0.7563,
-   "bimodality_excess": 0.005,
+   "bimodality_measured": 0.3708,
+   "bimodality_control_mean": 0.371,
+   "bimodality_excess": -0.0002,
    "n_control_draws": 16
   },
-  "triangle-packing|2|optimal": {
-   "bimodality_measured": 0.9894,
-   "bimodality_control_mean": 0.9882,
-   "bimodality_excess": 0.0012,
+  "total-dominating-set|4|optimal": {
+   "bimodality_measured": 0.7642,
+   "bimodality_control_mean": 0.7759,
+   "bimodality_excess": -0.0116,
+   "n_control_draws": 16
+  },
+  "triangle-packing|1|feasible": {
+   "bimodality_measured": 0.9619,
+   "bimodality_control_mean": 0.9619,
+   "bimodality_excess": 0.0,
+   "n_control_draws": 16
+  },
+  "triangle-packing|2|feasible": {
+   "bimodality_measured": 0.9619,
+   "bimodality_control_mean": 0.9619,
+   "bimodality_excess": 0.0,
    "n_control_draws": 8
   },
   "triangle-packing|3|feasible": {
-   "bimodality_measured": 0.6414,
-   "bimodality_control_mean": 0.6367,
-   "bimodality_excess": 0.0047,
+   "bimodality_measured": 0.449,
+   "bimodality_control_mean": 0.4351,
+   "bimodality_excess": 0.0139,
    "n_control_draws": 24
   },
   "triangle-packing|3|optimal": {
-   "bimodality_measured": 0.9209,
-   "bimodality_control_mean": 0.921,
-   "bimodality_excess": -0.0001,
-   "n_control_draws": 16
+   "bimodality_measured": 0.7341,
+   "bimodality_control_mean": 0.7377,
+   "bimodality_excess": -0.0036,
+   "n_control_draws": 24
   },
   "triangle-packing|4|feasible": {
-   "bimodality_measured": 0.3955,
-   "bimodality_control_mean": 0.3887,
-   "bimodality_excess": 0.0069,
+   "bimodality_measured": 0.446,
+   "bimodality_control_mean": 0.4202,
+   "bimodality_excess": 0.0259,
    "n_control_draws": 24
   },
   "triangle-packing|4|optimal": {
-   "bimodality_measured": 0.6669,
-   "bimodality_control_mean": 0.6955,
-   "bimodality_excess": -0.0286,
-   "n_control_draws": 24
-  },
-  "cycle-packing|3|feasible": {
-   "bimodality_measured": 0.6737,
-   "bimodality_control_mean": 0.6608,
-   "bimodality_excess": 0.0129,
+   "bimodality_measured": 0.8492,
+   "bimodality_control_mean": 0.8582,
+   "bimodality_excess": -0.009,
    "n_control_draws": 16
   },
+  "cycle-packing|3|feasible": {
+   "bimodality_measured": 0.7732,
+   "bimodality_control_mean": 0.767,
+   "bimodality_excess": 0.0062,
+   "n_control_draws": 24
+  },
   "cycle-packing|3|optimal": {
-   "bimodality_measured": 0.3004,
-   "bimodality_control_mean": 0.3612,
-   "bimodality_excess": -0.0608,
+   "bimodality_measured": 0.636,
+   "bimodality_control_mean": 0.675,
+   "bimodality_excess": -0.0391,
    "n_control_draws": 8
   },
   "cycle-packing|4|feasible": {
+   "bimodality_measured": 0.5756,
+   "bimodality_control_mean": 0.5672,
+   "bimodality_excess": 0.0084,
+   "n_control_draws": 24
+  },
+  "cycle-packing|4|optimal": {
+   "bimodality_measured": 0.6127,
+   "bimodality_control_mean": 0.6739,
+   "bimodality_excess": -0.0613,
+   "n_control_draws": 8
+  },
+  "quadratic-knapsack|0|feasible": {
+   "bimodality_measured": 0.3631,
+   "bimodality_control_mean": 0.3597,
+   "bimodality_excess": 0.0034,
+   "n_control_draws": 24
+  },
+  "quadratic-knapsack|1|feasible": {
+   "bimodality_measured": 0.3661,
+   "bimodality_control_mean": 0.3606,
+   "bimodality_excess": 0.0055,
+   "n_control_draws": 24
+  },
+  "quadratic-knapsack|2|feasible": {
+   "bimodality_measured": 0.3742,
+   "bimodality_control_mean": 0.366,
+   "bimodality_excess": 0.0082,
+   "n_control_draws": 24
+  },
+  "quadratic-knapsack|3|feasible": {
+   "bimodality_measured": 0.3828,
+   "bimodality_control_mean": 0.3726,
+   "bimodality_excess": 0.0102,
+   "n_control_draws": 24
+  },
+  "quadratic-knapsack|4|feasible": {
+   "bimodality_measured": 0.3955,
+   "bimodality_control_mean": 0.3826,
+   "bimodality_excess": 0.013,
+   "n_control_draws": 24
+  },
+  "minimum-equivalent-digraph|0|feasible": {
+   "bimodality_measured": 0.3727,
+   "bimodality_control_mean": 0.3638,
+   "bimodality_excess": 0.0089,
+   "n_control_draws": 24
+  },
+  "minimum-equivalent-digraph|0|optimal": {
+   "bimodality_measured": 0.4064,
+   "bimodality_control_mean": 0.4036,
+   "bimodality_excess": 0.0028,
+   "n_control_draws": 15
+  },
+  "minimum-equivalent-digraph|1|feasible": {
+   "bimodality_measured": 0.3708,
+   "bimodality_control_mean": 0.3643,
+   "bimodality_excess": 0.0065,
+   "n_control_draws": 24
+  },
+  "minimum-equivalent-digraph|1|optimal": {
+   "bimodality_measured": 0.4739,
+   "bimodality_control_mean": 0.4483,
+   "bimodality_excess": 0.0256,
+   "n_control_draws": 16
+  },
+  "minimum-equivalent-digraph|2|feasible": {
+   "bimodality_measured": 0.3761,
+   "bimodality_control_mean": 0.3669,
+   "bimodality_excess": 0.0092,
+   "n_control_draws": 24
+  },
+  "minimum-equivalent-digraph|2|optimal": {
+   "bimodality_measured": 0.4912,
+   "bimodality_control_mean": 0.4571,
+   "bimodality_excess": 0.0341,
+   "n_control_draws": 16
+  },
+  "minimum-equivalent-digraph|3|feasible": {
+   "bimodality_measured": 0.3756,
+   "bimodality_control_mean": 0.3662,
+   "bimodality_excess": 0.0093,
+   "n_control_draws": 24
+  },
+  "minimum-equivalent-digraph|3|optimal": {
+   "bimodality_measured": 0.371,
+   "bimodality_control_mean": 0.3597,
+   "bimodality_excess": 0.0113,
+   "n_control_draws": 16
+  },
+  "minimum-equivalent-digraph|4|feasible": {
+   "bimodality_measured": 0.3828,
+   "bimodality_control_mean": 0.3697,
+   "bimodality_excess": 0.0132,
+   "n_control_draws": 24
+  },
+  "minimum-equivalent-digraph|4|optimal": {
+   "bimodality_measured": 0.5016,
+   "bimodality_control_mean": 0.421,
+   "bimodality_excess": 0.0805,
+   "n_control_draws": 16
+  },
+  "graph-sandwich-pi-property|0|feasible": {
+   "bimodality_measured": 0.364,
+   "bimodality_control_mean": 0.3598,
+   "bimodality_excess": 0.0043,
+   "n_control_draws": 24
+  },
+  "graph-sandwich-pi-property|1|feasible": {
+   "bimodality_measured": 0.3653,
+   "bimodality_control_mean": 0.3595,
+   "bimodality_excess": 0.0058,
+   "n_control_draws": 24
+  },
+  "graph-sandwich-pi-property|2|feasible": {
+   "bimodality_measured": 0.3644,
+   "bimodality_control_mean": 0.3603,
+   "bimodality_excess": 0.0041,
+   "n_control_draws": 24
+  },
+  "graph-sandwich-pi-property|3|feasible": {
+   "bimodality_measured": 0.3582,
+   "bimodality_control_mean": 0.3582,
+   "bimodality_excess": -0.0,
+   "n_control_draws": 24
+  },
+  "graph-sandwich-pi-property|4|feasible": {
+   "bimodality_measured": 0.3599,
+   "bimodality_control_mean": 0.3602,
+   "bimodality_excess": -0.0003,
+   "n_control_draws": 16
+  },
+  "bilevel-knapsack|0|feasible": {
+   "bimodality_measured": 0.3591,
+   "bimodality_control_mean": 0.3589,
+   "bimodality_excess": 0.0002,
+   "n_control_draws": 24
+  },
+  "bilevel-knapsack|1|feasible": {
+   "bimodality_measured": 0.3638,
+   "bimodality_control_mean": 0.3607,
+   "bimodality_excess": 0.0031,
+   "n_control_draws": 24
+  },
+  "bilevel-knapsack|1|optimal": {
+   "bimodality_measured": 0.4162,
+   "bimodality_control_mean": 0.4404,
+   "bimodality_excess": -0.0242,
+   "n_control_draws": 8
+  },
+  "bilevel-knapsack|2|feasible": {
+   "bimodality_measured": 0.3718,
+   "bimodality_control_mean": 0.3653,
+   "bimodality_excess": 0.0065,
+   "n_control_draws": 24
+  },
+  "bilevel-knapsack|2|optimal": {
+   "bimodality_measured": 0.6775,
+   "bimodality_control_mean": 0.5703,
+   "bimodality_excess": 0.1072,
+   "n_control_draws": 8
+  },
+  "bilevel-knapsack|3|feasible": {
+   "bimodality_measured": 0.3829,
+   "bimodality_control_mean": 0.3727,
+   "bimodality_excess": 0.0101,
+   "n_control_draws": 24
+  },
+  "bilevel-knapsack|3|optimal": {
+   "bimodality_measured": 0.4322,
+   "bimodality_control_mean": 0.4195,
+   "bimodality_excess": 0.0127,
+   "n_control_draws": 8
+  },
+  "bilevel-knapsack|4|feasible": {
+   "bimodality_measured": 0.3976,
+   "bimodality_control_mean": 0.3871,
+   "bimodality_excess": 0.0104,
+   "n_control_draws": 24
+  },
+  "bilevel-knapsack|4|optimal": {
+   "bimodality_measured": 0.2535,
+   "bimodality_control_mean": 0.2423,
+   "bimodality_excess": 0.0112,
+   "n_control_draws": 16
+  },
+  "network-interdiction|0|feasible": {
+   "bimodality_measured": 0.3661,
+   "bimodality_control_mean": 0.3613,
+   "bimodality_excess": 0.0048,
+   "n_control_draws": 24
+  },
+  "network-interdiction|1|feasible": {
+   "bimodality_measured": 0.3683,
+   "bimodality_control_mean": 0.3616,
+   "bimodality_excess": 0.0067,
+   "n_control_draws": 24
+  },
+  "network-interdiction|2|feasible": {
+   "bimodality_measured": 0.365,
+   "bimodality_control_mean": 0.362,
+   "bimodality_excess": 0.0029,
+   "n_control_draws": 24
+  },
+  "network-interdiction|3|feasible": {
+   "bimodality_measured": 0.3683,
+   "bimodality_control_mean": 0.3621,
+   "bimodality_excess": 0.0063,
+   "n_control_draws": 24
+  },
+  "network-interdiction|4|feasible": {
+   "bimodality_measured": 0.3666,
+   "bimodality_control_mean": 0.3617,
+   "bimodality_excess": 0.005,
+   "n_control_draws": 24
+  },
+  "steiner-tree|0|feasible": {
+   "bimodality_measured": 0.3611,
+   "bimodality_control_mean": 0.3599,
+   "bimodality_excess": 0.0013,
+   "n_control_draws": 24
+  },
+  "steiner-tree|0|optimal": {
+   "bimodality_measured": 0.5132,
+   "bimodality_control_mean": 0.4511,
+   "bimodality_excess": 0.0621,
+   "n_control_draws": 8
+  },
+  "steiner-tree|1|feasible": {
+   "bimodality_measured": 0.3657,
+   "bimodality_control_mean": 0.3605,
+   "bimodality_excess": 0.0052,
+   "n_control_draws": 24
+  },
+  "steiner-tree|1|optimal": {
+   "bimodality_measured": 0.8115,
+   "bimodality_control_mean": 0.8204,
+   "bimodality_excess": -0.0089,
+   "n_control_draws": 8
+  },
+  "steiner-tree|2|feasible": {
+   "bimodality_measured": 0.3636,
+   "bimodality_control_mean": 0.3605,
+   "bimodality_excess": 0.0031,
+   "n_control_draws": 24
+  },
+  "steiner-tree|2|optimal": {
+   "bimodality_measured": 0.6579,
+   "bimodality_control_mean": 0.5708,
+   "bimodality_excess": 0.087,
+   "n_control_draws": 16
+  },
+  "steiner-tree|3|feasible": {
+   "bimodality_measured": 0.3629,
+   "bimodality_control_mean": 0.3602,
+   "bimodality_excess": 0.0027,
+   "n_control_draws": 24
+  },
+  "steiner-tree|3|optimal": {
+   "bimodality_measured": 0.4539,
+   "bimodality_control_mean": 0.4554,
+   "bimodality_excess": -0.0015,
+   "n_control_draws": 16
+  },
+  "steiner-tree|4|feasible": {
+   "bimodality_measured": 0.3653,
+   "bimodality_control_mean": 0.3636,
+   "bimodality_excess": 0.0017,
+   "n_control_draws": 24
+  },
+  "steiner-tree|4|optimal": {
+   "bimodality_measured": 0.6165,
+   "bimodality_control_mean": 0.5598,
+   "bimodality_excess": 0.0567,
+   "n_control_draws": 24
+  },
+  "node-multiway-cut|0|feasible": {
+   "bimodality_measured": 0.4034,
+   "bimodality_control_mean": 0.3924,
+   "bimodality_excess": 0.011,
+   "n_control_draws": 24
+  },
+  "node-multiway-cut|1|feasible": {
+   "bimodality_measured": 0.4675,
+   "bimodality_control_mean": 0.4401,
+   "bimodality_excess": 0.0274,
+   "n_control_draws": 24
+  },
+  "node-multiway-cut|2|feasible": {
+   "bimodality_measured": 0.4463,
+   "bimodality_control_mean": 0.4234,
+   "bimodality_excess": 0.0229,
+   "n_control_draws": 24
+  },
+  "node-multiway-cut|3|feasible": {
+   "bimodality_measured": 0.4558,
+   "bimodality_control_mean": 0.4351,
+   "bimodality_excess": 0.0207,
+   "n_control_draws": 24
+  },
+  "node-multiway-cut|4|feasible": {
+   "bimodality_measured": 0.4064,
+   "bimodality_control_mean": 0.3852,
+   "bimodality_excess": 0.0211,
+   "n_control_draws": 16
+  },
+  "target-set-selection|0|feasible": {
+   "bimodality_measured": 0.3908,
+   "bimodality_control_mean": 0.3904,
+   "bimodality_excess": 0.0004,
+   "n_control_draws": 24
+  },
+  "target-set-selection|1|feasible": {
+   "bimodality_measured": 0.3908,
+   "bimodality_control_mean": 0.3906,
+   "bimodality_excess": 0.0003,
+   "n_control_draws": 24
+  },
+  "target-set-selection|2|feasible": {
+   "bimodality_measured": 0.3914,
+   "bimodality_control_mean": 0.3905,
+   "bimodality_excess": 0.001,
+   "n_control_draws": 24
+  },
+  "target-set-selection|3|feasible": {
+   "bimodality_measured": 0.3949,
+   "bimodality_control_mean": 0.3921,
+   "bimodality_excess": 0.0029,
+   "n_control_draws": 24
+  },
+  "target-set-selection|3|optimal": {
+   "bimodality_measured": 0.5249,
+   "bimodality_control_mean": 0.5801,
+   "bimodality_excess": -0.0552,
+   "n_control_draws": 16
+  },
+  "target-set-selection|4|feasible": {
+   "bimodality_measured": 0.397,
+   "bimodality_control_mean": 0.3942,
+   "bimodality_excess": 0.0029,
+   "n_control_draws": 24
+  },
+  "target-set-selection|4|optimal": {
+   "bimodality_measured": 0.5408,
+   "bimodality_control_mean": 0.4872,
+   "bimodality_excess": 0.0536,
+   "n_control_draws": 16
+  },
+  "graph-motif|0|feasible": {
+   "bimodality_measured": 0.5398,
+   "bimodality_control_mean": 0.4452,
+   "bimodality_excess": 0.0945,
+   "n_control_draws": 16
+  },
+  "graph-motif|1|feasible": {
+   "bimodality_measured": 0.4746,
+   "bimodality_control_mean": 0.4523,
+   "bimodality_excess": 0.0224,
+   "n_control_draws": 16
+  },
+  "graph-motif|2|feasible": {
+   "bimodality_measured": 0.4538,
+   "bimodality_control_mean": 0.4725,
+   "bimodality_excess": -0.0188,
+   "n_control_draws": 16
+  },
+  "graph-motif|3|feasible": {
+   "bimodality_measured": 0.5141,
+   "bimodality_control_mean": 0.4357,
+   "bimodality_excess": 0.0784,
+   "n_control_draws": 8
+  },
+  "graph-motif|4|feasible": {
+   "bimodality_measured": 0.5334,
+   "bimodality_control_mean": 0.5359,
+   "bimodality_excess": -0.0025,
+   "n_control_draws": 16
+  },
+  "maximum-induced-matching|0|feasible": {
    "bimodality_measured": 0.9619,
    "bimodality_control_mean": 0.9619,
    "bimodality_excess": 0.0,
    "n_control_draws": 24
   },
-  "quadratic-knapsack|0|feasible": {
-   "bimodality_measured": 0.3588,
-   "bimodality_control_mean": 0.3597,
-   "bimodality_excess": -0.0009,
+  "maximum-induced-matching|1|feasible": {
+   "bimodality_measured": 0.7781,
+   "bimodality_control_mean": 0.7671,
+   "bimodality_excess": 0.011,
    "n_control_draws": 24
   },
-  "quadratic-knapsack|1|feasible": {
-   "bimodality_measured": 0.3619,
-   "bimodality_control_mean": 0.3607,
-   "bimodality_excess": 0.0012,
+  "maximum-induced-matching|2|feasible": {
+   "bimodality_measured": 0.5849,
+   "bimodality_control_mean": 0.5759,
+   "bimodality_excess": 0.0089,
    "n_control_draws": 24
   },
-  "quadratic-knapsack|2|feasible": {
-   "bimodality_measured": 0.3736,
-   "bimodality_control_mean": 0.366,
-   "bimodality_excess": 0.0076,
-   "n_control_draws": 24
-  },
-  "quadratic-knapsack|3|feasible": {
-   "bimodality_measured": 0.3802,
-   "bimodality_control_mean": 0.3697,
-   "bimodality_excess": 0.0105,
-   "n_control_draws": 24
-  },
-  "quadratic-knapsack|4|feasible": {
-   "bimodality_measured": 0.3978,
-   "bimodality_control_mean": 0.3847,
-   "bimodality_excess": 0.0131,
-   "n_control_draws": 24
-  },
-  "minimum-equivalent-digraph|0|feasible": {
-   "bimodality_measured": 0.3639,
-   "bimodality_control_mean": 0.3618,
-   "bimodality_excess": 0.0021,
+  "maximum-induced-matching|2|optimal": {
+   "bimodality_measured": 0.6243,
+   "bimodality_control_mean": 0.6658,
+   "bimodality_excess": -0.0415,
    "n_control_draws": 16
   },
-  "minimum-equivalent-digraph|1|feasible": {
-   "bimodality_measured": 0.3681,
-   "bimodality_control_mean": 0.3621,
-   "bimodality_excess": 0.0059,
-   "n_control_draws": 24
-  },
-  "minimum-equivalent-digraph|2|feasible": {
-   "bimodality_measured": 0.3732,
-   "bimodality_control_mean": 0.3651,
-   "bimodality_excess": 0.0082,
-   "n_control_draws": 24
-  },
-  "minimum-equivalent-digraph|2|optimal": {
-   "bimodality_measured": 0.3914,
-   "bimodality_control_mean": 0.3923,
-   "bimodality_excess": -0.0009,
-   "n_control_draws": 14
-  },
-  "minimum-equivalent-digraph|3|feasible": {
-   "bimodality_measured": 0.3746,
-   "bimodality_control_mean": 0.3678,
-   "bimodality_excess": 0.0068,
-   "n_control_draws": 24
-  },
-  "minimum-equivalent-digraph|3|optimal": {
-   "bimodality_measured": 0.4064,
-   "bimodality_control_mean": 0.4134,
-   "bimodality_excess": -0.007,
-   "n_control_draws": 15
-  },
-  "minimum-equivalent-digraph|4|feasible": {
-   "bimodality_measured": 0.3854,
-   "bimodality_control_mean": 0.3718,
-   "bimodality_excess": 0.0137,
-   "n_control_draws": 24
-  },
-  "minimum-equivalent-digraph|4|optimal": {
-   "bimodality_measured": 0.4963,
-   "bimodality_control_mean": 0.4705,
-   "bimodality_excess": 0.0258,
-   "n_control_draws": 24
-  },
-  "graph-sandwich-pi-property|0|feasible": {
-   "bimodality_measured": 0.3608,
-   "bimodality_control_mean": 0.3597,
-   "bimodality_excess": 0.0012,
-   "n_control_draws": 24
-  },
-  "graph-sandwich-pi-property|1|feasible": {
-   "bimodality_measured": 0.3742,
-   "bimodality_control_mean": 0.3605,
-   "bimodality_excess": 0.0137,
-   "n_control_draws": 24
-  },
-  "graph-sandwich-pi-property|2|feasible": {
-   "bimodality_measured": 0.3681,
-   "bimodality_control_mean": 0.3634,
-   "bimodality_excess": 0.0047,
-   "n_control_draws": 24
-  },
-  "graph-sandwich-pi-property|3|feasible": {
-   "bimodality_measured": 0.3676,
-   "bimodality_control_mean": 0.3618,
-   "bimodality_excess": 0.0057,
-   "n_control_draws": 24
-  },
-  "graph-sandwich-pi-property|4|feasible": {
-   "bimodality_measured": 0.3613,
-   "bimodality_control_mean": 0.3586,
-   "bimodality_excess": 0.0026,
-   "n_control_draws": 24
-  },
-  "bilevel-knapsack|0|feasible": {
-   "bimodality_measured": 0.359,
-   "bimodality_control_mean": 0.359,
-   "bimodality_excess": -0.0001,
-   "n_control_draws": 24
-  },
-  "bilevel-knapsack|1|feasible": {
-   "bimodality_measured": 0.3598,
-   "bimodality_control_mean": 0.3605,
-   "bimodality_excess": -0.0007,
-   "n_control_draws": 24
-  },
-  "bilevel-knapsack|2|feasible": {
-   "bimodality_measured": 0.3715,
-   "bimodality_control_mean": 0.3654,
-   "bimodality_excess": 0.0062,
-   "n_control_draws": 24
-  },
-  "bilevel-knapsack|3|feasible": {
-   "bimodality_measured": 0.3856,
-   "bimodality_control_mean": 0.3753,
-   "bimodality_excess": 0.0103,
-   "n_control_draws": 24
-  },
-  "bilevel-knapsack|4|feasible": {
-   "bimodality_measured": 0.4048,
-   "bimodality_control_mean": 0.3888,
-   "bimodality_excess": 0.0159,
-   "n_control_draws": 24
-  },
-  "bilevel-knapsack|4|optimal": {
-   "bimodality_measured": 0.5352,
-   "bimodality_control_mean": 0.5473,
-   "bimodality_excess": -0.0121,
-   "n_control_draws": 16
-  },
-  "network-interdiction|0|feasible": {
-   "bimodality_measured": 0.3661,
-   "bimodality_control_mean": 0.3628,
-   "bimodality_excess": 0.0033,
-   "n_control_draws": 24
-  },
-  "network-interdiction|1|feasible": {
-   "bimodality_measured": 0.3615,
+  "maximum-induced-matching|3|feasible": {
+   "bimodality_measured": 0.3712,
    "bimodality_control_mean": 0.3619,
-   "bimodality_excess": -0.0004,
+   "bimodality_excess": 0.0093,
    "n_control_draws": 24
   },
-  "network-interdiction|2|feasible": {
-   "bimodality_measured": 0.3686,
-   "bimodality_control_mean": 0.3618,
-   "bimodality_excess": 0.0069,
+  "maximum-induced-matching|3|optimal": {
+   "bimodality_measured": 0.3004,
+   "bimodality_control_mean": 0.3236,
+   "bimodality_excess": -0.0231,
+   "n_control_draws": 7
+  },
+  "maximum-induced-matching|4|feasible": {
+   "bimodality_measured": 0.4196,
+   "bimodality_control_mean": 0.4118,
+   "bimodality_excess": 0.0078,
    "n_control_draws": 24
   },
-  "network-interdiction|3|feasible": {
-   "bimodality_measured": 0.3648,
-   "bimodality_control_mean": 0.3617,
-   "bimodality_excess": 0.0031,
+  "maximum-induced-matching|4|optimal": {
+   "bimodality_measured": 0.9398,
+   "bimodality_control_mean": 0.9293,
+   "bimodality_excess": 0.0105,
+   "n_control_draws": 8
+  },
+  "planar-matching-count|0|feasible": {
+   "bimodality_measured": 0.3931,
+   "bimodality_control_mean": 0.3798,
+   "bimodality_excess": 0.0133,
    "n_control_draws": 24
   },
-  "network-interdiction|4|feasible": {
-   "bimodality_measured": 0.3653,
-   "bimodality_control_mean": 0.3613,
-   "bimodality_excess": 0.004,
+  "planar-matching-count|0|optimal": {
+   "bimodality_measured": 0.4711,
+   "bimodality_control_mean": 0.3992,
+   "bimodality_excess": 0.0719,
+   "n_control_draws": 24
+  },
+  "planar-matching-count|1|feasible": {
+   "bimodality_measured": 0.3931,
+   "bimodality_control_mean": 0.3802,
+   "bimodality_excess": 0.013,
+   "n_control_draws": 24
+  },
+  "planar-matching-count|1|optimal": {
+   "bimodality_measured": 0.4711,
+   "bimodality_control_mean": 0.4187,
+   "bimodality_excess": 0.0524,
+   "n_control_draws": 24
+  },
+  "planar-matching-count|2|feasible": {
+   "bimodality_measured": 0.3937,
+   "bimodality_control_mean": 0.3759,
+   "bimodality_excess": 0.0178,
+   "n_control_draws": 24
+  },
+  "planar-matching-count|3|feasible": {
+   "bimodality_measured": 0.3937,
+   "bimodality_control_mean": 0.377,
+   "bimodality_excess": 0.0167,
+   "n_control_draws": 24
+  },
+  "planar-matching-count|4|feasible": {
+   "bimodality_measured": 0.3937,
+   "bimodality_control_mean": 0.3765,
+   "bimodality_excess": 0.0171,
    "n_control_draws": 24
   }
  }
