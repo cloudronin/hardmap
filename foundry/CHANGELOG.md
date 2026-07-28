@@ -2,6 +2,48 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **The CLI, and the versioning defect that argued for it.** A design question about running everything
+  through one binary turned up a real defect first: **three batch-census schemas shipped under one
+  version string.** b3 held `flagged_for_ruling` as a single defect dict; b4 renamed it to
+  `carried_forward` and widened it to a mapping; b5 added `capture_mode` to every roster row — and all
+  eight censuses declare `observatory-batch-census/v1`. **F4 did not fail because anyone broke it; it
+  failed because there was no single place it could bind.** The version was a literal inside eight
+  copy-and-edited files, so no change to it was ever a change to anything. (The catalog moved v1 -> v7
+  under the same law in the same period, because the catalog's version lives in one module. The prose
+  drifted too, more visibly: all eight docstrings still said "Batch 3's census", batch 10's included.)
+  **No measured value is wrong** — nothing downstream ever read either key, and the `capture_mode` that
+  reaches the loader comes from capture records. Provenance drift, caught before consumption.
+  **Retro-label, never rewrite:** the historical censuses are declarations made before reading, so
+  re-emitting b3 under b10's shape after b3's readings exist is the contamination direction whatever the
+  frozen manifest formally binds — **pre-reading declarations are epistemically frozen even where they
+  are not mechanically frozen.** Migration 0001 names the three shapes (`reconstructed: true`) plus the
+  v2 that replaces them; **0 artifacts rewritten.** `batch_census.py` holds one procedure, per-batch
+  declarations as data, and one version site; `read()` dispatches on STRUCTURE, not on the declared
+  string, which is no evidence when all three shapes claim v1. **Equivalence proved rather than
+  asserted:** re-deriving b10 through the unified procedure differs from the historical file in the
+  schema string and nothing else; b3 and b4 differ by exactly the two documented transitions.
+- **Two binaries, one library — Kill 2 promoted from a detection rule to an impossibility.** `hardmap`
+  reads and is what ships; `foundry` writes and is repo-only, absent from the published
+  `[project.scripts]` and unable to run at all without `dev/`, which the wheel excludes. The frontier is
+  a blindness mechanism, so a stranger reproducing the paper must not be able to advance it by mistyping
+  a subcommand — physics over guards, §0.1's own reasoning. **Migrations are the third category:**
+  one-time passes that ran once under a ruling are history with a checksum, never verbs; the maptrail is
+  the applied-ledger (replay is the state, no second file), and a migration whose source changes after
+  application reports `DRIFTED` rather than silently describing something that no longer exists.
+- **Freshness — staleness stops being a species we catch and becomes a state the pipeline can't
+  occupy.** Every compiled artifact records its source hashes; a verb declares what it CONSUMES and
+  inherits the check from the dispatch. No escape hatch is needed because a producer consumes nothing.
+  Hashes, not mtimes — this repo lives in a synced directory where mtime actively lies. **The check
+  found two real things on its first run:** the db was stale against the maptrail migration 0001 had
+  just moved, and **NEXT.md recorded no sources at all** — it claimed in prose to be a pure function of
+  its sources and gave a reader no way to check the claim; it now carries the hashes, and stays
+  byte-identical because a hash moves only when its source does. `wave` against a stale db refuses with
+  the remedy named. **Discovery, not just comparison:** an artifact declares the SHAPE of its source set,
+  so a source that APPEARED (batch 11's panels) is staleness too, not only one that changed — and the
+  negative-space test asserts those globs still cover what the compiler actually records. Six verbs
+  remain delegated to `dev/`; freshness reaches them at the boundary, event-time emission cannot, and
+  `DELEGATED_CEILING` only ever goes down. 312 tests, verify 11/11, W2 passes, 0 census bytes touched.
+
 - **`NEXT.md` — a compiled front page, and the openness signal it needed first.** Ruled as a DERIVED
   view rather than a fourth home: the maptrail owns rulings, the methods thread owns reasoning, commits
   own sequence, and this duplicates none of them. **The generator was not the first step** — the trail

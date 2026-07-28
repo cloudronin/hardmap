@@ -33,6 +33,20 @@ full = ["torch>=2.2", "scipy>=1.11,<1.14", "pyarrow>=15", "huggingface_hub>=0.23
 viz = ["matplotlib>=3.8"]
 dev = ["pytest>=7.4"]
 
+# THE READ SURFACE, AND ONLY THE READ SURFACE (ruled 2026-07-28).
+#
+# `hardmap` reads: repro, verify, anatomy, atlas, over frozen artifacts. `foundry` WRITES — it reserves
+# rows, advances the catalog, appends to the maptrail — and it is deliberately absent here. It is
+# declared in foundry/pyproject.toml instead, so an operator working from a checkout gets it and someone
+# who ran `pip install hardmap` does not.
+#
+# This is not tidiness. The frontier is a blindness mechanism: reserved rows are declared and NOT
+# CAPTURED, which is what lets predictions be hashed before their frames exist. A stranger reproducing
+# the paper who could advance the frontier by mistyping a subcommand would destroy the blindness the
+# claims rest on. Keeping the verb out of what ships makes that impossible rather than merely detected —
+# Kill 2 promoted from a detection rule to an impossibility.
+#
+# DO NOT ADD `foundry` HERE. `foundry/tests/test_cli.py` fails if you do, and the failure is the point.
 [project.scripts]
 hardmap = "hardmap.cli:main"
 

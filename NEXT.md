@@ -1,6 +1,6 @@
 # NEXT — what is open, compiled from the artifacts
 
-**This file is DERIVED. Do not edit it.** Regenerate with `python3 foundry/dev/build_next.py`.
+**This file is DERIVED. Do not edit it.** Regenerate with `foundry next`.
 
 It duplicates no fact: the maptrail owns rulings, the methods thread owns reasoning, commits
 own sequence. If this page disagrees with its sources, **the sources are right.** Nothing may
@@ -9,7 +9,9 @@ hide, which is the failure it exists to prevent.
 
 This page carries no timestamp and no commit id: it is a pure function of its sources, so
 two compiles from the same artifacts are byte-identical. Provenance belongs to the commit
-that carries the file, not to a line inside it.
+that carries the file, not to a line inside it. The source hashes it was compiled from are
+recorded at the foot of the page, so the claim can be checked with `foundry fresh` rather
+than taken on trust.
 
 ---
 
@@ -79,6 +81,15 @@ the leave-one-out flatness check that caught MCSP has never been run on the ramp
 - key: `lexicon-v3-question`
 - *(opened by backfill — this item predates the openness signal)*
 
+### 9. Lift the six delegated verbs out of dev/ into the library
+
+The `foundry` CLI is one dispatch surface now, but six recurring operations still hold their logic in dev/ and are reached by import: ambient-census, bimodality-fill, catalog, reach-census, wave, mint-prereg. Freshness is enforced for them at the boundary — `wave` against a stale db does refuse — but EVENT-TIME EMISSION is not, and cannot be: the dispatcher cannot make a dev script emit its maptrail record from inside the act it performs, and emitting on its behalf from outside is precisely the reconstruction Kill 3 forbids. So each lift buys one verb its own trail record. `test_cli.DELEGATED_CEILING` is 6 and only ever goes down; lower it as each lands.
+
+- key: `lift-delegated-verbs`
+- see: `foundry/foundry/cli.py DELEGATED`
+- see: `foundry/tests/test_cli.py DELEGATED_CEILING`
+- see: `foundry/foundry/catalog/next_page.py — the pattern, already lifted`
+
 ---
 
 ## State
@@ -89,7 +100,7 @@ the leave-one-out flatness check that caught MCSP has never been run on the ramp
 - **frontier (reserved)**: 16
 - **waves**: 5
 - **candidates enumerated**: 1942
-- **maptrail records**: 75
+- **maptrail records**: 81
 - **descriptor version**: v7
 
 - **reserved rows** (16): `balanced-vertex-separator`, `bin-packing`, `capacitated-vertex-cover`, `cluster-editing`, `directed-steiner-tree`, `group-steiner-tree`, `k-minimum-spanning-tree`, `k-set-packing`, `maximum-minimal-vertex-cover`, `minimum-fill-in`, `minimum-k-cut`, `multiway-cut`, `nearest-codeword`, `planar-dominating-set`, `power-dominating-set`, `weighted-interval-scheduling`
@@ -108,4 +119,6 @@ M.discharge(TRAIL, "<item-key>", by="<commit or artifact>", note="...")
 
 Then regenerate this file. An item vanishes from the page because the trail says it closed,
 never because someone deleted a line here.
+
+<!-- sources: {"maptrail.jsonl": "5d2aec0d6123b800c58716ac6e5f1fe5c248038e539c0a49f1d31848549d0adf", "observatory.db": "d49fd16f984b86cb53ebabf66290ddceb748a3315afdb276fca1abb3a471efa2", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
 
