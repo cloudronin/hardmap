@@ -168,7 +168,7 @@ Not verbs. Named, ordered, applied once, checksummed.
 
 ### Open work
 
-11 items, in declared order — compiled from the same trail as [`NEXT.md`](NEXT.md), which carries the full statement of each.
+9 items, in declared order — compiled from the same trail as [`NEXT.md`](NEXT.md), which carries the full statement of each.
 
 1. **Backfill `supersedes` + `written_at` on the four typing artifacts** — `typing-precedence-backfill`
 2. **Loader walks the declared supersession chain; completeness guard; negative-space staleness test** — `loader-typing-walk`
@@ -179,8 +179,6 @@ Not verbs. Named, ordered, applied once, checksummed.
 7. **Find an ambient-stable framing for covering-radius, or let the exclusion stand** — `covering-radius-framing`
 8. **Whether the five in-use family ramps are secretly thresholds (Q20)** — `lexicon-v3-question`
 9. **Lift the six delegated verbs out of dev/ into the library** — `lift-delegated-verbs`
-10. **Publish the prebuilt observatory.db as a release asset** — `prebuilt-db-release-asset`
-11. **QUERIES.md outputs go stale silently between refreshes** — `queries-md-output-freshness`
 
 ---
 
@@ -224,5 +222,5 @@ sentence. A question without one is a research task handed upward.
 
 Do the parts that do not depend on the answer first. Then ask.
 
-<!-- sources: {"docs/agents/01-constitution.md": "ff66222d1c58d8509bdc27da39a5fcfd4fea359acb2511a252f2b6d2076b70f1", "docs/agents/03-escalation.md": "a21d9429b536d52c4bee4f753a58295552f6b1c909882c19efc180c81cecf1cb", "foundry/foundry/helm/screens.py": "f4e52d231236e708565fc92f666e94bdeb92f42c35780f22815d6275039b2e03", "maptrail.jsonl": "c67dc8529a4d3ede9fd7d6cfdaf3e38da66a4dbc1e3fcc1aad7c3b6ebde32296", "observatory.db": "f84dd1fcaec5cbee6e4ca3fdae1fb3b2c6a354178fc9f0bce26aeb50d4d81662", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
+<!-- sources: {"docs/agents/01-constitution.md": "ff66222d1c58d8509bdc27da39a5fcfd4fea359acb2511a252f2b6d2076b70f1", "docs/agents/03-escalation.md": "a21d9429b536d52c4bee4f753a58295552f6b1c909882c19efc180c81cecf1cb", "foundry/foundry/helm/screens.py": "f4e52d231236e708565fc92f666e94bdeb92f42c35780f22815d6275039b2e03", "maptrail.jsonl": "48a7248ef0b542fe83be1b3aedcc8cbc939b043d91358d732d3065b036d20717", "observatory.db": "bb65df113e8b66dbf8f64f93a37e30e40792a077c80937aa1a1dc4c1769d7db0", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
 

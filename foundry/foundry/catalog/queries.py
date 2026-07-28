@@ -15,6 +15,7 @@ prose stay authored; nothing regenerates a human's explanation of what a join is
 """
 from __future__ import annotations
 
+import json
 import re
 import sqlite3
 from pathlib import Path
@@ -78,7 +79,14 @@ def tabulate(cols, rows, limit: int = 40) -> str:
 
 
 def refresh(db: Path, md: Path | None = None) -> dict:
-    """Re-execute every named query and rewrite its output block. Authored prose is untouched."""
+    """Re-execute every named query and rewrite its output block. Authored prose is untouched.
+
+    RECORDS ITS SOURCE, so the drift is detectable rather than merely fixable (ruled 2026-07-28). A
+    refresh verb that exists but nothing obliges anyone to run is a rule living in a verb — the file
+    went stale under a sentence promising currency precisely because nothing checked. With the database
+    hash written into the file, `foundry fresh` reports it and CI fails on it, which is the
+    physics-over-guards form of the same intention.
+    """
     md = md or path()
     text = md.read_text()
     n = 0
@@ -96,5 +104,10 @@ def refresh(db: Path, md: Path | None = None) -> dict:
             continue
         text = text[:m.start()] + f"```\n{rendered}\n```" + text[m.end():]
         n += 1
+
+    from . import freshness as F
+    marker = re.compile(re.escape(F.SOURCES_MARKER) + r".*?-->\n?", re.S)
+    text = marker.sub("", text).rstrip("\n") + "\n\n"
+    text += f"{F.SOURCES_MARKER} " + json.dumps({"observatory.db": F.sha(db)}, sort_keys=True) + " -->\n"
     md.write_text(text)
     return {"refreshed": n, "queries": len(parse(md))}

@@ -232,7 +232,7 @@ ORDER BY 2, 1;
 ```
 event       reconstructed  n
 ----------  -------------  --
-annotation  0              15
+annotation  0              17
 erratum     0              7
 exclusion   0              13
 expansion   0              8
@@ -250,3 +250,5 @@ For one problem's biography: `SELECT * FROM maptrail WHERE problem_id = ? ORDER 
 **Two standing views** are computed rather than kept: `hold_queue` (held candidates with the frontier size
 that would revive them) and `family_ledger` (cumulative corrections derived from the sweep and ruling
 records). Neither is ever hand-maintained.
+
+<!-- sources: {"observatory.db": "bb65df113e8b66dbf8f64f93a37e30e40792a077c80937aa1a1dc4c1769d7db0"} -->

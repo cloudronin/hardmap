@@ -130,6 +130,15 @@ def _agents_recorded(lat: Path) -> dict:
     return _marker_recorded(repo_root(lat) / "AGENTS.md")
 
 
+def _queries_recorded(lat: Path) -> dict:
+    """QUERIES.md's output blocks are compiled from the database. Registering it is the ruling of
+    2026-07-28: `foundry queries refresh` existing was not enough, because a rule that lives in a verb
+    nobody is obliged to run is not a rule. The file had already gone stale under a sentence promising
+    it was current — a frontier of 2 against an actual 16."""
+    from . import queries as Q
+    return _marker_recorded(Q.path())
+
+
 def _next_recorded(lat: Path) -> dict:
     """NEXT.md records its sources in an html comment. It did NOT before this: the page said in prose
     that it was a pure function of its sources and left a reader no way to check the claim."""
@@ -177,6 +186,13 @@ REGISTRY = {
                        "foundry/foundry/helm/screens.py"),
         "rebuild": "foundry agents",
         "why": "the compiled rule surface silently stops describing the machinery it was read from",
+    },
+    "QUERIES.md": {
+        "recorded": _queries_recorded,
+        "globs": (),
+        "singletons": ("observatory.db",),
+        "rebuild": "foundry queries refresh",
+        "why": "worked examples stop being worked; the file showed a frontier of 2 against an actual 16",
     },
     "NEXT.md": {
         "recorded": _next_recorded,

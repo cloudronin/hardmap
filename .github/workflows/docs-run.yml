@@ -49,6 +49,15 @@ jobs:
           hardmap query --sql "SELECT COUNT(*) FROM catalog"
           test -f observatory.db || (echo "no database was produced" && exit 1)
 
+      - name: Every compiled artifact is fresh against its sources
+        # Ruled 2026-07-28: `foundry queries refresh` existing was not enough, because a rule that
+        # lives in a verb nobody is obliged to run is not a rule. QUERIES.md went stale under a
+        # sentence promising it was current. `foundry fresh` exits nonzero on any stale artifact, so
+        # the drift fails the build rather than waiting to be noticed.
+        run: |
+          . .venv/bin/activate
+          foundry fresh
+
       - name: A stale or absent database refuses, and names the remedy
         run: |
           . .venv/bin/activate

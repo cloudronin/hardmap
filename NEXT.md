@@ -90,22 +90,6 @@ The `foundry` CLI is one dispatch surface now, but six recurring operations stil
 - see: `foundry/tests/test_cli.py DELEGATED_CEILING`
 - see: `foundry/foundry/catalog/next_page.py — the pattern, already lifted`
 
-### 10. Publish the prebuilt observatory.db as a release asset
-
-The zero-install path — download one file, open in any SQLite browser — needs a release asset. `hardmap db build` covers the pip path; this covers the reader who will not install python at all. The release text must say the db is DERIVED and regenerable and that the hashed JSONL is the record, or the asset becomes a second source of truth the moment someone treats it as one.
-
-- key: `prebuilt-db-release-asset`
-- see: `hardmap/hardmap/archive.py`
-- see: `README.md — the 60-second path`
-
-### 11. QUERIES.md outputs go stale silently between refreshes
-
-`foundry queries refresh` recompiles the output blocks, but nothing forces it to run after a batch lands, so the file can sit stale exactly as it did before — it showed a frontier of 2 against an actual 16. The freshness registry is the natural home: register QUERIES.md with observatory.db as a source, so `foundry fresh` reports it and the docs-run CI fails on it.
-
-- key: `queries-md-output-freshness`
-- see: `foundry/foundry/catalog/queries.py`
-- see: `foundry/foundry/catalog/freshness.py REGISTRY`
-
 ---
 
 ## State
@@ -116,7 +100,7 @@ The zero-install path — download one file, open in any SQLite browser — need
 - **frontier (reserved)**: 16
 - **waves**: 5
 - **candidates enumerated**: 1942
-- **maptrail records**: 83
+- **maptrail records**: 85
 - **descriptor version**: v7
 
 - **reserved rows** (16): `balanced-vertex-separator`, `bin-packing`, `capacitated-vertex-cover`, `cluster-editing`, `directed-steiner-tree`, `group-steiner-tree`, `k-minimum-spanning-tree`, `k-set-packing`, `maximum-minimal-vertex-cover`, `minimum-fill-in`, `minimum-k-cut`, `multiway-cut`, `nearest-codeword`, `planar-dominating-set`, `power-dominating-set`, `weighted-interval-scheduling`
@@ -136,5 +120,5 @@ M.discharge(TRAIL, "<item-key>", by="<commit or artifact>", note="...")
 Then regenerate this file. An item vanishes from the page because the trail says it closed,
 never because someone deleted a line here.
 
-<!-- sources: {"maptrail.jsonl": "c67dc8529a4d3ede9fd7d6cfdaf3e38da66a4dbc1e3fcc1aad7c3b6ebde32296", "observatory.db": "f84dd1fcaec5cbee6e4ca3fdae1fb3b2c6a354178fc9f0bce26aeb50d4d81662", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
+<!-- sources: {"maptrail.jsonl": "48a7248ef0b542fe83be1b3aedcc8cbc939b043d91358d732d3065b036d20717", "observatory.db": "bb65df113e8b66dbf8f64f93a37e30e40792a077c80937aa1a1dc4c1769d7db0", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
 

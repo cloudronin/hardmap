@@ -232,3 +232,35 @@ def test_the_batch_declaration_convention_has_a_home():
     conv = ROOT / "batches" / "README.md"
     assert conv.exists(), "the declaration convention is documented in three places and lives in none"
     assert "census = declaration + reservation + status" in conv.read_text()
+
+
+# ── QUERIES.md is registered, per the 2026-07-28 ruling ─────────────────────────────────────────────
+
+def test_queries_md_is_registered_for_freshness():
+    """THE RULING. `foundry queries refresh` existing was not enough: a rule that lives in a verb nobody
+    is obliged to run is not a rule, and the file had already gone stale under a sentence promising it
+    was current — a frontier of 2 against an actual 16. Registration is the physics-over-guards form."""
+    assert "QUERIES.md" in F.REGISTRY
+    assert F.REGISTRY["QUERIES.md"]["rebuild"] == "foundry queries refresh"
+    st = F.check("QUERIES.md", LAT)
+    assert not st["unknown"], "QUERIES.md records no source; the drift would be undetectable again"
+    assert not st["stale"], f"QUERIES.md is stale: {st['diff']} — run: {st['rebuild']}"
+
+
+def test_a_moved_database_makes_queries_md_stale():
+    """The check must actually fire. A registry entry whose recorded hash never disagrees with reality
+    is a green light wired to nothing."""
+    recorded = F.REGISTRY["QUERIES.md"]["recorded"](LAT)
+    assert recorded, "no source recorded"
+    assert F.is_stale(recorded, {"observatory.db": "0" * 64}), \
+        "a changed database does not register as staleness"
+
+
+def test_refreshing_queries_is_byte_stable():
+    """The compiled-artifact law, extended to the file the CLI parses. This catches what the source
+    hash cannot: an edit to the SQL leaves the database hash untouched while making every output below
+    it wrong."""
+    from foundry.catalog import queries as Q
+    before = Q.path().read_bytes()
+    Q.refresh(LAT / "observatory.db")
+    assert Q.path().read_bytes() == before, "QUERIES.md is not reproducible from its sources"
