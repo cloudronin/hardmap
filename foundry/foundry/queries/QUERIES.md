@@ -236,7 +236,7 @@ ORDER BY 2, 1;
 ```
 event       reconstructed  n
 ----------  -------------  --
-annotation  0              20
+annotation  0              23
 erratum     0              7
 exclusion   0              13
 expansion   0              8
@@ -255,4 +255,4 @@ For one problem's biography: `SELECT * FROM maptrail WHERE problem_id = ? ORDER 
 that would revive them) and `family_ledger` (cumulative corrections derived from the sweep and ruling
 records). Neither is ever hand-maintained.
 
-<!-- sources: {"observatory.db": "66dd3cc3e32000987e6b4f9fd80343ddf9d9cc2239258e4aaf0908df2f0bc895"} -->
+<!-- sources: {"observatory.db": "cca85ceced456594edb54b7fb3b0d25ad3490d0ee1d025cd53ef952b919b6eee"} -->

@@ -105,6 +105,7 @@ Act through these. A verb's `consumes` column **is** its refusal: the dispatch w
 | `foundry next` | lifted | `observatory.db` | compile NEXT.md from the trail |
 | `foundry open` | lifted | — | open items, replayed from the trail |
 | `foundry queries` | lifted | `observatory.db` | the worked queries: list / refresh their outputs |
+| `foundry supply` | lifted | `observatory.db` | how many rows of a class exist, are built, remain |
 | `foundry trail` | lifted | — | maptrail records |
 | `foundry ambient-census` | delegated | — | ground-set width across every ramp |
 | `foundry bimodality-fill` | delegated | — | BC minus matched-r control mean, retro-filled |
@@ -113,7 +114,7 @@ Act through these. A verb's `consumes` column **is** its refusal: the dispatch w
 | `foundry reach-census` | delegated | — | reach classes over the atlas |
 | `foundry wave` | delegated | `observatory.db` | one Helm wave: sweep, screen, slate |
 
-**12 lifted, 6 delegated.** Delegated verbs still hold their logic in `dev/`; freshness reaches them at the boundary but event-time emission cannot, since emitting on a script's behalf from outside is the reconstruction the trail exists to prevent. That count only goes down.
+**13 lifted, 6 delegated.** Delegated verbs still hold their logic in `dev/`; freshness reaches them at the boundary but event-time emission cannot, since emitting on a script's behalf from outside is the reconstruction the trail exists to prevent. That count only goes down.
 
 ### Screens — the mechanical dispositions
 
@@ -169,10 +170,8 @@ Not verbs. Named, ordered, applied once, checksummed.
 
 ### Open work
 
-7 items, in declared order — compiled from the same trail as [`NEXT.md`](NEXT.md), which carries the full statement of each.
+5 items, in declared order — compiled from the same trail as [`NEXT.md`](NEXT.md), which carries the full statement of each.
 
-3. **Re-run the optimization supply census on the corrected column** — `optimization-supply-census`
-4. **Recompute the successor bet's revival condition and disposition** — `successor-bet-disposition`
 5. **Contact sheet for steiner-forest's dual-motion trajectory** — `steiner-forest-contact-sheet`
 6. **Decide the REACH-assignment capture path** — `assignment-capture-path`
 7. **Find an ambient-stable framing for covering-radius, or let the exclusion stand** — `covering-radius-framing`
@@ -221,5 +220,5 @@ sentence. A question without one is a research task handed upward.
 
 Do the parts that do not depend on the answer first. Then ask.
 
-<!-- sources: {"docs/agents/01-constitution.md": "ff66222d1c58d8509bdc27da39a5fcfd4fea359acb2511a252f2b6d2076b70f1", "docs/agents/03-escalation.md": "a21d9429b536d52c4bee4f753a58295552f6b1c909882c19efc180c81cecf1cb", "foundry/foundry/helm/screens.py": "f4e52d231236e708565fc92f666e94bdeb92f42c35780f22815d6275039b2e03", "maptrail.jsonl": "e2797531cbb98921da88d435fc0b876231c318c43fba12e6b4ae1d8757e4ade3", "observatory.db": "66dd3cc3e32000987e6b4f9fd80343ddf9d9cc2239258e4aaf0908df2f0bc895", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
+<!-- sources: {"docs/agents/01-constitution.md": "ff66222d1c58d8509bdc27da39a5fcfd4fea359acb2511a252f2b6d2076b70f1", "docs/agents/03-escalation.md": "a21d9429b536d52c4bee4f753a58295552f6b1c909882c19efc180c81cecf1cb", "foundry/foundry/helm/screens.py": "f4e52d231236e708565fc92f666e94bdeb92f42c35780f22815d6275039b2e03", "maptrail.jsonl": "2bbeea23a98dfa31c53ad3fe654ef4b5d74a765f1baeb4adfc4b670c061f2e47", "observatory.db": "cca85ceced456594edb54b7fb3b0d25ad3490d0ee1d025cd53ef952b919b6eee", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
 

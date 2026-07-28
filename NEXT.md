@@ -17,22 +17,6 @@ than taken on trust.
 
 ## Open work, in declared order
 
-### 3. Re-run the optimization supply census on the corrected column
-
-the previous census read a reach_class column since proven stale; no supply number should be quoted from it
-
-- key: `optimization-supply-census`
-- *(opened by backfill — this item predates the openness signal)*
-
-### 4. Recompute the successor bet's revival condition and disposition
-
-prereg_v34 was voided for clearing power against clusters its statistic could never read. Its successor needs 10 reserved OPTIMIZATION SUBSET clusters; bin-packing sits on the frontier as an optimization reservation but was adjudicated REACH-partition, so the count may be 4 not 5. HELD-power vs HELD-path-gated falls out of the corrected census.
-
-- key: `successor-bet-disposition`
-- see: `retraction:prereg-v34`
-- see: `wave-5:ruling:void-prereg-v34`
-- *(opened by backfill — this item predates the openness signal)*
-
 ### 5. Contact sheet for steiner-forest's dual-motion trajectory
 
 the first row in the archive where both regions move along one dial — feasible 1420 -> 691 while optimal grows 2 -> 21
@@ -83,7 +67,7 @@ The `foundry` CLI is one dispatch surface now, but six recurring operations stil
 - **frontier (reserved)**: 16
 - **waves**: 5
 - **candidates enumerated**: 1942
-- **maptrail records**: 88
+- **maptrail records**: 91
 - **descriptor version**: v7
 
 - **reserved rows** (16): `balanced-vertex-separator`, `bin-packing`, `capacitated-vertex-cover`, `cluster-editing`, `directed-steiner-tree`, `group-steiner-tree`, `k-minimum-spanning-tree`, `k-set-packing`, `maximum-minimal-vertex-cover`, `minimum-fill-in`, `minimum-k-cut`, `multiway-cut`, `nearest-codeword`, `planar-dominating-set`, `power-dominating-set`, `weighted-interval-scheduling`
@@ -103,5 +87,5 @@ M.discharge(TRAIL, "<item-key>", by="<commit or artifact>", note="...")
 Then regenerate this file. An item vanishes from the page because the trail says it closed,
 never because someone deleted a line here.
 
-<!-- sources: {"maptrail.jsonl": "e2797531cbb98921da88d435fc0b876231c318c43fba12e6b4ae1d8757e4ade3", "observatory.db": "66dd3cc3e32000987e6b4f9fd80343ddf9d9cc2239258e4aaf0908df2f0bc895", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
+<!-- sources: {"maptrail.jsonl": "2bbeea23a98dfa31c53ad3fe654ef4b5d74a765f1baeb4adfc4b670c061f2e47", "observatory.db": "cca85ceced456594edb54b7fb3b0d25ad3490d0ee1d025cd53ef952b919b6eee", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
 

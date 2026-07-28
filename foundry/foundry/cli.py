@@ -186,6 +186,26 @@ def _queries(args) -> int:
     return 0
 
 
+def _supply(args) -> int:
+    """The supply count that decides whether a held bet revives on a count or converts to path-gated."""
+    from foundry.catalog import supply as SUP
+    d = SUP.run(LAT, args.family, args.reach_class, trail=TRAIL)
+    print(f"SUPPLY — {d['family']} / {d['reach_class']}   total {d['total']}\n")
+    print(f"  built                {d['n_built']:>4}")
+    print(f"  reserved             {d['n_reserved']:>4}")
+    print(f"  excluded at birth    {d['n_excluded']:>4}")
+    print(f"  AVAILABLE            {d['n_available']:>4}")
+    if d["exhausted"]:
+        print("\n  POOL EXHAUSTED — every row in this class is built, reserved or excluded.")
+        print("  A bet needing more of this class cannot revive on a count: there is nothing left to")
+        print("  count. Its hold converts from HELD-power to HELD-path-gated.")
+    else:
+        for r in d["available"]:
+            print(f"    {r}")
+    print(f"\n  reserved: {', '.join(d['reserved']) or '—'}")
+    return 0
+
+
 def _fresh(args) -> int:
     from foundry.catalog import freshness as F
     rc = 0
@@ -284,6 +304,8 @@ VERBS = {
     "census":   {"fn": None, "help": "batch census: declare / verify / list"},
     "db":       {"fn": _db_compile, "help": "compile observatory.db from the hashed artifacts"},
     "fresh":    {"fn": _fresh, "help": "freshness of every compiled artifact"},
+    "supply":   {"fn": _supply, "help": "how many rows of a class exist, are built, remain",
+                 "consumes": ("observatory.db",)},
     "queries":  {"fn": _queries, "help": "the worked queries: list / refresh their outputs",
                  "consumes": ("observatory.db",)},
     "next":     {"fn": _next, "help": "compile NEXT.md from the trail", "consumes": ("observatory.db",)},
@@ -320,6 +342,9 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser("db", help=VERBS["db"]["help"]).add_argument(
         "action", nargs="?", default="compile", choices=["compile"])
     sub.add_parser("fresh", help=VERBS["fresh"]["help"])
+    ps = sub.add_parser("supply", help=VERBS["supply"]["help"])
+    ps.add_argument("--family", required=True)
+    ps.add_argument("--reach-class", dest="reach_class", required=True)
     pq = sub.add_parser("queries", help=VERBS["queries"]["help"])
     pq.add_argument("action", nargs="?", default="refresh", choices=["refresh", "list"])
     sub.add_parser("next", help=VERBS["next"]["help"])

@@ -1,0 +1,38 @@
+{
+ "schema": "supply-census/v1",
+ "STATUS": "COUNT \u2014 read off the CORRECTED reach_class column (the declared typing chain)",
+ "column_provenance": "reach_class as resolved by foundry.catalog.typing_chain over the declared supersession chain. The previous census read a column in which 51 rows carried a pre-adjudication answer; every one of those was REACH-subset narrowed to something more specific, so the old number was an OVERCOUNT and no supply figure may be quoted from it.",
+ "family": "optimization",
+ "reach_class": "REACH-subset",
+ "total": 19,
+ "built": [
+  "bilevel-knapsack",
+  "d-hitting-set",
+  "job-interval-selection",
+  "k-center",
+  "max-coverage",
+  "max-dispersion",
+  "maximum-feasible-linear-subsystem",
+  "minimum-test-cover",
+  "multidimensional-knapsack",
+  "network-interdiction",
+  "prize-collecting-steiner-tree",
+  "quadratic-knapsack",
+  "red-blue-set-cover",
+  "steiner-forest",
+  "survivable-network-design"
+ ],
+ "reserved": [
+  "directed-steiner-tree",
+  "group-steiner-tree",
+  "k-set-packing",
+  "weighted-interval-scheduling"
+ ],
+ "excluded_at_birth": {},
+ "available": [],
+ "n_built": 15,
+ "n_reserved": 4,
+ "n_excluded": 0,
+ "n_available": 0,
+ "exhausted": true
+}
