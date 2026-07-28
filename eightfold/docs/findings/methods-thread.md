@@ -2034,3 +2034,51 @@ Fixing the screen broke `test_an_unconfounded_pair_is_untouched_by_the_size_rule
 prior to slate for a family-scoped candidate against a 40-cluster frontier total. Under the corrected
 rule its 4-cluster family gives MDE 0.9927 and 0.95 correctly fails. The test was asserting the buggy
 behaviour — a reminder that a green suite certifies consistency with the code, not correctness.
+
+---
+
+## A stale column and an inverted one — 2026-07-27
+
+The db answered the *pre-adjudication* question for 51 rows: two typing passes wrote artifacts and the
+loader consumed neither. The artifact-produced-but-unconsumed species, landing at the one layer a
+stranger actually queries.
+
+The first repair made it worse. Precedence was inferred from *the latest maptrail record mentioning each
+artifact's filename* — and the census is mentioned by later **errata about it**, so it scored newest and
+overwrote all three adjudications. 105 rows acquired an `UNTYPED` class no pass ever assigned; staleness
+went 51 → 60.
+
+> **A stale column answers an old question; an inverted one answers a question nobody asked.**
+
+That is a real ordering on defects. Lag is honest and bounded — it reports something that *was* true.
+Inference from the wrong signal is unbounded and **inventive**: it manufactures values with no author.
+
+> **Mention is not authorship.**
+
+The maptrail records *statements about* artifacts. Reading precedence out of it is provenance read at the
+wrong layer — the same species as a lexicon matching a real phrase and missing the object.
+
+### The ruled signal: the document that knows, declares
+
+Precedence travels **in the artifact**, as an explicit `supersedes` field written by the pass that
+supersedes — the only party that authoritatively knows. Nothing downstream infers. This is the prereg
+principle again: minted from the record that motivated it, so there is nothing to disagree with its
+source.
+
+Backstop: every typing artifact also carries `written_at`, which makes the chain checkable — a
+`supersedes` pointing at a *later*-written artifact is a build failure. The four existing artifacts get
+their chain backfilled **by hand and explicitly marked `reconstructed: true`**, per the maptrail's own
+backfill convention: one known history, honestly labelled.
+
+Shape-discovery survives unchanged — finding all four artifacts without a hand list was the derived-census
+principle working. **Only the ordering signal was wrong.**
+
+### The layer above the layer
+
+The failed fix was caught by the verification step the fix was sequenced to include: staleness measured
+before *and after*, the phantom class visible immediately, revert to byte-identical ground.
+
+> **The repair loop's own discipline contained its own bad repair.**
+
+Which is what the paranoia is for. No amount of care makes a fix correct; what makes a program safe is
+that its checks run on its repairs too.
