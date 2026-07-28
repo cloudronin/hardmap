@@ -2,6 +2,22 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **`NEXT.md` — a compiled front page, and the openness signal it needed first.** Ruled as a DERIVED
+  view rather than a fourth home: the maptrail owns rulings, the methods thread owns reasoning, commits
+  own sequence, and this duplicates none of them. **The generator was not the first step** — the trail
+  recorded what HAPPENED and never what remained OUTSTANDING, so "what is open" was an inference by a
+  reader who knew the story, and a generator over records that cannot say what is open would be an
+  inference layer wearing a compiler's clothes. So `open_item` / `discharge` / `open_items` landed
+  first: **openness is REPLAYED, not stored** — discharge is a new record pointing at the original,
+  never an edit, the same shape as the reservation ledger's reserve/release. Eight open items backfilled
+  and marked `reconstructed: true`, each carrying the sequence DECLARED BY THE PASS THAT OPENS IT — the
+  `supersedes` principle again, nothing downstream inferring an order. **Its own reproducibility test
+  caught a flaw in it:** the page stamped `git log -1` into itself, so it changed whenever HEAD moved
+  even though its sources had not — a derived view drifting for reasons unrelated to what it reports.
+  Removed; the page now carries no timestamp and no commit id, which is the loader's determinism law
+  (no timestamps, no run ids, no environment capture) applied one layer up. Five tests, including the
+  negative-space one: every key on the page must exist in the trail, so a hand-edit fails loudly rather
+  than turning the front page into the place work lives nowhere else. 425 tests, verify 11/11, W2 passes.
 - **Batch 10 — optimization-weighted, and the degenerate-series screen.** Every vetted, unbuilt,
   unreserved optimization row in the atlas — six — rostered by ruling, because the voided prereg_v34's
   successor needs 10 reserved optimization clusters and the frontier held 3. **4 shipped, 0 excluded,

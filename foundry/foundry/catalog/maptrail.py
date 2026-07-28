@@ -59,3 +59,40 @@ def emit(path: Path, event: str, key: str, *, reconstructed: bool = False, **pay
     with path.open("a") as fh:
         fh.write(json.dumps(rec) + "\n")
     return rec
+
+
+# ── OPENNESS, as a replayed state rather than an inferred one (ruled 2026-07-27) ─────────────────────
+# The trail says what HAPPENED. It never said what remains OUTSTANDING, so "what is open" was inferred
+# by a reader who knew the story — exactly the reconstruction cost a compiled front page exists to
+# remove. A generator over records that cannot say what is open would be an inference layer wearing a
+# compiler's clothes.
+#
+# APPEND-ONLY, SO DISCHARGE IS A NEW RECORD. Never an edit to the item it closes — the same shape as the
+# reservation ledger's reserve/release, and for the same reason: replay is the state, so there is no
+# mutable field for drift to hide in.
+
+def open_item(path: Path, key: str, title: str, why: str, sequence: int = 99,
+              pointers=None, reconstructed: bool = False) -> dict:
+    """Declare outstanding work. `sequence` is the ORDER DECLARED BY THE PASS THAT OPENS IT — the same
+    principle as `supersedes`: the party that knows, states it; nothing downstream infers."""
+    return emit(path, "annotation", key=f"open:{key}", reconstructed=reconstructed,
+                opens=key, title=title, why=why, sequence=sequence,
+                pointers=list(pointers or []), touches_no_measured_value=True)
+
+
+def discharge(path: Path, key: str, by: str, note: str = "") -> dict:
+    """Close an open item. A new record pointing at the original, never an edit to it."""
+    return emit(path, "annotation", key=f"discharged:{key}", discharges=key,
+                discharged_by=by, note=note, touches_no_measured_value=True)
+
+
+def open_items(path: Path):
+    """Replay: everything opened, minus everything discharged. Sorted by declared sequence."""
+    opened, closed = {}, set()
+    for rec in read(path):
+        if rec.get("opens"):
+            opened[rec["opens"]] = rec
+        if rec.get("discharges"):
+            closed.add(rec["discharges"])
+    return sorted((r for k, r in opened.items() if k not in closed),
+                  key=lambda z: (z.get("sequence", 99), z["opens"]))
