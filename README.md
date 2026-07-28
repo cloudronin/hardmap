@@ -42,6 +42,8 @@ foundry/         # the oracle line: lattice / prism / ferry, netting, preregs
 proof-census/    # samplers, verifier, the C1–C3 census harness
 desert-map/      # banked/killed; retained for fixtures + the verifier census reuses
 docs/            # hash-map, seal-chain, and (aggregated) findings / prereg / specs
+AGENTS.md        # how to work here: constitution, compiled rule surface, escalation
+NEXT.md          # what is open, compiled from the maptrail
 repro/           # manifest.yaml: claim-id -> entrypoint -> expected value -> tolerance -> tier  (H3)
 ```
 
@@ -97,6 +99,7 @@ foundry census list       # every batch census, with the schema shape it is actu
 foundry migrate status    # one-time history: applied, pending, or drifted
 foundry frontier          # the reserved rows — declared, not captured
 foundry db compile        # regenerate observatory.db from the hashed artifacts
+foundry agents            # recompile AGENTS.md — §2 is read from the machinery
 ```
 
 Two laws are enforced by the dispatch rather than by each verb:

@@ -98,9 +98,15 @@ def atlas_path(lat: Path) -> Path:
 
 
 def _resolver(lat: Path):
+    """Source names are lattice-relative by default. A name containing `/` is REPO-relative, which is
+    how an artifact declares a source outside the lattice — AGENTS.md is compiled partly from authored
+    markdown and from `screens.py` itself, and both are sources in exactly the sense that matters:
+    change one and the page is stale."""
     def resolve(name: str):
         if name == "atlas_v3.jsonl":
             return atlas_path(lat)
+        if "/" in name:
+            return repo_root(lat) / name
         return lat / name
     return resolve
 
@@ -108,6 +114,20 @@ def _resolver(lat: Path):
 def _db_recorded(lat: Path) -> dict:
     p = lat / "observatory_db_manifest.json"
     return json.loads(p.read_text()).get("sources", {}) if p.exists() else {}
+
+
+def _marker_recorded(path: Path) -> dict:
+    """Read a source block out of a compiled markdown page."""
+    if not path.exists():
+        return {}
+    text = path.read_text()
+    if SOURCES_MARKER not in text:
+        return {}
+    return json.loads(text.split(SOURCES_MARKER, 1)[1].split("-->", 1)[0].strip())
+
+
+def _agents_recorded(lat: Path) -> dict:
+    return _marker_recorded(repo_root(lat) / "AGENTS.md")
 
 
 def _next_recorded(lat: Path) -> dict:
@@ -148,6 +168,15 @@ REGISTRY = {
         "rebuild": "foundry db compile",
         "why": "the sweep enumerates over the rows the db knows about; a stale db slates a world that "
                "no longer exists, silently and self-consistently",
+    },
+    "AGENTS.md": {
+        "recorded": _agents_recorded,
+        "globs": (),
+        "singletons": ("maptrail.jsonl", "observatory_reservation.jsonl", "observatory.db",
+                       "docs/agents/01-constitution.md", "docs/agents/03-escalation.md",
+                       "foundry/foundry/helm/screens.py"),
+        "rebuild": "foundry agents",
+        "why": "the compiled rule surface silently stops describing the machinery it was read from",
     },
     "NEXT.md": {
         "recorded": _next_recorded,

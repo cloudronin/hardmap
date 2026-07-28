@@ -161,6 +161,16 @@ def _next(args) -> int:
     return 0
 
 
+def _agents(args) -> int:
+    from foundry.catalog import agents_page as AP
+    import foundry.cli as this
+    info = AP.compile_page(LAT, ROOT.parent, ROOT.parent / "AGENTS.md", this)
+    print("AGENTS.md compiled")
+    for k, v in info.items():
+        print(f"   {k:<12}{v}")
+    return 0
+
+
 def _fresh(args) -> int:
     from foundry.catalog import freshness as F
     rc = 0
@@ -260,6 +270,8 @@ VERBS = {
     "db":       {"fn": _db_compile, "help": "compile observatory.db from the hashed artifacts"},
     "fresh":    {"fn": _fresh, "help": "freshness of every compiled artifact"},
     "next":     {"fn": _next, "help": "compile NEXT.md from the trail", "consumes": ("observatory.db",)},
+    "agents":   {"fn": _agents, "help": "compile AGENTS.md from the machinery",
+                 "consumes": ("observatory.db",)},
     "migrate":  {"fn": _migrate, "help": "one-time history: status / run"},
     "frontier": {"fn": _frontier, "help": "reserved rows (declared, not captured)"},
     "trail":    {"fn": _trail, "help": "maptrail records"},
@@ -292,6 +304,7 @@ def build_parser() -> argparse.ArgumentParser:
         "action", nargs="?", default="compile", choices=["compile"])
     sub.add_parser("fresh", help=VERBS["fresh"]["help"])
     sub.add_parser("next", help=VERBS["next"]["help"])
+    sub.add_parser("agents", help=VERBS["agents"]["help"])
 
     m = sub.add_parser("migrate", help=VERBS["migrate"]["help"])
     m.add_argument("action", nargs="?", default="status", choices=["status", "run"])

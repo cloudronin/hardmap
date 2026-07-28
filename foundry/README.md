@@ -43,6 +43,7 @@ foundry census declare --declaration batches/11.json
 foundry census verify --batch 10     # re-derive and diff; never rewrites
 foundry db compile                   # regenerate observatory.db from the hashed artifacts
 foundry next                         # compile NEXT.md from the maptrail
+foundry agents                       # compile AGENTS.md from the machinery
 foundry migrate status               # one-time history: applied / pending / drifted
 foundry frontier                     # reserved rows — declared, not captured
 foundry trail --event version        # maptrail records
