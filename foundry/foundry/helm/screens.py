@@ -270,6 +270,22 @@ def screen(cand, con, frontier, seal_prohibited):
         return ("REJECTED", "F2-foreclosed",
                 "a charge would have to vary along the ramp for this statistic to mean anything; "
                 "cited charges are FIXED ROW LABELS")
+    # DEGENERATE SERIES — rejected, never held (ruled 2026-07-27). A rank correlation against a
+    # zero-variance series is ARITHMETICALLY UNDEFINED, so this is the vacuous-comparison species
+    # wearing a trajectory's clothes. Exact zero is the criterion precisely because it is an
+    # arithmetic fact and not a judgement threshold — no epsilon, hence no tuning surface. Same class
+    # as the n-3 check: the statistic does not exist on that input.
+    #
+    # THIS IS A SCREEN ON THE STATISTIC, NOT ON THE ROW. Excluding rows for a MEASURED property would
+    # make sweep eligibility depend on readings — outcome-adjacent, and one threshold away from tuning
+    # eligibility to results. `structurally_flat` forecloses candidate CONSTRUCTION where constancy is
+    # provable in advance; this rejects at runtime what the declaration layer could not know. Declared
+    # knowledge forecloses; measured arithmetic rejects; neither masquerades as the other.
+    if cand.get("degenerate_series"):
+        return ("REJECTED", "degenerate-series",
+                "the statistic is computed over a series with EXACTLY zero variance, so the rank "
+                "correlation is undefined — uncomputable rather than underpowered. Rejected rather "
+                "than held, because no frontier growth can give a constant series a correlation.")
     if cand.get("structurally_flat"):
         return ("REJECTED", "structurally-flat",
                 "the cell's trajectory is flat BY CONSTRUCTION — a fixed-cardinality row's feasible "

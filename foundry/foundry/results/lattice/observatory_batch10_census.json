@@ -1,0 +1,78 @@
+{
+ "schema": "observatory-batch-census/v1",
+ "STATUS": "DECLARATION \u2014 no reading exists for any row here",
+ "batch": 10,
+ "why_this_batch": "OPTIMIZATION-WEIGHTED by ruling. prereg_v34 was voided for clearing power against clusters its statistic could never read; its successor needs 10 reserved optimization clusters and the frontier holds 3. These are every vetted, unbuilt, unreserved, not-capture-blocked optimization row in the atlas \u2014 six. Each runs on a within-instance dial at a fixed candidate-edge ground set.",
+ "families": {
+  "optimization": {
+   "census_ramp": "constraint-to-ground-set ratio",
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ]
+  }
+ },
+ "roster": {
+  "steiner-forest": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "terminal pairs per candidate edge",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "group-steiner-tree": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "groups per candidate edge",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "directed-steiner-tree": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "terminals per candidate arc",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "survivable-network-design": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "connectivity requirement per candidate edge",
+   "structural_expectation": "upward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "prize-collecting-steiner-tree": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "penalty level per candidate edge",
+   "structural_expectation": "downward_closed",
+   "capture_mode": "RAMPED"
+  },
+  "maximum-feasible-linear-subsystem": {
+   "family": "optimization",
+   "instantiates_the_family_ramp_as": "relations per variable",
+   "structural_expectation": "downward_closed",
+   "capture_mode": "RAMPED"
+  }
+ },
+ "n_roster": 6,
+ "reservation": {
+  "authority": "Helm v1 \u00a75 \u2014 a declared fraction of every fan-out batch is reserved",
+  "fraction": 0.25,
+  "rule": "rows ordered by sha256(f'{batch}:{row}') ascending; the first ceil(fraction * n) are RESERVED. Deterministic, reproducible from the roster alone, and outcome-blind by construction \u2014 the reserved rows are not built at declaration time, so no measured value exists for the rule to see.",
+  "roster_sha256": "0321ef6a963ee8cd59bd5cc37c396b8fc406622e297837a4f817710a18b9c2bc",
+  "reserved": [
+   "directed-steiner-tree",
+   "group-steiner-tree"
+  ],
+  "n_reserved": 2,
+  "n_published": 4,
+  "declared_at": "2026-07-28T02:21:00Z",
+  "frames_do_not_exist": "reserved rows are NOT CAPTURED. Helm \u00a70.1 requires predictions hashed before their frames exist, which is strictly stronger than withholding frames that already exist: under it, blindness is physics rather than a guard anyone has to be trusted to respect. \u00a75's 'captured last in the batch' is honoured maximally \u2014 last means after the wave's predictions are sealed."
+ },
+ "published": [
+  "maximum-feasible-linear-subsystem",
+  "prize-collecting-steiner-tree",
+  "steiner-forest",
+  "survivable-network-design"
+ ],
+ "carried_forward": {}
+}

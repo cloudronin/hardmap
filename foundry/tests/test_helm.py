@@ -477,3 +477,38 @@ def test_association_cells_are_scoped_too():
     """The rule is general: cells scale with the consumable cluster share, not the frontier total."""
     assert S.consumable_cells(_cand(group="optimization"), FRONTIER_SCOPED) == 12
     assert S.consumable_cells(_cand(group="pooled"), FRONTIER_SCOPED) == 56
+
+
+# ── degenerate series — rejected, never held (ruled 2026-07-27) ─────────────────────────────────────
+def test_a_zero_variance_series_is_rejected_not_held():
+    """HELD promises a revival; REJECTED does not. No frontier growth can give a constant series a
+    rank correlation, so holding it would be a promise the machinery cannot keep."""
+    f = {**FRONTIER_SCOPED, "strata": {"optimization": 30}}
+    d, rule, detail = S.screen(_cand(group="optimization", disclosed=None, degenerate_series=True),
+                               None, f, set())
+    assert d == "REJECTED" and rule == "degenerate-series"
+    assert "uncomputable rather than underpowered" in detail
+
+
+def test_the_criterion_is_exact_zero_so_there_is_no_tuning_surface():
+    """spearman returns None on exactly zero variance and on nothing else once n >= 3 — an arithmetic
+    fact, not a threshold. A near-zero epsilon would be a knob someone could turn toward a result."""
+    assert SW.spearman([1, 1, 1, 1], [1, 2, 3, 4]) is None
+    assert SW.spearman([1, 1, 1, 2], [1, 2, 3, 4]) is not None
+
+
+def test_a_non_degenerate_candidate_is_untouched():
+    f = {**FRONTIER_SCOPED, "strata": {"optimization": 30}}
+    d, rule, _ = S.screen(_cand(group="optimization", disclosed=0.99, degenerate_series=False),
+                          None, f, set())
+    assert d == "SLATED", (d, rule)
+
+
+def test_the_screen_is_on_the_statistic_not_the_row():
+    """A row-level exclusion on a MEASURED property would make sweep eligibility depend on readings.
+    This screen reads only whether THIS candidate's series has variance, so a row with one constant
+    trajectory keeps every other trajectory it owns."""
+    import inspect
+    src = inspect.getsource(S.screen)
+    assert "degenerate_series" in src
+    assert "region_size_invariant" not in src, "eligibility must not read a measured row property"

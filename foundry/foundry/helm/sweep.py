@@ -25,7 +25,7 @@ from itertools import combinations
 
 # v2: the extremal null is pinned (stratified exchangeability), structurally-flat cells are excluded
 # from the swept population, and the netting rule fires on definitionally-coupled pairs.
-GENERATOR_VERSION = "sweep/v5"
+GENERATOR_VERSION = "sweep/v6"
 
 # The descriptors a co-movement candidate may pair. `kink_sharpness` is deliberately INCLUDED so that
 # screen 1 can visibly reject it: the catalog stamps it seal-prohibited for want of a typed null, and a
@@ -153,7 +153,14 @@ def co_movement(con):
             part = (partial_spearman([r[1] for r in zrows], [r[2] for r in zrows],
                                      [r[3] for r in zrows])
                     if (len(zrows) >= MIN_N and "r_ref" not in (a, b)) else None)
+            # DEGENERATE SERIES (ruled 2026-07-27). `spearman` returns None on exactly two causes:
+            # too few points, or a column with ZERO VARIANCE. With enough rows the second is the only
+            # one left, and it means the statistic does not exist on this input — not that it is
+            # underpowered. The distinction matters because HELD promises a revival and REJECTED does
+            # not: no frontier growth can give a constant series a rank correlation.
+            degenerate = (len(rows) >= MIN_N and rho is None)
             out.append({
+                "degenerate_series": degenerate,
                 "disclosed_partial_r": part,
                 "conditioning": ("r_ref held out via first-order rank partial" if part is not None
                                  else "not conditioned — r_ref is one of the pair, or supply too thin"),

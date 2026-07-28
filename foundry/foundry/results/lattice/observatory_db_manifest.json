@@ -7,6 +7,7 @@
   "observatory_reach_census.json": "d7b7ca5bfbf2c839e5a653f202c30ed1cee6763372ee2a1a54ed0fe2fc265e18",
   "observatory_untyped_adjudication.json": "a2470d4be360b9173994ce230270f814155dbf8fe94061e97b8acf77888aa05b",
   "sounding_v3_survey.json": "e0af8344a5cc7023d9cc2c853433110bd0bb3ffb9e2d9536ad4aab8a414459ea",
+  "observatory_batch10_panels.json": "ac31ad83c05fb398ddcc4b8f0773e6c80e307edac5af09ad03c6c6a74cad87f9",
   "observatory_batch1_panels.json": "3f0f10f3a59f406995ad60816e798aa27c91f27d3abfd554fab6d53d606905fd",
   "observatory_batch2_panels.json": "76a877600261db818eb872b32935e2565526f218b982c29db2614babcbbb30a5",
   "observatory_batch3_panels.json": "3cf977a33e978d7cc2fb2377a759450cab913c3a96f4af16880f2e60a44b6e01",
@@ -16,10 +17,10 @@
   "observatory_batch7_panels.json": "bab1c8d3580aeacbaf4d1af53a3b5b6baee79ab80990bdbc71348b2e0dd12787",
   "observatory_batch8_panels.json": "5ee893b10b1f44d61e2b3afbc0e972d413af7228ce03f6604a03fbdfc643f43f",
   "observatory_batch9_panels.json": "f7ca28b05fe175dee9f437723f8f8dda882746c8f93003bc06a4c185d3907c5d",
-  "catalog_v7.jsonl": "0913e86b6b6269a4e09bc16afd7e3a5e71601433f166e677f3cdc89c6216a885",
+  "catalog_v7.jsonl": "982c4092128ac0a0f34f9d8a4a415b36fc6059046fe2c9a0e04f661a05664249",
   "atlas_v3.jsonl": "e62f3c284b408a26d71e7f769c3742fa283f5a3bd5d874da74f0313ee3968dee",
-  "observatory_reservation.jsonl": "abe049fbfecb8f3999157783c92d96c50ba4a74239b9e2ac61c9bc4701e65f5d",
-  "maptrail.jsonl": "dfeca39f1fe5664567af48f80b5373c6c375fffe4ba8ce2a5544ff31db5463a8",
+  "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc",
+  "maptrail.jsonl": "d28dc0c3d60a9470c29b0f7bdde182e0dfafff446e1ca389469fe14756d31e00",
   "wave_trail.jsonl": "8a4c2d68031046560fdcad89e876c95e3bf1cafba75faa0055ff260b917cc5a8",
   "helm_wave1_candidates.jsonl": "f567d2954d0fd16216f82d5bf3a6e519fc749d51c97cc069a28270352759a5a6",
   "helm_wave2_candidates.jsonl": "3ddbbc1c7d55c82e4acb277524135c42defcc4443fb7248ce81714a83ede029a",
@@ -28,16 +29,16 @@
   "helm_wave5_candidates.jsonl": "c3d21e2428186d35bc8ffbe39d726a7a732a461929f4c173cfb2b1a16319fb46"
  },
  "counts": {
-  "sources": 22,
+  "sources": 23,
   "problems": 346,
   "charges": 2760,
-  "frames": 1898,
-  "catalog": 414,
-  "frontier": 14,
-  "maptrail": 65,
+  "frames": 2032,
+  "catalog": 446,
+  "frontier": 16,
+  "maptrail": 66,
   "waves": 5,
   "wave_events": 19,
   "candidates": 1942
  },
- "db_sha256": "692e9aec46da0076c2dbd7b712ca5dc94ddeb1f9251822b53c4ca292e903ed49"
+ "db_sha256": "8591040cdf3bcfab91ec25409ce31c7f793c78a49ee6cb66c85ef383a599c85b"
 }

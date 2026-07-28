@@ -2,6 +2,28 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **Batch 10 — optimization-weighted, and the degenerate-series screen.** Every vetted, unbuilt,
+  unreserved optimization row in the atlas — six — rostered by ruling, because the voided prereg_v34's
+  successor needs 10 reserved optimization clusters and the frontier held 3. **4 shipped, 0 excluded,
+  2 reserved; optimization frontier 3 -> 5, total 14 -> 16.** Catalog 414 -> 446 cells, frames
+  1898 -> 2032. `steiner-forest` is the first row where BOTH regions' geometry moves along one dial —
+  feasible 1420 -> 691 while optimal grows 2 -> 21 — which is what the within-instance form was bought
+  for. **A dial that reached nothing:** `maximum-feasible-linear-subsystem` declared "relations per
+  variable" while holding the variable count fixed, so the ratio moved no part of the instance and the
+  region read 763 at every step. Fixed to move `nvar` (the relation count is the ground set and stays
+  fixed); it now runs 777 -> 204. Third declaration-implementation disagreement this session, all three
+  caught at the probe — the probe step has become the generator's own known-answer gate.
+  **`degenerate-series` minted:** a candidate whose series has EXACTLY zero variance is REJECTED, not
+  held — the rank correlation is undefined, so it is uncomputable rather than underpowered, and no
+  frontier growth can rescue a constant. Exact zero is the criterion because it is an arithmetic fact
+  with no epsilon and therefore no tuning surface. **The screen is on the STATISTIC, not the row:**
+  excluding rows for a measured property would make sweep eligibility depend on readings, so
+  `structurally_flat` keeps foreclosing construction where constancy is provable in advance, and this
+  rejects at runtime what the declaration layer cannot know. A test asserts `screen()` never reads
+  `region_size_invariant`, so the outcome-adjacent version cannot creep back. **Q25 banked** —
+  `tie_share`, the unmeasured residual: constant cells inside a varying series are ties, which rank
+  statistics absorb legitimately, but nothing reports how much of a correlation's rank structure rides
+  on cells that cannot move. Build trigger named in advance. 420 tests, verify 11/11, W2 passes.
 - **The consumable-population rule, and prereg_v34 VOIDED.** Pinning the seal's scoring population
   before any frame existed exposed a defect in the seal's own birth: `prereg_v34` was minted with
   `frontier_mde = 0.7324`, the value at **12 frontier clusters**, for a bet scoped to `optimization` —

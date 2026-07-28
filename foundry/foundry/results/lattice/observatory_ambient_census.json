@@ -8,7 +8,7 @@
   "shape_and_transition_descriptors": "n.a.-ambient-confounded \u2014 slope, traj_class and kink presuppose a fixed space; here the x-axis moves the universe too",
   "not_the_kink_precedent": "kink values are meaningful-but-untested; these are meaningless-as-defined"
  },
- "n_rows": 65,
+ "n_rows": 69,
  "n_confounded": 6,
  "confounded": [
   "cluster-deletion",
@@ -134,6 +134,86 @@
     10,
     10,
     10
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "maximum-feasible-linear-subsystem",
+   "batch": 10,
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ],
+   "ground_set_widths": [
+    11,
+    11,
+    11,
+    11,
+    11
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "prize-collecting-steiner-tree",
+   "batch": 10,
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ],
+   "ground_set_widths": [
+    11,
+    11,
+    11,
+    11,
+    11
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "steiner-forest",
+   "batch": 10,
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ],
+   "ground_set_widths": [
+    11,
+    11,
+    11,
+    11,
+    11
+   ],
+   "ambient_stable": true,
+   "ambient_confounded": false
+  },
+  {
+   "problem_id": "survivable-network-design",
+   "batch": 10,
+   "ramp_values": [
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    3.0
+   ],
+   "ground_set_widths": [
+    11,
+    11,
+    11,
+    11,
+    11
    ],
    "ambient_stable": true,
    "ambient_confounded": false

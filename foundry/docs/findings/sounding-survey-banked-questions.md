@@ -544,3 +544,28 @@ Two rows carry an **affordability note rather than a typing one**: `bilevel-knap
 `network-interdiction` have subset certificates (the leader's choice) whose predicate requires solving
 the follower's optimum. That makes them expensive, not mis-typed — a distinction worth keeping, since
 conflating the two is how a hard row gets quietly reclassified as a wrong one.
+
+## Q25 — tie-share: how much of a correlation's rank structure rides on constant cells?
+
+Batch 10 built `prize-collecting-steiner-tree`, whose feasible region is dial-invariant — not because it
+is fixed-cardinality, but because its feasibility predicate ("be a forest over the candidate edges")
+simply does not depend on the penalty dial. Its four constant cells enter every pooled and family-scoped
+correlation that touches them.
+
+The `degenerate-series` screen does **not** catch this, and correctly so: it fires only when a *whole*
+series has exactly zero variance, which is an arithmetic impossibility rather than a texture. Constant
+cells inside a varying series are **ties**, and ties are what rank statistics are built to absorb.
+Excluding them would require a row-level exclusion on a *measured* property, which was ruled against —
+sweep eligibility must not depend on readings.
+
+So the residual is legitimate but unmeasured: **nothing currently reports how much of a disclosed
+correlation's rank structure comes from tied, constant cells.** A candidate could clear its MDE on a
+series whose rank ordering is substantially carried by cells that cannot move.
+
+**The proposed descriptor:** `tie_share` — the fraction of a candidate's series whose values are tied,
+reported *beside* the disclosed prior as a texture statistic, never as an exclusion criterion.
+
+**Status: banked, not built.** It enters through the rule-before-computation channel at a later catalog
+version, and the trigger is named in advance: **if a sealed verdict ever turns out to lean on tie mass,
+that is the moment this gets built.** Recorded now so that if that day comes, the record shows the
+program saw it coming rather than discovering it afterwards.
