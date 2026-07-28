@@ -19,8 +19,8 @@
   "catalog_v7.jsonl": "0913e86b6b6269a4e09bc16afd7e3a5e71601433f166e677f3cdc89c6216a885",
   "atlas_v3.jsonl": "e62f3c284b408a26d71e7f769c3742fa283f5a3bd5d874da74f0313ee3968dee",
   "observatory_reservation.jsonl": "abe049fbfecb8f3999157783c92d96c50ba4a74239b9e2ac61c9bc4701e65f5d",
-  "maptrail.jsonl": "d9a9137ce52bcde0f583f19d664b415cba2c5aebf1bbac3403c9341a829043d4",
-  "wave_trail.jsonl": "507259dba1f3afa1c37acb8c224e968ed9d204de0a7743340e03178d788bc2aa",
+  "maptrail.jsonl": "dfeca39f1fe5664567af48f80b5373c6c375fffe4ba8ce2a5544ff31db5463a8",
+  "wave_trail.jsonl": "8a4c2d68031046560fdcad89e876c95e3bf1cafba75faa0055ff260b917cc5a8",
   "helm_wave1_candidates.jsonl": "f567d2954d0fd16216f82d5bf3a6e519fc749d51c97cc069a28270352759a5a6",
   "helm_wave2_candidates.jsonl": "3ddbbc1c7d55c82e4acb277524135c42defcc4443fb7248ce81714a83ede029a",
   "helm_wave3_candidates.jsonl": "46a821af81231ef084ddf1608a40a54f8fcc92c824ba793882231da6e812a9e4",
@@ -34,10 +34,10 @@
   "frames": 1898,
   "catalog": 414,
   "frontier": 14,
-  "maptrail": 64,
+  "maptrail": 65,
   "waves": 5,
-  "wave_events": 18,
+  "wave_events": 19,
   "candidates": 1942
  },
- "db_sha256": "62a3352fc7a947c81b9862f0f3c9cc81562583aeb3864bcdaa535a3cf97220c2"
+ "db_sha256": "692e9aec46da0076c2dbd7b712ca5dc94ddeb1f9251822b53c4ca292e903ed49"
 }

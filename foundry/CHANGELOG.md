@@ -2,6 +2,23 @@
 
 ## 0.1.0 (unreleased) — N0 scaffold
 
+- **The consumable-population rule, and prereg_v34 VOIDED.** Pinning the seal's scoring population
+  before any frame existed exposed a defect in the seal's own birth: `prereg_v34` was minted with
+  `frontier_mde = 0.7324`, the value at **12 frontier clusters**, for a bet scoped to `optimization` —
+  a family holding **3** reserved rows. It cleared power against nine clusters its statistic could never
+  read. This is the population-mismatch species one level deeper: that rule asks WHETHER the family has
+  frontier rows, this one asks HOW MANY, which is what power turns on. **Fixed in general form** — a
+  candidate consumes the frontier filtered by every axis it is scoped on, so region-kind and flavour
+  scoping inherit it without a fresh incident — and the population-match check now runs BEFORE power,
+  since "your family has no frontier rows, and here is how that closes" beats "the MDE is undefined".
+  **The seal is VOIDED, not held and not scored:** a seal that fails was validly sealed; one whose power
+  claim was false at mint time never validly existed. Scoring was closed explicitly — 3 clusters cannot
+  carry the statistic, Fisher's z needs n-3>0. `prereg_v34.json` is byte-identical to what was sealed,
+  hash included, with the void as a new record pointing at the preserved original. Honest requirement
+  recorded: **10** reserved optimization clusters. **Nothing was contaminated** — no release record, no
+  generator, no frame; the frontier stands at 14. One test had encoded the defect as its expectation and
+  was corrected. Ledger: *pin the population before the data exists, and the pin will sometimes tell you
+  the bet is wrong.* 416 tests, verify 11/11, W2 passes.
 - **Batch 9 — the Q21-corrected dial applied across a whole batch.** Every edge-subset row runs on a
   WITHIN-INSTANCE parameter at a fixed ground set of 11 candidate edges: terminal count, component
   target, or vertices-per-candidate-edge. Edge density cannot be the dial when the ground set IS the

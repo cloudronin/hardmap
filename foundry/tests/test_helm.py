@@ -383,8 +383,11 @@ def test_the_conditioned_prior_is_what_gets_screened():
 
 
 def test_an_unconfounded_pair_is_untouched_by_the_size_rules():
+    """The family needs enough CONSUMABLE clusters for this to be a test of the size rules rather than
+    of power — under the consumable-population rule a 4-cluster family gives MDE 0.9927."""
+    f = {**FRONTIER_SIZED, "strata": {"optimization": 30}}
     d, rule, _ = S.screen(_cand(descriptors=["overlap_ref", "excess_ref"], group="optimization",
-                                disclosed=0.95), None, FRONTIER_SIZED, set())
+                                disclosed=0.95), None, f, set())
     assert d == "SLATED", (d, rule)
 
 
@@ -432,3 +435,45 @@ def test_overlap_ref_is_not_size_coupled():
     solutions can disagree everywhere, so nothing forces coherence at small r. Pairing it with size is
     an empirical question, not arithmetic correlating with its own shadow."""
     assert not S._size_coupled("overlap_ref")
+
+
+# ── the consumable-population rule (ruled 2026-07-27, at the prereg_v34 pin) ────────────────────────
+FRONTIER_SCOPED = {"n_clusters": 14, "n_cells": 56,
+                   "strata": {"optimization": 3, "graph": 10, "algebraic": 1},
+                   "family_supply": {"optimization": 30, "graph": 40}}
+
+
+def test_a_family_scoped_candidate_consumes_only_its_family():
+    """prereg_v34 cleared power against 12 clusters for a bet scoped to a 3-row family. Power must be
+    computed on the population the statistic CAN READ."""
+    c = _cand(group="optimization")
+    assert S.consumable_clusters(c, FRONTIER_SCOPED) == 3
+    assert S.consumable_clusters(_cand(group="graph"), FRONTIER_SCOPED) == 10
+
+
+def test_a_pooled_candidate_consumes_the_whole_frontier():
+    assert S.consumable_clusters(_cand(group="pooled"), FRONTIER_SCOPED) == 14
+
+
+def test_the_prereg_v34_candidate_is_held_not_slated_under_the_fixed_screen():
+    """THE DEFECT, pinned. Three consumable clusters cannot carry a rank correlation at all — Fisher's
+    z needs n - 3 > 0 — so the candidate that was sealed must now be held."""
+    c = _cand(group="optimization", descriptors=["overlap_ref", "r_ref"], disclosed=-0.7918)
+    d, rule, detail = S.screen(c, None, FRONTIER_SCOPED, set())
+    assert d == "HELD" and rule == "power-fail"
+    assert "in `optimization`" in detail, "the gap must name the scope it is scoped to"
+
+
+def test_the_recorded_gap_is_in_consumable_terms():
+    """A gap counted against the whole frontier would promise a revival that cannot happen."""
+    c = _cand(group="optimization", descriptors=["overlap_ref", "r_ref"], disclosed=-0.7918)
+    out = S.run([c], None, FRONTIER_SCOPED, set())[0]
+    assert out["consumable_clusters"] == 3
+    assert out["gap_is_scoped_to"] == "optimization"
+    assert out["gap_in_reserved_rows"] == out["required_clusters"] - 3
+
+
+def test_association_cells_are_scoped_too():
+    """The rule is general: cells scale with the consumable cluster share, not the frontier total."""
+    assert S.consumable_cells(_cand(group="optimization"), FRONTIER_SCOPED) == 12
+    assert S.consumable_cells(_cand(group="pooled"), FRONTIER_SCOPED) == 56

@@ -1986,3 +1986,51 @@ generators-that-look-fine is the half-applied-gate species wearing a productivit
 
 The discipline a program writes for its artifacts is not a different discipline from the one its author
 works under. A guard skipped because the session was long is a guard that lived only in prose.
+
+---
+
+## Power computed against a population the statistic cannot read — 2026-07-27
+
+`prereg_v34` was sealed with `frontier_mde = 0.7324`. That is the MDE at **12 clusters** — the frontier's
+total. The bet was scoped to `optimization`, a family holding **3** reserved rows.
+
+The candidate cleared power against nine clusters its statistic could never read.
+
+> **A candidate's power must be computed on the population its statistic can actually consume.**
+
+This is the population-mismatch species one level deeper. That rule asks *whether* the family has
+frontier rows. This one asks *how many* — which is the question power actually turns on, and the two are
+easy to conflate because a family with one row passes the first check and fails no other.
+
+The fix is written as the general form — a candidate consumes the frontier filtered by every axis it is
+scoped on — so the next scoping axis (region-kind, flavour) inherits it without a fresh incident.
+
+### The seal was voided, not held and not scored
+
+A seal that **fails** was validly sealed and honestly scored. A seal that **never validly existed** had a
+false claim in its own paperwork at mint time. This one's power claim was false when it was made, not
+falsified by later events, so holding it would have left a standing bet whose own certificate misstates
+its strength — several batches of optimization-weighted rosters serving a defective birth certificate.
+
+Scoring was closed off explicitly rather than left implicit: three clusters cannot carry the statistic at
+all, since Fisher's z needs *n* − 3 > 0.
+
+`prereg_v34.json` is **byte-identical to what was sealed**, hash included, and the void is a new record
+pointing at the preserved original. The honest requirement is now recorded: **10** reserved optimization
+clusters for |ρ| = 0.79.
+
+### What the pin-first ordering bought
+
+The scoring population was pinned before any frame existed, to resolve an ambiguity. It resolved
+something better — a defect in the seal's own birth — with **zero frames captured, the frontier intact at
+14, and nothing irreversible written.** Had the release run first, three optimization rows would have
+been burned to score a bet that could not be scored.
+
+> **Pin the population before the data exists, and the pin will sometimes tell you the bet is wrong.**
+
+### And a test had encoded the defect
+
+Fixing the screen broke `test_an_unconfounded_pair_is_untouched_by_the_size_rules`, which expected a 0.95
+prior to slate for a family-scoped candidate against a 40-cluster frontier total. Under the corrected
+rule its 4-cluster family gives MDE 0.9927 and 0.95 correctly fails. The test was asserting the buggy
+behaviour — a reminder that a green suite certifies consistency with the code, not correctness.

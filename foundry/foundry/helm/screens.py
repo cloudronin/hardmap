@@ -164,6 +164,37 @@ def frontier_strata(con, reserved):
     return out
 
 
+# ── THE CONSUMABLE-POPULATION RULE (ruled 2026-07-27, at the prereg_v34 pin) ─────────────────────────
+# A candidate's power must be computed against the population its statistic CAN ACTUALLY READ, not
+# against the frontier's total. prereg_v34 was minted with MDE 0.7324 — the value at 12 frontier
+# clusters — for a bet scoped to `optimization`, a family holding 3 reserved rows. It cleared power
+# against nine clusters it could never consume.
+#
+# This is the population-mismatch species one level deeper. That rule asks WHETHER the family has
+# frontier rows; this one asks HOW MANY, which is the question power actually turns on.
+#
+# WRITTEN AS THE GENERAL FORM so the next scoping axis inherits it without a fresh incident: a
+# candidate consumes the frontier filtered by EVERY axis it is scoped on. Today that is `group`
+# (family); when region-kind or flavour scoping arrives, it filters here and nothing else changes.
+SCOPING_AXES = ("group",)
+
+
+def consumable_clusters(cand, frontier):
+    """Frontier clusters this candidate's statistic can actually read."""
+    n = frontier.get("n_clusters", 0)
+    grp = cand.get("group")
+    if grp and grp != "pooled":
+        n = (frontier.get("strata") or {}).get(grp, 0)
+    return n
+
+
+def consumable_cells(cand, frontier):
+    """Frontier cells this candidate's statistic can actually read."""
+    total_clusters = frontier.get("n_clusters", 0) or 1
+    per = (frontier.get("n_cells", 0)) / total_clusters
+    return int(round(consumable_clusters(cand, frontier) * per))
+
+
 def mde_correlation(n_clusters):
     """Minimum detectable |rho| at the declared alpha/power, via Fisher's z."""
     if n_clusters < MIN_FRONTIER_CLUSTERS:
@@ -277,37 +308,43 @@ def screen(cand, con, frontier, seal_prohibited):
         d = cand["disclosed_partial_r"]      # the conditioned prior is the one that gets screened
     if d is None:
         return "HELD", "power-fail", "no disclosed statistic — the sweep found too few cells to compute it"
+    # POPULATION MATCH (Ruling 2), checked BEFORE power. A family-scoped prior scored on a
+    # family-absent frontier is not a test of the prior — it is a test of a broader cousin with the
+    # prior as decoration. It runs first because "your family has no frontier rows, and here is how
+    # that closes" is strictly more informative than "the MDE is undefined", and because the
+    # path-gated hold carries a revival mechanism a generic power-fail does not.
+    grp = cand.get("group")
+    strata = frontier.get("strata") or {}
+    supply = frontier.get("family_supply") or {}
+    if cand["kind"] in ("co-movement", "association") and grp and grp != "pooled" \
+            and strata.get(grp, 0) == 0:
+        unbuilt = supply.get(grp, 0)
+        if unbuilt > 0:
+            return ("HELD", "population-mismatch",
+                    f"the disclosed prior is {grp}-specific and the frontier holds ZERO {grp} rows. "
+                    f"{unbuilt} unbuilt {grp} row(s) remain, so a future reservation can close this "
+                    f"by construction.")
+        return ("HELD", "path-gated",
+                f"the disclosed prior is {grp}-specific, the frontier holds ZERO {grp} rows, and the "
+                f"{grp} family has NO unbuilt reachable rows left. This gap cannot close through "
+                f"scheduled building — only through an unbuilt capture path. Re-review at the next "
+                f"capture-path ruling; closes as INSUFFICIENT-by-population if the build queue "
+                f"completes without one.")
+
     if cand["kind"] == "co-movement":
-        mde = mde_correlation(frontier["n_clusters"])
+        nc = consumable_clusters(cand, frontier)          # the population the statistic can READ
+        mde = mde_correlation(nc)
         if mde is None:
+            scope = f" in `{cand['group']}`" if cand.get("group") not in (None, "pooled") else ""
             return ("HELD", "power-fail",
-                    f"the frontier has {frontier['n_clusters']} cluster(s); a cluster-level rank "
-                    f"correlation needs at least {MIN_FRONTIER_CLUSTERS} for its standard error to "
-                    f"exist. Gap: {MIN_FRONTIER_CLUSTERS - frontier['n_clusters']} more reserved rows.")
+                    f"the frontier supplies {nc} cluster(s){scope}; a cluster-level rank correlation "
+                    f"needs at least {MIN_FRONTIER_CLUSTERS} for its standard error to exist. Gap: "
+                    f"{MIN_FRONTIER_CLUSTERS - nc} more reserved rows{scope}.")
         if abs(d) < mde:
             return ("HELD", "power-fail",
                     f"disclosed |rho| {abs(d):.3f} is below the frontier's MDE {mde:.3f}")
-        # POPULATION MATCH (Ruling 2). A family-scoped prior scored on a family-absent frontier is not
-        # a test of the prior — it is a test of a broader cousin with the prior as decoration. This is
-        # the lesson Terroir's strata and N6-R's tiers each paid for once.
-        grp = cand.get("group")
-        strata = frontier.get("strata") or {}
-        supply = frontier.get("family_supply") or {}
-        if grp and grp != "pooled" and strata.get(grp, 0) == 0:
-            unbuilt = supply.get(grp, 0)
-            if unbuilt > 0:
-                return ("HELD", "population-mismatch",
-                        f"the disclosed prior is {grp}-specific and the frontier holds ZERO {grp} "
-                        f"rows. {unbuilt} unbuilt {grp} row(s) remain, so a future reservation can "
-                        f"close this by construction.")
-            return ("HELD", "path-gated",
-                    f"the disclosed prior is {grp}-specific, the frontier holds ZERO {grp} rows, and "
-                    f"the {grp} family has NO unbuilt reachable rows left. This gap cannot close "
-                    f"through scheduled building — only through an unbuilt capture path. Re-review at "
-                    f"the next capture-path ruling; closes as INSUFFICIENT-by-population if the build "
-                    f"queue completes without one.")
     elif cand["kind"] == "association":
-        mde = mde_association(frontier["n_cells"])
+        mde = mde_association(consumable_cells(cand, frontier))
         if mde is None or d < mde:
             return ("HELD", "power-fail",
                     (f"disclosed V {d:.3f} is below the frontier's MDE {mde:.3f}" if mde
@@ -363,9 +400,12 @@ def run(cands, con, frontier, seal_prohibited):
             # frontier's grown n clears the number written here.
             if c["kind"] == "co-movement":
                 rec["required_clusters"] = required_clusters(c.get("disclosed"))
+                have = consumable_clusters(c, frontier)
+                rec["consumable_clusters"] = have
                 rec["gap_in_reserved_rows"] = (
                     None if rec["required_clusters"] is None
-                    else max(0, rec["required_clusters"] - frontier["n_clusters"]))
+                    else max(0, rec["required_clusters"] - have))
+                rec["gap_is_scoped_to"] = (c.get("group") if c.get("group") != "pooled" else "any family")
             elif c["kind"] == "association":
                 rec["required_cells"] = required_cells(c.get("disclosed"))
             elif c["kind"] == "anomaly":
