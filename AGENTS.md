@@ -165,13 +165,12 @@ Not verbs. Named, ordered, applied once, checksummed.
 | migration | state |
 |---|---|
 | `0001-census-schema-history` | applied |
+| `0002-typing-precedence-backfill` | applied |
 
 ### Open work
 
-9 items, in declared order — compiled from the same trail as [`NEXT.md`](NEXT.md), which carries the full statement of each.
+7 items, in declared order — compiled from the same trail as [`NEXT.md`](NEXT.md), which carries the full statement of each.
 
-1. **Backfill `supersedes` + `written_at` on the four typing artifacts** — `typing-precedence-backfill`
-2. **Loader walks the declared supersession chain; completeness guard; negative-space staleness test** — `loader-typing-walk`
 3. **Re-run the optimization supply census on the corrected column** — `optimization-supply-census`
 4. **Recompute the successor bet's revival condition and disposition** — `successor-bet-disposition`
 5. **Contact sheet for steiner-forest's dual-motion trajectory** — `steiner-forest-contact-sheet`
@@ -222,5 +221,5 @@ sentence. A question without one is a research task handed upward.
 
 Do the parts that do not depend on the answer first. Then ask.
 
-<!-- sources: {"docs/agents/01-constitution.md": "ff66222d1c58d8509bdc27da39a5fcfd4fea359acb2511a252f2b6d2076b70f1", "docs/agents/03-escalation.md": "a21d9429b536d52c4bee4f753a58295552f6b1c909882c19efc180c81cecf1cb", "foundry/foundry/helm/screens.py": "f4e52d231236e708565fc92f666e94bdeb92f42c35780f22815d6275039b2e03", "maptrail.jsonl": "48a7248ef0b542fe83be1b3aedcc8cbc939b043d91358d732d3065b036d20717", "observatory.db": "bb65df113e8b66dbf8f64f93a37e30e40792a077c80937aa1a1dc4c1769d7db0", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
+<!-- sources: {"docs/agents/01-constitution.md": "ff66222d1c58d8509bdc27da39a5fcfd4fea359acb2511a252f2b6d2076b70f1", "docs/agents/03-escalation.md": "a21d9429b536d52c4bee4f753a58295552f6b1c909882c19efc180c81cecf1cb", "foundry/foundry/helm/screens.py": "f4e52d231236e708565fc92f666e94bdeb92f42c35780f22815d6275039b2e03", "maptrail.jsonl": "e2797531cbb98921da88d435fc0b876231c318c43fba12e6b4ae1d8757e4ade3", "observatory.db": "66dd3cc3e32000987e6b4f9fd80343ddf9d9cc2239258e4aaf0908df2f0bc895", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
 

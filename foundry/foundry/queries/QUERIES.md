@@ -34,17 +34,21 @@ ORDER BY n DESC;
 
 ```
 reach_class                        capture               n
----------------------------------  --------------------  ---
-REACH-subset                       RAMPED                127
-REACH-assignment                   RAMPED                56
+---------------------------------  --------------------  --
+REACH-subset                       RAMPED                76
+REACH-assignment                   RAMPED                71
 OUT-proof-object                   n.a. — not reachable  52
-REACH-permutation                  RAMPED                39
+REACH-permutation                  RAMPED                47
 BUILT                              RAMPED                27
 OUT-continuous                     n.a. — not reachable  22
+REACH-partition                    RAMPED                16
 REGIONLESS-unique-answer           n.a. — not reachable  9
 REGIONLESS-language-membership     n.a. — not reachable  6
+DECOMPOSITION                      RAMPED                5
+REGIONLESS-unique-answer           RAMPED                5
 no-natural-dial-at-fixed-encoding  n.a. — not reachable  4
 STILL-UNTYPED                      n.a. — not reachable  3
+STRATEGY                           RAMPED                2
 BUILT-not-in-census                RAMPED                1
 ```
 
@@ -165,9 +169,9 @@ ORDER BY f.problem_id;
 
 ```
 problem_id                    batch  released  family        reach_class
-----------------------------  -----  --------  ------------  ------------
+----------------------------  -----  --------  ------------  ---------------
 balanced-vertex-separator     4      0         graph         REACH-subset
-bin-packing                   5      0         optimization  REACH-subset
+bin-packing                   5      0         optimization  REACH-partition
 capacitated-vertex-cover      4      0         graph         REACH-subset
 cluster-editing               8      0         graph         REACH-subset
 directed-steiner-tree         10     0         optimization  REACH-subset
@@ -232,7 +236,7 @@ ORDER BY 2, 1;
 ```
 event       reconstructed  n
 ----------  -------------  --
-annotation  0              17
+annotation  0              20
 erratum     0              7
 exclusion   0              13
 expansion   0              8
@@ -251,4 +255,4 @@ For one problem's biography: `SELECT * FROM maptrail WHERE problem_id = ? ORDER 
 that would revive them) and `family_ledger` (cumulative corrections derived from the sweep and ruling
 records). Neither is ever hand-maintained.
 
-<!-- sources: {"observatory.db": "bb65df113e8b66dbf8f64f93a37e30e40792a077c80937aa1a1dc4c1769d7db0"} -->
+<!-- sources: {"observatory.db": "66dd3cc3e32000987e6b4f9fd80343ddf9d9cc2239258e4aaf0908df2f0bc895"} -->

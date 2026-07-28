@@ -17,23 +17,6 @@ than taken on trust.
 
 ## Open work, in declared order
 
-### 1. Backfill `supersedes` + `written_at` on the four typing artifacts
-
-precedence must travel IN the artifact, declared by the pass that supersedes; inferring it from maptrail mentions inverted the order and invented an UNTYPED class for 105 rows
-
-- key: `typing-precedence-backfill`
-- see: `annotation:typing-precedence-ruled`
-- see: `commit 4bb7fb1`
-- *(opened by backfill — this item predates the openness signal)*
-
-### 2. Loader walks the declared supersession chain; completeness guard; negative-space staleness test
-
-the db answers the PRE-adjudication question for 51 rows — two typing passes wrote artifacts the loader never consumed. Shape-discovery already works; only the ordering signal was wrong.
-
-- key: `loader-typing-walk`
-- see: `annotation:typing-precedence-ruled`
-- *(opened by backfill — this item predates the openness signal)*
-
 ### 3. Re-run the optimization supply census on the corrected column
 
 the previous census read a reach_class column since proven stale; no supply number should be quoted from it
@@ -100,7 +83,7 @@ The `foundry` CLI is one dispatch surface now, but six recurring operations stil
 - **frontier (reserved)**: 16
 - **waves**: 5
 - **candidates enumerated**: 1942
-- **maptrail records**: 85
+- **maptrail records**: 88
 - **descriptor version**: v7
 
 - **reserved rows** (16): `balanced-vertex-separator`, `bin-packing`, `capacitated-vertex-cover`, `cluster-editing`, `directed-steiner-tree`, `group-steiner-tree`, `k-minimum-spanning-tree`, `k-set-packing`, `maximum-minimal-vertex-cover`, `minimum-fill-in`, `minimum-k-cut`, `multiway-cut`, `nearest-codeword`, `planar-dominating-set`, `power-dominating-set`, `weighted-interval-scheduling`
@@ -120,5 +103,5 @@ M.discharge(TRAIL, "<item-key>", by="<commit or artifact>", note="...")
 Then regenerate this file. An item vanishes from the page because the trail says it closed,
 never because someone deleted a line here.
 
-<!-- sources: {"maptrail.jsonl": "48a7248ef0b542fe83be1b3aedcc8cbc939b043d91358d732d3065b036d20717", "observatory.db": "bb65df113e8b66dbf8f64f93a37e30e40792a077c80937aa1a1dc4c1769d7db0", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
+<!-- sources: {"maptrail.jsonl": "e2797531cbb98921da88d435fc0b876231c318c43fba12e6b4ae1d8757e4ade3", "observatory.db": "66dd3cc3e32000987e6b4f9fd80343ddf9d9cc2239258e4aaf0908df2f0bc895", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
 

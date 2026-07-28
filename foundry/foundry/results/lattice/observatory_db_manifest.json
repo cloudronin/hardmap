@@ -4,8 +4,8 @@
  "regenerated_never_mutated": "there is no UPDATE path and no migration path. An artifact changing means a rebuild from scratch.",
  "schema_version": "v2",
  "sources": {
-  "observatory_reach_census.json": "d7b7ca5bfbf2c839e5a653f202c30ed1cee6763372ee2a1a54ed0fe2fc265e18",
-  "observatory_untyped_adjudication.json": "a2470d4be360b9173994ce230270f814155dbf8fe94061e97b8acf77888aa05b",
+  "observatory_reach_census.json": "2bd07b5523bd0db96ccd0617e66c375af4c6d115d90d8930bb8e09c5e07dcdbd",
+  "observatory_untyped_adjudication.json": "9fbb88aceed9c2959d4e19e53919e315b63f1e08c2f560209847815ab061413f",
   "sounding_v3_survey.json": "e0af8344a5cc7023d9cc2c853433110bd0bb3ffb9e2d9536ad4aab8a414459ea",
   "observatory_batch10_panels.json": "ac31ad83c05fb398ddcc4b8f0773e6c80e307edac5af09ad03c6c6a74cad87f9",
   "observatory_batch1_panels.json": "3f0f10f3a59f406995ad60816e798aa27c91f27d3abfd554fab6d53d606905fd",
@@ -19,8 +19,10 @@
   "observatory_batch9_panels.json": "f7ca28b05fe175dee9f437723f8f8dda882746c8f93003bc06a4c185d3907c5d",
   "catalog_v7.jsonl": "982c4092128ac0a0f34f9d8a4a415b36fc6059046fe2c9a0e04f661a05664249",
   "atlas_v3.jsonl": "e62f3c284b408a26d71e7f769c3742fa283f5a3bd5d874da74f0313ee3968dee",
+  "reach_subset_readjudication.json": "d0a0128969c4051715562ad38c0d5f05ef900e7d36c5ce2fa8fbbef89a3dda0f",
+  "unmatched_adjudication.json": "7a7238b64ad94444025d9407f6926f5f9ea28f1c06050831c9d360ac857ac226",
   "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc",
-  "maptrail.jsonl": "48a7248ef0b542fe83be1b3aedcc8cbc939b043d91358d732d3065b036d20717",
+  "maptrail.jsonl": "e2797531cbb98921da88d435fc0b876231c318c43fba12e6b4ae1d8757e4ade3",
   "wave_trail.jsonl": "8a4c2d68031046560fdcad89e876c95e3bf1cafba75faa0055ff260b917cc5a8",
   "helm_wave1_candidates.jsonl": "f567d2954d0fd16216f82d5bf3a6e519fc749d51c97cc069a28270352759a5a6",
   "helm_wave2_candidates.jsonl": "3ddbbc1c7d55c82e4acb277524135c42defcc4443fb7248ce81714a83ede029a",
@@ -29,16 +31,16 @@
   "helm_wave5_candidates.jsonl": "c3d21e2428186d35bc8ffbe39d726a7a732a461929f4c173cfb2b1a16319fb46"
  },
  "counts": {
-  "sources": 23,
+  "sources": 25,
   "problems": 346,
   "charges": 2760,
   "frames": 2032,
   "catalog": 446,
   "frontier": 16,
-  "maptrail": 85,
+  "maptrail": 88,
   "waves": 5,
   "wave_events": 19,
   "candidates": 1942
  },
- "db_sha256": "bb65df113e8b66dbf8f64f93a37e30e40792a077c80937aa1a1dc4c1769d7db0"
+ "db_sha256": "66dd3cc3e32000987e6b4f9fd80343ddf9d9cc2239258e4aaf0908df2f0bc895"
 }

@@ -172,6 +172,8 @@ REGISTRY = {
         # which is a staleness verdict on artifacts that are correctly ignored.
         "newest": ("catalog_v*.jsonl",),
         "singletons": ("observatory_reach_census.json", "observatory_untyped_adjudication.json",
+                       # the two later links on the typing chain, consumed since the loader walk
+                       "reach_subset_readjudication.json", "unmatched_adjudication.json",
                        "sounding_v3_survey.json", "maptrail.jsonl", "observatory_reservation.jsonl",
                        "wave_trail.jsonl", "atlas_v3.jsonl"),
         "rebuild": "foundry db compile",

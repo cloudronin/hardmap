@@ -4611,5 +4611,23 @@
    "ramp_kind": null,
    "point_capture_reason": null
   }
- ]
+ ],
+ "typing_axis": "reach_class",
+ "written_at": "2026-07-26T18:44:52-07:00",
+ "supersedes": [],
+ "row_typing": {
+  "rows_at": "rows",
+  "class_field": "reach_class"
+ },
+ "consumed_by_loader": true,
+ "precedence_backfill": {
+  "reconstructed": true,
+  "declared_by": "migration 0002-typing-precedence-backfill",
+  "recovered_from": "git authorship dates; the field did not exist when these passes ran",
+  "position": "1 of 4 on the reach_class axis",
+  "what_this_pass_did": "the base classification: 345 rows typed by rule from the atlas",
+  "rule": "the superseding pass declares what it supersedes. Nothing downstream infers order \u2014 not from filenames, not from mtimes, and not from maptrail mentions.",
+  "the_approach_that_failed": "inferring precedence from the latest maptrail record MENTIONING the artifact. The reach census is mentioned by later errata about it, so it scored newest and overwrote all three adjudications, inventing an UNTYPED class for 105 rows and taking staleness from 51 to 60. Mention is not authorship.",
+  "backstop": "`written_at` \u2014 a supersedes claim pointing at a later-written artifact is a contradiction and the loader fails the build on it"
+ }
 }

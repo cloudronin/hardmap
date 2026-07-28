@@ -181,3 +181,107 @@ def _census_schema_history(paths: dict) -> dict:
 
     return {"version_records": 4, "reconstructed": 3, "contemporaneous": 1,
             "artifacts_rewritten": 0}
+
+
+# ══ 0002 ════════════════════════════════════════════════════════════════════════════════════════════
+
+@register(
+    "0002-typing-precedence-backfill",
+    "Four typing artifacts on the reach_class axis, and nothing in any of them said which came after "
+    "which. Backfill `supersedes` + `written_at`, declared, never inferred.",
+)
+def _typing_precedence_backfill(paths: dict) -> dict:
+    """Give each typing artifact the precedence it always had and never stated.
+
+    THE RULING (2026-07-28): precedence travels IN the artifact, as an explicit `supersedes` field
+    written by the pass that supersedes — the only party that authoritatively knows. Nothing downstream
+    infers.
+
+    THE APPROACH THAT FAILED, recorded here so it is not retried. An earlier attempt inferred precedence
+    from the latest maptrail record MENTIONING each artifact. The reach census is mentioned by later
+    errata *about* it, so it scored as newest, overwrote all three adjudications, and invented an
+    UNTYPED class for 105 rows — taking staleness from 51 rows to 60. MENTION IS NOT AUTHORSHIP. A
+    stale column answers an old question; an inverted one answers a question nobody asked.
+
+    WHY THIS IS RECONSTRUCTION AND SAYS SO. These four passes ran before the field existed, so the order
+    is recovered from git authorship dates rather than declared at the time. Every backfilled block
+    carries `reconstructed: true`. History written late is fine; history written late and presented as
+    contemporaneous is not.
+
+    `written_at` IS THE BACKSTOP, not decoration: a `supersedes` claim pointing at an artifact written
+    LATER than the claimant is a contradiction, and the loader treats it as a build failure.
+    """
+    import json
+    lat = paths["lat"]
+
+    # Write order, from `git log --diff-filter=A` / last-modification on each file. The chain is a
+    # linked list — each pass names only what it DIRECTLY supersedes, and the loader walks it. Naming
+    # every ancestor would be a second, redundant statement of an order the chain already fixes.
+    CHAIN = [
+        ("observatory_reach_census.json", "2026-07-26T18:44:52-07:00", [], "rows", "reach_class",
+         "the base classification: 345 rows typed by rule from the atlas"),
+        ("observatory_untyped_adjudication.json", "2026-07-26T18:54:57-07:00",
+         ["observatory_reach_census.json"], "adjudications", "now",
+         "105 rows the census left UNTYPED, adjudicated"),
+        ("reach_subset_readjudication.json", "2026-07-27T11:05:36-07:00",
+         ["observatory_untyped_adjudication.json"], "rows", "now",
+         "127 REACH-subset rows re-typed against a sealed lexicon over canonical_encoding"),
+        ("unmatched_adjudication.json", "2026-07-27T13:28:20-07:00",
+         ["reach_subset_readjudication.json"], "rows", "now",
+         "the 59 rows the lexicon did not match, hand-adjudicated with receipts"),
+    ]
+
+    written = []
+    for i, (name, when, supersedes, rowkey, field, what) in enumerate(CHAIN):
+        p = lat / name
+        d = json.loads(p.read_text())
+        d["typing_axis"] = "reach_class"
+        d["written_at"] = when
+        d["supersedes"] = supersedes
+        d["row_typing"] = {"rows_at": rowkey, "class_field": field}
+        d["consumed_by_loader"] = True
+        d["precedence_backfill"] = {
+            "reconstructed": True,
+            "declared_by": "migration 0002-typing-precedence-backfill",
+            "recovered_from": "git authorship dates; the field did not exist when these passes ran",
+            "position": f"{i + 1} of {len(CHAIN)} on the reach_class axis",
+            "what_this_pass_did": what,
+            "rule": ("the superseding pass declares what it supersedes. Nothing downstream infers "
+                     "order — not from filenames, not from mtimes, and not from maptrail mentions."),
+            "the_approach_that_failed": (
+                "inferring precedence from the latest maptrail record MENTIONING the artifact. The "
+                "reach census is mentioned by later errata about it, so it scored newest and overwrote "
+                "all three adjudications, inventing an UNTYPED class for 105 rows and taking staleness "
+                "from 51 to 60. Mention is not authorship."),
+            "backstop": ("`written_at` — a supersedes claim pointing at a later-written artifact is a "
+                         "contradiction and the loader fails the build on it"),
+        }
+        p.write_text(json.dumps(d, indent=1) + "\n")
+        written.append(name)
+
+    # A DIFFERENT AXIS, MARKED AS ONE. The region audit's verdicts (SUBSET-VERIFIED / WRONG-REGION /
+    # VARIANT-REGION) are region formulations, not reach classes — `unmatched_adjudication` already
+    # carries a `coexisting_different_axis` block saying so. It is labelled here so the completeness
+    # guard can tell "different axis" from "forgotten", which are the two things that look identical
+    # from outside. Consuming it would add a column, and a column is a schema change: owner's call.
+    p = lat / "region_formulation_audit.json"
+    d = json.loads(p.read_text())
+    d["typing_axis"] = "region_formulation"
+    d["written_at"] = "2026-07-27T11:10:50-07:00"
+    d["supersedes"] = []
+    d["consumed_by_loader"] = False
+    d["not_consumed_because"] = (
+        "COEXISTS, does not supersede. Region formulation is a different axis from reach class, and the "
+        "standing rule is one row, one current typing PER AXIS. Loading it would add a "
+        "`region_disposition` column to `problems`, and a new column is a schema change under F4 — "
+        "which is an owner ruling, not a build decision. Declared here so the guard reads this as a "
+        "deliberate abstention rather than an artifact nobody consumed.")
+    d["precedence_backfill"] = {
+        "reconstructed": True,
+        "declared_by": "migration 0002-typing-precedence-backfill",
+        "recovered_from": "git authorship dates",
+    }
+    p.write_text(json.dumps(d, indent=1) + "\n")
+
+    return {"chain_length": len(CHAIN), "backfilled": written + ["region_formulation_audit.json"],
+            "axes": ["reach_class", "region_formulation"], "reconstructed": True}

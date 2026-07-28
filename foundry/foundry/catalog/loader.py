@@ -28,6 +28,8 @@ import json
 import sqlite3
 from pathlib import Path
 
+from . import typing_chain as TC
+
 from . import reservation as RES
 
 SCHEMA_VERSION = "v2"
@@ -285,18 +287,33 @@ def compile_db(lat: Path, atlas: Path, out: Path) -> dict:
     cat_text = add_source(catp.name, catp, "catalog") if catp else None
     atlas_text = add_source("atlas_v3.jsonl", atlas, "charges")
 
-    # ── problems: census + adjudication, sorted ─────────────────────────────────────────────────────
+    # ── problems: the typing chain, walked ──────────────────────────────────────────────────────────
+    # THE TYPING COMES FROM THE DECLARED CHAIN, NOT FROM THIS FUNCTION'S OPINION. Four passes typed
+    # these rows and this loader used to read the first two, which left 51 rows answering the
+    # PRE-adjudication question — a stale column that looked exactly like a fresh one. `typing_chain`
+    # walks what the artifacts declare about each other and nothing else.
+    #
+    # ONLY THE TYPING WALKS THE CHAIN. `capture`, `reachable` and `ramp_parameter` keep their previous
+    # resolution, because the two later passes re-answer the reach class and say nothing about how a row
+    # is captured. That is the standing rule in its exact form: latest typing governs per axis, and
+    # capture dispositions coexist rather than being overwritten by a pass that never considered them.
+    typing = TC.resolve(lat, "reach_class")
+    for name in ("reach_subset_readjudication.json", "unmatched_adjudication.json"):
+        add_source(name, lat / name, "typing")
+
     adjudged = {a["problem_id"]: a for a in adj["adjudications"]}
     probs = {}
     for r in census["rows"]:
         pid = r["problem_id"]
         a = adjudged.get(pid)
+        t = typing.get(pid)
         probs[pid] = (pid, r.get("family"),
-                      a["now"] if a else r["reach_class"],
+                      t["class"] if t else (a["now"] if a else r["reach_class"]),
                       1 if (a["reachable"] if a else r["reachable"]) else 0,
                       (a["capture"] if a else r.get("capture")),
                       (a.get("ramp_parameter") if a else r.get("ramp_parameter")),
-                      r.get("rule_fired"), 1 if a else 0)
+                      r.get("rule_fired"),
+                      1 if (t and t["position"] > 0) else 0)
     # rows that exist only in the frames (new builds not yet in the atlas census)
     def ensure(pid):
         if pid not in probs:
@@ -481,6 +498,11 @@ def compile_db(lat: Path, atlas: Path, out: Path) -> dict:
                          c.get("ruling"), c["stamp"]) for c in cands})
         con.executemany("INSERT INTO candidates VALUES (" + ",".join("?" * 20) + ")", crows)
         n_wave, n_cand = len(recs), len(crows)
+
+    # THE COMPLETENESS GUARD. A typing artifact sitting in the repo that this loader never read is the
+    # exact species that put 51 rows on a stale answer, and it is invisible from outside — the database
+    # is well-formed either way. Declining to consume one is allowed, but only out loud.
+    TC.assert_complete(lat, set(srcs))
 
     fk = con.execute("PRAGMA foreign_key_check").fetchall()
     if fk:

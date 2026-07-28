@@ -191,5 +191,15 @@
    "why": "the certificate is a subset of a fixed instance-determined ground set and feasibility is a predicate on that subset",
    "canonical_encoding": "weighted intervals on a line; select a max-weight non-overlapping subset"
   }
- ]
+ ],
+ "typing_axis": "region_formulation",
+ "written_at": "2026-07-27T11:10:50-07:00",
+ "supersedes": [],
+ "consumed_by_loader": false,
+ "not_consumed_because": "COEXISTS, does not supersede. Region formulation is a different axis from reach class, and the standing rule is one row, one current typing PER AXIS. Loading it would add a `region_disposition` column to `problems`, and a new column is a schema change under F4 \u2014 which is an owner ruling, not a build decision. Declared here so the guard reads this as a deliberate abstention rather than an artifact nobody consumed.",
+ "precedence_backfill": {
+  "reconstructed": true,
+  "declared_by": "migration 0002-typing-precedence-backfill",
+  "recovered_from": "git authorship dates"
+ }
 }
