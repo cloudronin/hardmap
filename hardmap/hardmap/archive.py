@@ -17,6 +17,17 @@ SAME LOADER, SAME CONTRACT. It calls `foundry.catalog.loader.compile_db`, the id
 test rather than assumed. The freshness machinery applies unchanged: the built db records the sha256 of
 every source, so a reader can check it against the JSONL rather than trust it.
 
+BYTE-IDENTITY IS SCOPED TO ONE SQLITE BUILD, AND THIS IS NOT A CAVEAT TO BURY. SQLite stamps
+SQLITE_VERSION_NUMBER of the writing library into the file header at byte offset 96, so a database
+compiled by a different sqlite is logically identical and byte-different. The loader's `PRAGMA
+page_size` and closing `VACUUM` make the layout deterministic; they cannot un-stamp the header. CI
+caught this by disagreeing with a hash committed from a developer laptop, and CI was right.
+
+WHAT TRAVELS BETWEEN MACHINES is therefore the `sources` map and the `counts` — the hashes of the JSONL,
+which is the record, and the logical content compiled from it. Those are what a reader should compare
+against ours, what the freshness registry consumes, and what the tests assert across environments.
+`db_sha256` is a within-environment fingerprint and is documented as one.
+
 READ-ONLY BY CONSTRUCTION. Queries open the database in SQLite's immutable mode. A `--sql` that tried to
 write fails on the connection rather than on our good intentions.
 """
@@ -41,7 +52,8 @@ def atlas_file() -> Path:
 
 
 def build(out: Path = DEFAULT_DB) -> dict:
-    """Compile the database. Deterministic: same sources in, byte-identical database out."""
+    """Compile the database. Same sources in, same database out — byte-identical on one sqlite build,
+    logically identical across builds (the header carries the writer's version; see the module note)."""
     from foundry.catalog import loader
     lat, atlas = lattice_dir(), atlas_file()
     missing = [str(p) for p in (lat, atlas) if not p.exists()]

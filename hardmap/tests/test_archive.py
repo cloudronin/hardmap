@@ -39,14 +39,52 @@ def test_the_frozen_artifacts_resolve_from_the_installed_package():
 
 
 def test_both_builders_produce_byte_identical_databases(tmp_path):
-    """`hardmap db build` and `foundry db compile` call the same loader on the same sources. If they
-    ever diverge, the read surface is quietly serving a different archive than the one operators see."""
-    mine = tmp_path / "reader.db"
-    info = archive.build(mine)
+    """`hardmap db build` and `foundry db compile` call the same loader on the same sources, so within
+    one environment they must produce identical bytes. If they diverge, the read surface is quietly
+    serving a different archive than the one operators see.
+
+    BOTH SIDES ARE BUILT HERE, DELIBERATELY. The first version of this test compared a fresh build
+    against the `db_sha256` committed in the manifest, which is not the same claim: it asserts that
+    THIS machine's sqlite matches the machine that last ran `foundry db compile`. CI failed on it, and
+    CI was right — see `test_the_db_header_stamps_the_writing_sqlite_version` for why.
+    """
+    from foundry.catalog import loader
+    mine, theirs = tmp_path / "reader.db", tmp_path / "operator.db"
+    a = archive.build(mine)
+    b = loader.compile_db(archive.lattice_dir(), archive.atlas_file(), theirs)
+    assert a["db_sha256"] == b["db_sha256"], "the two builders disagree"
+    assert mine.read_bytes() == theirs.read_bytes()
+
+
+def test_the_db_header_stamps_the_writing_sqlite_version(tmp_path):
+    """WHY `db_sha256` IS NOT PORTABLE, pinned as an executable fact rather than left as a mystery.
+
+    SQLite writes SQLITE_VERSION_NUMBER of the library that last modified the file into the header at
+    byte offset 96. So two logically identical databases built by different sqlite builds differ in
+    their bytes and therefore in their hash, and no amount of `PRAGMA page_size` or a final `VACUUM`
+    changes that. The loader's determinism guarantee is real and is scoped to one environment.
+
+    A future reader who sees a cross-machine hash mismatch should land here instead of hunting a
+    nondeterminism that is not there.
+    """
+    import sqlite3
+    import struct
+    db = tmp_path / "x.db"
+    archive.build(db)
+    stamped = struct.unpack(">I", db.read_bytes()[96:100])[0]
+    running = sqlite3.sqlite_version_info
+    assert stamped == running[0] * 1_000_000 + running[1] * 1_000 + running[2], \
+        "the header no longer records the writing library's version — re-derive what is portable"
+
+
+def test_the_portable_content_matches_the_committed_manifest(tmp_path):
+    """What DOES travel between machines: the source hashes and the row counts. The sources are hashes
+    of the JSONL, which is the record; the counts are the logical content. Those are the fields a
+    reader can check against ours, and the ones the freshness registry actually consumes."""
+    info = archive.build(tmp_path / "x.db")
     canonical = json.loads((LAT / "observatory_db_manifest.json").read_text())
-    assert info["db_sha256"] == canonical["db_sha256"], \
-        "the reader's database differs from the operator's build"
-    assert info["sources"] == canonical["sources"]
+    assert info["sources"] == canonical["sources"], "the reader compiled from different artifacts"
+    assert info["counts"] == canonical["counts"], "the reader's archive has different content"
 
 
 def test_the_build_is_deterministic(tmp_path):
