@@ -33,6 +33,20 @@ def build_parser() -> argparse.ArgumentParser:
     pa = sub.add_parser("atlas", help="dump the frozen charge atlas")
     pa.add_argument("--format", choices=["jsonl", "csv"], default="jsonl")
 
+    # THE ARCHIVE. Building is DERIVATION, not archive-writing: it compiles a throwaway database from
+    # frozen JSONL that ships in the wheel, reserves nothing, and emits no trail event. So it belongs on
+    # the read surface without weakening the read/write split one bit.
+    pdb = sub.add_parser("db", help="compile the queryable observatory database from the frozen JSONL")
+    pdb.add_argument("action", nargs="?", default="build", choices=["build"])
+    pdb.add_argument("--path", metavar="FILE", help="where to write it (default ./observatory.db)")
+
+    pq = sub.add_parser("query", help="run a worked query against the database")
+    pq.add_argument("name", nargs="?", help="query name; see --list")
+    pq.add_argument("--list", action="store_true", dest="list_only", help="list the worked queries")
+    pq.add_argument("--sql", metavar="SQL", help="run freeform SQL instead (read-only)")
+    pq.add_argument("--db", metavar="FILE", help="database path (default ./observatory.db)")
+    pq.add_argument("--limit", type=int, default=40, help="max rows to print (default 40)")
+
     return p
 
 
@@ -50,6 +64,15 @@ def main(argv: list[str] | None = None) -> int:
                                column=args.column, passports=args.passports)
     if args.command == "atlas":
         return atlas_cmd.run(fmt=args.format)
+    if args.command == "db":
+        from . import archive
+        return archive.run_build(args.path)
+    if args.command == "query":
+        from . import archive
+        if not (args.list_only or args.name or args.sql):
+            parser.parse_args(["query", "--help"])
+            return 0
+        return archive.run_query(args.name, args.sql, args.list_only, args.db, args.limit)
     parser.print_help()
     return 0
 

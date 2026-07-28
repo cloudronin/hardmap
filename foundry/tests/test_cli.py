@@ -39,14 +39,42 @@ def test_the_published_distribution_ships_only_the_read_surface():
     assert entries == ["hardmap"], f"the write surface leaked into the published scripts: {entries}"
 
 
+# The verbs that genuinely mutate archive state or can advance the frontier. NOT simply "every name
+# foundry has": `hardmap db build` and `foundry db compile` share a noun and are different acts —
+# building a throwaway database in a reader's working directory is DERIVATION, and derivation is why the
+# archive could join the read surface without weakening the split. What must never cross is the ability
+# to reserve a row, seal a bet, or write into `foundry/foundry/results/`.
+FORBIDDEN_ON_THE_READ_SURFACE = {
+    "census",          # `census declare` reserves rows — the frontier itself
+    "migrate",         # applies history
+    "wave", "mint-prereg",                       # seal and slate
+    "catalog", "ambient-census", "bimodality-fill", "reach-census",   # write archive artifacts
+    "next", "agents", "queries",                 # write compiled documents into the repo
+    "frontier", "guards",                        # operator-only views of reserved ground
+}
+
+
 def test_the_read_surface_exposes_no_write_verb():
-    """Belt and braces: even if packaging changed, `hardmap`'s own parser must not grow a writer."""
+    """Belt and braces: even if packaging changed, `hardmap`'s own parser must not grow a writer.
+
+    The forbidden set is named explicitly rather than derived as "everything foundry has", because the
+    two CLIs legitimately share the noun `db`: one compiles the archive's database, the other compiles a
+    reader's throwaway copy. Deriving the set would forbid the reader's copy and thereby forbid the
+    thing this whole surface exists to provide."""
     sys.path.insert(0, str(ROOT.parent / "hardmap"))
     from hardmap.cli import build_parser
     actions = [a for a in build_parser()._actions if hasattr(a, "choices") and a.choices]
     verbs = {v for a in actions for v in (a.choices or {})}
-    forbidden = set(cli.VERBS) | set(cli.DELEGATED)
-    assert not (verbs & forbidden), f"hardmap exposes write verbs: {sorted(verbs & forbidden)}"
+    leaked = verbs & FORBIDDEN_ON_THE_READ_SURFACE
+    assert not leaked, f"hardmap exposes write verbs: {sorted(leaked)}"
+
+
+def test_the_forbidden_set_still_names_real_foundry_verbs():
+    """A forbidden list that drifts from the CLI stops forbidding anything. Every name in it must still
+    exist on the write surface, or it is guarding a verb that was renamed out from under it."""
+    known = set(cli.VERBS) | set(cli.DELEGATED)
+    stale = FORBIDDEN_ON_THE_READ_SURFACE - known
+    assert not stale, f"the forbidden set names verbs that no longer exist: {sorted(stale)}"
 
 
 # ── 2. delegation is a debt, not a habit ────────────────────────────────────────────────────────────

@@ -1,0 +1,71 @@
+name: Propose an experiment
+description: A question for the archive. It enters the question bank and faces the same screens as machine-generated candidates.
+title: "[question] "
+labels: ["candidate-question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Your question enters the **question bank** and the wave engine imports it as a candidate
+        alongside every question the sweep generated for itself. Same screens, same order, ruled at the
+        same sitting. Where a proposal came from is not one of the screens.
+
+        You do not need to know the codebase. A good question with a clearly named population is worth
+        more than a pull request. See [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md).
+
+  - type: textarea
+    id: question
+    attributes:
+      label: The question
+      description: >
+        State it so a screen could reject it. "Is there structure in the catalog" is not a question;
+        "does bimodality_excess co-move with overlap_ref within the optimization family" is. Name the
+        two quantities and the direction you would bet on, if you have one.
+      placeholder: Does <quantity A> co-move with <quantity B> within <population>, and in which direction?
+    validations:
+      required: true
+
+  - type: textarea
+    id: population
+    attributes:
+      label: The population it concerns
+      description: >
+        Which rows, regions, flavours, families. A question whose population is empty after family
+        filtering closes as INSUFFICIENT-by-population — better to find that out now than at a sitting.
+        `hardmap query --list` and the worked queries will tell you what exists.
+      placeholder: e.g. optimization-family rows with a feasible region and a non-null excess_ref
+    validations:
+      required: true
+
+  - type: dropdown
+    id: prior
+    attributes:
+      label: Have you already looked at the data?
+      description: >
+        Not disqualifying — the program carries several disclosed priors. What is disqualifying is a
+        disclosed prior presented as a fresh one, because a seal's whole value is that it was made
+        before the looking.
+      options:
+        - "No — I have not queried the archive on this question"
+        - "Yes — I formed this question after seeing data (disclosed prior)"
+        - "Partly — I saw something adjacent; details below"
+    validations:
+      required: true
+
+  - type: textarea
+    id: prior_detail
+    attributes:
+      label: What you saw, if anything
+      description: The query you ran, the number that prompted the question, or the paper/result you are reacting to.
+    validations:
+      required: false
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it would matter either way
+      description: >
+        Optional, and the most interesting box. A question worth sealing usually has a reading in both
+        directions. What would a null result mean?
+    validations:
+      required: false

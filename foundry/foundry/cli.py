@@ -171,6 +171,21 @@ def _agents(args) -> int:
     return 0
 
 
+def _queries(args) -> int:
+    """Re-execute every worked query and rewrite its output block. Authored prose is untouched.
+
+    A worked example is worked or it is decoration. Every output in QUERIES.md was pasted once and then
+    drifted under a sentence promising it was current — a frontier of 2 against an actual 16."""
+    from foundry.catalog import queries as Q
+    if args.action == "list":
+        for q in Q.parse():
+            print(f"  {q['name']:<24} {q['title']}")
+        return 0
+    info = Q.refresh(LAT / "observatory.db")
+    print(f"QUERIES.md — {info['refreshed']} of {info['queries']} output blocks recompiled")
+    return 0
+
+
 def _fresh(args) -> int:
     from foundry.catalog import freshness as F
     rc = 0
@@ -269,6 +284,8 @@ VERBS = {
     "census":   {"fn": None, "help": "batch census: declare / verify / list"},
     "db":       {"fn": _db_compile, "help": "compile observatory.db from the hashed artifacts"},
     "fresh":    {"fn": _fresh, "help": "freshness of every compiled artifact"},
+    "queries":  {"fn": _queries, "help": "the worked queries: list / refresh their outputs",
+                 "consumes": ("observatory.db",)},
     "next":     {"fn": _next, "help": "compile NEXT.md from the trail", "consumes": ("observatory.db",)},
     "agents":   {"fn": _agents, "help": "compile AGENTS.md from the machinery",
                  "consumes": ("observatory.db",)},
@@ -303,6 +320,8 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser("db", help=VERBS["db"]["help"]).add_argument(
         "action", nargs="?", default="compile", choices=["compile"])
     sub.add_parser("fresh", help=VERBS["fresh"]["help"])
+    pq = sub.add_parser("queries", help=VERBS["queries"]["help"])
+    pq.add_argument("action", nargs="?", default="refresh", choices=["refresh", "list"])
     sub.add_parser("next", help=VERBS["next"]["help"])
     sub.add_parser("agents", help=VERBS["agents"]["help"])
 

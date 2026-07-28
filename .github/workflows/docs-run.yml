@@ -1,0 +1,60 @@
+name: docs-run
+
+# THE QUICKSTART THAT DRIFTS FROM THE CODE is the stale-README species, and it is the worst one: it
+# fails in the reader's hands, at the exact moment they were deciding whether to trust anything else
+# here. This job executes every command the docs promise, in a clean environment, and compares the
+# outputs they show against what the commands actually print.
+#
+# It runs in a FRESH VENV with only the package installed, because that is the reader's situation. A
+# check that ran with the repo's own PYTHONPATH would pass on imports a reader does not have.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  docs-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install the distribution the way a reader would
+        run: |
+          python -m venv .venv
+          . .venv/bin/activate
+          python -m pip install --upgrade pip
+          # editable install of THIS commit, not the published wheel — the docs' own
+          # `pip install hardmap` line is skipped for exactly that reason
+          pip install -e .
+          pip install -e ./foundry
+
+      - name: Every documented command runs, every shown output matches
+        run: |
+          . .venv/bin/activate
+          python scripts/check_docs_run.py
+
+      - name: The sixty-second path, end to end, from an empty directory
+        run: |
+          . .venv/bin/activate
+          mkdir -p /tmp/reader && cd /tmp/reader
+          hardmap db build
+          hardmap query --list
+          hardmap query rejected-candidates
+          hardmap query --sql "SELECT COUNT(*) FROM catalog"
+          test -f observatory.db || (echo "no database was produced" && exit 1)
+
+      - name: A stale or absent database refuses, and names the remedy
+        run: |
+          . .venv/bin/activate
+          cd /tmp && rm -rf /tmp/norebuild && mkdir /tmp/norebuild && cd /tmp/norebuild
+          if hardmap query rejected-candidates; then
+            echo "querying without a database should have failed"; exit 1
+          fi
+          hardmap query rejected-candidates 2>&1 | grep -q "hardmap db build" \
+            || (echo "the refusal did not name its remedy" && exit 1)

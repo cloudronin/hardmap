@@ -18,10 +18,17 @@ that decays the moment either moves, and it decays SILENTLY — the document kee
 number and name in §2 is read from the thing it describes, so the page cannot drift; it can only be
 stale, and `foundry fresh` says when.
 
-THE FRONTIER COUNT IS A COUNT AND NEVER A LIST. §2 reports how many rows are reserved and never which.
-The page is an agent-facing document and the reserved rows are the blindness mechanism: a guide that
-named them would hand over the one thing the frontier exists to withhold. This is the single hardest
-constraint in the module and the easiest to lose in a refactor, so it has its own test.
+THE FRONTIER IS A COUNT HERE AND A LIST ELSEWHERE, AND THE REASON MATTERS. §2 reports how many rows are
+reserved, not which. That is NOT because the identities are secret — they are not. `QUERIES.md` Q6
+publishes them deliberately, and its reasoning is correct: a reserved row is declared and uncaptured, so
+it has no frames and no catalog cells and there is nothing measured about it to leak. The power screen
+needs the identities to count its tranche. Blindness here is about MEASUREMENTS, not names.
+
+The count-only rule is narrower than that and stands on its own footing: a compiled guide should not
+carry a sixteen-row list that has a canonical home one query away and changes with every batch. A second
+copy of a moving list is a second home for a fact — the failure this whole page is built to avoid. The
+test that enforces it is a duplication guard, not a secrecy guard, and the docstring says so because a
+security property claimed where none exists is how the real ones stop being believed.
 """
 from __future__ import annotations
 
@@ -168,10 +175,12 @@ def compile_page(lat: Path, repo: Path, out: Path, cli_mod) -> dict:
     L += ["### Frontier", "",
           f"**{n_reserved} rows are reserved.** They are declared and **not captured** — no frames "
           f"exist for them, which is what lets predictions be hashed before their frames do.", "",
-          "*This page reports the count and never the names.* An agent-facing document that listed the "
-          "reserved rows would hand over the one thing the frontier exists to withhold. If you need to "
-          "know whether a specific row is reserved, the guards already check it — build the batch and "
-          "let them answer.", ""]
+          "*This page reports the count, not the list.* Not because the identities are secret — "
+          "`QUERIES.md` Q6 (`hardmap query frontier`) publishes them, and a reserved row has no frames "
+          "and no catalog cells, so there is nothing measured about it to leak. The reason is narrower: "
+          "a list with a canonical home one query away, which changes with every batch, has no business "
+          "being copied into a compiled guide. If you need to know whether a specific row is reserved, "
+          "run the query — or build the batch and let the guards answer.", ""]
 
     # migrations
     L += ["### One-time history", "",

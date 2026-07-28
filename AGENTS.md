@@ -104,6 +104,7 @@ Act through these. A verb's `consumes` column **is** its refusal: the dispatch w
 | `foundry migrate` | lifted | — | one-time history: status / run |
 | `foundry next` | lifted | `observatory.db` | compile NEXT.md from the trail |
 | `foundry open` | lifted | — | open items, replayed from the trail |
+| `foundry queries` | lifted | `observatory.db` | the worked queries: list / refresh their outputs |
 | `foundry trail` | lifted | — | maptrail records |
 | `foundry ambient-census` | delegated | — | ground-set width across every ramp |
 | `foundry bimodality-fill` | delegated | — | BC minus matched-r control mean, retro-filled |
@@ -112,7 +113,7 @@ Act through these. A verb's `consumes` column **is** its refusal: the dispatch w
 | `foundry reach-census` | delegated | — | reach classes over the atlas |
 | `foundry wave` | delegated | `observatory.db` | one Helm wave: sweep, screen, slate |
 
-**11 lifted, 6 delegated.** Delegated verbs still hold their logic in `dev/`; freshness reaches them at the boundary but event-time emission cannot, since emitting on a script's behalf from outside is the reconstruction the trail exists to prevent. That count only goes down.
+**12 lifted, 6 delegated.** Delegated verbs still hold their logic in `dev/`; freshness reaches them at the boundary but event-time emission cannot, since emitting on a script's behalf from outside is the reconstruction the trail exists to prevent. That count only goes down.
 
 ### Screens — the mechanical dispositions
 
@@ -155,7 +156,7 @@ A candidate reaching the slate has passed all of these, in order. `fired` counts
 
 **16 rows are reserved.** They are declared and **not captured** — no frames exist for them, which is what lets predictions be hashed before their frames do.
 
-*This page reports the count and never the names.* An agent-facing document that listed the reserved rows would hand over the one thing the frontier exists to withhold. If you need to know whether a specific row is reserved, the guards already check it — build the batch and let them answer.
+*This page reports the count, not the list.* Not because the identities are secret — `QUERIES.md` Q6 (`hardmap query frontier`) publishes them, and a reserved row has no frames and no catalog cells, so there is nothing measured about it to leak. The reason is narrower: a list with a canonical home one query away, which changes with every batch, has no business being copied into a compiled guide. If you need to know whether a specific row is reserved, run the query — or build the batch and let the guards answer.
 
 ### One-time history
 
@@ -167,7 +168,7 @@ Not verbs. Named, ordered, applied once, checksummed.
 
 ### Open work
 
-9 items, in declared order — compiled from the same trail as [`NEXT.md`](NEXT.md), which carries the full statement of each.
+11 items, in declared order — compiled from the same trail as [`NEXT.md`](NEXT.md), which carries the full statement of each.
 
 1. **Backfill `supersedes` + `written_at` on the four typing artifacts** — `typing-precedence-backfill`
 2. **Loader walks the declared supersession chain; completeness guard; negative-space staleness test** — `loader-typing-walk`
@@ -178,6 +179,8 @@ Not verbs. Named, ordered, applied once, checksummed.
 7. **Find an ambient-stable framing for covering-radius, or let the exclusion stand** — `covering-radius-framing`
 8. **Whether the five in-use family ramps are secretly thresholds (Q20)** — `lexicon-v3-question`
 9. **Lift the six delegated verbs out of dev/ into the library** — `lift-delegated-verbs`
+10. **Publish the prebuilt observatory.db as a release asset** — `prebuilt-db-release-asset`
+11. **QUERIES.md outputs go stale silently between refreshes** — `queries-md-output-freshness`
 
 ---
 
@@ -221,5 +224,5 @@ sentence. A question without one is a research task handed upward.
 
 Do the parts that do not depend on the answer first. Then ask.
 
-<!-- sources: {"docs/agents/01-constitution.md": "ff66222d1c58d8509bdc27da39a5fcfd4fea359acb2511a252f2b6d2076b70f1", "docs/agents/03-escalation.md": "a21d9429b536d52c4bee4f753a58295552f6b1c909882c19efc180c81cecf1cb", "foundry/foundry/helm/screens.py": "f4e52d231236e708565fc92f666e94bdeb92f42c35780f22815d6275039b2e03", "maptrail.jsonl": "5d2aec0d6123b800c58716ac6e5f1fe5c248038e539c0a49f1d31848549d0adf", "observatory.db": "d49fd16f984b86cb53ebabf66290ddceb748a3315afdb276fca1abb3a471efa2", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
+<!-- sources: {"docs/agents/01-constitution.md": "ff66222d1c58d8509bdc27da39a5fcfd4fea359acb2511a252f2b6d2076b70f1", "docs/agents/03-escalation.md": "a21d9429b536d52c4bee4f753a58295552f6b1c909882c19efc180c81cecf1cb", "foundry/foundry/helm/screens.py": "f4e52d231236e708565fc92f666e94bdeb92f42c35780f22815d6275039b2e03", "maptrail.jsonl": "c67dc8529a4d3ede9fd7d6cfdaf3e38da66a4dbc1e3fcc1aad7c3b6ebde32296", "observatory.db": "f84dd1fcaec5cbee6e4ca3fdae1fb3b2c6a354178fc9f0bce26aeb50d4d81662", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
 

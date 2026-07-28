@@ -2,9 +2,10 @@
 
 THE FAILURES THIS GUARDS.
 
-  1. THE PAGE LEAKING THE FRONTIER. §2 reports how many rows are reserved and must never report which.
-     It is an agent-facing document; naming them hands over the one thing the frontier exists to
-     withhold, and no other test in the suite would notice.
+  1. THE PAGE COPYING A LIST THAT HAS A HOME. §2 reports how many rows are reserved, not which. The
+     identities are not secret — Q6 publishes them, and a reserved row has no frames, so there is nothing
+     measured about it to leak. The rule is about duplication: a sixteen-row list that moves every batch
+     belongs in one place, and a compiled guide is not it.
 
   2. A COMPILED CLAIM THAT TRACES TO NOTHING. The whole argument for compiling §2 is that every name and
      number in it is read from the machinery. A hand-maintained line that crept in would read exactly
@@ -36,7 +37,13 @@ LEDGER = LAT / "observatory_reservation.jsonl"
 # ── 1. the frontier is a count, never a list ────────────────────────────────────────────────────────
 
 def test_the_page_never_names_a_reserved_row():
-    """THE HARDEST CONSTRAINT IN THE MODULE. If this fails, the guide has published the frontier."""
+    """A DUPLICATION GUARD, NOT A SECRECY GUARD — and the distinction is worth stating precisely.
+
+    The reserved identities are NOT secret: `QUERIES.md` Q6 publishes them, correctly, because a reserved
+    row is declared and uncaptured and therefore has nothing measured about it to leak. What this test
+    enforces is narrower: a sixteen-row list that changes every batch and has a canonical home one query
+    away must not be copied into a compiled guide, because a second copy of a moving fact is the exact
+    failure the page exists to avoid."""
     text = PAGE.read_text()
     leaked = sorted(r for r in RES.reserved_rows(LEDGER) if r in text)
     assert not leaked, f"AGENTS.md names reserved rows: {leaked}"
@@ -50,7 +57,8 @@ def test_the_page_does_report_the_count():
 
 
 def test_the_generator_reads_the_ledger_but_emits_only_a_number(tmp_path):
-    """Belt and braces against a refactor that starts formatting the list it already has in hand."""
+    """Belt and braces against a refactor that starts formatting the list it already has in hand — the
+    natural way this decays is someone "improving" the section by printing what the ledger returned."""
     src = (ROOT / "foundry" / "catalog" / "agents_page.py").read_text()
     body = src.split("# ── the page", 1)[1]
     assert "reserved_rows" in src, "the generator no longer consults the ledger at all"

@@ -50,6 +50,10 @@ _RESULT_GLOBS = [
     "results/**/*.json", "results/**/*.jsonl", "results/**/*.csv", "results/**/*.md",
 ]
 package_data = {imp: list(_RESULT_GLOBS) for imp in ("eightfold", "foundry", "desertmap", "proofcensus")}
+# QUERIES.md is CONSUMED BY THE CLI, not just rendered on GitHub: `hardmap query` parses it for the SQL.
+# It lives inside the package so the wheel ships it — under foundry/docs/ it was excluded, which is why a
+# pip user could not run a named query even once the runner existed.
+package_data["foundry"] = package_data["foundry"] + ["queries/*.md"]
 package_data["hardmap"] = ["_bundled/*.yaml"]
 
 setup(
