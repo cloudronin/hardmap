@@ -25,16 +25,21 @@ than taken on trust.
 - see: `annotation:assignment-path-constituency`
 - *(opened by backfill — this item predates the openness signal)*
 
-### 2. Batch 11's primary weight needs re-specification — sat-csp has no subset rows
+### 2. Batch 11's roster needs three dispositions and per-row Q21-corrected ramps
 
-The ruling of 2026-07-30 declared batch 11's primary weight as sat-csp REACH-subset rows, on the correct reasoning that the sat-csp sign-flip candidate (disclosed -0.429) is the only held candidate that can revive on an ordinary count. The reasoning holds and the mechanism does not: sat-csp has ZERO REACH-subset rows. The family is 18 REACH-assignment, 7 BUILT, 1 REACH-permutation, so there is nothing to roster under that weight. The corrected 76 subset rows are graph 51, optimization 19, algebraic 3, number-theoretic 3.
+The graph subset pool vets to 7 FRESH rows: cycle-packing and planar-vertex-deletion and node-multiway-cut were each ATTEMPTED AND EXCLUDED AT BIRTH in earlier batches, and each needs a disposition before it can be re-rostered.
 
-The consequence is that the two halves of the ruling are SEQUENTIAL, not parallel: growing the frontier where sat-csp lives REQUIRES the assignment capture path, which the same ruling promoted to next build. Options are (a) batch 11 waits for the assignment path and then rosters sat-csp assignment rows, or (b) batch 11 proceeds on graph subset coverage — 17 unbuilt, unreserved — and sat-csp weight applies to batch 12. Owner's call; a roster is a declaration.
+  planar-vertex-deletion  batch 7, no-affordable-exact-test — no exact planarity test at enumeration scale. A hard blocker unless the region is reformulated.
+  cycle-packing           batch 7, conformance: no usable region at probe 0.35. THE PROBE WAS THE OLD ONE. The corrected rule probes the MEDIAN declared level, which is 0.5 for the graph ramp — ~43% more edges. This is the same shape as the MCSP incident: a row excluded for a property of the probe and blamed on the row. Worth re-probing before it stands.
+  node-multiway-cut       batch 9, 'not upward_closed'. It BUILT (sizes 28,16,16,16); only the declared structural expectation failed. That is a declaration error, not a build failure, and it is re-rosterable with the expectation corrected.
 
-- key: `batch-11-roster-weight`
-- see: `maptrail ruling:assignment-path-promoted`
-- see: `supply_census_optimization_reach_subset.json`
-- see: `wave-5 candidates, grp=sat-csp, screen_rule=power-fail`
+Separately, all 10 carry 'edge density' as their census ramp_parameter, which is exactly the dial Q21 ruled out where the ground set IS the edge set. Each needs a per-row within-instance parameter at fixed ground set declared before capture — the step that produced three declaration-implementation disagreements when done quickly.
+
+- key: `batch-11-roster-composition`
+- see: `batch11_roster_vetting.json`
+- see: `observatory_batch7_panels.json excluded_at_birth`
+- see: `observatory_batch9_panels.json excluded_at_birth`
+- see: `foundry/batches/README.md — the declaration convention`
 
 ### 5. Contact sheet for steiner-forest's dual-motion trajectory
 
@@ -78,7 +83,7 @@ The `foundry` CLI is one dispatch surface now, but six recurring operations stil
 - **frontier (reserved)**: 16
 - **waves**: 5
 - **candidates enumerated**: 1942
-- **maptrail records**: 94
+- **maptrail records**: 97
 - **descriptor version**: v7
 
 - **reserved rows** (16): `balanced-vertex-separator`, `bin-packing`, `capacitated-vertex-cover`, `cluster-editing`, `directed-steiner-tree`, `group-steiner-tree`, `k-minimum-spanning-tree`, `k-set-packing`, `maximum-minimal-vertex-cover`, `minimum-fill-in`, `minimum-k-cut`, `multiway-cut`, `nearest-codeword`, `planar-dominating-set`, `power-dominating-set`, `weighted-interval-scheduling`
@@ -98,5 +103,5 @@ M.discharge(TRAIL, "<item-key>", by="<commit or artifact>", note="...")
 Then regenerate this file. An item vanishes from the page because the trail says it closed,
 never because someone deleted a line here.
 
-<!-- sources: {"maptrail.jsonl": "cef76748949f28d9ea929a25e5de2f8bd25e998d45344f09015592e27f0bccae", "observatory.db": "5f9e0bea0e0726c8c92a8d03cab136357cc1de52a7adfb2b04fceb6ee99aea94", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
+<!-- sources: {"maptrail.jsonl": "15fb4a2fea38df451fa0eceea25e35b19b5ec84ce7315735f092b26fd42ec7dc", "observatory.db": "ec8a3d7a820ee128ad12f09ff2e7161546de0015f838c79767efae881d216dac", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
 

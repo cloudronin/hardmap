@@ -1,0 +1,71 @@
+{
+ "schema": "batch-roster-vetting/v1",
+ "STATUS": "VETTING \u2014 no roster declared, no reservation made. This counts what is buildable.",
+ "family": "graph",
+ "reach_class": "REACH-subset",
+ "column_provenance": "the CORRECTED reach_class, resolved by the declared typing chain",
+ "pool_unbuilt_unreserved": 17,
+ "why_the_pool_is_not_the_roster": "'unbuilt and unreserved' is two predicates; a ROSTER needs the vetting screens too. Reporting the pool as the roster overstated batch 11 by 7 rows, and that number reached a ruling before it was checked.",
+ "blocked": {
+  "disjoint-paths": [
+   "variant-region"
+  ],
+  "edge-dominating-set": [
+   "ambient-confounded \u2014 the ground set IS the dial"
+  ],
+  "feedback-arc-set": [
+   "ambient-confounded \u2014 the ground set IS the dial"
+  ],
+  "independent-set-reconfiguration": [
+   "wrong-region"
+  ],
+  "interval-completion": [
+   "no declared ramp",
+   "reserved-region near-miss; generator removed not repaired"
+  ],
+  "lex-first-maximal-independent-set": [
+   "wrong-region"
+  ],
+  "maximum-agreement-forest": [
+   "no declared ramp"
+  ]
+ },
+ "n_blocked": 7,
+ "previously_excluded_at_birth": {
+  "cycle-packing": {
+   "batch": 7,
+   "kind": "conformance",
+   "reason": [
+    "no region built"
+   ],
+   "probe_ramp": 0.35
+  },
+  "node-multiway-cut": {
+   "batch": 9,
+   "kind": null,
+   "reason": [
+    "not upward_closed"
+   ],
+   "probe_ramp": 0.5
+  },
+  "planar-vertex-deletion": {
+   "batch": 7,
+   "kind": "no-affordable-exact-test",
+   "reason": [
+    "the region is vertex subsets whose removal leaves a PLANAR graph, and no exact planarity test is affordable at enumeration scale here. The available shortcuts (the |E| <= 3n-6 bound) are NECESSARY, not sufficient \u2014 using one would silently admit non-planar residues and mis-define the row rather than approximate it."
+   ],
+   "probe_ramp": null
+  }
+ },
+ "n_needs_ruling": 3,
+ "fresh": [
+  "k-edge-connected-subgraph",
+  "maximum-leaf-spanning-tree",
+  "min-communication-cost-spanning-tree",
+  "min-degree-spanning-tree",
+  "multicut",
+  "sharp-spanning-trees",
+  "sparsest-cut"
+ ],
+ "n_fresh": 7
+}
