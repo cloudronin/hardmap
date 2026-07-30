@@ -105,6 +105,7 @@ Act through these. A verb's `consumes` column **is** its refusal: the dispatch w
 | `foundry next` | lifted | `observatory.db` | compile NEXT.md from the trail |
 | `foundry open` | lifted | — | open items, replayed from the trail |
 | `foundry queries` | lifted | `observatory.db` | the worked queries: list / refresh their outputs |
+| `foundry roster` | lifted | `observatory.db` | which rows are ELIGIBLE to be rostered, and why the rest are not |
 | `foundry supply` | lifted | `observatory.db` | how many rows of a class exist, are built, remain |
 | `foundry trail` | lifted | — | maptrail records |
 | `foundry ambient-census` | delegated | — | ground-set width across every ramp |
@@ -114,7 +115,7 @@ Act through these. A verb's `consumes` column **is** its refusal: the dispatch w
 | `foundry reach-census` | delegated | — | reach classes over the atlas |
 | `foundry wave` | delegated | `observatory.db` | one Helm wave: sweep, screen, slate |
 
-**13 lifted, 6 delegated.** Delegated verbs still hold their logic in `dev/`; freshness reaches them at the boundary but event-time emission cannot, since emitting on a script's behalf from outside is the reconstruction the trail exists to prevent. That count only goes down.
+**14 lifted, 6 delegated.** Delegated verbs still hold their logic in `dev/`; freshness reaches them at the boundary but event-time emission cannot, since emitting on a script's behalf from outside is the reconstruction the trail exists to prevent. That count only goes down.
 
 ### Screens — the mechanical dispositions
 
@@ -170,10 +171,11 @@ Not verbs. Named, ordered, applied once, checksummed.
 
 ### Open work
 
-6 items, in declared order — compiled from the same trail as [`NEXT.md`](NEXT.md), which carries the full statement of each.
+7 items, in declared order — compiled from the same trail as [`NEXT.md`](NEXT.md), which carries the full statement of each.
 
 1. **Decide the REACH-assignment capture path** — `assignment-capture-path`
-2. **Batch 11's roster needs three dispositions and per-row Q21-corrected ramps** — `batch-11-roster-composition`
+2. **Declare the nine within-instance dials for batch 11, one per row, at session start** — `batch-11-ramp-declarations`
+3. **An exclusion-at-birth cannot be re-derived — the record names no generator sha** — `exclusion-records-carry-no-code-provenance`
 5. **Contact sheet for steiner-forest's dual-motion trajectory** — `steiner-forest-contact-sheet`
 7. **Find an ambient-stable framing for covering-radius, or let the exclusion stand** — `covering-radius-framing`
 8. **Whether the five in-use family ramps are secretly thresholds (Q20)** — `lexicon-v3-question`
@@ -221,5 +223,5 @@ sentence. A question without one is a research task handed upward.
 
 Do the parts that do not depend on the answer first. Then ask.
 
-<!-- sources: {"docs/agents/01-constitution.md": "ff66222d1c58d8509bdc27da39a5fcfd4fea359acb2511a252f2b6d2076b70f1", "docs/agents/03-escalation.md": "a21d9429b536d52c4bee4f753a58295552f6b1c909882c19efc180c81cecf1cb", "foundry/foundry/helm/screens.py": "f4e52d231236e708565fc92f666e94bdeb92f42c35780f22815d6275039b2e03", "maptrail.jsonl": "15fb4a2fea38df451fa0eceea25e35b19b5ec84ce7315735f092b26fd42ec7dc", "observatory.db": "ec8a3d7a820ee128ad12f09ff2e7161546de0015f838c79767efae881d216dac", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
+<!-- sources: {"docs/agents/01-constitution.md": "ff66222d1c58d8509bdc27da39a5fcfd4fea359acb2511a252f2b6d2076b70f1", "docs/agents/03-escalation.md": "a21d9429b536d52c4bee4f753a58295552f6b1c909882c19efc180c81cecf1cb", "foundry/foundry/helm/screens.py": "f4e52d231236e708565fc92f666e94bdeb92f42c35780f22815d6275039b2e03", "maptrail.jsonl": "ba1376419595c90c946f08b35118b3b1bd1283c9b25e6767030261b05b6cd6c7", "observatory.db": "43b7153123de9a9e0a7dfa13bc79e17a9a7e7cd5ea0f83c5e8ce4d89a60c89ad", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
 

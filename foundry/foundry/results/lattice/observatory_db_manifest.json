@@ -22,7 +22,7 @@
   "reach_subset_readjudication.json": "d0a0128969c4051715562ad38c0d5f05ef900e7d36c5ce2fa8fbbef89a3dda0f",
   "unmatched_adjudication.json": "7a7238b64ad94444025d9407f6926f5f9ea28f1c06050831c9d360ac857ac226",
   "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc",
-  "maptrail.jsonl": "15fb4a2fea38df451fa0eceea25e35b19b5ec84ce7315735f092b26fd42ec7dc",
+  "maptrail.jsonl": "ba1376419595c90c946f08b35118b3b1bd1283c9b25e6767030261b05b6cd6c7",
   "wave_trail.jsonl": "fd346d0853eac26245f6325411374ba309f2110279c9152f965c0bd118b82f9d",
   "helm_wave1_candidates.jsonl": "f567d2954d0fd16216f82d5bf3a6e519fc749d51c97cc069a28270352759a5a6",
   "helm_wave2_candidates.jsonl": "3ddbbc1c7d55c82e4acb277524135c42defcc4443fb7248ce81714a83ede029a",
@@ -37,10 +37,10 @@
   "frames": 2032,
   "catalog": 446,
   "frontier": 16,
-  "maptrail": 97,
+  "maptrail": 103,
   "waves": 5,
   "wave_events": 20,
   "candidates": 1942
  },
- "db_sha256": "ec8a3d7a820ee128ad12f09ff2e7161546de0015f838c79767efae881d216dac"
+ "db_sha256": "43b7153123de9a9e0a7dfa13bc79e17a9a7e7cd5ea0f83c5e8ce4d89a60c89ad"
 }

@@ -206,6 +206,28 @@ def _supply(args) -> int:
     return 0
 
 
+def _roster(args) -> int:
+    """Eligibility COMPUTED, never quoted. Two loose counts in two sessions both reached rulings."""
+    from foundry.catalog import roster as R
+    d = R.eligible(LAT, args.family, args.reach_class)
+    print(f"ROSTER ELIGIBILITY — {d['family'] or 'all families'} / {d['reach_class']}\n")
+    print(f"  pool (typed rows)      {d['pool']:>4}")
+    for name, n in d["dropped_by_screen"].items():
+        if n:
+            print(f"    -{name:<22}{n:>4}")
+    print(f"  ELIGIBLE               {d['n_eligible']:>4}\n")
+    for r in d["eligible"]:
+        print(f"    {r}")
+    if args.verbose:
+        print("\n  dropped, with the screen that made the call:")
+        for r, x in sorted(d["dropped"].items()):
+            print(f"    {r:<36}{x['screen']}")
+            if x.get("disposition"):
+                print(f"    {'':<36}  ruled {x['disposition'].get('state')}: "
+                      f"{str(x['disposition'].get('re_entry'))[:70]}")
+    return 0
+
+
 def _fresh(args) -> int:
     from foundry.catalog import freshness as F
     rc = 0
@@ -304,6 +326,8 @@ VERBS = {
     "census":   {"fn": None, "help": "batch census: declare / verify / list"},
     "db":       {"fn": _db_compile, "help": "compile observatory.db from the hashed artifacts"},
     "fresh":    {"fn": _fresh, "help": "freshness of every compiled artifact"},
+    "roster":   {"fn": _roster, "help": "which rows are ELIGIBLE to be rostered, and why the rest are not",
+                 "consumes": ("observatory.db",)},
     "supply":   {"fn": _supply, "help": "how many rows of a class exist, are built, remain",
                  "consumes": ("observatory.db",)},
     "queries":  {"fn": _queries, "help": "the worked queries: list / refresh their outputs",
@@ -342,6 +366,11 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser("db", help=VERBS["db"]["help"]).add_argument(
         "action", nargs="?", default="compile", choices=["compile"])
     sub.add_parser("fresh", help=VERBS["fresh"]["help"])
+    pr = sub.add_parser("roster", help=VERBS["roster"]["help"])
+    pr.add_argument("action", nargs="?", default="eligible", choices=["eligible"])
+    pr.add_argument("--family")
+    pr.add_argument("--reach-class", dest="reach_class", default="REACH-subset")
+    pr.add_argument("-v", "--verbose", action="store_true")
     ps = sub.add_parser("supply", help=VERBS["supply"]["help"])
     ps.add_argument("--family", required=True)
     ps.add_argument("--reach-class", dest="reach_class", required=True)

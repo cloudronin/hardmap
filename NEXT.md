@@ -25,21 +25,30 @@ than taken on trust.
 - see: `annotation:assignment-path-constituency`
 - *(opened by backfill — this item predates the openness signal)*
 
-### 2. Batch 11's roster needs three dispositions and per-row Q21-corrected ramps
+### 2. Declare the nine within-instance dials for batch 11, one per row, at session start
 
-The graph subset pool vets to 7 FRESH rows: cycle-packing and planar-vertex-deletion and node-multiway-cut were each ATTEMPTED AND EXCLUDED AT BIRTH in earlier batches, and each needs a disposition before it can be re-rostered.
+All nine eligible graph rows carry 'edge density' as their census ramp_parameter, which is the dial Q21 ruled out wherever the ground set IS the edge set. Each needs a within-instance parameter at a fixed ground set, declared per row and put through the pilot protocol: dial isolated, ambient fixed by construction, derived-consequence check at the probe.
 
-  planar-vertex-deletion  batch 7, no-affordable-exact-test — no exact planarity test at enumeration scale. A hard blocker unless the region is reformulated.
-  cycle-packing           batch 7, conformance: no usable region at probe 0.35. THE PROBE WAS THE OLD ONE. The corrected rule probes the MEDIAN declared level, which is 0.5 for the graph ramp — ~43% more edges. This is the same shape as the MCSP incident: a row excluded for a property of the probe and blamed on the row. Worth re-probing before it stands.
-  node-multiway-cut       batch 9, 'not upward_closed'. It BUILT (sizes 28,16,16,16); only the declared structural expectation failed. That is a declaration error, not a build failure, and it is re-rosterable with the expectation corrected.
+SCHEDULED, NOT BATCHED. Three declaration-implementation disagreements is the base rate speaking, and all three came from declaring dials quickly at the end of other work. Ruled to a fresh session at full context; the scheduling costs nothing and is the only thing that has reliably prevented the fourth.
 
-Separately, all 10 carry 'edge density' as their census ramp_parameter, which is exactly the dial Q21 ruled out where the ground set IS the edge set. Each needs a per-row within-instance parameter at fixed ground set declared before capture — the step that produced three declaration-implementation disagreements when done quickly.
+Rows: cycle-packing, k-edge-connected-subgraph, maximum-leaf-spanning-tree, min-communication-cost-spanning-tree, min-degree-spanning-tree, multicut, node-multiway-cut (structural_expectation corrected to NOT upward_closed), sharp-spanning-trees, sparsest-cut.
 
-- key: `batch-11-roster-composition`
-- see: `batch11_roster_vetting.json`
+- key: `batch-11-ramp-declarations`
+- see: `foundry roster eligible --family graph`
+- see: `foundry/batches/README.md`
+
+### 3. An exclusion-at-birth cannot be re-derived — the record names no generator sha
+
+cycle-packing's batch-7 exclusion does not reproduce: with batch 7's own seed and its declared median probe, the current generator builds regions of size [12, 12] and passes conformance. Neither the probe hypothesis nor a seed-sensitivity hypothesis survives; the honest answer is that the generator or its constants changed after batch 7 and the exclusion record describes code that no longer exists.
+
+The record carries the row, the reason, the probe value and the conformance detail — but no sha of the generator that failed. So an exclusion can be read and cannot be CHECKED, which is the same provenance-without-a-receipt species the catalog already fixed for cells (frame_artifact + frame_sha256 + extractor_sha256 per row). Panels should carry the same.
+
+Until they do, every standing exclusion-at-birth is a claim on trust rather than a reproducible verdict.
+
+- key: `exclusion-records-carry-no-code-provenance`
+- see: `maptrail disposition:cycle-packing`
+- see: `foundry/catalog/capture.py conformance_at_birth`
 - see: `observatory_batch7_panels.json excluded_at_birth`
-- see: `observatory_batch9_panels.json excluded_at_birth`
-- see: `foundry/batches/README.md — the declaration convention`
 
 ### 5. Contact sheet for steiner-forest's dual-motion trajectory
 
@@ -83,7 +92,7 @@ The `foundry` CLI is one dispatch surface now, but six recurring operations stil
 - **frontier (reserved)**: 16
 - **waves**: 5
 - **candidates enumerated**: 1942
-- **maptrail records**: 97
+- **maptrail records**: 103
 - **descriptor version**: v7
 
 - **reserved rows** (16): `balanced-vertex-separator`, `bin-packing`, `capacitated-vertex-cover`, `cluster-editing`, `directed-steiner-tree`, `group-steiner-tree`, `k-minimum-spanning-tree`, `k-set-packing`, `maximum-minimal-vertex-cover`, `minimum-fill-in`, `minimum-k-cut`, `multiway-cut`, `nearest-codeword`, `planar-dominating-set`, `power-dominating-set`, `weighted-interval-scheduling`
@@ -103,5 +112,5 @@ M.discharge(TRAIL, "<item-key>", by="<commit or artifact>", note="...")
 Then regenerate this file. An item vanishes from the page because the trail says it closed,
 never because someone deleted a line here.
 
-<!-- sources: {"maptrail.jsonl": "15fb4a2fea38df451fa0eceea25e35b19b5ec84ce7315735f092b26fd42ec7dc", "observatory.db": "ec8a3d7a820ee128ad12f09ff2e7161546de0015f838c79767efae881d216dac", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
+<!-- sources: {"maptrail.jsonl": "ba1376419595c90c946f08b35118b3b1bd1283c9b25e6767030261b05b6cd6c7", "observatory.db": "43b7153123de9a9e0a7dfa13bc79e17a9a7e7cd5ea0f83c5e8ce4d89a60c89ad", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
 
