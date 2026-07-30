@@ -86,13 +86,42 @@ def discharge(path: Path, key: str, by: str, note: str = "") -> dict:
                 discharged_by=by, note=note, touches_no_measured_value=True)
 
 
+def resequence(path: Path, key: str, to: int, by: str, why: str) -> dict:
+    """Re-prioritise an open item. A NEW record pointing at the original — the same shape as discharge,
+    and for the same reason: replay is the state, so there is no mutable field for drift to hide in.
+
+    THE ALTERNATIVE WOULD HAVE BEEN A LIE. Without this, moving an item up means discharging it and
+    opening a replacement — which writes "closed" into the trail for something that was never done, and
+    loses the original's date and reasoning. Priority changing is a fact about the item, not the end of
+    it, and the record should say which.
+
+    The ORIGINAL sequence stays readable in the opening record. What changed, when, and on whose word
+    is the thing being added.
+    """
+    return emit(path, "annotation", key=f"resequenced:{key}:{to}", resequences=key,
+                to_sequence=to, by=by, why=why, touches_no_measured_value=True)
+
+
 def open_items(path: Path):
-    """Replay: everything opened, minus everything discharged. Sorted by declared sequence."""
-    opened, closed = {}, set()
+    """Replay: everything opened, minus everything discharged, at its LATEST declared sequence.
+
+    Priority is replayed exactly as openness is. A later `resequence` record wins over the opening
+    one — and over an earlier resequence — so the order on the front page is the order most recently
+    declared, without any record ever being edited."""
+    opened, closed, moved = {}, set(), {}
     for rec in read(path):
         if rec.get("opens"):
             opened[rec["opens"]] = rec
         if rec.get("discharges"):
             closed.add(rec["discharges"])
-    return sorted((r for k, r in opened.items() if k not in closed),
-                  key=lambda z: (z.get("sequence", 99), z["opens"]))
+        if rec.get("resequences"):
+            moved[rec["resequences"]] = rec
+    live = []
+    for k, r in opened.items():
+        if k in closed:
+            continue
+        if k in moved:
+            r = {**r, "sequence": moved[k]["to_sequence"],
+                 "resequenced_from": r.get("sequence"), "resequenced_why": moved[k]["why"]}
+        live.append(r)
+    return sorted(live, key=lambda z: (z.get("sequence", 99), z["opens"]))

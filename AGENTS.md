@@ -170,10 +170,11 @@ Not verbs. Named, ordered, applied once, checksummed.
 
 ### Open work
 
-5 items, in declared order — compiled from the same trail as [`NEXT.md`](NEXT.md), which carries the full statement of each.
+6 items, in declared order — compiled from the same trail as [`NEXT.md`](NEXT.md), which carries the full statement of each.
 
+1. **Decide the REACH-assignment capture path** — `assignment-capture-path`
+2. **Batch 11's primary weight needs re-specification — sat-csp has no subset rows** — `batch-11-roster-weight`
 5. **Contact sheet for steiner-forest's dual-motion trajectory** — `steiner-forest-contact-sheet`
-6. **Decide the REACH-assignment capture path** — `assignment-capture-path`
 7. **Find an ambient-stable framing for covering-radius, or let the exclusion stand** — `covering-radius-framing`
 8. **Whether the five in-use family ramps are secretly thresholds (Q20)** — `lexicon-v3-question`
 9. **Lift the six delegated verbs out of dev/ into the library** — `lift-delegated-verbs`
@@ -220,5 +221,5 @@ sentence. A question without one is a research task handed upward.
 
 Do the parts that do not depend on the answer first. Then ask.
 
-<!-- sources: {"docs/agents/01-constitution.md": "ff66222d1c58d8509bdc27da39a5fcfd4fea359acb2511a252f2b6d2076b70f1", "docs/agents/03-escalation.md": "a21d9429b536d52c4bee4f753a58295552f6b1c909882c19efc180c81cecf1cb", "foundry/foundry/helm/screens.py": "f4e52d231236e708565fc92f666e94bdeb92f42c35780f22815d6275039b2e03", "maptrail.jsonl": "2bbeea23a98dfa31c53ad3fe654ef4b5d74a765f1baeb4adfc4b670c061f2e47", "observatory.db": "cca85ceced456594edb54b7fb3b0d25ad3490d0ee1d025cd53ef952b919b6eee", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
+<!-- sources: {"docs/agents/01-constitution.md": "ff66222d1c58d8509bdc27da39a5fcfd4fea359acb2511a252f2b6d2076b70f1", "docs/agents/03-escalation.md": "a21d9429b536d52c4bee4f753a58295552f6b1c909882c19efc180c81cecf1cb", "foundry/foundry/helm/screens.py": "f4e52d231236e708565fc92f666e94bdeb92f42c35780f22815d6275039b2e03", "maptrail.jsonl": "cef76748949f28d9ea929a25e5de2f8bd25e998d45344f09015592e27f0bccae", "observatory.db": "5f9e0bea0e0726c8c92a8d03cab136357cc1de52a7adfb2b04fceb6ee99aea94", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
 

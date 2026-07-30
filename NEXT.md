@@ -17,20 +17,31 @@ than taken on trust.
 
 ## Open work, in declared order
 
+### 1. Decide the REACH-assignment capture path
+
+13 rows now type REACH-assignment after the 59-row adjudication, and the HELD-path-gated number-theoretic candidate revives only if this path lands
+
+- key: `assignment-capture-path`
+- see: `annotation:assignment-path-constituency`
+- *(opened by backfill — this item predates the openness signal)*
+
+### 2. Batch 11's primary weight needs re-specification — sat-csp has no subset rows
+
+The ruling of 2026-07-30 declared batch 11's primary weight as sat-csp REACH-subset rows, on the correct reasoning that the sat-csp sign-flip candidate (disclosed -0.429) is the only held candidate that can revive on an ordinary count. The reasoning holds and the mechanism does not: sat-csp has ZERO REACH-subset rows. The family is 18 REACH-assignment, 7 BUILT, 1 REACH-permutation, so there is nothing to roster under that weight. The corrected 76 subset rows are graph 51, optimization 19, algebraic 3, number-theoretic 3.
+
+The consequence is that the two halves of the ruling are SEQUENTIAL, not parallel: growing the frontier where sat-csp lives REQUIRES the assignment capture path, which the same ruling promoted to next build. Options are (a) batch 11 waits for the assignment path and then rosters sat-csp assignment rows, or (b) batch 11 proceeds on graph subset coverage — 17 unbuilt, unreserved — and sat-csp weight applies to batch 12. Owner's call; a roster is a declaration.
+
+- key: `batch-11-roster-weight`
+- see: `maptrail ruling:assignment-path-promoted`
+- see: `supply_census_optimization_reach_subset.json`
+- see: `wave-5 candidates, grp=sat-csp, screen_rule=power-fail`
+
 ### 5. Contact sheet for steiner-forest's dual-motion trajectory
 
 the first row in the archive where both regions move along one dial — feasible 1420 -> 691 while optimal grows 2 -> 21
 
 - key: `steiner-forest-contact-sheet`
 - see: `expansion:batch10`
-- *(opened by backfill — this item predates the openness signal)*
-
-### 6. Decide the REACH-assignment capture path
-
-13 rows now type REACH-assignment after the 59-row adjudication, and the HELD-path-gated number-theoretic candidate revives only if this path lands
-
-- key: `assignment-capture-path`
-- see: `annotation:assignment-path-constituency`
 - *(opened by backfill — this item predates the openness signal)*
 
 ### 7. Find an ambient-stable framing for covering-radius, or let the exclusion stand
@@ -67,7 +78,7 @@ The `foundry` CLI is one dispatch surface now, but six recurring operations stil
 - **frontier (reserved)**: 16
 - **waves**: 5
 - **candidates enumerated**: 1942
-- **maptrail records**: 91
+- **maptrail records**: 94
 - **descriptor version**: v7
 
 - **reserved rows** (16): `balanced-vertex-separator`, `bin-packing`, `capacitated-vertex-cover`, `cluster-editing`, `directed-steiner-tree`, `group-steiner-tree`, `k-minimum-spanning-tree`, `k-set-packing`, `maximum-minimal-vertex-cover`, `minimum-fill-in`, `minimum-k-cut`, `multiway-cut`, `nearest-codeword`, `planar-dominating-set`, `power-dominating-set`, `weighted-interval-scheduling`
@@ -87,5 +98,5 @@ M.discharge(TRAIL, "<item-key>", by="<commit or artifact>", note="...")
 Then regenerate this file. An item vanishes from the page because the trail says it closed,
 never because someone deleted a line here.
 
-<!-- sources: {"maptrail.jsonl": "2bbeea23a98dfa31c53ad3fe654ef4b5d74a765f1baeb4adfc4b670c061f2e47", "observatory.db": "cca85ceced456594edb54b7fb3b0d25ad3490d0ee1d025cd53ef952b919b6eee", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
+<!-- sources: {"maptrail.jsonl": "cef76748949f28d9ea929a25e5de2f8bd25e998d45344f09015592e27f0bccae", "observatory.db": "5f9e0bea0e0726c8c92a8d03cab136357cc1de52a7adfb2b04fceb6ee99aea94", "observatory_reservation.jsonl": "b95df7abf9d7efc2d965652a76e4401ac0b4d3250e6162dd2167ea154e9581fc"} -->
 
